@@ -1,0 +1,194 @@
+/*------------- #THEME-STYLES --------------*/
+/*------------- #VARIABLES --------------*/
+/*------------- #HEADER --------------*/
+
+.landing-page {
+	position: relative;
+	min-height: 100vh;
+}
+.landing-page:before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(96, 9, 39, 0.9);
+	opacity: 1;
+	z-index: auto;
+}
+.landing-page .content-bg:before {
+	background: url("../images/landing-users.png") repeat 0 0;
+}
+.landing-page .content-bg {
+	background-color: rgba(255, 94, 58, 0.95);
+	animation-name: sidedownscroll;
+}
+ @keyframes sidedownscroll {
+ 0% {
+ transform: translate3D(0%, 0%, 0);
+}
+ 50% {
+ transform: translate3D(-50%, 100%, 0);
+}
+ 100% {
+ transform: translate3D(-100%, 200%, 0);
+}
+}
+.landing-page .header-spacer--standard {
+	margin-bottom: 40px;
+}
+.content-bg-wrap {
+	position: absolute;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
+.content-bg:before {
+	position: absolute;
+	z-index: 1;
+	bottom: 0;
+	left: 0;
+	width: 200%;
+	height: 400%;
+	content: "";
+}
+.content-bg {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	animation-name: sideupscroll;
+	animation-duration: 30s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-fill-mode: both;
+	will-change: transform;
+	z-index: -1;
+}
+
+
+.card-header a:hover, .card-header a:focus {
+	color: #515365;
+}
+.card-header i, .card-header svg {
+	float: right;
+	transition: all .3s ease;
+	margin-top: 8px;
+}
+.card-header .collapsed i {
+	transform: rotate(-90deg);
+}
+blockquote {
+	margin: 3em 0;
+	padding: 15px 80px 15px 80px;
+	position: relative;
+}
+blockquote h6 {
+	font-size: 11px;
+	font-weight: 400;
+	color: #888da8;
+}
+blockquote h6 span {
+	font-weight: 700;
+	display: block;
+	color: #515365;
+}
+blockquote p {
+	margin: 0 0 15px !important;
+	font-size: 22px;
+	line-height: 1.3em;
+	font-weight: 300;
+	position: relative;
+	color: #515365;
+}
+blockquote p:before {
+	content: "";
+	width: 4px;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: -80px;
+	display: block;
+	background-color: #ff5e3a;
+}
+
+@media (max-width: 640px) {
+blockquote p {
+	font-size: 16px;
+}
+}
+button.btn {
+	padding: 7px 25px;
+}
+button.btn-md {
+	padding: 1rem 3.5rem;
+	font-size: 0.75rem;
+	border-radius: 0.3rem;
+}
+button.btn-md-2 {
+	padding: .8rem 2.1rem;
+	font-size: 0.688rem;
+	border-radius: 0.3rem;
+}
+button.btn-lg {
+	padding: 1rem 3rem;
+}
+.form-inline .btn {
+	margin-bottom: 0;
+}
+.form-inline > * + * {
+	margin-left: 16px;
+}
+.h1, .h2, .h3, .h4, h1, h2, h3, h4 {
+	font-weight: 300;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	display: inline-block;
+}
+ .was-validated .form-control:valid ~ .invalid-feedback, .was-validated .form-control:valid ~ .invalid-tooltip {
+ display: none;
+}
+ .was-validated .form-control:valid ~ .material-input:after {
+ content: '\f00c';
+ font-family: FontAwesome;
+ position: absolute;
+ display: block;
+ width: 20px;
+ height: 20px;
+ line-height: 20px;
+ border-radius: 100%;
+ font-size: 9px;
+ background-color: #08ddc1;
+ color: #fff;
+ text-align: center;
+ right: 20px;
+ top: 50%;
+ margin-top: -10px;
+}
+
+/*================= Responsive Mode ============*/
+@media (max-width: 1024px) {
+.form-group.label-floating label.control-label, .form-group.label-placeholder label.control-label {
+	left: 15px;
+}
+}
+
+@media (max-width: 600px) {
+.card-header a {
+	font-size: 18px;
+}
+}
+
+@media (max-width: 360px) {
+.card-header a {
+	font-size: 14px;
+}
+.form-group.label-floating label.control-label, .form-group.label-placeholder label.control-label {
+	font-size: 12px;
+}
+}

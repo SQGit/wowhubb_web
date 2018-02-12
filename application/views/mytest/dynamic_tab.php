@@ -20,13 +20,13 @@
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/animate.css')?>" />
 <style>
 .alert-success-alt {
-	border-color: #694D9F;background: #694D9F;color: #fff; 
-	}
+  border-color: #694D9F;background: #694D9F;color: #fff; 
+  }
 </style>
 </head>
 
 
-		<body>
+    <body>
 
         <lavel>no.of days </lavel>
 
@@ -44,187 +44,37 @@
         </select> <br><br>
 
         <label> start date</label>
-        <input type="date" name="date" id="start_date">
+        <input type="text" name="date" id="start_date">
 
         <label> start time</label>
-        <input type="time" name="date" id="start_time"> <br><br>
+        <input type="text" name="start_time" id="start_time"> <br><br>
 
         <label> end date </label>
-        <input type="date" name="end_date" id="end_date">
+        <input type="text" name="end_date" id="end_date" readonly>
 
         <label> end time</label>
-        <input type="time" name="date" id="end_time">
+        <input type="text" name="date" id="end_time">
 
 
-	<div class="container">
-		<div class="row">
-				<div class="col-md-12">
-					<p>
-						<!-- <button id="btn-add-tab" type="button" class="btn btn-primary pull-right">Add Tab</button> -->
-					</p>
-							<!-- Nav tabs -->
-					<ul id="tab-list" class="nav nav-tabs" role="tablist">
-						<!-- <li class="active"><a href="#tab1" role="tab" data-toggle="tab">Day 1</a></li> -->
-					</ul>
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+         
+              <!-- Nav tabs -->
+          <ul id="tab-list" class="nav nav-tabs" role="tablist">
+            
+          </ul>
 
-					<!-- Tab panes -->
-					<div id="tab-content" class="tab-content">
+          <!-- Tab panes -->
+          <div id="tab-content" class="tab-content">
 
-						<!-- <div class="tab-pane fade in active" id="tab1">
-
-              Tab 1 content
-
-                      <div class='form-group col-sm-12 text-center'>
-                            <div class='form-group col-sm-12 text-center' style="background:#f5f5f5; padding:15px 10px;">
-                            <div style="width:10%" class="pull-left"><span style="color:#e9e9e9;">width</span></div>
-                              <div style="width:17%" class="pull-left">
-                                <label>Event Start Time</label>
-                              </div>
-                              <div style="width:12%" class="pull-left">
-                                  <input type='text' id="day1_start_time" name="event_starttime"  class="form-control" placeholder="8:14"  />
-                              </div>
-                              
-                                <div style="width:17%; margin-left:35px;" class="pull-left">
-                                   <label>Event End Time</label>
-                                </div>
-                              <div style="width:12%" class="pull-left">
-                                  <input type='text' id="day1_end_time" name="event_endtime"  class="form-control" placeholder="8:14"  />
-                              </div>
-                              
-                                </div>
-                        </div>
-
-                        <div id="day1">                 
-                                <div class='form-group col-sm-12' id="day1_dynamicadd_1">                     
-                                    <div class="col-md-12">            
-                                        <div class="col-md-4">
-                                          <div style="width:100%" class="pull-left">
-                                              <label><span style="font-size:13px; color:#333;">Itinerary Start Time</span></label>
-                                          </div>
-                                              <div style="width:30%" class="pull-left">
-                                                <select  id="from_hour_1" name="from_hour_day1[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> 
-                                                               <option value="0">1 </option> 
-                                                                <option value="1">2 </option>
-                                                                <option value="2">3 </option>
-                                                                <option value="3">4 </option>
-                                                                <option value="4">5 </option>
-                                                                <option value="5">6 </option>
-                                                                <option value="6">7 </option>
-                                                                <option value="8">8 </option>
-                                                                <option value="9">9 </option>
-                                                                <option value="10">10 </option>
-                                                                <option value="11">11 </option>
-                                                                <option value="12">12 </option>
-                                                                
-                                                </select>
-                                              </div>
-
-                                              <div style="width:30%;margin:0 10px;" class="pull-left">
-                                              <select id="from_min_1" name="from_min_day1[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> 
-                                                               <option value="00">:00 </option> 
-                                                                <option value="05">:05 </option>
-                                                                <option value="10">:10 </option>
-                                                                <option value="15">:15 </option>
-                                                                <option value="20">:20 </option>
-                                                                <option value="25">:25 </option>
-                                                                <option value="30">:30 </option>
-                                                                <option value="35">:35 </option>
-                                                                <option value="40">:40 </option>
-                                                                <option value="45">:45 </option>
-                                                                <option value="50">:50 </option>
-                                                                <option value="55">:55 </option>
-                                                               
-                                                                
-                                                </select>
-                                            </div>
-                        
-                                              <div style="width:30%" class="pull-left">
-                                                <select id="from_sec_1" name="from_sec_day1[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> 
-                                                               <option value="am">AM </option> 
-                                                                <option value="pm">PM </option>
-                                                                
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <div style="width:100%" class="pull-left">
-                                                <label><span style="font-size:13px; color:#333;">Itinerary End Time</span></label>
-                                              </div>
-                                            <div style="width:30%" class="pull-left">
-                                              <select id="to_hour_1" name="to_hour_day1[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> 
-                                                           <option value="0">1 </option> 
-                                                            <option value="1">2 </option>
-                                                            <option value="2">3 </option>
-                                                            <option value="3">4 </option>
-                                                            <option value="4">5 </option>
-                                                            <option value="5">6 </option>
-                                                            <option value="6">7 </option>
-                                                            <option value="8">8 </option>
-                                                            <option value="9">9 </option>
-                                                            <option value="10">10 </option>
-                                                            <option value="11">11 </option>
-                                                            <option value="12">12 </option>
-                                                            
-                                              </select>
-                                          </div>
-
-                                                <div style="width:30%;margin:0 10px;" class="pull-left">
-                                                  <select id="to_min_1" name="to_min_day1[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> 
-                                                                <option value="00">:00 </option> 
-                                                                <option value="05">:05 </option>
-                                                                <option value="10">:10 </option>
-                                                                <option value="15">:15 </option>
-                                                                <option value="20">:20 </option>
-                                                                <option value="25">:25 </option>
-                                                                <option value="30">:30 </option>
-                                                                <option value="35">:35 </option>
-                                                                <option value="40">:40 </option>
-                                                                <option value="45">:45 </option>
-                                                                <option value="50">:50 </option>
-                                                                <option value="55">:55 </option>                                         
-                                                  </select>
-                                              </div>
-                                              <div style="width:30%" class="pull-left">
-                                                <select id="to_sec_1" name="to_sec_day1[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> 
-                                                                     <option value="am">AM </option> 
-                                                                      <option value="pm">PM </option>
-                                                                      
-                                                  </select>
-                                            </div>
-                                          </div>
-                                          <div class="col-md-4">
-                                            <label><span style="font-size:13px; color:#333;">Event Agenda</span></label>
-                                             <input type='text' id="agenta_1" name="agenda1[]"  class="form-control"  />
-                                          </div>
-                                  </div>
-                                      <div class="col-md-12">
-                                        <div class="col-md-4">
-                                          <label><span style="font-size:13px; color:#333;">Facilitator</span></label>
-                                          <input type='text' id="facilitator_name_1" name="facilitator_name_day1[]"  class="form-control"  />
-                                        </div>
-                                        <div class="col-md-8">
-                                          <label><span style="font-size:13px; color:#333;">Event Location Venue</span></label>
-                                          <select id="location_1" name="location_day1[]" class="form-group venueselectpicker" style="width:100%; padding: 7px 10px; border-radius: 5px;">                                           
-                                          </select>
-                                        </div>
-                                      </div>
-                                </div>
-
-                        </div> 
-
-                    <div class="form-group col-md-12" >                        
-                             <a href="JavaScript:void(0);" id="btnAdd1"  value="Add"  data-nxt_event_venue="2" /> 
-                             <i class="fa fa-plus-circle"></i> Add more event program time slot</a>
-                    </div>
-
-            </div> -->
-					
-				  </div>
-			  </div>
-		</div>
-	</div>
-		
+            
+          
+          </div>
+        </div>
+    </div>
+  </div>   
+                      
 
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -236,13 +86,94 @@
 <script src="<?php echo base_url('assets/js/sweetalert.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/sweetalert.min.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/sweetalert2.all.js') ?>"></script> 
-<!--<script src="<?php echo base_url('assets/js/jquery-1.12.4.js')?>"></script> -->
+<!--<script src="<?php echo base_url('assets/js/jquery-1.12.4.js')?>"></script> --> 
 <script src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script> 
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script>  
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.js')?>"></script> 
+<script src="<?php echo base_url('assets/js/moment.js')?>"></script> 
  
  <script>
+ $("#end_time").datetimepicker(
+            { 
+                datepicker:false,   //12 hours time format 
+                format:'H:i A',
+                formatTime: 'H:i A',
+                mask:'29:59 99',  
+                step: 5,   
+                ampm: true 
+             });
+
+  $("#start_time").datetimepicker(
+            { 
+                datepicker:false,   //12 hours time format 
+                format:'H:i A',
+                formatTime: 'H:i A',
+                mask:'29:59 99',  
+                step: 5,   
+                ampm: true 
+             });
+
+
+$(function(){
+
+//   $.datetimepicker.setDateFormatter({
+//     parseDate: function (date, format) {
+//         var d = moment(date, format);
+//         return d.isValid() ? d.toDate() : false;
+//     },
+    
+//     formatDate: function (date, format) {
+//         return moment(date).format(format);
+//     }
+// });
+
+  $('#start_date').datetimepicker({
+  timepicker:false,
+  minDate:0,
+  format:'M-d-Y',
+  onChangeDateTime:function(dp,$input){
+
+    var day_count= $('select').find('option:selected').val();
+    
+
+    var startdate = moment(dp).format("M/D/Y");
+    var new_date = moment(startdate);
+    var enddate = new_date.add(day_count-1, 'days').format('MMM-DD-YYYY');
+   
+    $('#end_date').val(enddate);
+
+    for(var i=1;i<=day_count;i++)
+    {
+      var startdate = moment(dp).format("M/D/Y");
+      var new_date = moment(startdate);
+
+      $('#tab-list #'+i).text(new_date.add(i-1, 'days').format('ddd, MMM Do'));
+       
+    }
+
+  } 
+
+});
+});
+
+
+// end date
+
+$(function(){
+
+  $('#end_date').datetimepicker({
+  timepicker:false,
+  format:'M-d-Y',
+  onChangeDateTime:function(dp,$input){
+    // alert($input.val())
+  }
+});
+});
+
+
+
+
 
 // pass value with in same form
 $('#start_time').change(function() {
@@ -250,6 +181,19 @@ $('#start_time').change(function() {
 });
 
 
+      // $(document).on('click',"#add_address_dynamic",function(){
+        $(".add_address_dynamic").click(function()
+        {           
+          
+          alert('test');
+            var nxtvenue_count = $(this).data("nxt_event_venue"); 
+            var nxtvenueHTML = generete_dynamic_venue(nxtvenue_count);
+            $("#day1").append(nxtvenueHTML);            
+            
+              // $('#day1_dynamicadd_'+nxtvenue_count+' .venueselectpicker').append(option_template);
+              // nxtvenue_count++;
+           $(this).data('nxt_event_venue', nxtvenue_count); //update data nxtportion   
+       });
 
 $(document).ready(function() {
     $('#btn-add-tab').on('change',function()
@@ -263,45 +207,65 @@ $(document).ready(function() {
       for(i=0;i<selectedValue;i++)
       {    
          
-        $('#tab-list').append($('<li><a href="#tab' + tabID + '" role="tab" data-toggle="tab">Day ' + tabID + '</a></li>'));
+        $('#tab-list').append($('<li><a style="text-align:center;" href="#tab' + tabID + '" role="tab" data-toggle="tab"> Day ' + tabID + ' <br><span style="margin-top:10px;" id="' + tabID + '"> </span></a></li>'));
 
-        $('#tab-content').append($('<div class=" tab-pane fade in active" id="tab' + tabID + '">  <div class="form-group col-sm-12 text-center"> <div class="form-group col-sm-12 text-center" style="background:#f5f5f5; padding:15px 10px;"> <div style="width:10%" class="pull-left"><span style="color:#e9e9e9;">width</span></div> <div style="width:17%" class="pull-left"> <label>Event Start Time</label> </div> <div style="width:12%" class="pull-left"> <input type="text" id="day1_start_time" name="event_starttime"  class="form-control" /> </div> <div style="width:17%; margin-left:35px;" class="pull-left"> <label>Event End Time</label> </div> <div style="width:12%" class="pull-left"> <input type="text" id="day1_end_time" name="event_endtime"  class="form-control" placeholder="8:14"  /> </div> </div> </div> <div id="day1"> <div class="form-group col-sm-12" id="day1_dynamicadd_1"> <div class="col-md-12"> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label><span style="font-size:13px; color:#333;">Itinerary Start Time</span></label> </div> <div style="width:30%" class="pull-left"> <select  id="from_hour_1" name="from_hour_day1[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="1">1 </option> <option value="2">2 </option> <option value="3">3 </option> <option value="4">4 </option> <option value="5">5 </option> <option value="6">6 </option> <option value="7">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select> </div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="from_min_1" name="from_min_day1[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select> </div> <div style="width:30%" class="pull-left"> <select id="from_sec_1" name="from_sec_day1[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select> </div> </div> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label> <span style="font-size:13px; color:#333;">Itinerary End Time</span></label> </div> <div style="width:30%" class="pull-left"> <select id="to_hour_1" name="to_hour_day1[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="1">1 </option> <option value="2">2 </option> <option value="3">3 </option> <option value="4">4 </option> <option value="5">5 </option> <option value="6">6 </option> <option value="7">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select> </div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="to_min_1" name="to_min_day1[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select> </div> <div style="width:30%" class="pull-left"> <select id="to_sec_1" name="to_sec_day1[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select> </div> </div> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Event Agenda</span></label> <input type="text" id="agenta_1" name="agenda1[]"  class="form-control"  /> </div> </div> <div class="col-md-12"> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Facilitator</span></label> <input type="text" id="facilitator_name_1" name="facilitator_name_day1[]"  class="form-control"  /> </div> <div class="col-md-8"> <label><span style="font-size:13px; color:#333;">Event Location Venue</span></label> <select id="location_1" name="location_day1[]" class="form-group venueselectpicker" style="width:100%; padding: 7px 10px; border-radius: 5px;"> </select> </div> </div> </div> </div> <div class="form-group col-md-12" > <a href="JavaScript:void(0);" id="add_address_dynamic"  data-nxt_event_venue="2" /> <i class="fa fa-plus-circle"></i> Add more event program time slot</a> </div> </div>'));
+        $('#tab-content').append($('<div class=" tab-pane fade in active tab_' + tabID + '" id="tab' + tabID + '">  <div class="form-group col-sm-12 text-center"> <div class="form-group col-sm-12 text-center" style="background:#f5f5f5; padding:15px 10px;"> <div style="width:10%" class="pull-left"><span style="color:#e9e9e9;">width</span></div> <div style="width:17%" class="pull-left"> <label>Event Start Time</label> </div> <div style="width:12%" class="pull-left"> <input type="text" id="day1_start_time" name="event_starttime"  class="form-control" /> </div> <div style="width:17%; margin-left:35px;" class="pull-left"> <label>Event End Time</label> </div> <div style="width:12%" class="pull-left"> <input type="text" id="day1_end_time" name="event_endtime"  class="form-control" placeholder="8:14"  /> </div> </div> </div> <div id="day_' +tabID+' "> <div class="form-group col-sm-12" id="day1_dynamicadd_1"> <div class="col-md-12"> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label><span style="font-size:13px; color:#333;">Itinerary Start Time</span></label> </div> <div style="width:30%" class="pull-left"> <select  id="from_hour_1" name="from_hour_day1[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="1">1 </option> <option value="2">2 </option> <option value="3">3 </option> <option value="4">4 </option> <option value="5">5 </option> <option value="6">6 </option> <option value="7">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select> </div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="from_min_1" name="from_min_day1[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select> </div> <div style="width:30%" class="pull-left"> <select id="from_sec_1" name="from_sec_day1[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select> </div> </div> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label> <span style="font-size:13px; color:#333;">Itinerary End Time</span></label> </div> <div style="width:30%" class="pull-left"> <select id="to_hour_1" name="to_hour_day1[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="1">1 </option> <option value="2">2 </option> <option value="3">3 </option> <option value="4">4 </option> <option value="5">5 </option> <option value="6">6 </option> <option value="7">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select> </div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="to_min_1" name="to_min_day1[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select> </div> <div style="width:30%" class="pull-left"> <select id="to_sec_1" name="to_sec_day1[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select> </div> </div> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Event Agenda</span></label> <input type="text" id="agenta_1" name="agenda1[]"  class="form-control"  /> </div> </div> <div class="col-md-12"> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Facilitator</span></label> <input type="text" id="facilitator_name_1" name="facilitator_name_day1[]"  class="form-control"  /> </div> <div class="col-md-8"> <label><span style="font-size:13px; color:#333;">Event Location Venue</span></label> <select id="location_1" name="location_day1[]" class="form-group venueselectpicker" style="width:100%; padding: 7px 10px; border-radius: 5px;"> </select> </div> </div> </div> </div> <div class="form-group col-md-12" > <a href="JavaScript:void(0);" class="add_address_dynamic"  data-nxt_event_venue="2" > <i class="fa fa-plus-circle"></i> Add more event program time slot</a> </div> </div>'));
          
           tabID++;
       }
 
        i++;
-       	
+
+       // $(document).on('click',"#add_address_dynamic",function(){
+        $(".add_address_dynamic").click(function()
+        {           
+          
+          // alert($(this).parents('[id^=tab]').find('[id^=day_]').html());
+
+            var nxtvenue_count = $(this).data("nxt_event_venue"); 
+            var nxtvenueHTML = generete_dynamic_venue(nxtvenue_count);
+
+            
+            $(this).parents("div[class*=' tab_']").find('[id^=day_]').append(nxtvenueHTML);            
+            
+              // $('#day1_dynamicadd_'+nxtvenue_count+' .venueselectpicker').append(option_template);
+              // nxtvenue_count++;
+            $(this).data('nxt_event_venue', nxtvenue_count); //update data nxtportion   
+       });
+
      });
 
+
+   
+
     
-    // var list = document.getElementById("tab-list");
+   
 });
 
 //dynamic add event highlights first day
 
 function generete_dynamic_venue(count){
 
-	var day1  = ' <div class="form-group col-sm-12" id="day1_dynamicadd_'+count+'"> <div class="col-md-12"> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label><span style="font-size:13px; color:#333;">Itinerary Start Time</span></label></div> <div style="width:30%" class="pull-left"> <select  id="from_hour_'+count+'" name="from_hour_day1[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="0">1 </option> <option value="1">2 </option> <option value="2">3 </option> <option value="3">4 </option> <option value="4">5 </option> <option value="5">6 </option> <option value="6">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select></div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="from_min_'+count+'" name="from_min_day1[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select></div> <div style="width:30%" class="pull-left"> <select id="from_sec_'+count+'" name="from_sec_day1[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select></div> </div> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label><span style="font-size:13px; color:#333;">Itinerary End Time</span></label></div> <div style="width:30%" class="pull-left"> <select id="to_hour_'+count+'" name="to_hour_day1[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="0">1 </option> <option value="1">2 </option> <option value="2">3 </option> <option value="3">4 </option> <option value="4">5 </option> <option value="5">6 </option> <option value="6">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select></div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="to_min_'+count+'" name="to_min_day1[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select></div> <div style="width:30%" class="pull-left"> <select id="to_sec_'+count+'" name="to_sec_day1[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select></div> </div> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Event Agenda</span></label> <input type="text" id="agenta_1" name="agenda1[]"  class="form-control"  /> </div> </div> <div class="col-md-12"> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Facilitator</span></label> <input type="text" id="facilitator_name_'+count+'" name="facilitator_name_day1[]"  class="form-control"  /> </div> <div class="col-md-8"> <label><span style="font-size:13px; color:#333;">Event Location Venue</span></label> <select id="location_1" name="location_day1[]" class="form-group venueselectpicker" style="width:100%; padding: 7px 10px; border-radius: 5px;"> </select> </div> </div> </div>'; 
+  var day1  = ' <div class="form-group col-sm-12" id="day1_dynamicadd_'+count+'"> <div class="col-md-12"> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label><span style="font-size:13px; color:#333;">Itinerary Start Time</span></label></div> <div style="width:30%" class="pull-left"> <select  id="from_hour_'+count+'" name="from_hour_day1[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="0">1 </option> <option value="1">2 </option> <option value="2">3 </option> <option value="3">4 </option> <option value="4">5 </option> <option value="5">6 </option> <option value="6">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select></div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="from_min_'+count+'" name="from_min_day1[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select></div> <div style="width:30%" class="pull-left"> <select id="from_sec_'+count+'" name="from_sec_day1[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select></div> </div> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label><span style="font-size:13px; color:#333;">Itinerary End Time</span></label></div> <div style="width:30%" class="pull-left"> <select id="to_hour_'+count+'" name="to_hour_day1[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="0">1 </option> <option value="1">2 </option> <option value="2">3 </option> <option value="3">4 </option> <option value="4">5 </option> <option value="5">6 </option> <option value="6">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select></div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="to_min_'+count+'" name="to_min_day1[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select></div> <div style="width:30%" class="pull-left"> <select id="to_sec_'+count+'" name="to_sec_day1[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select></div> </div> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Event Agenda</span></label> <input type="text" id="agenta_1" name="agenda1[]"  class="form-control"  /> </div> </div> <div class="col-md-12"> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Facilitator</span></label> <input type="text" id="facilitator_name_'+count+'" name="facilitator_name_day1[]"  class="form-control"  /> </div> <div class="col-md-8"> <label><span style="font-size:13px; color:#333;">Event Location Venue</span></label> <select id="location_1" name="location_day1[]" class="form-group venueselectpicker" style="width:100%; padding: 7px 10px; border-radius: 5px;"> </select> </div> </div> </div>'; 
 
-		return day1;
+    return day1;
 }
 
-$(document).ready(function(){
+// $(document).ready(function(){
   
-        $("#add_address_dynamic").click(function()
-        {		      	
-        	
-		        var nxtvenue_count = $(this).data("nxt_event_venue"); 
-		        var nxtvenueHTML = generete_dynamic_venue(nxtvenue_count);
-		        $("#day1").append(nxtvenueHTML);		        
-		        
-        	    // $('#day1_dynamicadd_'+nxtvenue_count+' .venueselectpicker').append(option_template);
-        	    // nxtvenue_count++;
-		       $(this).data('nxt_event_venue', nxtvenue_count); //update data nxtportion   
-   		 });
+//         $("#add_address_dynamic").click(function()
+//         {            
+          
+//            var nxtvenue_count = $(this).data("nxt_event_venue"); 
+//            var nxtvenueHTML = generete_dynamic_venue(nxtvenue_count);
+//            $("#day1").append(nxtvenueHTML);            
+            
+//              // $('#day1_dynamicadd_'+nxtvenue_count+' .venueselectpicker').append(option_template);
+//              // nxtvenue_count++;
+//           $(this).data('nxt_event_venue', nxtvenue_count); //update data nxtportion   
+//         });
    
-});
+// });
 
 </script>
 </body>

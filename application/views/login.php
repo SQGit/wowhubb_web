@@ -109,7 +109,9 @@
           </div>
         </div>
         <div class="col-md-12" style="margin-bottom:25px;">
-        <p style="color:#fff; font-size: 15px;">We are the best and biggest social network with 5 billion active users all around the world. Share you thoughts, write blog posts, show your favourite music via Stopify, earn Wowtag points and much more!</p></div> 
+        <p style="color:#fff; font-size: 15px;">Create, host  and share  your personal, professional and business events. We are best event  networking platform anytime and anywhere.<br><br>
+           <span style="color: #FFE500; font-size: 17px; font-weight: bold;"><i class="fa fa-play"></i> Create Your Events - Personal, Professional & Business Events.
+           </span></p></div> 
       </div>
     			<div class="col-md-6">
             <div class="contact-us" style=" padding: 20px 40px;">

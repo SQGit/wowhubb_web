@@ -179,12 +179,9 @@ img.profile-photo1 {
 
 </style>
 
-
-
 </head>
-<body>
 
-  <h1>test</h1>
+<body>
 
 <!-- Header
     ================================================= -->
@@ -514,7 +511,9 @@ img.profile-photo1 {
                                  
                                     <?php   
                                       if(isset($todayfeed))  
-                                      {                    
+                                      {     
+                                       print_r($todayfeed);
+               
                                         foreach (array_slice($todayfeed, 0, 3) as $todayfeeds) 
                                           {
 
@@ -630,8 +629,8 @@ img.profile-photo1 {
                             
                         foreach ($eventfeed as $feeds)
                           {                            
-
-                              if($feeds->eventtype == 'personal_event')  
+                           
+                              if($feeds->eventtype =='personal_event')  
 
                                 {                              
                                   
@@ -727,13 +726,13 @@ img.profile-photo1 {
                                 <p style="font-size: 16px; font-weight: bold; color:#fff;">
                                   <?php
                                         if(isset($feeds->eventstartdate) ) 
-                                      {
-                                      $timestamp = strtotime($feeds->eventstartdate);
-                                      // $new_date = date('M', $timestamp);
-                                       echo date('M', $timestamp);
-                                      // echo  $timestamp;
-                                        // echo $feeds->eventstartdate;
-                                   ?>
+                                        {
+                                      // $timestamp = strtotime($feeds->eventstartdate);
+                                      
+                                       echo date('M', strtotime($feeds->eventstartdate));
+                                       // echo $feeds->eventstartdate;
+                                      
+                                  ?>
                                 </p>
                               </div>
 
@@ -830,7 +829,7 @@ img.profile-photo1 {
                                               {
                                                 if(isset($eventvenues->eventvenuecity))
                                                 {
-                                                  echo   $eventvenues->eventvenuecity;
+                                                  echo   $eventvenues->eventvenuename." ".$eventvenues->eventvenuecity." ".$eventvenues->eventvenueaddress1." ".$eventvenues->eventvenuezipcode;
                                                 }
                                               }  
                                               $i++;                             
@@ -2702,6 +2701,7 @@ img.profile-photo1 {
 <script src="<?php echo base_url('assets/js/jquery.magnific-popup.min.js')?>" ></script> 
 <script src="<?php echo base_url('assets/js/videopopup.js')?>" ></script> 
 <script src="<?php echo base_url('assets/js/jquery.timeago.js')?>" ></script> <!--timeago library -->
+
 
 <!-- search suggestion box plugin --> 
 

@@ -543,6 +543,8 @@ img {
 	                   
 	                  		</div>
 
+	                  		
+
                 		</div>
 
 			            <div class='col-sm-4'>
@@ -1036,6 +1038,7 @@ img {
 
                       <input type='text' id="ends_on1" name="begining_end1"  class="form-control"  placeholder="Ends On" />
                     </div>
+                    <input type='text' id="count_down"  class="form-control">
                     </div>
                     <div class="col-md-3">
 	                  <div class="col-md-12 text-center"> Count Down</div>
@@ -1121,6 +1124,7 @@ img {
 											<div class="row text-center">
 							                      <div class="col-md-12">
 							                        <div class="col-md-12" style="border:1px solid #ccc; border-radius:5px; font-size:17px;">23:29s Left</div>
+
 							                      </div>
 		                                    </div>
 		                                <div class="col-md-12" style="margin-top:15px; margin-bottom:15px;">
@@ -1425,47 +1429,63 @@ function alphaOnly(wow_title) {
          
 // begine from  event offering 
 
+$(document).ready(function () {
+
  $("#begine_from1").datetimepicker({       //event stat and end date      
-                format:'M-d-Y',      
-                timepicker:false,    
+                format:'M-d-Y ',  
+                 // formatTime:'g:i A',    
+                // timepicker:false,    
                 minDate: 0,           
             });
 
- $("#begine_from2").datetimepicker({       //event stat and end date      
-                format:'M-d-Y',      
-                timepicker:false,    
-                minDate: 0,           
-            });
-
-
-
-$("#ends_on1").datetimepicker({      
-                format:'M-d-Y',      
-               timepicker:false,
+ $("#ends_on1").datetimepicker({      
+                format:'M-d-Y',  
+                 // formatTime:'g:i A',
                
 
                onShow:function( ct )  //hide max and min date using picker
 	               	{
-				  	 	this.setOptions({			  	 				   		
-				    	// maxDate:jQuery('#event_enddate').val()?jQuery('#event_enddate').val():false,
+				  	 	this.setOptions({				    	
 				    	minDate:jQuery('#begine_from1').val()?jQuery('#begine_from1').val():false
 				 		})
 				 	},
          }); 
 
+ 	  var d1 = $('#begine_from1').datepicker('getDate');
+      var d2 = $('#ends_on1').datepicker('getDate');
+      var diff = 0;
+      if (d1 && d2) 
+      {
+         diff = Math.floor((d2.getTime() - d1.getTime()) / 86400000); // ms per day
+      }
+
+      $('#count_down').val(diff);
+
+});
+
+ $("#begine_from2").datetimepicker({       //event stat and end date      
+               format:'M-d-Y H:i A',  
+                formatTime:'g:i A',   
+                minDate: 0,           
+            });
+
+
+
+
+
 $("#ends_on2").datetimepicker({      
-                format:'M-d-Y',      
-               timepicker:false,
-               
+                format:'M-d-Y H:i A',  
+                 formatTime:'g:i A',               
 
                onShow:function( ct )  //hide max and min date using picker
 	               	{
-				  	 	this.setOptions({			  	 				   		
-				    	// maxDate:jQuery('#event_enddate').val()?jQuery('#event_enddate').val():false,
+				  	 	this.setOptions({				    	
 				    	minDate:jQuery('#begine_from2').val()?jQuery('#begine_from2').val():false
 				 		})
 				 	},
          }); 
+
+
 
 
 //image preview and delete step1

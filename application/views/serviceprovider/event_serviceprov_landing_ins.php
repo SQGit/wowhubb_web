@@ -374,7 +374,7 @@ table, td, tr {
                   <div class="col-md-4" style="margin-top:10px;">
                     <div class="gallery"> <img src="../assets/images/lily-cake.jpg" alt="post-image" class="img-responsive img-thumbnail"></div>
                      <div class="col-md-12">
-                      <div class="pull-left" style="font-size:13px; font-weight:bold; color:#333;"><span style="font-size:12px; color:#e91e63;"><a href="#" style="color:#fc6653;">View Business Page</a></span></div>
+                      <div class="pull-left" style="font-size:13px; font-weight:bold; color:#333;"><span style="font-size:12px; color:#e91e63;"><a href="<?php echo base_url('service/event_serviceprovider_3rd_party'); ?>" style="color:#fc6653;">View Business Page</a></span></div>
                     </div>
                   </div>
                   <div class="col-md-8" style="margin-top:10px;">
@@ -420,7 +420,7 @@ table, td, tr {
                   <div class="col-md-4" style="margin-top:10px;">
                     <div class="gallery"> <img src="../assets/images/dany-cakes.jpg" alt="post-image" class="img-responsive img-thumbnail"></div>
                      <div class="col-md-12">
-                      <div class="pull-left" style="font-size:13px; font-weight:bold; color:#333;"><span style="font-size:12px; color:#e91e63;"><a href="#" style="color:#fc6653;">View Business Page</a></span></div>
+                      <div class="pull-left" style="font-size:13px; font-weight:bold; color:#333;"><span style="font-size:12px; color:#e91e63;"><a href="<?php echo base_url('service/event_serviceprovider_3rd_party'); ?>" style="color:#fc6653;">View Business Page</a></span></div>
                     </div>
                   </div>
                   <div class="col-md-8" style="margin-top:10px;">
@@ -468,7 +468,7 @@ Texas 77734<br>
                   <div class="col-md-4" style="margin-top:10px;">
                     <div class="gallery"> <img src="../assets/images/amazing-cakes.jpg" alt="post-image" class="img-responsive img-thumbnail"></div>
                      <div class="col-md-12">
-                      <div class="pull-left" style="font-size:13px; font-weight:bold; color:#333;"><span style="font-size:12px; color:#e91e63;"><a href="#" style="color:#fc6653;">View Business Page</a></span></div>
+                      <div class="pull-left" style="font-size:13px; font-weight:bold; color:#333;"><span style="font-size:12px; color:#e91e63;"><a href="<?php echo base_url('service/event_serviceprovider_3rd_party'); ?>" style="color:#fc6653;">View Business Page</a></span></div>
                     </div>
                   </div>
                   <div class="col-md-8" style="margin-top:10px;">
@@ -484,8 +484,7 @@ Texas 77734<br>
                       <p style="font-size:16px;">3 Event Venues Available</p>
                     </div>
                     <div class="row">
-                      <p style="font-size:14px;">1234 Delano Drive Houston 
-Texas 77734<br>
+                      <p style="font-size:14px;">1234 Delano Drive Houston Texas 77734<br>
                         <span style="margin-top:20px;">Reviews <i class="fa fa-star" style="color:#D0A903;"></i> <i class="fa fa-star" style="color:#D0A903;"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> 2.1</span> </p>
                     </div>
                     <div class="row">

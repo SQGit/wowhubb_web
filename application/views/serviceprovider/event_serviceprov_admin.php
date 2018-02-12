@@ -185,19 +185,19 @@ table {
   <!-- Timeline
       ================================================= -->
   <div class="timeline">
-    <div class="timeline-cover"> <img class="cover-pic" src="http://localhost/wowhubb/assets/images/sha-1.jpg" style="background-size:cover; width:100%; margin-top:20px;" > <br>
+    <div class="timeline-cover"> <img class="cover-pic" src="http://localhost/wowhubb/assets/images/lily-1.jpg" style="background-size:cover; width:100%; margin-top:20px;" > <br>
       <!--Timeline Menu for Large Screens-->
       <div class="timeline-nav-bar hidden-sm hidden-xs">
         <div class="row">
           <div class="col-md-3">
-            <div class="profile-info"> <img  src="http://localhost/wowhubb/assets/images/sharaton-logo.jpg" class="profile-pic img-responsive profile-photo" /> </div>
+            <div class="profile-info"> <img  src="http://localhost/wowhubb/assets/images/lily-logo.png" class="profile-pic img-responsive profile-photo" /> </div>
           </div>
           <div class="col-md-9" >
             <div class="profile-info-1"> </div>
             <ul class="list-inline profile-menu">
               <li><a href="#">Venue Overview</a></li>
               <li><a href="#" class="active">Notifications</a></li>
-              <li><a href="#">My Event Halls</a></li>
+              <li><a href="#">Products &amp; Services</a></li>
               <li><a href="#">Promote Your Venue</a></li>
               <li><a href="#">Reviews</a></li>
               <li><a href="#">Settings</a></li>
@@ -299,7 +299,7 @@ table {
                                 
                                 <div class="tab-content">
 
-                                    <h4 style="margin-left:205px;">Inquiry Notifications</h4>
+                                    <h4 style="margin-left:205px;">Inquiry Notifications &nbsp;&nbsp;<span><a href="#" style="font-size:15px; color:#0066E0;">Book a Request</a></span></h4>
                                   
                                   <div class="tab-pane active" id="b1">
                                     <div class="col-md-10">
@@ -312,7 +312,7 @@ table {
                                                     <td width="23%" rowspan="2" align="center" valign="top" bgcolor="#F7F7F7"><img src="http://localhost/wowhubb/assets/images/em.png" class="img-circle img-thumbnail"><br>
                                                       <span style="font-size:12px;">Tony Daniel</span></td>
                                                     <td width="8%" align="center" valign="top" bgcolor="#F7F7F7"><strong>Event Type</strong><br></td>
-                                                    <td width="8%" align="center" valign="top" bgcolor="#F7F7F7"><strong>Preferred Hall<br>
+                                                    <td width="8%" align="center" valign="top" bgcolor="#F7F7F7"><strong>Event City<br>
                                                       </strong></td>
                                                     <td width="7%" align="center" valign="top" bgcolor="#F7F7F7"><strong>Event Attendee #</strong><br></td>
                                                     <td width="8%" align="center" valign="top" bgcolor="#F7F7F7"><strong># Of Event Days</strong><br></td>
@@ -321,7 +321,7 @@ table {
                                                   </tr>
                                                   <tr>
                                                     <td align="center" valign="top"> Wedding</td>
-                                                    <td align="center" valign="top">CityHall 1 </td>
+                                                    <td align="center" valign="top">Houston </td>
                                                     <td align="center" valign="top"> 150 People</td>
                                                     <td align="center" valign="top"> 1 Day</td>
                                                     <td align="center" valign="top"> October/31/2018<br>
@@ -331,17 +331,11 @@ table {
                                                   <tr>
                                                     <td align="center" valign="top" bgcolor="#F7F7F7"><strong>Contact Info</strong><br></td>
                                                     <td align="center" valign="top" bgcolor="#F7F7F7"><strong>Email</strong><br></td>
-                                                    <td align="center" valign="top" bgcolor="#F7F7F7"><strong>Need A/V Equipments</strong><br></td>
-                                                    <td align="center" valign="top" bgcolor="#F7F7F7"><strong>Food &amp; Beverages</strong><br></td>
-                                                    <td colspan="3" align="center" valign="top" bgcolor="#F7F7F7"><strong>Comments</strong><br></td>
+                                                    <td colspan="5" rowspan="2" align="center" valign="top" bgcolor="#F7F7F7"><strong>Comments</strong><br>                                                      Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu </td>
                                                   </tr>
                                                   <tr>
                                                     <td align="center" valign="top">555-555-5555</td>
                                                     <td align="center" valign="top">tdaniel@gmail.com</td>
-                                                    <td align="center" valign="top">Yes</td>
-                                                    <td align="center" valign="top">Outdoor<img src="http://localhost/wowhubb/assets/images/tick.png" width="12" height="9" alt=""/><br>
-                                                      Indoor</td>
-                                                    <td colspan="3" align="center" valign="top">Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu </td>
                                                   </tr>
                                                 </tbody>
                                             </table></td>
@@ -371,7 +365,7 @@ table {
                                   
                                   <div class="tab-pane" id="b">
                                     <div class="col-md-10">
-                                      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:12px;">
+                                      <table width="100%" border="0" align="left" cellpadding="0" cellspacing="0" style="font-size:12px;">
                                         <tbody>
                                           <tr>
                                             <td align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -380,7 +374,7 @@ table {
                                                     <td width="23%" rowspan="2" align="center" valign="top" bgcolor="#F7F7F7"><img src="http://localhost/wowhubb/assets/images/td.png" class="img-circle img-thumbnail"><br>
                                                       <span style="font-size:12px;">TD Jakes</span></td>
                                                     <td width="8%" align="center" valign="top" bgcolor="#F7F7F7"><strong>Event Type</strong><br></td>
-                                                    <td width="8%" align="center" valign="top" bgcolor="#F7F7F7"><strong>Preferred Hall<br>
+                                                    <td width="8%" align="center" valign="top" bgcolor="#F7F7F7"><strong>Event City<br>
                                                       </strong></td>
                                                     <td width="7%" align="center" valign="top" bgcolor="#F7F7F7"><strong>Event Attendee #</strong><br></td>
                                                     <td width="8%" align="center" valign="top" bgcolor="#F7F7F7"><strong># Of Event Days</strong><br></td>
@@ -388,28 +382,22 @@ table {
                                                     <td width="20%" align="center" valign="top" bgcolor="#F7F7F7"><strong>Preferred Time</strong><br></td>
                                                   </tr>
                                                   <tr>
-                                                    <td align="center" valign="top"> Birthday</td>
-                                                    <td align="center" valign="top">GardenHall 1 </td>
+                                                    <td align="center" valign="top">Birthday</td>
+                                                    <td align="center" valign="top">Texas </td>
                                                     <td align="center" valign="top"> 200 People</td>
                                                     <td align="center" valign="top"> 2 Days</td>
                                                     <td align="center" valign="top"> Decemeber/31/2018<br>
                                                       <em style="font-size:10px;">Accepts Flexible Date Options</em></td>
-                                                    <td align="center" valign="top"> 12:00PM-4:30PM</td>
+                                                    <td align="center" valign="top"> 11:00AM-4:30PM</td>
                                                   </tr>
                                                   <tr>
                                                     <td align="center" valign="top" bgcolor="#F7F7F7"><strong>Contact Info</strong><br></td>
                                                     <td align="center" valign="top" bgcolor="#F7F7F7"><strong>Email</strong><br></td>
-                                                    <td align="center" valign="top" bgcolor="#F7F7F7"><strong>Need A/V Equipments</strong><br></td>
-                                                    <td align="center" valign="top" bgcolor="#F7F7F7"><strong>Food &amp; Beverages</strong><br></td>
-                                                    <td colspan="3" align="center" valign="top" bgcolor="#F7F7F7"><strong>Comments</strong><br></td>
+                                                    <td colspan="5" rowspan="2" align="center" valign="top" bgcolor="#F7F7F7"><strong>Comments</strong><br>                                                      Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu </td>
                                                   </tr>
                                                   <tr>
-                                                    <td align="center" valign="top">777-555-8569</td>
+                                                    <td align="center" valign="top">456-777-8596</td>
                                                     <td align="center" valign="top">tdjakes@gmail.com</td>
-                                                    <td align="center" valign="top">Yes</td>
-                                                    <td align="center" valign="top">Outdoor<img src="http://localhost/wowhubb/assets/images/tick.png" width="12" height="9" alt=""/><br>
-                                                      Indoor</td>
-                                                    <td colspan="3" align="center" valign="top">Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu </td>
                                                   </tr>
                                                 </tbody>
                                             </table></td>
@@ -438,7 +426,7 @@ table {
                                   
                                   <div class="tab-pane" id="c">
                                     <div class="col-md-10">
-                                      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:12px;">
+                                      <table width="100%" border="0" align="left" cellpadding="0" cellspacing="0" style="font-size:12px;">
                                         <tbody>
                                           <tr>
                                             <td align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -447,7 +435,7 @@ table {
                                                     <td width="23%" rowspan="2" align="center" valign="top" bgcolor="#F7F7F7"><img src="http://localhost/wowhubb/assets/images/em.png" class="img-circle img-thumbnail"><br>
                                                       <span style="font-size:12px;">Tony Daniel</span></td>
                                                     <td width="8%" align="center" valign="top" bgcolor="#F7F7F7"><strong>Event Type</strong><br></td>
-                                                    <td width="8%" align="center" valign="top" bgcolor="#F7F7F7"><strong>Preferred Hall<br>
+                                                    <td width="8%" align="center" valign="top" bgcolor="#F7F7F7"><strong>Event City<br>
                                                       </strong></td>
                                                     <td width="7%" align="center" valign="top" bgcolor="#F7F7F7"><strong>Event Attendee #</strong><br></td>
                                                     <td width="8%" align="center" valign="top" bgcolor="#F7F7F7"><strong># Of Event Days</strong><br></td>
@@ -456,7 +444,7 @@ table {
                                                   </tr>
                                                   <tr>
                                                     <td align="center" valign="top"> Wedding</td>
-                                                    <td align="center" valign="top">CityHall 1 </td>
+                                                    <td align="center" valign="top">Houston </td>
                                                     <td align="center" valign="top"> 150 People</td>
                                                     <td align="center" valign="top"> 1 Day</td>
                                                     <td align="center" valign="top"> October/31/2018<br>
@@ -466,17 +454,11 @@ table {
                                                   <tr>
                                                     <td align="center" valign="top" bgcolor="#F7F7F7"><strong>Contact Info</strong><br></td>
                                                     <td align="center" valign="top" bgcolor="#F7F7F7"><strong>Email</strong><br></td>
-                                                    <td align="center" valign="top" bgcolor="#F7F7F7"><strong>Need A/V Equipments</strong><br></td>
-                                                    <td align="center" valign="top" bgcolor="#F7F7F7"><strong>Food &amp; Beverages</strong><br></td>
-                                                    <td colspan="3" align="center" valign="top" bgcolor="#F7F7F7"><strong>Comments</strong><br></td>
+                                                    <td colspan="5" rowspan="2" align="center" valign="top" bgcolor="#F7F7F7"><strong>Comments</strong><br>                                                      Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu </td>
                                                   </tr>
                                                   <tr>
                                                     <td align="center" valign="top">555-555-5555</td>
                                                     <td align="center" valign="top">tdaniel@gmail.com</td>
-                                                    <td align="center" valign="top">Yes</td>
-                                                    <td align="center" valign="top">Outdoor<img src="http://localhost/wowhubb/assets/images/tick.png" width="12" height="9" alt=""/><br>
-                                                      Indoor</td>
-                                                    <td colspan="3" align="center" valign="top">Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu </td>
                                                   </tr>
                                                 </tbody>
                                             </table></td>
@@ -505,7 +487,7 @@ table {
                                   
                                   <div class="tab-pane" id="d">
                                     <div class="col-md-10">
-                                      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:12px;">
+                                      <table width="100%" border="0" align="left" cellpadding="0" cellspacing="0" style="font-size:12px;">
                                         <tbody>
                                           <tr>
                                             <td align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -514,7 +496,7 @@ table {
                                                     <td width="23%" rowspan="2" align="center" valign="top" bgcolor="#F7F7F7"><img src="http://localhost/wowhubb/assets/images/td.png" class="img-circle img-thumbnail"><br>
                                                       <span style="font-size:12px;">TD Jakes</span></td>
                                                     <td width="8%" align="center" valign="top" bgcolor="#F7F7F7"><strong>Event Type</strong><br></td>
-                                                    <td width="8%" align="center" valign="top" bgcolor="#F7F7F7"><strong>Preferred Hall<br>
+                                                    <td width="8%" align="center" valign="top" bgcolor="#F7F7F7"><strong>Event City<br>
                                                       </strong></td>
                                                     <td width="7%" align="center" valign="top" bgcolor="#F7F7F7"><strong>Event Attendee #</strong><br></td>
                                                     <td width="8%" align="center" valign="top" bgcolor="#F7F7F7"><strong># Of Event Days</strong><br></td>
@@ -522,28 +504,22 @@ table {
                                                     <td width="20%" align="center" valign="top" bgcolor="#F7F7F7"><strong>Preferred Time</strong><br></td>
                                                   </tr>
                                                   <tr>
-                                                    <td align="center" valign="top"> Birthday</td>
-                                                    <td align="center" valign="top">GardenHall 1 </td>
+                                                    <td align="center" valign="top">Birthday</td>
+                                                    <td align="center" valign="top">Texas </td>
                                                     <td align="center" valign="top"> 200 People</td>
                                                     <td align="center" valign="top"> 2 Days</td>
                                                     <td align="center" valign="top"> Decemeber/31/2018<br>
                                                       <em style="font-size:10px;">Accepts Flexible Date Options</em></td>
-                                                    <td align="center" valign="top"> 12:00PM-4:30PM</td>
+                                                    <td align="center" valign="top"> 11:00AM-4:30PM</td>
                                                   </tr>
                                                   <tr>
                                                     <td align="center" valign="top" bgcolor="#F7F7F7"><strong>Contact Info</strong><br></td>
                                                     <td align="center" valign="top" bgcolor="#F7F7F7"><strong>Email</strong><br></td>
-                                                    <td align="center" valign="top" bgcolor="#F7F7F7"><strong>Need A/V Equipments</strong><br></td>
-                                                    <td align="center" valign="top" bgcolor="#F7F7F7"><strong>Food &amp; Beverages</strong><br></td>
-                                                    <td colspan="3" align="center" valign="top" bgcolor="#F7F7F7"><strong>Comments</strong><br></td>
+                                                    <td colspan="5" rowspan="2" align="center" valign="top" bgcolor="#F7F7F7"><strong>Comments</strong><br>                                                      Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu </td>
                                                   </tr>
                                                   <tr>
-                                                    <td align="center" valign="top">777-555-8569</td>
+                                                    <td align="center" valign="top">456-777-8596</td>
                                                     <td align="center" valign="top">tdjakes@gmail.com</td>
-                                                    <td align="center" valign="top">Yes</td>
-                                                    <td align="center" valign="top">Outdoor<img src="http://localhost/wowhubb/assets/images/tick.png" width="12" height="9" alt=""/><br>
-                                                      Indoor</td>
-                                                    <td colspan="3" align="center" valign="top">Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu </td>
                                                   </tr>
                                                 </tbody>
                                             </table></td>

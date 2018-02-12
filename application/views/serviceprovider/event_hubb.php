@@ -264,6 +264,7 @@ body {
             <li><a href="#faq-cat-8" data-toggle="tab" class="text-center" style="line-height:16px; font-size:14px; color:#333;">Business Events</a></li>
             <li><a href="#faq-cat-9" data-toggle="tab" class="text-center" style="line-height:16px; font-size:14px; color:#333;">Event Draft</a></li>
           </ul>
+
           <div class="tab-content faq-cat-content">
             <div class="tab-pane active in fade" id="faq-cat-5">
               <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pnl-brdr-clr">
@@ -806,7 +807,104 @@ body {
               </table>
             </div>
 
-            <div class="tab-pane fade" id="faq-cat-8"> Under Updation </div>
+            <div class="tab-pane fade" id="faq-cat-8"> 
+
+               <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pnl-brdr-clr">
+                <tbody>
+                  <tr style="font-size:16px;">
+                    <td height="40" bgcolor="#f9f9f9"><strong>Event Category</strong></td>
+                    <td width="18%" bgcolor="#f9f9f9"><strong>Venue</strong></td>
+                    <td bgcolor="#f9f9f9"><strong>Coupon Clicks</strong></td>
+                    <td bgcolor="#f9f9f9"><strong>Edit Event</strong></td>
+                    <td bgcolor="#f9f9f9"><strong>Expires</strong></td>
+                    <td bgcolor="#f9f9f9"><strong>Wowtag</strong></td>
+                    <td height="40" bgcolor="#f9f9f9"><strong>Delete </strong></td>
+                  </tr>
+                  <tr style="font-size:16px;">
+                    <td height="40" colspan="2" bgcolor="#f9f9f9"><strong>Hosted by !BlackFridaySales</strong><strong></strong></td>
+                    <td width="9%" bgcolor="#f9f9f9">&nbsp;</td>
+                    <td width="19%" bgcolor="#f9f9f9">&nbsp;</td>
+                    <td width="20%" bgcolor="#f9f9f9">&nbsp;</td>
+                    <td width="13%" bgcolor="#f9f9f9">&nbsp;</td>
+                    <td width="7%" height="40" bgcolor="#f9f9f9">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td width="14%" height="40" rowspan="2" align="left" valign="top" bgcolor="#fff"><div><img src="../assets/images/target-1.jpg" class="img-responsive img-thumbnail" alt=""></div>
+                      <strong style="font-size:16px; color:#fc6653;">Target	</strong><br>
+                      Birthday</td>
+                    <td rowspan="2" align="left" valign="top" bgcolor="#fff"><img src="../assets/images/sales-1.png" class="img-responsive img-thumbnail" alt=""><br>
+                    <a href="#">www.target.coupon/Blacksales</a></td>
+                    <td height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
+                      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tbody>
+                          <tr>
+                            <td height="30" align="center" valign="middle"><strong style="font-size:16px;">RSVP</strong></td>
+                          </tr>
+                          <tr>
+                            <td height="30"><img src="../assets/images/profile-icon.png" alt=""><strong style="font-size:22px; color:#FF7600;">1500</strong></td>
+                          </tr>
+                          <tr>
+                            <td height="30">&nbsp;</td>
+                          </tr>
+                        </tbody>
+                      </table></td>
+                    <td rowspan="2" align="left" valign="top" bgcolor="#fff"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tbody>
+                          <tr>
+                            <td width="82%" height="20"><strong>Event Details</strong></td>
+                            <td width="18%" height="20"><a href="#"><img src="../assets/images/edit_icon.png" alt=""></a></td>
+                          </tr>
+                          <tr>
+                            <td height="20">&nbsp;</td>
+                            <td height="20">&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td height="20">&nbsp;</td>
+                            <td height="20">&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td height="20">&nbsp;</td>
+                            <td height="20">&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td height="20">&nbsp;</td>
+                            <td height="20">&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td height="20">&nbsp;</td>
+                            <td height="20">&nbsp;</td>
+                          </tr>
+                        </tbody>
+                      </table></td>
+                    <td align="left" valign="top" bgcolor="#fff"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                        <tbody>
+                          <tr>
+                            <td align="left" valign="top" bgcolor="#f9f9f9"><a href="#"><img src="../assets/images/create-event-icon-2.png" alt=""></a></td>
+                          </tr>
+                          <tr>
+                            <td>02/21/2018</td>
+                          </tr>
+                          <tr>
+                            <td>&nbsp;</td>
+                          </tr>
+                        </tbody>
+                      </table></td>
+                    <td rowspan="2" align="center" valign="top" bgcolor="#fff"><a href="#"><iframe width="200" height="115" src="https://www.youtube.com/embed/HbPcjwKH0HM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><br>
+                      Update </a></td>
+                    <td height="40" rowspan="2" align="center" valign="top" bgcolor="#fff"><input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+                      <br>
+                      Promote</td>
+                  </tr>
+                  <tr>
+                    <td align="left" valign="top" bgcolor="#fff">&nbsp;</td>
+                  </tr>
+                </tbody>
+              </table>
+
+
+
+            </div>
 
              <div class="tab-pane active in fade" id="faq-cat-9">
               <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pnl-brdr-clr">

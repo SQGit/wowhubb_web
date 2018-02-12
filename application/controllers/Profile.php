@@ -157,7 +157,7 @@ class Profile extends CI_Controller
 
 	}
 
-	public function personal_update_contactinfo() //personal contact info
+public function personal_update_contactinfo() //personal contact info
 	{
 		$response = array();
 		$this->rest->http_header('token', $this->session->userdata('token'));
@@ -182,7 +182,7 @@ class Profile extends CI_Controller
 
 	}
 
-	public function personal_update_eventinfo() //personal event info
+public function personal_update_eventinfo() //personal event info
 	{
 		$response = array();
 		$this->rest->http_header('token', $this->session->userdata('token'));
@@ -207,7 +207,7 @@ class Profile extends CI_Controller
 	}
 
 
-	public function profile_get()  //all update personal profile data get here
+public function profile_get()  //all update personal profile data get here
 	{
 		$this->rest->http_header('token', $this->session->userdata('token'));
 		$json_data = array(); 
@@ -262,25 +262,38 @@ class Profile extends CI_Controller
 	 	echo json_encode($response);
 
 	}	
-	
-	public function professional_work_exp()  //work experience
+
+// professional work experience
+
+public function professional_work_exp()  
 	{
 		$response = array();
 		$this->rest->http_header('token', $this->session->userdata('token'));
-		$professional_exp = array('title' 	   => $this->input->post('title'),
-								'company' 	   => $this->input->post('company'),
-								'location'     => $this->input->post('location'),
-								'frommonth'    => $this->input->post('from_month'),
-								'fromyear'     => $this->input->post('from_year'),
-								'tomonth'      => $this->input->post('to_month'),
-								'toyear'       => $this->input->post('to_year'),
-								'description'  => $this->input->post('description'),
-								'link'         => $this->input->post('link')					
-								);
-		$json_data = json_encode($professional_exp); 
+
+		$exp_count = count($_POST['title']); 
+		$profesional_exp = array();
+
+		   	for($i=0; $i<$exp_count; $i++)
+		   			{	   				
+		   				array_push($profesional_exp, array
+		   								(	   								
+		   			 						'title' 	   => $this->input->post('title')[$i],
+											'company' 	   => $this->input->post('company')[$i],
+											'location'     => $this->input->post('location')[$i],
+											'frommonth'    => $this->input->post('from_month')[$i],
+											'fromyear'     => $this->input->post('from_year')[$i],
+											'tomonth'      => $this->input->post('to_month')[$i],
+											'toyear'       => $this->input->post('to_year')[$i],
+											'description'  => $this->input->post('description')[$i],
+											'link'         => $this->input->post('link')[$i]			 						
+		   			 					));	   				 
+		   			}	
+		$work_exp = array('workexperience' => $profesional_exp); 	   
+		
+		$json_data = json_encode($work_exp); 
 
 		$result = $this->rest->post('http://104.197.80.225:3010/wow/user/updateworkexperience',$json_data,'json');
-		// print_r($result);
+		
 		
 		if($result->success == true)
 	 	{
@@ -293,7 +306,7 @@ class Profile extends CI_Controller
 	 	echo json_encode($response);
 	}	
 
-	function profile_img_upload() //working for image upload
+function profile_img_upload() //working for image upload
     {
 		     $token =  $this->session->userdata('token');
 		   	 $header = array('token:'.$token);
@@ -310,9 +323,9 @@ class Profile extends CI_Controller
 	    	  
 	    	  $response = curl_exec($ch);  
 	    	  echo curl_error($ch);
-	   } 
+	} 
 
-	   function cover_img_upload() //working for image upload
+function cover_img_upload() //working for image upload
    	 {
 		     $token =  $this->session->userdata('token');
 		   	 $header = array('token:'.$token);

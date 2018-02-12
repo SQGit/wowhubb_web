@@ -158,7 +158,11 @@ label.error {
           </div>
         </div>
         <div class="col-md-12" style="margin-bottom:25px;">
-        <p style="color:#fff; font-size: 15px;">We are the best and biggest social network with 5 billion active users all around the world. Share you thoughts, write blog posts, show your favourite music via Stopify, earn Wowtag points and much more!</p></div> 
+          <p style="color:#fff; font-size: 15px;">Create, host  and share  your personal, professional and business events. We are best event  networking platform anytime and anywhere.<br><br>
+           <span style="color: #FFE500; font-size: 17px; font-weight: bold;"><i class="fa fa-play"></i> Create Your Events - Personal, Professional & Business Events.
+           </span>
+         </p>
+       </div> 
         <div class="col-md-12" style="margin-bottom:25px;">
           <div class="col-md-4">
             <a href="#"><div class="col-md-12 text-center" style="border:1px solid #fff; border-radius:5px; padding-bottom:15px;">
@@ -462,7 +466,9 @@ label.error {
       <div class="col-sm-6 col-sm-offset-6 text-left" style="margin-bottom:25px;">
         <p><a href="#" style="color:#FFE500; font-size:17px;">
         <div class="pull-left" style="width:5%;"><img src="../assets/images/cb.png"></div>
-        <div class="pull-left" style="width:95%; margin-top:4px;">Create a Business Page</div>
+        <div class="pull-left" style="width:95%; margin-top:4px;">
+              <a style="color: #ff0;" href="<?php echo base_url('service/create_business_page'); ?>"> Create a Event Business Hosting Page </a>
+        </div>
         </a>
         </p>
         </div>

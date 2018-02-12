@@ -55,6 +55,27 @@ class Service extends CI_Controller
 		$this->load->view('serviceprovider/event_serviceprov_landing_ins');
 	}
 
+	public function create_business_page()   //create business page show in register page 
+	{
+		$this->load->view('serviceprovider/create_buss_page');
+	}
 
+	public function event_serviceprovider_3rd_party()   //event service provider 3rd party view 
+	{
+		$this->load->view('serviceprovider/event_serviceprov_3rd_party');
+	}
+
+	public function event_venue_business()   
+	{
+		$this->load->view('serviceprovider/event_venue_business');
+	}
+
+    public function event_venue_admin_eventhall()   
+	{
+		$this->load->view('serviceprovider/event_venue_admin_eventhalls');
+	}
+
+
+	
 
 }	

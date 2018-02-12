@@ -196,378 +196,193 @@ table, td, tr {
   <!-- Timeline
       ================================================= -->
   <div class="timeline">
-    <div class="timeline-cover"> <img id="profileImage1" class="cover-pic" src="../assets/images/event-venue-1.jpg" style="background-size:cover; width:100%; margin-top:20px;" > </div>
+    <div class="timeline-cover"> <img id="profileImage1" class="cover-pic" src="../assets/images/cb-banner.jpg" style="background-size:cover; width:100%; margin-top:20px;" > </div>
     <div id="page-contents" style="border:1px solid #e6e6e6; background-color: #fff; padding-top: 0px;">
-      <div class="row" style="margin-bottom:15px;">
-        <div class="col-md-12" style="margin-top:15px; margin-bottom:10px;">
-          <div class="col-md-2">
-            <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
-              <option value="0">Country</option>
-              <option value="day1">Alaska</option>
-              <option value="day2">Algeria</option>
-              <option value="day3">India</option>
-              <option value="day3">USA</option>
-            </select>
+      <div class="row">
+        <div class="col-md-12 col-sm-12" style="margin-top:25px;">
+          <div class="col-md-4 col-sm-4" style="position:relative;"> 
+          
+          
+            <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px; text-align:center;">
+                    
+              <div class=" text-center" style="color:#333; padding-bottom:10px;">
+              <strong style="font-size:17px;">ORGANISATIONS<br>
+                </strong> Create An Event  Business Page </div>
+                <div class="pull-left" style="color:#333; padding-bottom:10px;">
+                <p>Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu mauris eus, cum eros quis aliquam wisi. Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi, mi mattis pariatur aliquam pharetra eget.</p>
+                </div>
+                <div class="row text-center">
+                  <button type="submit" class="btn btn-primary">Create Your Organisation Event Hosting Page</button>
+             </div>
+            </div>
+              
           </div>
-          <div class="col-md-2">
-             <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="Enter your Event City"  />
+          <div class="col-md-4 col-sm-4" style="position:relative;"> 
+          
+          
+            <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px; text-align:center;">
+                    
+              <div class=" text-center" style="color:#333; padding-bottom:10px;">
+              <strong style="font-size:17px;">EVENT VENUE PROVIDERS<br>
+                </strong> List Your Event  Venue Space </div>
+                <div class="pull-left" style="color:#333; padding-bottom:10px;">
+                <p>Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu mauris eus, cum eros quis aliquam wisi. Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi, mi mattis pariatur aliquam pharetra eget.</p>
+                </div>
+                <div class="row text-center">
+                  <a href="<?php echo base_url('service/eventvenue_landing'); ?>" >
+                    <button type="submit" class="btn btn-primary">List Your Event Venues</button>
+                  </a>
+             </div>
+            </div>
+              
           </div>
-          <div class="col-md-3">
-            <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
-              <option selected="selected" class="option">What Event Are You Planning </option>
-              <option class="option">Wedding</option>
-              <option class="option">Birthday</option>
-              <option class="option">Anniversary</option>
-              <option class="option">Baby Shower</option>
-              <option class="option">Religiuos Event</option>
-              <option class="option">Holiday Party</option>
-              <option class="option">Corporate Event</option>
-              <option class="option">Political Event</option>
-              <option class="option">Social Event</option>
-              <option class="option">Baby Naming</option>
-              <option class="option">Team Outing</option>
-              <option class="option">Sales Event</option>
-              <option class="option">Product Launch Event</option>
-              <option class="option">Photo-File Show Event</option>
-              <option class="option">Bridal Showers</option>
-              <option class="option">Meeting</option>
-              <option class="option">Board Meeting</option>
-              <option class="option">Network Meeting</option>
-              <option class="option">Startup Event</option>
-              <option class="option">Group Workshop</option>
-              <option class="option">Kids Party</option>
-              <option class="option">Music Concert</option>
-            </select>
+          <div class="col-md-4 col-sm-4" style="position:relative;"> 
+          
+          
+            <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px; text-align:center;">
+                    
+              <div class=" text-center" style="color:#333; padding-bottom:10px;">
+              <strong style="font-size:17px;">EVENT PROFESSIONAL VENDORS<br>
+                </strong>List Your Event Services</div>
+                <div class="pull-left" style="color:#333; padding-bottom:10px;">
+                <p>Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu mauris eus, cum eros quis aliquam wisi. Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi, mi mattis pariatur aliquam pharetra eget.</p>
+                </div>
+                <div class="row text-center">
+                  <a href="<?php echo base_url('service/eventvenue_landing'); ?>" >
+                    <button type="submit" class="btn btn-primary">List Your Event Services</button>
+                  </a>
+             </div>
+            </div>
+              
           </div>
-          <div class="col-md-3">
-            <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
-              <option selected="selected" class="option">Select Your Event Hall Preference</option>
-              <option class="option">Conference Center</option>
-              <option class="option">Party Hall</option>
-              <option class="option">Private Dinning</option>
-              <option class="option">WorkShop/Expos</option>
-              <option class="option">Concert Hall</option>
-              <option class="option">Studio</option>
-              <option class="option">Theatre</option>
-              <option class="option">Warehouse</option>
-              <option class="option">Winery</option>
-              <option class="option">Gallery</option>
-              <option class="option">Bar</option>
-              <option class="option">Country Club</option>
-              <option class="option">Hotel</option>
-              <option class="option">Cafe</option>
-              <option class="option">Resturant</option>
-              <option class="option">Meeting Space</option>
-              <option class="option">Beach Side</option>
-            </select>
-          </div>
-          <div class="col-md-2 text-center">
-          <button type="submit" class="btn-primary" style="background-color:#fc6653!important; padding-top:5px; padding-bottom:5px;"><img src="../assets/images/search_icon_ev.png"> Search </button>
-        </div>
-        </div>
+        
         
       </div>
-      <div class="row" style="margin-bottom:15px;">
-        <div class="col-md-12"> 
-          <!-- Newsfeed Common Side Bar Left
-          ================================================= -->
-          <div class="col-md-3 static"> 
-            
-            <!--profile card ends-->
-            
-            <div id="chat-block" style="background:#fff; box-shadow:1px 1px 1px 2px #ECECEC; padding:2px; border-radius:5px;">
-              <ul class="nav-news-feed">
-                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left; color:#333;">SEARCH FILTERS</h5>
-              </ul>
-              <!--news-feed links ends--> 
-              
-              <!--news-feed links ends-->
-              <ul class="nav-news-feed">
-                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Amenities</h5>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    AV Equipment</div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    Beach Front</div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    Break out Rooms</div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    Business Center</div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    Coat Check</div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    Great Views</div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    Handicap Accessible</div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    Indoor</div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    Media Room</div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    Coat Check</div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    Non-Smoking</div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    Outdoor</div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    Overnight Rooms</div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    Pet Friendly</div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    Pool</div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    Rooftop</div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    Rooms Available</div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    Smoking</div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    Spa</div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    Street Parking</div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    Theater</div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    Valet Parking</div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;">
-                    <input type="checkbox">
-                    Wifi</div>
-                </li>
-                <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
-              </ul>
-             
-              
-              <!--news-feed links ends--> 
-              <!--ul class="nav-news-feed">
-                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">AVAILABILITY</h5>
-                <li>
-                  <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Out of stock</a></div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Clear all</a></div>
-                </li>
-              </ul--> 
-              <!--news-feed links ends--> 
-              
-            </div>
-            <!--chat block ends--> 
-          </div>
-          <div class="col-md-6"> 
-            <!-- center box start here  =================================== -->
-            <div class="container post-content">
-              <div class="col-md-12 text-right" style="margin-top:15px; margin-bottom:10px;"><a href="#" style="color:#333;"><i class="fa fa-list" style="font-size:18px;"></i></a>&nbsp;&nbsp; <a href="#" style="color:#333;"><i class="fa fa-th" style="font-size:18px;"></i></a> &nbsp;&nbsp;<span style="font-size:16px;" >Showing 140 Results</span></div>
-
-              <div class="col-md-12">
-                <div class="row">
-                  <div class="col-md-12">
-                    <hr style="margin:5px 0;">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-4" style="margin-top:10px;">
-                    <div class="gallery"> <img src="../assets/images/sharaton.jpg" alt="post-image" class="img-responsive img-thumbnail"></div>
-                    <div class="col-md-12">
-                      <div class="pull-left" style="font-size:13px; font-weight:bold; color:#333;"><span style="font-size:12px; color:#e91e63;"><a href="<?php echo base_url('service/event_venue_business'); ?>" style="color:#fc6653;">View Business Page</a></span></div>
-                    </div>
-                  </div>
-                  <div class="col-md-8" style="margin-top:10px;">
-                    <div class="row">
-                      <div class="pull-right">
-                        <div class="rr-circle">1</div>
-                      </div>
-                      <div class="pull-left"><span style="font-size:20px;">Sharaton Banquest Center</span>
-                        <p style="font-size:16px;">Downtown Houston</p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <p style="font-size:16px;">3 Event Venues Available</p>
-                    </div>
-                    <div class="row">
-                      <p style="font-size:14px;">2345, Blue Street, Sugarland Texas 77334<br>
-                        <span style="margin-top:20px;">Reviews <i class="fa fa-star" style="color:#D0A903;"></i> <i class="fa fa-star" style="color:#D0A903;"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> 2.1</span> </p>
-                    </div>
-                    <div class="row">
-                      <div class="pull-left" style="font-size:15px; font-weight:bold;">100 Standing  50 Seating</div>
-                      <div class="pull-right" style="color:#429A0B;">Smart Deal 20% off Until Feb 29th</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 text-center clr" style="margin-top:10px;">
-                   
-                    <div style="color:#fff; font-size:18px;">Starting From&nbsp;&nbsp;Hourly Rate $499&nbsp;&nbsp;Daily Rate  $20000</div>
-                  </div>
-                </div>
-              </div>
-              
-              
-           <div class="col-md-12">
-                <div class="row">
-                  <div class="col-md-12">
-                    <hr style="margin:5px 0;">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-4" style="margin-top:10px;">
-                    <div class="gallery"> <img src="../assets/images/clutch.jpg" alt="post-image" class="img-responsive img-thumbnail"></div>
-                     <div class="col-md-12">
-                      <div class="pull-left" style="font-size:13px; font-weight:bold; color:#333;"><span style="font-size:12px; color:#e91e63;"><a href="<?php echo base_url('service/event_venue_business'); ?>" style="color:#fc6653;">View Business Page</a></span></div>
-                    </div>
-                  </div>
-                  <div class="col-md-8" style="margin-top:10px;">
-                    <div class="row">
-                      <div class="pull-right">
-                        <div class="rr-circle">2</div>
-                      </div>
-                      <div class="pull-left"><span style="font-size:20px;">Clutch Bar  Resort</span>
-                        <p style="font-size:16px;">Downtown Houston</p>
-                      </div>
-                    </div>  
-                    <div class="row">
-                      <p style="font-size:16px;"> 3 Event Venues Available< /p>
-                    </div>
-                    <div class="row">
-                      <p style="font-size:14px;">1234 Delano Drive Houston Texas 77734<br>
-                        <span style="margin-top:20px;">Reviews <i class="fa fa-star" style="color:#D0A903;"></i> <i class="fa fa-star" style="color:#D0A903;"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> 2.1</span> </p>
-                    </div>
-                    <div class="row">
-                      <div class="pull-left" style="font-size:15px; font-weight:bold;">200 Standing  50 Seating</div>
-                      <div class="pull-right" style="color:#429A0B;">Smart Deal 20% off Until Feb 29th</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 text-center clr" style="margin-top:10px;">
-                   
-                    <div style="color:#fff; font-size:18px;">Starting From&nbsp;&nbsp;Hourly Rate $499&nbsp;&nbsp;Daily Rate  $20000</div>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="col-md-12">
-                <div class="row">
-                  <div class="col-md-12">
-                    <hr style="margin:5px 0;">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-4" style="margin-top:10px;">
-                    <div class="gallery"> <img src="../assets/images/spring.jpg" alt="post-image" class="img-responsive img-thumbnail"></div>
-                     <div class="col-md-12">
-                      <div class="pull-left" style="font-size:13px; font-weight:bold; color:#333;"><span style="font-size:12px; color:#e91e63;"><a href="<?php echo base_url('service/event_venue_business'); ?>" style="color:#fc6653;">View Business Page</a></span></div>
-                    </div>
-                  </div>
-                  <div class="col-md-8" style="margin-top:10px;">
-                    <div class="row">
-                      <div class="pull-right">
-                        <div class="rr-circle">3</div>
-                      </div>
-                      <div class="pull-left"><span style="font-size:20px;">Springbook Event Center</span>
-                        <p style="font-size:16px;">Downtown Houston</p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <p style="font-size:16px;">3 Event Venues Available</p>
-                    </div>
-                    <div class="row">
-                      <p style="font-size:14px;">1234 Delano Drive Houston 
-Texas 77734<br>
-                        <span style="margin-top:20px;">Reviews <i class="fa fa-star" style="color:#D0A903;"></i> <i class="fa fa-star" style="color:#D0A903;"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> 2.1</span> </p>
-                    </div>
-                    <div class="row">
-                      <div class="pull-left" style="font-size:15px; font-weight:bold;">20 Standing  35 Seating</div>
-                      <div class="pull-right" style="color:#429A0B;">Smart Deal 20% off Until Feb 29th</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 text-center clr" style="margin-top:10px;">
-                    
-                    <div style="color:#fff; font-size:18px;">Starting From&nbsp;&nbsp;Hourly Rate $499&nbsp;&nbsp;Daily Rate  $20000</div>
-                  </div>
-                </div>
-              </div>
-              
-              
-            </div>
-          </div>
-          <div class="col-md-3">
-          <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left; margin-top:0;">Map Locations</h5>
-<div style="margin-left:0; text-align:left;">
-              <img src="../assets/images/houston-hotels.jpg" class="img-responsive"></div>          </div>
-          <!-- Newsfeed Common Side Bar Right
-          ================================================= --> 
-          
+      <div class="col-md-12 col-sm-12" style="margin-top:25px;">
+      <div class="col-md-12 col-sm-12">
+      <div class="col-md-12 col-sm-12" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px;">
+        <div class="col-md-5">
+        <div class=" text-left" style="color:#333; padding-bottom:10px;">
+              <strong style="font-size:17px;">ORGANISATIONS<br>
+              </strong> Create An Event  Business Page </div>
+        <img src="../assets/images/crb-image.jpg" class="img-responsive img-thumbnail" ></div> 
+      <div class="col-md-7">
+      <div class="col-md-12">
+        <div class="pull-left" style="color:#333; padding-bottom:10px;">
+          <p>Wowhubb is a unique event networking platform that gives every organisation the oppourtunty to create, host and organise all of their events in one place,</p>
         </div>
       </div>
+      <div class="col-md-12" style="margin-top:5px;">
+        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" >
+        <p style="line-height:18px;">Create A One Time Event Business Page Manager</p>
+        </div>
+        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" ><p style="line-height:18px;">Create & Host All your Your Events</p></div>
+        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" ><p style="line-height:18px;">Invite  Attendee In within your network and outside your network</p></div>
+        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" ><p style="line-height:18px;">View and send instant notification message to all your event attendees</p></div>
+      </div>
+      <div class="col-md-12" style="margin-top:5px;">
+        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" >
+        <p style="line-height:18px;">Create A One Time Event Business Page Manager</p>
+        </div>
+        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" ><p style="line-height:18px;">Create & Host All your Your Events</p></div>
+        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" ><p style="line-height:18px;">Invite  Attendee In within your network and outside your network</p></div>
+        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" ><p style="line-height:18px;">View and send instant notification message to all your event attendees</p></div>
+      </div>
+      <div class="col-md-12" style="margin-top:5px;">
+        <div class="row text-center">
+                  <button type="submit" class="btn btn-primary">Create Your Organisation Event Hosting Page</button>
+             </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      
+      </div>
+      
+      <div class="col-md-12 col-sm-12" style="margin-top:25px;">
+      <div class="col-md-12 col-sm-12">
+      <div class="col-md-12 col-sm-12" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px;">
+        <div class="col-md-5">
+        <div class=" text-left" style="color:#333; padding-bottom:10px;">
+              <strong style="font-size:17px;">EVENT PROFESSIONAL VENDORS<br>
+              </strong> List Your Event Services To local Clients Around you</div>
+        <img src="../assets/images/crb-image-2.jpg" class="img-responsive img-thumbnail" ></div> 
+      <div class="col-md-7">
+      
+                <div class="pull-left" style="color:#333; padding-bottom:10px;">
+                <p>Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. </p>
+                </div>
+      <div class="col-md-12" style="margin-top:5px;">
+        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" >
+        <p style="line-height:18px;">Create and advertise your event support venue to local customers near you</p>
+        </div>
+        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" >
+        <p style="line-height:18px;">Recieve daily  business leads for your sevices</p></div>
+        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" >
+        <p style="line-height:18px;">Get the best referals from your exiting customer and clients</p></div>
+        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" >
+        <p style="line-height:18px;">Generate new busines leads on a daily basis</p></div>
+      </div>
+     
+      <div class="col-md-12" style="margin-top:5px;">
+        <div class="row text-center">
+                   <a href="<?php echo base_url('service/eventvenue_landing'); ?>" ><button type="submit" class="btn btn-primary">
+                   List Your Event Venues
+                  </button></a>
+             </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      
+      </div>
+      
+       <div class="col-md-12 col-sm-12" style="margin-top:25px;">
+       <div class="col-md-12 col-sm-12">
+      <div class="col-md-12 col-sm-12" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px;">
+        <div class="col-md-5">
+        <div class=" text-left" style="color:#333; padding-bottom:10px;">
+              <strong style="font-size:17px;">EVENT VENUE PROVIDERS<br>
+              </strong> List Your Event Venue Locally And Get Daily Business Leads</div>
+        <img src="../assets/images/crb-image-3.jpg" class="img-responsive img-thumbnail" ></div> 
+      <div class="col-md-7">
+      
+                <div class="pull-left" style="color:#333; padding-bottom:10px;">
+                <p>Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. </p>
+                </div>
+      <div class="col-md-12" style="margin-top:5px;">
+        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" >
+        <p style="line-height:18px;">Create and advertise your event support services to local customers near you</p>
+        </div>
+        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" >
+        <p style="line-height:18px;">Recieve daily  business leads for your sevices</p></div>
+        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" >
+        <p style="line-height:18px;">Get the best referals from your exiting customer and clients</p></div>
+        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" >
+        <p style="line-height:18px;">Generate new busines leads on a daily basis</p></div>
+      </div>
+     
+      <div class="col-md-12" style="margin-top:5px;">
+        <div class="row text-center">
+                 <a href="<?php echo base_url('service/eventvenue_landing'); ?>" > 
+                  <button type="submit" class="btn btn-primary">List Your Event Services</button>
+                </a>
+             </div>
+      </div>
+      </div>
+      </div></div>
+      
+      </div>
+      
+
+      
+      
+      
+
+      
     </div>
   </div>
+</div>
 </div>
 </div>
 

@@ -5,12 +5,9 @@ class Event extends CI_Controller
 	public function __construct()
 	{
 		parent:: __construct();
-			// if(empty($this->session->userdata("login_session_user")))
-		 //         {
-		 //       		  redirect(base_url('home/login'),'refresh');
-		 //         }
+
 		 $this->load->library('session'); 
-		 $this->load->helper(array('form','url','date'));
+		 $this->load->helper(array('form','url','date'));		 
 
 	}
 
@@ -26,6 +23,7 @@ public function eventfeed()
 			$this->load->view('event/eventfeed');
 		}
 	}
+	
 public function create_event()
 	{
 		if(is_null($this->session->userdata('email')))
@@ -108,7 +106,51 @@ public function business_landing()
 	   		$this->load->view('event/business_landing_page');
 	   }
 
+public function create()
+	   {
+	   		$this->load->view('mytest/create_test');
+	   }
 
+public function create_test()
+	   {
+	   			
+	   			$pgm_schedule = array();
+	   			
+	   			// day 1 count
+	   			$no_of_days = $this->input->post('no_of_days');
+
+	   			for($day=1; $day<=$no_of_days; $day++)
+	   			{	   				
+	   				$no_of_events = count ($this->input->post('day'.$day.'_from_hour'));
+
+	   				// echo "test";
+	   				for($event=0; $event<$no_of_events; $event++)
+	   				{
+	   					// echo $event;
+	   					array_push($pgm_schedule, array
+						(
+							'day'		   =>  $day,
+							'eventnumber'  =>  '1',
+							'starttime'    =>  $this->input->post('day'.$day.'_event_starttime'),
+							'endtime'      =>  $this->input->post('day'.$day.'_event_endtime'),
+							'facilitator'  =>  $this->input->post('day'.$day.'_facilitator_name')[$event],
+							'location'     =>  $this->input->post('day'.$day.'_location')[$event],
+							'agenda'       =>  $this->input->post('day'.$day.'_agenda')[$event],
+							'itystarttime' =>  $this->input->post('day'.$day.'_from_hour')[$event].' '.$this->input->post('day'.$day.'_from_min')[$event].' '.$this->input->post('day'.$day.'_from_sec')[$event],
+	   			 			'ityendtime'   =>  $this->input->post('day'.$day.'_to_hour')[$event].' '.$this->input->post('day'.$day.'_to_min')[$event].' '.$this->input->post('day'.$day.'_to_sec')[$event]
+	   			 		));
+	   			 	}	
+	   			}
+
+	   			 // $json_data = json_encode($pgm_schedule); 
+	   			print "<pre>";
+				// print_r($_POST);
+				print_r($pgm_schedule);
+				print "</pre>";
+	   		// 		var_dump($_POST);
+	   		
+	   }
+ 
 	      
 public function event_popup_details()
 	{
@@ -199,16 +241,11 @@ public function personal_event()
  {
  				$response = array();
  	//first step
-
  			
 		     $start_date = $_POST['event_startdate'];
-		     $end_date   = $_POST['event_enddate'];
-		     $start_time =  $_POST['event_startime'];
-		     $end_time   =  $_POST['event_endtiming'];
-		     $s_date = date('M/d/Y', strtotime($start_date)); 
-		     $e_date = date('M/d/Y', strtotime($end_date)); 
-		     $s_time = date('H:i:s', strtotime($start_time)); 
-		     $e_time = date('H:i:s', strtotime($end_time)); 
+		     $end_date   = $_POST['event_enddate'];		    
+		     $s_date = date('Y/m/d', strtotime($start_date)); 
+		     $e_date = date('Y/m/d', strtotime($end_date));     
 
 
  			$token =  $this->session->userdata('token');		
@@ -218,8 +255,8 @@ public function personal_event()
 							'eventcategory:' .$this->input->post('event_category'), 
 							'eventname:'     .$this->input->post('event_name'),
 							'eventtimezone:' .$this->input->post('time_zone'),
-							'eventstartdate:' .$s_date.' '.$s_time,
-							'eventenddate:'   . $e_date.' '. $e_time,
+							'eventstartdate:' .$s_date.' '.$this->input->post('event_startime'),
+							'eventenddate:'   .$e_date.' '. $this->input->post('event_endtiming'),
 							'eventdescription:' .$this->input->post('event_description')
 							);
 		   	 
@@ -339,6 +376,14 @@ public function personal_event()
 	   								'onlineevent'                 => $this->input->post('eventvenue_onlineevent'),
 	   								'inviteonlyevent'             => $this->input->post('eventvenue_inviteonlyevent'),
 			 						'eventfaqs'                   => $event_faq,
+			 						'faqquestion1'				  => '1.What is Event Age Requirement?',
+			 						'faqanswer1'                  =>  $this->input->post('quesans1'),
+			 						'faqquestion2'				  => '2.This is a kids friendly event?',
+			 						'faqanswer2'				  => $this->input->post('quesans2'),	
+			 						'faqquestion3'				  => '3.What are event parking/Transportantion options to and from event location?',
+			 						'faqanswer3'				  => $this->input->post('quesans3'),
+			 						'faqquestion4'				  => '4.What are allowed into the event venue?',
+			 						'faqanswer4'				  =>  $this->input->post('quesans4'),	
 			 						'eventvenue'                  => $event_venue_location
 			 					   ); 
 
@@ -350,70 +395,34 @@ public function personal_event()
 		//four step program shedule upload	    		
 			
 	  		 	$this->rest->http_header('token',  $this->session->userdata('token'));
+
 	   			$pgm_schedule = array();
 	   			
-	   			// day 1 count
+	   			// no.of days counts assign hidden input get by this value
+	   			$no_of_days = $this->input->post('no_of_days');
 
-	   			$day1_count = count ($this->input->post('from_hour_day1'));   
-	   			
-	   			for($i=0; $i<$day1_count; $i++)
+	   			for($day=1; $day<=$no_of_days; $day++)
 	   			{	   				
-	   				array_push($pgm_schedule, array
-	   								(
-	   									'day'		   =>  1,
-	   			 						'eventnumber'  =>  $i+1,
-	   			 						'starttime'    =>  $this->input->post('event_starttime'),
-	   			 						'endtime'      =>  $this->input->post('event_endtime'),
-	   			 						'facilitator'  =>  $this->input->post('facilitator_name_day1')[$i],
-	   			 						'location'     =>  $this->input->post('location_day1')[$i],
-	   			 						'agenda'       =>  $this->input->post('agenda1')[$i],
-	   			 						'itystarttime' =>  $this->input->post('from_hour_day1')[$i].' '.$this->input->post('from_min_day1')[$i].' '.$this->input->post('from_sec_day1')[$i],
-	   			 						'ityendtime'   =>  $this->input->post('to_hour_day1')[$i].' '.$this->input->post('to_min_day1')[$i].' '.$this->input->post('to_sec_day1')[$i]
-	   			 					));	
-	   			}
+	   				$no_of_events = count ($this->input->post('day'.$day.'_from_hour'));
 
-	   	// 		// day 2 count
-
-	   			$day2_count = count ($this->input->post('from_hour_day2')); 	   		  			
-	   			
-	   			for($i=0; $i<$day2_count; $i++)
-	   			{
 	   				
-	   			 array_push($pgm_schedule, array
-	   			 					(
-	   			 						'day'		   =>  2,
-	   			 					   	'eventnumber'  =>  $i+1,
-	   			 					  	'starttime'    =>  $this->input->post('event_starttime2'),
-	   			 						'endtime'      =>  $this->input->post('event_endtime2'),
-	   			 					    'facilitator'  =>  $this->input->post('facilitator_name_day2')[$i],
-	   			 						'location'     =>  $this->input->post('location_day2')[$i],
-	   			 						'agenda'       =>  $this->input->post('agenda2')[$i],
-	   			 					    'itystarttime' =>  $this->input->post('from_hour_day2')[$i].' '.$this->input->post('from_min_day2')[$i].' '.$this->input->post('from_sec_day2')[$i],
-	   			 						'ityendtime'   =>  $this->input->post('to_hour_day2')[$i].' '.$this->input->post('to_min_day2')[$i].' '.$this->input->post('to_sec_day2')[$i]
-	   			 					));	
-	   			}
-
-	   	// 		//day 3 count
-
-	   			$day3_count = count ($this->input->post('from_hour_day3'));
-	   				
-
-	   				for($i=0; $i<$day3_count; $i++)
+	   				for($event=0; $event<$no_of_events; $event++)
 	   				{
-	   				
+	   					// echo $event;
 	   					array_push($pgm_schedule, array
-	   								(
-	   									'day'		   => 3,
-	   			 						'eventnumber'  =>  $i+1,
-	   			 						'starttime'    =>  $this->input->post('event_starttime3'),
-	   			 						'endtime'      =>  $this->input->post('event_endtime3'),
-	   			 						'facilitator'  =>  $this->input->post('facilitator_name_day3')[$i],
-	   			 						'location'     =>  $this->input->post('location_day3')[$i],
-	   			 						'agenda'       =>  $this->input->post('agenda3')[$i],
-	   			 						'itystarttime' =>  $this->input->post('from_hour_day3')[$i].' '.$this->input->post('from_min_day3')[$i].' '.$this->input->post('from_sec_day3')[$i],
-	   			 						'ityendtime'   =>  $this->input->post('to_hour_day3')[$i].' '.$this->input->post('to_min_day3')[$i].' '.$this->input->post('to_sec_day3')[$i]
-	   			 					));	
-	   				}
+						(
+							'day'		   =>  $day,
+							'eventnumber'  =>  '1',
+							'starttime'    =>  $this->input->post('day'.$day.'_event_starttime'),
+							'endtime'      =>  $this->input->post('day'.$day.'_event_endtime'),
+							'facilitator'  =>  $this->input->post('day'.$day.'_facilitator_name')[$event],
+							'location'     =>  $this->input->post('day'.$day.'_location')[$event],
+							'agenda'       =>  $this->input->post('day'.$day.'_agenda')[$event],
+							'itystarttime' =>  $this->input->post('day'.$day.'_from_hour')[$event].' '.$this->input->post('day'.$day.'_from_min')[$event].' '.$this->input->post('day'.$day.'_from_sec')[$event],
+	   			 			'ityendtime'   =>  $this->input->post('day'.$day.'_to_hour')[$event].' '.$this->input->post('day'.$day.'_to_min')[$event].' '.$this->input->post('day'.$day.'_to_sec')[$event]
+	   			 		));
+	   			 	}	
+	   			}
 
 	   			 $program_schedule = array('eventid'   => $this->session->userdata('id'),
 			 						'programschedule' => $pgm_schedule); //array of array insert the values
@@ -535,14 +544,9 @@ public function proffesional_single_event()
  	//first step
 
  			 $start_date = $this->input->post('event_startdate');
-		     $end_date   = $this->input->post('event_enddate');
-		     $start_time = $this->input->post('event_startime');
-		     $end_time   = $this->input->post('event_endtiming');
-		     $s_date = date('M/d/Y', strtotime($start_date)); 
-		     $e_date = date('M/d/Y', strtotime($end_date)); 
-		     $s_time = date('H:i:s', strtotime($start_time)); 
-		     $e_time = date('H:i:s', strtotime($end_time)); 
-
+		     $end_date   = $this->input->post('event_enddate');		    
+		     $s_date = date('Y/m/d', strtotime($start_date)); 
+		     $e_date = date('Y/m/d', strtotime($end_date));    
 
  			$token =  $this->session->userdata('token');		
  			
@@ -550,8 +554,8 @@ public function proffesional_single_event()
 		   					'eventtype:' .$this->input->post('event_type'),
 							'eventcategory:' .$this->input->post('event_category'), 
 							'eventname:'     .$this->input->post('event_name'),							
-							'eventstartdate:' .$s_date.' '.$s_time,
-							'eventenddate:'   . $e_date.' '. $e_time,
+							'eventstartdate:' .$s_date.' '.$this->input->post('event_startime'),
+							'eventenddate:'   . $e_date.' '. $this->input->post('event_endtiming'),
 							'eventdescription:' .$this->input->post('event_description')
 							);
 		   	 
@@ -636,7 +640,7 @@ public function proffesional_single_event()
 	   				array_push($event_venue_location, array
 	   								(
 	   									'eventvenuenumber'      =>  $i+1,
-	   			 						'eventvenuename'    	=>  $this->input->post('event_venue_name')[$i],	   			 						
+	   			 						'eventvenuename'    	=>  $this->input->post('event_venue_name')[$i],	 						
 	   			 						'eventvenueaddress1'    =>  $this->input->post('address1')[$i],
 	   			 						'eventvenueaddress2'    =>  $this->input->post('address2')[$i],
 	   			 						'eventvenuecity'    	=>  $this->input->post('venue_city')[$i],
@@ -683,82 +687,45 @@ public function proffesional_single_event()
 				 // print_r($event_venue_result);
 
 
-	//four step program shedule upload	    		
+		//four step program shedule upload	    		
 			
 	  		 	$this->rest->http_header('token',  $this->session->userdata('token'));
+
 	   			$pgm_schedule = array();
 	   			
-	   			// day 1 count
+	   			// no.of days counts assign hidden input get by this value
+	   			$no_of_days = $this->input->post('no_of_days');
 
-	   			$day1_count = count ($this->input->post('from_hour_day1'));   
-	   			
-	   			for($i=0; $i<$day1_count; $i++)
+	   			for($day=1; $day<=$no_of_days; $day++)
 	   			{	   				
-	   				array_push($pgm_schedule, array
-	   								(
+	   				$no_of_events = count ($this->input->post('day'.$day.'_from_hour'));
 
-	   									'day'		   =>  1,
-	   			 						'eventnumber'  =>  $i+1,
-	   			 						'starttime'    =>  $this->input->post('event_starttime'),
-	   			 						'endtime'      =>  $this->input->post('event_endtime'),
-	   			 						'facilitator'  =>  $this->input->post('facilitator_name_day1')[$i],
-	   			 						'location'     =>  $this->input->post('location_day1')[$i],
-	   			 						'agenda'       =>  $this->input->post('agenda1')[$i],
-	   			 						'itystarttime' =>  $this->input->post('from_hour_day1')[$i].' '.$this->input->post('from_min_day1')[$i].' '.$this->input->post('from_sec_day1')[$i],
-	   			 						'ityendtime'   =>  $this->input->post('to_hour_day1')[$i].' '.$this->input->post('to_min_day1')[$i].' '.$this->input->post('to_sec_day1')[$i]
-	   			 					));	
-	   			}
-
-	   			// day 2 count
-
-	   			$day2_count = count ($this->input->post('from_hour_day2')); 	   		  			
-	   			
-	   			for($i=0; $i<$day2_count; $i++)
-	   			{
 	   				
-	   			 array_push($pgm_schedule, array
-	   			 					(
-	   			 						'day'		   => 2,
-	   			 					   	'eventnumber'  =>  $i+1,
-	   			 					  	'starttime'    =>  $this->input->post('event_starttime2'),
-	   			 						'endtime'      =>  $this->input->post('event_endtime2'),
-	   			 					    'facilitator'  => $this->input->post('facilitator_name_day2')[$i],
-	   			 						'location'     =>  $this->input->post('location_day2')[$i],
-	   			 						'agenda'       => $this->input->post('agenda2')[$i],
-	   			 					    'itystarttime' =>  $this->input->post('from_hour_day2')[$i].' '.$this->input->post('from_min_day2')[$i].' '.$this->input->post('from_sec_day2')[$i],
-	   			 						'ityendtime'   => $this->input->post('to_hour_day2')[$i].' '.$this->input->post('to_min_day2')[$i].' '.$this->input->post('to_sec_day2')[$i]
-	   			 					));	
-	   			}
-
-	   			// day 3 count
-
-	   			$day3_count = count ($this->input->post('from_hour_day3'));
-	   			// $location3 = isset($this->input->post('location_day3'));	
-
-	   				for($i=0; $i<$day3_count; $i++)
+	   				for($event=0; $event<$no_of_events; $event++)
 	   				{
-	   				
+	   					// echo $event;
 	   					array_push($pgm_schedule, array
-	   								(
-	   									'day'		   => 3,
-	   			 						'eventnumber'  =>  $i+1,
-	   			 						'starttime'    =>  $this->input->post('event_starttime3'),
-	   			 						'endtime'      =>  $this->input->post('event_endtime3'),
-	   			 						'facilitator'  =>  $this->input->post('facilitator_name_day3')[$i],
-	   			 						'location'     =>  $this->input->post('location_day3')[$i],
-	   			 						'agenda'       =>  $this->input->post('agenda3')[$i],
-	   			 						'itystarttime' =>  $this->input->post('from_hour_day3')[$i].' '.$this->input->post('from_min_day3')[$i].' '.$this->input->post('from_sec_day3')[$i],
-	   			 						'ityendtime'   =>  $this->input->post('to_hour_day3')[$i].' '.$this->input->post('to_min_day3')[$i].' '.$this->input->post('to_sec_day3')[$i]
-	   			 					));	
-	   				}
+						(
+							'day'		   =>  $day,
+							'eventnumber'  =>  '1',
+							'starttime'    =>  $this->input->post('day'.$day.'_event_starttime'),
+							'endtime'      =>  $this->input->post('day'.$day.'_event_endtime'),
+							'facilitator'  =>  $this->input->post('day'.$day.'_facilitator_name')[$event],
+							'location'     =>  $this->input->post('day'.$day.'_location')[$event],
+							'agenda'       =>  $this->input->post('day'.$day.'_agenda')[$event],
+							'itystarttime' =>  $this->input->post('day'.$day.'_from_hour')[$event].' '.$this->input->post('day'.$day.'_from_min')[$event].' '.$this->input->post('day'.$day.'_from_sec')[$event],
+	   			 			'ityendtime'   =>  $this->input->post('day'.$day.'_to_hour')[$event].' '.$this->input->post('day'.$day.'_to_min')[$event].' '.$this->input->post('day'.$day.'_to_sec')[$event]
+	   			 		));
+	   			 	}	
+	   			}
 
 	   			 $program_schedule = array('eventid'   => $this->session->userdata('id'),
 			 						'programschedule' => $pgm_schedule); //array of array insert the values
 				 
 				 $json_data = json_encode($program_schedule); 
 
-				 $result = $this->rest->post('http://104.197.80.225:3010/wow/event/program',$json_data,'json');	  
-
+				 $result = $this->rest->post('http://104.197.80.225:3010/wow/event/program',$json_data,'json');	  	
+			
 	// print_r($result);
 
 	//fifth  step event highlight  upload
@@ -1118,79 +1085,42 @@ public function professional_multicity_event()
 
 	//four step program shedule upload	    		
 			
-	  		 	$this->rest->http_header('token',  $this->session->userdata('token'));
+	  		 $this->rest->http_header('token',  $this->session->userdata('token'));
+
 	   			$pgm_schedule = array();
 	   			
-	   			// day 1 count
+	   			// no.of days counts assign hidden input get by this value
+	   			$no_of_days = $this->input->post('no_of_days');
 
-	   			$day1_count = count ($_POST['from_hour_day1']);   
-	   			
-	   			for($i=0; $i<$day1_count; $i++)
+	   			for($day=1; $day<=$no_of_days; $day++)
 	   			{	   				
-	   				array_push($pgm_schedule, array
-	   								(
+	   				$no_of_events = count ($this->input->post('day'.$day.'_from_hour'));
 
-	   									'day'		   =>  1,
-	   			 						'eventnumber'  =>  $i+1,
-	   			 						'starttime'    =>  $this->input->post('event_starttime'),
-	   			 						'endtime'      =>  $this->input->post('event_endtime'),
-	   			 						'facilitator'  =>  $this->input->post('facilitator_name_day1')[$i],
-	   			 						'location'     =>  $this->input->post('location_day1')[$i],
-	   			 						'agenda'       =>  $this->input->post('agenda1')[$i],
-	   			 						'itystarttime' =>  $this->input->post('from_hour_day1')[$i].' '.$this->input->post('from_min_day1')[$i].' '.$this->input->post('from_sec_day1')[$i],
-	   			 						'ityendtime'   =>  $this->input->post('to_hour_day1')[$i].' '.$this->input->post('to_min_day1')[$i].' '.$this->input->post('to_sec_day1')[$i]
-	   			 					));	
-	   			}
-
-	   			// day 2 count
-
-	   			$day2_count = count ($_POST['from_hour_day2']); 	   		  			
-	   			
-	   			for($i=0; $i<$day2_count; $i++)
-	   			{
 	   				
-	   			 array_push($pgm_schedule, array
-	   			 					(
-	   			 						'day'		   => 2,
-	   			 					   	'eventnumber'  =>  $i+1,
-	   			 					  	'starttime'    =>  $this->input->post('event_starttime2'),
-	   			 						'endtime'      =>  $this->input->post('event_endtime2'),
-	   			 					    'facilitator'  => $this->input->post('facilitator_name_day2')[$i],
-	   			 						'location'     =>  $this->input->post('location_day2')[$i],
-	   			 						'agenda'       => $this->input->post('agenda2')[$i],
-	   			 					    'itystarttime' =>  $this->input->post('from_hour_day2')[$i].' '.$this->input->post('from_min_day2')[$i].' '.$this->input->post('from_sec_day2')[$i],
-	   			 						'ityendtime'   => $this->input->post('to_hour_day2')[$i].' '.$this->input->post('to_min_day2')[$i].' '.$this->input->post('to_sec_day2')[$i]
-	   			 					));	
-	   			}
-
-	   			// day 3 count
-
-	   			$day3_count = count ($_POST['from_hour_day3']);
-	   			$location3 = isset($_POST['location_day3']);	
-
-	   				for($i=0; $i<$day3_count; $i++)
+	   				for($event=0; $event<$no_of_events; $event++)
 	   				{
-	   				
+	   					// echo $event;
 	   					array_push($pgm_schedule, array
-	   								(
-	   									'day'		   => 3,
-	   			 						'eventnumber'  =>  $i+1,
-	   			 						'starttime'    =>  $this->input->post('event_starttime3'),
-	   			 						'endtime'      =>  $this->input->post('event_endtime3'),
-	   			 						'facilitator'  =>  $this->input->post('facilitator_name_day3')[$i],
-	   			 						'location'     =>  $this->input->post('location_day3')[$i],
-	   			 						'agenda'       =>  $this->input->post('agenda3')[$i],
-	   			 						'itystarttime' =>  $this->input->post('from_hour_day3')[$i].' '.$this->input->post('from_min_day3')[$i].' '.$this->input->post('from_sec_day3')[$i],
-	   			 						'ityendtime'   =>  $this->input->post('to_hour_day3')[$i].' '.$this->input->post('to_min_day3')[$i].' '.$this->input->post('to_sec_day3')[$i]
-	   			 					));	
-	   				}
+						(
+							'day'		   =>  $day,
+							'eventnumber'  =>  '1',
+							'starttime'    =>  $this->input->post('day'.$day.'_event_starttime'),
+							'endtime'      =>  $this->input->post('day'.$day.'_event_endtime'),
+							'facilitator'  =>  $this->input->post('day'.$day.'_facilitator_name')[$event],
+							'location'     =>  $this->input->post('day'.$day.'_location')[$event],
+							'agenda'       =>  $this->input->post('day'.$day.'_agenda')[$event],
+							'itystarttime' =>  $this->input->post('day'.$day.'_from_hour')[$event].' '.$this->input->post('day'.$day.'_from_min')[$event].' '.$this->input->post('day'.$day.'_from_sec')[$event],
+	   			 			'ityendtime'   =>  $this->input->post('day'.$day.'_to_hour')[$event].' '.$this->input->post('day'.$day.'_to_min')[$event].' '.$this->input->post('day'.$day.'_to_sec')[$event]
+	   			 		));
+	   			 	}	
+	   			}
 
 	   			 $program_schedule = array('eventid'   => $this->session->userdata('id'),
 			 						'programschedule' => $pgm_schedule); //array of array insert the values
 				 
 				 $json_data = json_encode($program_schedule); 
 
-				 $result = $this->rest->post('http://104.197.80.225:3010/wow/event/program',$json_data,'json');	  
+				 $result = $this->rest->post('http://104.197.80.225:3010/wow/event/program',$json_data,'json');	  	
 
 	// print_r($result);
 
@@ -1409,14 +1339,10 @@ public function social_single_event()
  	//first step
 
  			 $start_date = $_POST['event_startdate'];
-		     $end_date   = $_POST['event_enddate'];
-		     $start_time =  $_POST['event_startime'];
-		     $end_time   =  $_POST['event_endtiming'];
-		     $s_date = date('M/d/Y', strtotime($start_date)); 
-		     $e_date = date('M/d/Y', strtotime($end_date)); 
-		     $s_time = date('H:i:s', strtotime($start_time)); 
-		     $e_time = date('H:i:s', strtotime($end_time)); 
-
+		     $end_date   = $_POST['event_enddate'];		    
+		     $s_date = date('Y/m/d', strtotime($start_date)); 
+		     $e_date = date('Y/m/d', strtotime($end_date)); 
+		    
 
  			$token =  $this->session->userdata('token');		
  			
@@ -1425,8 +1351,8 @@ public function social_single_event()
 							'eventcategory:' .$this->input->post('event_category'), 
 							'eventname:'     .$this->input->post('event_name'),
 							'eventtimezone:' .$this->input->post('time_zone'),
-							'eventstartdate:' .$s_date.' '.$s_time,
-							'eventenddate:'   . $e_date.' '. $e_time,
+							'eventstartdate:' .$s_date.' '.$this->input->post('event_startime'),
+							'eventenddate:'   .$e_date.' '.$this->input->post('event_endtiming'),
 							'eventdescription:' .$this->input->post('event_description')
 							);
 		   	 
@@ -1465,8 +1391,7 @@ public function social_single_event()
 		    	$token2  =  $this->session->userdata('token');
 
 		     	$header2 = array('token:'  .$token2,
-		     				'eventid:' 	   .$this->session->userdata('id'),
-		     				// 'eventcity:'   .$this->input->post('venue_city[]'),
+		     				'eventid:' 	   .$this->session->userdata('id'),		     				
 							'eventtitle:'  .$this->input->post('event_title'), 
 							'runtimefrom:' .$this->input->post('runtime_from'),
 							'runtimeto:'   .$this->input->post('totime_to')					
@@ -1552,78 +1477,41 @@ public function social_single_event()
 	//four step program shedule upload	    		
 			
 	  		 	$this->rest->http_header('token',  $this->session->userdata('token'));
+
 	   			$pgm_schedule = array();
 	   			
-	   			// day 1 count
+	   			// no.of days counts assign hidden input get by this value
+	   			$no_of_days = $this->input->post('no_of_days');
 
-	   			$day1_count = count ($_POST['from_hour_day1']);   
-	   			
-	   			for($i=0; $i<$day1_count; $i++)
+	   			for($day=1; $day<=$no_of_days; $day++)
 	   			{	   				
-	   				array_push($pgm_schedule, array
-	   								(
+	   				$no_of_events = count ($this->input->post('day'.$day.'_from_hour'));
 
-	   									'day'		   =>  1,
-	   			 						'eventnumber'  =>  $i+1,
-	   			 						'starttime'    =>  $this->input->post('event_starttime'),
-	   			 						'endtime'      =>  $this->input->post('event_endtime'),
-	   			 						'facilitator'  =>  $this->input->post('facilitator_name_day1')[$i],
-	   			 						'location'     =>  $this->input->post('location_day1')[$i],
-	   			 						'agenda'       =>  $this->input->post('agenda1')[$i],
-	   			 						'itystarttime' =>  $this->input->post('from_hour_day1')[$i].' '.$this->input->post('from_min_day1')[$i].' '.$this->input->post('from_sec_day1')[$i],
-	   			 						'ityendtime'   =>  $this->input->post('to_hour_day1')[$i].' '.$this->input->post('to_min_day1')[$i].' '.$this->input->post('to_sec_day1')[$i]
-	   			 					));	
-	   			}
-
-	   			// day 2 count
-
-	   			$day2_count = count ($_POST['from_hour_day2']); 	   		  			
-	   			
-	   			for($i=0; $i<$day2_count; $i++)
-	   			{
 	   				
-	   			 array_push($pgm_schedule, array
-	   			 					(
-	   			 						'day'		   => 2,
-	   			 					   	'eventnumber'  =>  $i+1,
-	   			 					  	'starttime'    =>  $this->input->post('event_starttime2'),
-	   			 						'endtime'      =>  $this->input->post('event_endtime2'),
-	   			 					    'facilitator'  => $this->input->post('facilitator_name_day2')[$i],
-	   			 						'location'     =>  $this->input->post('location_day2')[$i],
-	   			 						'agenda'       => $this->input->post('agenda2')[$i],
-	   			 					    'itystarttime' =>  $this->input->post('from_hour_day2')[$i].' '.$this->input->post('from_min_day2')[$i].' '.$this->input->post('from_sec_day2')[$i],
-	   			 						'ityendtime'   => $this->input->post('to_hour_day2')[$i].' '.$this->input->post('to_min_day2')[$i].' '.$this->input->post('to_sec_day2')[$i]
-	   			 					));	
-	   			}
-
-	   			// day 3 count
-
-	   			$day3_count = count ($_POST['from_hour_day3']);
-	   			$location3 = isset($_POST['location_day3']);	
-
-	   				for($i=0; $i<$day3_count; $i++)
+	   				for($event=0; $event<$no_of_events; $event++)
 	   				{
-	   				
+	   					// echo $event;
 	   					array_push($pgm_schedule, array
-	   								(
-	   									'day'		   => 3,
-	   			 						'eventnumber'  =>  $i+1,
-	   			 						'starttime'    =>  $this->input->post('event_starttime3'),
-	   			 						'endtime'      =>  $this->input->post('event_endtime3'),
-	   			 						'facilitator'  =>  $this->input->post('facilitator_name_day3')[$i],
-	   			 						'location'     =>  $this->input->post('location_day3')[$i],
-	   			 						'agenda'       =>  $this->input->post('agenda3')[$i],
-	   			 						'itystarttime' =>  $this->input->post('from_hour_day3')[$i].' '.$this->input->post('from_min_day3')[$i].' '.$this->input->post('from_sec_day3')[$i],
-	   			 						'ityendtime'   =>  $this->input->post('to_hour_day3')[$i].' '.$this->input->post('to_min_day3')[$i].' '.$this->input->post('to_sec_day3')[$i]
-	   			 					));	
-	   				}
+						(
+							'day'		   =>  $day,
+							'eventnumber'  =>  '1',
+							'starttime'    =>  $this->input->post('day'.$day.'_event_starttime'),
+							'endtime'      =>  $this->input->post('day'.$day.'_event_endtime'),
+							'facilitator'  =>  $this->input->post('day'.$day.'_facilitator_name')[$event],
+							'location'     =>  $this->input->post('day'.$day.'_location')[$event],
+							'agenda'       =>  $this->input->post('day'.$day.'_agenda')[$event],
+							'itystarttime' =>  $this->input->post('day'.$day.'_from_hour')[$event].' '.$this->input->post('day'.$day.'_from_min')[$event].' '.$this->input->post('day'.$day.'_from_sec')[$event],
+	   			 			'ityendtime'   =>  $this->input->post('day'.$day.'_to_hour')[$event].' '.$this->input->post('day'.$day.'_to_min')[$event].' '.$this->input->post('day'.$day.'_to_sec')[$event]
+	   			 		));
+	   			 	}	
+	   			}
 
 	   			 $program_schedule = array('eventid'   => $this->session->userdata('id'),
 			 						'programschedule' => $pgm_schedule); //array of array insert the values
 				 
 				 $json_data = json_encode($program_schedule); 
 
-				 $result = $this->rest->post('http://104.197.80.225:3010/wow/event/program',$json_data,'json');	  
+				 $result = $this->rest->post('http://104.197.80.225:3010/wow/event/program',$json_data,'json');	   
 
 	// print_r($result);
 
@@ -1975,80 +1863,44 @@ public function social_multicity_event()
 
 
 	//four step program shedule upload	    		
-			
-	  		 	$this->rest->http_header('token',  $this->session->userdata('token'));
+		
+		$this->rest->http_header('token',  $this->session->userdata('token'));
+
 	   			$pgm_schedule = array();
 	   			
-	   			// day 1 count
+	   			// no.of days counts assign hidden input get by this value
+	   			$no_of_days = $this->input->post('no_of_days');
 
-	   			$day1_count = count ($_POST['from_hour_day1']);   
-	   			
-	   			for($i=0; $i<$day1_count; $i++)
+	   			for($day=1; $day<=$no_of_days; $day++)
 	   			{	   				
-	   				array_push($pgm_schedule, array
-	   								(
+	   				$no_of_events = count ($this->input->post('day'.$day.'_from_hour'));
 
-	   									'day'		   =>  1,
-	   			 						'eventnumber'  =>  $i+1,
-	   			 						'starttime'    =>  $this->input->post('event_starttime'),
-	   			 						'endtime'      =>  $this->input->post('event_endtime'),
-	   			 						'facilitator'  =>  $this->input->post('facilitator_name_day1')[$i],
-	   			 						'location'     =>  $this->input->post('location_day1')[$i],
-	   			 						'agenda'       =>  $this->input->post('agenda1')[$i],
-	   			 						'itystarttime' =>  $this->input->post('from_hour_day1')[$i].' '.$this->input->post('from_min_day1')[$i].' '.$this->input->post('from_sec_day1')[$i],
-	   			 						'ityendtime'   =>  $this->input->post('to_hour_day1')[$i].' '.$this->input->post('to_min_day1')[$i].' '.$this->input->post('to_sec_day1')[$i]
-	   			 					));	
-	   			}
-
-	   			// day 2 count
-
-	   			$day2_count = count ($_POST['from_hour_day2']); 	   		  			
-	   			
-	   			for($i=0; $i<$day2_count; $i++)
-	   			{
 	   				
-	   			 array_push($pgm_schedule, array
-	   			 					(
-	   			 						'day'		   => 2,
-	   			 					   	'eventnumber'  =>  $i+1,
-	   			 					  	'starttime'    =>  $this->input->post('event_starttime2'),
-	   			 						'endtime'      =>  $this->input->post('event_endtime2'),
-	   			 					    'facilitator'  => $this->input->post('facilitator_name_day2')[$i],
-	   			 						'location'     =>  $this->input->post('location_day2')[$i],
-	   			 						'agenda'       => $this->input->post('agenda2')[$i],
-	   			 					    'itystarttime' =>  $this->input->post('from_hour_day2')[$i].' '.$this->input->post('from_min_day2')[$i].' '.$this->input->post('from_sec_day2')[$i],
-	   			 						'ityendtime'   => $this->input->post('to_hour_day2')[$i].' '.$this->input->post('to_min_day2')[$i].' '.$this->input->post('to_sec_day2')[$i]
-	   			 					));	
-	   			}
-
-	   			// day 3 count
-
-	   			$day3_count = count ($_POST['from_hour_day3']);
-	   			$location3 = isset($_POST['location_day3']);	
-
-	   				for($i=0; $i<$day3_count; $i++)
+	   				for($event=0; $event<$no_of_events; $event++)
 	   				{
-	   				
+	   					// echo $event;
 	   					array_push($pgm_schedule, array
-	   								(
-	   									'day'		   => 3,
-	   			 						'eventnumber'  =>  $i+1,
-	   			 						'starttime'    =>  $this->input->post('event_starttime3'),
-	   			 						'endtime'      =>  $this->input->post('event_endtime3'),
-	   			 						'facilitator'  =>  $this->input->post('facilitator_name_day3')[$i],
-	   			 						'location'     =>  $this->input->post('location_day3')[$i],
-	   			 						'agenda'       =>  $this->input->post('agenda3')[$i],
-	   			 						'itystarttime' =>  $this->input->post('from_hour_day3')[$i].' '.$this->input->post('from_min_day3')[$i].' '.$this->input->post('from_sec_day3')[$i],
-	   			 						'ityendtime'   =>  $this->input->post('to_hour_day3')[$i].' '.$this->input->post('to_min_day3')[$i].' '.$this->input->post('to_sec_day3')[$i]
-	   			 					));	
-	   				}
+						(
+							'day'		   =>  $day,
+							'eventnumber'  =>  '1',
+							'starttime'    =>  $this->input->post('day'.$day.'_event_starttime'),
+							'endtime'      =>  $this->input->post('day'.$day.'_event_endtime'),
+							'facilitator'  =>  $this->input->post('day'.$day.'_facilitator_name')[$event],
+							'location'     =>  $this->input->post('day'.$day.'_location')[$event],
+							'agenda'       =>  $this->input->post('day'.$day.'_agenda')[$event],
+							'itystarttime' =>  $this->input->post('day'.$day.'_from_hour')[$event].' '.$this->input->post('day'.$day.'_from_min')[$event].' '.$this->input->post('day'.$day.'_from_sec')[$event],
+	   			 			'ityendtime'   =>  $this->input->post('day'.$day.'_to_hour')[$event].' '.$this->input->post('day'.$day.'_to_min')[$event].' '.$this->input->post('day'.$day.'_to_sec')[$event]
+	   			 		));
+	   			 	}	
+	   			}
 
 	   			 $program_schedule = array('eventid'   => $this->session->userdata('id'),
 			 						'programschedule' => $pgm_schedule); //array of array insert the values
 				 
 				 $json_data = json_encode($program_schedule); 
 
-				 $result = $this->rest->post('http://104.197.80.225:3010/wow/event/program',$json_data,'json');	  
+				 $result = $this->rest->post('http://104.197.80.225:3010/wow/event/program',$json_data,'json');	  	
+	  		 	
 
 	// print_r($result);
 
@@ -2493,25 +2345,27 @@ public function get_eventfeed()
 			   	  {	
 			   	  	
 			   	  	$this->today_event(); //this is function call	
-			   	  	$data['todayfeed']	 = 	$this->today_event();   	  	
+			   	  	$data['todayfeed'] = $this->today_event();   	  	
 			   	  	// $this->$data['todayfeed'];
 			   	  	// print_r($data['todayfeed'] );
-			   	 }
-		
+			   	  }		
 
 				  $this->load->view('event/eventfeed', $data);
 		 	}
 	}
 
-	public function today_event()
+public function today_event()
 	{
 				  $this->rest->http_header('token', $this->session->userdata('token'));
 			   	  $data = array();
 			   	  $json_data = json_encode($data); 
 
 			   	   $today_event = $this->rest->post('http://104.197.80.225:3010/wow/event/todaysfeed',$json_data,'json');
-			   	   $data['todayfeed'] = $today_event->message;
-			   	   return $data['todayfeed'];  //here variable send to get_eventfeed 
+			   	   if($today_event->success == true)
+			   	  	{	
+				   	   $data['todayfeed'] = $today_event->message;
+				   	   return $data['todayfeed'];  //here variable send to get_eventfeed
+			   	   } 
 			   	   
 	}
 
@@ -2624,8 +2478,9 @@ public function comments($command_id)
 		 
 		   	 redirect('event/get_eventfeed'); //page redirect 
 	 }
-	   
 
+
+	   
 
 }	
 

@@ -196,7 +196,7 @@ table, td, tr {
   <!-- Timeline
       ================================================= -->
   <div class="timeline">
-    <div class="timeline-cover"> <img id="profileImage1" class="cover-pic" src="../assets/images/event-venue-1.jpg" style="background-size:cover; width:100%; margin-top:20px;" > </div>
+    <div class="timeline-cover"> <img class="cover-pic" src="../assets/images/event-venue-1.jpg" style="background-size:cover; width:100%; margin-top:20px;" > </div>
     <div id="page-contents" style="border:1px solid #e6e6e6; background-color: #fff; padding-top: 0px;">
       <div class="row" style="margin-bottom:15px;">
         <div class="col-md-12" style="margin-top:15px; margin-bottom:10px;">
@@ -308,10 +308,10 @@ table, td, tr {
                       <div class="row">
                         <div class="pull-left" style="font-size:15px; font-weight:bold;">Pricing</div>
                         <div class="pull-left" style="font-size:13px; line-height:20px;">FRI - SAT: $500<br>
-FRI - SAT BUYOUT: $10,000<br>
-SUN - THURS: $2,000<br>
-SUN - THURS BUYOUT: $2,000<br>
-WEDDINGS: Quote Request For Info</div>
+                                FRI - SAT BUYOUT: $10,000<br>
+                                SUN - THURS: $2,000<br>
+                                SUN - THURS BUYOUT: $2,000<br>
+                                WEDDINGS: Quote Request For Info</div>
                       </div>
                     </div>
                   </div>
@@ -319,15 +319,15 @@ WEDDINGS: Quote Request For Info</div>
                     <div class="row">
                       
                       <div class="pull-left"><strong>Atrium Package: $5,000</strong> <br>
-• Full use of Museum; exhibits remain open for guest to enjoy <br>
-• Full use of the Building and Grounds For Contracted Amount of Time <br>
-• 2 Paved parking lots (150 cars) <br>
-• Use of our Tables and Chairs: (20) 60" Rounds; (200) White Folding Chairs <br>
-• Set Up and Tear Down of Tables and Chairs<br> 
-• 2 Catering Prep areas with all necessary power supply <br>
-• 2 Event Security Officers for your Event (additional officers needed for parties over 200) <br>
-• Professional event planner available for full service coordinating, partial coordinating, basic coordinating, or day-of coordinating (see attached descriptions)<br> 
-• Valet Parking for Your Guests Available (please contact us for quote)
+                        • Full use of Museum; exhibits remain open for guest to enjoy <br>
+                        • Full use of the Building and Grounds For Contracted Amount of Time <br>
+                        • 2 Paved parking lots (150 cars) <br>
+                        • Use of our Tables and Chairs: (20) 60" Rounds; (200) White Folding Chairs <br>
+                        • Set Up and Tear Down of Tables and Chairs<br> 
+                        • 2 Catering Prep areas with all necessary power supply <br>
+                        • 2 Event Security Officers for your Event (additional officers needed for parties over 200) <br>
+                        • Professional event planner available for full service coordinating, partial coordinating, basic coordinating, or day-of coordinating (see attached descriptions)<br> 
+                        • Valet Parking for Your Guests Available (please contact us for quote)
                       </div>
                     </div>
                     

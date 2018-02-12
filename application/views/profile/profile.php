@@ -255,26 +255,9 @@ table, td, tr
       </div>
       <!--Timeline Menu for Large Screens End--> 
       
-      <!--Timeline Menu for Small Screens-->
-      <div class="navbar-mobile hidden-lg hidden-md">
-        <div class="profile-info"> <img src="<?php echo base_url ('assets/images/users/user-1.jpg') ?>" alt="" class="img-responsive profile-photo" />
-          <h3 style="color:#fff;">Emeka Ike</h3>
-          <p style="color:#fff;" class="text-muted">Managing Director</p>
-        </div>
-        <div class="mobile-menu">
-          <ul class="list-inline">
-            <li><a href="timline.html">About</a></li>
-            <li><a href="timeline-about.html" class="active">Interests</a></li>
-            <li><a href="timeline-album.html">Photos</a></li>
-            <li><a href="timeline-friends.html">Eventhubb</a></li>
-            <li><a href="timeline-friends.html">Wowtag</a></li>
-          </ul>
-          <button class="btn-primary">Add Friend</button>
-        </div>
-      </div>
-      <!--Timeline Menu for Small Screens End--> 
-      
+            
     </div>
+
     <div id="page-contents" style="border:1px solid #e6e6e6; background-color: #fff; padding-top: 0px;">
       <div class="row">
         <div class="col-md-12">
@@ -283,8 +266,7 @@ table, td, tr
               <li class="active"> <a  href="#1" data-toggle="tab">Personal Profile</a> </li>
               <li><a href="#2" data-toggle="tab">Professional Profile</a> </li>
             </ul>
-            <div class="tab-content ">
-             
+            <div class="tab-content ">            
 
               <div class="tab-pane active" id="1" style="margin-top: 20px;">
                 <div class="row">
@@ -365,7 +347,7 @@ table, td, tr
               </div>
                                   <!-- personal overview model popup -->
 
-           <div class="modal fade modal-1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal fade modal-1" tabindex="-1" role="dialog" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                           <div class="post-content">                            
@@ -402,7 +384,7 @@ table, td, tr
                                 <input type="submit" value="Save Changes" class="btn btn-primary" style="width:140px;">
                               </div>
                             </div>
-                          </form>
+                    </form>
                                </div>
                                 </div>
                                   </div>                                
@@ -410,10 +392,11 @@ table, td, tr
                             </div>
                           </div>
                         </div>
-                      </div>
+            </div>
 
                   <!-- end personal self intro video model popup -->
-                      <div class="modal fade modal-video" tabindex="-1" role="dialog" aria-hidden="true">
+
+              <div class="modal fade modal-video" tabindex="-1" role="dialog" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                           <div class="post-content">                            
@@ -448,8 +431,9 @@ table, td, tr
                             </div>
                           </div>
                         </div>
-                      </div>
+              </div>
                    <!-- end personal model popup -->
+
                               <!-- about me tab for personal  -->
 
                                   <div class="tab-pane" id="b">
@@ -501,7 +485,7 @@ table, td, tr
 
                                    <!-- personal aboutme model popup -->
 
-           <div class="modal fade modal-2" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal fade modal-2" tabindex="-1" role="dialog" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                           <div class="post-content">                            
@@ -557,7 +541,7 @@ table, td, tr
                             </div>
                           </div>
                         </div>
-                      </div>
+          </div>
                    <!-- end about me personal model popup -->
 
                             <!-- relationship tab for personal  -->
@@ -612,7 +596,7 @@ table, td, tr
 
                     <!-- personal relationship  model popup -->
 
-           <div class="modal fade modal-relation" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal fade modal-relation" tabindex="-1" role="dialog" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                           <div class="post-content">                            
@@ -729,7 +713,7 @@ table, td, tr
                             </div>
                           </div>
                         </div>
-                      </div>
+          </div>
 
                    <!-- end relationship personal model popup -->
 
@@ -778,7 +762,7 @@ table, td, tr
 
                                    <!-- contact info personal model popup -->
 
-           <div class="modal fade modal-3" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal fade modal-3" tabindex="-1" role="dialog" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                           <div class="post-content">                            
@@ -791,7 +775,8 @@ table, td, tr
                                 <div class="line-divider"></div>
                                 <div class="user-info">
                                  <div class="row" style="padding:10px;">                              
-                    <form action="<?php echo base_url('profile/personal_update_contactinfo'); ?>" method="post"  id="personal_update_contactinfo" class="form-inline">
+                    <form action="<?php echo base_url('profile/personal_update_contactinfo'); ?>" method="post" 
+                      id="personal_update_contactinfo" class="form-inline">
                              <div class="row">   
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class="">Country</label>
@@ -819,15 +804,15 @@ table, td, tr
                                 <input type="submit" value="Save Changes" class="btn btn-primary" style="width:140px;">                                
                               </div>
                             </div>
-                          </form>
+                    </form>
                                </div>
                                 </div>
                                   </div>                                
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
+                  </div>
+                </div>
                    <!-- contact info personal model popup -->
 
                                    <!-- event info tab for personal  -->
@@ -879,7 +864,7 @@ table, td, tr
 
                                       <!-- event info personal model popup -->
 
-           <div class="modal fade modal-4" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal fade modal-4" tabindex="-1" role="dialog" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                           <div class="post-content">                            
@@ -892,7 +877,8 @@ table, td, tr
                                 <div class="line-divider"></div>
                                 <div class="user-info">
                                  <div class="row" style="padding:10px;">                              
-               <form action="<?php echo base_url('profile/personal_update_eventinfo'); ?>" method="post"  id="personal_update_eventinfo" class="form-inline">                            
+                  <form action="<?php echo base_url('profile/personal_update_eventinfo'); ?>" method="post"  id="personal_update_eventinfo"
+                   class="form-inline">                            
                              <div class="row">   
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class="">Wedding</label>
@@ -917,7 +903,7 @@ table, td, tr
                                 <input type="submit" value="Save Changes" class="btn btn-primary" style="width:140px;">                                
                               </div>
                             </div>
-                     </form>
+                  </form>
                                </div>
                                 </div>
                                   </div>                                
@@ -925,7 +911,7 @@ table, td, tr
                             </div>
                           </div>
                         </div>
-                      </div>
+              </div>
 
                    <!-- event info personal model popup -->
 
@@ -939,6 +925,8 @@ table, td, tr
                       </div>
                     </div>
                   </div>
+
+
                   <div class="col-md-3 static"> 
                     
                     <!--Sticky Timeline Activity Sidebar-->
@@ -1040,30 +1028,37 @@ table, td, tr
                                      
                                       <div class="col-md-12">
                                             <div class="pull-left" style="width:7%;"><img src="../assets/images/intro-icon.png" alt=""/></div>
-                                            <div class="pull-left" style="width:75%; text-transform: capitalize;">Work Experience<br>
+                                            <div class="pull-left" style="width:65%; text-transform: capitalize;">Work Experience<br>
                                                <span style="color:#333; font-size:13px;"> 
-                                                 <?php if(isset($profile->workexperience->title)){echo $profile->workexperience->title; } else{echo "";} ?> 
 
-                                                  <?php if(isset($profile->workexperience->company)){echo $profile->workexperience->company; } else{echo "";} ?> 
-                                                   <br>
-
-                                                  <?php if(isset($profile->workexperience->location)){echo $profile->workexperience->location; } else{echo "";} ?>
-                                                   <br>
-
-                                                  <?php if(isset($profile->workexperience->frommonth)){echo $profile->workexperience->frommonth.' '. $profile->workexperience->fromyear.' - '.$profile->workexperience->tomonth.' '.$profile->workexperience->toyear; } else{echo "";} ?> 
-                                                   <br>
-
-                                                   <?php if(isset($profile->workexperience->link)){echo $profile->workexperience->link; } else{echo "";} ?> 
-                                                   <br>
-
-                                                  <?php if(isset($profile->workexperience->description)){echo $profile->workexperience->description; } else{echo "";} ?> 
-                                                   <br>
+                                                  <?php 
+                                                        foreach($profile->workexperience as $workexperiences)
+                                                        {
+                                                           if(isset($workexperiences->title)||($workexperiences->company)||($workexperiences->location)||($workexperiences->frommonth)||($workexperiences->fromyear)||($workexperiences->tomonth)||($workexperiences->toyear)|| ($workexperiences->link)||($workexperiences->description))
+                                                           {
+                                                              echo $workexperiences->title." ".'<br>'; 
+                                                              echo $workexperiences->company." ".'<br>'; 
+                                                              echo $workexperiences->location." ".'<br>'; 
+                                                              echo $workexperiences->frommonth." ".$workexperiences->fromyear."-".$workexperiences->tomonth." ".$workexperiences->toyear."".'<br>'; 
+                                                              echo $workexperiences->link." ".'<br>'; 
+                                                              echo $workexperiences->description." ".'<br>';
+                                                            }                                                      
+                                                          else
+                                                          {
+                                                            echo "Please update Your experience";
+                                                          }
+                                                        }
+                                                  ?>                                                 
 
                                               </span>
 
                                             </div>
 
-                                               <div class="pull-right text-right" style="width:10%; margin-top:10px;"> <a href="#" data-toggle="modal" data-target=".modal-ex_professional" ><img src="../assets/images/edit_icon.png" alt=""/></a></div>
+                                               <div class="pull-right text-right" style="width:20%; margin-top:10px;"> <a href="#" data-toggle="modal" data-target=".modal-ex_professional" ><img src="../assets/images/edit_icon.png" alt=""/></a>
+                                                <a href="#" data-toggle="modal" data-target=".modal-ex_professional_new" ><img src="../assets/images/plus-icon" alt=""/></a>
+                                               </div>
+
+                                            
                                       </div>
 
                                              <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
@@ -1118,7 +1113,8 @@ table, td, tr
                                                <div class="line-divider"></div>
                                                <div class="user-info">
                                  <div class="row" style="padding:10px;">
-                                <form action="<?php echo base_url('profile/professional_update'); ?>" method="post"  id="professional_update" class="form-inline">
+                      <form action="<?php echo base_url('profile/professional_update'); ?>" method="post"  id="professional_update"
+                       class="form-inline">
                                 <div class="row">   
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class="">College</label>
@@ -1164,7 +1160,7 @@ table, td, tr
                                 <input type="submit" value="Save Changes" class="btn btn-primary" style="width:140px;">                                
                               </div>
                             </div>
-                          </form>
+                      </form>
                                </div>
                                 </div>
                                   </div>                                
@@ -1172,7 +1168,7 @@ table, td, tr
                             </div>
                           </div>
                         </div>
-                      </div>
+          </div>
                    <!--  professional background model popup -->
 
                      <!--  professional work experience  model popup -->
@@ -1189,31 +1185,37 @@ table, td, tr
                         <div class="line-divider"></div>
             <div class="user-info">
               <div class="row" style="padding:10px;">                              
-                 <form action="<?php echo base_url('profile/professional_work_exp'); ?>" method="post"  id="professional_work_exp" class="form-inline">                            
+                      <form action="<?php echo base_url('profile/professional_work_exp'); ?>" method="post"  id="professional_work_exp" 
+                        class="form-inline">  
+
+                                 <?php 
+                                           foreach($profile->workexperience as $workexperiences)
+                                            {
+                                  ?>                          
                              <div class="row">   
                               <div class="form-group col-xs-12">
                                 <label for="date-to" >Title</label>
-                                <input  type="text" id="wedding" class="form-control" name="title" value=" <?php if(isset($profile->workexperience->title)){echo $profile->workexperience->title; } else{echo "";} ?>" required />
+                                <input type="text" id="wedding" class="form-control" name="title[]" value="<?php if(isset($workexperiences->title)){echo $workexperiences->title; } else{echo "";} ?>" required />
                               </div>
                             </div>                                                  
                             <div class="row ">  
                               <div class="form-group col-xs-12">
                                 <label for="date-to" >Company</label>
-                                <input  type="text" id="socialfunction" class="form-control input-group-lg" name="company" title="Enter a Date" value=" <?php if(isset($profile->workexperience->company)){echo $profile->workexperience->company; } else{echo "";} ?>" required/>
+                                <input  type="text" id="socialfunction" class="form-control input-group-lg" name="company[]" title="Enter a Date" value="<?php if(isset($workexperiences->company)){echo $workexperiences->company; } else{echo "";} ?>" required/>
                               </div>  
                             </div>
                               <div class="row ">  
                                 <div class="form-group col-xs-12">
                                   <label for="date-to"> Location</label>
-                                  <input  type="text" id="party" class="form-control input-group-lg" name="location" title="Enter a Date" value=" <?php if(isset($profile->workexperience->location)){echo $profile->workexperience->location; } else{echo "";} ?>" required />
+                                  <input  type="text" id="party" class="form-control input-group-lg" name="location[]" title="Enter a Date" value="<?php if(isset($workexperiences->location)){echo $workexperiences->location; } else{echo "";} ?>" required />
                                 </div>  
                              </div>
                             <div class="row">  
                                 <div class="form-group col-md-6">
                                   <label for="date-to"> From</label>
-                                  <select name="from_month" class="form-control">
-                                    <option value="<?php if(isset($profile->workexperience->frommonth)){echo $profile->workexperience->frommonth; } else{echo "Month";} ?> "><?php if(isset($profile->workexperience->frommonth)){echo $profile->workexperience->frommonth; } else{echo "Month";} ?>  </option>
-                                      <option value="month"> Month</option>
+                                  <select name="from_month[]" class="form-control">
+                                    <option value="<?php if(isset($workexperiences->frommonth)){echo $workexperiences->frommonth; } else{echo "Month";} ?> "><?php if(isset($workexperiences->frommonth)){echo $workexperiences->frommonth; } else{echo "Month";} ?>  </option>
+                                      <option value=""> Month</option>
                                       <option value="january"> January</option>
                                       <option value="february"> February</option>
                                       <option value="march"> March</option>
@@ -1230,9 +1232,9 @@ table, td, tr
                                 </div>  
                                 <div class="form-group col-md-6">
                                   <label for="date-to">To</label>
-                                 <select name="to_month" class="form-control">
-                                      <option value="<?php if(isset($profile->workexperience->tomonth)){echo $profile->workexperience->tomonth; } else{echo "Month";} ?> "><?php if(isset($profile->workexperience->tomonth)){echo $profile->workexperience->tomonth; } else{echo "Month";} ?>  </option>
-                                      <option value="month"> Month</option>
+                                 <select name="to_month[]" class="form-control">
+                                      <option value="<?php if(isset($workexperiences->tomonth)){echo $workexperiences->tomonth; } else{echo "Month";} ?> "><?php if(isset($workexperiences->tomonth)){echo $workexperiences->tomonth; } else{echo "Month";} ?>  </option>
+                                      <option value=""> Month</option>
                                       <option value="january"> January</option>
                                       <option value="february"> February</option>
                                       <option value="march"> March</option>
@@ -1251,8 +1253,8 @@ table, td, tr
 
                             <div class="row">  
                                 <div class="form-group col-md-6">                                 
-                                  <select name="from_year" class="form-control">
-                                     <option value="<?php if(isset($profile->workexperience->fromyear)){echo $profile->workexperience->fromyear; } else{echo "Year";} ?>"><?php if(isset($profile->workexperience->fromyear)){echo $profile->workexperience->fromyear; } else{echo "Year";} ?>  </option>
+                                  <select name="from_year[]" class="form-control">
+                                     <option value="<?php if(isset($workexperiences->fromyear)){echo $workexperiences->fromyear; } else{echo "Year";} ?>"><?php if(isset($workexperiences->fromyear)){echo $workexperiences->fromyear; } else{echo "Year";} ?>  </option>
                                       <option value="2017"> 2017</option>
                                       <option value="2016"> 2016</option>
                                       <option value="2015"> 2015</option>
@@ -1272,10 +1274,11 @@ table, td, tr
                                       <option value="2001"> 2001</option>
                                       <option value="2000"> 2000</option>
                                   </select>
-                                </div>  
+                                </div> 
+
                                 <div class="form-group col-md-6">                              
-                                 <select name="to_year" class="form-control">
-                                      <option value="<?php if(isset($profile->workexperience->toyear)){echo $profile->workexperience->toyear; } else{echo "Year";} ?>"><?php if(isset($profile->workexperience->toyear)){echo $profile->workexperience->toyear; } else{echo "Year";} ?>  </option>
+                                 <select name="to_year[]" class="form-control">
+                                      <option value="<?php if(isset($workexperiences->toyear)){echo $workexperiences->toyear; } else{echo "Year";} ?>"><?php if(isset($workexperiences->toyear)){echo $workexperiences->toyear; } else{echo "Year";} ?>  </option>
                                       <option value="2017"> 2017</option>
                                       <option value="2016"> 2016</option>
                                       <option value="2015"> 2015</option>
@@ -1301,8 +1304,17 @@ table, td, tr
                             <div class="row">  
                                 <div class="form-group col-xs-12">
                                   <label for="date-to"> Description</label>
-                                 <textarea name="description" class="form-control" rows="4" cols="50"  style="text-transform: capitalize;"> 
-                                    <?php if(isset($profile->workexperience->description)){echo $profile->workexperience->description; } else{echo "";} ?>
+                                 <textarea name="description[]" class="form-control" style="min-height:100px;" > 
+                                    <?php 
+                                        if(isset($workexperiences->description)) 
+                                        {
+                                           echo $workexperiences->description; 
+                                        } 
+                                        else 
+                                          { 
+                                            echo ""; 
+                                          } 
+                                    ?>
                                   </textarea> 
                                  
                                 </div>  
@@ -1322,7 +1334,7 @@ table, td, tr
 
                              <div class="row">  
                                 <div class="form-group col-xs-12">
-                                    <input type="text" name="link" id="link_url" class="form-control" placeholder="Paste or type a link to a file or video" style="display: none;" value="<?php if(isset($profile->workexperience->link)){echo $profile->workexperience->link; } else{echo "";} ?>" >  
+                                    <input type="text" name="link[]" id="link_url" class="form-control" placeholder="Paste or type a link to a file or video" style="display: none;" value="<?php if(isset($workexperiences->link)){echo $workexperiences->link; } else{echo "";} ?>" >  
                                 </div>
                             </div>
                                                       
@@ -1331,7 +1343,180 @@ table, td, tr
                                 <input type="submit" value="Save Changes" class="btn btn-primary" style="width:140px;">                                
                               </div>
                             </div>
-                     </form>
+                            <?php } ?>
+                      </form>
+                  </div>
+                 </div>
+               </div>                                
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+
+
+       <!--  professional work experience  model popup 2 -->
+   <div class="modal fade modal-ex_professional_new" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+           <div class="modal-content">
+               <div class="post-content">                            
+                  <div class="post-container" style="padding-bottom:20px;">               
+                     <div class="post-detail">
+                       <div class="user-info">
+                         <h3>Edit Experience</h3>
+                            <span style="color:#333; font-size: 15px">Please give the following information to edit</span>
+                        </div>                              
+                        <div class="line-divider"></div>
+            <div class="user-info">
+              <div class="row" style="padding:10px;">                              
+                      <form action="<?php echo base_url('profile/professional_work_exp'); ?>" method="post"  id="professional_work_exp" 
+                        class="form-inline">  
+
+                                                        
+                             <div class="row">   
+                              <div class="form-group col-xs-12">
+                                <label for="date-to" >Title</label>
+                                <input type="text" id="wedding" class="form-control" name="title[]" value="" required />
+                              </div>
+                            </div>                                                  
+                            <div class="row ">  
+                              <div class="form-group col-xs-12">
+                                <label for="date-to" >Company</label>
+                                <input  type="text" id="socialfunction" class="form-control input-group-lg" name="company[]" title="Enter a Date" value="" required/>
+                              </div>  
+                            </div>
+                              <div class="row ">  
+                                <div class="form-group col-xs-12">
+                                  <label for="date-to"> Location</label>
+                                  <input  type="text" id="party" class="form-control input-group-lg" name="location[]" title="Enter a Date" value="" required />
+                                </div>  
+                             </div>
+                            <div class="row">  
+                                <div class="form-group col-md-6">
+                                  <label for="date-to"> From</label>
+                                  <select name="from_month[]" class="form-control">
+                                   
+                                      <option value=""> Month</option>
+                                      <option value="january"> January</option>
+                                      <option value="february"> February</option>
+                                      <option value="march"> March</option>
+                                      <option value="april"> April</option>
+                                      <option value="may"> May</option>
+                                      <option value="june"> June</option>
+                                      <option value="july"> July</option>
+                                      <option value="august"> August</option>
+                                      <option value="september"> September</option>
+                                      <option value="october"> October</option>
+                                      <option value="november"> November</option>
+                                      <option value="december"> December</option>
+                                  </select>
+                                </div>  
+                                <div class="form-group col-md-6">
+                                  <label for="date-to">To</label>
+                                 <select name="to_month[]" class="form-control">
+                                     
+                                      <option value=""> Month</option>
+                                      <option value="january"> January</option>
+                                      <option value="february"> February</option>
+                                      <option value="march"> March</option>
+                                      <option value="april"> April</option>
+                                      <option value="may"> May</option>
+                                      <option value="june"> June</option>
+                                      <option value="july"> July</option>
+                                      <option value="august"> August</option>
+                                      <option value="september"> September</option>
+                                      <option value="october"> October</option>
+                                      <option value="november"> November</option>
+                                      <option value="december"> December</option>
+                                 </select>
+                                </div>  
+                            </div>
+
+                            <div class="row">  
+                                <div class="form-group col-md-6">                                 
+                                  <select name="from_year[]" class="form-control">
+                                     <option value=""> Year </option>
+                                      <option value="2017"> 2017</option>
+                                      <option value="2016"> 2016</option>
+                                      <option value="2015"> 2015</option>
+                                      <option value="2014"> 2014</option>
+                                      <option value="2013"> 2013 </option>
+                                      <option value="2012"> 2012</option>
+                                      <option value="2011"> 2011</option>
+                                      <option value="2010"> 2010</option>
+                                      <option value="2009"> 2009</option>
+                                      <option value="2008"> 2008</option>
+                                      <option value="2007"> 2007</option>
+                                      <option value="2006"> 2006</option>
+                                      <option value="2005"> 2005</option>
+                                      <option value="2004"> 2004</option>
+                                      <option value="2003"> 2003</option>
+                                      <option value="2002"> 2002</option>
+                                      <option value="2001"> 2001</option>
+                                      <option value="2000"> 2000</option>
+                                  </select>
+                                </div> 
+
+                                <div class="form-group col-md-6">                              
+                                 <select name="to_year[]" class="form-control">
+                                      <option value=""> Year </option>
+                                      <option value="2017"> 2017</option>
+                                      <option value="2016"> 2016</option>
+                                      <option value="2015"> 2015</option>
+                                      <option value="2014"> 2014</option>
+                                      <option value="2013"> 2013 </option>
+                                      <option value="2012"> 2012</option>
+                                      <option value="2011"> 2011</option>
+                                      <option value="2010"> 2010</option>
+                                      <option value="2009"> 2009</option>
+                                      <option value="2008"> 2008</option>
+                                      <option value="2007"> 2007</option>
+                                      <option value="2006"> 2006</option>
+                                      <option value="2005"> 2005</option>
+                                      <option value="2004"> 2004</option>
+                                      <option value="2003"> 2003</option>
+                                      <option value="2002"> 2002</option>
+                                      <option value="2001"> 2001</option>
+                                      <option value="2000"> 2000</option>
+                                 </select>
+                                </div>  
+                            </div>
+
+                            <div class="row">  
+                                <div class="form-group col-xs-12">
+                                  <label for="date-to"> Description</label>
+                                 <textarea name="description[]" class="form-control" style="min-height:100px;" > 
+                                   
+                                  </textarea> 
+                                 
+                                </div>  
+                            </div>
+
+                            <div class="row">  
+                                <div class="form-group col-xs-12">
+                                  <label for="date-to">Add or link to external documents, photos, sites, videos, and presentations.</label>
+                                </div>  
+                            </div>
+
+                             <div class="row">  
+                                <div class="form-group col-xs-12">                                  
+                                    <input type="button"  id="link_show" value="Link" class="btn">
+                                </div>
+                            </div>
+
+                             <div class="row">  
+                                <div class="form-group col-xs-12">
+                                    <input type="text" name="link[]" id="link_url" class="form-control" placeholder="Paste or type a link to a file or video" style="display: none;" value="" >  
+                                </div>
+                            </div>
+                                                      
+                            <div class="row">
+                              <div  style="width:100%;" class="text-center">
+                                <input type="submit" value="Save Changes" class="btn btn-primary" style="width:140px;">                                
+                              </div>
+                            </div>
+                            
+                      </form>
                   </div>
                  </div>
                </div>                                
@@ -1342,7 +1527,6 @@ table, td, tr
      </div>
                       
                    <!--  professional work experience model popup -->
-
 
                                   <div class="tab-pane" id="13">
                                     <div class="col-md-8">

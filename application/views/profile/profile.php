@@ -143,6 +143,11 @@ table, td, tr
   color: #333!important;  
 }
 
+.modal-body {
+    max-height: calc(100vh - 250px);
+    overflow-y: auto;
+}
+
 
 </style>
 </head>
@@ -1041,8 +1046,9 @@ table, td, tr
                                                               echo $workexperiences->location." ".'<br>'; 
                                                               echo $workexperiences->frommonth." ".$workexperiences->fromyear."-".$workexperiences->tomonth." ".$workexperiences->toyear."".'<br>'; 
                                                               echo $workexperiences->link." ".'<br>'; 
-                                                              echo $workexperiences->description." ".'<br>';
-                                                            }                                                      
+                                                              echo $workexperiences->description." ".'<br> <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>';
+                                                            }
+                                                   
                                                           else
                                                           {
                                                             echo "Please update Your experience";
@@ -1054,8 +1060,7 @@ table, td, tr
 
                                             </div>
 
-                                               <div class="pull-right text-right" style="width:20%; margin-top:10px;"> <a href="#" data-toggle="modal" data-target=".modal-ex_professional" ><img src="../assets/images/edit_icon.png" alt=""/></a>
-                                                <a href="#" data-toggle="modal" data-target=".modal-ex_professional_new" ><img src="../assets/images/plus-icon" alt=""/></a>
+                                               <div class="pull-right text-right" style="width:20%; margin-top:10px;"> <a href="#" data-toggle="modal" data-target=".modal-ex_professional" ><img src="../assets/images/edit_icon.png" alt=""/></a>                                               
                                                </div>
 
                                             
@@ -1183,37 +1188,44 @@ table, td, tr
                             <span style="color:#333; font-size: 15px">Please give the following information to edit</span>
                         </div>                              
                         <div class="line-divider"></div>
+                         <div class="modal-body">
             <div class="user-info">
               <div class="row" style="padding:10px;">                              
                       <form action="<?php echo base_url('profile/professional_work_exp'); ?>" method="post"  id="professional_work_exp" 
                         class="form-inline">  
+                                 
+                  <div id="dynamic_add_exp">   
 
-                                 <?php 
+                      <?php 
+                                      if(!empty($profile->workexperience)) 
+                                        {  
                                            foreach($profile->workexperience as $workexperiences)
                                             {
-                                  ?>                          
+                                  ?>  
+                      <div class="row" id="profile_exp_1"> 
+
                              <div class="row">   
                               <div class="form-group col-xs-12">
                                 <label for="date-to" >Title</label>
-                                <input type="text" id="wedding" class="form-control" name="title[]" value="<?php if(isset($workexperiences->title)){echo $workexperiences->title; } else{echo "";} ?>" required />
+                                <input type="text" id="title_1" class="form-control" name="title[]" value="<?php if(isset($workexperiences->title)){echo $workexperiences->title; } else{echo "";} ?>" required />
                               </div>
                             </div>                                                  
                             <div class="row ">  
                               <div class="form-group col-xs-12">
                                 <label for="date-to" >Company</label>
-                                <input  type="text" id="socialfunction" class="form-control input-group-lg" name="company[]" title="Enter a Date" value="<?php if(isset($workexperiences->company)){echo $workexperiences->company; } else{echo "";} ?>" required/>
+                                <input  type="text" id="company_1" class="form-control input-group-lg" name="company[]" title="Enter a Date" value="<?php if(isset($workexperiences->company)){echo $workexperiences->company; } else{echo "";} ?>" required/>
                               </div>  
                             </div>
                               <div class="row ">  
                                 <div class="form-group col-xs-12">
                                   <label for="date-to"> Location</label>
-                                  <input  type="text" id="party" class="form-control input-group-lg" name="location[]" title="Enter a Date" value="<?php if(isset($workexperiences->location)){echo $workexperiences->location; } else{echo "";} ?>" required />
+                                  <input  type="text" id="location_1" class="form-control input-group-lg" name="location[]" title="Enter a Date" value="<?php if(isset($workexperiences->location)){echo $workexperiences->location; } else{echo "";} ?>" required />
                                 </div>  
                              </div>
                             <div class="row">  
                                 <div class="form-group col-md-6">
                                   <label for="date-to"> From</label>
-                                  <select name="from_month[]" class="form-control">
+                                  <select name="from_month[]" id="frommonth_1" class="form-control">
                                     <option value="<?php if(isset($workexperiences->frommonth)){echo $workexperiences->frommonth; } else{echo "Month";} ?> "><?php if(isset($workexperiences->frommonth)){echo $workexperiences->frommonth; } else{echo "Month";} ?>  </option>
                                       <option value=""> Month</option>
                                       <option value="january"> January</option>
@@ -1232,7 +1244,7 @@ table, td, tr
                                 </div>  
                                 <div class="form-group col-md-6">
                                   <label for="date-to">To</label>
-                                 <select name="to_month[]" class="form-control">
+                                 <select name="to_month[]" id="tomonth_1" class="form-control">
                                       <option value="<?php if(isset($workexperiences->tomonth)){echo $workexperiences->tomonth; } else{echo "Month";} ?> "><?php if(isset($workexperiences->tomonth)){echo $workexperiences->tomonth; } else{echo "Month";} ?>  </option>
                                       <option value=""> Month</option>
                                       <option value="january"> January</option>
@@ -1253,7 +1265,7 @@ table, td, tr
 
                             <div class="row">  
                                 <div class="form-group col-md-6">                                 
-                                  <select name="from_year[]" class="form-control">
+                                  <select name="from_year[]" id="fromyear_1" class="form-control">
                                      <option value="<?php if(isset($workexperiences->fromyear)){echo $workexperiences->fromyear; } else{echo "Year";} ?>"><?php if(isset($workexperiences->fromyear)){echo $workexperiences->fromyear; } else{echo "Year";} ?>  </option>
                                       <option value="2017"> 2017</option>
                                       <option value="2016"> 2016</option>
@@ -1277,7 +1289,7 @@ table, td, tr
                                 </div> 
 
                                 <div class="form-group col-md-6">                              
-                                 <select name="to_year[]" class="form-control">
+                                 <select name="to_year[]" id="toyear_1" class="form-control">
                                       <option value="<?php if(isset($workexperiences->toyear)){echo $workexperiences->toyear; } else{echo "Year";} ?>"><?php if(isset($workexperiences->toyear)){echo $workexperiences->toyear; } else{echo "Year";} ?>  </option>
                                       <option value="2017"> 2017</option>
                                       <option value="2016"> 2016</option>
@@ -1304,7 +1316,7 @@ table, td, tr
                             <div class="row">  
                                 <div class="form-group col-xs-12">
                                   <label for="date-to"> Description</label>
-                                 <textarea name="description[]" class="form-control" style="min-height:100px;" > 
+                                 <textarea name="description[]" id="description_1" class="form-control" style="min-height:100px;" > 
                                     <?php 
                                         if(isset($workexperiences->description)) 
                                         {
@@ -1334,68 +1346,41 @@ table, td, tr
 
                              <div class="row">  
                                 <div class="form-group col-xs-12">
-                                    <input type="text" name="link[]" id="link_url" class="form-control" placeholder="Paste or type a link to a file or video" style="display: none;" value="<?php if(isset($workexperiences->link)){echo $workexperiences->link; } else{echo "";} ?>" >  
+                                    <input type="text" name="link[]" id="link_url_1" class="form-control" placeholder="Paste or type a link to a file or video"  value="<?php if(isset($workexperiences->link)){echo $workexperiences->link; } else{echo "";} ?>" >  
                                 </div>
                             </div>
-                                                      
-                            <div class="row">
-                              <div  style="width:100%;" class="text-center">
-                                <input type="submit" value="Save Changes" class="btn btn-primary" style="width:140px;">                                
-                              </div>
-                            </div>
-                            <?php } ?>
-                      </form>
-                  </div>
-                 </div>
-               </div>                                
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
+                            <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_exp btn btn-info btn-sm"> Remove</a> </div>
+                            
+                       </div>
+                       <div class="col-md-12" style="border-bottom:2px solid #ffb3d1; margin:15px 0;"></div>
+                   
+                     <?php } } else { ?>
 
+                            <div class="row" id="profile_exp_1"> 
 
-       <!--  professional work experience  model popup 2 -->
-   <div class="modal fade modal-ex_professional_new" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-           <div class="modal-content">
-               <div class="post-content">                            
-                  <div class="post-container" style="padding-bottom:20px;">               
-                     <div class="post-detail">
-                       <div class="user-info">
-                         <h3>Edit Experience</h3>
-                            <span style="color:#333; font-size: 15px">Please give the following information to edit</span>
-                        </div>                              
-                        <div class="line-divider"></div>
-            <div class="user-info">
-              <div class="row" style="padding:10px;">                              
-                      <form action="<?php echo base_url('profile/professional_work_exp'); ?>" method="post"  id="professional_work_exp" 
-                        class="form-inline">  
-
-                                                        
                              <div class="row">   
                               <div class="form-group col-xs-12">
                                 <label for="date-to" >Title</label>
-                                <input type="text" id="wedding" class="form-control" name="title[]" value="" required />
+                                <input type="text" id="title_1" class="form-control" name="title[]" >
                               </div>
                             </div>                                                  
                             <div class="row ">  
                               <div class="form-group col-xs-12">
                                 <label for="date-to" >Company</label>
-                                <input  type="text" id="socialfunction" class="form-control input-group-lg" name="company[]" title="Enter a Date" value="" required/>
+                                <input  type="text" id="company_1" class="form-control input-group-lg" name="company[]" title="Enter a Date">
                               </div>  
                             </div>
                               <div class="row ">  
                                 <div class="form-group col-xs-12">
                                   <label for="date-to"> Location</label>
-                                  <input  type="text" id="party" class="form-control input-group-lg" name="location[]" title="Enter a Date" value="" required />
+                                  <input  type="text" id="location_1" class="form-control input-group-lg" name="location[]" title="Enter a location">
                                 </div>  
                              </div>
                             <div class="row">  
                                 <div class="form-group col-md-6">
                                   <label for="date-to"> From</label>
-                                  <select name="from_month[]" class="form-control">
-                                   
+                                  <select name="from_month[]" id="frommonth_1" class="form-control">
+                                    
                                       <option value=""> Month</option>
                                       <option value="january"> January</option>
                                       <option value="february"> February</option>
@@ -1413,7 +1398,7 @@ table, td, tr
                                 </div>  
                                 <div class="form-group col-md-6">
                                   <label for="date-to">To</label>
-                                 <select name="to_month[]" class="form-control">
+                                 <select name="to_month[]" id="tomonth_1" class="form-control">
                                      
                                       <option value=""> Month</option>
                                       <option value="january"> January</option>
@@ -1434,8 +1419,9 @@ table, td, tr
 
                             <div class="row">  
                                 <div class="form-group col-md-6">                                 
-                                  <select name="from_year[]" class="form-control">
-                                     <option value=""> Year </option>
+                                  <select name="from_year[]" id="fromyear_1" class="form-control">
+                                      <option value=""> Year</option>
+                                      <option value="2018"> 2018</option>
                                       <option value="2017"> 2017</option>
                                       <option value="2016"> 2016</option>
                                       <option value="2015"> 2015</option>
@@ -1458,8 +1444,9 @@ table, td, tr
                                 </div> 
 
                                 <div class="form-group col-md-6">                              
-                                 <select name="to_year[]" class="form-control">
-                                      <option value=""> Year </option>
+                                 <select name="to_year[]" id="toyear_1" class="form-control">                                      
+                                      <option value=""> Year</option>
+                                      <option value="2018"> 2018</option>
                                       <option value="2017"> 2017</option>
                                       <option value="2016"> 2016</option>
                                       <option value="2015"> 2015</option>
@@ -1485,8 +1472,8 @@ table, td, tr
                             <div class="row">  
                                 <div class="form-group col-xs-12">
                                   <label for="date-to"> Description</label>
-                                 <textarea name="description[]" class="form-control" style="min-height:100px;" > 
-                                   
+                                 <textarea name="description[]" id="description_1" class="form-control" style="min-height:100px;" > 
+                                  
                                   </textarea> 
                                  
                                 </div>  
@@ -1506,18 +1493,30 @@ table, td, tr
 
                              <div class="row">  
                                 <div class="form-group col-xs-12">
-                                    <input type="text" name="link[]" id="link_url" class="form-control" placeholder="Paste or type a link to a file or video" style="display: none;" value="" >  
+                                    <input type="text" name="link[]" id="link_url_1" class="form-control" placeholder="Paste or type a link to a file or video">  
                                 </div>
+                            </div>
+                            
+                       </div>
+
+                      <?php } ?>
+                      </div>
+
+
+                            <div class="row">
+                              <a href="JavaScript:void(0);" id="add_more_exp" data-add_multi_exp="2">
+                              <i class="fa fa-plus-circle"></i> Add multiple Experience </a>
                             </div>
                                                       
                             <div class="row">
                               <div  style="width:100%;" class="text-center">
                                 <input type="submit" value="Save Changes" class="btn btn-primary" style="width:140px;">                                
                               </div>
-                            </div>
-                            
+                            </div>                 
+                           
                       </form>
                   </div>
+                </div>
                  </div>
                </div>                                
              </div>
@@ -1525,6 +1524,9 @@ table, td, tr
          </div>
        </div>
      </div>
+
+
+
                       
                    <!--  professional work experience model popup -->
 
@@ -1863,19 +1865,6 @@ var base_url = '<?php echo base_url() ?>'; //form submited
    });
 
         
-//personal self intro video size limitation
-
-  // $(document).on("change", "#self_video", function(evt)
-  //       {
-  //           var file = this.files[0];
-
-  //           if (file.size > 2621440)
-  //            {
-  //                  //Now Here I need to update <span> 
-  //                $('#video_show1').hide();  
-  //                alert('Filesize must 2.5MB or below');           
-  //            }
-  //       });
 
 //personal profile self video submit and updated profile page
 
@@ -2093,7 +2082,40 @@ var base_url = '<?php echo base_url() ?>'; //form submited
       });
     });
 
-    //professional profile work experience update
+//dynamic add experience
+
+function generete_dynamic_exp(count){
+
+  var exp = ' <div class="row" id="profile_exp_'+count+'">  <div class="col-md-12" style="border-bottom:2px solid #ffb3d1; margin:15px 0;"></div> <div class="row"> <div class="form-group col-xs-12"> <label for="date-to" >Title</label> <input type="text" id="title_'+count+'" class="form-control" name="title[]"  /> </div> </div> <div class="row "> <div class="form-group col-xs-12"> <label for="date-to" >Company</label> <input  type="text" id="company_'+count+'" class="form-control input-group-lg" name="company[]" title="Enter a Date" > </div> </div> <div class="row "> <div class="form-group col-xs-12"> <label for="date-to"> Location</label> <input  type="text" id="location_'+count+'" class="form-control input-group-lg" name="location[]" title="Enter a Date" > </div> </div> <div class="row"> <div class="form-group col-md-6"> <label for="date-to"> From</label> <select name="from_month[]" id="frommonth_'+count+'" class="form-control"> <option value=""> Month</option> <option value="january"> January</option> <option value="february"> February</option> <option value="march"> March</option> <option value="april"> April</option> <option value="may"> May</option> <option value="june"> June</option> <option value="july"> July</option> <option value="august"> August</option> <option value="september"> September</option> <option value="october"> October</option> <option value="november"> November</option> <option value="december"> December</option> </select> </div> <div class="form-group col-md-6"> <label for="date-to">To</label> <select name="to_month[]" id="tomonth_'+count+'" class="form-control"> <option value=""> Month</option> <option value="january"> January</option> <option value="february"> February</option> <option value="march"> March</option> <option value="april"> April</option> <option value="may"> May</option> <option value="june"> June</option> <option value="july"> July</option> <option value="august"> August</option> <option value="september"> September</option> <option value="october"> October</option> <option value="november"> November</option> <option value="december"> December</option> </select> </div> </div> <div class="row"> <div class="form-group col-md-6"> <select name="from_year[]" id="fromyear_'+count+'" class="form-control"> <option value=""> Year</option><option value="2018"> 2018</option>  <option value="2017"> 2017</option> <option value="2016"> 2016</option> <option value="2015"> 2015</option> <option value="2014"> 2014</option> <option value="2013"> 2013 </option> <option value="2012"> 2012</option> <option value="2011"> 2011</option> <option value="2010"> 2010</option> <option value="2009"> 2009</option> <option value="2008"> 2008</option> <option value="2007"> 2007</option> <option value="2006"> 2006</option> <option value="2005"> 2005</option> <option value="2004"> 2004</option> <option value="2003"> 2003</option> <option value="2002"> 2002</option> <option value="2001"> 2001</option> <option value="2000"> 2000</option> </select> </div> <div class="form-group col-md-6"> <select name="to_year[]" id="toyear_'+count+'" class="form-control">  <option value=""> Year</option><option value="2018"> 2018</option> <option value="2017"> 2017</option> <option value="2016"> 2016</option> <option value="2015"> 2015</option> <option value="2014"> 2014</option> <option value="2013"> 2013 </option> <option value="2012"> 2012</option> <option value="2011"> 2011</option> <option value="2010"> 2010</option> <option value="2009"> 2009</option> <option value="2008"> 2008</option> <option value="2007"> 2007</option> <option value="2006"> 2006</option> <option value="2005"> 2005</option> <option value="2004"> 2004</option> <option value="2003"> 2003</option> <option value="2002"> 2002</option> <option value="2001"> 2001</option> <option value="2000"> 2000</option> </select> </div> </div> <div class="row"> <div class="form-group col-xs-12"> <label for="date-to"> Description</label> <textarea name="description[]" id="description_'+count+'" class="form-control" style="min-height:100px;" > </textarea> </div> </div> <div class="row"> <div class="form-group col-xs-12"> <label for="date-to">Add or link to external documents, photos, sites, videos, and presentations.</label> </div> </div> <div class="row"> <div class="form-group col-xs-12"> <input type="button"  id="link_show" value="Link" class="btn"> </div> </div> <div class="row"> <div class="form-group col-xs-12"> <input type="text" name="link[]" id="link_url_'+count+'" class="form-control" placeholder="Paste or type a link to a file or video"> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_exp btn btn-info btn-sm"> Remove</a> </div> </div> </div>';
+
+    return exp;
+}
+
+
+
+$(document).ready(function(){
+        $("#add_more_exp").click(function()
+          {       
+            var nxtticket_count = $(this).data("add_multi_exp"); 
+            var nxtvenueHTML = generete_dynamic_exp(nxtticket_count);
+            $("#dynamic_add_exp").append(nxtvenueHTML);        
+              nxtticket_count++;
+           $(this).data('add_multi_exp', nxtticket_count); //update data nxtportion   
+        });   
+});
+
+// remove div
+$(document).on('click', '.remove_exp', function(e)
+    {
+         
+          $(this).parents('[id^=profile_exp_]').remove();
+         
+    });
+
+
+
+
+//professional profile work experience update
 
 var base_url = '<?php echo base_url() ?>'; //form submited
     $(document).ready(function(){

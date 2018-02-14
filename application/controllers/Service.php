@@ -75,7 +75,39 @@ class Service extends CI_Controller
 		$this->load->view('serviceprovider/event_venue_admin_eventhalls');
 	}
 
+	public function ohp_admin_home()   
+	{
+		$this->load->view('serviceprovider/ohp_admin_home');
+	}
 
-	
+	public function ohp_eventhosting_form()   
+	{
+		$this->load->view('serviceprovider/ohp_eventhosting_form');
+	}
+
+	public function ohp_wowtag()   
+	{
+		$this->load->view('serviceprovider/ohp_wowtag');
+	}
+
+	public function ohp_eventfeed()   
+	{
+		$this->load->view('serviceprovider/ohp_eventfeed');
+	}
+
+	public function ohp_publish_event()   
+	{
+		$this->load->view('serviceprovider/ohp_publish_event');
+	}
+
+	public function ohp_notification_page()   
+	{
+		$this->load->view('serviceprovider/ohp_notification_page');
+	}
+
+	public function ohp_network_members()   
+	{
+		$this->load->view('serviceprovider/ohp_network_members');
+	}
 
 }	

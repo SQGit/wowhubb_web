@@ -200,14 +200,14 @@ img.profile-photo1 {
                 <img src="<?php echo base_url('assets/images/notification-icon.png'); ?>" alt="user" /></a>
                 <ul class="dropdown-menu login">
                 <div>
-                  <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#fc6653; font-size:16px;"><strong><i class="icon ion-android-notifications-none"></i> Notifications</strong></div>
+                  <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;"><strong><i class="icon ion-android-notifications-none"></i> Notifications</strong></div>
                 </div>
                   <div> 
-                  <a href="#" style="color:#fff;" >
+                  <a href="#" style="color:#333;" >
                     
                   <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
                      <div class="col-md-10">Vineture  didn't get any new likes this week. Publish a post to engage your audience.
-                     <div class="pull-left" style="color:#fc6653; width:100%;"><p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 15 Hours Ago</p></div>
+                     <div class="pull-left" style="color:#555; width:100%;"><p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 15 Hours Ago</p></div>
                      </div>
                   
                     <div class="col-md-12">
@@ -216,11 +216,11 @@ img.profile-photo1 {
                   </a></div>
                   
                   <div> 
-                  <a href="#" style="color:#fff;" >
+                  <a href="#" style="color:#333;" >
                     
                     <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
                      <div class="col-md-10">Emeka added a New Event on Hari's Birthday. Lets Check!!
-                     <div class="pull-left" style="color:#fc6653; width:100%;"><p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 13 Hours Ago</p></div>
+                     <div class="pull-left" style="color:#555; width:100%;"><p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 13 Hours Ago</p></div>
                      </div>
                   
                     <div class="col-md-12">
@@ -228,11 +228,11 @@ img.profile-photo1 {
                     </div>
                   </a></div>
                  <div> 
-                  <a href="#" style="color:#fff;" >
+                  <a href="#" style="color:#333;" >
                     
                     <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
                      <div class="col-md-10">It's Nickybeit Enjoy's birthday today. Help him celebrate!
-                     <div class="pull-left" style="color:#fc6653; width:100%;"><p style="font-weight:normal; margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> Yesterday at 10:45pm</p></div>
+                     <div class="pull-left" style="color:#555; width:100%;"><p style="font-weight:normal; margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> Yesterday at 10:45pm</p></div>
                      </div>
                   
                    <div class="col-md-12">
@@ -241,7 +241,7 @@ img.profile-photo1 {
                   </a></div>
                   <div> 
                   <div class="col-md-12">
-                    <div class="text-center"><a href="#" style="color:#fc6653; text-align:center;" >See all</a></div>
+                    <div class="text-center"><a href="#" style="color:#555; text-align:center;" >See all</a></div>
                   </div>
                   </div>
                   
@@ -256,16 +256,16 @@ img.profile-photo1 {
                 <img src="<?php echo base_url('assets/images/chat-icon.png'); ?>" alt="user" /></a>
                 <ul class="dropdown-menu login">
                 <div>
-                  <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#fc6653; font-size:16px;"><strong><i class="icon ion-ios-person-outline"></i> Friend Requests</strong></div>
+                  <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;"><strong><i class="icon ion-ios-person-outline"></i> Friend Requests</strong></div>
                 </div>
                   <div> 
-                  <a href="#" style="color:#fff;" >
+                  <a href="#" style="color:#333;" >
                     
                   <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
                      <div class="col-md-4">Vicky
-                     <div class="pull-left" style="color:#B9B9B9; width:100%;"><p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p></div>
+                     <div class="pull-left" style="color:#555; width:100%;"><p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p></div>
                      </div>
-                      <div class="col-md-6 text-right pull-right" style="margin-top:10px;"><button class="btn-primary" style="padding: 2px 10px; background:#fc6653; font-size:11px;">Confirm</button> <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button></div>
+                      <div class="col-md-6 text-right pull-right" style="margin-top:10px;"><button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button> <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button></div>
                   
                     <div class="col-md-12">
                       <div class="col-md-12" style="border-bottom:1px solid #5E5E5E; margin-top:10px; margin-bottom:10px;"></div>
@@ -273,39 +273,39 @@ img.profile-photo1 {
                   </a></div>
                   
                   <div> 
-                  <a href="#" style="color:#fff;" >
+                  <a href="#" style="color:#333;" >
                     
                   <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
                      <div class="col-md-4">Emeka
-                     <div class="pull-left" style="color:#B9B9B9; width:100%;"><p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p></div>
+                     <div class="pull-left" style="color:#555; width:100%;"><p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p></div>
                      </div>
-                      <div class="col-md-6 text-right pull-right" style="margin-top:10px;"><button class="btn-primary" style="padding: 2px 10px; background:#fc6653; font-size:11px;">Confirm</button> <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button></div>
+                      <div class="col-md-6 text-right pull-right" style="margin-top:10px;"><button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button> <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button></div>
                   
                     <div class="col-md-12">
                       <div class="col-md-12" style="border-bottom:1px solid #5E5E5E; margin-top:10px; margin-bottom:10px;"></div>
                     </div>
                   </a></div>
                 <div> 
-                  <a href="#" style="color:#fff;" >
+                  <a href="#" style="color:#333;" >
                     
                   <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
                      <div class="col-md-4">Hari
-                     <div class="pull-left" style="color:#B9B9B9; width:100%;"><p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 10 Mutual Friends</p></div>
+                     <div class="pull-left" style="color:#555; width:100%;"><p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 10 Mutual Friends</p></div>
                      </div>
-                      <div class="col-md-6 text-right pull-right" style="margin-top:10px;"><button class="btn-primary" style="padding: 2px 10px; background:#fc6653; font-size:11px;">Confirm</button> <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button></div>
+                      <div class="col-md-6 text-right pull-right" style="margin-top:10px;"><button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button> <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button></div>
                   
                     <div class="col-md-12">
                       <div class="col-md-12" style="border-bottom:1px solid #5E5E5E; margin-top:10px; margin-bottom:10px;"></div>
                     </div>
                   </a></div>
                   <div> 
-                  <a href="#" style="color:#fff;" >
+                  <a href="#" style="color:#333;" >
                     
                   <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
                      <div class="col-md-4">Roshan
-                     <div class="pull-left" style="color:#B9B9B9; width:100%;"><p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 4 Mutual Friends</p></div>
+                     <div class="pull-left" style="color:#555; width:100%;"><p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 4 Mutual Friends</p></div>
                      </div>
-                      <div class="col-md-6 text-right pull-right" style="margin-top:10px;"><button class="btn-primary" style="padding: 2px 10px; background:#fc6653; font-size:11px;">Confirm</button> <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button></div>
+                      <div class="col-md-6 text-right pull-right" style="margin-top:10px;"><button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button> <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button></div>
                   
                     <div class="col-md-12">
                       <div class="col-md-12" style="border-bottom:1px solid #5E5E5E; margin-top:10px; margin-bottom:10px;"></div>
@@ -313,22 +313,23 @@ img.profile-photo1 {
                   </a></div>
                   <div> 
                   <div class="col-md-12">
-                    <div class="text-center"><a href="#" style="color:#fc6653; text-align:center;" >See all</a></div>
+                    <div class="text-center"><a href="#" style="color:#555; text-align:center;" >See all</a></div>
                   </div>
-                  </div>
-                  
+                  </div>            
 
                   
             </ul>
             
               </li>
+
+               <a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none;"> <img src="<?php echo base_url('assets/images/chat-icon-1.png'); ?>" alt="user" /> </a>
       
 
 
           <a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none;"> <span style="font-size:14px;  background:#e91e63; padding:5px 10px; border-radius:13px; color:#fff;"><img src="<?php echo base_url('assets/images/home-icon.png'); ?>" alt="user" /> Home</span> </a> <a href="<?php echo base_url('event/event_popup'); ?>" style="text-decoration:none;"><span style="font-size:14px;  background:#757575; padding:5px 10px; border-radius:13px; color:#fff;"><img src="<?php echo base_url('assets/images/create-event-icon-3.png'); ?>" alt="user" /> Create Event</span> </a> <a href="<?php echo base_url('home/logout'); ?>" style="text-decoration:none;"><span style="font-size:14px;  padding:5px 10px; border-radius:5px; color:#fff;"><img src="<?php echo base_url('assets/images/logout-icon.png'); ?>" alt="user" />Logout</span> </a>
         </ul>
 
-        <form class="navbar-form navbar-right hidden-sm" style="position:absolute; right:390px; top:0px;" >
+        <form class="navbar-form navbar-right hidden-sm" style="position:absolute; right:410px; top:0px;" >
           <div class="form-group"> <i class="icon ion-android-search"></i>
             <input type="text" class="search form-control live-search-box" id="searchbox" name="friends_search" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px; min-width:330px;" />
             <br/>
@@ -511,8 +512,7 @@ img.profile-photo1 {
                                  
                                     <?php   
                                       if(isset($todayfeed))  
-                                      {     
-                                       print_r($todayfeed);
+                                      {                                           
                
                                         foreach (array_slice($todayfeed, 0, 3) as $todayfeeds) 
                                           {

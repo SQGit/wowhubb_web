@@ -250,13 +250,15 @@ public function personal_event()
 
  			$token =  $this->session->userdata('token');		
  			
-		   	$header1 = array('token:'.$token,
-		   					'eventtype:' .$this->input->post('event_type'),
-							'eventcategory:' .$this->input->post('event_category'), 
-							'eventname:'     .$this->input->post('event_name'),
-							'eventtimezone:' .$this->input->post('time_zone'),
-							'eventstartdate:' .$s_date.' '.$this->input->post('event_startime'),
-							'eventenddate:'   .$e_date.' '. $this->input->post('event_endtiming'),
+		   	$header1 = array('token:'			.$token,
+		   					'eventtype:' 	 	.$this->input->post('event_type'),
+							'eventcategory:' 	.$this->input->post('event_category'), 
+							'eventtypeint:'     ."1",
+							'eventname:'     	.$this->input->post('event_name'),
+							'eventtimezone:' 	.$this->input->post('time_zone'),
+							'eventdayscount:' 	.$this->input->post('eventdayscount'),
+							'eventstartdate:'	.$s_date.' '.$this->input->post('event_startime'),
+							'eventenddate:'   	.$e_date.' '. $this->input->post('event_endtiming'),
 							'eventdescription:' .$this->input->post('event_description')
 							);
 		   	 
@@ -553,6 +555,7 @@ public function proffesional_single_event()
 		   	$header1 = array('token:'.$token,
 		   					'eventtype:' .$this->input->post('event_type'),
 							'eventcategory:' .$this->input->post('event_category'), 
+							'eventtypeint:'     ."2",
 							'eventname:'     .$this->input->post('event_name'),							
 							'eventstartdate:' .$s_date.' '.$this->input->post('event_startime'),
 							'eventenddate:'   . $e_date.' '. $this->input->post('event_endtiming'),
@@ -946,6 +949,7 @@ public function professional_multicity_event()
 		   	$header1 = array('token:'           .$token,
 		   					'eventtype:'        .$this->input->post('event_type'), 
 							'eventcategory:'    .$this->input->post('event_category'), 
+							'eventtypeint:'     ."2",
 							'eventname:'        .$this->input->post('event_name'),	
 							'tickettype:'       .$this->input->post('ticket_type'),	
 							'ticketprice:'      .$this->input->post('ticket_price'),
@@ -1346,13 +1350,14 @@ public function social_single_event()
 
  			$token =  $this->session->userdata('token');		
  			
-		   	$header1 = array('token:'.$token,
-		   					'eventtype:' .$this->input->post('event_type'),
-							'eventcategory:' .$this->input->post('event_category'), 
-							'eventname:'     .$this->input->post('event_name'),
-							'eventtimezone:' .$this->input->post('time_zone'),
-							'eventstartdate:' .$s_date.' '.$this->input->post('event_startime'),
-							'eventenddate:'   .$e_date.' '.$this->input->post('event_endtiming'),
+		   	$header1 = array('token:'			.$token,
+		   					'eventtype:' 		.$this->input->post('event_type'),
+							'eventcategory:' 	.$this->input->post('event_category'), 
+							'eventtypeint:'     ."3",
+							'eventname:'     	.$this->input->post('event_name'),
+							'eventtimezone:' 	.$this->input->post('time_zone'),
+							'eventstartdate:' 	.$s_date.' '.$this->input->post('event_startime'),
+							'eventenddate:'   	.$e_date.' '.$this->input->post('event_endtiming'),
 							'eventdescription:' .$this->input->post('event_description')
 							);
 		   	 
@@ -1733,6 +1738,7 @@ public function social_multicity_event()
 		   	$header1 = array('token:'           .$token,
 		   					'eventtype:'        .$this->input->post('event_type'), 
 							'eventcategory:'    .$this->input->post('event_category'), 
+							'eventtypeint:'     ."3",
 							'eventname:'        .$this->input->post('event_name'),	
 							'tickettype:'       .$this->input->post('ticket_type'),	
 							'ticketprice:'      .$this->input->post('ticket_price'),
@@ -2121,7 +2127,8 @@ public function create_business_event()
 	 			
 			   	$header1 = array('token:'            .$token,
 			   					'eventtype:'         .$this->input->post('event_type'), 
-								'eventcategory:'     .$this->input->post('event_category'), 
+								'eventcategory:'     .$this->input->post('event_category'),
+								'eventtypeint:'      ."4", 
 								'brandawareness:'    .$this->input->post('brand_awareness'),	
 								'eventname:'         .$this->input->post('event_name'),	
 								'eventstartdate:'    .$this->input->post('event_startdate').' '.$this->input->post('event_startime'),

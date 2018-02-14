@@ -21,37 +21,31 @@
 <!--Favicon-->
 <link rel="shortcut icon" type="image/png" href="<?php echo base_url ('assets/images/fav.png') ?>"/>
 <style type="text/css">
+
 body {
 	background-color: #e7e5e6;
 }
+
+h3
+{
+	color:#333!important;
+}
+
 label.error {
 	/*font-family: 'Roboto', sans-serif;*/
 	color: red;
 }
-.clr {
-	background: #fbbd60;
-	color: #3d7489;
-	box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3), 0px 2px 2px rgba(0,0,0,0.1);
-	padding: 10px;
-}
-.rr-circle {
-	border-radius: 50%;
-	background-color: #3096EB;
-	font-size: 20px;
-	color: #fff;
-	width: 50px;
-	height: 50px;
-	line-height: 50px;
-	text-align: center;
-}
+
 #footer {
 	background: #fff;
 	position: relative;
 	top: 0px;
 }
+
 #imageUpload {
 	display: none;
 }
+
 #profileImage {
 	cursor: pointer;
 }
@@ -138,9 +132,13 @@ label.error {
 	margin: 100px auto 0!important;
 }
 }
-table, td, tr {
+td, tr {
 	border-spacing: 2px;
 	padding: 0 5px;
+}
+table {
+	border-spacing: 2px;
+	padding: 0px;
 }
 .edit-block ul.interests li {
 	background: #E8E8E8;
@@ -196,193 +194,190 @@ table, td, tr {
   <!-- Timeline
       ================================================= -->
   <div class="timeline">
-    <div class="timeline-cover"> <img id="profileImage1" class="cover-pic" src="../assets/images/cb-banner.jpg" style="background-size:cover; width:100%; margin-top:20px;" > </div>
-    <div id="page-contents" style="border:1px solid #e6e6e6; background-color: #fff; padding-top: 0px;">
-      <div class="row">
-        <div class="col-md-12 col-sm-12" style="margin-top:25px;">
-          <div class="col-md-4 col-sm-4" style="position:relative;"> 
-          
-          
-            <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px; text-align:center;">
-                    
-              <div class=" text-center" style="color:#333; padding-bottom:10px;">
-              <strong style="font-size:17px;">ORGANISATIONS<br>
-                </strong> Create An Event  Business Page </div>
-                <div class="pull-left" style="color:#333; padding-bottom:10px;">
-                <p>Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu mauris eus, cum eros quis aliquam wisi. Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi, mi mattis pariatur aliquam pharetra eget.</p>
-                </div>
-                <div class="row text-center">
-                 <a href="<?php echo base_url('service/ohp_admin_home'); ?>"> <button type="submit" class="btn btn-primary">Create Your Organisation Event Hosting Page</button></a>
-             </div>
-            </div>
-              
+    <div class="timeline-cover"> <img class="cover-pic" src="http://localhost/wowhubb/assets/images/mf-1.jpg" style="background-size:cover; width:100%; margin-top:20px;" > <br>
+      <!--Timeline Menu for Large Screens-->
+      <div class="timeline-nav-bar hidden-sm hidden-xs">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="profile-info"> <img  src="http://localhost/wowhubb/assets/images/megafest.png" class="profile-pic img-responsive profile-photo" /> </div>
           </div>
-          <div class="col-md-4 col-sm-4" style="position:relative;">         
-          
-            <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px; text-align:center;">
-                    
-              <div class=" text-center" style="color:#333; padding-bottom:10px;">
-              <strong style="font-size:17px;">EVENT VENUE PROVIDERS<br>
-                </strong> List Your Event  Venue Space </div>
-                
-                <div class="pull-left" style="color:#333; padding-bottom:10px;">
-                <p>Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu mauris eus, cum eros quis aliquam wisi. Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi, mi mattis pariatur aliquam pharetra eget.</p>
-                </div>
-                <div class="row text-center">
-                  <a href="<?php echo base_url('service/eventvenue_landing'); ?>" >
-                    <button type="submit" class="btn btn-primary">List Your Event Venues</button>
-                  </a>
-             </div>
-            </div>
-              
+          <div class="col-md-9" >
+            <div class="profile-info-1"> </div>
+            <ul class="list-inline profile-menu">
+              <li><a href="<?php echo base_url('service/ohp_admin_home'); ?>"  class="active">Home</a></li>
+              <li><a href="<?php echo base_url('service/ohp_eventfeed'); ?>">Event Feed</a></li>
+              <li><a href="<?php echo base_url('service/ohp_network_members'); ?>">Network Members</a></li>
+              <li><a href="#">Reviews</a></li>
+              <li><a href="#">Settings</a></li>
+            </ul>
+            <ul class="follow-me list-inline">
+              <li>Help</li>
+            </ul>
           </div>
-          <div class="col-md-4 col-sm-4" style="position:relative;"> 
-          
-          
-            <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px; text-align:center;">
-                    
-              <div class=" text-center" style="color:#333; padding-bottom:10px;">
-              <strong style="font-size:17px;">EVENT PROFESSIONAL VENDORS<br>
-                </strong>List Your Event Services</div>
-                <div class="pull-left" style="color:#333; padding-bottom:10px;">
-                <p>Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu mauris eus, cum eros quis aliquam wisi. Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi, mi mattis pariatur aliquam pharetra eget.</p>
-                </div>
-                <div class="row text-center">
-                  <a href="<?php echo base_url('service/eventvenue_landing'); ?>" >
-                    <button type="submit" class="btn btn-primary">List Your Event Services</button>
-                  </a>
-             </div>
-            </div>
-              
-          </div>
-        
-        
-      </div>
-      <div class="col-md-12 col-sm-12" style="margin-top:25px;">
-      <div class="col-md-12 col-sm-12">
-      <div class="col-md-12 col-sm-12" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px;">
-        <div class="col-md-5">
-        <div class=" text-left" style="color:#333; padding-bottom:10px;">
-              <strong style="font-size:17px;">ORGANISATIONS<br>
-              </strong> Create An Event  Business Page </div>
-        <img src="../assets/images/crb-image.jpg" class="img-responsive img-thumbnail" ></div> 
-      <div class="col-md-7">
-      <div class="col-md-12">
-        <div class="pull-left" style="color:#333; padding-bottom:10px;">
-          <p>Wowhubb is a unique event networking platform that gives every organisation the oppourtunty to create, host and organise all of their events in one place,</p>
         </div>
       </div>
-      <div class="col-md-12" style="margin-top:5px;">
-        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" >
-        <p style="line-height:18px;">Create A One Time Event Business Page Manager</p>
+      <!--Timeline Menu for Large Screens End--> 
+      
+      <!--Timeline Menu for Small Screens-->
+      <div class="navbar-mobile hidden-lg hidden-md">
+        <div class="profile-info"> <img src="<?php echo base_url ('assets/images/users/user-1.jpg') ?>" alt="" class="img-responsive profile-photo" />
+          <h3 style="color:#fff;">Emeka Ike</h3>
+          <p style="color:#fff;" class="text-muted">Managing Director</p>
         </div>
-        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" ><p style="line-height:18px;">Create & Host All your Your Events</p></div>
-        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" ><p style="line-height:18px;">Invite  Attendee In within your network and outside your network</p></div>
-        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" ><p style="line-height:18px;">View and send instant notification message to all your event attendees</p></div>
-      </div>
-      <div class="col-md-12" style="margin-top:5px;">
-        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" >
-        <p style="line-height:18px;">Create A One Time Event Business Page Manager</p>
+        <div class="mobile-menu">
+          <ul class="list-inline">
+            <li><a href="timline.html">Venue Overview</a></li>
+            <li><a href="timeline-about.html" class="active">Notifications</a></li>
+            <li><a href="timeline-album.html">My Event Halls</a></li>
+            <li><a href="timeline-friends.html">Promote Your Venue</a></li>
+            <li><a href="timeline-friends.html">Reviews</a></li>
+          </ul>
+          <button class="btn-primary">Add Friend</button>
         </div>
-        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" ><p style="line-height:18px;">Create & Host All your Your Events</p></div>
-        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" ><p style="line-height:18px;">Invite  Attendee In within your network and outside your network</p></div>
-        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" ><p style="line-height:18px;">View and send instant notification message to all your event attendees</p></div>
       </div>
-      <div class="col-md-12" style="margin-top:5px;">
-        <div class="row text-center">
-                  <button type="submit" class="btn btn-primary">Create Your Organisation Event Hosting Page</button>
-             </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      
-      </div>
-      
-      <div class="col-md-12 col-sm-12" style="margin-top:25px;">
-      <div class="col-md-12 col-sm-12">
-      <div class="col-md-12 col-sm-12" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px;">
-        <div class="col-md-5">
-        <div class=" text-left" style="color:#333; padding-bottom:10px;">
-              <strong style="font-size:17px;">EVENT PROFESSIONAL VENDORS<br>
-              </strong> List Your Event Services To local Clients Around you</div>
-        <img src="../assets/images/crb-image-2.jpg" class="img-responsive img-thumbnail" ></div> 
-      <div class="col-md-7">
-      
-                <div class="pull-left" style="color:#333; padding-bottom:10px;">
-                <p>Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. </p>
-                </div>
-      <div class="col-md-12" style="margin-top:5px;">
-        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" >
-        <p style="line-height:18px;">Create and advertise your event support venue to local customers near you</p>
-        </div>
-        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" >
-        <p style="line-height:18px;">Recieve daily  business leads for your sevices</p></div>
-        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" >
-        <p style="line-height:18px;">Get the best referals from your exiting customer and clients</p></div>
-        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" >
-        <p style="line-height:18px;">Generate new busines leads on a daily basis</p></div>
-      </div>
-     
-      <div class="col-md-12" style="margin-top:5px;">
-        <div class="row text-center">
-                   <a href="<?php echo base_url('service/eventvenue_landing'); ?>" ><button type="submit" class="btn btn-primary">
-                   List Your Event Venues
-                  </button></a>
-             </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      
-      </div>
-      
-       <div class="col-md-12 col-sm-12" style="margin-top:25px;">
-       <div class="col-md-12 col-sm-12">
-      <div class="col-md-12 col-sm-12" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px;">
-        <div class="col-md-5">
-        <div class=" text-left" style="color:#333; padding-bottom:10px;">
-              <strong style="font-size:17px;">EVENT VENUE PROVIDERS<br>
-              </strong> List Your Event Venue Locally And Get Daily Business Leads</div>
-        <img src="../assets/images/crb-image-3.jpg" class="img-responsive img-thumbnail" ></div> 
-      <div class="col-md-7">
-      
-                <div class="pull-left" style="color:#333; padding-bottom:10px;">
-                <p>Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. </p>
-                </div>
-      <div class="col-md-12" style="margin-top:5px;">
-        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" >
-        <p style="line-height:18px;">Create and advertise your event support services to local customers near you</p>
-        </div>
-        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" >
-        <p style="line-height:18px;">Recieve daily  business leads for your sevices</p></div>
-        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" >
-        <p style="line-height:18px;">Get the best referals from your exiting customer and clients</p></div>
-        <div class="col-md-3"><img src="../assets/images/crb-1.jpg" class="img-responsive img-thumbnail" >
-        <p style="line-height:18px;">Generate new busines leads on a daily basis</p></div>
-      </div>
-     
-      <div class="col-md-12" style="margin-top:5px;">
-        <div class="row text-center">
-                 <a href="<?php echo base_url('service/eventvenue_landing'); ?>" > 
-                  <button type="submit" class="btn btn-primary">List Your Event Services</button>
-                </a>
-             </div>
-      </div>
-      </div>
-      </div></div>
-      
-      </div>
-      
-
-      
-      
-      
-
+      <!--Timeline Menu for Small Screens End--> 
       
     </div>
+    <div id="page-contents" style="border:1px solid #e6e6e6; background-color: #fff; padding-top: 0px;">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="col-md-2" style="margin-top:15px;">
+            <div id="chat-block" style="background:#fff; box-shadow:1px 1px 1px 2px #ECECEC; padding:2px; border-radius:5px;"> 
+              
+              <!--news-feed links ends-->
+              <ul class="nav-news-feed">
+                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Events Hubb</h5>
+
+                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="<?php echo base_url('service/ohp_publish_event'); ?>">Published Events</a> </li>
+
+                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="<?php echo base_url('service/ohp_notification_page'); ?>">Invites-Notifications</a> </li>
+
+                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"><a style="font-weight: bold;" href="<?php echo base_url('service/ohp_wowtag'); ?>">Wowtag</a> </li>
+
+                <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
+
+              </ul>
+              <ul class="nav-news-feed">
+                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Post</h5>
+                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="<?php echo base_url('service/ohp_eventfeed'); ?>">Published Posts</a> </li>
+                <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
+              </ul>
+              <ul class="nav-news-feed">
+                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Admin</h5>
+                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="#">Manage Members</a> </li>
+                <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
+              </ul>
+              <ul class="nav-news-feed">
+                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Manage ADs</h5>
+                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="#">Promote Your Events</a> </li>
+              
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="row">
+                  <div class="col-md-10">
+                    <h3 style="font-size:17px; font-weight:bold;">About Us</h3>
+                    <p> Providing Innovative #Technology Solutions Across #Mobile, #Web & #Cloud To Global #Startups & Fortune 500 Companies. Mobisoft, Providing Innovative #Technology Solutions Across #Mobile, #Web & #Cloud To Global #Startups & Fortune 500 Companies. Mobisoft, Providing Innovative #Technology Solutions Across #Mobile, #Web & #Cloud To Global #Startups & Fortune 500 Companies. </p>
+                  </div>
+                  <div class="col-md-2 text-right" style="margin-top:15px;"><a href="#"><img src="../assets/images/edit_icon.png" alt="" /> Edit </a></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h3 style="font-size:17px; font-weight:bold;">Address</h3>
+                    <p> 1234 Happy Way Ln <br>
+                      Houston Texas 77498 <br>
+                      <strong>Call Us - </strong> 555-555-5555<br>
+                      <strong>Web - </strong> www.vineture.com </p>
+                  </div>
+                  <div class="col-md-6"> <img src="../assets/images/ohp-hotels.jpg" alt="" class="img-responsive img-thumbnail" /> </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="row">
+                  <div class="col-md-10">
+                    <h3 style="font-size:17px; font-weight:bold;">Business Hours</h3>
+                    Mondays - 
+                    9:00am-5:00pm<br>
+                    Tuesday - 
+                    9:00am-5:00pm<br>
+                    Wenesday - 
+                    9:00am-5:00pm<br>
+                    Thursday - 
+                    9:00am-5:00pm<br>
+                    Friday - 
+                    9:00am-5:00pm<br>
+                    Saturday - 
+                    Closed<br>
+                    Sunday - 
+                    Closed </div>
+                  <div class="col-md-2 text-right" style="margin-top:15px;"><a href="#"><img src="../assets/images/edit_icon.png" alt="" /> Edit </a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3" style="margin-top:15px;">
+            <div class="col-md-12" style="background:#fff; box-shadow:1px 1px 1px 2px #ECECEC; padding:2px; border-radius:5px;">
+              <div class="col-md-12">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 style="font-size:16px; font-weight:bold;">Welcome To Your Event Hosting  Page</h3>
+      <p>Welcome to your evvent hosting page on !wowhubb, you can create, host and advertise all your company, organisation and business event in one place 
+        An amaazing platform to get all things event handled for you.</p>
+      </div>
+    <div class="col-md-12">
+      <h3 style="font-size:16px; font-weight:bold;">Invite Your Friends To Event Network Page</h3>
+      <div class="col-md-6">
+        <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
+          <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user"></div>
+          <span style="font-size:15px; font-weight:bold;">Tony Adams</span>
+          
+          <br>
+          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button">Invite</button></span>
+          </div>
+        </div>
+      <div class="col-md-6">
+        <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
+          <div class="col-md-12 text-center"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user"></div>
+          <span style="font-size:15px; font-weight:bold;">TD Jakes</span>
+          
+          <br>
+          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button">Invite</button></span>
+          </div>
+        </div>
+      <div class="col-md-12" style="margin-top:5px; margin-bottom:5px;"></div>
+      <div class="col-md-6">
+        <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
+          <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user"></div>
+          <span style="font-size:15px; font-weight:bold;">Tony Adams</span>
+          
+          <br>
+          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button">Invite</button></span>
+          </div>
+        </div>
+      <div class="col-md-6">
+        <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
+          <div class="col-md-12 text-center"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user"></div>
+          <span style="font-size:15px; font-weight:bold;">TD Jakes</span>
+          
+          <br>
+          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button">Invite</button></span>
+          </div>
+        </div>
+      
+      </div>
   </div>
-</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
 

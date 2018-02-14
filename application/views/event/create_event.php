@@ -581,7 +581,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 		                    <div class="form-group col-sm-12 " style="font-size: 15px;">
 				                      <label>Select Event Days</label>
-				                    <select name="event_totaldays" id="btn-add-tab" class="form-control required" style="background-color:#eff0f1;">
+				                    <select name="eventdayscount" id="btn-add-tab" class="form-control required" style="background-color:#eff0f1;">
 				                      <option value="" >Select Event Days</option>
 				                      <option value="1">1 Day Event</option>
 				                      <option value="2">2 Days Event</option>

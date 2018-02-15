@@ -27,7 +27,7 @@
    color:red; 
 }
 #footer {
-    background: #fff;
+    background: transparent;
     position: relative;
     top: 10px;
 }
@@ -43,6 +43,19 @@
     border-color: none;
     box-shadow:none;
   }
+  .landing-page {
+    position: relative!important;
+    min-height: 100vh!important;
+}
+.copyright{
+  background: #231F20!important;
+  text-align: center!important;
+  color: #fff!important;
+  padding: 12px 0 4px!important;
+  position:relative!important; 
+  bottom: 0px!important;
+  width: 100%!important;
+}
 </style>
 </head>
 <body class="landing-page">

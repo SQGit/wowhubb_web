@@ -222,12 +222,12 @@ table {
   <!-- Timeline
       ================================================= -->
   <div class="timeline">
-    <div class="timeline-cover"> <img class="cover-pic" src="http://localhost/wowhubb/assets/images/mf-1.jpg" style="background-size:cover; width:100%; margin-top:20px;" > <br>
+    <div class="timeline-cover"> <img class="cover-pic" src="../assets/images/mf-1.jpg" style="background-size:cover; width:100%; margin-top:20px;" > <br>
       <!--Timeline Menu for Large Screens-->
       <div class="timeline-nav-bar hidden-sm hidden-xs">
         <div class="row">
           <div class="col-md-3">
-            <div class="profile-info"> <img  src="http://localhost/wowhubb/assets/images/megafest.png" class="profile-pic img-responsive profile-photo" /> </div>
+            <div class="profile-info"> <img  src="../assets/images/megafest.png" class="profile-pic img-responsive profile-photo" /> </div>
           </div>
           <div class="col-md-9" >
             <div class="profile-info-1"> </div>
@@ -280,7 +280,7 @@ table {
 
                 <li style="background-color:#333; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold; color: #fff;" href="<?php echo base_url('service/ohp_notification_page'); ?>">Invites-Notifications</a> </li>
 
-                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"><a style="font-weight: bold;  href="<?php echo base_url('service/ohp_wowtag'); ?>">Wowtag</a> </li>
+                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"><a style="font-weight: bold;"  href="<?php echo base_url('service/ohp_wowtag'); ?>">Wowtag</a> </li>
 
                 <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
               </ul>
@@ -291,7 +291,7 @@ table {
               </ul>
               <ul class="nav-news-feed">
                 <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Admin</h5>
-                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="#">Manage Members</a> </li>
+                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="<?php echo base_url('service/ohp_admin_members_admin'); ?>">Manage Members</a> </li>
                 <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
               </ul>
               <ul class="nav-news-feed">

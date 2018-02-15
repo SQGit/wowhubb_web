@@ -21,31 +21,24 @@
 <!--Favicon-->
 <link rel="shortcut icon" type="image/png" href="<?php echo base_url ('assets/images/fav.png') ?>"/>
 <style type="text/css">
-
 body {
 	background-color: #e7e5e6;
 }
-
-h3
-{
-	color:#333!important;
+h3 {
+	color: #333!important;
 }
-
 label.error {
 	/*font-family: 'Roboto', sans-serif;*/
 	color: red;
 }
-
 #footer {
 	background: #fff;
 	position: relative;
 	top: 0px;
 }
-
 #imageUpload {
 	display: none;
 }
-
 #profileImage {
 	cursor: pointer;
 }
@@ -204,7 +197,7 @@ table {
           <div class="col-md-9" >
             <div class="profile-info-1"> </div>
             <ul class="list-inline profile-menu">
-              <li><a href="<?php echo base_url('service/ohp_admin_home'); ?>"  class="active">Home</a></li>
+              <li><a href="<?php echo base_url('service/ohp_admin_home'); ?>">Home</a></li>
               <li><a href="<?php echo base_url('service/ohp_eventfeed'); ?>">Event Feed</a></li>
               <li><a href="<?php echo base_url('service/ohp_network_members'); ?>">Network Members</a></li>
               <li><a href="#">Reviews</a></li>
@@ -247,15 +240,10 @@ table {
               <!--news-feed links ends-->
               <ul class="nav-news-feed">
                 <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Events Hubb</h5>
-
                 <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="<?php echo base_url('service/ohp_publish_event'); ?>">Published Events</a> </li>
-
                 <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="<?php echo base_url('service/ohp_notification_page'); ?>">Invites-Notifications</a> </li>
-
-                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"><a style="font-weight: bold;" href="<?php echo base_url('service/ohp_wowtag'); ?>">Wowtag</a> </li>
-
+                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"><a style="font-weight: bold;" href="<?php echo base_url('service/ohp_wowtag'); ?>" > Wowtag</a> </li>
                 <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
-
               </ul>
               <ul class="nav-news-feed">
                 <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Post</h5>
@@ -264,7 +252,7 @@ table {
               </ul>
               <ul class="nav-news-feed">
                 <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Admin</h5>
-                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="<?php echo base_url('service/ohp_admin_members_admin'); ?>">Manage Members</a> </li>
+                <li style="background-color:#333; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold; color:#fff;" href="<?php echo base_url('service/ohp_admin_members_admin'); ?>">Manage Members</a> </li>
                 <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
               </ul>
               <ul class="nav-news-feed">
@@ -274,105 +262,57 @@ table {
               </ul>
             </div>
           </div>
-          <div class="col-md-7">
-            <div class="col-md-12">
-              <div class="row">
-                <div class="row">
-                  <div class="col-md-10">
-                    <h3 style="font-size:17px; font-weight:bold;">About Us</h3>
-                    <p> Providing Innovative #Technology Solutions Across #Mobile, #Web & #Cloud To Global #Startups & Fortune 500 Companies. Mobisoft, Providing Innovative #Technology Solutions Across #Mobile, #Web & #Cloud To Global #Startups & Fortune 500 Companies. Mobisoft, Providing Innovative #Technology Solutions Across #Mobile, #Web & #Cloud To Global #Startups & Fortune 500 Companies. </p>
-                  </div>
-                  <div class="col-md-2 text-right" style="margin-top:15px;"><a href="#"><img src="../assets/images/edit_icon.png" alt="" /> Edit </a></div>
-                </div>
+          <div class="col-md-10">
+            <div class="col-md-12" style="margin-top:0px;">
+              <h3 style="font-size:15px;"><strong>Admin</strong></h3>
+              <p>All admin role can manage event creation and hosting including all aspect of the business page, can respond t ocomment and delete comments, and can also manage all event related ads.</p>
+            </div>
+            <div class="col-md-12" style="margin-top:15px;">
+              <div class="pull-left" style="width:10%;"><img src="../assets/images/em.png" alt="" class="img-responsive img-circle img-thumbnail" /></div>
+              <div class="pull-left" style="width:90%;">
+                <h3 style="font-size:17px;"><strong>Emeka Daniells</strong></h3>
               </div>
-              <div class="row">
-                <div class="row">
-                  <div class="col-md-6">
-                    <h3 style="font-size:17px; font-weight:bold;">Address</h3>
-                    <p> 1234 Happy Way Ln <br>
-                      Houston Texas 77498 <br>
-                      <strong>Call Us - </strong> 555-555-5555<br>
-                      <strong>Web - </strong> www.vineture.com </p>
-                  </div>
-                  <div class="col-md-6"> <img src="../assets/images/ohp-hotels.jpg" alt="" class="img-responsive img-thumbnail" /> </div>
-                </div>
+              <div class="form-group col-sm-12 col-sm-offset-1"> <a href="JavaScript:void(0);" id="addmore_discount"> <i class="fa fa-plus-circle"></i> Add another Admin person/Role </a> </div>
+            </div>
+            <div class="col-md-12" style="margin-top:5px;">
+              <hr>
+            </div>
+            <div class="col-md-12" style="margin-top:0px;">
+              <h3 style="font-size:15px;"><strong>Assign/Delegate Event Pages Admin Roles</strong></h3>
+              <p>Any one can be assigned to Manage a specific task in the event Hosting Page depending on what role that the admin sees them fit for.</p>
+            </div>
+            <div class="col-md-12" style="margin-top:15px;">
+              <div class="form-group col-sm-3">
+                <input type="text" name="sales_online_url" class="form-control" placeholder="Type Name">
               </div>
-              <div class="row">
-                <div class="row">
-                  <div class="col-md-10">
-                    <h3 style="font-size:17px; font-weight:bold;">Business Hours</h3>
-                    Mondays - 
-                    9:00am-5:00pm<br>
-                    Tuesday - 
-                    9:00am-5:00pm<br>
-                    Wenesday - 
-                    9:00am-5:00pm<br>
-                    Thursday - 
-                    9:00am-5:00pm<br>
-                    Friday - 
-                    9:00am-5:00pm<br>
-                    Saturday - 
-                    Closed<br>
-                    Sunday - 
-                    Closed </div>
-                  <div class="col-md-2 text-right" style="margin-top:15px;"><a href="#"><img src="../assets/images/edit_icon.png" alt="" /> Edit </a></div>
-                </div>
+              <div class="form-group col-sm-3">
+                <input type="text" name="sales_online_url" class="form-control" placeholder="Email">
+              </div>
+              <div class="form-group col-sm-3">
+                <select name="online_sales_objective" class="form-control" style="background-color:#eff0f1;">
+       			  <option selected="selected" class="option">Assign Role</option>
+                 <option class="option">Admin</option>
+                 <option class="option">Advertiser Role</option>
+                 <option class="option">Post Moderator</option>
+                 <option class="option">Editor Role</option>
+									                     
+		        </select>
+              </div>
+              <div class="form-group col-sm-3">
+                <button type="button" class="btn btn-next" style="background:#333; color:#fff; border-radius:20px;">Add</button>
               </div>
             </div>
-          </div>
-          <div class="col-md-3" style="margin-top:15px;">
-            <div class="col-md-12" style="background:#fff; box-shadow:1px 1px 1px 2px #ECECEC; padding:2px; border-radius:5px;">
-              <div class="col-md-12">
-  <div class="row">
-    <div class="col-md-12">
-      <h3 style="font-size:16px; font-weight:bold;">Welcome To Your Event Hosting  Page</h3>
-      <p>Welcome to your evvent hosting page on !wowhubb, you can create, host and advertise all your company, organisation and business event in one place 
-        An amaazing platform to get all things event handled for you.</p>
-      </div>
-    <div class="col-md-12">
-      <h3 style="font-size:16px; font-weight:bold;">Invite Your Friends To Event Network Page</h3>
-      <div class="col-md-6">
-        <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-          <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user"></div>
-          <span style="font-size:15px; font-weight:bold;">Tony Adams</span>
-          
-          <br>
-          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button">Invite</button></span>
-          </div>
-        </div>
-      <div class="col-md-6">
-        <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-          <div class="col-md-12 text-center"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user"></div>
-          <span style="font-size:15px; font-weight:bold;">TD Jakes</span>
-          
-          <br>
-          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button">Invite</button></span>
-          </div>
-        </div>
-      <div class="col-md-12" style="margin-top:5px; margin-bottom:5px;"></div>
-      <div class="col-md-6">
-        <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-          <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user"></div>
-          <span style="font-size:15px; font-weight:bold;">Tony Adams</span>
-          
-          <br>
-          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button">Invite</button></span>
-          </div>
-        </div>
-      <div class="col-md-6">
-        <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-          <div class="col-md-12 text-center"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user"></div>
-          <span style="font-size:15px; font-weight:bold;">TD Jakes</span>
-          
-          <br>
-          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button">Invite</button></span>
-          </div>
-        </div>
-      
-      </div>
-  </div>
+            <div class="col-md-12" style="margin-top:15px;">
+            <div class="form-wizard-buttons">
+
+                    <button type="button" class="btn btn-previous" style="border-radius:20px;" >Cancel</button>
+                    <button type="button" class="btn btn-next" style="background:#e91e63; color:#fff; border-radius:20px;">Save</button>
               </div>
             </div>
+            <div class="col-md-12" style="margin-top:15px;">
+              <h3 style="font-size:16px;"><strong>Event Host Page ID: </strong> AB-1234-453-555500</h3>
+            </div>
+            
           </div>
         </div>
       </div>

@@ -90,6 +90,20 @@ label.error {
   max-width: 350px;
   width: 350px;
 }
+.landing-page {
+    position: relative!important;
+    min-height: 140vh!important;
+}
+.copyright{
+  background: #231F20!important;
+  text-align: center!important;
+  color: #fff!important;
+  padding: 12px 0 4px!important;
+  position:relative!important; 
+  bottom: 0px!important;
+  width: 100%!important;
+}
+
 
 </style>
 </head>
@@ -151,19 +165,28 @@ label.error {
                Services Providers Near you</h1>
           </div>
         </div>
-        <div class="col-md-12" style="margin-bottom:25px;">
+        <div class="col-md-12" style="margin-bottom:10px;">
           <div class="pull-left"><i class="fa fa-3x fa-tags" style="color:#fff"></i> </div>
           <div class="pull-left">
             <h1 class="text-white" style="font-size:20px; margin:0 15px;  line-height:30px; font-weight: 300;">Search & Book Your Next Event Venue</h1>
           </div>
         </div>
-        <div class="col-md-12" style="margin-bottom:25px;">
-          <p style="color:#fff; font-size: 15px;">Create, host  and share  your personal, professional and business events. We are best event  networking platform anytime and anywhere.<br><br>
-           <span style="color: #FFE500; font-size: 17px; font-weight: bold;"><i class="fa fa-play"></i> Create Your Events - Personal, Professional & Business Events.
-           </span>
+        <div class="col-md-12" style="margin-bottom:10px;">
+          <p style="color:#fff; font-size: 15px;">Create, host  and share  your personal, professional and business events. We are best event  networking platform anytime and anywhere.
+           <!--span style="color: #FFE500; font-size: 17px; font-weight: bold;"><i class="fa fa-play"></i> Create Your Events - Personal, Professional & Business Events.
+           </span-->
+            <div class="col-sm-12  text-left" style="margin-bottom:10px;">
+        <p><a href="#" style="color:#FFE500; font-size:17px;">
+        <div class="pull-left" style="width:5%;"><img src="../assets/images/cb.png"></div>
+        <div class="pull-left" style="width:95%; margin-top:4px;">
+              <a style="color: #ff0; font-size:17px;" href="<?php echo base_url('service/create_business_page'); ?>"> Create a Event Business Hosting Page </a>
+        </div>
+        </a>
+        </p>
+        </div>
          </p>
        </div> 
-        <div class="col-md-12" style="margin-bottom:25px;">
+        <div class="col-md-12" style="margin-bottom:10px;">
           <div class="col-md-4">
             <a href="#"><div class="col-md-12 text-center" style="border:1px solid #fff; border-radius:5px; padding-bottom:15px;">
             <div class="col-md-12" style="margin-top:15px; text-align:center;"><img src="../assets/images/home-1.png"></div>
@@ -455,24 +478,17 @@ label.error {
             <!--Registration Form Contents Ends--> 
           </div>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6 col-sm-offset-6"> 
+        <div class="row">
+      <div class="col-sm-12"> 
         
         <!--Social Icons-->
         <p style="color:#fff;"> By clicking the JOIN button you confirm that you have read and accepted our <a href="#" style="color:#ddb424;">Terms of use</a>, <a href="#" style="color:#ddb424;">Privacy policy</a> and <a href="#" style="color:#ddb424;">Cookies use policy</a></p>
       </div>
-      <div class="col-sm-6 col-sm-offset-6 text-left" style="margin-bottom:25px;">
-        <p><a href="#" style="color:#FFE500; font-size:17px;">
-        <div class="pull-left" style="width:5%;"><img src="../assets/images/cb.png"></div>
-        <div class="pull-left" style="width:95%; margin-top:4px;">
-              <a style="color: #ff0;" href="<?php echo base_url('service/create_business_page'); ?>"> Create a Event Business Hosting Page </a>
-        </div>
-        </a>
-        </p>
-        </div>
+     
     </div>
+      </div>
+    </div>
+    
   </div>
 </div>
 

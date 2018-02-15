@@ -293,8 +293,8 @@ public function personal_event()
 
 		     $runtime = $_POST['runtime_from'];
 		     $totime = $_POST['totime_to'];
-		     $runtime_from = date('M/d/Y', strtotime($runtime)); 
-		     $totime_to = date('M/d/Y', strtotime($totime));   
+		     $runtime_from = date('Y/m/d', strtotime($runtime)); 
+		     $totime_to = date('Y/m/d', strtotime($totime));   
 
 		   		// if($this->session->userdata('success') == true)
 		    	//  {	

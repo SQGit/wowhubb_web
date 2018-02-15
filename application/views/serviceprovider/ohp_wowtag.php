@@ -189,12 +189,12 @@ table {
   <!-- Timeline
       ================================================= -->
   <div class="timeline">
-    <div class="timeline-cover"> <img class="cover-pic" src="http://localhost/wowhubb/assets/images/mf-1.jpg" style="background-size:cover; width:100%; margin-top:20px;" > <br>
+    <div class="timeline-cover"> <img class="cover-pic" src="../assets/images/mf-1.jpg" style="background-size:cover; width:100%; margin-top:20px;" > <br>
       <!--Timeline Menu for Large Screens-->
       <div class="timeline-nav-bar hidden-sm hidden-xs">
         <div class="row">
           <div class="col-md-3">
-            <div class="profile-info"> <img  src="http://localhost/wowhubb/assets/images/megafest.png" class="profile-pic img-responsive profile-photo" /> </div>
+            <div class="profile-info"> <img  src="../assets/images/megafest.png" class="profile-pic img-responsive profile-photo" /> </div>
           </div>
           <div class="col-md-9" >
             <div class="profile-info-1"> </div>
@@ -258,7 +258,7 @@ table {
               </ul>
               <ul class="nav-news-feed">
                 <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Admin</h5>
-                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="#">Manage Members</a> </li>
+                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="<?php echo base_url('service/ohp_admin_members_admin'); ?>">Manage Members</a> </li>
                 <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
               </ul>
               <ul class="nav-news-feed">
@@ -268,7 +268,7 @@ table {
               </ul>
             </div>
           </div>
-          <div class="col-md-7">
+          <div class="col-md-10">
             <div class="col-md-12" style="margin-top:15px;">
               <p>!Wowtag is a unique feature in Wowhubb that is aimed at maximizing the mobile engagment of your users for your event, All a user needs to do is enter your event !WOWTAG catch word or pharse and a 20-30 seconds video is played for them to capture the whole essence of the event.  All !wowtag views are currently optimized for mobile views and engagments</p>
             </div>
@@ -389,63 +389,7 @@ table {
 </table>
             </div>
           </div>
-          <div class="col-md-3" style="margin-top:15px;">
-            <div class="col-md-12" style="background:#fff; box-shadow:1px 1px 1px 2px #ECECEC; padding:2px; border-radius:5px;">
-              <div class="col-md-12">
-  <div class="row">
-    <div class="col-md-12">
-      <h3 style="font-size:16px; font-weight:bold;">Welcome To Your Event Hosting  Page</h3>
-      <p>Welcome to your event hosting page on !wowhubb, you can create, host and advertise all your company, organisation and business event in one place 
-        An amaazing platform to get all things event handled for you.</p>
-      </div>
-    <div class="col-md-12">
-      <h3 style="font-size:16px; font-weight:bold;">Invite Your Friends To Event Network Page</h3>
-       <div class="col-md-12">
-            <input type="text" name="" class="form-control" placeholder="Search">
-       </div>
-      <div class="col-md-6">
-        <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-          <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user"></div>
-          <span style="font-size:15px; font-weight:bold;">Tony Adams</span>
           
-          <br>
-          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button">Invite</button></span>
-          </div>
-        </div>
-      <div class="col-md-6">
-        <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-          <div class="col-md-12 text-center"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user"></div>
-          <span style="font-size:15px; font-weight:bold;">TD Jakes</span>
-          
-          <br>
-          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button">Invite</button></span>
-          </div>
-        </div>
-      <div class="col-md-12" style="margin-top:5px; margin-bottom:5px;"></div>
-      <div class="col-md-6">
-        <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-          <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user"></div>
-          <span style="font-size:15px; font-weight:bold;">Tony Adams</span>
-          
-          <br>
-          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button">Invite</button></span>
-          </div>
-        </div>
-      <div class="col-md-6">
-        <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-          <div class="col-md-12 text-center"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user"></div>
-          <span style="font-size:15px; font-weight:bold;">TD Jakes</span>
-          
-          <br>
-          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button">Invite</button></span>
-          </div>
-        </div>
-      
-      </div>
-  </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

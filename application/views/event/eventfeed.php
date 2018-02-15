@@ -399,7 +399,7 @@ img.profile-photo1 {
             <li><img src="<?php echo base_url('assets/images/album-icon.png'); ?>" alt="user" /><a href="#">My Album</a></li>
             <li><img src="<?php echo base_url('assets/images/wow-tag-icon-1.png'); ?>" alt="user" /><a href="#">Wowtags</a></li>
             <li>
-              <div style="margin-left:0; text-align:left;"><a href="<?php echo base_url('service/event_hubb'); ?>"><img src="<?php echo base_url('assets/images/event-hubb-icon.png'); ?>" alt="user" />Event Hubb</a></div>
+              <div style="margin-left:0; text-align:left;"><a href="<?php echo base_url('eventhubb/get_eventhubb'); ?>"><img src="<?php echo base_url('assets/images/event-hubb-icon.png'); ?>" alt="user" />Event Hubb</a></div>
             </li>
             <li><img src="<?php echo base_url('assets/images/profile-icon.png'); ?>" alt="user" /><a href="#">Event Organizer</a></li>
              <li><img src="<?php echo base_url('assets/images/album-icon.png'); ?>" alt="user" /><a href="#">My Coupons</a></li>
@@ -2758,8 +2758,8 @@ $('#modal-1').on('show.bs.modal', function(e)
     $(e.currentTarget).find('input[name="bookId"]').val(bookId);
     });
 
-    
-    $('.myvideo').hover(function toggleControls() {  //video controls hide and show mouse hover
+  //video controls hide and show mouse hover  
+    $('.myvideo').hover(function toggleControls() {  
     if (this.hasAttribute("controls")) {
         this.removeAttribute("controls")
     } else {
@@ -2891,7 +2891,7 @@ $(document).ready(function(){
  });
 
 
-//profile third paert view  form submit
+//profile third party view  form submit
 
 var base_url = '<?php echo base_url() ?>'; //form submited
 $(document).ready(function(){

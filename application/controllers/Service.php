@@ -110,4 +110,9 @@ class Service extends CI_Controller
 		$this->load->view('serviceprovider/ohp_network_members');
 	}
 
+	public function ohp_admin_members_admin()   
+	{
+		$this->load->view('serviceprovider/ohp_admin_members_admin');
+	}
+
 }	

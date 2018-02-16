@@ -27,11 +27,18 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
 
 <!--Favicon-->
-<link rel="shortcut icon" type="image/png" href="<?php echo base_url ('assets/images/fav.png') ?>"/><style type="text/css">
+<link rel="shortcut icon" type="image/png" href="<?php echo base_url ('assets/images/fav.png') ?>"/>
+
+<style type="text/css">
+/*animation stop*/
+.landing-page .content-bg {
+    background-color: rgba(255, 94, 58, 0.95);
+    animation-name: none;
+}
 	
 	label.error {
     font-family: 'Roboto', sans-serif;
-   color:red; 
+   	color:red; 
 	}
 
 	.textBox {

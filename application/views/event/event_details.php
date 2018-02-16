@@ -349,31 +349,39 @@ body {
                                                       <?php } ?>
                                                       <!-- end professional event date and time-->
 
+                                                      <!-- event venue show start  here -->
+
+                                                      <?php
+
+                                                             foreach ($event->eventvenue as $eventvenues)
+                                                                   {
+                                                                   
+                                                            ?>
                                                         <tr>
+                                                          
                                                           <td bgcolor="#f9f9f9"> 
                                                             <strong>
-                                                              <i class="fa fa-map-marker"></i> Venue
+                                                              <i class="fa fa-map-marker"></i> Venue <?php echo $eventvenues->eventvenuenumber ; ?>
                                                             </strong>
                                                           </td>
                                                           <td height="40" bgcolor="#f9f9f9">                                                          
-                                                             <?php  
-
-                                                                 $i=0;
-
-                                                                  foreach ($event->eventvenue as $eventvenues)
-                                                                   {
-                                                                        if($i==0 && $eventvenues->eventvenuenumber == "1" )
-                                                                        {
+                                                             <?php   
+                                                                      
                                                                           if(isset($eventvenues->eventvenuecity))
                                                                           {
-                                                                            echo   $eventvenues->eventvenuename.", ".$eventvenues->eventvenuecity.", ".$eventvenues->eventvenueaddress1.", ".$eventvenues->eventvenuezipcode;
+                                                                            echo   $eventvenues->eventvenuename.", ".$eventvenues->eventvenuecity.", ".$eventvenues->eventvenueaddress1.", ".$eventvenues->eventvenuezipcode."<br>";
                                                                           }
-                                                                        }  
-                                                                        $i++;                             
-                                                                    }                                    
+                                                                                              
                                                              ?>
-                                                          </td>
-                                                        </tr>                                                        
+                                                          </td>                                                       
+
+                                                        </tr>  
+                                                                  <?php                                                         
+                                                                        
+                                                                      }                                    
+                                                                   ?>   
+                                                         <!-- event venue end show here -->
+                                                        <!-- donation url start here -->
 
                                                         <tr>
                                                           <td bgcolor="#ffffff"><strong>Donation URL</strong></td>
@@ -384,7 +392,21 @@ body {
                                                             </a>
                                                             </span>
                                                           </td>
-                                                        </tr>                                                   
+                                                        </tr>   
+
+                                                        <!-- gift registery url start here -->
+
+                                                        <tr>
+                                                          <td bgcolor="#ffffff"><strong>Giftregistry URL</strong></td>
+                                                          <td height="40" bgcolor="#ffffff">
+                                                            <span id="rtr-s-Text_206_1">
+                                                            <a href="#">
+                                                              <?php if(isset( $event->giftregistryurl)) { echo $event->giftregistryurl; } else { echo "You don't have gift registry URL" ; } ?>                                                              
+                                                            </a>
+                                                            </span>
+                                                          </td>
+                                                        </tr>   
+
                                                                                                              
                                                         <tr>
                                                           <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:16px;">Event FAQs</strong></td>
@@ -433,7 +455,8 @@ body {
                                                                     } else { echo "" ; }
                                                              ?>
                                                           </td>
-                                                        </tr>
+                                                        </tr>                                                        
+
 
                                                         <?php } else { ?>
 
@@ -442,19 +465,6 @@ body {
                                                         </tr>
 
                                                         <?php } ?>
-
-                                                        <tr>
-                                                          <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:16px;">Event Sponsors Details</strong></td>
-                                                        </tr>
-                                                        <tr>
-                                                          <td height="40" colspan="2" bgcolor="#fff">Soundbeat  Jam Club</td>
-                                                        </tr>
-
-                                                        <tr>
-                                                          <td height="40" colspan="2" bgcolor="#fff">
-                                                            <?php if(isset( $event->donationsurl)) { echo $event->donationsurl; } else { echo "" ; } ?>
-                                                          </td>
-                                                        </tr>
 
                                                         <tr>
                                                           <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:16px;">Contact Event Organisers</strong></td>
@@ -511,13 +521,9 @@ body {
                                   <!--<li><a href="#faq-cat-4" data-toggle="tab" class="text-center">Event Tours</a></li> -->
                               </ul>
 
-                          <div class="tab-content faq-cat-content">
+                          <div class="tab-content faq-cat-content">                                  
 
-                                  
-
-                                    <div class="tab-pane active in fade" id="faq-cat-1">
-
-                                      
+                                    <div class="tab-pane active in fade" id="faq-cat-1">                                      
 
                                         <div class="col-md-12 text-center clr" style="margin-top:10px;">
                                           <h4 style="color:#fff; line-height:30px;">Event Highlights<br>
@@ -526,23 +532,22 @@ body {
                                                 <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                               </span></h4>
                                         </div>
-
                                           
 
                                         <div class="col-md-12 pnl-brdr-clr">
                                           <?php if(isset($event->eventspeakername1)) { ?>
-                                            <div class="col-md-5">
+                                            <div class="col-md-7">
 
                                               <?php if(isset($event->eventhighlights1) && (($event->eventhighlights1) != 'null')  )
 
                                               { ?>
 
-                                              <div style="width:27%;" class="pull-left">
+                                              <div style="width:35%; margin-right: 5%;" class="pull-left" >
                                                 <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlights1; ?>" class="img-thumbnail"  />
                                               </div>
                                               <?php } ?>  
 
-                                              <div style="width:73%;" class="pull-left">
+                                              <div style="width:60%;" class="pull-left">
                                                 <?php if(isset($event->eventhighlightsvideo1) && (($event->eventhighlightsvideo1) != 'null')  ) { ?>
 
                                             <div id="vidBox">
@@ -556,17 +561,19 @@ body {
                                             </div>  
                                                                                   
                                                 <?php } ?>
-
-                                                <br>
-                                                <h5 style="color:#333; line-height:20px;">
-                                                  <?php echo $event->eventspeakername1; ?><br>
-                                                <span style="font-size:12px;">
-                                                   <?php echo $event->eventguesttype1; ?></span></h5>
+                                               
+                                               
+                                                   <span style="color:#e91e63; line-height:20px; font-size: 17px; font-weight: bold; text-transform: capitalize;">
+                                                  <?php echo $event->eventspeakername1; ?></span><br>
+                                                   <span style="color:#333;  text-transform: capitalize;">
+                                                  <?php echo $event->eventguesttype1; ?></span>
+                                                  <br>
+                                               </span>
                                               </div>
 
                                             </div>
 
-                                          <div class="col-md-7">
+                                          <div class="col-md-5">
                                             <h5 style="color:#333; line-height:20px;">!Cdaniells</h5>
                                             <p><?php echo $event->eventspeakeractivities1; ?></p>
                                             <a href="#"><?php echo $event->eventspeakerlink1; ?> </a>
@@ -621,9 +628,9 @@ body {
                                     <ul class="nav nav-tabs faq-cat-tabs">
                                       <li class="active"><a href="#faq-cat-5" data-toggle="tab" class="text-center" style="line-height:16px; font-size:12px; color:#333;">Day1 
                                        </a></li>
-                                      <li><a href="#faq-cat-6" data-toggle="tab" class="text-center" style="line-height:16px; font-size:12px; color:#333;">Day2 
+                                     <!--  <li><a href="#faq-cat-6" data-toggle="tab" class="text-center" style="line-height:16px; font-size:12px; color:#333;">Day2 
                                         </a></li>
-                                      <li><a href="#faq-cat-7" data-toggle="tab" class="text-center" style="line-height:16px; font-size:12px; color:#333;">Day3 </a></li>
+                                      <li><a href="#faq-cat-7" data-toggle="tab" class="text-center" style="line-height:16px; font-size:12px; color:#333;">Day3 </a></li> -->
                                     </ul>
 
                                     <div class="tab-content faq-cat-content">  
@@ -977,15 +984,38 @@ body {
                                                       <?php } ?>
                                                       <!-- end professional event date and time-->
 
+                                                        <!-- event venue show start  here -->
+
+                                                      <?php
+
+                                                             foreach ($event->eventvenue as $eventvenues)
+                                                                   {
+                                                                   
+                                                            ?>
                                                         <tr>
+                                                          
                                                           <td bgcolor="#f9f9f9"> 
                                                             <strong>
-                                                              <i class="fa fa-map-marker"></i> Venue
+                                                              <i class="fa fa-map-marker"></i> Venue <?php echo $eventvenues->eventvenuenumber ; ?>
                                                             </strong>
                                                           </td>
-                                                          <td height="40" bgcolor="#f9f9f9"> <?php if(isset($event->eventtimezone)){ echo $event->eventtimezone; } ?> </td>
-                                                        </tr>   
+                                                          <td height="40" bgcolor="#f9f9f9">                                                          
+                                                             <?php   
+                                                                      
+                                                                          if(isset($eventvenues->eventvenuecity))
+                                                                          {
+                                                                            echo   $eventvenues->eventvenuename.", ".$eventvenues->eventvenuecity.", ".$eventvenues->eventvenueaddress1.", ".$eventvenues->eventvenuezipcode."<br>";
+                                                                          }
+                                                                                              
+                                                             ?>
+                                                          </td>                                                       
 
+                                                        </tr>  
+                                                                  <?php                                                         
+                                                                        
+                                                                      }                                    
+                                                                   ?>   
+                                                         <!-- event venue end show here -->
                                                          <tr>
                                                           <td bgcolor="#ffffff"><strong>Ticket URL</strong></td>
                                                           <td height="40" bgcolor="#ffffff">
@@ -1000,7 +1030,7 @@ body {
                                                                       echo $eventvenues->eventvenueticketurl;
                                                                       } 
                                                                   
-                                                                  else { echo "" ; }  }
+                                                                  else { echo "Don't have any ticket URL" ; }  }
                                                               ?>                                                              
                                                             </a>
                                                             </span>
@@ -1064,18 +1094,12 @@ body {
 
                                                         <?php } ?>
 
-                                                        <tr>
+                                                      <!--   <tr>
                                                           <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:16px;">Event Sponsors Details</strong></td>
                                                         </tr>
                                                         <tr>
                                                           <td height="40" colspan="2" bgcolor="#fff">Soundbeat  Jam Club</td>
-                                                        </tr>
-
-                                                        <tr>
-                                                          <td height="40" colspan="2" bgcolor="#fff">
-                                                            <?php if(isset( $event->donationsurl)) { echo $event->donationsurl; } else { echo "" ; } ?>
-                                                          </td>
-                                                        </tr>
+                                                        </tr> -->                                                       
 
                                                         <tr >
                                                           <td height="40" colspan="2" bgcolor="#f9f9f9">
@@ -1667,16 +1691,38 @@ body {
 
                                                        
                                     
-                                                     
+                                                      <!-- event venue show start  here -->
+
+                                                      <?php
+
+                                                             foreach ($event->eventvenue as $eventvenues)
+                                                                   {
+                                                                   
+                                                            ?>
                                                         <tr>
+                                                          
                                                           <td bgcolor="#f9f9f9"> 
                                                             <strong>
-                                                              <i class="fa fa-map-marker"></i> Venue
+                                                              <i class="fa fa-map-marker"></i> Venue <?php echo $eventvenues->eventvenuenumber ; ?>
                                                             </strong>
                                                           </td>
-                                                          <td height="40" bgcolor="#f9f9f9"> <?php if(isset($event->eventtimezone)){ echo $event->eventtimezone; } ?> </td>
-                                                        </tr>   
+                                                          <td height="40" bgcolor="#f9f9f9">                                                          
+                                                             <?php   
+                                                                      
+                                                                          if(isset($eventvenues->eventvenuecity))
+                                                                          {
+                                                                            echo   $eventvenues->eventvenuename.", ".$eventvenues->eventvenuecity.", ".$eventvenues->eventvenueaddress1.", ".$eventvenues->eventvenuezipcode."<br>";
+                                                                          }
+                                                                                              
+                                                             ?>
+                                                          </td>                                                       
 
+                                                        </tr>  
+                                                                  <?php                                                         
+                                                                        
+                                                                      }                                    
+                                                                   ?>   
+                                                         <!-- event venue end show here -->
                                                          <tr>
                                                           <td bgcolor="#ffffff"><strong>Ticket Link</strong></td>
                                                           <td height="40" bgcolor="#ffffff">
@@ -1691,7 +1737,7 @@ body {
                                                                       echo $eventvenues->eventvenueticketurl;
                                                                       } 
                                                                   
-                                                                  else { echo "" ; }  }
+                                                                  else { echo "Don't have ticket URL" ; }  }
                                                               ?>                                                              
                                                             </a>
                                                             </span>
@@ -2343,7 +2389,6 @@ body {
                                                           </td>
                                                           <td height="40" bgcolor="#f9f9f9"> <?php if(isset($event->eventtimezone)){ echo $event->eventtimezone; } ?> </td>
                                                         </tr> 
-
                                                        
                                                         <tr>
                                                           <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:16px;">Sales Event FAQs</strong></td>

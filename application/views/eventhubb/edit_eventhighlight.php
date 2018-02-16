@@ -506,7 +506,7 @@ input[type=number]::-webkit-outer-spin-button {
               
      </div>
           
-    <form id="create_eventhighlight" action="#"  method="post" enctype="multipart/form-data" > 
+    <form id="create_eventhighlight" action="<?php echo base_url('eventhubb/update_eventhighlight'); ?>"  method="POST" enctype="multipart/form-data" > 
     	 
               <!--  Step 5 -->
     <fieldset>
@@ -527,22 +527,21 @@ input[type=number]::-webkit-outer-spin-button {
 
                 <div class='col-sm-9' id="highlight2">
 	                <div class='form-group col-sm-7' style="margin-bottom: 0px;">
-	                  	<div class='col-md-12' style="background-color:#f9f9f9; padding-top:15px;">
-	                      <div class="form-group">                       
-	                        <input type="button" class="btn btn-primary"  value="Browse Image.." onclick="document.getElementById('img_files').click();" />
-	                        <input type="file" style="display:none;" name="highlight_img1" id="img_files" class="file" accept="image/*">
-	                      </div>
-
+	                  		<div class='col-md-12' style="background-color:#f9f9f9; padding-top:15px;">
+			                       <div class="form-group">                       
+			                        <input type="button" class="btn btn-primary"  value="Browse Image.." onclick="document.getElementById('img_files').click();" >
+			                        <input type="file" style="display:none;" name="highlight_img1" id="img_files" class="file" accept="image/*">
+			                       </div>
 	                       			<div class="remove_img">
 	                       				<?php 
 		                       				if(isset($event->eventhighlights1)&& ($event->eventhighlights1 != 'null'))
 		                       				{
 	                       				?>
-			                        	<img src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlights1; ?>" style="width:160px; height:88px;"  alt="user" class="img-responsive img-thumbnail"/>	
+			                        	<img src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlights1; ?>" style="width:160px; height:88px;" name="exit_img1" alt="user" class="img-responsive img-thumbnail">	
 			                        	 <a href="#" class="delete"><i class="glyphicon glyphicon-remove"></i></a>
 			                        	<?php } ?>
 			                        </div>  
-	                    </div>
+	                    	</div>
 
 	                    <div class='col-md-12' style="background-color:#f9f9f9; padding-top:15px;">
 	                      <div class="form-group">                       
@@ -551,7 +550,7 @@ input[type=number]::-webkit-outer-spin-button {
 	                        </div>
 	                         <span class="btn btn-primary btn-file"> 
 	                        		Browse Video...  <input type="file" name="highlight_video1" id="video_size1" accept="video/*" >  
-	                     	</span> 
+	                     	 </span> 
 	                     	<div id="video_show1" style="display: none;" >
 	                        	<video width="200" height="150" controls>
 								 	 <source src="mov_bbb.mp4" id="video_here1">
@@ -571,11 +570,12 @@ input[type=number]::-webkit-outer-spin-button {
 	                      </div>
 	                    </div>
 	                </div>
+
                 <div class='col-sm-5'>
 	                <div class='form-group col-sm-12'>
 	                  <select name="guest_type1" class="form-control" id="types" >
 
-	                    <option value="<?php if(isset($event->eventguesttype1)){ echo $event->eventguesttype1;} ?>"><?php if(isset($event->eventguesttype1)){ echo $event->eventguesttype1;} else { echo "Select Event Type"; } ?> </option>
+	                    <option value="<?php echo $event->eventguesttype1; ?>"><?php if(isset($event->eventguesttype1)){ echo $event->eventguesttype1;} else { echo "Select Event Guest Type"; } ?> </option> 
 	                    <option value="Guest Speaker">Guest Speaker </option>
 	                    <option value="Guest Artist">Guest Artist </option>
 	                    <option value="Comedian">Comedian</option>
@@ -591,13 +591,13 @@ input[type=number]::-webkit-outer-spin-button {
 	                  </select>
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <input type="text" name="nameofspeaker1" id="textbox_1" class="form-control" value="<?php if(isset($event->eventspeakername1)){ echo $event->eventspeakername1;} else { echo ""; } ?> ">
+	                  <input type="text" name="nameofspeaker1" id="textbox_1" class="form-control" value="<?php if(isset($event->eventspeakername1)){ echo $event->eventspeakername1;} ?> " placeholder="Enter the name of Speaker/Artist/Event Clips">
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <input type="text" name="guest_url1" id="textbox_2" class="form-control" value="<?php if(isset($event->eventspeakerlink1)){ echo $event->eventspeakerlink1;} else { echo ""; } ?> ">
+	                  <input type="text" name="guest_url1" id="textbox_2" class="form-control" value="<?php if(isset($event->eventspeakerlink1)){ echo $event->eventspeakerlink1;} ?>" placeholder="Event Guest Speaker/Artist URL-Links">
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <textarea class="form-control" name="guest_speaker1" style="min-height:150px;"><?php if(isset($event->eventspeakeractivities1)){ echo $event->eventspeakeractivities1;} else { echo ""; } ?> </textarea>
+	                  <textarea class="form-control" name="guest_speaker1"  placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;"> <?php if(isset($event->eventspeakeractivities1)){ echo $event->eventspeakeractivities1;}  ?> </textarea>
 	                </div>
                 </div>
                 		<br><br>
@@ -631,8 +631,9 @@ input[type=number]::-webkit-outer-spin-button {
 	                </div>
                 <div class='col-sm-5'>
 	                <div class='form-group col-sm-12'>
-	                   <select name="guest_type1" class="form-control" id="types" >
-	                    <option value="">Select Event Guest Type </option>
+	                   <select name="guest_type2" class="form-control" id="types" >
+	                   	<option value="<?php if(isset($event->eventguesttype2)){ echo $event->eventguesttype2;} ?>"><?php if(isset($event->eventguesttype2)){ echo $event->eventguesttype2;} else { echo "Select Event Guest Type"; } ?> </option>
+	                  
 	                    <option value="Guest Speaker">Guest Speaker </option>
 	                    <option value="Guest Artist">Guest Artist </option>
 	                    <option value="Comedian">Comedian</option>
@@ -648,13 +649,13 @@ input[type=number]::-webkit-outer-spin-button {
 	                  </select>
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <input type="text" name="nameofspeaker2" id="textbox_1" class="form-control" placeholder="Enter Name Of Speaker/Artist/Event Clips">
+	                  <input type="text" name="nameofspeaker2" id="textbox_1" class="form-control" value="<?php if(isset($event->eventspeakername2)){ echo $event->eventspeakername2;} else { echo ""; } ?> " placeholder="Enter the name of Speaker/Artist/Event Clips">
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <input type="text" name="guest_url2" id="textbox_2" class="form-control" placeholder="Event Guest Speaker/Artist URL-Links">
+	                  <input type="text" name="guest_url2" id="textbox_2" class="form-control" placeholder="Event Guest Speaker/Artist URL-Links" value="<?php if(isset($event->eventspeakerlink2)){ echo $event->eventspeakerlink2;} else { echo ""; } ?> " >
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <textarea class="form-control" name="guest_speaker2" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;"></textarea>
+	                  <textarea class="form-control" name="guest_speaker2" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;"><?php if(isset($event->eventspeakeractivities2)){ echo $event->eventspeakeractivities2;}  ?></textarea>
 	                </div>
                 </div>
             </div>
@@ -869,57 +870,55 @@ var base_url = '<?php echo base_url() ?>'; //form submited
 		        var url = $(this).attr('action');
 		        var formdata = new FormData(this);
 		      
-		        $.ajax({
-		                url : url,
-		                method: 'POST',
-		                data: formdata,
-		                processData: false,
-		                contentType: false,
-		                dataType:'json',
-		                error: function(xhr,status,error)
-		                {   
-		                    alert(xhr.responseText);
-		                },
-		                beforeSend: function()
-		                {
+							        $.ajax({
+							                url : url,
+							                method: 'POST',
+							                data: formdata,
+							                processData: false,
+							                contentType: false,
+							                dataType:'json',
+							                error: function(xhr,status,error)
+							                {   
+							                    alert(xhr.responseText);
+							                },
+							                beforeSend: function()
+							                {
 
-		                	swal({
-						              title: 'Please Wait...',
-						              text: 'Submitting...',
-						              toast: true,
-						              target: '.swal',              
-						             
-						              onOpen: () => {
-						                swal.showLoading()
-					             	 }
-					            }); 
-		      
-		                },
-		                
-		                success: function(response)
-		                {
-		                   if(response.status == 'success')
-		                   {
-		                   // alert("success");
-		                    swal({
+							                	swal({
+											              title: 'Please Wait...',
+											              text: 'Submitting...',
+											              toast: true,
+											              target: '.swal',              
+											             
+											              onOpen: () => {
+											                swal.showLoading()
+										             	 }
+										            }); 
+							      
+							                },
+							                
+							                success: function(response)
+							                {
+							                   if(response.status == 'success')
+							                   {		                  
+		                   							swal({
 		                                                 title: "Success!",
 		                                                 text: "Your Event Created Successfully...",
 		                                                 type: "success",
-		                                                 timer: 5000
+		                                                 timer: 3000
 		                                                 }).then(() => {                     
-		                   									 window.location.href = "<?php echo base_url('event/get_eventfeed'); ?>";
+		                   									window.location.href = "<?php echo base_url('eventhubb/get_eventhubb'); ?>";
 		                   								});;  
 		                   
-		                    }
-		                    else 
-		                   	{
-		                    
-		                    	swal("Sorry!", "somethink wrong try again !", "error");
-		                  	 }          
-		                }
+							                    }
+							                    else 
+							                   	{
+							                    
+							                    	swal("Sorry!", "somethink wrong try again !", "error");
+							                  	 }          
+		               						}
 
-		       });
-		
+		       });		
      
 
  });

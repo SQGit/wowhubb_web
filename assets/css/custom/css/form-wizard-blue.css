@@ -14,7 +14,7 @@
     font-weight: normal;
     color: #333;
     line-height: 30px;
-    /*text-align: center;*/
+    text-align: center;
     //width:75%!important;
 }
 
@@ -518,6 +518,12 @@ background: #bbb;
 	position: relative;
 	float: left;
 	width: 14.28%;
+	padding: 0 5px;
+}
+.form-wizard-tolal-steps-8 .form-wizard-step { 
+	position: relative;
+	float: left;
+	width: 12.5%;
 	padding: 0 5px;
 }
 .form-wizard fieldset { 

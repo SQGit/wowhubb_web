@@ -442,9 +442,9 @@ input[type=number]::-webkit-outer-spin-button {
             <p>Please fill information to a create an event </p>
              <img src="../assets/images/prof-banner.jpg" class="img-thumbnail"  alt="banner-image"/>
             <!-- Form progress -->
-    <div class="form-wizard-steps form-wizard-tolal-steps-7">
+    <div class="form-wizard-steps form-wizard-tolal-steps-8">
               <div class="form-wizard-progress">
-                <div class="form-wizard-progress-line" data-now-value="12.25" data-number-of-steps="7" style="width: 12.25%;"></div>
+                <div class="form-wizard-progress-line" data-now-value="12.5" data-number-of-steps="8" style="width: 12.5%;"></div>
               </div>
               <!-- Step 1 -->
               <div class="form-wizard-step active">
@@ -487,13 +487,20 @@ input[type=number]::-webkit-outer-spin-button {
                 <p>Event Contact/ URL Links</p>
               </div>
               <!-- Step 6 --> 
+              
               <!-- Step 7 -->
+               <div class="form-wizard-step">
+                <div class="form-wizard-step-icon"><i class="fa fa-users" aria-hidden="true"></i></div>
+                <p>Event Tours</p>
+              </div>
+              <!--end  Step 7 -->
+              <!-- Step 8 -->
                <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-users" aria-hidden="true"></i></div>
                 <p>Audience Engagement</p>
               </div>
-              <!--end  Step 7 -->
-              
+              <!--end  Step 8 -->
+              	
      </div>
             <!-- Form progress --> 
             <!-- Form Step 1 -->
@@ -501,7 +508,7 @@ input[type=number]::-webkit-outer-spin-button {
     	  <fieldset>
                 <!-- Progress Bar -->
                 <div class="progress">
-                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="14.28" aria-valuemin="0" aria-valuemax="100" style="width: 14.28%"> </div>
+                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="12.5" aria-valuemin="0" aria-valuemax="100" style="width: 12.5%"> </div>
                 </div>
                 <!-- Progress Bar -->
                 <h4> <span>Step 1 - 6</span></h4>
@@ -642,7 +649,7 @@ input[type=number]::-webkit-outer-spin-button {
     <fieldset>
                 <!-- Progress Bar -->
                 <div class="progress">
-                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="42.84" aria-valuemin="0" aria-valuemax="100" style="width: 28.56%"> </div>
+                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%"> </div>
                 </div>
                 <!-- Progress Bar -->
                 <h4> <span>Step 2 - 6</span></h4>
@@ -940,7 +947,7 @@ input[type=number]::-webkit-outer-spin-button {
                 
                 <!-- Progress Bar -->
                 <div class="progress">
-                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="28.56" aria-valuemin="0" aria-valuemax="100" style="width: 42.84%"> </div>
+                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="37.5" aria-valuemin="0" aria-valuemax="100" style="width: 37.5%"> </div>
                 </div>
                 <!-- Progress Bar -->
                 <h4> <span>Step 3 - 6</span></h4>
@@ -1051,7 +1058,7 @@ input[type=number]::-webkit-outer-spin-button {
            <!-- Progress Bar -->
 
             	 <div class="progress">
-                  		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="57.12" aria-valuemin="0" aria-valuemax="100" style="width:57.12%">
+                  		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="49.5" aria-valuemin="0" aria-valuemax="100" style="width:49.5%">
                   		 </div>
                 </div>
                 <!-- Progress Bar -->
@@ -1136,7 +1143,7 @@ input[type=number]::-webkit-outer-spin-button {
             <!--<form id="create_event" action="" method="post" enctype="multipart/form-data" > --> 
                <!-- Progress Bar -->
 	        <div class="progress">
-	                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="71.37" aria-valuemin="0" aria-valuemax="100" style="width: 71.37%"> </div>
+	                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%"> </div>
 	        </div>
                 <!-- Progress Bar -->
             <h4> <span>Step 5 - 6</span></h4>
@@ -1303,7 +1310,7 @@ input[type=number]::-webkit-outer-spin-button {
      <fieldset>
                 <!-- Progress Bar -->
                 <div class="progress">
-                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="85.62" aria-valuemin="0" aria-valuemax="100" style="width: 85.62%"> </div>
+                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="74.5" aria-valuemin="0" aria-valuemax="100" style="width: 74.5%"> </div>
                 </div>
                 <!-- Progress Bar -->
                 <h4> <span>Step 6 - 7</span></h4>
@@ -1440,7 +1447,257 @@ input[type=number]::-webkit-outer-spin-button {
     </fieldset> 
 
          
-        <!-- start Step 7 -->
+    <!--  Step 7 -->
+     <fieldset>
+                <!-- Progress Bar -->
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" style="width: 87%"> </div>
+                </div>
+                <!-- Progress Bar -->
+                <h4> <span>Step 6 - 7</span></h4>
+
+                 <div class='col-sm-5'>
+            <div class='col-sm-12' style="background-color:#f9f9f9;padding-top:10px; ">
+                  		<div id="show_vanue" style="background-color:#bfbebe;padding-top:10px; ">
+							<center> <label >CREATE AND ADD YOUR EVENT TOURS CITIES HERE</label></center>  
+						</div>               
+             	<div id="event_venues">
+                	<div id="event_address_1" class="tab">                			
+
+		                    <div class='form-group col-sm-12' style="margin-top:20px;">
+		                      <label>Enter Your Event Venue / location Name</label>		                      
+		                      <input type='text' id="event_venue_name_1" name="event_venue_name[]"  class="form-control textBox" onblur="update_vanue()"/>
+		                    </div>
+
+		                    <div class='form-group col-sm-6'>
+		                      <label>Event Start Date</label>
+		                      <input type='text' id="event_startdate" name="eventvenue_startdate[]"  class="event_startdate form-control required "  />
+		                    </div>
+
+		                    <div class='form-group col-sm-6'>
+		                      <label>Event Start Time</label>
+		                      <input type='text' id="event_startime" name="eventvenue_startime[]"  class="event_startime form-control "  />
+		                    </div>
+		                   
+		                    <div class='form-group col-sm-6' >
+		                      <label>Event End Date</label>
+		                      <input type='text' id="event_enddate" name="eventvenue_enddate[]"  class="event_enddate form-control " />
+		                    </div>
+
+		                    <div class='form-group col-sm-6'>
+		                      <label>Event End Time</label>
+		                      <input type='text' id="event_endtiming" name="eventvenue_endtiming[]"  class="event_endtiming form-control "  />
+		                    </div>
+
+		                    <div class='form-group col-sm-12'>
+		                      <label>Address 1</label>
+		                      <input type='text' id="address1_1" name="address1[]"  class="form-control"  />
+		                    </div>
+
+		                    <div class='form-group col-sm-12'>
+		                      <label>Address 2</label>
+		                      <input type='text' id="address2_1" name="address2[]"  class="form-control"  />
+		                    </div>
+
+		                    <div class='form-group col-sm-12'>
+		                      <label>City</label>
+		                      <input type='text' id="city_1" name="venue_city[]" class="form-control" />
+		                    </div>
+
+		                    <div class='form-group col-sm-12'>	
+		                    	 <label>Country</label>	                  
+		                          	<select id="country_1" name="venue_country[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> 
+                                           <option value="">Country </option> 
+                                            <option value="Afghanistan">Afghanistan </option>
+                                            <option value="Albania">Albania </option>
+                                            <option value="Algeria">Algeria </option>
+                                            <option value="American Samoa">American Samoa </option>
+                                            <option value="Andorra">Andorra </option>
+                                            <option value="Angola">Angola </option>
+                                            <option value="Australia">Australia </option>
+                                            <option value="Bahamas">Bahamas </option>
+                                            <option value="Bahrain">Bahrain </option>
+                                            <option value="Bangladesh">Bangladesh </option>
+                                            <option value="Barbodos">Barbodos </option>
+                                            <option value="Canada">Canada </option>
+                                            <option value="Cape Verde">Cape Verde </option>
+                                            <option value="Chile">Chile </option>
+                                            <option value="China">China </option>
+                                            <option value="Colombia">Colombia </option>
+                                            <option value="Denmark">Denmark </option>
+                                            <option value="Dominica">Dominica </option>
+                                            <option value="Dominican Republic">Dominican Republic </option>
+                                            <option value="Finland">Finland </option>
+                                            <option value="France">France </option>
+                                            <option value="French Guiana">French Guiana </option>
+                                            <option value="Gabon">Gabon </option>
+                                            <option value="Gambia">Gambia </option>
+                                            <option value="Greece">Greece </option>
+                                            <option value="Greenland">Greenland </option>
+                                            <option value="Hong Kong">Hong Kong </option>
+                                            <option value="Hungary">Hungary </option>
+                                            <option value="Iceland">Iceland </option>
+                                            <option value="India">India </option>
+                                            <option value="Iraq">Iraq </option>
+                                            <option value="Ireland">Ireland </option>
+                                            <option value="Italy">Italy </option>
+                                            <option value="Jamaica">Jamaica </option>
+                                            <option value="Japan">Japan </option>
+                                            <option value="Kenya">Kenya </option>
+                                            <option value="Kuwait">Kuwait </option>
+                                            <option value="Latvia">Latvia </option>
+                                            <option value="Lebanon">Lebanon </option>
+                                            <option value="Liberia">Liberia </option>
+                                            <option value="Macao">Macao </option>
+                                            <option value="Madagaskar">Madagaskar </option>
+                                            <option value="Malawi">Malawi </option>
+                                            <option value="Malaysia">Malaysia </option>
+                                            <option value="Mali">Mali </option>
+                                            <option value="Malta">Malta </option>
+                                            <option value="Mexico">Mexico </option>
+                                            <option value="Monaco">Monaco </option>
+                                            <option value="Myanmar">Myanmar </option>
+                                            <option value="Nepal">Nepal </option>
+                                            <option value="Netherlands">Netherlands </option>
+                                            <option value="Nigeria">Nigeria </option>
+                                            <option value="Norway">Norway </option>
+                                            <option value="Oman">Oman </option>
+                                            <option value="Pakistan">Pakistan </option>
+                                            <option value="Palau">Palau </option>
+                                            <option value="Panama">Panama </option>
+                                            <option value="Peru">Peru </option>
+                                            <option value="Philippines">Philippines </option>
+                                            <option value="Poland">Poland </option>
+                                            <option value="Qatar">Qatar </option>
+                                            <option value="Romania">Romania </option>
+                                            <option value="Russian Federation">Russian Federation </option>
+                                            <option value="Samoa">Samoa </option>
+                                            <option value="Senegal">Senegal </option>
+                                            <option value="Spain">Spain </option>
+                                            <option value="Srilanka">Srilanka </option>
+                                            <option value="Switzerland">Switzerland </option>
+                                            <option value="Thailand">Thailand </option>                                           
+                        		</select>
+		                    </div>
+		                    
+
+		                    <div class='form-group col-sm-6'>
+		                      <label>Ticket URL</label>
+		                      <input type='text' id="ticket_url_1" name="venue_ticket_url[]" class="form-control" />
+		                    </div>
+
+		                    <div class='form-group col-sm-6'>
+		                      <label>Ticket Price</label>
+		                      <input type='text' id="ticket_price_1" name="venue_ticket_price[]" class="form-control" />
+		                    </div>
+
+		                    <div class='form-group col-sm-12'>
+		                      <label>Zipcode/ Postal Code</label>
+		                      <input type='number' id="zipcode_1" name="zipcode[]"  class="form-control"  />
+		                    </div>
+               		</div>
+            	</div> 
+            </div>
+
+                   <div class='col-sm-12'> 
+                    	<div class='col-sm-4'>
+                    		<a href="JavaScript:void(0);" id="btnAdd7" data-nxt_event_address="2">
+                    		<i class="fa fa-plus-circle"></i> Add multiple venue </a>
+                    	</div>
+                    	<div style="overflow:hidden;">
+						 	
+							    <div  class="col-md-8">
+							      <a href="JavaScript:void(0);" id="prevBtn" onclick="nextPrev(-1)">Previous</a>
+							      <a href="JavaScript:void(0);" id="nextBtn" onclick="nextPrev(1)" style="margin-left: 35px;"> Next</a>
+							    </div>					
+						</div>                     
+                   </div>  
+        </div>
+
+               <div class='col-sm-4'>
+                  	<div class='row'>
+		                    <div class='form-group-1 col-sm-12'>
+		                      <div class="pull-left" style="width:10%;">
+		                        <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+		                      </div>
+		                      <div class="pull-left" style="width:90%; font-size:15px;">Address can only be viewed by invited guest</div>
+		                    </div>
+		                    <div class='form-group-1 col-sm-12'>
+			                    <div class="pull-left" style="width:10%;">
+			                       <input type="checkbox" name="eventvenue_guestshare" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+			                    </div>
+			                    <div class="pull-left" style="width:90%; font-size:15px;">Invited guest can share event</div>
+		                    </div>
+		                    <div class='form-group-1 col-sm-12'>
+		                      <div class="pull-left" style="width:10%;">
+		                        <input type="checkbox" name="eventvenue_onlineevent" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+		                      </div>
+		                      <div class="pull-left" style="width:90%; font-size:15px;">Online  Event</div>
+		                    </div>
+		                    <div class='form-group-1 col-sm-12'>
+		                      <div class="pull-left" style="width:10%;">
+		                        <input type="checkbox" name="eventvenue_inviteonlyevent" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+		                      </div>
+		                      <div class="pull-left" style="width:90%; font-size:15px;">Invite Only Event</div>
+		                    </div>
+		                  
+
+                  	</div>
+                </div>
+
+
+
+                <div class='col-sm-3'>
+                  <div class='col-sm-12' style="background-color:#f9f9f9;">
+                    <div class='col-sm-12'>
+                      <h5>Helpful Hints</h5>
+                      <section class="ac-container">
+                        <div>
+                          <input id="ac-9" name="accordion-1" type="radio" />
+                          <label for="ac-9">Multiple Venue?</label>
+                          <article class="ac-small">
+                            <p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.</p>
+                          </article>
+                        </div>
+                        <div>
+                          <input id="ac-10" name="accordion-1" type="radio" />
+                          <label for="ac-10">Online Event?</label>
+                          <article class="ac-medium">
+                            <p>Like you, I used to think the world was this great place where everybody lived by the same standards I did, then some kid with a nail showed me I was living in his world, a world where chaos rules not order, a world where righteousness is not rewarded. That's Cesar's world, and if you're not willing to play by his rules, then you're gonna have to pay the price. </p>
+                          </article>
+                        </div>
+                        <div>
+                          <input id="ac-11" name="accordion-1" type="radio" />
+                          <label for="ac-11">Invite only Events?</label>
+                          <article class="ac-large">
+                            <p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man. </p>
+                          </article>
+                        </div>
+                        <div>
+                          <input id="ac-12" name="accordion-1" type="radio" />
+                          <label for="ac-12">Event Sharing?</label>
+                          <article class="ac-large">
+                            <p>You see? It's curious. Ted did figure it out - time travel. And when we get back, we gonna tell everyone. How it's possible, how it's done, what the dangers are. But then why fifty years in the future when the spacecraft encounters a black hole does the computer call it an 'unknown entry event'? Why don't they know? If they don't know, that means we never told anyone. And if we never told anyone it means we never made it back. Hence we die down here. Just as a matter of deductive logic. </p>
+                          </article>
+                        </div>
+                      </section>
+                      <!-- panel-group --> 
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class='col-sm-12'>
+                  <div class="form-wizard-buttons">
+                    <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
+                    <button type="button" class="btn btn-previous">Previous</button>
+                    <button type="button" class="btn btn-next">Next</button>
+                  </div>
+                </div>
+                
+    </fieldset> 
+
+     <!--  Step 7 -->
+        <!-- start Step 8 -->
 
    <fieldset>
                 <!-- Progress Bar -->
@@ -1859,7 +2116,7 @@ input[type=number]::-webkit-outer-spin-button {
     </fieldset>
           </form>   
            
-            <!-- end Step 7 --> 
+            <!-- end Step 8 --> 
         
           </div>
         </div>

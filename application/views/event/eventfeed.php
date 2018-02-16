@@ -53,9 +53,10 @@ ul li {
 	width: 100%;
 	height: 350px;
 }
-#page-contents {
-	padding: 30px 0 50px;/*background-color:#e7e5e6;*/
-}
+/*#page-contents {
+	padding: 30px 0 50px; 
+ 
+}*/
 #footer {
 	background: #fff;
 	position: relative;
@@ -411,7 +412,7 @@ img.profile-photo1 {
           <ul class="nav-news-feed">
             <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Event Pages</h5>
              
-             <li>
+            <!--  <li>
               <div style="margin-left:0; text-align:left;">
                 <a href="<?php echo base_url('Service/eventvenue_form'); ?>">
                 <i class="fa fa-caret-right" style="margin-top:4px;"></i>Event Venue Form</a></div>
@@ -434,13 +435,13 @@ img.profile-photo1 {
             </li>
             <li>
               <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Startup 2017</a></div>
-            </li>
+            </li> -->
             <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
           </ul>
           <!--news-feed links ends-->
           <ul class="nav-news-feed">
             <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Business Pages</h5>
-            <li>
+           <!--  <li>
               <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Hebronplus</a></div>
             </li>
             <li>
@@ -451,18 +452,22 @@ img.profile-photo1 {
             </li>
             <li>
               <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Sharaton Event Center</a></div>
-            </li>
+            </li> -->
             <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
           </ul>
           <!--news-feed links ends-->
           <ul class="nav-news-feed">
             <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Create</h5>
+             <li>
+              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Create Group</a></div>
+            </li>
             <li>
               <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Create Ad</a></div>
             </li>
             <li>
               <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Create Business Ad</a></div>
             </li>
+            
           </ul>
           <!--news-feed links ends--> 
           
@@ -624,9 +629,7 @@ img.profile-photo1 {
             </div>
 
     <!-- personal evnt start here -->
-                  <?php 
-
-                            
+                  <?php                            
                         foreach ($eventfeed as $feeds)
                           {                            
                            

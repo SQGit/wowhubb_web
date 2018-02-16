@@ -297,19 +297,20 @@ public function get_eventhighlight() //using form submit
 
 public function update_eventhighlight()
 {
-				$token3 =  $this->session->userdata('token');
-		     	$header3 = array('token:'              .$token3,
-		     				'eventid:' 		           .$this->session->userdata('id'),
-							'eventguesttype1:'         .$this->input->post('guest_type1'), 
-							'eventspeakername1:'       .$this->input->post('nameofspeaker1'),
-							'eventspeakerlink1:'       .$this->input->post('guest_url1'),
-							'eventspeakeractivities1:' .$this->input->post('guest_speaker1'),
-							'eventguesttype2:'         .$this->input->post('guest_type2'),
-							'eventspeakername2:'       .$this->input->post('nameofspeaker2'),
-							'eventspeakerlink2:'       .$this->input->post('guest_url2'),
-							'eventspeakeractivities2:' .$this->input->post('guest_speaker2')
+				$response = array();
+				$token =  $this->session->userdata('token');
+		     	$header = array('token:'                   .$token,
+			     				'eventid:' 		           .$this->input->post('event_id'),
+								'eventguesttype1:'         .$this->input->post('guest_type1'), 
+								'eventspeakername1:'       .$this->input->post('nameofspeaker1'),
+								'eventspeakerlink1:'       .$this->input->post('guest_url1'),
+								'eventspeakeractivities1:' .$this->input->post('guest_speaker1'),
+								'eventguesttype2:'         .$this->input->post('guest_type2'),
+								'eventspeakername2:'       .$this->input->post('nameofspeaker2'),
+								'eventspeakerlink2:'       .$this->input->post('guest_url2'),
+								'eventspeakeractivities2:' .$this->input->post('guest_speaker2')
 							
-							);
+							   );
 		   	 
 	       		$ch3 = curl_init();
        		      				    	
@@ -318,7 +319,7 @@ public function update_eventhighlight()
 				    	 $highlight_img1 = curl_file_create($_FILES['highlight_img1']['tmp_name'],$_FILES['highlight_img1']['type']);
 				    	}else
 					    	{
-					    		$highlight_img1 = ""; 
+					    		$highlight_img1 = curl_file_create($_FILES['exit_img1']['tmp_name'],$_FILES['exit_img1']['type']);
 					    	}
 
 					if(!empty($_FILES['highlight_video1']['name']))
@@ -352,13 +353,25 @@ public function update_eventhighlight()
 	    								 );		    	 				
 	    	 
 	    	  	curl_setopt($ch3, CURLOPT_URL,'http://104.197.80.225:3010/wow/event/highlights');	   
-		    	curl_setopt($ch3, CURLOPT_HTTPHEADER,$header3);
+		    	curl_setopt($ch3, CURLOPT_HTTPHEADER,$header);
 		    	curl_setopt($ch3, CURLOPT_POST, true);
 		    	curl_setopt($ch3, CURLOPT_POSTFIELDS, $event_highlight); 	
 		        curl_setopt($ch3, CURLOPT_RETURNTRANSFER, TRUE); //don't print automatic response   
-	    	  	$response3 = curl_exec($ch3); 	 
-	    	  	$data3 =json_decode($response3);
+	    	  	$result = curl_exec($ch3); 	 
+	    	  	$data =json_decode($result);
 	    	  	curl_close($ch3);
+
+	    	  	// print_r($data);
+
+	    	  	if($data->success == true)
+					{	
+						$response['status'] = 'success'; 			
+					}
+					else 
+					{	
+					 	$response['status'] = 'failed';
+					}
+			echo json_encode($response); 	
 }
 
 // delete personal  event from db

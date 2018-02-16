@@ -76,7 +76,6 @@ public function createpro_multiple_event()  //select option to redirect pages
 	}
 
 
-
 public function create_social_landing()  //social landing page function
 	   {
 	   		$this->load->view('event/create_social_landing');
@@ -2355,9 +2354,14 @@ public function get_eventfeed()
 			   	  	$data['todayfeed'] = $this->today_event();   	  	
 			   	  	// $this->$data['todayfeed'];
 			   	  	// print_r($data['todayfeed'] );
-			   	  }		
+			   	  	$this->load->view('event/eventfeed', $data);
+			   	  }	
+			   	  else
+			   	  {
+			   	  	$this->load->view('event/eventfeed_nodata', $data);
+			   	  }	
 
-				  $this->load->view('event/eventfeed', $data);
+				  
 		 	}
 	}
 

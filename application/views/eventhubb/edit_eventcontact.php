@@ -785,7 +785,7 @@ var base_url = '<?php echo base_url() ?>'; //form submited
 		                                                 type: "success",
 		                                                 timer: 5000
 		                                                 }).then(() => {                     
-		                   									 window.location.href = "<?php echo base_url('event/get_eventfeed'); ?>";
+		                   									 window.location.href = "<?php echo base_url('eventhubb/get_eventhubb'); ?>";
 		                   								});;  
 		                   
 		                    }

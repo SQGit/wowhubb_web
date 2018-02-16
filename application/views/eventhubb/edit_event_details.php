@@ -35,7 +35,7 @@
 	.image:hover a.delete { display:block; }
 
 	label.error {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
    color:red; 
 	}
 
@@ -319,7 +319,7 @@
 	    margin: 0;
 	    padding: 0 20px;
 	    border: none;
-	    font-family: 'Lato', sans-serif;
+	    font-family: 'Source Sans Pro', sans-serif;
 	    font-size: 16px;
 	    font-weight: normal;
 	    line-height:30px;
@@ -437,6 +437,10 @@ input[type=number]::-webkit-outer-spin-button {
 	margin: 0 auto;
     height: 150px;
 }*/
+.form-wizard img 
+{ max-width: 100%!important;
+  
+ }
 </style>
 </head>
 
@@ -495,9 +499,9 @@ input[type=number]::-webkit-outer-spin-button {
             
             <h3>Create Your Event</h3>
             <p>Please fill information to a create an event </p>
-             <img src="../assets/images/banner.jpg" class="img-thumbnail"  alt="banner-image"/>
+             <img src="../assets/images/banner.jpg" class="img-thumbnail"  alt="banner-image" style="height:152px!important;"/>
             <!-- Form progress -->
-    <div class="form-wizard-steps form-wizard-tolal-steps-7">
+    			<div class="form-wizard-steps form-wizard-tolal-steps-7">
               <div class="form-wizard-progress">
                 <div class="form-wizard-progress-line" data-now-value="12.25" data-number-of-steps="7" style="width: 12.25%;"></div>
               </div>
@@ -619,9 +623,9 @@ input[type=number]::-webkit-outer-spin-button {
 				                         		<input type="file" style="display:none;" name="cover_img" id="files" class="file" accept="image/*" title="cover image">  
 				                        </div> 
 			                        </div>	
-			                        <div class="remove_img">
+			                        <div class="remove_img" style="position:relative;">
 			                        	<img src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->coverpage; ?>" style="width:160px; height:88px;"  alt="user" class="img-responsive img-thumbnail"/>	
-			                        	 <a href="#" class="delete"><i class="glyphicon glyphicon-remove"></i></a>
+			                        	 <div style="position:absolute; right:203px; top:0px;"><a href="#" class="delete"><i class="glyphicon glyphicon-remove"></i></a></div>
 			                        </div>  
 
 			                      </div>

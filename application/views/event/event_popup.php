@@ -33,7 +33,14 @@
     <!--Favicon-->
     <link rel="shortcut icon" type="image/png" href="<?php echo base_url ('assets/images/fav.png') ?>"/>
     <style type="text/css">
+
+  /*animation stop*/
+.landing-page .content-bg {
+    background-color: rgba(255, 94, 58, 0.95);
+    animation-name: none;
+}
   
+
     #footer {
       background: #fff;
       position: relative;

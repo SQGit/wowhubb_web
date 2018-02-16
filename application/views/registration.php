@@ -172,7 +172,7 @@ label.error {
           </div>
         </div>
         <div class="col-md-12" style="margin-bottom:10px;">
-          <p style="color:#fff; font-size: 15px;">Create, host  and share  your personal, professional and business events. We are best event  networking platform anytime and anywhere.
+          <p style="color:#fff; font-size: 15px;">Create, host  and share  your personal, professional and business leads and sales events. We are best event  networking platform anytime and anywhere.
            <!--span style="color: #FFE500; font-size: 17px; font-weight: bold;"><i class="fa fa-play"></i> Create Your Events - Personal, Professional & Business Events.
            </span-->
             <div class="col-sm-12  text-left" style="margin-bottom:10px;">

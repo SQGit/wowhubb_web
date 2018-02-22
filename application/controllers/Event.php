@@ -62,6 +62,21 @@ public function create_professional_landing()  //professional landing page
 	   		$this->load->view('event/create_professional_landing');
 	   }
 
+public function event_wowtag()  //wowtag page from eventfeed
+	   {
+	   		$this->load->view('event/wowtag');
+	   }
+
+public function nearby_event()  //wowtag page from eventfeed
+	   {
+	   		$this->load->view('event/nearby_events_landing');
+	   }
+
+public function nearby_event_details()  //wowtag page from eventfeed
+	   {
+	   		$this->load->view('event/nearby_events_details');
+	   }
+
 public function createpro_multiple_event()  //select option to redirect pages
 	{
 		
@@ -413,7 +428,7 @@ public function personal_event()
 	   					array_push($pgm_schedule, array
 						(
 							'day'		   =>  $day,
-							'eventnumber'  =>  '1',
+							'eventnumber'  =>  $event+1,
 							'starttime'    =>  $this->input->post('day'.$day.'_event_starttime'),
 							'endtime'      =>  $this->input->post('day'.$day.'_event_endtime'),
 							'facilitator'  =>  $this->input->post('day'.$day.'_facilitator_name')[$event],
@@ -2490,8 +2505,171 @@ public function comments($command_id)
 		   	 redirect('event/get_eventfeed'); //page redirect 
 	 }
 
+//keyword search for professional event
+public function keyword()
+	{
+		$response = array(); 
+		$this->rest->http_header('token', $this->session->userdata('token'));		   		   	
+		 		
+		 		$data = array('search' =>  $this->input->post('keyword'));
+		  					
+		 		$json_data = json_encode($data); 
+		   	 	$result = $this->rest->post('http://104.197.80.225:3010/wow/event/keywordsuggestion',$json_data,'json');
 
-	   
+		   	 	// print_r($result);
+
+		if(isset($result->success) && ($result ->success == true))
+			{		 
+				 $response['status'] = 'success'; 
+				 // $response['message'] = $result->message;
+				 foreach($result->message as $messages)
+				 {
+				 	// echo $messages->word;
+				 	$response['msg'] = $messages->word;
+				 	// print_r($response['msg']);
+				 }
+			}
+		else 
+		   {	
+				 $response['status'] = 'failed';
+		 	 	 $response['message'] = $result->message;
+		    }
+
+			echo json_encode($response);
+
+	}	   
+
+//publish thoughts for event feed page
+public function update_thoughts()
+	{
+			
+			$response = array(); 			
+
+			$token    =  $this->session->userdata('token');	
+ 			
+		   	$header   = array('token:'        .$token,
+		   					  'eventtype:'    .'thought',
+		   					  'thoughtstext:' .$this->input->post('texts')
+		   					);
+
+			$ch = curl_init();
+       		      				    	
+			    	if(!empty($_FILES['thought_img']['name']))
+			       		{
+				    	 $thought_img = curl_file_create($_FILES['thought_img']['tmp_name'],$_FILES['thought_img']['type']);
+				    	}else
+					    	{
+					    		$thought_img = ""; 
+					    	}
+
+					if(!empty($_FILES['thought_video']['name']))
+			       		{
+				    	 $thought_video = curl_file_create($_FILES['thought_video']['tmp_name'],$_FILES['thought_video']['type']);
+				    	}else
+					    	{
+					    		$thought_video = ""; 
+					    	}
+			
+	
+	    		$thought_files = array('thoughtsimage' => @$thought_img, 'thoughtsvideo'  => @$thought_video );	    	 				
+	    	 
+	    	  	curl_setopt($ch, CURLOPT_URL,'http://104.197.80.225:3010/wow/event/thoughts');	   
+		    	curl_setopt($ch, CURLOPT_HTTPHEADER,$header);
+		    	curl_setopt($ch, CURLOPT_POST, true);
+		    	curl_setopt($ch, CURLOPT_POSTFIELDS, $thought_files); 	
+		        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); //don't print automatic response   
+	    	  	$response3 = curl_exec($ch); 	 
+	    	  	$data3 =json_decode($response3);
+	    	  	curl_close($ch);   	 
+
+		   	 	// print_r($data3);
+
+		if(isset($data3->success) && ($data3 ->success == true))
+			{		 
+				 $response['status'] = 'success'; 
+				 $response['message'] = $data3->message;
+				
+			}
+		else 
+		   {	
+				 $response['status'] = 'failed';
+		 	 	 $response['message'] = $data3->message;
+		    }
+
+			echo json_encode($response);
+
+	}	 
+
+// thoughts detele
+public function thoughts_delete($delete_id)
+	{
+			
+			$response = array(); 
+			$this->rest->http_header('token', $this->session->userdata('token'));		   		   	
+		 		
+		 		$data = array('thoughtid' => $delete_id);
+		  					
+		 		$json_data = json_encode($data); 
+		   	 	$result = $this->rest->post('http://104.197.80.225:3010/wow/event/deletethought',$json_data,'json');
+
+		   	 	// print_r($result);
+
+				if(isset($result->success) && ($result ->success == true))
+					{		 
+						 $response['status'] = 'success'; 
+						// $response['message'] = $result->message;
+						
+					}
+				else 
+				   {	
+						 $response['status'] = 'failed';
+				 	 	 $response['message'] = $result->message;
+				    }
+
+					echo json_encode($response);
+	}
+
+
+// thought commands
+public function thought_comments($thought_com_id)
+	{
+	   		
+	   		 $this->rest->http_header('token', $this->session->userdata('token'));		   		   	
+		  	  $data = array('thoughtid' =>  $thought_com_id,
+		  					'comment' => $this->input->post('comments'));
+		   	 $json_data = json_encode($data); 
+		   	 $result = $this->rest->post('http://104.197.80.225:3010/wow/event/postthoughtscomment',$json_data,'json');
+
+		   	 // $data['comment'] = $result->message;
+
+			  // print_r( $result);
+		 
+		   	 redirect('event/get_eventfeed'); //page redirect 
+	}
+
+
+//thought wowsome 
+public function thought_wowsome($thought_wow_id)
+	{
+	   		$response = array(); 
+	   		 $this->rest->http_header('token', $this->session->userdata('token'));		   		   	
+		  	  $data = array('thoughtid' =>  $thought_wow_id);
+		   	 $json_data = json_encode($data); 
+		   	 $result = $this->rest->post('http://104.197.80.225:3010/wow/event/thoughtswowsome',$json_data,'json');
+		   	 
+		  if(isset($result->success) && ($result ->success == true))
+			{		 
+				 $response['status'] = 'success'; 
+				 $response['message'] = $result->wowsomes;
+			}
+		  else 
+		   {	
+				 $response['status'] = 'failed';
+		 	 	 $response['message'] = $result->message;
+		    }
+			echo json_encode($response);
+	}
+
 
 }	
 

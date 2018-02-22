@@ -378,7 +378,9 @@
   .tab {
     display: none;
   }
-
+  .tab1 {
+    display: none;
+  }
 .loader {
   border: 16px solid #f3f3f3;
   border-radius: 50%;
@@ -545,223 +547,127 @@ input[type=number]::-webkit-outer-spin-button {
         <fieldset>
                 <!-- Progress Bar -->
                 <div class="progress">
-                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="14.28" aria-valuemin="0" aria-valuemax="100" style="width: 14.28%"> </div>
-                </div>
-
-                <!-- Progress Bar -->
-
-                 <div class="col-md-10">
-                  <h4> <strong>Spice Up Your Upcoming Event By Uploading  A Promotional Ad Video {!Wowtag}</strong></h4>
-              </div>
-                <div class="col-md-2">
-                  <h4> <span>Step 1 - 6</span></h4>
-              </div>
-
-               <div class='form-group col-sm-6' style="width:45%;" >
-                         
-        <div class='col-sm-5'>
-                  <div class='row'>         
-                  
-                    <div class='form-group col-sm-12' >
-                      <label>Event Name</label>
-                      <input type='text'  name="event_name" class="form-control " />
-                    </div>
-                  </div>
-
-                <div class='row'>
-                        <div class='form-group col-sm-12' >
-                          <label>Event City </label>
-                          <input type='text' id="time_zone" name="time_zone"  class="form-control  " />
-                        </div>
-
-                        <div class="form-group col-sm-12 " style="font-size: 15px;">
-                              <label>Select Event Days</label>
-                            <select name="event_totaldays" id="btn-add-tab" class="form-control " >
-                              <option value="" >Select Event Days</option>
-                              <option value="1">1 Day Event</option>
-                              <option value="2">2 Days Event</option>
-                              <option value="3">3 Days Event</option>
-                              <option value="4">4 Days Event</option>
-                              <option value="5">5 Days Event</option>
-                              <option value="6">6 Days Event</option>
-                              <option value="7">7 Days Event</option>
-                            </select>
-                        </div>
-
-                    <div id="date_hide" style="display: none;">
-
-                        <div class='form-group col-sm-6' style="width:45%;" >
-                          <label>Event Start Date</label>
-                          <input type='text' id="event_startdate" name="event_startdate"  class="form-control "  />
-                        </div>
-
-                        <div  class='form-group col-sm-6' style="width:45%; " >
-                          <label>Event Start Time</label>
-                          <input type='text' id="event_startime" name="event_startime"  class="form-control  "  />
-                        </div>
-
-                    
-                        <div class='form-group col-sm-6' style="width:45%;" >
-                          <label>Event End Date</label>
-                          <input type='text' id="event_enddate" name="event_enddate"  class="form-control" />
-                        </div>
-
-                        <div class='form-group col-sm-6' style="width:45%;">
-                          <label>Event End Time</label>
-                          <input type='text' id="event_endtiming" name="event_endtiming"  class="form-control "  />
-                        </div>                        
-                    </div>   
-                       
-                </div>
-        </div>
-
-                <div class='col-sm-4'>
-                    <div class='row'>
-                        <div class='form-group col-sm-12'>
-                          <label>Event Description</label>
-                          <textarea type='text' id="description" name="event_description"  class="form-control  " style="min-height:300px;" placeholder="Describe What Your Event Is All About " ></textarea>
-                        </div>
-
-                        <div class='form-group col-sm-12'>
-                            <div class='col-sm-12' style="background-color:#f9f9f9;">
-                              <label>Event Cover Photo <strong style="color: red; font-size: 20px;"> * </strong></label>
-                              <label>Please browse to upload cover photo</label>
-                              <div class="form-group" style="margin-bottom: 10px;"> 
-                                <div class="field" align="left">
-                                    <input type="button" class="btn btn-primary re"  value="Browse Image..." onclick="document.getElementById('files').click();" />
-                                    <input type="file" style="display:none;" name="cover_img" id="files" class="file  " accept="image/*" title="cover image">  
-                                </div> 
-                              </div>                            
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-               
-                <div class='col-sm-12'>
-                  <div class="form-wizard-buttons">
-                    <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
-                    <button type="button" class="btn btn-next">Next</button>
-                  </div>
-                </div>
-      </fieldset>
-             
-    <fieldset>
-      
-                <!-- Progress Bar -->
-                <div class="progress">
-                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="42.84" aria-valuemin="0" aria-valuemax="100" style="width: 42.84%"> </div>
+                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" style="width: 87%"> </div>
                 </div>
                 <!-- Progress Bar -->
-                <div class="col-md-10">
-                  <h4> <strong>Spice Up Your Upcoming Event By Uploading  A Promotional Ad Video {!Wowtag} </strong></h4>
-              </div>
-                <div class="col-md-2">
-                  <h4> <span>Step 3 - 6</span></h4>
-              </div>
-        <div class='col-sm-5'>
-          
-            <div class='col-sm-12' style="background-color:#f9f9f9;padding-top:10px; ">
-                      <div id="show_vanue" style="background-color:#bfbebe;padding-top:10px; ">
-                        <center> <label >CREATE AND ADD YOUR EVENT TOURS CITIES HERE</label></center>  
-                      </div> 
+                <h4> <span>Step 1 - 7</span></h4>
 
-              <div id="event_venues" >
-                  <div id="event_address_1" class="tab" >                     
+                <div class='col-sm-5'>
+                       <div class='col-sm-12' style="background-color:#f9f9f9;padding-top:10px; ">
+                          <div class='col-sm-3'>
+                            <label>Evnt Tour City</label>
+                          </div>
+                          <div class='col-sm-4'>
+                            <label>Date</label>
+                          </div>
+                          <div class='col-sm-4'>
+                            <label>Ticket URL</label>
+                          </div>
+                         <div id="add_tour">
+                         </div> 
+                     
+
+                <div id="event_tour">
+                    <div id="event_tour_1" class="tab">                      
 
                         <div class='form-group col-sm-12' style="margin-top:20px;">
-                          <label>Enter Your Event Venue / location Name</label>
-                          <input type='text' id="event_venue_name_1" name="event_venue_name[]"  class="form-control" onblur="update_vanue()"/>
+                          <label>Enter Your Event Venue / location Name</label>                         
+                          <input type='text' id="event_tour_name_1" name="event_venue_name[]"  class="form-control textBox" onblur="update_tour()"/>
+                        </div>
+
+                        <div class='form-group col-sm-6'>
+                          <label>Event Start Date</label>
+                          <input type='text' id="tour_startdate_1" name="eventvenue_startdate[]"  class="event_startdate form-control "  />
+                        </div>
+
+                        <div class='form-group col-sm-6'>
+                          <label>Event Start Time</label>
+                          <input type='text' id="tour_startime_1" name="eventvenue_startime[]"  class="event_startime form-control "  />
+                        </div>
+                       
+                        <div class='form-group col-sm-6' >
+                          <label>Event End Date</label>
+                          <input type='text' id="tour_enddate_1" name="eventvenue_enddate[]"  class="event_enddate form-control " />
+                        </div>
+
+                        <div class='form-group col-sm-6'>
+                          <label>Event End Time</label>
+                          <input type='text' id="tour_endtiming_1" name="eventvenue_endtiming[]"  class="event_endtiming form-control "  />
                         </div>
 
                         <div class='form-group col-sm-12'>
                           <label>Address 1</label>
-                          <input type='text' id="address1_1" name="address1[]"  class="form-control" />
+                          <input type='text' id="tour_address1_1" name="address1[]"  class="form-control"  />
                         </div>
 
                         <div class='form-group col-sm-12'>
                           <label>Address 2</label>
-                          <input type='text' id="address2_1" name="address2[]"  class="form-control"  />
+                          <input type='text' id="tour_address2_1" name="address2[]"  class="form-control"  />
                         </div>
 
                         <div class='form-group col-sm-12'>
                           <label>City</label>
-                          <input type='text' id="city_1" name="venue_city[]" class="form-control"   />
-                        </div>                       
+                          <input type='text' id="tour_city_1" name="venue_city[]" class="form-control" />
+                        </div>
+
+                        <div class='form-group col-sm-12'>  
+                           <label>Country</label>                   
+                                <select id="tour_country_1" name="venue_country[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> 
+                                           <option value="">Country </option> 
+                                            <option value="Afghanistan">Afghanistan </option>
+                                            <option value="Albania">Albania </option>
+                                            <option value="Algeria">Algeria </option>
+                                            <option value="American Samoa">American Samoa </option>                               
+                                            <option value="Srilanka">Srilanka </option>
+                                            <option value="Switzerland">Switzerland </option>
+                                            <option value="Thailand">Thailand </option>                                           
+                                </select>
+                        </div>
+                        
+
+                        <div class='form-group col-sm-6'>
+                          <label>Ticket URL</label>
+                          <input type='text' id="ticket_url_1" name="venue_ticket_url[]" class="form-control" onblur="update_tour()"/>
+                        </div>
+
+                        <div class='form-group col-sm-6'>
+                          <label>Ticket Price</label>
+                          <input type='text' id="ticket_price_1" name="venue_ticket_price[]" class="form-control" />
+                        </div>
 
                         <div class='form-group col-sm-12'>
                           <label>Zipcode/ Postal Code</label>
-                          <input type='number' id="zipcode_1" name="zipcode[]"  class="form-control"  />
+                          <input type='number' id="tour_zipcode_1" name="zipcode[]"  class="form-control"  />
                         </div>
                   </div>
               </div> 
-            </div>
+
+            </div>  
 
                    <div class='col-sm-12'> 
                       <div class='col-sm-4'>
-                        <a href="JavaScript:void(0);" id="btnAdd7" data-nxt_event_address="2">
-                        <i class="fa fa-plus-circle"></i> Add multiple venue </a>
+                        <a href="JavaScript:void(0);" id="add_event_tour" data-nxt_event_tour="2">
+                        <i class="fa fa-plus-circle"></i> Add multiple Tour </a>
                       </div>
                       <div style="overflow:hidden;">
               
-                  <div  class="col-md-8">
-                    <a href="JavaScript:void(0);" id="prevBtn" onclick="nextPrev(-1)">Previous</a>
-                    <a href="JavaScript:void(0);" id="nextBtn" onclick="nextPrev(1)" style="margin-left: 35px;"> Next</a>
+                  <div class="col-md-8">
+                    <a href="JavaScript:void(0);" id="prevButton" onclick="nextPreview(-1)">Previous</a>
+                    <a href="JavaScript:void(0);" id="nextButton" onclick="nextPreview(1)" style="margin-left: 35px;"> Next</a>
                   </div>          
             </div>                     
-                   </div>  
-        </div>
-
-              
-
-
-                <div class='col-sm-3'>
-                  <div class='col-sm-12' style="background-color:#f9f9f9;">
-                    <div class='col-sm-12'>
-                      <h5>Helpful Hints</h5>
-                      <section class="ac-container">
-                        <div>
-                          <input id="ac-9" name="accordion-1" type="radio" />
-                          <label for="ac-9">Multiple Venue?</label>
-                          <article class="ac-small">
-                            <p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.</p>
-                          </article>
-                        </div>
-                        <div>
-                          <input id="ac-10" name="accordion-1" type="radio" />
-                          <label for="ac-10">Online Event?</label>
-                          <article class="ac-medium">
-                            <p>Like you, I used to think the world was this great place where everybody lived by the same standards I did, then some kid with a nail showed me I was living in his world, a world where chaos rules not order, a world where righteousness is not rewarded. That's Cesar's world, and if you're not willing to play by his rules, then you're gonna have to pay the price. </p>
-                          </article>
-                        </div>
-                        <div>
-                          <input id="ac-11" name="accordion-1" type="radio" />
-                          <label for="ac-11">Invite only Events?</label>
-                          <article class="ac-large">
-                            <p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man. </p>
-                          </article>
-                        </div>
-                        <div>
-                          <input id="ac-12" name="accordion-1" type="radio" />
-                          <label for="ac-12">Event Sharing?</label>
-                          <article class="ac-large">
-                            <p>You see? It's curious. Ted did figure it out - time travel. And when we get back, we gonna tell everyone. How it's possible, how it's done, what the dangers are. But then why fifty years in the future when the spacecraft encounters a black hole does the computer call it an 'unknown entry event'? Why don't they know? If they don't know, that means we never told anyone. And if we never told anyone it means we never made it back. Hence we die down here. Just as a matter of deductive logic. </p>
-                          </article>
-                        </div>
-                      </section>
-                      <!-- panel-group --> 
-                      
-                    </div>
-                  </div>
-                </div>
-                <div class='col-sm-12'>
+                   </div> 
+                   
+            </div>
+            <div class='col-sm-12'>
                   <div class="form-wizard-buttons">
                     <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
                     <button type="button" class="btn btn-previous">Previous</button>
                     <button type="button" class="btn btn-next">Next</button>
                   </div>
                 </div>
-    </fieldset>
+             
+    
 
 
     
@@ -834,56 +740,7 @@ input[type=number]::-webkit-outer-spin-button {
 </div>
 
 
-    <div class="modal fade" id="modal-1" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="post-content">
-                      <div class="post-container" style="padding-bottom:20px;">
-                        <div class="post-detail">
-                                          <div class="user-info">
-                                              <h3>FAQ's</h3>
-                                              <span style="color:#333; font-size: 15px">Please give the Details below </span> 
-                                          </div>
-                                          <div class="line-divider"></div>
-                          <div class="user-info">
-                            <div class="row" style="padding:10px;">
-                                             <!--   <div class="alert alert-success" id="rsvp_success" role="alert" style="display:none;" >Successfully Register
-                                               </div> -->
-                                                <!-- this form submit rsvp -->
-                             <!--  <form action="<?php echo base_url('event/mytest'); ?>" method="post"  class="form-inline">
-                                <div id="dynamic_add_faq">
-                                  <div class="row" id="event_faq_1">
-                                        
-                                    <div class="col-md-12" style="margin: 10px 0px;">
-                                        <input type="text" id="faq_ques_1" name="faq_ques[]" class="form-control" placeholder="Enter question">                                      
-                                    </div>
-                                    <div class="col-md-12" style="margin: 10px 0px;">
-                                        <input type="text" id="faq_ans_1" name="faq_ans[]" class="form-control" placeholder="Enter Answer">                                      
-                                    </div>
-                                  </div>
-                                </div>
-
-                                  <a href="#" id="faq_add" data-nxt_event_faq="2">
-                                <i class="fa fa-plus-circle"></i> Add More Event FAQ's
-                            </a>
-
-                                  <div class="row">
-                                    <div style="width:100%;" class="text-center">
-                                      <input type="submit" value="Submit" class="btn btn-primary" style="width:140px;">
-                                    </div>
-                                  </div>
-                              </form>
- -->
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
+    
 <!-- Scripts
     ================================================= --> 
     
@@ -1016,30 +873,134 @@ $('body').on('focus',".day_start_time", function(){   //dynamically add time
 
 //dynamically add event venue address
 
-function generate_address_fields(count)
- {  
-  var address  = '<div id="event_address_'+count+'" class="animated bounceInRight tab"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_venue_name_'+count+'" name="event_venue_name[]"  class="form-control" onblur="update_vanue()" /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="address1_'+count+'" name="address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="address2_'+count+'" name="address2[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="city_'+count+'" name="venue_city[]" class="form-control" /> </div> <div class="form-group col-sm-12">  <div class="form-group col-sm-12"> <label>Zipcode/ Postal Code</label> <input type="number" id="zipcode_'+count+'" name="zipcode[]"  class="form-control"  /> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnAdd10" class="remove_address btn btn-info btn-sm"> </a> </div> </div>';
+// function generate_address_fields(count)
+//  {  
+//   var address  = '<div id="event_address_'+count+'" class="animated bounceInRight tab"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_venue_name_'+count+'" name="event_venue_name[]"  class="form-control" onblur="update_vanue()" /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="address1_'+count+'" name="address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="address2_'+count+'" name="address2[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="city_'+count+'" name="venue_city[]" class="form-control" /> </div> <div class="form-group col-sm-12">  <div class="form-group col-sm-12"> <label>Zipcode/ Postal Code</label> <input type="number" id="zipcode_'+count+'" name="zipcode[]"  class="form-control"  /> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnAdd10" class="remove_address btn btn-info btn-sm"> </a> </div> </div>';
 
-        return address;
+//         return address;
+// }
+
+//    var currentTab = 0; // Current tab is set to be the first tab (0)
+//    showTab(currentTab); // Display the current tab
+
+//   $('#btnAdd7').click(function() //here add address
+//     {
+//     $('[id^=event_address_]').hide();
+//         //Once add button is clicked
+//         var nxtaddress_count = $(this).data("nxt_event_address");
+
+//         var nxtaddressHTML = generate_address_fields(nxtaddress_count);
+//     $('[id^=event_address_'+nxtaddress_count+']').show();
+//         $('#event_venues').append(nxtaddressHTML); // Add field html
+
+//     nxtaddress_count++; //Increment field counter
+
+//         $(this).data('nxt_event_address', nxtaddress_count); //update data nxtportion   
+//         nextPrev(1);             
+
+//   });
+
+//  //remove function
+
+//    $(document).on('click', '.remove_address', function(e)
+//     {
+//           e.preventDefault();
+//           nextPrev(-1);
+//           $(this).parents('[id^=event_address_]').remove();
+//           update_vanue();   //here remove event venue on top
+//     });
+
+// function showTab(n)
+//  {  
+//   // This function will display the specified tab of the form...
+//       var x = document.getElementsByClassName("tab");
+//       x[n].style.display = "block";
+//       //... and fix the Previous/Next buttons:
+//       if (n == 0) {
+//         document.getElementById("prevBtn").style.display = "none";
+//       } else {
+//         document.getElementById("prevBtn").style.display = "inline";
+//       }
+//       if (n == (x.length - 1)) {
+//         document.getElementById("nextBtn").style.display = "none";
+//       } else {
+//         document.getElementById("nextBtn").style.display = "inline";
+//       }
+//       update_vanue();
+// }
+
+// function nextPrev(n)
+//  {
+//   // This function will figure out which tab to display  
+//     var x = document.getElementsByClassName("tab");
+//     // Hide the current tab:     
+//     x[currentTab].style.display = "none";
+//     // Increase or decrease the current tab by 1:
+//     currentTab = currentTab + n;  
+//     // Otherwise, display the correct tab:    
+//     showTab(currentTab);
+// }
+
+  
+// function update_vanue() {
+  
+//   option_template = '';
+
+//     $('#show_vanue').find('div').remove();
+//     $('.venueselectpicker option').remove();
+
+//     $(".tab").each(function(index){
+//         var index = index+1; 
+//         var venue = $(this).find("[id^=event_venue_name_]").val();  
+//         var address = $(this).find("[id^=address1_]").val();
+//         // var city = $(this).find("[id^=city_]").val();
+
+//         if(venue != '' || address != '')
+//         {
+//             var template = ' <div class="form-group col-sm-12" style="background-color:#9e9999; margin-top:10px; "> <div class="pull-left" style="width:40%;">Event Venue '+index+'</div>'+
+//                     '<div class="pull-left" style="width:45%;"> '+venue+' </div>'+
+//                     '<div class="pull-left" style="width:15%;"><img src="../assets/images/map-icon.png" alt="map-icon" /></div> </div>';
+
+//             option_template += '<option value="'+venue+' ">'+venue+' </option>';
+//         }
+        
+
+//         $('#show_vanue').append(template);          
+      
+//     }); 
+
+//      $('.venueselectpicker').append(option_template);
+                
+// }
+
+
+//dynamic add event tour
+
+
+function generate_tour_fields(count)
+ {  
+  var tour_address  = '<div id="event_tour_'+count+'" class="animated bounceInRight tab"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_tour_name_'+count+'" name="event_venue_name[]"  class="form-control" onblur="update_vanue()" /> </div> <div class="form-group col-sm-6"> <label>Event Start Date</label> <input type="text" id="tour_startdate_'+count+'" name="eventvenue_startdate[]"  class="event_startdate form-control " /> </div> <div class="form-group col-sm-6"> <label>Event Start Time</label> <input type="text" id="tour_startime_'+count+'" name="eventvenue_startime[]"  class="event_startime form-control "  /> </div> <div class="form-group col-sm-6" > <label>Event End Date</label> <input type="text" id="tour_enddate_'+count+'" name="eventvenue_enddate[]"  class="event_enddate form-control " /> </div> <div class="form-group col-sm-6"> <label>Event End Time</label> <input type="text" id="tour_endtiming_'+count+'" name="eventvenue_endtiming[]"  class="event_endtiming form-control "  /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="tour_address1_'+count+'" name="address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="tour_address2_'+count+'" name="address2[]"  class="form-control" /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="tour_city_'+count+'" name="venue_city[]" class="form-control" /> </div> <div class="form-group col-sm-12"> <label>Country</label> <select id="tour_country_'+count+'" name="venue_country[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="">Country </option> <option value="Afghanistan">Afghanistan </option> <option value="Albania">Albania </option> <option value="Algeria">Algeria </option> <option value="American Samoa">American Samoa </option> <option value="Andorra">Andorra </option> <option value="Angola">Angola </option> <option value="Australia">Australia </option> <option value="Bahamas">Bahamas </option> <option value="Bahrain">Bahrain </option> <option value="Bangladesh">Bangladesh </option> <option value="Barbodos">Barbodos </option> <option value="Canada">Canada </option> <option value="Cape Verde">Cape Verde </option> <option value="Chile">Chile </option> <option value="China">China </option> <option value="Colombia">Colombia </option> <option value="Denmark">Denmark </option> <option value="Dominica">Dominica </option> <option value="Dominican Republic">Dominican Republic </option> <option value="Finland">Finland </option> <option value="France">France </option> <option value="French Guiana">French Guiana </option> <option value="Gabon">Gabon </option> <option value="Gambia">Gambia </option> <option value="Greece">Greece </option> <option value="Greenland">Greenland </option> <option value="Hong Kong">Hong Kong </option> <option value="Hungary">Hungary </option> <option value="Iceland">Iceland </option> <option value="India">India </option> <option value="Iraq">Iraq </option> <option value="Ireland">Ireland </option> <option value="Italy">Italy </option> <option value="Jamaica">Jamaica </option> <option value="Japan">Japan </option> <option value="Kenya">Kenya </option> <option value="Kuwait">Kuwait </option> <option value="Latvia">Latvia </option> <option value="Lebanon">Lebanon </option> <option value="Liberia">Liberia </option> <option value="Macao">Macao </option> <option value="Madagaskar">Madagaskar </option> <option value="Malawi">Malawi </option> <option value="Malaysia">Malaysia </option> <option value="Mali">Mali </option> <option value="Malta">Malta </option> <option value="Mexico">Mexico </option> <option value="Monaco">Monaco </option> <option value="Myanmar">Myanmar </option> <option value="Nepal">Nepal </option> <option value="Netherlands">Netherlands </option> <option value="Niger">Niger </option> <option value="Norway">Norway </option> <option value="Oman">Oman </option> <option value="Pakistan">Pakistan </option> <option value="Palau">Palau </option> <option value="Panama">Panama </option> <option value="Peru">Peru </option> <option value="Philippines">Philippines </option> <option value="Poland">Poland </option> <option value="Qatar">Qatar </option> <option value="Romania">Romania </option> <option value="Russian Federation">Russian Federation </option> <option value="Samoa">Samoa </option> <option value="Senegal">Senegal </option> <option value="Spain">Spain </option> <option value="Srilanka">Srilanka </option> <option value="Switzerland">Switzerland </option> <option value="Thailand">Thailand </option> </select> </div><div class="form-group col-sm-6"> <label>Ticket URL</label> <input type="text" id="ticket_url_'+count+'" name="venue_ticket_url[]" class="form-control" /> </div> <div class="form-group col-sm-6"> <label>Ticket Price</label> <input type="text" id="ticket_price_'+count+'" name="venue_ticket_price[]" class="form-control" /> </div> <div class="form-group col-sm-12"> <label>Zipcode/ Postal Code</label> <input type="number" id="tour_zipcode_'+count+'" name="zipcode[]"  class="form-control"  /> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnAdd10" class="remove_address btn btn-info btn-sm"> </a> </div> </div>';
+
+        return tour_address;
 }
 
-   var currentTab = 0; // Current tab is set to be the first tab (0)
-   showTab(currentTab); // Display the current tab
+  var curTab = 0; // Current tab is set to be the first tab (0)
+    shownextTab(curTab); // Display the current tab
 
-  $('#btnAdd7').click(function() //here add address
+  $('#add_event_tour').click(function() //here add address button id name btnAdd7
     {
-    $('[id^=event_address_]').hide();
+    $('[id^=event_tour_]').hide();
         //Once add button is clicked
-        var nxtaddress_count = $(this).data("nxt_event_address");
+        var nxttour_count = $(this).data("nxt_event_tour");
 
-        var nxtaddressHTML = generate_address_fields(nxtaddress_count);
-    $('[id^=event_address_'+nxtaddress_count+']').show();
-        $('#event_venues').append(nxtaddressHTML); // Add field html
+        var nxttourHTML = generate_tour_fields(nxttour_count);
+    $('[id^=event_tour_'+nxttour_count+']').show();
+        $('#event_tour').append(nxttourHTML); // Add field html
 
-    nxtaddress_count++; //Increment field counter
+    nxttour_count++; //Increment field counter
 
-        $(this).data('nxt_event_address', nxtaddress_count); //update data nxtportion   
-        nextPrev(1);             
+        $(this).data('nxt_event_tour', nxttour_count); //update data nxtportion   
+        nextPreview(1);             
 
   });
 
@@ -1048,73 +1009,80 @@ function generate_address_fields(count)
    $(document).on('click', '.remove_address', function(e)
     {
           e.preventDefault();
-          nextPrev(-1);
-          $(this).parents('[id^=event_address_]').remove();
-          update_vanue();   //here remove event venue on top
+          nextPreview(-1);
+          $(this).parents('[id^=event_tour_]').remove();
+          update_tour();   //here remove event venue on top
     });
 
-function showTab(n)
+function shownextTab(n)
  {  
   // This function will display the specified tab of the form...
       var x = document.getElementsByClassName("tab");
       x[n].style.display = "block";
       //... and fix the Previous/Next buttons:
       if (n == 0) {
-        document.getElementById("prevBtn").style.display = "none";
+        document.getElementById("prevButton").style.display = "none";
       } else {
-        document.getElementById("prevBtn").style.display = "inline";
+        document.getElementById("prevButton").style.display = "inline";
       }
       if (n == (x.length - 1)) {
-        document.getElementById("nextBtn").style.display = "none";
+        document.getElementById("nextButton").style.display = "none";
       } else {
-        document.getElementById("nextBtn").style.display = "inline";
+        document.getElementById("nextButton").style.display = "inline";
       }
-      update_vanue();
+      update_tour();
 }
 
-function nextPrev(n)
+function nextPreview(n)
  {
   // This function will figure out which tab to display  
     var x = document.getElementsByClassName("tab");
     // Hide the current tab:     
-    x[currentTab].style.display = "none";
+    x[curTab].style.display = "none";
     // Increase or decrease the current tab by 1:
-    currentTab = currentTab + n;  
+    curTab = curTab + n;  
     // Otherwise, display the correct tab:    
-    showTab(currentTab);
+    shownextTab(curTab);
 }
 
   
-function update_vanue() {
+function update_tour() {
   
-  option_template = '';
+  // option_template = '';
 
-    $('#show_vanue').find('div').remove();
-    $('.venueselectpicker option').remove();
+    $('#template').find('div').remove();
+   
 
-    $(".tab").each(function(index){
-        var index = index+1; 
-        var venue = $(this).find("[id^=event_venue_name_]").val();  
+    $(".tab").each(function(){
+        // var tesr = index1+1;   
+        var venue = $(this).find("[id^=event_tour_name_]").val();  
         var address = $(this).find("[id^=address1_]").val();
-        // var city = $(this).find("[id^=city_]").val();
 
-        if(venue != '' || address != '')
+        var city = $(this).find("[id^=city_]").val();
+        var start_date = $(this).find("[id^=event_startdate_]").val();
+        var end_date = $(this).find("[id^=event_enddate_]").val();
+        var ticket_url = $(this).find("[id^=ticket_url_]").val();
+
+
+
+        if(venue != '' || ticket_url != '' )
         {
-            var template = ' <div class="form-group col-sm-12" style="background-color:#9e9999; margin-top:10px; "> <div class="pull-left" style="width:40%;">Event Venue '+index+'</div>'+
-                    '<div class="pull-left" style="width:45%;"> '+venue+' </div>'+
-                    '<div class="pull-left" style="width:15%;"><img src="../assets/images/map-icon.png" alt="map-icon" /></div> </div>';
+            var template = ' <div class="form-group col-sm-12" style="background-color:#9e9999; margin-top:10px; "> <div class="pull-left" style="width:40%;">Event tour </div>'+
+                    '<div class="pull-left" style="width:45%;">'+venue+'</div>'+
+                    '<div class="pull-left" style="width:15%;">'+ticket_url+'</div> </div>';
 
-            option_template += '<option value="'+venue+' ">'+venue+' </option>';
-        }
-        
+            var event_tour = ' <div class="form-group col-sm-12" style="background-color:#9e9999; margin-top:10px; "> <div class="pull-left" style="width:10%;">'+venue+'</div>'+
+                    '<div class="pull-left" style="width:45%;">'+start_date+'</div>'+                    
+                    '<div class="pull-left" style="width:10%;">'+ticket_url+'</div>';          
+        }        
 
-        $('#show_vanue').append(template);          
+        $('#add_tour').append(template);    
       
     }); 
-
-     $('.venueselectpicker').append(option_template);
                 
 }
+
+
   
  //dynamic add event program schdule 
 // this part will be show event start date

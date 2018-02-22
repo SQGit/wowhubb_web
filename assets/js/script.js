@@ -114,13 +114,13 @@ function attachSticky() {
     // Sticky Chat Block
     $('#chat-block').stick_in_parent({
         parent: '#page-contents',
-        offset_top: 20
+        offset_top: 70
     });
 
     // Sticky Right Sidebar
     $('#sticky-sidebar').stick_in_parent({
         parent: '#page-contents',
-        offset_top: 20
+        offset_top: 90
     });
 
 }

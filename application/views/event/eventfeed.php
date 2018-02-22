@@ -178,6 +178,26 @@ img.profile-photo1 {
   margin: 0px 0 0px;
 }
 
+.btn-primary-1 {
+    background: #e91e63;
+    padding: 7px 15px!important;
+    border: none;
+    font-size: 14px;
+    border-radius: 4px;
+    color: #fff;
+    position: relative;
+    font-weight: 600;
+    outline: none;
+    border-radius: 30px;
+}
+
+video {
+    position: relative; 
+    top: 15%;
+    left: 0;
+    width: 100%;
+    opacity: 1 !important;
+}
 </style>
 
 </head>
@@ -244,9 +264,7 @@ img.profile-photo1 {
                   <div class="col-md-12">
                     <div class="text-center"><a href="#" style="color:#555; text-align:center;" >See all</a></div>
                   </div>
-                  </div>
-                  
-
+                  </div>           
                   
             </ul>
             
@@ -398,7 +416,7 @@ img.profile-photo1 {
             <li><img src="<?php echo base_url('assets/images/network-icon.png'); ?>" alt="user" />
               <a href="<?php echo base_url('Searchfriends/add_friends'); ?>">My Network</a></li>
             <li><img src="<?php echo base_url('assets/images/album-icon.png'); ?>" alt="user" /><a href="#">My Album</a></li>
-            <li><img src="<?php echo base_url('assets/images/wow-tag-icon-1.png'); ?>" alt="user" /><a href="#">Wowtags</a></li>
+            <li><img src="<?php echo base_url('assets/images/wow-tag-icon-1.png'); ?>" alt="user" /><a href="<?php echo base_url('Event/event_wowtag'); ?>">Wowtags</a></li>
             <li>
               <div style="margin-left:0; text-align:left;"><a href="<?php echo base_url('eventhubb/get_eventhubb'); ?>"><img src="<?php echo base_url('assets/images/event-hubb-icon.png'); ?>" alt="user" />Event Hubb</a></div>
             </li>
@@ -412,47 +430,27 @@ img.profile-photo1 {
           <ul class="nav-news-feed">
             <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Event Pages</h5>
              
-            <!--  <li>
-              <div style="margin-left:0; text-align:left;">
-                <a href="<?php echo base_url('Service/eventvenue_form'); ?>">
-                <i class="fa fa-caret-right" style="margin-top:4px;"></i>Event Venue Form</a></div>
-            </li>
-
-            <li>
-              <div style="margin-left:0; text-align:left;">
-                <a href="<?php echo base_url('Service/eventvenue_admin'); ?>">
-                <i class="fa fa-caret-right" style="margin-top:4px;"></i>Event Venue Admin </a></div>
-            </li>
-
-            <li>
-              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Craig Birthday</a></div>
-            </li>
-            <li>
-              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Gina Catering</a></div>
-            </li>
-            <li>
-              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Elevation 2017</a></div>
-            </li>
-            <li>
-              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Startup 2017</a></div>
-            </li> -->
-            <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
+                <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
           </ul>
           <!--news-feed links ends-->
           <ul class="nav-news-feed">
             <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Business Pages</h5>
-           <!--  <li>
-              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Hebronplus</a></div>
+            <li style="background-color:#EFEFEF; padding:5px 10px; border-radius:5px;"><strong>Organisations</strong></li>
+            <li>
+              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Vineture Party</a></div>
             </li>
             <li>
-              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Gina Catering</a></div>
+              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Maxwell Party</a></div>
             </li>
+            <li style="background-color:#EFEFEF; padding:5px 10px; border-radius:5px;"><strong>Event Service Providers</strong></li>
             <li>
-              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Living Word Church</a></div>
+              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Amazing Bakery</a></div>
             </li>
+            <li style="background-color:#EFEFEF; padding:5px 10px; border-radius:5px;"><strong>Event Venues</strong></li>
             <li>
               <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Sharaton Event Center</a></div>
-            </li> -->
+            </li>
+          
             <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
           </ul>
           <!--news-feed links ends-->
@@ -482,8 +480,8 @@ img.profile-photo1 {
             <div class="create-post" style="background-color: #fff; padding:10px; border-radius:5px;">
                 <div class="row">
 
-                    <div class="col-md-6 col-sm-6">
-                        <div class="form-group" style="display:-webkit-inline-box; width:90%;">
+                    <div class="col-md-8 col-sm-8">
+                        <div class="form-group">
                             
                             <?php if(!is_null($this->session->userdata('personal_image')))
                               { ?>
@@ -492,21 +490,42 @@ img.profile-photo1 {
                               <?php } else { ?>
                               <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo-md" />
                             <?php } ?>
-                              <textarea name="texts" id="exampleTextarea" cols="30" rows="1" class="form-control" placeholder="Share your thoughts.." style="margin-left:10px;"></textarea>
+
+              <form id="thougths" action="<?php echo base_url('event/update_thoughts'); ?>" method="POST" enctype="multipart/form-data">
+
+                              <textarea name="texts" id="exampleTextarea" cols="30" rows="1" class="form-control" placeholder="Share your thoughts.." style="margin-left:10px; min-height: 70px; width: 300px!important;"></textarea>
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-sm-6">
-                      <div class="tools pull-right">
-                        <button class="btn btn-primary pull-right" style="margin-top:3px;">Publish</button>
-                      </div>
-                      <div class="tools pull-right">
+                    <div class="col-md-4 col-sm-4">
+
+                     <!-- thoughts update here -->
+                    
+                      <div class="tools pull-left">
                         <ul class="publishing-tools list-inline">
-                          <li><a href="#"><img src="<?php echo base_url('assets/images/create-event-icon-2.png'); ?>" alt="user" /></a></li>
-                          <li><a href="#"><img src="<?php echo base_url('assets/images/image-icon.png'); ?>" alt="user" /></a></li>
-                          <li><a href="#"><img src="<?php echo base_url('assets/images/video-icon.png'); ?>" alt="user" /></a></li>
+                          <!-- <li><a href="#"><input type="file"><img src="<?php echo base_url('assets/images/create-event-icon-2.png'); ?>" alt="user" /></a></li> -->
+                          <li>
+                           
+                              <input type="file" id="file1" name="thought_img" accept="image/*" style="display:none">
+                              <img src='../assets/images/image-icon.png' alt="user" id="upfile1" style="cursor:pointer" />
+                           
+                          </li>
+
+                          <li>
+                            <a href="#">
+                              <input type="file" id="file2" name="thought_video" accept="video/*" style="display:none" >
+                              <img src="<?php echo base_url('assets/images/video-icon.png'); ?>" alt="user" id="upfile2" style="cursor:pointer"/>
+                            </a>
+                          </li>
+
                         </ul>
                       </div>
+
+                       <div class="tools pull-right">
+                        <input type="submit" name="thoughts" class="btn btn-primary-1 pull-right" style="margin-top:3px;" value="Publish" >
+                      </div>
+              </form>
+
                     </div>
 
                     <!-- start today end with shows array_slice 4 event name -->
@@ -627,6 +646,287 @@ img.profile-photo1 {
 
                 </div>
             </div>
+
+    <!-- thoughts  start here -->
+                  <?php                            
+                        foreach ($eventfeed as $feeds)
+                          {                     
+                           
+                              if($feeds->eventtype =='thought')  
+
+                                {                              
+                                  // print_r($feeds);
+                  ?>
+
+            <div class="container post-content">
+
+                <div class="row">
+                      <div class="col-md-12" style="margin-top: 20px;">
+                          <div class="col-md-9 user-info" >
+                            <p style="font-size:13px; font-weight:bold;"> 
+                              <img src="../assets/images/wow-black-small.png"> 
+                            Saravanan shared a link 2 hrs.</p>
+                          </div>
+
+                      
+                          <div class="col-md-3 user-info text-right">
+                            <div class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration:none; cursor:pointer;">... <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#"><input type="submit" style="border: none; background: transparent;" value="Hide Post"></a>
+                                </li>
+                                <li><a href="#"> <input type="submit" style="border: none; background: transparent;" value="Report Post"></a></li>                               
+                                    <li>
+                                        <form class="delete_thought" action="<?php echo base_url('event/thoughts_delete/'.$feeds->_id); ?>" method="POST">
+                                          <a href="#" >                                        
+                                            <input type="submit" style="border: none; background: transparent; margin-left: 20px; color: #000;" value="Delete Post">
+                                          </a>
+                                        </form>
+                                    </li>
+
+                              </ul>
+                            </div>
+                          </div>
+                      </div>
+
+                  <div class="col-md-12" >
+                          <div class="col-md-9">
+                              <div class="col-md-2" style="width:20%;">
+                                      <?php 
+
+                                        if(isset($feeds->userid->personalimage))
+                                          {
+                                      ?>
+                                        
+                                  <div class="post-detail" style="margin:0;"> 
+
+                                        <a href="<?php echo base_url('profile/profile_thirdparty_view/'.$feeds->userid->_id); ?>" > 
+
+                                              <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $feeds->userid->personalimage; ?>" alt="user" class="profile-photo-md pull-left" />
+                                        </a> 
+
+                                  </div>
+
+                                  <?php  } else  { ?>
+
+                                  <a href="#"> <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo-md" /> </a>
+                                      
+                                  <?php } ?>
+                              </div>
+
+                              <div class="user-info">
+                                <div class="profile-link" style="font-size:19px; font-weight:bold; color:#555;">
+                                 
+                                  <a style="color: #333;" href="<?php echo base_url('profile/profile_thirdparty_view/'.$feeds->userid->_id); ?>" >
+                                      <?php echo $feeds->userid->firstname ." ".$feeds->userid->lastname ; ?> 
+                                  </a>
+                                </div>
+
+                                <p style="font-size:13px; color:#777;">
+                                  <?php  
+                                          if(isset($feeds->userid->designation))
+                                            { 
+                                               echo $feeds->userid->designation; 
+                                            } 
+                                          else { echo " ";} 
+                                  ?>
+                                </p> 
+                                
+                              </div>
+
+                          </div>                    
+
+                      <div class="col-md-12" style="margin-top:5px;">
+                        <p class="text-muted"><?php if(isset($feeds->thoughtstext)) { echo $feeds->thoughtstext; } ?></p>
+                      </div>
+                    </div>
+
+                      <!-- here start with cover image -->
+
+                      <?php 
+                            if(isset($feeds->thoughtsimage) && ($feeds->thoughtsimage != 'null') )
+                            {
+                      ?>
+            
+                    <div class="col-md-12" style="position: relative;">
+                      
+                      <div class="gallery" > <a class="test-popup-link" href='http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->thoughtsimage; ?>' > <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->thoughtsimage; ?>" alt="post-image" class="img-responsive post-image" /> </a> </div>
+                    </div>
+                      <!-- here end cover image --> 
+                    <?php } 
+                                      
+                            elseif(isset($feeds->thoughtsvideo) && ($feeds->thoughtsvideo != 'null') )
+                            {
+                      ?>
+            
+                    <div class="col-md-12" style="position: relative;">
+                      
+                     <div class="video">
+                                          <div class="col-md-12"> <a href="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->thoughtsvideo; ?>" >
+                                                <video class="myvideo" controlsList="nodownload">
+                                               <source src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->thoughtsvideo; ?>" type="video/mp4">
+                                               </video>
+                                            </a> 
+                                          </div>
+                                      </div>
+                    </div>
+
+                    <?php } ?>
+
+                 
+          </div>
+
+                      <div class="col-md-12">
+                            <div  class="flip" style="font-weight:bold; color:#e91e63;">View More Comments</div>
+            
+                        <div class="panel">            
+                                  
+                             <?php 
+                                if(isset($feeds->comments))
+                                  {
+                                    foreach($feeds->comments as $com) //here only show three commends condition
+                                    {   
+                             ?>
+                            <div class="pull-left" style="width:10%; margin-top:6px;">
+                              <?php if(isset($com->userid->personalimage)){  ?>
+                              <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $com->userid->personalimage; ?>" alt="" class="profile-photo-sm" />
+                              <?php } else { ?>
+                              <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo-md" />
+                              <?php } ?>
+                            </div>
+                            <div class="pull-left" style="width:90%;">
+                              <div class="pull-left">
+                               <span style="font-size:15px; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
+                                  <?php                        
+                                   echo $com->userid->firstname." ".$com->userid->lastname;                  
+                                   ?>
+                                </span>
+                                <?php echo $com->comment;  ?>                            
+                              </div>
+                              <div class="pull-left" style="width:90%;"> Like. Reply.
+                                 <span style="color:#B8B8B8;">
+                                  <?php 
+                                      $timestamp = strtotime($com->commentedAt);                                      
+                                       $comment_date = date('Y-m-d H:i:s', $timestamp);                                
+
+                                  ?>
+                                 <time class="timeago" datetime="<?php echo $comment_date; ?>"></time>
+                                 </span> 
+                              </div>
+                            </div>
+                             <?php } } ?>
+                        </div>
+
+                      </div>          
+
+                          <?php
+          
+                            if(isset($feeds->comments))
+                              {
+                                foreach(array_slice($feeds->comments, 0, 3) as $com) //here only show three commends condition
+                                {   
+                          ?>
+         
+                      <div class="commend_show col-md-12" style="margin-top:5px;" >
+            
+                          <div class="pull-left" style="width:10%; margin-top:6px;">
+                            <?php if(isset($com->userid->personalimage)) {  ?>
+                            <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $com->userid->personalimage; ?>" alt="" class="profile-photo-sm" />
+                            <?php } else { ?>
+                            <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo-md" />
+                            <?php } ?>
+                          </div>
+
+                          <div class="pull-left" style="width:90%;">
+                            <div class="pull-left"> <span style="font-size:15px; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
+                              <?php                        
+                                   echo $com->userid->firstname." ".$com->userid->lastname;                  
+                                ?>
+                              </span>
+
+                              <?php   echo $com->comment;  ?>
+
+                            </div>
+                            <div class="pull-left" style="width:90%;"> Like. Reply. <span style="color:#B8B8B8;">   <?php 
+                                        $timestamp = strtotime($com->commentedAt);
+                                         // echo date('D dS', $timestamp);
+                                        $comment_date = date('Y-m-d H:i:s', $timestamp);
+                                     
+                               ?>
+                                 <time class="timeago" datetime="<?php echo $comment_date; ?>"></time>
+                               </span>
+                            </div>
+                 
+                          </div>
+            
+                      </div>
+       
+                         <?php } } ?>
+                    <!-- end comments shows here -->
+        
+                      <div class="row" style="margin-top:10px;">
+
+                           <div class="col-md-12">
+                                <div class="col-md-1">
+                                     <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="" class="profile-photo-sm" />
+                                </div>
+                                <form class="comments_form" action="<?php echo base_url('event/thought_comments/'.$feeds->_id); ?>" method="post">
+                                  <div class="col-md-9">
+                                      <div class="form-group">
+                                           <i class="fa fa-arrow-circle-right"></i>
+                                           <input type="text" name = "comments" class="form-control" placeholder="Post a comment" style="margin:5px 0 0 5px; border:1px solid #ccc;" required>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-2" style="margin-top: 6px;">
+                                    <input type="submit" class="btn-primary" value="Post">
+                                  </div>
+                                </form>
+                            </div>
+                      </div>
+
+                        <div class="row" style="margin-top:0px;">
+                              <div class="col-md-7">
+                                  <form class="thought_wowsome" action="<?php echo base_url('event/thought_wowsome/'.$feeds->_id); ?>" method="post">
+                                        <div class="col-md-5 text-center" style="position: relative; margin-top: -3px;">
+                                            <div style="position: absolute; left: 97px; top: 3px; ">
+                                                 <input type="text" style="border: none; background: transparent; color: #e91e63; font-size: 11px;" id="thoughtwow_increment" value="<?php $like = count($feeds->wowsome); echo $like; ?>">
+                                            </div>
+                                            <a class="btn text-pink" style="font-size:11px;">
+                                                <i class="icon ion-thumbsup"></i>
+                                                <input type="submit" style="border: none; background: transparent; width:70px; outline: none; text-transform: capitalize;" value="Wowsomes" >
+                                            </a> 
+                                        </div>
+                                  </form>
+
+                                  <div class="col-md-3 text-center">
+                                      <div class="dropdown"> 
+                                          <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration:none; cursor:pointer; font-size:11px;">
+                                            <i class="fa fa-share"></i> Shares 
+                                            <span class="caret"></span>
+                                          </a>
+                                          <ul class="dropdown-menu" style="top:-300%!important;">
+                                              <li><a href="#">Share post Now(friends)</a></li>
+                                              <li><a href="#">Share...</a></li>
+                                              <li><a href="#">Share to a page</a></li>
+                                          </ul>
+                                      </div>
+                                  </div>
+
+                                  <div class="col-md-3 text-center">
+                                      <a class="btn text-red" style="font-size:11px;"> 
+                                          <i class="fa fa-comments"></i> Comments
+                                      </a> 
+                                  </div>
+                            </div>
+                            <div class="col-md-5 text-center" style="font-size:12px;">
+                              <?php echo $feeds->wowsomecount; ?> Wowsomes &nbsp;&nbsp;
+                              <?php echo $feeds->commentcount; ?> Comments </div>
+                        </div>                     
+
+        </div>   
+
+         <?php }  } ?> 
+
+     <!-- thoughts  end here -->
 
     <!-- personal evnt start here -->
                   <?php                            
@@ -2491,7 +2791,7 @@ img.profile-photo1 {
             <div class="col-md-12" style="background-color:#f8f8f8; border:1px solid #f5f5f5; padding:5px; border-radius:5px;"><a href="<?php echo base_url('service/service_provider'); ?>" style="text-decoration:none; color:#333; font-size:14px;"><i class="fa fa-users"></i> Search Service Provider</a></div>
           </div>
           <div class="row" style="margin:5px 0;">
-            <div class="col-md-12" style="background-color:#f8f8f8; border:1px solid #f5f5f5; padding:5px; border-radius:5px;"><a href="#" style="text-decoration:none; color:#333; font-size:14px;"><i class="fa fa-location-arrow"></i> Search for Nearby Events</a></div>
+            <div class="col-md-12" style="background-color:#f8f8f8; border:1px solid #f5f5f5; padding:5px; border-radius:5px;"><a href="<?php echo base_url('event/nearby_event'); ?>" style="text-decoration:none; color:#333; font-size:14px;"><i class="fa fa-location-arrow"></i> Search for Nearby Events</a></div>
           </div>
         </ul>
         <ul class="nav-news-feed">
@@ -2695,20 +2995,23 @@ img.profile-photo1 {
 <script src="<?php echo base_url ('assets/js/jquery-3.2.1.minjs.js')?>" ></script> 
 <script src="<?php echo base_url ('assets/js/bootstrap.min.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/jquery.countdown.min.js')?>" ></script> <!--countdown -->
-
+<script src="<?php echo base_url('assets/js/jquery.sticky-kit.min.js')?>"></script> <!--satic page for left and right side-->
 <script src="<?php echo base_url ('assets/js/script.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/sweetalert.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/sweetalert.min.js') ?>"></script> 
+<script src="<?php echo base_url('assets/js/sweetalert2.all.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/jquery.appear.min.js')?>" ></script> 
 <script src="<?php echo base_url('assets/js/masonry.pkgd.min.js')?>" ></script> 
 <script src="<?php echo base_url('assets/js/jquery.magnific-popup.min.js')?>" ></script> 
 <script src="<?php echo base_url('assets/js/videopopup.js')?>" ></script> 
 <script src="<?php echo base_url('assets/js/jquery.timeago.js')?>" ></script> <!--timeago library -->
+<script src="<?php echo base_url('assets/js/bootbox.js')?>"></script> <!-- conformation delete boot box -->
 
 
 <!-- search suggestion box plugin --> 
 
 <script>  
+
 
 
 $('.countdown').countdown('2018/04/02', function(event) {
@@ -2928,7 +3231,7 @@ $(document).ready(function(){
                         // alert(this.test);                                       
                     }else 
                      {                    
-                        swal("Sorry!", "somethink wrong try again !", "error");
+                        swal("Sorry!", "Something Wrong try again !", "error");
                      }
                 }
 
@@ -2946,6 +3249,175 @@ $('.gallery').each(function() { // the containers for all your galleries
           enabled:true
         }
     });
+});
+
+// hide choose file button show image icon for thoughts
+$("#upfile1").click(function () {
+    $("#file1").trigger('click');
+});
+
+$("#upfile2").click(function () {
+    $("#file2").trigger('click');
+});
+
+//thougths  form submit
+
+var base_url = '<?php echo base_url() ?>'; //form submited
+$(document).ready(function(){
+
+    $(document).on("submit", "#thougths", function(e){
+         e.preventDefault();
+        var url = $(this).attr('action');
+        var formdata = new FormData(this);
+      
+        $.ajax({
+                url : url,
+                context:this,
+                method: 'POST',
+                data: formdata,
+                processData: false,
+                contentType: false,
+                dataType:'json',
+                context:this,   //here we use this function so declare here
+                error: function(xhr,status,error)
+                {   
+                    alert(xhr.responseText);
+                },  
+
+                beforeSend: function()
+                            {
+
+                              swal({
+                                  title: 'Please Wait...',
+                                  text: 'Submitting...',
+                                  toast: true,
+                                  target: '.swal',              
+                                 
+                                  onOpen: () => {
+                                    swal.showLoading()
+                                 }
+                              }); 
+                  
+                            },            
+                                      
+                
+                success: function(response)
+                {
+                   if(response.status == 'success')
+                   {
+                    
+                     window.location.href = base_url + 'event/get_eventfeed';
+                                                         
+                    }else 
+                     {                    
+                        swal("Sorry!", "somethink wrong try again !", "error");
+                     }
+                }
+
+            });
+        });
+ });
+
+
+//thought delete submit
+
+var base_url = '<?php echo base_url() ?>'; //form submited
+$(document).ready(function(){
+
+    $(document).on("submit", ".delete_thought", function(e){
+         e.preventDefault();
+        var url = $(this).attr('action');
+        var formdata = new FormData(this);
+
+           bootbox.confirm("Are you sure you want to delete?", function(result) {
+            if(result)
+               {
+      
+                  $.ajax({
+                          url : url,
+                          context:this,
+                          method: 'POST',
+                          data: formdata,
+                          processData: false,
+                          contentType: false,
+                          dataType:'json',
+                          context:this,   //here we use this function so declare here
+                          error: function(xhr,status,error)
+                          {   
+                              alert(xhr.responseText);
+                          },  
+
+                          
+                          success: function(response)
+                          {
+                             if(response.status == 'success')
+                             {
+                               // $('#rsvp_success').show(); //success notification id
+                               window.location.href = base_url + 'event/get_eventfeed';
+                                                                   
+                              }else 
+                               {                    
+                                  swal("Sorry!", "somethink wrong try again !", "error");
+                               }
+                          }
+
+                      });
+                }
+               });
+        });
+ });
+
+//video size limitation  video
+
+$(document).on("change", "#file2", function(evt)
+        {
+            var file = this.files[0];
+
+            if (file.size > 2621440)
+             {
+                   //Now Here I need to update <span> 
+                 // $('#file2').hide();  
+                 alert('Filesize must 2.5MB or below');           
+             }
+    });
+
+//thought wowsome like form submit
+
+var base_url = '<?php echo base_url() ?>'; //form submited
+$(document).ready(function(){
+
+    $(document).on("submit", ".thought_wowsome", function(e){
+         e.preventDefault();
+        var url = $(this).attr('action');
+        var formdata = new FormData(this);
+      
+        $.ajax({
+                url : url,
+                context:this,
+                method: 'POST',
+                data: formdata,
+                processData: false,
+                contentType: false,
+                dataType:'json',
+                context:this,   //here we use this function so declare here
+                error: function(xhr,status,error)
+                {   
+                    alert(xhr.responseText);
+                },              
+                
+                success: function(response)
+                {
+                   if(response.status == 'success')
+                   {
+                     $(this).find('input[id=thoughtwow_increment]').val(response.message);                                                        
+                    }else 
+                     {                    
+                        swal("Sorry!", "somethink wrong try again !", "error");
+                     }
+                }
+
+            });
+        });
 });
 
 </script>

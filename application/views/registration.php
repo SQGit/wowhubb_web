@@ -103,7 +103,18 @@ label.error {
   bottom: 0px!important;
   width: 100%!important;
 }
+@media (min-width: 768px)
+{
+.modal-dialog {
+    width: 600px;
+    margin: 200px auto!important;
+}
 
+}
+.modal-backdrop.in {
+	filter: alpha(opacity=50);
+	opacity: .7!important;
+}
 
 </style>
 </head>
@@ -172,14 +183,15 @@ label.error {
           </div>
         </div>
         <div class="col-md-12" style="margin-bottom:10px;">
-          <p style="color:#fff; font-size: 15px;">Create, host  and share  your personal, professional and business leads and sales events. We are best event  networking platform anytime and anywhere.
+          <p style="color:#fff; font-size: 15px;">Create, Host and Share your Personal, Professional and Business Leads and Sales events. We are Best Event Networking Platform Anytime and Anywhere. 
            <!--span style="color: #FFE500; font-size: 17px; font-weight: bold;"><i class="fa fa-play"></i> Create Your Events - Personal, Professional & Business Events.
            </span-->
             <div class="col-sm-12  text-left" style="margin-bottom:10px;">
-        <p><a href="#" style="color:#FFE500; font-size:17px;">
-        <div class="pull-left" style="width:5%;"><img src="../assets/images/cb.png"></div>
+        <p>
+        <a href="#modal-1" data-toggle="modal"  style="color:#FFE500; font-size:17px;">
+        <div class="pull-left" style="width:5%;"><img src="<?php echo base_url('assets/images/cb.png'); ?>"></div>
         <div class="pull-left" style="width:95%; margin-top:4px;">
-              <a style="color: #ff0; font-size:17px;" href="<?php echo base_url('service/create_business_page'); ?>"> Create a Event Business Hosting Page </a>
+              <span style="color:#ff0; font-size:17px;"> Create an Event Business Hosting Page </span>
         </div>
         </a>
         </p>
@@ -188,20 +200,20 @@ label.error {
        </div> 
         <div class="col-md-12" style="margin-bottom:10px;">
           <div class="col-md-4">
-            <a href="#"><div class="col-md-12 text-center" style="border:1px solid #fff; border-radius:5px; padding-bottom:15px;">
-            <div class="col-md-12" style="margin-top:15px; text-align:center;"><img src="../assets/images/home-1.png"></div>
+            <a href="<?php echo base_url('service/service_provider'); ?>" ><div class="col-md-12 text-center" style="border:1px solid #fff; border-radius:5px; padding-bottom:15px;">
+            <div class="col-md-12" style="margin-top:15px; text-align:center;"><img src="<?php echo base_url('assets/images/home-1.png'); ?>" alt="img"></div>
               <div class="col-md-12" style="margin-top:15px; color:#fff; line-height:20px;">Click To Find Your Next Event Services Professionals</div>
             </div></a>
           </div>
           <div class="col-md-4">
           <div class="col-md-12" style="border:1px solid #fff; border-radius:5px; padding-bottom:15px;">
-            <a href="#"><div class="col-md-12" style="margin-top:15px; text-align:center;"><img src="../assets/images/home-2.png"></div>
+            <a href="<?php echo base_url('service/eventvenue_landing'); ?>"><div class="col-md-12" style="margin-top:15px; text-align:center;"><img src="<?php echo base_url('assets/images/home-2.png'); ?>" alt="img"></div>
               <div class="col-md-12 text-center" style="margin-top:15px; color:#fff; line-height:20px;">Click To Find And Book Your Next Event Venue</div>
             </div></a>
           </div>
           <div class="col-md-4">
-          <a href="#"><div class="col-md-12 text-center" style="border:1px solid #fff; border-radius:5px; padding-bottom:15px;">
-            <div class="col-md-12" style="margin-top:15px; text-align:center;"><img src="../assets/images/home-3.png"></div>
+          <a href="<?php echo base_url('event/nearby_event'); ?>"><div class="col-md-12 text-center" style="border:1px solid #fff; border-radius:5px; padding-bottom:15px;">
+            <div class="col-md-12" style="margin-top:15px; text-align:center;"><img src="<?php echo base_url('assets/images/home-3.png'); ?>" alt="img"></div>
               <div class="col-md-12" style="margin-top:15px; color:#fff; line-height:20px;">Click To Discover Event Happening Near You</div>
             </div></a>
           </div>
@@ -710,6 +722,75 @@ label.error {
    
 
 </script>
+<div class="modal fade" id="modal-1" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="post-content">
+                    <div class="user-info text-center" style="background:#e91e63; margin-top:-15px; padding:10px 15px; color:#fff!important;">
+                                              <h3 style="color:#fff; font-size:25px; font-weight:normal;">Please Register or Login to Continue!! </h3>
+
+                                          </div>
+                      <div class="post-container" style="padding-bottom:20px;">
+                        <div class="post-detail">
+                                          
+                                          
+                          <div class="user-info">
+                            <div class="row" style="padding:10px;">
+                            <div class="col-md-3"><img src="<?php echo base_url ('assets/images/app-icon.png') ?>" alt="app-icon" /></div>
+<div class="col-md-9"><span style="font-size:15px;">Wowhubb is the Event Networking Platform for Create, Host and Share your Personal, Professional and Business Leads and Sales events. We are Best Event Networking Platform Anytime and Anywhere.</span> </div>
+<!-- this form submit rsvp -->
+                              
+                               
+                              
+                              <div class="row">
+                                    <div class="col-md-12" style="margin-top:10px;">
+                                      <div class="col-md-12 text-center">
+                                   
+                                        <a href="<?php echo base_url('Home/login'); ?>" style="color:#333;">
+                                          <button type="submit" class="btn btn-primary" style="padding:7px 25px!important;">I Already have an Account</button>
+                                          </a><br>
+                                          
+                                          <a href="<?php echo base_url('Home/index'); ?>" style="color:#333;">
+                                          <span style="font-size:15px; color:#555;">Click to Register</span></a>
+                                        
+                                          
+                                
+                                       
+                                      </div>
+                                    </div>
+                                  </div>
+                             
+
+                                  <!--div class="row">
+                                    <div class="col-md-12">
+                                      <div class="col-md-12">
+                                        <div style="width:50%;" class="text-left pull-left">
+                                        <div class="pull-left"><img src="<?php echo base_url ('assets/images/left-design.png') ?>" alt="right-arrow" /></div>
+                                          <div class="pull-left"> <a href="<?php echo base_url('Home/index'); ?>" style="color:#333;"><span style="font-size:15px; color:#e91e63;"><em>To continue,</em></span><br>
+                                          <span style="font-size:17px;">REGISTER <img src="<?php echo base_url ('assets/images/right-arrow.png') ?>" alt="right-arrow" /></a> </span></div>
+                                          
+                                        </div>
+                                        <div style="width:50%;" class="text-left pull-left">
+                                        <div class="pull-left"><img src="<?php echo base_url ('assets/images/left-design.png') ?>" alt="right-arrow" /></div>
+                                        <div class="pull-left"> <a href="<?php echo base_url('Home/login'); ?>" style="color:#333;"><span style="font-size:15px; color:#e91e63;"><em>Already Registered?</em></span><br>
+                                        <span  style="font-size:17px;">LOGIN <img src="<?php echo base_url ('assets/images/right-arrow.png') ?>" alt="right-arrow" /></a> </span>
+                                        </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div-->
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+</div>
+</div>
 
 </body>
 

@@ -203,6 +203,7 @@ table, td, tr
       ================================================= -->
   <div class="timeline">
     <div class="timeline-cover"> 
+        <!-- change cover image -->
       <form id="cover_img" action="<?php echo base_url('profile/cover_img_upload'); ?>" method="post" enctype="multipart/form-data">
               <?php 
                    if(isset($cover))
@@ -215,6 +216,7 @@ table, td, tr
                     
            <input class="cover-upload"  id="imageUpload1" type="file" name="cover_img" accept="image/*" capture>
          </form><br>
+
       <!--Timeline Menu for Large Screens-->
       <div class="timeline-nav-bar hidden-sm hidden-xs">
         <div class="row">

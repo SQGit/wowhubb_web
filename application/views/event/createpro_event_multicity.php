@@ -30,6 +30,11 @@
 <!--Favicon-->
 <link rel="shortcut icon" type="image/png" href="<?php echo base_url ('assets/images/fav.png') ?>"/><style type="text/css">
 	
+	 /*animation stop*/
+.landing-page .content-bg {
+    background-color: rgba(255, 94, 58, 0.95);
+    animation-name: none;
+}
 	.textBox {
 		background-image: url(./assets/images/designation-icon.png);
 		background-position: 0 5px;
@@ -37,6 +42,7 @@
 		background-repeat: no-repeat;
 		padding-left: 17px;
 	}
+
 	/*popup close button  */
 	.large.tooltip-inner {
 		max-width: 350px;
@@ -370,6 +376,10 @@
 	.tab {
 	  display: none; 
 	}
+	/*dynamic add event tour address*/
+	.tab1 {
+	  display: none; 
+	}
 
 	.form-group-1 img {    
     left: 24px;
@@ -391,6 +401,8 @@ input[type=number]::-webkit-outer-spin-button {
     appearance: none;
     margin: 0; 
 }
+.onkeyword 
+{ cursor: pointer; }
 
 </style>
 </head>
@@ -505,6 +517,7 @@ input[type=number]::-webkit-outer-spin-button {
             <!-- Form progress --> 
             <!-- Form Step 1 -->
   		<form id="create_proffesional_event_multicity" action="<?php echo base_url('event/professional_multicity_event'); ?>"  method="post" enctype="multipart/form-data" >  
+
     	  <fieldset>
                 <!-- Progress Bar -->
                 <div class="progress">
@@ -524,12 +537,12 @@ input[type=number]::-webkit-outer-spin-button {
 		                    </div>
 		                    <div class='form-group col-sm-12' >
 		                      <label>Event Name</label>
-		                      <input type='text'  name="event_name" class="form-control required" />
+		                      <input type='text'  name="event_name" class="form-control " />
 		                    </div>		                    
 
 		                    <div class="form-group col-sm-12" style="font-size: 15px;">
 				                      <label>Select Event Days</label>
-				                     <select name="event_totaldays" id="btn-add-tab" class="form-control required" >
+				                     <select name="event_totaldays" id="btn-add-tab" class="form-control " >
 				                      <option value="">Select Event Days</option>
 				                      <option value="1">1 Day Event</option>
 				                      <option value="2">2 Days Event</option>
@@ -565,7 +578,7 @@ input[type=number]::-webkit-outer-spin-button {
 			                <div class='row'>
 				                    <div class='form-group col-sm-12'>
 				                      <label>Event Description</label>
-				                      <textarea type='text' id="description" name="event_description"  class="form-control required" style="min-height:150px;" placeholder="Describe What Your Event Is All About " ></textarea>
+				                      <textarea type='text' id="description" name="event_description"  class="form-control " style="min-height:150px;" placeholder="Describe What Your Event Is All About " ></textarea>
 				                    </div>
 				                    <div class='form-group col-sm-12'>
 					                      <div class='col-sm-12' style="background-color:#f9f9f9;">
@@ -574,7 +587,7 @@ input[type=number]::-webkit-outer-spin-button {
 					                        <div class="form-group" style="margin-bottom: 10px;"> 
 						                        <div class="field" align="left">
 						                         		<input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('files').click();" />
-						                         		<input type="file" style="display:none;" name="cover_img" id="files" class="file required" accept="image/*" title="cover image">  
+						                         		<input type="file" style="display:none;" name="cover_img" id="files" class="file " accept="image/*" title="cover image">  
 						                        </div> 
 					                        </div>		                        
 					                      </div>
@@ -666,26 +679,6 @@ input[type=number]::-webkit-outer-spin-button {
 		                      <input type='text' id="event_venue_name_1" name="event_venue_name[]"  class="form-control textBox" onblur="update_vanue()"/>
 		                    </div>
 
-		                    <div class='form-group col-sm-6'>
-		                      <label>Event Start Date</label>
-		                      <input type='text' id="event_startdate" name="eventvenue_startdate[]"  class="event_startdate form-control required "  />
-		                    </div>
-
-		                    <div class='form-group col-sm-6'>
-		                      <label>Event Start Time</label>
-		                      <input type='text' id="event_startime" name="eventvenue_startime[]"  class="event_startime form-control "  />
-		                    </div>
-		                   
-		                    <div class='form-group col-sm-6' >
-		                      <label>Event End Date</label>
-		                      <input type='text' id="event_enddate" name="eventvenue_enddate[]"  class="event_enddate form-control " />
-		                    </div>
-
-		                    <div class='form-group col-sm-6'>
-		                      <label>Event End Time</label>
-		                      <input type='text' id="event_endtiming" name="eventvenue_endtiming[]"  class="event_endtiming form-control "  />
-		                    </div>
-
 		                    <div class='form-group col-sm-12'>
 		                      <label>Address 1</label>
 		                      <input type='text' id="address1_1" name="address1[]"  class="form-control"  />
@@ -700,97 +693,10 @@ input[type=number]::-webkit-outer-spin-button {
 		                      <label>City</label>
 		                      <input type='text' id="city_1" name="venue_city[]" class="form-control" />
 		                    </div>
-
-		                    <div class='form-group col-sm-12'>	
-		                    	 <label>Country</label>	                  
-		                          	<select id="country_1" name="venue_country[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> 
-                                           <option value="">Country </option> 
-                                            <option value="Afghanistan">Afghanistan </option>
-                                            <option value="Albania">Albania </option>
-                                            <option value="Algeria">Algeria </option>
-                                            <option value="American Samoa">American Samoa </option>
-                                            <option value="Andorra">Andorra </option>
-                                            <option value="Angola">Angola </option>
-                                            <option value="Australia">Australia </option>
-                                            <option value="Bahamas">Bahamas </option>
-                                            <option value="Bahrain">Bahrain </option>
-                                            <option value="Bangladesh">Bangladesh </option>
-                                            <option value="Barbodos">Barbodos </option>
-                                            <option value="Canada">Canada </option>
-                                            <option value="Cape Verde">Cape Verde </option>
-                                            <option value="Chile">Chile </option>
-                                            <option value="China">China </option>
-                                            <option value="Colombia">Colombia </option>
-                                            <option value="Denmark">Denmark </option>
-                                            <option value="Dominica">Dominica </option>
-                                            <option value="Dominican Republic">Dominican Republic </option>
-                                            <option value="Finland">Finland </option>
-                                            <option value="France">France </option>
-                                            <option value="French Guiana">French Guiana </option>
-                                            <option value="Gabon">Gabon </option>
-                                            <option value="Gambia">Gambia </option>
-                                            <option value="Greece">Greece </option>
-                                            <option value="Greenland">Greenland </option>
-                                            <option value="Hong Kong">Hong Kong </option>
-                                            <option value="Hungary">Hungary </option>
-                                            <option value="Iceland">Iceland </option>
-                                            <option value="India">India </option>
-                                            <option value="Iraq">Iraq </option>
-                                            <option value="Ireland">Ireland </option>
-                                            <option value="Italy">Italy </option>
-                                            <option value="Jamaica">Jamaica </option>
-                                            <option value="Japan">Japan </option>
-                                            <option value="Kenya">Kenya </option>
-                                            <option value="Kuwait">Kuwait </option>
-                                            <option value="Latvia">Latvia </option>
-                                            <option value="Lebanon">Lebanon </option>
-                                            <option value="Liberia">Liberia </option>
-                                            <option value="Macao">Macao </option>
-                                            <option value="Madagaskar">Madagaskar </option>
-                                            <option value="Malawi">Malawi </option>
-                                            <option value="Malaysia">Malaysia </option>
-                                            <option value="Mali">Mali </option>
-                                            <option value="Malta">Malta </option>
-                                            <option value="Mexico">Mexico </option>
-                                            <option value="Monaco">Monaco </option>
-                                            <option value="Myanmar">Myanmar </option>
-                                            <option value="Nepal">Nepal </option>
-                                            <option value="Netherlands">Netherlands </option>
-                                            <option value="Nigeria">Nigeria </option>
-                                            <option value="Norway">Norway </option>
-                                            <option value="Oman">Oman </option>
-                                            <option value="Pakistan">Pakistan </option>
-                                            <option value="Palau">Palau </option>
-                                            <option value="Panama">Panama </option>
-                                            <option value="Peru">Peru </option>
-                                            <option value="Philippines">Philippines </option>
-                                            <option value="Poland">Poland </option>
-                                            <option value="Qatar">Qatar </option>
-                                            <option value="Romania">Romania </option>
-                                            <option value="Russian Federation">Russian Federation </option>
-                                            <option value="Samoa">Samoa </option>
-                                            <option value="Senegal">Senegal </option>
-                                            <option value="Spain">Spain </option>
-                                            <option value="Srilanka">Srilanka </option>
-                                            <option value="Switzerland">Switzerland </option>
-                                            <option value="Thailand">Thailand </option>                                           
-                        		</select>
-		                    </div>
 		                    
-
-		                    <div class='form-group col-sm-6'>
-		                      <label>Ticket URL</label>
-		                      <input type='text' id="ticket_url_1" name="venue_ticket_url[]" class="form-control" />
-		                    </div>
-
-		                    <div class='form-group col-sm-6'>
-		                      <label>Ticket Price</label>
-		                      <input type='text' id="ticket_price_1" name="venue_ticket_price[]" class="form-control" />
-		                    </div>
-
 		                    <div class='form-group col-sm-12'>
 		                      <label>Zipcode/ Postal Code</label>
-		                      <input type='number' id="zipcode_1" name="zipcode[]"  class="form-control"  />
+		                      <input type='text' id="zipcode_1" name="zipcode[]"  class="form-control"  />
 		                    </div>
                		</div>
             	</div> 
@@ -865,16 +771,7 @@ input[type=number]::-webkit-outer-spin-button {
 			                       
 			                      <div id="dynamic_add_faq">
                                   <div class="row" id="event_faq_1">
-                                        
-                                   <!--  <div class="col-md-12" style="margin: 10px 0px;">
-                                        <input type="text" id="faq_ques_1" name="faq_ques[]" class="form-control" placeholder="Enter question">                                      
-                                    </div>
-                                    <div class="col-md-12" style="margin: 10px 0px;">
-                                        <input type="text" id="faq_ans_1" name="faq_ans[]" class="form-control" placeholder="Enter Answer">                                      
-                                    </div>
-                                    <div class="col-sm-12 text-right"> 
-                                     <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_faq btn btn-info btn-sm"> Remove</a> 
-                                 	</div> -->
+                                 
 
                                   </div>
                                 </div>
@@ -962,7 +859,7 @@ input[type=number]::-webkit-outer-spin-button {
                       <div class='form-group-1 col-sm-12'>
                         <div class="text-center" >
                         	<img src="../assets/images/wow-pink.png"> 
-                          <input type='text' name="event_title" class="form-control required" style="padding: 6px 30px;" placeholder="Enter Your !Wowtag Title Here      Example:  Craigsbirthday2017" />
+                          <input type='text' name="event_title" class="form-control " style="padding: 6px 30px;" placeholder="Enter Your !Wowtag Title Here      Example:  Craigsbirthday2017" />
                         </div>
                       </div>
                     </div>
@@ -1389,7 +1286,8 @@ input[type=number]::-webkit-outer-spin-button {
                   <div class="col-md-6">
                   <div class="form-group col-sm-12">
                     <label> Enter Keyword Search </label>
-                    <input type="text" class="form-control"  name="keyword" placeholder="" >
+                    <input type="text" id="keywordsearch" class="onkeyword form-control" name="keyword" style="margin-bottom: 15px;" value="">                   
+                     <span style="color: #e91e63; font-size: 17px; text-transform: capitalize;"  id="keyword_show" value=""> </span>
                   </div>
                  
                   
@@ -1437,7 +1335,16 @@ input[type=number]::-webkit-outer-spin-button {
                   </div>
                 </div>
                 <br>
-                <div class='form-group col-sm-12' style="margin-top: 30px;">
+                <div class="col-md-6" >
+			                      <div class="pull-left btn-next">
+			                        <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+			                      </div>
+			                      <div  class="pull-left text-left">
+			                        <label>Check this box if you are planning more event tours across multiple cities</label>
+			                      </div>                      
+		        </div>   
+
+                <div class='form-group col-sm-6' style="margin-top: 30px;">
                   <div class="form-wizard-buttons">
                   <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
                     <button type="button" class="btn btn-previous">Previous</button>
@@ -1456,57 +1363,67 @@ input[type=number]::-webkit-outer-spin-button {
                 <!-- Progress Bar -->
                 <h4> <span>Step 6 - 7</span></h4>
 
-                 <div class='col-sm-5'>
-            <div class='col-sm-12' style="background-color:#f9f9f9;padding-top:10px; ">
-                  		<div id="show_vanue" style="background-color:#bfbebe;padding-top:10px; ">
-							<center> <label >CREATE AND ADD YOUR EVENT TOURS CITIES HERE</label></center>  
-						</div>               
-             	<div id="event_venues">
-                	<div id="event_address_1" class="tab">                			
+                <div class='col-sm-5'>
+           					  <div class='col-sm-12' >
+           					  		<div class='col-sm-3'>
+           					  			<label>Evnt Tour City</label>
+           					  		</div>
+           					  		<div class='col-sm-4'>
+           					  			<label>Date</label>
+           					  		</div>
+           					  		<div class='col-sm-4'>
+           					  			<label>Ticket URL</label>
+           					  		</div>
+           					  	 <div id="show_tours">
+           					  	 </div> 
+           					 
+
+           			<div id="event_tour">
+                		<div id="event_tour_1" class="tab1">                			
 
 		                    <div class='form-group col-sm-12' style="margin-top:20px;">
 		                      <label>Enter Your Event Venue / location Name</label>		                      
-		                      <input type='text' id="event_venue_name_1" name="event_venue_name[]"  class="form-control textBox" onblur="update_vanue()"/>
+		                      <input type='text' id="event_tour_name_1" name="event_venue_name[]"  class="form-control textBox" />
 		                    </div>
 
 		                    <div class='form-group col-sm-6'>
 		                      <label>Event Start Date</label>
-		                      <input type='text' id="event_startdate" name="eventvenue_startdate[]"  class="event_startdate form-control required "  />
+		                      <input type='text' id="tour_startdate_1" name="eventvenue_startdate[]"  class="event_startdate form-control" onblur="update_tour()" />
 		                    </div>
 
 		                    <div class='form-group col-sm-6'>
 		                      <label>Event Start Time</label>
-		                      <input type='text' id="event_startime" name="eventvenue_startime[]"  class="event_startime form-control "  />
+		                      <input type='text' id="tour_startime_1" name="eventvenue_startime[]"  class="event_startime form-control "  />
 		                    </div>
 		                   
 		                    <div class='form-group col-sm-6' >
 		                      <label>Event End Date</label>
-		                      <input type='text' id="event_enddate" name="eventvenue_enddate[]"  class="event_enddate form-control " />
+		                      <input type='text' id="tour_enddate_1" name="eventvenue_enddate[]"  class="event_enddate form-control " onblur="update_tour()"/>
 		                    </div>
 
 		                    <div class='form-group col-sm-6'>
 		                      <label>Event End Time</label>
-		                      <input type='text' id="event_endtiming" name="eventvenue_endtiming[]"  class="event_endtiming form-control "  />
+		                      <input type='text' id="tour_endtiming_1" name="eventvenue_endtiming[]"  class="event_endtiming form-control "  />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>Address 1</label>
-		                      <input type='text' id="address1_1" name="address1[]"  class="form-control"  />
+		                      <input type='text' id="tour_address1_1" name="address1[]"  class="form-control"  />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>Address 2</label>
-		                      <input type='text' id="address2_1" name="address2[]"  class="form-control"  />
+		                      <input type='text' id="tour_address2_1" name="address2[]"  class="form-control"  />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>City</label>
-		                      <input type='text' id="city_1" name="venue_city[]" class="form-control" />
+		                      <input type='text' id="tour_city_1" name="venue_city[]" class="form-control" onblur="update_tour()"/>
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>	
 		                    	 <label>Country</label>	                  
-		                          	<select id="country_1" name="venue_country[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> 
+		                          	<select id="tour_country_1" name="venue_country[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> 
                                            <option value="">Country </option> 
                                             <option value="Afghanistan">Afghanistan </option>
                                             <option value="Albania">Albania </option>
@@ -1583,7 +1500,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 		                    <div class='form-group col-sm-6'>
 		                      <label>Ticket URL</label>
-		                      <input type='text' id="ticket_url_1" name="venue_ticket_url[]" class="form-control" />
+		                      <input type='text' id="ticket_url_1" name="venue_ticket_url[]" class="form-control" onblur="update_tour()"/>
 		                    </div>
 
 		                    <div class='form-group col-sm-6'>
@@ -1593,30 +1510,50 @@ input[type=number]::-webkit-outer-spin-button {
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>Zipcode/ Postal Code</label>
-		                      <input type='number' id="zipcode_1" name="zipcode[]"  class="form-control"  />
+		                      <input type='number' id="tour_zipcode_1" name="zipcode[]"  class="form-control"  />
 		                    </div>
                		</div>
             	</div> 
-            </div>
+           </div>
 
                    <div class='col-sm-12'> 
                     	<div class='col-sm-4'>
-                    		<a href="JavaScript:void(0);" id="btnAdd7" data-nxt_event_address="2">
-                    		<i class="fa fa-plus-circle"></i> Add multiple venue </a>
+                    		<a href="JavaScript:void(0);" id="add_event_tour" data-nxt_event_tour="2"> <!-- id="add_event_tour" -->
+                    		<i class="fa fa-plus-circle"></i> Add multiple Tour </a>
                     	</div>
                     	<div style="overflow:hidden;">
 						 	
-							    <div  class="col-md-8">
-							      <a href="JavaScript:void(0);" id="prevBtn" onclick="nextPrev(-1)">Previous</a>
-							      <a href="JavaScript:void(0);" id="nextBtn" onclick="nextPrev(1)" style="margin-left: 35px;"> Next</a>
+							    <div class="col-md-8">
+							      <a href="JavaScript:void(0);" id="prevButton" onclick="nextPreview(-1)">Previous</a>
+							      <a href="JavaScript:void(0);" id="nextButton" onclick="nextPreview(1)" style="margin-left: 35px;"> Next</a>
 							    </div>					
 						</div>                     
-                   </div>  
-        </div>
+                   </div> 
+                   
+        		</div>
 
                <div class='col-sm-4'>
                   	<div class='row'>
-		                    <div class='form-group-1 col-sm-12'>
+                  			<div class='form-group-1 col-sm-12'>	
+                  			 		<label>Select Number of cities for your upcoming Events</label>
+				                    <select name="event_totaldays" id="btn-add-tab" class="form-control " >
+				                      <option value="">Select Cities</option>				                     
+				                      <option value="2">2 Cities Event/Tours</option>
+				                      <option value="3">3 Cities Event/Tours</option>
+				                      <option value="4">4 Cities Event/Tours</option>
+				                      <option value="5">5 Cities Event/Tours</option>
+				                      <option value="6">6 Cities Event/Tours</option>
+				                      <option value="7">7 Cities Event/Tours</option>
+				                      <option value="8">8 Cities Event/Tours</option>
+				                      <option value="9">9 Cities Event/Tours</option>
+				                      <option value="10">10 Cities Event/Tours</option>
+				                      <option value="11">11 Cities Event/Tours</option>
+				                      <option value="12">12 Cities Event/Tours</option>				                     
+
+				                 	</select>
+				            </div>
+
+		                    <div class='form-group-1 col-sm-12' style="margin-top: 20px;">
 		                      <div class="pull-left" style="width:10%;">
 		                        <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
@@ -1696,7 +1633,7 @@ input[type=number]::-webkit-outer-spin-button {
                 
     </fieldset> 
 
-     <!--  Step 7 -->
+     	<!--  Step 7 -->
         <!-- start Step 8 -->
 
    <fieldset>
@@ -2152,7 +2089,7 @@ input[type=number]::-webkit-outer-spin-button {
 <script>
 	
 var option_template = ''; //golabal variable for dynamic address
- 
+
   
 // hide enter button to submit the form
 $(document).ready(function(){
@@ -2220,27 +2157,14 @@ $('#create_proffesional_event_multicity').on('keyup keypress', function(e) {
               $("#runtime_from").datetimepicker({      
 	                format:'M-d-Y',      
 	               	timepicker:false,  
-	               	 minDate:0,   
-	               	 onShow:function( ct )
-	               	{
-				  	 	this.setOptions({			  	 				   		
-				    	maxDate:jQuery('#event_enddate').val()?jQuery('#event_enddate').val():false
-				    	
-				   })
-				  },	                  
+	               	 minDate:0,                	             
    	  
     });
 
     $("#totime_to").datetimepicker({      
                 format:'M-d-Y',      
                	timepicker:false,
-               	 	onShow:function( ct )
-	               	{
-				  	 	this.setOptions({			  	 				   		
-				    	maxDate:jQuery('#event_enddate').val()?jQuery('#event_enddate').val():false,
-				    	minDate:jQuery('#event_startdate').val()?jQuery('#event_startdate').val():false
-				   })
-				  },	
+               	 
     });
             
  //checkbox  with model popup box
@@ -2253,34 +2177,7 @@ $('#create_proffesional_event_multicity').on('keyup keypress', function(e) {
 
 
 
- //event schedule day start and end time 
 
-$('body').on('focus',".day_end_time", function(){   //dynamically add time
-      $(this).datetimepicker(
-      {
-          datepicker:false,   //12 hours time format 
-                format:'h:i A',
-                formatTime: 'h:i A',
-                // mask:'29:59 99',  
-                step: 5,   
-                ampm: true  
-      });
-    
-  });
-
-
-$('body').on('focus',".day_start_time", function(){   //dynamically add time
-      $(this).datetimepicker(
-      {
-          datepicker:false,   //12 hours time format 
-                format:'h:i A',
-                formatTime: 'h:i A',
-                // mask:'29:59 99',  
-                step: 5,   
-                ampm: true  
-      });
-    
-  });
  
  
 //video size limitation cover video     
@@ -2344,11 +2241,12 @@ $(document).on("change", "#video_size2", function(evt)
 				 }
 		});
 
+
 //dynamically add event venue address
 
 function generate_address_fields(count)
  {	
-	var address  = '<div id="event_address_'+count+'" class="animated bounceInRight tab"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_venue_name_'+count+'" name="event_venue_name[]"  class="form-control" onblur="update_vanue()" /> </div> <div class="form-group col-sm-6"> <label>Event Start Date</label> <input type="text" id="event_startdate_'+count+'" name="eventvenue_startdate[]"  class="event_startdate form-control " /> </div> <div class="form-group col-sm-6"> <label>Event Start Time</label> <input type="text" id="event_startime_'+count+'" name="eventvenue_startime[]"  class="event_startime form-control "  /> </div> <div class="form-group col-sm-6" > <label>Event End Date</label> <input type="text" id="event_enddate_'+count+'" name="eventvenue_enddate[]"  class="event_enddate form-control " /> </div> <div class="form-group col-sm-6"> <label>Event End Time</label> <input type="text" id="event_endtiming_'+count+'" name="eventvenue_endtiming[]"  class="event_endtiming form-control "  /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="address1_'+count+'" name="address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="address2_'+count+'" name="address2[]"  class="form-control" /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="city_'+count+'" name="venue_city[]" class="form-control" /> </div> <div class="form-group col-sm-12"> <label>Country</label> <select id="country_'+count+'" name="venue_country[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="">Country </option> <option value="Afghanistan">Afghanistan </option> <option value="Albania">Albania </option> <option value="Algeria">Algeria </option> <option value="American Samoa">American Samoa </option> <option value="Andorra">Andorra </option> <option value="Angola">Angola </option> <option value="Australia">Australia </option> <option value="Bahamas">Bahamas </option> <option value="Bahrain">Bahrain </option> <option value="Bangladesh">Bangladesh </option> <option value="Barbodos">Barbodos </option> <option value="Canada">Canada </option> <option value="Cape Verde">Cape Verde </option> <option value="Chile">Chile </option> <option value="China">China </option> <option value="Colombia">Colombia </option> <option value="Denmark">Denmark </option> <option value="Dominica">Dominica </option> <option value="Dominican Republic">Dominican Republic </option> <option value="Finland">Finland </option> <option value="France">France </option> <option value="French Guiana">French Guiana </option> <option value="Gabon">Gabon </option> <option value="Gambia">Gambia </option> <option value="Greece">Greece </option> <option value="Greenland">Greenland </option> <option value="Hong Kong">Hong Kong </option> <option value="Hungary">Hungary </option> <option value="Iceland">Iceland </option> <option value="India">India </option> <option value="Iraq">Iraq </option> <option value="Ireland">Ireland </option> <option value="Italy">Italy </option> <option value="Jamaica">Jamaica </option> <option value="Japan">Japan </option> <option value="Kenya">Kenya </option> <option value="Kuwait">Kuwait </option> <option value="Latvia">Latvia </option> <option value="Lebanon">Lebanon </option> <option value="Liberia">Liberia </option> <option value="Macao">Macao </option> <option value="Madagaskar">Madagaskar </option> <option value="Malawi">Malawi </option> <option value="Malaysia">Malaysia </option> <option value="Mali">Mali </option> <option value="Malta">Malta </option> <option value="Mexico">Mexico </option> <option value="Monaco">Monaco </option> <option value="Myanmar">Myanmar </option> <option value="Nepal">Nepal </option> <option value="Netherlands">Netherlands </option> <option value="Niger">Niger </option> <option value="Norway">Norway </option> <option value="Oman">Oman </option> <option value="Pakistan">Pakistan </option> <option value="Palau">Palau </option> <option value="Panama">Panama </option> <option value="Peru">Peru </option> <option value="Philippines">Philippines </option> <option value="Poland">Poland </option> <option value="Qatar">Qatar </option> <option value="Romania">Romania </option> <option value="Russian Federation">Russian Federation </option> <option value="Samoa">Samoa </option> <option value="Senegal">Senegal </option> <option value="Spain">Spain </option> <option value="Srilanka">Srilanka </option> <option value="Switzerland">Switzerland </option> <option value="Thailand">Thailand </option> </select> </div><div class="form-group col-sm-6"> <label>Ticket URL</label> <input type="text" id="ticket_url_'+count+'" name="venue_ticket_url[]" class="form-control" /> </div> <div class="form-group col-sm-6"> <label>Ticket Price</label> <input type="text" id="ticket_price_'+count+'" name="venue_ticket_price[]" class="form-control" /> </div> <div class="form-group col-sm-12"> <label>Zipcode/ Postal Code</label> <input type="number" id="zipcode_'+count+'" name="zipcode[]"  class="form-control"  /> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnAdd10" class="remove_address btn btn-info btn-sm"> </a> </div> </div>';
+	var address  = '<div id="event_address_'+count+'" class="animated bounceInRight tab"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_venue_name_'+count+'" name="event_venue_name[]"  class="form-control" onblur="update_vanue()" /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="address1_'+count+'" name="address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="address2_'+count+'" name="address2[]"  class="form-control" /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="city_'+count+'" name="venue_city[]" class="form-control" /> </div>  <div class="form-group col-sm-12"> <label>Zipcode/ Postal Code</label> <input type="text" id="zipcode_'+count+'" name="zipcode[]" class="form-control"  /> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnAdd10" class="remove_address btn btn-info btn-sm"> </a> </div> </div>';
 
         return address;
 }
@@ -2356,7 +2254,7 @@ function generate_address_fields(count)
    var currentTab = 0; // Current tab is set to be the first tab (0)
    showTab(currentTab); // Display the current tab
 
-  $('#btnAdd7').click(function() //here add address button id name btnAdd7
+  $('#btnAdd7').click(function() //here add address
     {
 		$('[id^=event_address_]').hide();
         //Once add button is clicked
@@ -2426,7 +2324,7 @@ function update_vanue() {
         var index = index+1;   
         var venue = $(this).find("[id^=event_venue_name_]").val();  
         var address = $(this).find("[id^=address1_]").val();
-        // var city = $(this).find("[id^=city_]").val();
+       
 
         if(venue != '' || address != '')
         {
@@ -2447,55 +2345,110 @@ function update_vanue() {
 }
 
 
-//evnt start date
-$(function(){ 
+//dynamically add event tour address
 
-  $('#event_startdate').datetimepicker({
-  timepicker:false,
-  minDate:0,
-  format:'M-d-Y',
-  onChangeDateTime:function(dp,$input){
+function generate_tour_fields(count)
+ {	
+	var tour_address  = '<div id="event_tour_'+count+'" class="animated bounceInRight tab"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_tour_name_'+count+'" name="event_venue_name[]"  class="form-control" onblur="update_vanue()" /> </div> <div class="form-group col-sm-6"> <label>Event Start Date</label> <input type="text" id="tour_startdate_'+count+'" name="eventvenue_startdate[]"  class="event_startdate form-control " /> </div> <div class="form-group col-sm-6"> <label>Event Start Time</label> <input type="text" id="tour_startime_'+count+'" name="eventvenue_startime[]"  class="event_startime form-control "  /> </div> <div class="form-group col-sm-6" > <label>Event End Date</label> <input type="text" id="tour_enddate_'+count+'" name="eventvenue_enddate[]"  class="event_enddate form-control " /> </div> <div class="form-group col-sm-6"> <label>Event End Time</label> <input type="text" id="tour_endtiming_'+count+'" name="eventvenue_endtiming[]"  class="event_endtiming form-control "  /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="tour_address1_'+count+'" name="address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="tour_address2_'+count+'" name="address2[]"  class="form-control" /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="tour_city_'+count+'" name="venue_city[]" class="form-control" /> </div> <div class="form-group col-sm-12"> <label>Country</label> <select id="tour_country_'+count+'" name="venue_country[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="">Country </option> <option value="Afghanistan">Afghanistan </option> <option value="Albania">Albania </option> <option value="Algeria">Algeria </option> <option value="American Samoa">American Samoa </option> <option value="Andorra">Andorra </option> <option value="Angola">Angola </option> <option value="Australia">Australia </option> <option value="Bahamas">Bahamas </option> <option value="Bahrain">Bahrain </option> <option value="Bangladesh">Bangladesh </option> <option value="Barbodos">Barbodos </option> <option value="Canada">Canada </option> <option value="Cape Verde">Cape Verde </option> <option value="Chile">Chile </option> <option value="China">China </option> <option value="Colombia">Colombia </option> <option value="Denmark">Denmark </option> <option value="Dominica">Dominica </option> <option value="Dominican Republic">Dominican Republic </option> <option value="Finland">Finland </option> <option value="France">France </option> <option value="French Guiana">French Guiana </option> <option value="Gabon">Gabon </option> <option value="Gambia">Gambia </option> <option value="Greece">Greece </option> <option value="Greenland">Greenland </option> <option value="Hong Kong">Hong Kong </option> <option value="Hungary">Hungary </option> <option value="Iceland">Iceland </option> <option value="India">India </option> <option value="Iraq">Iraq </option> <option value="Ireland">Ireland </option> <option value="Italy">Italy </option> <option value="Jamaica">Jamaica </option> <option value="Japan">Japan </option> <option value="Kenya">Kenya </option> <option value="Kuwait">Kuwait </option> <option value="Latvia">Latvia </option> <option value="Lebanon">Lebanon </option> <option value="Liberia">Liberia </option> <option value="Macao">Macao </option> <option value="Madagaskar">Madagaskar </option> <option value="Malawi">Malawi </option> <option value="Malaysia">Malaysia </option> <option value="Mali">Mali </option> <option value="Malta">Malta </option> <option value="Mexico">Mexico </option> <option value="Monaco">Monaco </option> <option value="Myanmar">Myanmar </option> <option value="Nepal">Nepal </option> <option value="Netherlands">Netherlands </option> <option value="Niger">Niger </option> <option value="Norway">Norway </option> <option value="Oman">Oman </option> <option value="Pakistan">Pakistan </option> <option value="Palau">Palau </option> <option value="Panama">Panama </option> <option value="Peru">Peru </option> <option value="Philippines">Philippines </option> <option value="Poland">Poland </option> <option value="Qatar">Qatar </option> <option value="Romania">Romania </option> <option value="Russian Federation">Russian Federation </option> <option value="Samoa">Samoa </option> <option value="Senegal">Senegal </option> <option value="Spain">Spain </option> <option value="Srilanka">Srilanka </option> <option value="Switzerland">Switzerland </option> <option value="Thailand">Thailand </option> </select> </div><div class="form-group col-sm-6"> <label>Ticket URL</label> <input type="text" id="ticket_url_'+count+'" name="venue_ticket_url[]" class="form-control" /> </div> <div class="form-group col-sm-6"> <label>Ticket Price</label> <input type="text" id="ticket_price_'+count+'" name="venue_ticket_price[]" class="form-control" /> </div> <div class="form-group col-sm-12"> <label>Zipcode/ Postal Code</label> <input type="number" id="tour_zipcode_'+count+'" name="zipcode[]"  class="form-control"  /> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnAdd" class="remove_address btn btn-info btn-sm"> </a> </div> </div>';
 
-    var day_count= $('select').find('option:selected').val();
-    
+        return tour_address;
+}
 
-    var startdate = moment(dp).format("M/D/Y");
-    var new_date = moment(startdate);
-    var enddate = new_date.add(day_count-1, 'days').format('MMM-DD-YYYY');
-   
-    $('#event_enddate').val(enddate);
+	var currentTab1 = 0; // Current tab is set to be the first tab (0)
+    shownextTab(currentTab1); // Display the current tab
 
-    for(var i=1;i<=day_count;i++)
+  $('#add_event_tour').click(function() //here add address button id name btnAdd7
     {
-      var startdate = moment(dp).format("M/D/Y");
-      var new_date = moment(startdate);
+		$('[id^=event_tour_]').hide();
+        //Once add button is clicked
+        var nxttour_count = $(this).data("nxt_event_tour");
 
-      $('#tab-list #'+i).text(new_date.add(i-1, 'days').format('ddd, MMM Do'));
-       
-    }
+        var nxttourHTML = generate_tour_fields(nxttour_count);
+		$('[id^=event_tour_'+nxttour_count+']').show();
+        $('#event_tour').append(nxttourHTML); // Add field html
 
-  } 
+		nxttour_count++; //Increment field counter
 
-});
-});
+        $(this).data('nxt_event_tour', nxttour_count); //update data nxtportion   
+        nextPreview(1);             
 
-// end date
+	});
 
-$(function(){
+ //remove function
 
-  $('#event_enddate').datetimepicker({
-  timepicker:false,
-  format:'M-d-Y',
-  onChangeDateTime:function(dp,$input){
-    // alert($input.val())
-  }
-});
-});	
+   $(document).on('click', '.remove_address', function(e)
+    {
+	        e.preventDefault();
+	        nextPreview(-1);
+	        $(this).parents('[id^=event_tour_]').remove();
+	        update_tour();   //here remove event venue on top
+    });
+
+function shownextTab(n)
+ {	
+  // This function will display the specified tab of the form...
+		  var x = document.getElementsByClassName("tab1");
+		  x[n].style.display = "block";
+		  //... and fix the Previous/Next buttons:
+		  if (n == 0) {
+		    document.getElementById("prevButton").style.display = "none";
+		  } else {
+		    document.getElementById("prevButton").style.display = "inline";
+		  }
+		  if (n == (x.length - 1)) {
+		    document.getElementById("nextButton").style.display = "none";
+		  } else {
+		    document.getElementById("nextButton").style.display = "inline";
+		  }
+		  update_tour();
+}
+
+function nextPreview(n)
+ {
+  // This function will figure out which tab to display  
+	  var x = document.getElementsByClassName("tab1");
+	  // Hide the current tab:	   
+	  x[currentTab1].style.display = "none";
+	  // Increase or decrease the current tab by 1:
+	  currentTab1 = currentTab1 + n;  
+	  // Otherwise, display the correct tab:	  
+	  shownextTab(currentTab1);
+}
+
 	
-// pass value with in same form
-$('#event_startime').change(function() {
-    $('#day1_start_time').val($(this).val());
-});
+function update_tour() {
+	
+	// option_template = '';
+
+    $('#show_tours').find('div').remove();
+   
+
+    $(".tab1").each(function(index1){
+        var index1 = index1+1;   
+        var venue = $(this).find("[id^=event_venue_name_]").val();  
+        var address = $(this).find("[id^=address1_]").val();
+
+        var city = $(this).find("[id^=tour_city_]").val();
+        var start_date = $(this).find("[id^=tour_startdate_]").val();
+        var end_date = $(this).find("[id^=tour_enddate_]").val();
+        var ticket_url = $(this).find("[id^=ticket_url_]").val();
+
+
+
+        if(city != '' || ticket_url != '' || start_date != '' || end_date != '' )
+        {
+            
+            var event_tour = ' <div class="form-group col-sm-12" style="background-color:#9e9999; margin-top:10px; "> <div class="pull-left" style="width:20%;">'+city+'</div>'+
+                    '<div class="pull-left" style="width:60%;">'+start_date+','+end_date+'</div>'+                    
+                    '<div class="pull-left" style="width:20%;">'+ticket_url+'</div></div>';          
+        }        
+
+        $('#show_tours').append(event_tour);    
+      
+    }); 
+    	          
+}
+
 
 //dynamic add tab view for event days
  $(document).ready(function() {
@@ -2920,6 +2873,64 @@ var base_url = '<?php echo base_url() ?>'; //form submited
 
  });
 
+
+//search keyword
+
+    // $(document).ready(function () {
+
+    //   $("#keywordsearch").keyup(function(e){
+
+    //       e.preventDefault();
+
+    //       var keyword = $('#keywordsearch').val();
+
+    //       var keywordname = $('input[name=keyword]').val();
+
+    //        if(keywordname.trim().length == 0)
+    //        {
+    //          $("#result").html('<div class="alert alert-warning alert-dismissable "> <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a> <strong>Warning!</strong> Wowtag ID is Mandatory. </div>');
+    //        }
+          
+    //        else
+    //        {
+    //       $.ajax({
+
+    //             url : '<?php //echo base_url('event/keyword');?>',
+    //             method: 'POST',
+    //             data: 'keyword='+keyword,               
+    //             dataType:'json',
+    //             error: function(xhr,status,error)
+    //             {   
+    //                 alert(xhr.responseText);
+    //             },
+    //             success: function(response)
+    //             {                   
+    //                 if(response.status == 'success')
+    //                  {
+    //                    // alert(response['msg']);
+    //                    // $(this).find('input[id=keyword_show]').val(response.msg);                        
+    //                    $('#keyword_show').html(response.msg);         
+    //                  }
+
+    //                  else 
+    //                  {                     
+    //                    alert("No search keyword");
+    //                  }
+    //             }
+    //         });
+    //     }
+           
+    // });
+    // }); 
+                  
+ $(document).ready(function(){
+        $(".onkeyword").keyup(function(e){
+        	
+            var message = $(this).val();
+            // alert(message);
+           	$('#keyword_show').html("!" +message );
+        });
+    });
 
 </script>
 

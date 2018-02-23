@@ -96,7 +96,7 @@
 		outline: none;
 	}
 	
-	#btnAdd10{
+	#btnAdd10, #btnremove{
 		background-image: url("<?php echo base_url('assets/images/close-outline-32.png')?>");
 		background-repeat: no-repeat;
 		border: none;
@@ -345,6 +345,7 @@
 	  cursor: pointer;
 	  width: 200px;
 	  margin-left: 107px;
+     
 	}
 	.remove:hover {
 	  background: white;
@@ -366,23 +367,20 @@
 	  color: black;
 	}
 
-	/*dynamic add event venue address*/
 	.tab {
-	  display: none; 
+	  display: none;
 	}
-
-	.form-group-1 img {    
+.form-group-1 img {    
     left: 24px;
     position: absolute;
     top: 7px;
-	}
+}
 
 img {
     max-width: 200px;
     height: auto;
     display: inline-block;
 	}
-
 
 </style>
 </head>
@@ -447,16 +445,15 @@ img {
               
               <!-- Step 2 -->
               <div class="form-wizard-step">
-                <div class="form-wizard-step-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
-                <p>Event Venue/Tours</p>
+                <div class="form-wizard-step-icon"><i class="fa fa-exclamation" aria-hidden="true"></i></div>
+                <p>!Wowtag</p>
               </div>
-              
               <!-- Step 2 --> 
               
               <!-- Step 3 -->
               <div class="form-wizard-step">
-                <div class="form-wizard-step-icon"><i class="fa fa-exclamation" aria-hidden="true"></i></div>
-                <p>!Wowtag</p>
+                <div class="form-wizard-step-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                <p>Event Venue</p>
               </div>
               <!-- Step 3 --> 
               
@@ -489,7 +486,7 @@ img {
      </div>
             <!-- Form progress --> 
             <!-- Form Step 1 -->
-  		<form id="create_social_multicity_event" action="<?php echo base_url('event/social_multicity_event'); ?>"  method="post" enctype="multipart/form-data" >  
+  		 <form id="create_social_event" action="<?php echo base_url('event/social_single_event'); ?>"  method="post" enctype="multipart/form-data" >  
     	  <fieldset>
                 <!-- Progress Bar -->
                 <div class="progress">
@@ -503,18 +500,20 @@ img {
 		                      	<label>Event Type</label>
 		                      	<input type='hidden' name="event_type"  class="form-control textBox" value="<?php echo $this->session->userdata('event_type'); ?>" />
 		                    </div>
+
 		                    <div class='form-group col-sm-12' >
 		                      <label>Event Category</label>
 		                      <input type='text' name="event_category"  class="form-control textBox" value="<?php echo $this->session->userdata('event_category'); ?>"  readonly/>
-		                    </div>
-		                    <div class='form-group col-sm-12' >
+		                    </div>		                   
+
+		                     <div class='form-group col-sm-12' >
 		                      <label>Event Name</label>
 		                      <input type='text'  name="event_name" class="form-control required" />
-		                    </div>	                    
+		                    </div>
 
-		                    <div class="form-group col-sm-12" style="font-size: 15px;">
+		                     <div class="form-group col-sm-12" style="font-size: 15px;">
 				                      <label>Select Event Days</label>
-				                     <select name="event_totaldays" id="btn-add-tab" class="form-control required" style="background-color:#eff0f1;">
+				                    <select name="event_totaldays" id="btn-add-tab" class="form-control required" style="background-color:#eff0f1;">
 				                      <option value="">Select Event Days</option>
 				                      <option value="1">1 Day Event</option>
 				                      <option value="2">2 Days Event</option>
@@ -526,7 +525,31 @@ img {
 				                  	</select>
 		                    </div>
 
+		                 <div id="date_hide" style="display: none;">
+		                    <div class='form-group col-sm-6' >
+		                      <label>Event Start Date</label>
+		                      <input type='text' id="event_startdate" name="event_startdate"  class="form-control required"  />
+		                    </div>
+
+		                    <div  class='form-group col-sm-6'>
+		                      <label>Event Start Time</label>
+		                      <input type='text' id="event_startime" name="event_startime"  class="form-control "  />
+		                    </div>
+		                    
+		                    <div class='form-group col-sm-6'>
+		                      <label>Event End Date</label>
+		                      <input type='text' id="event_enddate" name="event_enddate"  class="form-control " />
+		                    </div>
+
+		                    <div class='form-group col-sm-6'>
+		                      <label>Event End Time</label>
+		                      <input type='text' id="event_endtiming" name="event_endtiming"  class="form-control " />
+		                    </div> 
+		                </div>             
+		                   
 		                </div>
+
+
 		                   <div class='row'>                   
 			                    <div class='form-group col-sm-6' >
 			                      <label>This is</label>
@@ -540,7 +563,7 @@ img {
 
 			                    <div class='form-group col-sm-6' style="display: none;" id="ticket_price">
 			                      <label>Enter Ticket Price</label>
-			                      <input type='text'  name="ticket_price"  class="form-control"  />
+			                      <input type='text'  name="ticket_price"  class="form-control" />
 			                    </div> 
 
 			                </div>        
@@ -563,7 +586,8 @@ img {
 						                        </div> 
 					                        </div>		                        
 					                      </div>
-				                    </div>				                 
+				                    </div>
+				                  
 			                </div>
                 	</div>
                 	
@@ -620,317 +644,14 @@ img {
               
               <!-- Form Step 2 -->
 
-  
-   	
-              <!-- end Step 2 --> 
-              
-              <!--  Step 3 -->
-    <fieldset>
-                <!-- Progress Bar -->
-                <div class="progress">
-                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="42.84" aria-valuemin="0" aria-valuemax="100" style="width:28.56%"> </div>
-                </div>
-                <!-- Progress Bar -->
-                <h4> <span>Step 2 - 6</span></h4>
-        <div class='col-sm-5'>
-            <div class='col-sm-12' style="background-color:#f9f9f9;padding-top:10px; ">
-                  		<div id="show_vanue" style="background-color:#bfbebe;padding-top:10px; ">
-							<center> <label >CREATE AND ADD YOUR EVENT TOURS CITIES HERE</label></center>  
-						</div>               
-             	<div id="event_venues">
-                	<div id="event_address_1" class="tab">                			
-
-		                    <div class='form-group col-sm-12' style="margin-top:20px;">
-		                      <label>Enter Your Event Venue / location Name</label>		                      
-		                      <input type='text' id="event_venue_name_1" name="event_venue_name[]"  class="form-control textBox" onblur="update_vanue()"/>
-		                    </div>
-
-		                    <div class='form-group col-sm-6'>
-		                      <label>Event Start Date</label>
-		                      <input type='text' id="event_startdate" name="eventvenue_startdate[]"  class="event_startdate form-control required"  />
-		                    </div>
-
-		                    <div class='form-group col-sm-6'>
-		                      <label>Event Start Time</label>
-		                      <input type='text' id="event_startime" name="eventvenue_startime[]"  class="event_startime form-control "  />
-		                    </div>
-		                   
-		                    <div class='form-group col-sm-6' >
-		                      <label>Event End Date</label>
-		                      <input type='text' id="event_enddate" name="eventvenue_enddate[]"  class="event_enddate form-control " />
-		                    </div>
-
-		                    <div class='form-group col-sm-6'>
-		                      <label>Event End Time</label>
-		                      <input type='text' id="event_endtiming" name="eventvenue_endtiming[]"  class="event_endtiming form-control "  />
-		                    </div>
-
-		                    <div class='form-group col-sm-12'>
-		                      <label>Address 1</label>
-		                      <input type='text' id="address1_1" name="address1[]"  class="form-control"  />
-		                    </div>
-
-		                    <div class='form-group col-sm-12'>
-		                      <label>Address 2</label>
-		                      <input type='text' id="address2_1" name="address2[]"  class="form-control"  />
-		                    </div>
-
-		                    <div class='form-group col-sm-12'>
-		                      <label>City</label>
-		                      <input type='text' id="city_1" name="venue_city[]" class="form-control" />
-		                    </div>
-
-		                    <div class='form-group col-sm-12'>	
-		                    	 <label>Country</label>	                      
-		                      <!-- <input type='text' id="country_1" name="venue_country[]" class="form-control" placeholder="Enter your country" /> -->
-
-		                      	<select id="country_1" name="venue_country[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> 
-                                           <option value="">Country </option> 
-                                            <option value="Afghanistan">Afghanistan </option>
-                                            <option value="Albania">Albania </option>
-                                            <option value="Algeria">Algeria </option>
-                                            <option value="American Samoa">American Samoa </option>
-                                            <option value="Andorra">Andorra </option>
-                                            <option value="Angola">Angola </option>
-                                            <option value="Australia">Australia </option>
-                                            <option value="Bahamas">Bahamas </option>
-                                            <option value="Bahrain">Bahrain </option>
-                                            <option value="Bangladesh">Bangladesh </option>
-                                            <option value="Barbodos">Barbodos </option>
-                                            <option value="Canada">Canada </option>
-                                            <option value="Cape Verde">Cape Verde </option>
-                                            <option value="Chile">Chile </option>
-                                            <option value="China">China </option>
-                                            <option value="Colombia">Colombia </option>
-                                            <option value="Denmark">Denmark </option>
-                                            <option value="Dominica">Dominica </option>
-                                            <option value="Dominican Republic">Dominican Republic </option>
-                                            <option value="Finland">Finland </option>
-                                            <option value="France">France </option>
-                                            <option value="French Guiana">French Guiana </option>
-                                            <option value="Gabon">Gabon </option>
-                                            <option value="Gambia">Gambia </option>
-                                            <option value="Greece">Greece </option>
-                                            <option value="Greenland">Greenland </option>
-                                            <option value="Hong Kong">Hong Kong </option>
-                                            <option value="Hungary">Hungary </option>
-                                            <option value="Iceland">Iceland </option>
-                                            <option value="India">India </option>
-                                            <option value="Iraq">Iraq </option>
-                                            <option value="Ireland">Ireland </option>
-                                            <option value="Italy">Italy </option>
-                                            <option value="Jamaica">Jamaica </option>
-                                            <option value="Japan">Japan </option>
-                                            <option value="Kenya">Kenya </option>
-                                            <option value="Kuwait">Kuwait </option>
-                                            <option value="Latvia">Latvia </option>
-                                            <option value="Lebanon">Lebanon </option>
-                                            <option value="Liberia">Liberia </option>
-                                            <option value="Macao">Macao </option>
-                                            <option value="Madagaskar">Madagaskar </option>
-                                            <option value="Malawi">Malawi </option>
-                                            <option value="Malaysia">Malaysia </option>
-                                            <option value="Mali">Mali </option>
-                                            <option value="Malta">Malta </option>
-                                            <option value="Mexico">Mexico </option>
-                                            <option value="Monaco">Monaco </option>
-                                            <option value="Myanmar">Myanmar </option>
-                                            <option value="Nepal">Nepal </option>
-                                            <option value="Netherlands">Netherlands </option>
-                                            <option value="Nigeria">Nigeria </option>
-                                            <option value="Norway">Norway </option>
-                                            <option value="Oman">Oman </option>
-                                            <option value="Pakistan">Pakistan </option>
-                                            <option value="Palau">Palau </option>
-                                            <option value="Panama">Panama </option>
-                                            <option value="Peru">Peru </option>
-                                            <option value="Philippines">Philippines </option>
-                                            <option value="Poland">Poland </option>
-                                            <option value="Qatar">Qatar </option>
-                                            <option value="Romania">Romania </option>
-                                            <option value="Russian Federation">Russian Federation </option>
-                                            <option value="Samoa">Samoa </option>
-                                            <option value="Senegal">Senegal </option>
-                                            <option value="Spain">Spain </option>
-                                            <option value="Srilanka">Srilanka </option>
-                                            <option value="Switzerland">Switzerland </option>
-                                            <option value="Thailand">Thailand </option>                                           
-                        		</select>
-		                    </div>
-		                    
-
-		                    <div class='form-group col-sm-6'>
-		                      <label>Ticket URL</label>
-		                      <input type='text' id="ticket_url_1" name="venue_ticket_url[]" class="form-control" />
-		                    </div>
-
-		                    <div class='form-group col-sm-6'>
-		                      <label>Ticket Price</label>
-		                      <input type='text' id="ticket_price_1" name="venue_ticket_price[]" class="form-control" />
-		                    </div>
-
-		                    <div class='form-group col-sm-12'>
-		                      <label>Zipcode/ Postal Code</label>
-		                      <input type='text' id="zipcode_1" name="zipcode[]"  class="form-control"  />
-		                    </div>
-               		</div>
-            	</div> 
-            </div>
-
-                   <div class='col-sm-12'> 
-                    	<div class='col-sm-4'>
-                    		<a href="JavaScript:void(0);" id="btnAdd7" data-nxt_event_address="2">
-                    		<i class="fa fa-plus-circle"></i> Add multiple venue </a>
-                    	</div>
-                    	<div style="overflow:hidden;">
-						 	
-							    <div  class="col-md-8">
-							      <a href="JavaScript:void(0);" id="prevBtn" onclick="nextPrev(-1)">Previous</a>
-							      <a href="JavaScript:void(0);" id="nextBtn" onclick="nextPrev(1)" style="margin-left: 35px;"> Next</a>
-							    </div>					
-						</div>                     
-                   </div>  
-        </div>
-
-               <div class='col-sm-4'>
-                  	<div class='row'>
-		                    <div class='form-group-1 col-sm-12'>
-		                      <div class="pull-left" style="width:10%;">
-		                        <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
-		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:15px;">Address can only be viewed by invited guest</div>
-		                    </div>
-		                    <div class='form-group-1 col-sm-12'>
-			                    <div class="pull-left" style="width:10%;">
-			                       <input type="checkbox" name="eventvenue_guestshare" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
-			                    </div>
-			                    <div class="pull-left" style="width:90%; font-size:15px;">Invited guest can share event</div>
-		                    </div>
-		                    <div class='form-group-1 col-sm-12'>
-		                      <div class="pull-left" style="width:10%;">
-		                        <input type="checkbox" name="eventvenue_onlineevent" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
-		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:15px;">Online  Event</div>
-		                    </div>
-		                    <div class='form-group-1 col-sm-12'>
-		                      <div class="pull-left" style="width:10%;">
-		                        <input type="checkbox" name="eventvenue_inviteonlyevent" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
-		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:15px;">Invite Only Event</div>
-		                    </div>
-
-		                    <!-- event FAQ part here -->
-	                    <div class='form-group col-sm-12'>
-		                    <div class='col-sm-12' style="background-color:#f9f9f9;">
-			                        <div class="form-group col-md-12 text-center" style="margin-top:15px;">
-			                          <label>Event FAQ's</label>
-			                        </div>
-			                        <div class="row">
-			                         	<div class="form-group-1 col-md-12">
-				                          <p>What is Event Age Requirement?</p>
-				                          <input type='text' id="event_date" name="event_date"  class="form-control"  />
-				                        </div>
-				                        <div class="form-group-1 col-md-12">
-				                          <p>This is a kids friendly event?</p>
-				                          <input type='text' id="event_date" name="event_date"  class="form-control"  />
-				                        </div>
-				                        <div class="form-group-1 col-md-12">
-				                          <p>What are event parking/Transportantion options to and from event location?</p>
-				                          <input type='text' id="event_date" name="event_date"  class="form-control"  />
-				                        </div>
-				                        <div class="form-group-1 col-md-12">
-				                          <p> What are allowed into the event venue?</p>
-				                          <input type='text' id="event_date" name="event_date"  class="form-control"  />
-				                        </div>
-				                    </div>
-			                       
-			                      <div id="dynamic_add_faq">
-                                  <div class="row" id="event_faq_1">
-                                        
-                                   <!--  <div class="col-md-12" style="margin: 10px 0px;">
-                                        <input type="text" id="faq_ques_1" name="faq_ques[]" class="form-control" placeholder="Enter question">                                      
-                                    </div>
-                                    <div class="col-md-12" style="margin: 10px 0px;">
-                                        <input type="text" id="faq_ans_1" name="faq_ans[]" class="form-control" placeholder="Enter Answer">                                      
-                                    </div>
-                                    <div class="col-sm-12 text-right"> 
-                                     <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_faq btn btn-info btn-sm"> Remove</a> 
-                                 	</div> -->
-
-                                  </div>
-                                </div>
-
-                                  <a href="JavaScript:void(0);" id="faq_add" data-nxt_event_faq="2">
-			                        	<i class="fa fa-plus-circle"></i> Add More Event FAQ's
-			                      </a>		                       
-			                       
-		                    </div>
-	                    </div>
-
-                  	</div>
-                </div>
-
-
-
-                <div class='col-sm-3'>
-                  <div class='col-sm-12' style="background-color:#f9f9f9;">
-                    <div class='col-sm-12'>
-                      <h5>Helpful Hints</h5>
-                      <section class="ac-container">
-                        <div>
-                          <input id="ac-9" name="accordion-1" type="radio" />
-                          <label for="ac-9">Multiple Venue?</label>
-                          <article class="ac-small">
-                            <p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.</p>
-                          </article>
-                        </div>
-                        <div>
-                          <input id="ac-10" name="accordion-1" type="radio" />
-                          <label for="ac-10">Online Event?</label>
-                          <article class="ac-medium">
-                            <p>Like you, I used to think the world was this great place where everybody lived by the same standards I did, then some kid with a nail showed me I was living in his world, a world where chaos rules not order, a world where righteousness is not rewarded. That's Cesar's world, and if you're not willing to play by his rules, then you're gonna have to pay the price. </p>
-                          </article>
-                        </div>
-                        <div>
-                          <input id="ac-11" name="accordion-1" type="radio" />
-                          <label for="ac-11">Invite only Events?</label>
-                          <article class="ac-large">
-                            <p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man. </p>
-                          </article>
-                        </div>
-                        <div>
-                          <input id="ac-12" name="accordion-1" type="radio" />
-                          <label for="ac-12">Event Sharing?</label>
-                          <article class="ac-large">
-                            <p>You see? It's curious. Ted did figure it out - time travel. And when we get back, we gonna tell everyone. How it's possible, how it's done, what the dangers are. But then why fifty years in the future when the spacecraft encounters a black hole does the computer call it an 'unknown entry event'? Why don't they know? If they don't know, that means we never told anyone. And if we never told anyone it means we never made it back. Hence we die down here. Just as a matter of deductive logic. </p>
-                          </article>
-                        </div>
-                      </section>
-                      <!-- panel-group --> 
-                      
-                    </div>
-                  </div>
-                </div>
-                <div class='col-sm-12'>
-                  <div class="form-wizard-buttons">
-                    <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="button" class="btn btn-next">Next</button>
-                  </div>
-                </div>
-    </fieldset>
-
- 	
- 	<!-- start third steps 3 -->
-
- 	<fieldset>
+   	<fieldset>
                 
                 <!-- Progress Bar -->
                 <div class="progress">
-                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="28.56" aria-valuemin="0" aria-valuemax="100" style="width:  42.84 %"> </div>
+                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="28.56" aria-valuemin="0" aria-valuemax="100" style="width: 28.56%"> </div>
                 </div>
                 <!-- Progress Bar -->
-                <h4> <span>Step 3 - 6</span></h4>
+                <h4> <span>Step 2 - 6</span></h4>
                 <div class='col-sm-9'>
                   <div class='col-sm-12'>
                     <div class='col-sm-12' style="padding: 10px 0;">
@@ -954,7 +675,7 @@ img {
                       </div>
                       <div class="form-group">
                       	<span class="btn btn-primary btn-file"> 
-                       	 Browse...<input type="file" name="wowtag_video" id="video_size" class=" file" accept="video/*">
+                       	 Browse...<input type="file" name="wowtag_video" id="video_size" class="file" accept="video/*">
                        	</span>
 
                         <div id="video_show" style="display: none;" >
@@ -1029,8 +750,194 @@ img {
                   </div>
                 </div>
     </fieldset>
+   	
+              <!-- end Step 2 --> 
+              
+              <!--  Step 3 -->
+    <fieldset>
+                <!-- Progress Bar -->
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="42.84" aria-valuemin="0" aria-valuemax="100" style="width: 42.84%"> </div>
+                </div>
+                <!-- Progress Bar -->
+                <h4> <span>Step 3 - 6</span></h4>
+        <div class='col-sm-5'>
+            <div class='col-sm-12' style="background-color:#f9f9f9;padding-top:10px; ">
+                  		<div id="show_vanue" style="background-color:#bfbebe;padding-top:10px; ">
+							<center> <label >CREATE AND ADD YOUR EVENT TOURS CITIES HERE</label></center>  
+						</div>               
+             	<div id="event_venues" >
+                	<div id="event_address_1" class="tab" >                			
 
- 	<!-- end third steps -->
+		                    <div class='form-group col-sm-12' style="margin-top:20px;">
+		                      <label>Enter Your Event Venue / location Name</label>		                      
+		                      <input type='text' id="event_venue_name_1" name="event_venue_name[]"  class="form-control textBox" onblur="update_vanue()"/>
+		                    </div>
+
+		                    <div class='form-group col-sm-12'>
+		                      <label>Address 1</label>
+		                      <input type='text' id="address1_1" name="address1[]"  class="form-control"  />
+		                    </div>
+
+		                    <div class='form-group col-sm-12'>
+		                      <label>Address 2</label>
+		                      <input type='text' id="address2_1" name="address2[]"  class="form-control"  />
+		                    </div>
+
+		                    <div class='form-group col-sm-12'>
+		                      <label>City</label>
+		                      <input type='text' id="city_1" name="venue_city[]" class="form-control" />
+		                    </div>
+		                    
+		                    <div class='form-group col-sm-12'>
+		                      <label>Zipcode/ Postal Code</label>
+		                      <input type='text' id="zipcode_1" name="zipcode[]"  class="form-control"  />
+		                    </div>
+               		</div>
+            	</div> 
+            </div>
+
+                   <div class='col-sm-12'> 
+                    	<div class='col-sm-4'>
+                    		<a href="JavaScript:void(0);" id="btnAdd7" data-nxt_event_address="2">
+                    		<i class="fa fa-plus-circle"></i> Add multiple venue </a>
+                    	</div>
+                    	<div style="overflow:hidden;">
+						 	
+							    <div  class="col-md-8">
+							      <a href="JavaScript:void(0);" id="prevBtn" onclick="nextPrev(-1)">Previous</a>
+							      <a href="JavaScript:void(0);" id="nextBtn" onclick="nextPrev(1)" style="margin-left: 35px;"> Next</a>
+							    </div>					
+						</div>                     
+                   </div>  
+        </div>
+
+               <div class='col-sm-4'>
+                  	<div class='row'>
+		                    <div class='form-group-1 col-sm-12'>
+		                      <div class="pull-left" style="width:10%;">
+		                        <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+		                      </div>
+		                      <div class="pull-left" style="width:90%; font-size:15px;">Address can only be viewed by invited guest</div>
+		                    </div>
+		                    <div class='form-group-1 col-sm-12'>
+			                    <div class="pull-left" style="width:10%;">
+			                       <input type="checkbox" name="eventvenue_guestshare" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+			                    </div>
+			                    <div class="pull-left" style="width:90%; font-size:15px;">Invited guest can share event</div>
+		                    </div>
+		                    <div class='form-group-1 col-sm-12'>
+		                      <div class="pull-left" style="width:10%;">
+		                        <input type="checkbox" name="eventvenue_onlineevent" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+		                      </div>
+		                      <div class="pull-left" style="width:90%; font-size:15px;">Online  Event</div>
+		                    </div>
+		                    <div class='form-group-1 col-sm-12'>
+		                      <div class="pull-left" style="width:10%;">
+		                        <input type="checkbox" name="eventvenue_inviteonlyevent" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+		                      </div>
+		                      <div class="pull-left" style="width:90%; font-size:15px;">Invite Only Event</div>
+		                    </div>
+
+		                    <!-- event FAQ part here -->
+	                    <div class='form-group col-sm-12'>
+		                    <div class='col-sm-12' style="background-color:#f9f9f9;">
+			                        <div class="form-group col-md-12 text-center" style="margin-top:15px;">
+			                          <label>Event FAQ's</label>
+			                        </div>
+
+			                         <div class="row">
+			                         	<div class="form-group-1 col-md-12">
+				                          <p>What is Event Age Requirement?</p>
+				                          <input type='text' id="event_date" name="event_date"  class="form-control"  />
+				                        </div>
+				                        <div class="form-group-1 col-md-12">
+				                          <p>This is a kids friendly event?</p>
+				                          <input type='text' id="event_date" name="event_date"  class="form-control"  />
+				                        </div>
+				                        <div class="form-group-1 col-md-12">
+				                          <p>What are event parking/Transportantion options to and from event location?</p>
+				                          <input type='text' id="event_date" name="event_date"  class="form-control"  />
+				                        </div>
+				                        <div class="form-group-1 col-md-12">
+				                          <p> What are allowed into the event venue?</p>
+				                          <input type='text' id="event_date" name="event_date"  class="form-control"  />
+				                        </div>
+				                    </div>
+			                       
+			                      <div id="dynamic_add_faq">
+                                  <div class="row" id="event_faq_1">
+                                        
+                                  <!--   <div class="col-md-12" style="margin: 10px 0px;">
+                                        <input type="text" id="faq_ques_1" name="faq_ques[]" class="form-control" placeholder="Enter question">                                      
+                                    </div>
+                                    <div class="col-md-12" style="margin: 10px 0px;">
+                                        <input type="text" id="faq_ans_1" name="faq_ans[]" class="form-control" placeholder="Enter Answer">                                      
+                                    </div> -->
+
+                                  </div>
+                                </div>
+
+                                  <a href="JavaScript:void(0);" id="faq_add" data-nxt_event_faq="2">
+			                        	<i class="fa fa-plus-circle"></i> Add More Event FAQ's
+			                      </a>		                       
+			                       
+		                    </div>
+	                    </div>
+
+                  	</div>
+                </div>
+
+
+
+                <div class='col-sm-3'>
+                  <div class='col-sm-12' style="background-color:#f9f9f9;">
+                    <div class='col-sm-12'>
+                      <h5>Helpful Hints</h5>
+                      <section class="ac-container">
+                        <div>
+                          <input id="ac-9" name="accordion-1" type="radio" />
+                          <label for="ac-9">Multiple Venue?</label>
+                          <article class="ac-small">
+                            <p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.</p>
+                          </article>
+                        </div>
+                        <div>
+                          <input id="ac-10" name="accordion-1" type="radio" />
+                          <label for="ac-10">Online Event?</label>
+                          <article class="ac-medium">
+                            <p>Like you, I used to think the world was this great place where everybody lived by the same standards I did, then some kid with a nail showed me I was living in his world, a world where chaos rules not order, a world where righteousness is not rewarded. That's Cesar's world, and if you're not willing to play by his rules, then you're gonna have to pay the price. </p>
+                          </article>
+                        </div>
+                        <div>
+                          <input id="ac-11" name="accordion-1" type="radio" />
+                          <label for="ac-11">Invite only Events?</label>
+                          <article class="ac-large">
+                            <p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man. </p>
+                          </article>
+                        </div>
+                        <div>
+                          <input id="ac-12" name="accordion-1" type="radio" />
+                          <label for="ac-12">Event Sharing?</label>
+                          <article class="ac-large">
+                            <p>You see? It's curious. Ted did figure it out - time travel. And when we get back, we gonna tell everyone. How it's possible, how it's done, what the dangers are. But then why fifty years in the future when the spacecraft encounters a black hole does the computer call it an 'unknown entry event'? Why don't they know? If they don't know, that means we never told anyone. And if we never told anyone it means we never made it back. Hence we die down here. Just as a matter of deductive logic. </p>
+                          </article>
+                        </div>
+                      </section>
+                      <!-- panel-group --> 
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class='col-sm-12'>
+                  <div class="form-wizard-buttons">
+                    <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
+                    <button type="button" class="btn btn-previous">Previous</button>
+                    <button type="button" class="btn btn-next">Next</button>
+                  </div>
+                </div>
+    </fieldset>
+ 	
     
               <!--  Step 4  event schedule-->
     <fieldset> 
@@ -1055,7 +962,7 @@ img {
 
         		<div class='form-group col-sm-9' style="margin-top: 30px;"> 
                   
-                 	<input type="hidden" name="no_of_days" id="no_of_days" value="">
+                 <input type="hidden" name="no_of_days" id="no_of_days" value="">
                 	<ul id="tab-list" class="nav nav-tabs" role="tablist">
             
           			</ul>
@@ -1063,7 +970,6 @@ img {
                   <!-- Tab panes -->
                   <div id="tab-content" class="tab-content">                   
           		  </div>
-                  
                   
     			</div>
 
@@ -1470,8 +1376,8 @@ img {
 	                      
 	                      	<div class="col-md-12">
 	                        	<div class="col-md-offset-4 col-md-4">
-	                          		<select id="action_btn1" name="audience_formaction_btn" class="form-group" style="width:100%; margin-left:10px; padding: 7px 10px; border-radius: 5px;"> 
-	                          			<option value="">Select </option>    
+	                          		<select id="action_btn1" name="audience_formaction_btn" class="form-group" style="width:100%; margin-left:10px; padding: 7px 10px; border-radius: 5px;">
+	                          			<option value="">Select </option>     
 			                            <option value="Learn More">Learn More </option> 
 			                            <option value="Book Now">Book Now</option>
 			                            <option value="Apply Now">Apply Now</option>
@@ -1529,10 +1435,10 @@ img {
 			                        <div class="form-group gender col-xs-12" style="font-size: 14px;">
 					                     <p class='container_test'>
 					                    <label for="gender" class="radio-inline">
-					                       <input type="radio" id="gender"  name="male"  class="" value="male" >Male
+					                       <input type="radio" id="gender"  name="gender"  class="" value="male" >Male
 					                    </label>                      
 					                    <label for="gender" class="radio-inline">
-					                      <input type="radio" id=""  name="female"  class="" value="female" >Female                      
+					                      <input type="radio"  name="gender"  class="" value="female" >Female                      
 					                    </label>   
 					                    </p>                 
 					                </div>	
@@ -1763,8 +1669,8 @@ img {
                       
 		                      	<div class="col-md-12">
 			                        <div class="col-md-offset-4 col-md-4">
-			                          <select name="action_btn3" class="form-group selectpicker" style="width:100%; margin-left:10px; padding: 7px 10px; border-radius: 5px;"> 		
-			                          	<option value="">Select </option>                            
+			                          <select name="action_btn3" class="form-group selectpicker" style="width:100%; margin-left:10px; padding: 7px 10px; border-radius: 5px;"> 
+			                          	<option value="">Select </option>    		                            
 			                            <option value="Learn More">Learn More </option>
 			                            <option value="Book Now">Book Now</option>
 			                            <option value="Apply Now">Apply Now</option>
@@ -1883,9 +1789,12 @@ img {
 <!--<script src="<?php echo base_url('assets/js/jquery-1.12.4.js')?>"></script> -->
 <script src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script> 
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
-<script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script>
+<script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script> 
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.js')?>"></script>   
 <script src="<?php echo base_url('assets/js/moment.js')?>"></script> 
+
+<!-- model popup bootstrap --> 
+<script src="<?php echo base_url('assets/js/bootstrap3.3.4.min.js')?>"></script>
 
 <script>
 	
@@ -1893,7 +1802,7 @@ var option_template = ''; //golabal variable for dynamic address
  
 // hide enter button to submit the form
 $(document).ready(function(){
-$('#create_social_multicity_event').on('keyup keypress', function(e) {
+$('#create_social_event').on('keyup keypress', function(e) {
   var keyCode = e.keyCode || e.which;
   if (keyCode === 13) { 
     e.preventDefault();
@@ -1902,57 +1811,40 @@ $('#create_social_multicity_event').on('keyup keypress', function(e) {
 });	
 });		
 
-   // event start date and end date time 
+// hide and show date depend on select days  step1
 
-   $('body').on('focus',".event_startdate", function(){   //dynamically add date
-    	$(this).datetimepicker(
-    	{
-    		format:'M-d-Y',      
-    		timepicker:false,
-    		minDate: 0,   
-    	});
-    
-	});
+$(document).ready(function(){
+		$("#btn-add-tab").change(function () {				
+           		 
+                	$("#date_hide").show();
+           		
+		});
 
-    $('body').on('focus',".event_enddate", function(){   //dynamically add date
-    	$(this).datetimepicker(
-    	{
-    		format:'M-d-Y',      
-    		timepicker:false,
-    		minDate: 0,   
-    	});
-    
-	});
+});	
 
-	$('body').on('focus',".event_startime", function(){   //dynamically add time
-    	$(this).datetimepicker(
-    	{
-    			datepicker:false,   //12 hours time format 
+
+    //time picker
+  $("#event_startime").datetimepicker(
+		  	{ 
+                datepicker:false,   //12 hours time format 
                 format:'h:i A',
                 formatTime: 'h:i A',
                 // mask:'29:59 99',  
+                step: 5,   
+                ampm: true                        
+             });
+
+  $("#event_endtiming").datetimepicker(
+            { 
+                datepicker:false,   //12 hours time format 
+                format:'h:i A',
+                formatTime: 'h:i A',
+                mask:'29:59 99',  
                 step: 5,   
                 ampm: true 
-    	});
-    
-	});
+             });
 
-
-	$('body').on('focus',".event_endtiming", function(){   //dynamically add time
-    	$(this).datetimepicker(
-    	{
-    			datepicker:false,   //12 hours time format 
-                format:'h:i A',
-                formatTime: 'h:i A',
-                // mask:'29:59 99',  
-                step: 5,   
-                ampm: true  
-    	});
-    
-	});
-
-   
-  //wowtag run from and to date
+//wowtag run from and to date
 
     $("#runtime_from").datetimepicker({      
 	                format:'M-d-Y',      
@@ -1979,7 +1871,15 @@ $('#create_social_multicity_event').on('keyup keypress', function(e) {
 				   })
 				  },	
     });
-            
+
+ //checkbox  with model popup box
+      $('input[type="checkbox"][name=specific_group]').on('change', function(e)
+      		{
+	          if(e.target.checked){
+	          $('#myModal').modal();
+	        }
+       });
+
 //event schedule day start and end time 
 
 $('body').on('focus',".day_end_time", function(){   //dynamically add time
@@ -2006,17 +1906,7 @@ $('body').on('focus',".day_start_time", function(){   //dynamically add time
                 ampm: true  
       });
     
-  });
-          
- //checkbox  with model popup box
-      $('input[type="checkbox"][name=specific_group]').on('change', function(e)
-      		{
-	          if(e.target.checked){
-	          $('#myModal').modal();
-	        }
-       });
-
- 
+  }); 
  
 //video size limitation cover video     
 
@@ -2083,7 +1973,7 @@ $(document).on("change", "#video_size2", function(evt)
 
 function generate_address_fields(count)
  {	
-	var address  = '<div id="event_address_'+count+'" class="animated bounceInRight tab"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_venue_name_'+count+'" name="event_venue_name[]"  class="form-control" onblur="update_vanue()" /> </div> <div class="form-group col-sm-6"> <label>Event Start Date</label> <input type="text" id="event_startdate_'+count+'" name="eventvenue_startdate[]"  class="event_startdate form-control " /> </div> <div class="form-group col-sm-6"> <label>Event Start Time</label> <input type="text" id="event_startime_'+count+'" name="eventvenue_startime[]"  class="event_startime form-control "  /> </div> <div class="form-group col-sm-6" > <label>Event End Date</label> <input type="text" id="event_enddate_'+count+'" name="eventvenue_enddate[]"  class="event_enddate form-control " /> </div> <div class="form-group col-sm-6"> <label>Event End Time</label> <input type="text" id="event_endtiming_'+count+'" name="eventvenue_endtiming[]"  class="event_endtiming form-control "  /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="address1_'+count+'" name="address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="address2_'+count+'" name="address2[]"  class="form-control" /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="city_'+count+'" name="venue_city[]" class="form-control" /> </div> <div class="form-group col-sm-12"> <label>Country</label> <select id="country_'+count+'" name="venue_country[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="">Country </option> <option value="Afghanistan">Afghanistan </option> <option value="Albania">Albania </option> <option value="Algeria">Algeria </option> <option value="American Samoa">American Samoa </option> <option value="Andorra">Andorra </option> <option value="Angola">Angola </option> <option value="Australia">Australia </option> <option value="Bahamas">Bahamas </option> <option value="Bahrain">Bahrain </option> <option value="Bangladesh">Bangladesh </option> <option value="Barbodos">Barbodos </option> <option value="Canada">Canada </option> <option value="Cape Verde">Cape Verde </option> <option value="Chile">Chile </option> <option value="China">China </option> <option value="Colombia">Colombia </option> <option value="Denmark">Denmark </option> <option value="Dominica">Dominica </option> <option value="Dominican Republic">Dominican Republic </option> <option value="Finland">Finland </option> <option value="France">France </option> <option value="French Guiana">French Guiana </option> <option value="Gabon">Gabon </option> <option value="Gambia">Gambia </option> <option value="Greece">Greece </option> <option value="Greenland">Greenland </option> <option value="Hong Kong">Hong Kong </option> <option value="Hungary">Hungary </option> <option value="Iceland">Iceland </option> <option value="India">India </option> <option value="Iraq">Iraq </option> <option value="Ireland">Ireland </option> <option value="Italy">Italy </option> <option value="Jamaica">Jamaica </option> <option value="Japan">Japan </option> <option value="Kenya">Kenya </option> <option value="Kuwait">Kuwait </option> <option value="Latvia">Latvia </option> <option value="Lebanon">Lebanon </option> <option value="Liberia">Liberia </option> <option value="Macao">Macao </option> <option value="Madagaskar">Madagaskar </option> <option value="Malawi">Malawi </option> <option value="Malaysia">Malaysia </option> <option value="Mali">Mali </option> <option value="Malta">Malta </option> <option value="Mexico">Mexico </option> <option value="Monaco">Monaco </option> <option value="Myanmar">Myanmar </option> <option value="Nepal">Nepal </option> <option value="Netherlands">Netherlands </option> <option value="Niger">Niger </option> <option value="Norway">Norway </option> <option value="Oman">Oman </option> <option value="Pakistan">Pakistan </option> <option value="Palau">Palau </option> <option value="Panama">Panama </option> <option value="Peru">Peru </option> <option value="Philippines">Philippines </option> <option value="Poland">Poland </option> <option value="Qatar">Qatar </option> <option value="Romania">Romania </option> <option value="Russian Federation">Russian Federation </option> <option value="Samoa">Samoa </option> <option value="Senegal">Senegal </option> <option value="Spain">Spain </option> <option value="Srilanka">Srilanka </option> <option value="Switzerland">Switzerland </option> <option value="Thailand">Thailand </option> </select> </div><div class="form-group col-sm-6"> <label>Ticket URL</label> <input type="text" id="ticket_url_'+count+'" name="venue_ticket_url[]" class="form-control" /> </div> <div class="form-group col-sm-6"> <label>Ticket Price</label> <input type="text" id="ticket_price_'+count+'" name="venue_ticket_price[]" class="form-control" /> </div> <div class="form-group col-sm-12"> <label>Zipcode/ Postal Code</label> <input type="text" id="zipcode_'+count+'" name="zipcode[]"  class="form-control"  /> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnAdd10" class="remove_address btn btn-info btn-sm"> </a> </div> </div>';
+	var address  = '<div id="event_address_'+count+'" class="animated bounceInRight tab"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_venue_name_'+count+'" name="event_venue_name[]"  class="form-control" onblur="update_vanue()" /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="address1_'+count+'" name="address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="address2_'+count+'" name="address2[]"  class="form-control" /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="city_'+count+'" name="venue_city[]" class="form-control" /> </div>  <div class="form-group col-sm-12"> <label>Zipcode/ Postal Code</label> <input type="text" id="zipcode_'+count+'" name="zipcode[]" class="form-control"  /> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnAdd10" class="remove_address btn btn-info btn-sm"> </a> </div> </div>';
 
         return address;
 }
@@ -2091,7 +1981,7 @@ function generate_address_fields(count)
    var currentTab = 0; // Current tab is set to be the first tab (0)
    showTab(currentTab); // Display the current tab
 
-  $('#btnAdd7').click(function() //here add address button id name btnAdd7
+  $('#btnAdd7').click(function() //here add address
     {
 		$('[id^=event_address_]').hide();
         //Once add button is clicked
@@ -2181,6 +2071,7 @@ function update_vanue() {
     	          
 }
 	
+
 //dynamic add event program schdule 
 // this part will be show event start date
 
@@ -2232,7 +2123,7 @@ $(function(){
 $('#event_startime').change(function() {
     $('#day1_start_time').val($(this).val());
 });
-
+ 
 
 $(document).ready(function() {
     $('#btn-add-tab').on('change',function()
@@ -2282,7 +2173,9 @@ function generete_dynamic_venue(day, count){
 
     return day1;
 }
-  
+
+
+
 //image preview and delete step1
 
 $(document).ready(function() {
@@ -2483,6 +2376,34 @@ $(document).ready(function() {
   }
 });	
 
+//organisation logo preview and delete
+
+$(document).ready(function() {
+  if (window.File && window.FileList && window.FileReader) {
+    $("#logo").on("change", function(e) {
+      var files = e.target.files,
+        filesLength = files.length;
+      for (var i = 0; i < filesLength; i++) {
+        var f = files[i]
+        var fileReader = new FileReader();
+        fileReader.onload = (function(e) {
+          var file = e.target;
+          $("<span class=\"pip\">" +
+            "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
+            "<br/><span class=\"remove\">Remove image</span>" +
+            "</span>").insertAfter("#logo");
+          $(".remove").click(function(){
+            $(this).parent(".pip").remove();
+          });          
+                   
+        });
+        fileReader.readAsDataURL(f);
+      }
+    });
+  } else {
+    alert("Your browser doesn't support to File API")
+  }
+});	
 
 //coupon expiry date 
 
@@ -2532,13 +2453,13 @@ $(document).ready(function(){
 });	
 
 
-//create event for social multi city form submit
+//create event for proffesional form submit
 
 var base_url = '<?php echo base_url() ?>'; //form submited
 
     $(document).ready(function(){
 
-    $(document).on("submit", "#create_social_multicity_event", function(e){
+    $(document).on("submit", "#create_social_event", function(e){
          e.preventDefault();
         var url = $(this).attr('action');
         var formdata = new FormData(this);

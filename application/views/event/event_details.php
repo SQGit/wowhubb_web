@@ -573,7 +573,7 @@ body {
                                             <div id="vidBox">
                                               <div id="videCont" style="margin-top: -19px!important;"> 
                                                 <a href="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlightsvideo1; ?>" id="video-trigger">
-                                                <video   id="demo"  style="width: 200px; height: 150px;" controls controlsList="nodownload">
+                                                <video  id="demo"  style="width: 200px; height: 150px;" controls controlsList="nodownload">
                                                    <source src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlightsvideo1; ?>" type="video/mp4">
                                                 </video>
                                                 </a>
@@ -637,31 +637,32 @@ body {
                                     </div>
                                     
 
+                                    <!-- event schedule start here -->
                               <div class="tab-pane fade" id="faq-cat-2">
-                                    <div class="col-md-12 text-center clr" style="margin-top:10px; margin-bottom:10px;">
+                                          <div class="col-md-12 text-center clr" style="margin-top:10px; margin-bottom:10px;">
                                               <h4 style="color:#fff; line-height:30px;">Event Schedules<br>
                                               <span style="font-size:28px;">
                                                  <img src="../assets/images/wow-white-big.png">
                                                 <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                               </span></h4>
-                                    </div>                             
+                                          </div>                             
                                   
-                                          <!-- tab content show here  -->
+                                              <!-- tab content show here  -->
 
-                                        <ul class="nav nav-tabs" role="tablist">
-                                        <?php 
-                                            $tabid = 1;  
-                                            foreach ($event->programschedule as $events) { 
-                                              if($events->eventnumber == "1")
-                                              {
-                                             
-                                        ?>   
+                                          <ul class="nav nav-tabs" role="tablist">
+                                            <?php 
+                                                $tabid = 1;  
+                                                foreach ($event->programschedule as $events) { 
+                                                  if($events->eventnumber == "1")
+                                                  {
+                                                 
+                                            ?>   
 
-                                          <li class="active"><a href="#tab-<?php echo $tabid; ?>" style="line-height:16px; font-size:12px; color:#333;">Day <?php echo $events->day; ?>
-                                          </a></li>
+                                              <li class="active"><a href="#tab-<?php echo $tabid; ?>" style="line-height:16px; font-size:12px; color:#333;">Day <?php echo $events->day; ?>
+                                              </a></li>
 
-                                        <?php $tabid++; }  } ?>
-                                    </ul>
+                                            <?php $tabid++; }  } ?>
+                                          </ul>
 
                                   
                                           <!-- tab content show here  -->
@@ -681,14 +682,13 @@ body {
                                                   <td height="40" colspan="3" align="center" valign="middle" bgcolor="#f9f9f9">
                                                     <strong style="font-size:16px;">Event Duration
                                                       <br>
-                                                    <?php                                                 
+                                                        <?php                                                 
                                                           if( $events->eventnumber == "1" )
                                                                   {  
                                                                     echo $events->starttime."-". $events->endtime ; 
                                                                     
-                                                                  }                                                           
-                                                     
-                                                    ?>                                                       
+                                                                  }                          
+                                                        ?>                                                       
                                                      <br>
                                                     </strong>
                                                   </td>
@@ -724,7 +724,7 @@ body {
                                     </div>                               
 
                               </div>
-
+                                 <!-- event schedule end here -->
 
                                         <div class="tab-pane fade" id="faq-cat-3">
                                               <div class="col-md-12 text-center clr" style="margin-bottom:20px;">
@@ -1328,7 +1328,7 @@ body {
                                           </div>
                                         </div>
 
-                                       <!-- four tab view -->
+                                       <!-- four tab view  event tours-->
 
                                       <div class="tab-pane fade" id="faq-cat-4">
                                           <div class="col-md-12 text-center clr" style="margin-top:10px;">
@@ -1339,15 +1339,17 @@ body {
                                               </span></h4>
                                           </div>
 
-                                          <?php 
-
-                                                foreach ($event->eventvenue as $eventvenues) 
-                                                {
-                                                
-                                              
-                                          ?>
+                                         
 
                                           <div class="col-md-12 pnl-brdr-clr">
+
+                                              <?php 
+                                                 if(isset($event->eventtour))
+                                                  {
+                                                    foreach ($event->eventtour as $eventtours) 
+                                                    {                                                
+                                              
+                                              ?>
 
                                             <div class="col-md-8">
                                               <div style="width:35%;" class="pull-left"><img src="../assets/images/city-1.jpg" class="img-responsive"/></div>
@@ -1355,23 +1357,23 @@ body {
                                                 <div style="width:100%; padding:10px 5px; background-color:#333; color:#fff;" class="pull-left">
                                                   <div class="pull-left">
 
-                                                    <?php if(isset($eventvenues->eventvenuecountry)) { echo $eventvenues->eventvenuecountry; } ?>
+                                                    <?php if(isset($eventtours->eventtourcountry)) { echo $eventtours->eventtourcountry; } ?>
                                                       
                                                   </div>
 
                                                   <div class="pull-right">
                                                       <?php
-                                                          if(isset($eventvenues->eventvenuestartdate) ) 
+                                                          if(isset($eventtours->eventtourstartdate) ) 
                                                           {
-                                                              $timestamp = strtotime($eventvenues->eventvenuestartdate);                                              
+                                                              $timestamp = strtotime($eventtours->eventtourstartdate);                                              
                                                               echo date('M &\nb\sp;', $timestamp); 
 
-                                                             $timestamp = strtotime($eventvenues->eventvenuestartdate);
+                                                             $timestamp = strtotime($eventtours->eventtourstartdate);
                                                              echo date('d', $timestamp);  
                                                           ?>
                                                             -
                                                           <?php
-                                                             $timestamp = strtotime($eventvenues->eventvenueenddate);
+                                                             $timestamp = strtotime($eventtours->eventtourenddate);
                                                              echo date('d', $timestamp); 
                                                           }                                   
                                                       ?>
@@ -1381,13 +1383,13 @@ body {
                                                 </div>
                                                 <p style="padding:10px;">Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. <br>
                                                   <a>
-                                                    <?php if(isset($eventvenues->eventvenuename)) { echo $eventvenues->eventvenuename; } ?>
+                                                    <?php if(isset($eventtours->eventtourname)) { echo $eventtours->eventtourname; } ?>
                                                       
                                                     </a><br>
                                                   <a>
-                                                     <?php if(isset($eventvenues->eventvenueaddress1))
+                                                     <?php if(isset($eventtours->eventtouraddress1))
                                                       { 
-                                                        echo $eventvenues->eventvenueaddress1." ".$eventvenues->eventvenuecity." ".$eventvenues->eventvenuezipcode ;
+                                                        echo $eventtours->eventtouraddress1." ".$eventtours->eventtourcity." ".$eventtours->eventtourzipcode ;
                                                       } ?>
                                                   </a></p>
                                               </div>
@@ -1400,21 +1402,21 @@ body {
                                                    <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                                 </div>
                                                 <div class="pull-right"><span style="color:#fc6653;">
-                                                   <?php if(isset($eventvenues->eventvenueticketprice) ) { echo "$"." ".$eventvenues->eventvenueticketprice; } else {echo " "; } ?>
+                                                   <?php if(isset($eventtours->eventtourticketprice) ) { echo "$"." ".$eventtours->eventtourticketprice; } else {echo " "; } ?>
                                                 </span></div>
                                               </div>
                                               <div style="width:100%; margin-top:15px; color:#333;" class="pull-left text-center">
                                                 <p style="font-size:16px;">
                                                   <?php
-                                                          if(isset($eventvenues->eventvenuestartdate) ) 
+                                                          if(isset($eventtours->eventtourstartdate) ) 
                                                           {
                                                              
-                                                             $timestamp = strtotime($eventvenues->eventvenuestartdate);
+                                                             $timestamp = strtotime($eventtours->eventtourstartdate);
                                                              echo date('h:i A', $timestamp);  
                                                           ?>
                                                             -
                                                           <?php
-                                                             $timestamp = strtotime($eventvenues->eventvenueenddate);
+                                                             $timestamp = strtotime($eventtours->eventtourenddate);
                                                              echo date('h:i A', $timestamp); 
                                                           }                                   
                                                       ?>
@@ -1428,15 +1430,13 @@ body {
                                               </div>
                                             </div>
 
+                                             <?php  } } else { echo "You miss to add Event Tours";  } ?>
+
                                           </div>
-
-                                          <?php  } ?>
-
                                          
                                       </div>
                           </div>
                       </div>
-
                       
 
   <!-- professional event end here -->
@@ -2032,7 +2032,7 @@ body {
                                           </div>
                                         </div>
 
-                                       <!-- four tab view -->
+                                      <!-- four tab view  event tours-->
 
                                       <div class="tab-pane fade" id="faq-cat-4">
                                           <div class="col-md-12 text-center clr" style="margin-top:10px;">
@@ -2043,15 +2043,17 @@ body {
                                               </span></h4>
                                           </div>
 
-                                          <?php 
-
-                                                foreach ($event->eventvenue as $eventvenues) 
-                                                {
-                                                
-                                              
-                                          ?>
+                                         
 
                                           <div class="col-md-12 pnl-brdr-clr">
+
+                                             <?php 
+                                                 if(isset($event->eventtour))
+                                                  {
+                                                    foreach ($event->eventtour as $eventtours) 
+                                                    {                                                 
+                                              
+                                              ?>
 
                                             <div class="col-md-8">
                                               <div style="width:35%;" class="pull-left"><img src="../assets/images/city-1.jpg" class="img-responsive"/></div>
@@ -2059,23 +2061,23 @@ body {
                                                 <div style="width:100%; padding:10px 5px; background-color:#333; color:#fff;" class="pull-left">
                                                   <div class="pull-left">
 
-                                                    <?php if(isset($eventvenues->eventvenuecountry)) { echo $eventvenues->eventvenuecountry; } ?>
+                                                    <?php if(isset($eventtours->eventtourcountry)) { echo $eventtours->eventtourcountry; } ?>
                                                       
                                                   </div>
 
                                                   <div class="pull-right">
                                                       <?php
-                                                          if(isset($eventvenues->eventvenuestartdate) ) 
+                                                          if(isset($eventtours->eventtourstartdate) ) 
                                                           {
-                                                              $timestamp = strtotime($eventvenues->eventvenuestartdate);                                              
+                                                              $timestamp = strtotime($eventtours->eventtourstartdate);                                              
                                                               echo date('M &\nb\sp;', $timestamp); 
 
-                                                             $timestamp = strtotime($eventvenues->eventvenuestartdate);
+                                                             $timestamp = strtotime($eventtours->eventtourstartdate);
                                                              echo date('d', $timestamp);  
                                                           ?>
                                                             -
                                                           <?php
-                                                             $timestamp = strtotime($eventvenues->eventvenueenddate);
+                                                             $timestamp = strtotime($eventtours->eventtourenddate);
                                                              echo date('d', $timestamp); 
                                                           }                                   
                                                       ?>
@@ -2085,13 +2087,13 @@ body {
                                                 </div>
                                                 <p style="padding:10px;">Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. <br>
                                                   <a>
-                                                    <?php if(isset($eventvenues->eventvenuename)) { echo $eventvenues->eventvenuename; } ?>
+                                                    <?php if(isset($eventtours->eventtourname)) { echo $eventtours->eventtourname; } ?>
                                                       
                                                     </a><br>
                                                   <a>
-                                                     <?php if(isset($eventvenues->eventvenueaddress1))
+                                                     <?php if(isset($eventtours->eventtouraddress1))
                                                       { 
-                                                        echo $eventvenues->eventvenueaddress1." ".$eventvenues->eventvenuecity." ".$eventvenues->eventvenuezipcode ;
+                                                        echo $eventtours->eventtouraddress1." ".$eventtours->eventtourcity." ".$eventtours->eventtourzipcode ;
                                                       } ?>
                                                   </a></p>
                                               </div>
@@ -2104,21 +2106,21 @@ body {
                                                    <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                                 </div>
                                                 <div class="pull-right"><span style="color:#fc6653;">
-                                                   <?php if(isset($eventvenues->eventvenueticketprice) ) { echo "$"." ".$eventvenues->eventvenueticketprice; } else {echo " "; } ?>
+                                                   <?php if(isset($eventtours->eventtourticketprice) ) { echo "$"." ".$eventtours->eventtourticketprice; } else {echo " "; } ?>
                                                 </span></div>
                                               </div>
                                               <div style="width:100%; margin-top:15px; color:#333;" class="pull-left text-center">
                                                 <p style="font-size:16px;">
                                                   <?php
-                                                          if(isset($eventvenues->eventvenuestartdate) ) 
+                                                          if(isset($eventtours->eventtourstartdate) ) 
                                                           {
                                                              
-                                                             $timestamp = strtotime($eventvenues->eventvenuestartdate);
+                                                             $timestamp = strtotime($eventtours->eventtourstartdate);
                                                              echo date('h:i A', $timestamp);  
                                                           ?>
                                                             -
                                                           <?php
-                                                             $timestamp = strtotime($eventvenues->eventvenueenddate);
+                                                             $timestamp = strtotime($eventtours->eventtourenddate);
                                                              echo date('h:i A', $timestamp); 
                                                           }                                   
                                                       ?>
@@ -2132,10 +2134,13 @@ body {
                                               </div>
                                             </div>
 
+                                              <?php  }  } else { echo "You miss to add Event Tours "; } ?>
+
                                           </div>
 
-                                          <?php  } ?>
+                                        
 
+                                          <!-- here end event tours -->
                                          
                                       </div>
                           </div>

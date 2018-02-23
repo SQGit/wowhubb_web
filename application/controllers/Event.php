@@ -203,7 +203,7 @@ public function event_popup_details()
 	 		 	$this->session->set_userdata('event_category', $event_category);
 
 	 		 	$data['event_category'] = $this->input->post('professional_corporate');
-	 		 	$this->load->view('event/create_professional_landing', $data);
+	 		 	$this->load->view('event/createpro_event_multicity', $data);
 	 		}
 
 	 	if($radio_button == 3 ) 
@@ -227,7 +227,7 @@ public function event_popup_details()
 	 			 }
 
 	 			 
-	 			 $this->load->view('event/create_social_landing',$data);
+	 			 $this->load->view('event/create_social_event',$data);
 	 		}
 
 	 	if($radio_button == 4 ) 
@@ -551,406 +551,9 @@ public function personal_event()
 }
 
 
-//create event for  professional event  single city
-
-public function proffesional_single_event()
- {
- 	$response = array();
- 	
- 	//first step
-
- 			 $start_date = $this->input->post('event_startdate');
-		     $end_date   = $this->input->post('event_enddate');		    
-		     $s_date = date('Y/m/d', strtotime($start_date)); 
-		     $e_date = date('Y/m/d', strtotime($end_date));    
-
- 			$token =  $this->session->userdata('token');		
- 			
-		   	$header1 = array('token:'.$token,
-		   					'eventtype:' .$this->input->post('event_type'),
-							'eventcategory:' .$this->input->post('event_category'), 
-							'eventtypeint:'     ."2",
-							'eventname:'     .$this->input->post('event_name'),							
-							'eventstartdate:' .$s_date.' '.$this->input->post('event_startime'),
-							'eventenddate:'   . $e_date.' '. $this->input->post('event_endtiming'),
-							'eventdescription:' .$this->input->post('event_description')
-							);
-		   	 
-	       	$ch1 = curl_init();
-       		      				    	
-			    	if(!empty($_FILES['cover_img']['name']))
-			       		{
-				    	 $cover_page = curl_file_create($_FILES['cover_img']['tmp_name'],$_FILES['cover_img']['type']);
-				    	}else
-					    	{
-					    		$cover_page = ""; 
-					    	}
-			
-	
-	    		$wowtag_img = array('coverpage'  => @$cover_page);		    	 				
-	    	
-	    	  	curl_setopt($ch1, CURLOPT_URL,'http://104.197.80.225:3010/wow/event/details');	   
-		    	curl_setopt($ch1, CURLOPT_HTTPHEADER,$header1);
-		    	curl_setopt($ch1, CURLOPT_POST, true);
-		    	curl_setopt($ch1, CURLOPT_POSTFIELDS, $wowtag_img); 	
-		        curl_setopt($ch1, CURLOPT_RETURNTRANSFER, TRUE); //don't print automatic response   
-	    	  	$response1 = curl_exec($ch1); 	    	
-		    	$data1 =json_decode($response1);
-		        $id = $data1->message->_id;
-		        $test = $data1->success;
-		        $this->session->set_userdata('success', $test);	
-		    	$this->session->set_userdata('id', $id);	
-		     	curl_close($ch1);
-		     	// print_r($data1);
-
-		//second step
-
-		// if($this->session->userdata('success') == true)
-		//     {	
-		    	
-		    	$token2  =  $this->session->userdata('token');
-
-		     	$header2 = array('token:'  .$token2,
-		     				'eventid:' 	   .$this->session->userdata('id'),
-		     				// 'eventcity:'   .$this->input->post('venue_city[]'),
-							'eventtitle:'  .$this->input->post('event_title'), 
-							'runtimefrom:' .$this->input->post('runtime_from'),
-							'runtimeto:'   .$this->input->post('totime_to')					
-							);
-		   	 
-	       		$ch2 = curl_init();
-       		      				    	
-			    	if(!empty($_FILES['wowtag_video']['name']))
-			       		{
-				    	 $wowtag_video = curl_file_create($_FILES['wowtag_video']['tmp_name'],$_FILES['wowtag_video']['type']);
-				    	}else
-					    	{
-					    		$wowtag_video = ""; 
-					    	}
-			
-	
-	    		$wowtag_video = array('wowtagvideo'  => @$wowtag_video );	    	 				
-	    	 
-	    	  	curl_setopt($ch2, CURLOPT_URL,'http://104.197.80.225:3010/wow/event/eventwowtag');	   
-		    	curl_setopt($ch2, CURLOPT_HTTPHEADER,$header2);
-		    	curl_setopt($ch2, CURLOPT_POST, true);
-		    	curl_setopt($ch2, CURLOPT_POSTFIELDS, $wowtag_video); 	
-		        curl_setopt($ch2, CURLOPT_RETURNTRANSFER, TRUE); //don't print automatic response   
-	    	  	$response2 = curl_exec($ch2); 	 
-	    	  	$data2 =json_decode($response2);
-	    	  	curl_close($ch2);
-	    	  	
-	    	// }
-	    	 // print_r($data2);
-
-	    // third step event venue
-	    	
-	    		$this->rest->http_header('token',  $this->session->userdata('token'));
-
-	    	  // event venue location
-
-	   			$venue_count = count($this->input->post('event_venue_name')); 
-	   			$event_venue_location = array();
-
-	   			for($i=0; $i<$venue_count; $i++)
-	   			{	   				
-	   				array_push($event_venue_location, array
-	   								(
-	   									'eventvenuenumber'      =>  $i+1,
-	   			 						'eventvenuename'    	=>  $this->input->post('event_venue_name')[$i],	 						
-	   			 						'eventvenueaddress1'    =>  $this->input->post('address1')[$i],
-	   			 						'eventvenueaddress2'    =>  $this->input->post('address2')[$i],
-	   			 						'eventvenuecity'    	=>  $this->input->post('venue_city')[$i],
-	   			 						'eventvenuezipcode'     =>  $this->input->post('zipcode')[$i]
-	   			 						
-	   			 					));	   				 
-	   			} 
-
-	   			// event FAQ 
-	   			$faq_count = count($this->input->post('faq_ques')); 
-	   			$event_faq = array();
-
-	   			for($i=0; $i<$faq_count; $i++)
-	   			{	   				
-	   				array_push($event_faq, array
-	   								(
-	   									'faqnumber'      =>  $i+1,
-	   			 						'faqquestion'    =>  $this->input->post('faq_ques')[$i],
-	   			 						'faqanswer'      =>  $this->input->post('faq_ans')[$i]
-	   			 						
-	   			 					));	   				 
-	   			}
-
-	   			$evnt_venue = array('eventid'                     => $this->session->userdata('id'),
-	   								'eventvenueaddressvisibility' => $this->input->post('eventvenue_addressvisible'),
-	   								'eventvenueguestshare'        => $this->input->post('eventvenue_guestshare'),
-	   								'onlineevent'                 => $this->input->post('eventvenue_onlineevent'),
-	   								'inviteonlyevent'             => $this->input->post('eventvenue_inviteonlyevent'),
-			 						'eventfaqs'                   => $event_faq,
-			 						'faqquestion1'				  => '1.What is Event Age Requirement?',
-			 						'faqanswer1'                  =>  $this->input->post('quesans1'),
-			 						'faqquestion2'				  => '2.This is a kids friendly event?',
-			 						'faqanswer2'				  => $this->input->post('quesans2'),	
-			 						'faqquestion3'				  => '3.What are event parking/Transportantion options to and from event location?',
-			 						'faqanswer3'				  => $this->input->post('quesans3'),
-			 						'faqquestion4'				  => '4.What are allowed into the event venue?',
-			 						'faqanswer4'				  =>  $this->input->post('quesans4'),			
-			 						'eventvenue'                  =>  $event_venue_location
-			 					   ); 
-
-	   			 $json_data = json_encode($evnt_venue); 
-
-				 $event_venue_result = $this->rest->post('http://104.197.80.225:3010/wow/event/venue',$json_data,'json');	  
-				 // print_r($event_venue_result);
 
 
-		//four step program shedule upload	    		
-			
-	  		 	$this->rest->http_header('token',  $this->session->userdata('token'));
-
-	   			$pgm_schedule = array();
-	   			
-	   			// no.of days counts assign hidden input get by this value
-	   			$no_of_days = $this->input->post('no_of_days');
-
-	   			for($day=1; $day<=$no_of_days; $day++)
-	   			{	   				
-	   				$no_of_events = count ($this->input->post('day'.$day.'_from_hour'));
-
-	   				
-	   				for($event=0; $event<$no_of_events; $event++)
-	   				{
-	   					// echo $event;
-	   					array_push($pgm_schedule, array
-						(
-							'day'		   =>  $day,
-							'eventnumber'  =>  '1',
-							'starttime'    =>  $this->input->post('day'.$day.'_event_starttime'),
-							'endtime'      =>  $this->input->post('day'.$day.'_event_endtime'),
-							'facilitator'  =>  $this->input->post('day'.$day.'_facilitator_name')[$event],
-							'location'     =>  $this->input->post('day'.$day.'_location')[$event],
-							'agenda'       =>  $this->input->post('day'.$day.'_agenda')[$event],
-							'itystarttime' =>  $this->input->post('day'.$day.'_from_hour')[$event].' '.$this->input->post('day'.$day.'_from_min')[$event].' '.$this->input->post('day'.$day.'_from_sec')[$event],
-	   			 			'ityendtime'   =>  $this->input->post('day'.$day.'_to_hour')[$event].' '.$this->input->post('day'.$day.'_to_min')[$event].' '.$this->input->post('day'.$day.'_to_sec')[$event]
-	   			 		));
-	   			 	}	
-	   			}
-
-	   			 $program_schedule = array('eventid'   => $this->session->userdata('id'),
-			 						'programschedule' => $pgm_schedule); //array of array insert the values
-				 
-				 $json_data = json_encode($program_schedule); 
-
-				 $result = $this->rest->post('http://104.197.80.225:3010/wow/event/program',$json_data,'json');	  	
-			
-	// print_r($result);
-
-	//fifth  step event highlight  upload
-
-			// if($this->session->userdata('success') == true)
-		 //     {	
-
-				$token3 =  $this->session->userdata('token');
-		     	$header3 = array('token:'              .$token3,
-		     				'eventid:' 		           .$this->session->userdata('id'),
-							'eventguesttype1:'         .$this->input->post('guest_type1'), 
-							'eventspeakername1:'       .$this->input->post('nameofspeaker1'),
-							'eventspeakerlink1:'       .$this->input->post('guest_url1'),
-							'eventspeakeractivities1:' .$this->input->post('guest_speaker1'),
-							'eventguesttype2:'         .$this->input->post('guest_type2'),
-							'eventspeakername2:'       .$this->input->post('nameofspeaker2'),
-							'eventspeakerlink2:'       .$this->input->post('guest_url2'),
-							'eventspeakeractivities2:' .$this->input->post('guest_speaker2')
-							
-							);
-		   	 
-	       		$ch3 = curl_init();
-       		      				    	
-			    	if(!empty($_FILES['highlight_img1']['name']))
-			       		{
-				    	 $highlight_img1 = curl_file_create($_FILES['highlight_img1']['tmp_name'],$_FILES['highlight_img1']['type']);
-				    	}else
-					    	{
-					    		$highlight_img1 = ""; 
-					    	}
-
-					if(!empty($_FILES['highlight_video1']['name']))
-			       		{
-				    	 $highlight_video1 = curl_file_create($_FILES['highlight_video1']['tmp_name'],$_FILES['highlight_video1']['type']);
-				    	}else
-					    	{
-					    		$highlight_video1 = ""; 
-					    	}
-
-					 if(!empty($_FILES['highlight_img2']['name']))
-			       		{
-				    	 $highlight_img2 = curl_file_create($_FILES['highlight_img2']['tmp_name'],$_FILES['highlight_img2']['type']);
-				    	}else
-					    	{
-					    		$highlight_img2 = ""; 
-					    	}
-
-					 if(!empty($_FILES['highlight_video2']['name']))
-			       		{
-				    	 $highlight_video2 = curl_file_create($_FILES['highlight_video2']['tmp_name'],$_FILES['highlight_video2']['type']);
-				    	}else
-					    	{
-					    		$highlight_video2 = ""; 
-					    	}
-				
-	    		$event_highlight = array('eventhighlights1'       => @$highlight_img1,
-	    								 'eventhighlights2'       => @$highlight_img2,
-	    								 'eventhighlightsvideo1'  => @$highlight_video1,
-	    								 'eventhighlightsvideo2'  => @$highlight_video2 								 
-	    								 );		    	 				
-	    	 
-	    	  	curl_setopt($ch3, CURLOPT_URL,'http://104.197.80.225:3010/wow/event/highlights');	   
-		    	curl_setopt($ch3, CURLOPT_HTTPHEADER,$header3);
-		    	curl_setopt($ch3, CURLOPT_POST, true);
-		    	curl_setopt($ch3, CURLOPT_POSTFIELDS, $event_highlight); 	
-		        curl_setopt($ch3, CURLOPT_RETURNTRANSFER, TRUE); //don't print automatic response   
-	    	  	$response3 = curl_exec($ch3); 	 
-	    	  	$data3 =json_decode($response3);
-	    	  	curl_close($ch3);
-	    	// }  	
- 	// print_r($data3);
-
-	// step 6 event contact
-				
-	    	  	$this->rest->http_header('token',  $this->session->userdata('token'));
-
-	    	  	$event_contact = array( 'eventid' 		       => $this->session->userdata('id'),
-	    	  							'organisationname'     => $this->input->post('organisation_name'),	
-	    	  							 'eventcontactname'    => $this->input->post('contact_persona_name'),
-	    								 'eventcontactphone'   => $this->input->post('eventcontactphone'),
-	    								 'eventcontactemail'   => $this->input->post('eventcontactemail'),
-	    								 'eventcontactmessage'  => $this->input->post('eventcontactmsg'),
-	    								 'keywordsearch' 	   => $this->input->post('keyword')
-	    								 								 
-	    								 );		
-
-	    	  	$json_data = json_encode($event_contact); 
-				$result2 = $this->rest->post('http://104.197.80.225:3010/wow/event/proeventcontact',$json_data,'json');
-				// print_r($result2);
-				
-
-	// step 7 event engagement
-
-				// first select audience form
-
-				if($this->input->post('audience_form_type') == 'audience_form')
-					{	
-
-						$this->rest->http_header('token',  $this->session->userdata('token'));
-
-	    	  			$event_contact = array( 
-	    	  							'eventid' 		       => $this->session->userdata('id'),
-	    	  							'engagementformtype'     => $this->input->post('audience_form_type'),	
-	    	  							 'engagementformaction'    => $this->input->post('audience_formaction_btn'),
-	    								 'fullname'   => $this->input->post('audience_full_name'),
-	    								 'wowtagid'   => $this->input->post('audience_wowtag_id'),
-	    								 'email'      => $this->input->post('audience_email'),
-	    								 'phone' 	  => $this->input->post('audience_phone'),
-	    								 'gender'	  => $this->input->post('gender'),
-	    								 'address1'   => $this->input->post('audience_address1'),
-	    								 'address2'   => $this->input->post('audience_address2'),
-	    								 'city'       => $this->input->post('audience_city'),
-	    								 'zipcode'    => $this->input->post('audience_zipcode'),
-	    								 'country'    => $this->input->post('audience_country')							 
-	    								 );		
-
-	    	  			$json_data = json_encode($event_contact); 
-						$result3 = $this->rest->post('http://104.197.80.225:3010/wow/event/proengagementform',$json_data,'json');
-					}
-				// print_r($result3);
-
-				// third select proffesional coupon
-
-		    	else if($this->input->post('audience_form_type') == 'event_coupon')
-		    	{
-		    		
-		    		$token4  =  $this->session->userdata('token');
-		     		$header4 = array('token:'  .$token4,
-		     				'eventid:' 		.$this->session->userdata('id'),
-							'couponcode:'  .$this->input->post('coupon_code'), 
-							'couponexpirydate:' .$this->input->post('coupon_ex_date'),
-							'termsandconditions:'   .$this->input->post('terms_condition'),
-							'engagementformtype:'   .$this->input->post('audience_form_type'),
-							'engagementformaction:'   .$this->input->post('action_btn3')							
-							);
-		   	 
-	       			$ch4 = curl_init();
-       		      				    	
-			    	if(!empty($_FILES['coupon_img']['name']))
-			       		{
-				    	 $couponimg = curl_file_create($_FILES['coupon_img']['tmp_name'],$_FILES['coupon_img']['type']);
-				    	}else
-					    	{
-					    		$couponimg = ""; 
-					    	}
-	
-	    			$coupon = array('couponimage'  => @$couponimg);    	 				
-	    	 
-	    	  		curl_setopt($ch4, CURLOPT_URL,'http://104.197.80.225:3010/wow/event/proengagementcoupon');	   
-		    		curl_setopt($ch4, CURLOPT_HTTPHEADER,$header4);
-		    		curl_setopt($ch4, CURLOPT_POST, true);
-		    		curl_setopt($ch4, CURLOPT_POSTFIELDS, $coupon); 	
-		       		curl_setopt($ch4, CURLOPT_RETURNTRANSFER, TRUE); //don't print automatic response   
-	    	  		$response4 = curl_exec($ch4); 	 
-	    	  		$data4 =json_decode($response4);
-	    	  		curl_close($ch4);	    	  	
-	    		}
-
-	    		// print_r($data4);
-	    	// url link ticket form
-	    		
-	    	 else if($this->input->post('audience_form_type') == 'url_link')
-		    	{
-		    		
-					$this->rest->http_header('token',  $this->session->userdata('token'));
-
-	    	  		$url_count = count ($this->input->post('url_ticketurl'));	 
-	    	  		$engagementurl=array() ;	
-	    	  		
-
-	   				for($i=0; $i<$url_count; $i++)
-	   				{
-	   						array_push($engagementurl, array('url' =>$this->input->post('url_ticketurl')[$i],'country' =>$this->input->post('url_country')[$i], 'checked' =>$this->input->post('ticket_url_check')[$i] ) );
-	   				}
-
-	    	  		$event_contact = array( 
-	    	  					'eventid' 		    => $this->session->userdata('id'),
-	    	  					'engagementformtype'   => $this->input->post('audience_form_type'),
-	    						'engagementformaction' => $this->input->post('action_btn2'),
-	    	  					'donationsurl'      => $this->input->post('url_donation_url'),	
-	    	  				    'websiteurl'    	=> $this->input->post('url_website_url'),
-	    					    'eventnolinks'   	=> $this->input->post('url_donthave_link'),
-	    						// 'engagementurl'   	=> $this->input->post('audience_wowtag_id'),
-	    						'engagementurl'   	=> 	$engagementurl
-	    									
-	    						);		
-
-	    	  		$json_data = json_encode($event_contact); 
-
-	    	  		
-					$result4 = $this->rest->post('http://104.197.80.225:3010/wow/event/proengagementurl',$json_data,'json');
-					
-				}
-				// print_r($result4);
-					
-				if($result->success == true)
-					{		 	
-						 $response['status'] = 'success'; 			
-					}
-					else 
-					{	
-					 	$response['status'] = 'failed';
-					}
-			echo json_encode($response); 
-}
-
-
-//create event for  professional event  multiple city
+//create event for  professional event  
 
 public function professional_multicity_event()
  {
@@ -1058,12 +661,7 @@ public function professional_multicity_event()
 	   				array_push($event_venue_location, array
 	   								(
 	   									'eventvenuenumber'      =>  $i+1,
-	   			 						'eventvenuename'    	=>  $_POST['event_venue_name'][$i],
-	   			 						'eventvenuestartdate'   =>  $_POST['eventvenue_startdate'][$i]." ".$_POST['eventvenue_startime'][$i],
-	   			 						'eventvenueenddate'    	=>  $_POST['eventvenue_enddate'][$i]." ".$_POST['eventvenue_endtiming'][$i],				
-	   			 						'eventvenuecountry'    	=>  $_POST['venue_country'][$i],
-	   			 						'eventvenueticketurl'   =>  $_POST['venue_ticket_url'][$i],
-	   			 						'eventvenueticketprice' =>  $_POST['venue_ticket_price'][$i],
+	   			 						'eventvenuename'    	=>  $_POST['event_venue_name'][$i],   			 						
 	   			 						'eventvenueaddress1'    =>  $_POST['address1'][$i],
 	   			 						'eventvenueaddress2'    =>  $_POST['address2'][$i],
 	   			 						'eventvenuecity'    	=>  $_POST['venue_city'][$i],
@@ -1090,7 +688,15 @@ public function professional_multicity_event()
 	   								'eventvenueaddressvisibility' => $this->input->post('eventvenue_addressvisible'),
 	   								'eventvenueguestshare'        => $this->input->post('eventvenue_guestshare'),
 	   								'onlineevent'                 => $this->input->post('eventvenue_onlineevent'),
-	   								'inviteonlyevent'             => $this->input->post('eventvenue_inviteonlyevent'),
+	   								'inviteonlyevent'             => $this->input->post('eventvenue_inviteonlyevent'),						
+			 						'faqquestion1'				  => '1.What is Event Age Requirement?',
+			 						'faqanswer1'                  =>  $this->input->post('quesans1'),
+			 						'faqquestion2'				  => '2.This is a kids friendly event?',
+			 						'faqanswer2'				  => $this->input->post('quesans2'),	
+			 						'faqquestion3'				  => '3.What are event parking/Transportantion options to and from event location?',
+			 						'faqanswer3'				  => $this->input->post('quesans3'),
+			 						'faqquestion4'				  => '4.What are allowed into the event venue?',
+			 						'faqanswer4'				  =>  $this->input->post('quesans4'),	
 			 						'eventfaqs'                   => $event_faq,
 			 						'eventvenue'                  => $event_venue_location
 			 					   ); 
@@ -1216,414 +822,66 @@ public function professional_multicity_event()
 				
 	    	  	$this->rest->http_header('token',  $this->session->userdata('token'));
 
+	    	  		// $keyword = array($this->input->post('keyword[]'));
+
 	    	  	$event_contact = array( 'eventid' 		       => $this->session->userdata('id'),
 	    	  							'organisationname'     => $this->input->post('organisation_name'),	
 	    	  							 'eventcontactname'    => $this->input->post('contact_persona_name'),
 	    								 'eventcontactphone'   => $this->input->post('eventcontactphone'),
 	    								 'eventcontactemail'   => $this->input->post('eventcontactemail'),
 	    								 'eventcontactmessage'  => $this->input->post('eventcontactmsg'),
-	    								 'keywordsearch' 	   => $this->input->post('keyword')
+	    								 'keywordsearch' 	   =>  $this->input->post('keyword[]')
 	    								 								 
 	    								 );		
 
 	    	  	$json_data = json_encode($event_contact); 
 				$result2 = $this->rest->post('http://104.197.80.225:3010/wow/event/proeventcontact',$json_data,'json');
 				// print_r($result2);
-				
-
-	// step 7 event engagement
-
-				// first select audience form
-
-				if($this->input->post('audience_form_type') == 'audience_form')
-					{	
-
-						$this->rest->http_header('token',  $this->session->userdata('token'));
-
-	    	  			$event_contact = array( 
-	    	  							'eventid' 		       => $this->session->userdata('id'),
-	    	  							'engagementformtype'     => $this->input->post('audience_form_type'),	
-	    	  							 'engagementformaction'    => $this->input->post('audience_formaction_btn'),
-	    								 'fullname'   => $this->input->post('audience_full_name'),
-	    								 'wowtagid'   => $this->input->post('audience_wowtag_id'),
-	    								 'email'      => $this->input->post('audience_email'),
-	    								 'phone' 	  => $this->input->post('audience_phone'),
-	    								 'gender'	  => $this->input->post('gender'),
-	    								 'address1'   => $this->input->post('audience_address1'),
-	    								 'address2'   => $this->input->post('audience_address2'),
-	    								 'city'       => $this->input->post('audience_city'),
-	    								 'zipcode'    => $this->input->post('audience_zipcode'),
-	    								 'country'    => $this->input->post('audience_country')							 
-	    								 );		
-
-	    	  			$json_data = json_encode($event_contact); 
-						$result3 = $this->rest->post('http://104.197.80.225:3010/wow/event/proengagementform',$json_data,'json');
-					}
-				// print_r($result3);
-
-				// third select proffesional coupon
-
-		    	else if($this->input->post('audience_form_type') == 'event_coupon')
-		    	{
-		    		
-		    		$token4  =  $this->session->userdata('token');
-		     		$header4 = array('token:'  .$token4,
-		     				'eventid:' 		.$this->session->userdata('id'),
-							'couponcode:'  .$this->input->post('coupon_code'), 
-							'couponexpirydate:' .$this->input->post('coupon_ex_date'),
-							'termsandconditions:'   .$this->input->post('terms_condition'),
-							'engagementformtype:'   .$this->input->post('audience_form_type'),
-							'engagementformaction:'   .$this->input->post('action_btn3')							
-							);
-		   	 
-	       			$ch4 = curl_init();
-       		      				    	
-			    	if(!empty($_FILES['coupon_img']['name']))
-			       		{
-				    	 $couponimg = curl_file_create($_FILES['coupon_img']['tmp_name'],$_FILES['coupon_img']['type']);
-				    	}else
-					    	{
-					    		$couponimg = ""; 
-					    	}
-	
-	    			$coupon = array('couponimage'  => @$couponimg);    	 				
-	    	 
-	    	  		curl_setopt($ch4, CURLOPT_URL,'http://104.197.80.225:3010/wow/event/proengagementcoupon');	   
-		    		curl_setopt($ch4, CURLOPT_HTTPHEADER,$header4);
-		    		curl_setopt($ch4, CURLOPT_POST, true);
-		    		curl_setopt($ch4, CURLOPT_POSTFIELDS, $coupon); 	
-		       		curl_setopt($ch4, CURLOPT_RETURNTRANSFER, TRUE); //don't print automatic response   
-	    	  		$response4 = curl_exec($ch4); 	 
-	    	  		$data4 =json_decode($response4);
-	    	  		curl_close($ch4);	    	  	
-	    		}
-
-	    		// print_r($data4);
-	    	// url link ticket form
-	    		
-	    	 else if($this->input->post('audience_form_type') == 'url_link')
-		    	{
-		    		
-					$this->rest->http_header('token',  $this->session->userdata('token'));
-
-	    	  		$url_count = count ($_POST['url_ticketurl']);	 
-	    	  		$engagementurl=array() ;	
-	    	  		
-
-	   				for($i=0; $i<$url_count; $i++)
-	   				{
-	   						array_push($engagementurl, array('url' =>$_POST['url_ticketurl'][$i],'country' =>$_POST['url_country'][$i], 'checked' =>$_POST['ticket_url_check'][$i] ) );
-	   				}
-
-	    	  		$event_contact = array( 
-	    	  					'eventid' 		    => $this->session->userdata('id'),
-	    	  					'engagementformtype'   => $this->input->post('audience_form_type'),
-	    						'engagementformaction' => $this->input->post('action_btn2'),
-	    	  					'donationsurl'      => $this->input->post('url_donation_url'),	
-	    	  				    'websiteurl'    	=> $this->input->post('url_website_url'),
-	    					    'eventnolinks'   	=> $this->input->post('url_donthave_link'),
-	    						// 'engagementurl'   	=> $this->input->post('audience_wowtag_id'),
-	    						'engagementurl'   	=> 	$engagementurl
-	    									
-	    						);		
-
-	    	  		$json_data = json_encode($event_contact); 
-
-	    	  		
-					$result4 = $this->rest->post('http://104.197.80.225:3010/wow/event/proengagementurl',$json_data,'json');
-					
-				}
-				// print_r($result4);
-					
-				if($result->success == true)
-					{		 	
-						 $response['status'] = 'success'; 			
-					}
-					else 
-					{	
-					 	$response['status'] = 'failed';
-					}
-			echo json_encode($response); 
-}
 
 
-
-//create event for  social event  single city
-
-public function social_single_event()
- {
- 	$response = array();
- 	
- 	//first step
-
- 			 $start_date = $_POST['event_startdate'];
-		     $end_date   = $_POST['event_enddate'];		    
-		     $s_date = date('Y/m/d', strtotime($start_date)); 
-		     $e_date = date('Y/m/d', strtotime($end_date)); 
-		    
-
- 			$token =  $this->session->userdata('token');		
- 			
-		   	$header1 = array('token:'			.$token,
-		   					'eventtype:' 		.$this->input->post('event_type'),
-							'eventcategory:' 	.$this->input->post('event_category'), 
-							'eventtypeint:'     ."3",
-							'eventname:'     	.$this->input->post('event_name'),
-							'eventtimezone:' 	.$this->input->post('time_zone'),
-							'eventstartdate:' 	.$s_date.' '.$this->input->post('event_startime'),
-							'eventenddate:'   	.$e_date.' '.$this->input->post('event_endtiming'),
-							'eventdescription:' .$this->input->post('event_description')
-							);
-		   	 
-	       	$ch1 = curl_init();
-       		      				    	
-			    	if(!empty($_FILES['cover_img']['name']))
-			       		{
-				    	 $cover_page = curl_file_create($_FILES['cover_img']['tmp_name'],$_FILES['cover_img']['type']);
-				    	}else
-					    	{
-					    		$cover_page = ""; 
-					    	}
-			
-	
-	    		$wowtag_img = array('coverpage'  => @$cover_page);		    	 				
-	    	
-	    	  	curl_setopt($ch1, CURLOPT_URL,'http://104.197.80.225:3010/wow/event/details');	   
-		    	curl_setopt($ch1, CURLOPT_HTTPHEADER,$header1);
-		    	curl_setopt($ch1, CURLOPT_POST, true);
-		    	curl_setopt($ch1, CURLOPT_POSTFIELDS, $wowtag_img); 	
-		        curl_setopt($ch1, CURLOPT_RETURNTRANSFER, TRUE); //don't print automatic response   
-	    	  	$response1 = curl_exec($ch1); 	    	
-		    	$data1 =json_decode($response1);
-		        $id = $data1->message->_id;
-		        $test = $data1->success;
-		        $this->session->set_userdata('success', $test);	
-		    	$this->session->set_userdata('id', $id);	
-		     	curl_close($ch1);
-		     	// print_r($data1);
-
-		//second step
-
-		// if($this->session->userdata('success') == true)
-		//     {	
-		    	
-		    	$token2  =  $this->session->userdata('token');
-
-		     	$header2 = array('token:'  .$token2,
-		     				'eventid:' 	   .$this->session->userdata('id'),		     				
-							'eventtitle:'  .$this->input->post('event_title'), 
-							'runtimefrom:' .$this->input->post('runtime_from'),
-							'runtimeto:'   .$this->input->post('totime_to')					
-							);
-		   	 
-	       		$ch2 = curl_init();
-       		      				    	
-			    	if(!empty($_FILES['wowtag_video']['name']))
-			       		{
-				    	 $wowtag_video = curl_file_create($_FILES['wowtag_video']['tmp_name'],$_FILES['wowtag_video']['type']);
-				    	}else
-					    	{
-					    		$wowtag_video = ""; 
-					    	}
-			
-	
-	    		$wowtag_video = array('wowtagvideo'  => @$wowtag_video );	    	 				
-	    	 
-	    	  	curl_setopt($ch2, CURLOPT_URL,'http://104.197.80.225:3010/wow/event/eventwowtag');	   
-		    	curl_setopt($ch2, CURLOPT_HTTPHEADER,$header2);
-		    	curl_setopt($ch2, CURLOPT_POST, true);
-		    	curl_setopt($ch2, CURLOPT_POSTFIELDS, $wowtag_video); 	
-		        curl_setopt($ch2, CURLOPT_RETURNTRANSFER, TRUE); //don't print automatic response   
-	    	  	$response2 = curl_exec($ch2); 	 
-	    	  	$data2 =json_decode($response2);
-	    	  	curl_close($ch2);
-	    	  	
-	    	// }
-	    	 // print_r($data2);
-
-	    // third step event venue
+	  // seven  step 7 event tour
 	    	
 	    		$this->rest->http_header('token',  $this->session->userdata('token'));
 
-	    	  // event venue location
+	    	  // event tour location
 
-	   			$venue_count = count($this->input->post('event_venue_name')); 
-	   			$event_venue_location = array();
+	   			$tour_count = count($this->input->post('event_tour_name')); 
+	   			$event_tour_location = array();
 
-	   			for($i=0; $i<$venue_count; $i++)
+	   			for($i=0; $i<$tour_count; $i++)
 	   			{	   				
-	   				array_push($event_venue_location, array
+	   				array_push($event_tour_location, array
 	   								(
-	   									'eventvenuenumber'      =>  $i+1,
-	   			 						'eventvenuename'    	=>  $this->input->post('event_venue_name')[$i],	   			 						
-	   			 						'eventvenueaddress1'    =>  $this->input->post('address1')[$i],
-	   			 						'eventvenueaddress2'    =>  $this->input->post('address2')[$i],
-	   			 						'eventvenuecity'    	=>  $this->input->post('venue_city')[$i],
-	   			 						'eventvenuezipcode'     =>  $this->input->post('zipcode')[$i]
+	   									'eventtournumber'       =>  $i+1,
+	   			 						'eventtourname'    		=>  $_POST['event_tour_name'][$i],
+	   			 						'eventtourstartdate'    =>  $_POST['eventtour_startdate'][$i]." ".$_POST['eventtour_startime'][$i],
+	   			 						'eventtourenddate'    	=>  $_POST['eventtour_enddate'][$i]." ".$_POST['eventtour_endtiming'][$i],
+	   			 						'eventtourcountry'    	=>  $_POST['tour_country'][$i],
+	   			 						'eventtourticketurl'    =>  $_POST['tour_ticket_url'][$i],
+	   			 						'eventtourticketprice'  =>  $_POST['tour_ticket_price'][$i],
+	   			 						'eventtouraddress1'     =>  $_POST['tour_address1'][$i],
+	   			 						'eventtouraddress2'     =>  $_POST['tour_address2'][$i],
+	   			 						'eventtourcity'    	    =>  $_POST['tour_city'][$i],
+	   			 						'eventtourzipcode'      =>  $_POST['tour_zipcode'][$i]
 	   			 						
 	   			 					));	   				 
 	   			} 
 
-	   			// event FAQ 
-	   			$faq_count = count($this->input->post('faq_ques')); 
-	   			$event_faq = array();
-
-	   			for($i=0; $i<$faq_count; $i++)
-	   			{	   				
-	   				array_push($event_faq, array
-	   								(
-	   									'faqnumber'      =>  $i+1,
-	   			 						'faqquestion'    =>  $_POST['faq_ques'][$i],
-	   			 						'faqanswer'      =>  $_POST['faq_ans'][$i]
-	   			 						
-	   			 					));	   				 
-	   			}
-	   			$evnt_venue = array('eventid'                     => $this->session->userdata('id'),
-	   								'eventvenueaddressvisibility' => $this->input->post('eventvenue_addressvisible'),
-	   								'eventvenueguestshare'        => $this->input->post('eventvenue_guestshare'),
-	   								'onlineevent'                 => $this->input->post('eventvenue_onlineevent'),
-	   								'inviteonlyevent'             => $this->input->post('eventvenue_inviteonlyevent'),
-			 						'eventfaqs'                   => $event_faq,
-			 						'eventvenue'                  => $event_venue_location
+	   			$evnt_tour = array('eventid'                     => $this->session->userdata('id'),
+	   								'eventtouraddressvisibility' => $this->input->post('eventtour_addressvisible'),
+	   								'eventtourguestshare'        => $this->input->post('eventtour_guestshare'),
+	   								'onlineeventtour'            => $this->input->post('eventtour_onlineevent'),
+	   								'inviteonlyeventtour'        => $this->input->post('eventtour_inviteonlyevent'),
+			 						'numberofcitiestour'         => $this->input->post('tour_noof_city'),
+			 						'eventtour'                  => $event_tour_location
 			 					   ); 
 
-	   			 $json_data = json_encode($evnt_venue); 
+	   			 $json_data = json_encode($evnt_tour); 
 
-				 $event_venue_result = $this->rest->post('http://104.197.80.225:3010/wow/event/venue',$json_data,'json');	  
-				 // print_r($event_venue_result);
-
-
-	//four step program shedule upload	    		
-			
-	  		 	$this->rest->http_header('token',  $this->session->userdata('token'));
-
-	   			$pgm_schedule = array();
-	   			
-	   			// no.of days counts assign hidden input get by this value
-	   			$no_of_days = $this->input->post('no_of_days');
-
-	   			for($day=1; $day<=$no_of_days; $day++)
-	   			{	   				
-	   				$no_of_events = count ($this->input->post('day'.$day.'_from_hour'));
-
-	   				
-	   				for($event=0; $event<$no_of_events; $event++)
-	   				{
-	   					// echo $event;
-	   					array_push($pgm_schedule, array
-						(
-							'day'		   =>  $day,
-							'eventnumber'  =>  '1',
-							'starttime'    =>  $this->input->post('day'.$day.'_event_starttime'),
-							'endtime'      =>  $this->input->post('day'.$day.'_event_endtime'),
-							'facilitator'  =>  $this->input->post('day'.$day.'_facilitator_name')[$event],
-							'location'     =>  $this->input->post('day'.$day.'_location')[$event],
-							'agenda'       =>  $this->input->post('day'.$day.'_agenda')[$event],
-							'itystarttime' =>  $this->input->post('day'.$day.'_from_hour')[$event].' '.$this->input->post('day'.$day.'_from_min')[$event].' '.$this->input->post('day'.$day.'_from_sec')[$event],
-	   			 			'ityendtime'   =>  $this->input->post('day'.$day.'_to_hour')[$event].' '.$this->input->post('day'.$day.'_to_min')[$event].' '.$this->input->post('day'.$day.'_to_sec')[$event]
-	   			 		));
-	   			 	}	
-	   			}
-
-	   			 $program_schedule = array('eventid'   => $this->session->userdata('id'),
-			 						'programschedule' => $pgm_schedule); //array of array insert the values
-				 
-				 $json_data = json_encode($program_schedule); 
-
-				 $result = $this->rest->post('http://104.197.80.225:3010/wow/event/program',$json_data,'json');	   
-
-	// print_r($result);
-
-	//fifth  step event highlight  upload
-
-			// if($this->session->userdata('success') == true)
-		 //     {	
-
-				$token3 =  $this->session->userdata('token');
-		     	$header3 = array('token:'              .$token3,
-		     				'eventid:' 		           .$this->session->userdata('id'),
-							'eventguesttype1:'         .$this->input->post('guest_type1'), 
-							'eventspeakername1:'       .$this->input->post('nameofspeaker1'),
-							'eventspeakerlink1:'       .$this->input->post('guest_url1'),
-							'eventspeakeractivities1:' .$this->input->post('guest_speaker1'),
-							'eventguesttype2:'         .$this->input->post('guest_type2'),
-							'eventspeakername2:'       .$this->input->post('nameofspeaker2'),
-							'eventspeakerlink2:'       .$this->input->post('guest_url2'),
-							'eventspeakeractivities2:' .$this->input->post('guest_speaker2')
-							
-							);
-		   	 
-	       		$ch3 = curl_init();
-       		      				    	
-			    	if(!empty($_FILES['highlight_img1']['name']))
-			       		{
-				    	 $highlight_img1 = curl_file_create($_FILES['highlight_img1']['tmp_name'],$_FILES['highlight_img1']['type']);
-				    	}else
-					    	{
-					    		$highlight_img1 = ""; 
-					    	}
-
-					if(!empty($_FILES['highlight_video1']['name']))
-			       		{
-				    	 $highlight_video1 = curl_file_create($_FILES['highlight_video1']['tmp_name'],$_FILES['highlight_video1']['type']);
-				    	}else
-					    	{
-					    		$highlight_video1 = ""; 
-					    	}
-
-					 if(!empty($_FILES['highlight_img2']['name']))
-			       		{
-				    	 $highlight_img2 = curl_file_create($_FILES['highlight_img2']['tmp_name'],$_FILES['highlight_img2']['type']);
-				    	}else
-					    	{
-					    		$highlight_img2 = ""; 
-					    	}
-
-					 if(!empty($_FILES['highlight_video2']['name']))
-			       		{
-				    	 $highlight_video2 = curl_file_create($_FILES['highlight_video2']['tmp_name'],$_FILES['highlight_video2']['type']);
-				    	}else
-					    	{
-					    		$highlight_video2 = ""; 
-					    	}
-				
-	    		$event_highlight = array('eventhighlights1'       => @$highlight_img1,
-	    								 'eventhighlights2'       => @$highlight_img2,
-	    								 'eventhighlightsvideo1'  => @$highlight_video1,
-	    								 'eventhighlightsvideo2'  => @$highlight_video2 								 
-	    								 );		    	 				
-	    	 
-	    	  	curl_setopt($ch3, CURLOPT_URL,'http://104.197.80.225:3010/wow/event/highlights');	   
-		    	curl_setopt($ch3, CURLOPT_HTTPHEADER,$header3);
-		    	curl_setopt($ch3, CURLOPT_POST, true);
-		    	curl_setopt($ch3, CURLOPT_POSTFIELDS, $event_highlight); 	
-		        curl_setopt($ch3, CURLOPT_RETURNTRANSFER, TRUE); //don't print automatic response   
-	    	  	$response3 = curl_exec($ch3); 	 
-	    	  	$data3 =json_decode($response3);
-	    	  	curl_close($ch3);
-	    	// }  	
- 	// print_r($data3);
-
-	// step 6 event contact
-				
-	    	  	$this->rest->http_header('token',  $this->session->userdata('token'));
-
-	    	  	$event_contact = array( 'eventid' 		       => $this->session->userdata('id'),
-	    	  							'organisationname'     => $this->input->post('organisation_name'),	
-	    	  							 'eventcontactname'    => $this->input->post('contact_persona_name'),
-	    								 'eventcontactphone'   => $this->input->post('eventcontactphone'),
-	    								 'eventcontactemail'   => $this->input->post('eventcontactemail'),
-	    								 'eventcontactmessage'  => $this->input->post('eventcontactmsg'),
-	    								 'keywordsearch' 	   => $this->input->post('keyword')
-	    								 								 
-	    								 );		
-
-	    	  	$json_data = json_encode($event_contact); 
-				$result2 = $this->rest->post('http://104.197.80.225:3010/wow/event/proeventcontact',$json_data,'json');
-				// print_r($result2);
+				 $event_tour_result = $this->rest->post('http://104.197.80.225:3010/wow/event/tour',$json_data,'json');	  
 				
 
-	// step 7 event engagement
+	// step 8 event engagement
 
 				// first select audience form
 
@@ -1739,7 +997,8 @@ public function social_single_event()
 }
 
 
-//create event for  social event  multiple city
+
+//create event for  social event  
 
 public function social_multicity_event()
  {
@@ -1839,12 +1098,7 @@ public function social_multicity_event()
 	   				array_push($event_venue_location, array
 	   								(
 	   									'eventvenuenumber'      =>  $i+1,
-	   			 						'eventvenuename'    	=>  $_POST['event_venue_name'][$i],
-	   			 						'eventvenuestartdate'   =>  $_POST['eventvenue_startdate'][$i]." ".$_POST['eventvenue_startime'][$i],
-	   			 						'eventvenueenddate'    	=>  $_POST['eventvenue_enddate'][$i]." ".$_POST['eventvenue_endtiming'][$i],				
-	   			 						'eventvenuecountry'    	=>  $_POST['venue_country'][$i],
-	   			 						'eventvenueticketurl'   =>  $_POST['venue_ticket_url'][$i],
-	   			 						'eventvenueticketprice' =>  $_POST['venue_ticket_price'][$i],
+	   			 						'eventvenuename'    	=>  $_POST['event_venue_name'][$i],	   			 						
 	   			 						'eventvenueaddress1'    =>  $_POST['address1'][$i],
 	   			 						'eventvenueaddress2'    =>  $_POST['address2'][$i],
 	   			 						'eventvenuecity'    	=>  $_POST['venue_city'][$i],
@@ -1867,11 +1121,20 @@ public function social_multicity_event()
 	   			 						
 	   			 					));	   				 
 	   			}
+	   			
 	   			$evnt_venue = array('eventid'                     => $this->session->userdata('id'),
 	   								'eventvenueaddressvisibility' => $this->input->post('eventvenue_addressvisible'),
 	   								'eventvenueguestshare'        => $this->input->post('eventvenue_guestshare'),
 	   								'onlineevent'                 => $this->input->post('eventvenue_onlineevent'),
 	   								'inviteonlyevent'             => $this->input->post('eventvenue_inviteonlyevent'),
+	   								'faqquestion1'				  => '1.What is Event Age Requirement?',
+			 						'faqanswer1'                  =>  $this->input->post('quesans1'),
+			 						'faqquestion2'				  => '2.This is a kids friendly event?',
+			 						'faqanswer2'				  => $this->input->post('quesans2'),	
+			 						'faqquestion3'				  => '3.What are event parking/Transportantion options to and from event location?',
+			 						'faqanswer3'				  => $this->input->post('quesans3'),
+			 						'faqquestion4'				  => '4.What are allowed into the event venue?',
+			 						'faqanswer4'				  =>  $this->input->post('quesans4'),	
 			 						'eventfaqs'                   => $event_faq,
 			 						'eventvenue'                  => $event_venue_location
 			 					   ); 
@@ -2011,9 +1274,50 @@ public function social_multicity_event()
 	    	  	$json_data = json_encode($event_contact); 
 				$result2 = $this->rest->post('http://104.197.80.225:3010/wow/event/proeventcontact',$json_data,'json');
 				// print_r($result2);
+
+   // seven  step 7 event tour
+	    
+	    		$this->rest->http_header('token',  $this->session->userdata('token'));
+
+	    	  // event tour location
+
+	   			$tour_count = count($this->input->post('event_tour_name')); 
+	   			$event_tour_location = array();
+
+	   			for($i=0; $i<$tour_count; $i++)
+	   			{	   				
+	   				array_push($event_tour_location, array
+	   								(
+	   									'eventtournumber'       =>  $i+1,
+	   			 						'eventtourname'    		=>  $_POST['event_tour_name'][$i],
+	   			 						'eventtourstartdate'    =>  $_POST['eventtour_startdate'][$i]." ".$_POST['eventtour_startime'][$i],
+	   			 						'eventtourenddate'    	=>  $_POST['eventtour_enddate'][$i]." ".$_POST['eventtour_endtiming'][$i],
+	   			 						'eventtourcountry'    	=>  $_POST['tour_country'][$i],
+	   			 						'eventtourticketurl'    =>  $_POST['tour_ticket_url'][$i],
+	   			 						'eventtourticketprice'  =>  $_POST['tour_ticket_price'][$i],
+	   			 						'eventtouraddress1'     =>  $_POST['tour_address1'][$i],
+	   			 						'eventtouraddress2'     =>  $_POST['tour_address2'][$i],
+	   			 						'eventtourcity'    	    =>  $_POST['tour_city'][$i],
+	   			 						'eventtourzipcode'      =>  $_POST['tour_zipcode'][$i]
+	   			 						
+	   			 					));	   				 
+	   			} 
+
+	   			$evnt_tour = array('eventid'                     => $this->session->userdata('id'),
+	   								'eventtouraddressvisibility' => $this->input->post('eventtour_addressvisible'),
+	   								'eventtourguestshare'        => $this->input->post('eventtour_guestshare'),
+	   								'onlineeventtour'            => $this->input->post('eventtour_onlineevent'),
+	   								'inviteonlyeventtour'        => $this->input->post('eventtour_inviteonlyevent'),
+			 						'numberofcitiestour'         => $this->input->post('tour_noof_city'),
+			 						'eventtour'                  => $event_tour_location
+			 					   ); 
+
+	   			 $json_data = json_encode($evnt_tour); 
+
+				 $event_tour_result = $this->rest->post('http://104.197.80.225:3010/wow/event/tour',$json_data,'json');	  
 				
 
-	// step 7 event engagement
+	// step 8 event engagement
 
 				// first select audience form
 

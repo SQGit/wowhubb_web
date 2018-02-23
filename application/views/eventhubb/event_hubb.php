@@ -177,7 +177,7 @@ body {
     margin: 0;
     padding: 0 20px;
     border: 1px solid #ccc;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-size: 14px;
     font-weight: bold;
     line-height: 30px;
@@ -206,7 +206,19 @@ body {
     margin: 200px auto;
 }
 }
+.form-wizard img 
+{ max-width: 100%!important;
+  height: 152px!important;
+ }
+ #calendar {
+    width: 100%;
+    margin: 0 auto;
+  }
+
 </style>
+<link href="<?php echo base_url ('assets/css/fullcalendar.min.css') ?>" rel='stylesheet' />
+<link href="<?php echo base_url ('assets/css/fullcalendar.print.min.css') ?>" rel='stylesheet' media='print' />
+
 </head>
 <body>
 
@@ -924,7 +936,7 @@ body {
                           </tr>
                         </tbody>
                       </table></td>
-                    <td rowspan="2" align="center" valign="top" bgcolor="#fff"><a href="#"><iframe width="200" height="115" src="https://www.youtube.com/embed/HbPcjwKH0HM" frameborder="0"  encrypted-media" allowfullscreen></iframe><br>
+                    <td rowspan="2" align="center" valign="top" bgcolor="#fff"><a href="#"><iframe width="200" height="115" src="https://www.youtube.com/embed/HbPcjwKH0HM" frameborder="0"  encrypted-media allowfullscreen></iframe><br>
                       Update </a></td>
                     <td height="40" rowspan="2" align="center" valign="top" bgcolor="#fff"><input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
                       <br>
@@ -1369,6 +1381,10 @@ body {
         <div class="col-md-12 text-center clr" style="margin-top:10px; margin-bottom:20px;">
             <h4 style="color:#fff; line-height:30px;">Event Hubb<br>
               <span style="font-size:28px;">Calendar Events</span></h4>
+          </div>
+          
+          <div class="col-md-12" style="margin-top:10px;">
+          <div id="calendar"></div>
           </div>
         </div>
       </div>
@@ -2055,6 +2071,84 @@ $(document).ready(function(){
         });
 
 });
+
+</script>
+<script src="<?php echo base_url ('assets/js/moment.min.js') ?>"></script>
+<script src="<?php echo base_url ('assets/js/jquery.min.js') ?>"></script>
+<script src="<?php echo base_url ('assets/js/fullcalendar.min.js') ?>"></script>
+<script>
+
+  $(document).ready(function() {
+
+    $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay,listWeek'
+      },
+      defaultDate: '2018-02-12',
+      navLinks: true, // can click day/week names to navigate views
+      editable: true,
+      eventLimit: true, // allow "more" link when too many events
+      events: [
+        {
+          title: 'All Day Event',
+          start: '2018-02-01',
+        },
+        {
+          title: 'Long Event',
+          start: '2018-02-07',
+          end: '2018-02-10'
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: '2018-02-09T16:00:00'
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: '2018-02-16T16:00:00'
+        },
+        {
+          title: 'Conference',
+          start: '2018-02-11',
+          end: '2018-02-13'
+        },
+        {
+          title: 'Meeting',
+          start: '2018-02-12T10:30:00',
+          end: '2018-02-12T12:30:00'
+        },
+        {
+          title: 'Lunch',
+          start: '2018-02-12T12:00:00'
+        },
+        {
+          title: 'Meeting',
+          start: '2018-02-12T14:30:00'
+        },
+        {
+          title: 'Happy Hour',
+          start: '2018-02-12T17:30:00'
+        },
+        {
+          title: 'Dinner',
+          start: '2018-02-12T20:00:00'
+        },
+        {
+          title: 'Birthday Party',
+          start: '2018-02-13T07:00:00'
+        },
+        {
+          title: 'Click for Google',
+          url: 'http://google.com/',
+          start: '2018-02-28'
+        }
+      ]
+    });
+
+  });
 
 </script>
 </body>

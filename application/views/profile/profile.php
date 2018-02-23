@@ -147,9 +147,15 @@ table, td, tr
     max-height: calc(100vh - 250px);
     overflow-y: auto;
 }
-
+#calendar {
+    max-width: 900px;
+    margin: 0 auto;
+  }
 
 </style>
+<link href="<?php echo base_url ('assets/css/fullcalendar.min.css') ?>" rel='stylesheet' />
+<link href="<?php echo base_url ('assets/css/fullcalendar.print.min.css') ?>" rel='stylesheet' media='print' />
+
 </head>
 <body class="landing-page">
 <div class="content-bg-wrap">
@@ -211,7 +217,7 @@ table, td, tr
                       ?>
            <img id="profileImage1" class="cover-pic" src="http://104.197.80.225:3010/wow/media/personal/<?php echo $cover; ?>" style="background-size:cover; width:100%; max-height:300px;" alt=""/> 
             <?php } else{ ?>
-              <img id="profileImage1" class="cover-pic" src="<?php echo base_url('assets/images/covers/1.jpg')?>" style="background-size:cover; width:100%; max-height:300px;" >;
+              <img id="profileImage1" class="cover-pic" src="<?php echo base_url('assets/images/covers/1.jpg')?>" style="background-size:cover; width:100%; max-height:300px;" >
                 <?php }  ?>       
                     
            <input class="cover-upload"  id="imageUpload1" type="file" name="cover_img" accept="image/*" capture>
@@ -233,7 +239,7 @@ table, td, tr
                  else{ 
                        
                        ?>
-                <img  class="profile-pic img-responsive profile-photo"  id="profileImage" src="<?php echo base_url('assets/images/album/avatar_male.png')?>">;
+                <img  class="profile-pic img-responsive profile-photo"  id="profileImage" src="<?php echo base_url('assets/images/album/avatar_male.png')?>">
                 <?php
                        } 
                 ?>
@@ -277,7 +283,7 @@ table, td, tr
 
               <div class="tab-pane active" id="1" style="margin-top: 20px;">
                 <div class="row">
-                  <div class="col-md-9">
+                  <div class="col-md-8">
                     <div class="form-wizard col-md-12">                       
                       <div class="edit-profile-container">
                         <div class="block-title">                           
@@ -298,7 +304,7 @@ table, td, tr
 
                <div class="tab-content">
                    <div class="tab-pane active" id="b1">
-                          <div class="col-md-10">
+                          <div class="col-md-9">
                                 <div class="col-md-12"> This is your  event identification name tag, You can use your "WOWtag ID" to share your personal and professional information and attend at any event. You can create your own WOWtag ID to add some form of personality to yourself.
                                 </div>
                              <div class="col-md-12" style="margin-top:15px;">
@@ -444,7 +450,7 @@ table, td, tr
                               <!-- about me tab for personal  -->
 
                                   <div class="tab-pane" id="b">
-                                    <div class="col-md-10">
+                                    <div class="col-md-9">
                                       <div class="col-md-12">
                                         <div class="pull-left" style="width:7%;"><img src="../assets/images/intro-icon.png" alt=""/></div>
                                         <div class="pull-left" style="width:78%;">Introduction about Yourself<br>
@@ -554,7 +560,7 @@ table, td, tr
                             <!-- relationship tab for personal  -->
 
                                   <div class="tab-pane" id="c">
-                                    <div class="col-md-10">
+                                    <div class="col-md-9">
 
                                       <?php 
                                             if(!empty($profile->relationship)) 
@@ -727,7 +733,7 @@ table, td, tr
                           <!-- contact info tab for personal  -->         
 
                                   <div class="tab-pane" id="d">
-                                    <div class="col-md-10">
+                                    <div class="col-md-9">
                                       <div class="col-md-12">
                                         <div class="pull-left" style="width:7%;"><img src="../assets/images/email-icon.png" alt=""/></div>
                                         <div class="pull-left" style="width:78%;">Email <br>
@@ -825,7 +831,7 @@ table, td, tr
                                    <!-- event info tab for personal  -->
 
                                   <div class="tab-pane" id="e">
-                                    <div class="col-md-10">
+                                    <div class="col-md-9">
                                       <div class="col-md-12">
                                         <div class="pull-left" style="width:7%;"><img src="../assets/images/birthday-icon.png" alt=""/></div>
                                         <div class="pull-left" style="width:78%;">Birthday<br>
@@ -934,32 +940,9 @@ table, td, tr
                   </div>
 
 
-                  <div class="col-md-3 static"> 
+                  <div class="col-md-4 static"> 
                     
-                    <!--Sticky Timeline Activity Sidebar-->
-                    <div id="sticky-sidebar">
-                      <h4 class="grey"><i class="fa fa-search"></i> Search for Event</h4>
-                      <div class="feed-item">
-                        <div class="live-activity"> <span><a href="#" style="font-size:16px;">Event Venues</a></span>
-                          <p class="text-muted">All Event Venues</p>
-                        </div>
-                      </div>
-                      <div class="feed-item">
-                        <div class="live-activity"> <span><a href="#" style="font-size:16px;">Event Service Providers</a></span>
-                          <p class="text-muted">Service Providers</p>
-                        </div>
-                      </div>
-                      <div class="feed-item">
-                        <div class="live-activity"> <span><a href="#" style="font-size:16px;">Event Tickets</a></span>
-                          <p class="text-muted">Browse all</p>
-                        </div>
-                      </div>
-                      <div class="feed-item">
-                        <div class="live-activity"> <span><a href="#" style="font-size:16px;">!WOW</a></span>
-                          <p class="text-muted">Upcoming Events</p>
-                        </div>
-                      </div>
-                    </div>
+                 <div id="calendar"></div>
                   </div>
                 </div>
               </div>
@@ -1633,6 +1616,7 @@ table, td, tr
                       </div>
                     </div>
                   </div>
+
                   <div class="col-md-3 static"> 
                     
                     <!--Sticky Timeline Activity Sidebar-->
@@ -1691,9 +1675,17 @@ table, td, tr
  
 <script src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script> 
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
+<script src="<?php echo base_url ('assets/js/moment.min.js') ?>"></script>
+<script src="<?php echo base_url ('assets/js/jquery.min.js') ?>"></script>
+<script src="<?php echo base_url ('assets/js/fullcalendar.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script> 
 
+
+
+
 <script>
+
+
 
   
   $('#link_show').click(function() //professional work experience
@@ -2276,7 +2268,80 @@ $(document).ready(function() {
     });
 });
 
-  </script>
+  //calendar shows col-md-3
 
+  $(document).ready(function() {
+
+    $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay,listWeek'
+      },
+      defaultDate: '2018-02-12',
+      navLinks: true, // can click day/week names to navigate views
+      editable: true,
+      eventLimit: true, // allow "more" link when too many events
+      events: [
+        {
+          title: 'All Day Event',
+          start: '2018-02-01',
+        },
+        {
+          title: 'Long Event',
+          start: '2018-02-07',
+          end: '2018-02-10'
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: '2018-02-09T16:00:00'
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: '2018-02-16T16:00:00'
+        },
+        {
+          title: 'Conference',
+          start: '2018-02-11',
+          end: '2018-02-13'
+        },
+        {
+          title: 'Meeting',
+          start: '2018-02-12T10:30:00',
+          end: '2018-02-12T12:30:00'
+        },
+        {
+          title: 'Lunch',
+          start: '2018-02-12T12:00:00'
+        },
+        {
+          title: 'Meeting',
+          start: '2018-02-12T14:30:00'
+        },
+        {
+          title: 'Happy Hour',
+          start: '2018-02-12T17:30:00'
+        },
+        {
+          title: 'Dinner',
+          start: '2018-02-12T20:00:00'
+        },
+        {
+          title: 'Birthday Party',
+          start: '2018-02-13T07:00:00'
+        },
+        {
+          title: 'Click for Google',
+          url: 'http://google.com/',
+          start: '2018-02-28'
+        }
+      ]
+    });
+
+  });
+
+</script>
 </body>
 </html>

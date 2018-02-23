@@ -3357,7 +3357,7 @@ $(document).ready(function(){
                                                                    
                               }else 
                                {                    
-                                  swal("Sorry!", "somethink wrong try again !", "error");
+                                  swal("Sorry!", "You don't have delete permission!", "error");
                                }
                           }
 

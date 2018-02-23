@@ -21,6 +21,9 @@
     
     <!--Favicon-->
     <link rel="shortcut icon" type="image/png" href="<?php echo base_url ('assets/images/fav.png') ?>"/>
+    <!-- calender shows library -->
+    <link href="<?php echo base_url ('assets/css/fullcalendar.min.css') ?>" rel='stylesheet' />
+    <link href="<?php echo base_url ('assets/css/fullcalendar.print.min.css') ?>" rel='stylesheet' media='print' />
 
   <style type="text/css">
 
@@ -137,7 +140,10 @@ ul li {
   padding: 0px;
   display: none;
 }
-
+#calendar {
+    max-width: 900px;
+    margin: 0 auto;
+  }
 
 </style>
 
@@ -310,155 +316,8 @@ ul li {
 
          <!-- center part for event feed -->
 
-      <div class="col-md-6"> 
-        
-            <div class="create-post" style="background-color: #fff; padding:10px; border-radius:5px;">
-                <div class="row">
-
-                    <div class="col-md-6 col-sm-6">
-                        <div class="form-group" style="display:-webkit-inline-box; width:90%;">
-                            
-                            <?php if(!is_null($this->session->userdata('personal_image')))
-                              { ?>
-
-                              <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo" />
-                              <?php } else { ?>
-                              <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo-md" />
-                            <?php } ?>
-                              <textarea name="texts" id="exampleTextarea" cols="30" rows="1" class="form-control" placeholder="Share your thoughts.." style="margin-left:10px;"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-sm-6">
-                      <div class="tools pull-right">
-                        <button class="btn btn-primary pull-right" style="margin-top:3px;">Publish</button>
-                      </div>
-                      <div class="tools pull-right">
-                        <ul class="publishing-tools list-inline">
-                          <li><a href="#"><img src="<?php echo base_url('assets/images/create-event-icon-2.png'); ?>" alt="user" /></a></li>
-                          <li><a href="#"><img src="<?php echo base_url('assets/images/image-icon.png'); ?>" alt="user" /></a></li>
-                          <li><a href="#"><img src="<?php echo base_url('assets/images/video-icon.png'); ?>" alt="user" /></a></li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    <!-- start today end with shows array_slice 4 event name -->
-                  <div class="todayevent_show"> 
-                    <div class=" col-md-12">
-                      <h3 style="font-size:14px; font-weight:bold; color: #333;">Today Events</h3>
-                    </div>
-                                 
-                                    <?php   
-                                      if(isset($todayfeed))  
-                                      {                    
-                                        foreach (array_slice($todayfeed, 0, 3) as $todayfeeds) 
-                                          {
-
-                                    ?>
-
-                            <div class="col-md-4">    
-                             <div class="col-md-12" style="margin-bottom: 15px; ">
-                                <div class="pull-left" style="line-height:15px; width: 25%; margin-right: 10%;">
-                                  <?php
-                                      if(isset($todayfeeds->userid->personalimage))
-                                      {
-                                    ?>
-                                  <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $todayfeeds->userid->personalimage; ?>" alt="user" class="profile-photo1" />
-                                  <?php } else { ?>
-                                   <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo1" /> 
-                                   <?php } ?>
-                                </div>
-
-                                <div class="pull-left" style="line-height:15px; width: 5%;">
-                                     <img src="../assets/images/wow-black-small.png"> 
-                                </div> 
-
-                                <div class="pull-left" style="line-height:15px; width: 60%;">
-                                  <strong><a href="#" data-toggle="modal" data-target=".modal-2" >
-                                    
-                                    <?php if(isset($todayfeeds->eventtitle)) { echo $todayfeeds->eventtitle; } else { echo " "; } ?></a></strong><br>
-                                  <span style="font-size:11px;">
-                                    <?php if(isset($todayfeeds->runtimefrom))
-                                     { 
-                                          $timestamp = strtotime($todayfeeds->runtimefrom);
-                                          $timestamp1 = strtotime($todayfeeds->runtimeto);
-                                          echo date('h:i A', $timestamp).'-'.date('h:i A', $timestamp1);                                          
-
-                                      } ?>
-                                        
-                                  </span>
-                                </div>
-                              </div>
-                            </div>                            
-
-                               <?php } } ?>                             
-                    
-                    </div>
-
-                    <!-- end today end with shows array_slice 4 event name -->
-
-                    <!-- start  today end with shows all  event name -->
-                   
-                      <div class=" col-md-12">
-                        <div class=" col-md-12" style="display: none;" id="today_txt">
-                            <h3 style="font-size:14px; font-weight:bold; color: #333;">Today Events</h3>
-                        </div>
-                   
-                    <div class="panel1">
-
-                        <?php   
-                                      if(isset($todayfeed))  
-                                      {                    
-                                        foreach ($todayfeed as $todayfeeds) 
-                                          {
-
-                                    ?>
-                                
-                             <div class="col-md-4" style="margin-bottom: 15px; ">
-                                <div class="pull-left" style="line-height:15px; width: 25%; margin-right: 10%;">
-                                  <?php
-                                      if(isset($todayfeeds->userid->personalimage))
-                                      {
-                                    ?>
-                                  <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $todayfeeds->userid->personalimage; ?>" alt="user" class="profile-photo1" />
-                                  <?php } else { ?>
-                                   <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo1" /> 
-                                   <?php } ?>
-                                </div>
-
-                                <div class="pull-left" style="line-height:15px; width: 5%;">
-                                     <img src="../assets/images/wow-black-small.png"> 
-                                 </div> 
-                                <div class="pull-left" style="line-height:15px; width: 60%;">
-                                  <strong><a href="#" data-toggle="modal" data-target=".modal-2" >
-                                    
-                                    <?php if(isset($todayfeeds->eventtitle)) { echo $todayfeeds->eventtitle; } ?></a></strong><br>
-                                  <span style="font-size:11px;">
-                                    <?php if(isset($todayfeeds->runtimefrom))
-                                     { 
-                                          $timestamp = strtotime($todayfeeds->runtimefrom);
-                                          $timestamp1 = strtotime($todayfeeds->runtimeto);
-                                          echo date('h:i A', $timestamp).'-'.date('h:i A', $timestamp1);                                          
-
-                                      } ?>
-                                        
-                                  </span>
-                                </div>
-                              </div>
-                                                         
-
-                               <?php } } ?>                
-
-
-
-                     </div>
-                      <div class="flip1 col-md-12 col-sm-12 text-center">View all</div>
-                  </div>
-
-                  <!-- end today end with shows all event name -->
-
-                </div>
-            </div>
+      <div class="col-md-6">        
+           
 
     <!-- personal evnt start here -->
                   <?php 
@@ -2220,34 +2079,9 @@ ul li {
          <div class="col-md-3 static"> 
           
           <!--Sticky Timeline Activity Sidebar-->
-          <div id="sticky-sidebar">
-            <h4 class="grey" style="margin-top: 10px;"><i class="fa fa-search"></i> Search for Event</h4>
-            <div class="feed-item">
-              <div class="live-activity">
-                <span><a href="#" style="font-size:16px;">Event Venues</a></span>
-                <p class="text-muted">All Event Venues</p>
-              </div>
-            </div>
-            <div class="feed-item">
-              <div class="live-activity">
-                <span><a href="#" style="font-size:16px;">Event Service Providers</a></span>
-                <p class="text-muted">Service Providers</p>
-              </div>
-            </div>
-            <div class="feed-item">
-              <div class="live-activity">
-                <span><a href="#" style="font-size:16px;">Event Tickets</a></span>
-                <p class="text-muted">Browse all</p>
-              </div>
-            </div>
-            <div class="feed-item">
-              <div class="live-activity">
-                <span><a href="#" style="font-size:16px;">!WOW</a></span>
-                <p class="text-muted">Upcoming Events</p>
-              </div>
-            </div>
-          </div>
+          <div id="calendar"></div>
         </div>
+
       </div>
     </div>    
 
@@ -2267,23 +2101,100 @@ ul li {
     <script src="<?php echo base_url('assets/js/sweetalert.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/sweetalert.min.js') ?>"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="<?php echo base_url('assets/js/jquery.magnific-popup.min.js')?>" ></script> 
+    <!-- <script src="<?php echo base_url('assets/js/jquery.magnific-popup.min.js')?>" ></script>  -->
     <script src="<?php echo base_url('assets/js/videopopup.js')?>" ></script> 
+    <!-- this under three file calendar shows -->
+   <script src="<?php echo base_url ('assets/js/moment.min.js') ?>"></script>
+<script src="<?php echo base_url ('assets/js/jquery.min.js') ?>"></script>
+<script src="<?php echo base_url ('assets/js/fullcalendar.min.js') ?>"></script>
+<script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script> 
     <script>
 
     //magnific-popup image shows
 
-$('.gallery').each(function() { // the containers for all your galleries
-    $(this).magnificPopup({
-        delegate: 'a', // the selector for gallery item
-        type: 'image',
-        gallery: {
-          enabled:true
-        }
-    });
-});
+// $('.gallery').each(function() { // the containers for all your galleries
+//     $(this).magnificPopup({
+//         delegate: 'a', // the selector for gallery item
+//         type: 'image',
+//         gallery: {
+//           enabled:true
+//         }
+//     });
+// });
    
+ //calendar shows col-md-3
 
+  $(document).ready(function() {
+
+    $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay,listWeek'
+      },
+      defaultDate: '2018-02-12',
+      navLinks: true, // can click day/week names to navigate views
+      editable: true,
+      eventLimit: true, // allow "more" link when too many events
+      events: [
+        {
+          title: 'All Day Event',
+          start: '2018-02-01',
+        },
+        {
+          title: 'Long Event',
+          start: '2018-02-07',
+          end: '2018-02-10'
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: '2018-02-09T16:00:00'
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: '2018-02-16T16:00:00'
+        },
+        {
+          title: 'Conference',
+          start: '2018-02-11',
+          end: '2018-02-13'
+        },
+        {
+          title: 'Meeting',
+          start: '2018-02-12T10:30:00',
+          end: '2018-02-12T12:30:00'
+        },
+        {
+          title: 'Lunch',
+          start: '2018-02-12T12:00:00'
+        },
+        {
+          title: 'Meeting',
+          start: '2018-02-12T14:30:00'
+        },
+        {
+          title: 'Happy Hour',
+          start: '2018-02-12T17:30:00'
+        },
+        {
+          title: 'Dinner',
+          start: '2018-02-12T20:00:00'
+        },
+        {
+          title: 'Birthday Party',
+          start: '2018-02-13T07:00:00'
+        },
+        {
+          title: 'Click for Google',
+          url: 'http://google.com/',
+          start: '2018-02-28'
+        }
+      ]
+    });
+
+  });
    
                   
       

@@ -75,6 +75,181 @@
     </div>
   </div>   
                       
+<!-- tab view                       -->
+
+
+            <div class="col-md-8"> 
+                            <!-- Nav tabs category -->
+                              <ul class="nav nav-tabs faq-cat-tabs">
+                                  <li class="active" style="width: 25%;"><a href="#faq-cat-1" data-toggle="tab" class="text-center">Event Highlights</a></li>
+                                  <li style="width: 25%;"><a href="#faq-cat-2" data-toggle="tab" class="text-center">Event Schedule</a></li>
+                                  <li style="width: 25%;"><a href="#faq-cat-3" data-toggle="tab" class="text-center">Event Discussions</a></li>
+                                  <li style="width: 25%;"><a href="#faq-cat-4" data-toggle="tab" class="text-center">Event Tours</a></li> 
+                              </ul>
+
+                                                          
+
+                              <div class="tab-pane fade" id="faq-cat-2">
+                                    <div class="col-md-12 text-center clr" style="margin-top:10px; margin-bottom:10px;">
+                                              <h4 style="color:#fff; line-height:30px;">Event Schedule<br>
+                                              <span style="font-size:28px;">
+                                                 <img src="../assets/images/wow-white-big.png">
+                                              
+                                              </span></h4>
+                                    </div>
+
+                                  
+                                    <ul class="nav nav-tabs faq-cat-tabs">
+                                      <li class="active"><a href="#faq-cat-5" data-toggle="tab" class="text-center" style="line-height:16px; font-size:12px; color:#333;">Day1 
+                                       </a></li>
+                                      <li><a href="#faq-cat-6" data-toggle="tab" class="text-center" style="line-height:16px; font-size:12px; color:#333;">Day2 
+                                        </a></li>
+                                      <li><a href="#faq-cat-7" data-toggle="tab" class="text-center" style="line-height:16px; font-size:12px; color:#333;">Day3 </a></li>
+                                    </ul>
+                                  
+
+                                    <div class="tab-content faq-cat-content">  
+
+                                        <!-- day1       -->
+                                        <div class="tab-pane active in fade" id="faq-cat-5">
+                                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                                <tr>
+                                                  <td height="40" colspan="3" align="center" valign="middle" bgcolor="#f9f9f9">
+                                                    <strong style="font-size:16px;">Event Duration
+                                                      <br>
+                                                    hgjghjg                                                    
+                                                                  
+                                                      <br>
+
+                                                    </strong>
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td width="30%" height="40" bgcolor="#fff"><strong>Event Itinerary Time</strong></td>
+                                                  <td width="51%" bgcolor="#fff"><strong>Event Topic/Agenda</strong></td>
+                                                  <td width="19%" height="40" bgcolor="#fff"><strong>Event Location</strong></td>
+                                                </tr>
+
+                                                 
+                                                <tr>
+                                                    <td height="40" bgcolor="#f9f9f9">
+                                                      <strong>
+                                                      
+                                                      </strong><br>Event Facilitator:
+                                                    
+                                                    </td>
+
+                                                    <td height="40" bgcolor="#f9f9f9">
+                                                      <strong>
+                                                      </strong>
+                                                    </td>
+
+                                                    <td height="40" bgcolor="#f9f9f9"><strong></strong><br>
+                                                    </td>
+                                                </tr>
+
+                                               
+
+                                                
+                                            </tbody>
+                                          </table>
+                                        </div>
+
+                                        <!-- day2 -->
+
+                                          <div class="tab-pane fade" id="faq-cat-6"> 
+
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                                <tr>
+                                                  <td height="40" colspan="3" align="center" valign="middle" bgcolor="#f9f9f9">
+                                                    <strong style="font-size:16px;">Event Duration
+                                                                                  
+                                                    </strong>
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td width="30%" height="40" bgcolor="#fff"><strong>Event Itinerary Time</strong></td>
+                                                  <td width="51%" bgcolor="#fff"><strong>Event Topic/Agenda</strong></td>
+                                                  <td width="19%" height="40" bgcolor="#fff"><strong>Event Location</strong></td>
+                                                </tr>
+
+                                              
+                                                <tr>
+                                                    <td height="40" bgcolor="#f9f9f9">
+                                                      <strong>
+                                                       
+                                                      </strong><br>
+                                                    
+                                                    </td>
+
+                                                    <td height="40" bgcolor="#f9f9f9">
+                                                      <strong>
+                                                      </strong>
+                                                    </td>
+
+                                                    <td height="40" bgcolor="#f9f9f9"><strong>hhkhjk</strong><br>
+                                                    </td>
+                                                </tr>
+
+                                               
+
+                                            </tbody>
+                                          </table>
+
+                                          </div>
+
+                                          <!-- day 3  -->
+                                          <div class="tab-pane fade" id="faq-cat-7"> 
+
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                                <tr>
+                                                  <td height="40" colspan="3" align="center" valign="middle" bgcolor="#f9f9f9">
+                                                    <strong style="font-size:16px;">Event Duration
+                                                      <br>
+                                                                                
+                                                    </strong>
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td width="30%" height="40" bgcolor="#fff"><strong>Event Itinerary Time</strong></td>
+                                                  <td width="51%" bgcolor="#fff"><strong>Event Topic/Agenda</strong></td>
+                                                  <td width="19%" height="40" bgcolor="#fff"><strong>Event Location</strong></td>
+                                                </tr>
+
+                                                
+                                                <tr>
+                                                    <td height="40" bgcolor="#f9f9f9">
+                                                      <strong>
+                                                       jgjhgj
+                                                      </strong><br>
+                                                     jhjhk 
+                                                    </td>
+
+                                                    <td height="40" bgcolor="#f9f9f9">
+                                                      <strong>jhkhk
+                                                      </strong>
+                                                    </td>
+
+                                                    <td height="40" bgcolor="#f9f9f9"><strong></strong><br>
+                                                    </td>
+                                                </tr>
+
+                                                
+                                            </tbody>
+                                          </table>
+
+                                          </div>
+
+                                    </div>
+                              </div>
+                                        
+                                      
+                          </div>
+                   
+
 
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

@@ -243,7 +243,7 @@ table, td, tr {
         <div class="col-md-12"> 
           <!-- Newsfeed Common Side Bar Left
           ================================================= -->
-          <div class="col-md-3 static"> 
+          <div class="col-md-2 static"> 
             
             <!--profile card ends-->
             
@@ -396,7 +396,11 @@ table, td, tr {
                     <div class="pull-left" style="width:15%;"><img src="../assets/images/timer-icon.png" alt="post-image"> </div>
                       <div class="pull-left" style="width:85%;"><span style="font-size:14px;">Sun, July 11 2018, 11:10 AM</span></div>
                     </div>
-                    
+                     <div class="row">
+                      <div class="col-md-12">
+                      <a href="#" class="text-pink"><span style="font-size:15px;"><i class="fa fa-arrow-circle-o-right"></i> View Details</span></a>
+                    </div>
+                    </div>
                     
                     
                   </div>
@@ -447,7 +451,11 @@ table, td, tr {
                     <div class="pull-left" style="width:15%;"><img src="../assets/images/timer-icon.png" alt="post-image"> </div>
                       <div class="pull-left" style="width:85%;"><span style="font-size:14px;">Sun, July 18 2018, 12:10 AM</span></div>
                     </div>
-                    
+                    <div class="row">
+                      <div class="col-md-12">
+                      <a href="#" class="text-pink"><span style="font-size:15px;"><i class="fa fa-arrow-circle-o-right"></i> View Details</span></a>
+                    </div>
+                    </div>
                     
                     
                   </div>
@@ -498,8 +506,13 @@ table, td, tr {
                     <div class="pull-left" style="width:15%;"><img src="../assets/images/timer-icon.png" alt="post-image"> </div>
                       <div class="pull-left" style="width:85%;"><span style="font-size:14px;">Wed, August 18 2018, 12:10 AM</span></div>
                     </div>
-                    
-                    
+                     
+                      <div class="row">
+                      <div class="col-md-12">
+                      <a href="#" class="text-pink"><span style="font-size:15px;"><i class="fa fa-arrow-circle-o-right"></i> View Details</span></a>
+                    </div>
+                    </div> 
+                      
                     
                   </div>
                  
@@ -507,7 +520,7 @@ table, td, tr {
               </div>
             </div>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-3">
             <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left; margin-top:0;">Map Locations</h5>
             <div style="margin-left:0; text-align:left;"> <img src="../assets/images/houston-hotels.jpg" class="img-responsive"></div>
           </div>

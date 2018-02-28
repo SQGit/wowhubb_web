@@ -345,7 +345,7 @@
 	  color: white;
 	  text-align: center;
 	  cursor: pointer;
-	  width: 200px;
+	  width: 160px;
 	  margin-left: 107px;
      
 	}
@@ -361,8 +361,8 @@
 	  color: white;
 	  text-align: center;
 	  cursor: pointer;
-	  width: 200px;
-      margin-left: 144px;
+	  width: 160px;
+      margin-left: 0px;
 	}
 	.remove1:hover {
 	  background: white;
@@ -383,6 +383,18 @@ img {
     height: auto;
     display: inline-block;
 	}
+
+img, #img_files3 {
+    max-width: 160px;
+    height: auto;
+    display: inline-block;
+	}
+img, #img_files4 {
+    max-width: 160px;
+    height: auto;
+    display: inline-block;
+	}
+
 </style>
 </head>
 
@@ -994,8 +1006,8 @@ img {
                         		<label style="color:#333; font-weight: bold; font-size: 16px">Upload Coupon Image </label>
                       	</div>
                      					<div class="form-group">                      		
-					                        <input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('coupon_img').click();" />
-						                        <input type="file" style="display:none;" name="coupon_img1" id="coupon_img"  accept="image/*">
+					                        <input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('img_files3').click();" />
+						                        <input type="file" style="display:none;" name="coupon_img1" id="img_files3"  accept="image/*">
 					                    </div>
                       <!-- <input type="file"  name="coupon_img1"  accept="image/*"> -->
                       <input type='text' name="service_name1"  class="form-control" placeholder="Product/Services Name" />
@@ -1075,8 +1087,8 @@ img {
 
                        					
                        					<div class="form-group">                      		
-					                        <input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('coupon_img2').click();" />
-						                        <input type="file" style="display:none;" name="coupon_img2" id="coupon_img2" class="file" accept="image/*">
+					                        <input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('img_files4').click();" />
+						                        <input type="file" style="display:none;" name="coupon_img2" id="img_files4" class="file" accept="image/*">
 					                     </div>
                         <!-- <input type="file"  name="coupon_img2"  accept="image/*"> -->
                       <input type='text' name="service_name2"  class="form-control" placeholder="Product/Services Name" />
@@ -1390,8 +1402,8 @@ function alphaOnly(wow_title) {
   $("#event_startime").datetimepicker(
 		  	{ 
                 datepicker:false,   //12 hours time format 
-                format:'H:i A',
-                formatTime: 'H:i A',
+                format:'g:i A',
+                formatTime: 'g:i A',
                 // mask:'29:59 99',  
                 step: 5,   
                 ampm: true                        
@@ -1400,28 +1412,30 @@ function alphaOnly(wow_title) {
   $("#event_endtiming").datetimepicker(
             { 
                 datepicker:false,   //12 hours time format 
-                format:'H:i A',
-                formatTime: 'H:i A',
+                format:'g:i A',
+                formatTime: 'g:i A',
                 mask:'29:59 99',  
                 step: 5,   
                 ampm: true 
              });
 	
 //wowtag run from and to date
-             $("#runtime_from").datetimepicker({      
+    $("#runtime_from").datetimepicker({      
+                
                 format:'M-d-Y ', 
                 timepicker:false,
                 minDate: 0,        
               
             });
-              $("#totime_to").datetimepicker({      
+
+    $("#totime_to").datetimepicker({      
                format:'M-d-Y', 
                timepicker:false,
                onShow:function( ct )
 	               	{
 				  	 	this.setOptions({			  	 				   		
 				    	maxDate:jQuery('#event_enddate').val()?jQuery('#event_enddate').val():false,
-				    	
+				    	minDate:jQuery('#event_startdate').val()?jQuery('#event_startdate').val():false
 				   })
 				  },	
                 
@@ -1560,9 +1574,9 @@ $(document).ready(function() {
           var file = e.target;
           $("<span class=\"pip\">" +
             "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
-            "<br/><span class=\"remove\">Remove image</span>" +
+            "<br/><span class=\"remove1\">Remove image</span>" +
             "</span>").insertAfter("#img_files3");
-          $(".remove").click(function(){
+          $(".remove1").click(function(){
             $(this).parent(".pip").remove();
           });          
                    
@@ -1589,9 +1603,9 @@ $(document).ready(function() {
           var file = e.target;
           $("<span class=\"pip\">" +
             "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
-            "<br/><span class=\"remove\">Remove image</span>" +
+            "<br/><span class=\"remove1\">Remove image</span>" +
             "</span>").insertAfter("#img_files4");
-          $(".remove").click(function(){
+          $(".remove1").click(function(){
             $(this).parent(".pip").remove();
           });          
                    

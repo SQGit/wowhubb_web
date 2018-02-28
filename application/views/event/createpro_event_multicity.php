@@ -381,6 +381,27 @@
 	  display: none; 
 	}
 
+	.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  border-bottom: 16px solid blue;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 	.form-group-1 img {    
     left: 24px;
     position: absolute;
@@ -406,6 +427,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 </style>
 </head>
+
 
 <body class="landing-page">
 <div class="content-bg-wrap">
@@ -502,7 +524,7 @@ input[type=number]::-webkit-outer-spin-button {
               
               <!-- Step 7 -->
                <div class="form-wizard-step">
-                <div class="form-wizard-step-icon"><i class="fa fa-users" aria-hidden="true"></i></div>
+                <div class="form-wizard-step-icon"><i class="fa fa-paper-plane" aria-hidden="true"></i></div>
                 <p>Event Tours</p>
               </div>
               <!--end  Step 7 -->
@@ -516,7 +538,7 @@ input[type=number]::-webkit-outer-spin-button {
      </div>
             <!-- Form progress --> 
             <!-- Form Step 1 -->
-  		<form id="create_proffesional_event_multicity" action="<?php echo base_url('event/professional_multicity_event'); ?>"  method="post" enctype="multipart/form-data" >  
+  		<form id="create_proffesional_event_multicity" action="<?php echo base_url('event/professional_multicity_event'); ?>"  method="post" enctype="multipart/form-data">  
 
     	  <fieldset>
                 <!-- Progress Bar -->
@@ -571,7 +593,14 @@ input[type=number]::-webkit-outer-spin-button {
 			                      <input type='text'  name="ticket_price"  class="form-control"  />
 			                    </div> 
 
-			                </div>        
+			                    <div class='form-group col-sm-12' style="display: none;" id="ticker_url_show">
+		                     		 <label>Ticket URL</label>
+		                      		<input type='text' name="ticket_url" class="form-control" >
+		                    	</div>   
+
+			                </div> 
+
+			                    
        				</div>
 
                 	<div class='col-sm-4'>
@@ -669,7 +698,7 @@ input[type=number]::-webkit-outer-spin-button {
         <div class='col-sm-5'>
             <div class='col-sm-12' style="background-color:#f9f9f9;padding-top:10px; ">
                   		<div id="show_vanue" style="background-color:#bfbebe;padding-top:10px; ">
-							<center> <label >CREATE AND ADD YOUR EVENT TOURS CITIES HERE</label></center>  
+							<center> <label >CREATE AND ADD YOUR EVENT VENUE HERE</label></center>  
 						</div>               
              	<div id="event_venues">
                 	<div id="event_address_1" class="tab">                			
@@ -1364,7 +1393,17 @@ input[type=number]::-webkit-outer-spin-button {
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" style="width: 87%"> </div>
                 </div>
                 <!-- Progress Bar -->
-                <h4> <span>Step 6 - 7</span></h4>
+                 <div class="row">
+                  <div class="col-md-6">
+                    <div class='form-group col-sm-12'> <a class="btn-next" href="JavaScript:void(0);"><i class="fa fa-fast-forward"></i> Skip  Event Does not have Event Tours</a> </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="pull-right">
+                      <h4> <span>Step 7 - 8</span></h4>
+                    </div>
+                  </div>
+                </div>
+
 
                 <div class='col-sm-5'>
            					  <div class='col-sm-12' >
@@ -1539,7 +1578,7 @@ input[type=number]::-webkit-outer-spin-button {
                   	<div class='row'>
                   			<div class='form-group-1 col-sm-12'>	
                   			 		<label>Select Number of cities for your upcoming Events</label>
-				                    <select name="tour_noof_city" id="btn-add-tab" class="form-control " >
+				                    <select name="tour_noof_city"  class="form-control " >
 				                      <option value="">Select Cities</option>				                     
 				                      <option value="2">2 Cities Event/Tours</option>
 				                      <option value="3">3 Cities Event/Tours</option>
@@ -1648,6 +1687,81 @@ input[type=number]::-webkit-outer-spin-button {
 
                 <h4> <span>Step 8 - 8</span></h4>
                 <div style="clear:both;"></div>
+
+                <div class="col-md-12" >
+                    <h3>Your Selected Event Venue</h3>
+                </div>
+
+                <div id="shows_venues">
+	                <div  class="col-md-6 event_venue_details_show" >
+	                    
+	                </div>
+            	</div>
+                 
+                     
+                   <!--  <div class="col-md-12" style="background:#f5f5f5; padding:15px; margin-bottom:15px;">
+                      <div style="width:5%;" class="pull-left"><img src="../assets/images/map-icon.png" alt="banner-image"/></div>
+                      <div style="width:45%;" class="pull-left"> <strong style="font-weight:bold;">Event Venue:</strong> 16, West Garden Street, Houston, Texas.<br>
+                        <strong style="font-weight:bold;">Event City:</strong> Houston<br>
+                      </div>
+                      <div style="width:45%;" class="pull-left"> <strong style="font-weight:bold;">Event Date:</strong> 03-23-2018<br>
+                        <strong style="font-weight:bold;">Ticket URL:</strong> www.ticketmaster.com<br>
+                      </div>
+                    </div>  -->
+              
+
+                <div class="col-md-12">
+                    <h3>Your Selected Event Tours</h3>
+                </div>
+
+                 <div id="shows_tours">
+	                <div  class="col-md-6 event_tour_details_show" >
+	                    
+	                </div>
+            	</div>
+                   <!-- <div class="row">
+                      <div class="col-md-4">
+                        <div class="col-md-12" style="background:#f5f5f5; padding:15px; margin-bottom:15px;">
+                          <div class="row" style="margin-bottom:15px;">
+                            <h3 style="font-size:15px;">Event Tours - City 1</h3>
+                            <div style="width:10%;" class="pull-left"><img src="../assets/images/map-icon.png" alt="banner-image"/></div>
+                            <div style="width:90%;" class="pull-left"> <strong style="font-weight:bold;">Event Venue:</strong> 16, West Garden Street, Houston, Texas.<br>
+                              <strong style="font-weight:bold;">Event City:</strong> Houston<br>
+                              <strong style="font-weight:bold;">Event Date:</strong> 03-23-2018<br>
+                              <strong style="font-weight:bold;">Ticket URL:</strong> www.ticketmaster.com<br>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="col-md-12" style="background:#f5f5f5; padding:15px; margin-bottom:15px;">
+                          <div class="row" style="margin-bottom:15px;">
+                            <h3 style="font-size:15px;">Event Tours - City 2</h3>
+                            <div style="width:10%;" class="pull-left"><img src="../assets/images/map-icon.png" alt="banner-image"/></div>
+                            <div style="width:90%;" class="pull-left"> <strong style="font-weight:bold;">Event Venue:</strong> 16, West Garden Street, Houston, Texas.<br>
+                              <strong style="font-weight:bold;">Event City:</strong> Houston<br>
+                              <strong style="font-weight:bold;">Event Date:</strong> 03-23-2018<br>
+                              <strong style="font-weight:bold;">Ticket URL:</strong> www.ticketmaster.com<br>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="col-md-12" style="background:#f5f5f5; padding:15px; margin-bottom:15px;">
+                          <div class="row" style="margin-bottom:15px;">
+                            <h3 style="font-size:15px;">Event Tours - City 3</h3>
+                            <div style="width:10%;" class="pull-left"><img src="../assets/images/map-icon.png" alt="banner-image"/></div>
+                            <div style="width:90%;" class="pull-left"> <strong style="font-weight:bold;">Event Venue:</strong> 16, West Garden Street, Houston, Texas.<br>
+                              <strong style="font-weight:bold;">Event City:</strong> Houston<br>
+                              <strong style="font-weight:bold;">Event Date:</strong> 03-23-2018<br>
+                              <strong style="font-weight:bold;">Ticket URL:</strong> www.ticketmaster.com<br>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div> 
+                 -->
+
 
         	<div class='form-group col-sm-12'> 
                   
@@ -1805,9 +1919,28 @@ input[type=number]::-webkit-outer-spin-button {
 				                        </div>
 					                    <div class="form-group col-md-12">
 					                      <div class="pull-left" style="width:8%;">
-					                        <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+					                        <input type="checkbox" name="specific_group" id="specific_group" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 					                      </div>
-					                      <div class="pull-left text-left" style="width:92%; font-size:15px;">Publish to Specific Group</div>
+
+					                    <div class="pull-left text-left" style="width:92%; font-size:15px;">Publish to Specific Group
+					                      	<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				                                <div class="modal-dialog">
+				                                    <div class="modal-content">
+				                                      <div class="modal-header">
+				                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				                                       <input type="checkbox">  Wowhubb friends group
+				                                      </div>
+				                                      <div class="modal-body">
+				                                        <input type="checkbox">  My group only 
+				                                      </div>
+				                                      <div class="modal-footer">                                       
+				                                        <button type="button" class="btn btn-primary">Save</button>
+				                                      </div>
+				                                    </div>
+				                                </div>
+				                            </div> -->
+					                    </div>
+
 					                    </div>
 					                    <div class="form-group col-md-12">
 						                      <div class="pull-left" style="width:8%;">
@@ -1857,7 +1990,9 @@ input[type=number]::-webkit-outer-spin-button {
                    			<div class='form-group col-sm-12' style="background:#f5f5f5; padding:15px 10px; margin-top:5px;">
                     			<div class="col-md-12 text-center" style="margin-bottom:15px;"><h5>Your Audience Will Be Directed To This Link For Further Registration<br> <br>
 								<span style="color:#333;">Select One URL Event Links</span></h5></div>
-	                     		<div id="first_ticket_url">
+
+								<!-- dynamic add ticket url -->
+	                     		<!-- <div id="first_ticket_url">
 	                     			<div class="col-md-12" style="margin-top:15px;" id="dynamicticket_1">
 	                     				
 			                      		<div class="pull-left" style="width:5%;">
@@ -1885,7 +2020,7 @@ input[type=number]::-webkit-outer-spin-button {
                      			</div>
 	                      	
 		                     	<div class="form-group col-sm-12" style="margin-top:15px;"> <a href="JavaScript:void(0);" id="ticket_url" data-nxt_ticket_url="2"><i class="fa fa-plus-circle"></i> Add More Ticket URLs</a> </div>
-
+ -->
 			                    <div class="col-md-12" style="margin-top:15px;">
 				                      <div class="pull-left" style="width:5%;">
 				                        <input type="checkbox" name="url_donation_url_check"  style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
@@ -2069,12 +2204,11 @@ input[type=number]::-webkit-outer-spin-button {
 <!-- Scripts
     ================================================= --> 
     
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="<?php echo base_url ('assets/js/jquery-3.1.1.min.js') ?>"></script> 
 <script src="<?php echo base_url ('assets/js/bootstrap.min.js') ?>"></script> 
 <script src="<?php echo base_url ('assets/js/jquery.validate.js') ?>"></script>
-<script src="<?php echo base_url ('assets/js/jquery.sticky-kit.min.js') ?>"></script> 
-<script src="<?php echo base_url ('assets/js/jquery.scrollbar.min.js') ?>"></script> 
+<script src="<?php echo base_url ('assets/js/additional-methods.js') ?>"></script> 
 <script src="<?php echo base_url ('assets/js/script.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/sweetalert.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/sweetalert.min.js') ?>"></script> 
@@ -2082,17 +2216,29 @@ input[type=number]::-webkit-outer-spin-button {
 <!--<script src="<?php echo base_url('assets/js/jquery-1.12.4.js')?>"></script> -->
 <script src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script> 
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
-<script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script> 
-<script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.js')?>"></script>  
+<script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script>   
+<script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.js')?>"></script>   
 <script src="<?php echo base_url('assets/js/moment.js')?>"></script> 
+ 
 <!-- model popup bootstrap --> 
-<script src="<?php echo base_url('assets/js/bootstrap3.3.4.min.js')?>"></script>
+<script src="<?php echo base_url('assets/js/bootstrap3.3.4.min.js')?>"></script> 
 
 <script>
 	
 var option_template = ''; //golabal variable for dynamic address
+var step_to_show = '';
+var step_to_tour ='';
 
   
+  //checkbox  with model popup box
+      $('input[type="checkbox"][name=specific_group]').on('change', function(e)
+      		{
+	          if(e.target.checked){
+	          $('#myModal').modal();
+	        }
+       });
+
+ 
 // hide enter button to submit the form
 $(document).ready(function(){
 $('#create_proffesional_event_multicity').on('keyup keypress', function(e) {
@@ -2169,14 +2315,6 @@ $('#create_proffesional_event_multicity').on('keyup keypress', function(e) {
                	 
     });
             
- //checkbox  with model popup box
-      $('input[type="checkbox"][name=specific_group]').on('change', function(e)
-      		{
-	          if(e.target.checked){
-	          $('#myModal').modal();
-	        }
-       });
-
 
 
 
@@ -2318,14 +2456,18 @@ function nextPrev(n)
 function update_vanue() {
 	
 	option_template = '';
+	step_to_show = '';	
 
     $('#show_vanue').find('div').remove();
     $('.venueselectpicker option').remove();
+    // $('.event_venue_details_show').remove();
+
 
     $(".tab").each(function(index){
         var index = index+1;   
         var venue = $(this).find("[id^=event_venue_name_]").val();  
         var address = $(this).find("[id^=address1_]").val();
+      
        
 
         if(venue != '' || address != '')
@@ -2334,17 +2476,37 @@ function update_vanue() {
                     '<div class="pull-left" style="width:45%;">'+venue+'</div>'+
                     '<div class="pull-left" style="width:15%;"><img src="../assets/images/map-icon.png" alt="map-icon" /></div> </div>';
 
-            option_template += '<option value="'+venue+' ">'+venue+' </option>';
+            step_to_show += ' <div class="form-group col-sm-12" style="background-color:#9e9999; margin-top:10px; "> <div class="pull-left" style="width:40%;">Event Venue '+index+'</div>'+
+                    '<div class="pull-left" style="width:45%;">'+venue+' </div>'+
+                    '<div class="pull-left" style="width:15%;"><img src="../assets/images/map-icon.png" alt="map-icon" /></div> </div>';
+
+            option_template += '<option value="'+venue+' ">'+venue+'</option>';
         }
         
 
-        $('#show_vanue').append(template);          
+        $('#show_vanue').append(template);    
+          
       
     }); 
 
      $('.venueselectpicker').append(option_template);
-    	          
+
+     $('.event_venue_details_show').append(step_to_show);  
+     // console.log('.event_venue_details_show') ; 
+
+
 }
+
+//show details of venue step8
+
+$(document).ready(function() {
+    $('#shows_venues').on('change',function()
+     {
+     	$('.event_venue_details_show').append(step_to_show);  
+
+     }); 
+  }); 
+
 
 
 //dynamically add event tour address
@@ -2418,9 +2580,9 @@ function nextPreview(n)
 }
 
 	
-function update_tour() {
-	
-	// option_template = '';
+function update_tour() {	
+		
+	 step_to_tour = '';
 
     $('#show_tours').find('div').remove();
    
@@ -2435,21 +2597,41 @@ function update_tour() {
         var end_date = $(this).find("[id^=tour_enddate_]").val();
         var ticket_url = $(this).find("[id^=ticket_url_]").val();
 
-
+       // step_to_tour = '';
 
         if(city != '' || ticket_url != '' || start_date != '' || end_date != '' )
         {
             
             var event_tour = ' <div class="form-group col-sm-12" style="background-color:#9e9999; margin-top:10px; "> <div class="pull-left" style="width:20%;">'+city+'</div>'+
                     '<div class="pull-left" style="width:60%;">'+start_date+','+end_date+'</div>'+                    
-                    '<div class="pull-left" style="width:20%;">'+ticket_url+'</div></div>';          
-        }        
+                    '<div class="pull-left" style="width:20%;">'+ticket_url+'</div></div>'; 
 
-        $('#show_tours').append(event_tour);    
+            step_to_tour  += ' <div class="form-group col-sm-12" style="background-color:#9e9999; margin-top:10px; "> <div class="pull-left" style="width:20%;">'+city+'</div>'+
+                    '<div class="pull-left" style="width:60%;">'+start_date+','+end_date+'</div>'+                    
+                    '<div class="pull-left" style="width:20%;">'+ticket_url+'</div></div>';  
+
+           
+        }   
+         	          
+
+       		$('#show_tours').append(event_tour);    
       
     }); 
-    	          
+
+    	$('.event_tour_details_show').append(step_to_tour);    
+    	// console.log('.event_tour_details_show') ;        
 }
+
+// show details of tours step8
+
+$(document).ready(function() {
+    $('#shows_tours').on('change',function()
+     {
+     	$('.event_tour_details_show').append(step_to_tour);  
+     	console.log('.event_tour_details_show') ;        
+
+     }); 
+  }); 
 
 
 //dynamic add tab view for event days
@@ -2642,10 +2824,12 @@ $(document).ready(function(){
 				if ($(this).val() == "free_event" || $(this).val() == "select") 
 				 {
                 	$("#ticket_price").hide();
+                	$("#ticker_url_show").hide();
            		 }
            	    else
            		 {
                 	$("#ticket_price").show();
+                	$("#ticker_url_show").show();
            		 }
 		});
 
@@ -2776,6 +2960,14 @@ $("#coupon_ex_date").datetimepicker({
                 format:'m-d-Y',      
                timepicker:false,
          }); 
+
+//checkbox  with model popup box step8
+      $('input[type="checkbox"][name=specific_group]').on('change', function(e)
+      		{
+	          if(e.target.checked){
+	          $('#myModal').modal();
+	        }
+       });
 
 //Audience form select option  show and hide
 
@@ -2933,6 +3125,7 @@ var base_url = '<?php echo base_url() ?>'; //form submited
            	$('#keyword_show').html("!" +message );
         });
     });
+
 
 </script>
 

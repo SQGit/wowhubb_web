@@ -198,6 +198,26 @@ video {
     width: 100%;
     opacity: 1 !important;
 }
+img {
+    max-width: 200px;
+    height: auto;
+    display: inline-block;
+  }
+
+  .remove {
+    display: block;
+    background: #444;
+    border: 1px solid black;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    width: 200px;
+      /*margin-left: 107px;*/
+  }
+  .remove:hover {
+    background: white;
+    color: black;
+  }
 </style>
 
 </head>
@@ -479,6 +499,7 @@ video {
         
             <div class="create-post" style="background-color: #fff; padding:10px; border-radius:5px;">
                 <div class="row">
+                   <form id="thougths" action="<?php echo base_url('event/update_thoughts'); ?>" method="POST" enctype="multipart/form-data">
 
                     <div class="col-md-8 col-sm-8">
                         <div class="form-group">
@@ -489,9 +510,7 @@ video {
                               <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo" />
                               <?php } else { ?>
                               <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo-md" />
-                            <?php } ?>
-
-              <form id="thougths" action="<?php echo base_url('event/update_thoughts'); ?>" method="POST" enctype="multipart/form-data">
+                            <?php } ?>             
 
                               <textarea name="texts" id="exampleTextarea" cols="30" rows="1" class="form-control" placeholder="Share your thoughts.." style="margin-left:10px; min-height: 70px; width: 300px!important;"></textarea>
                         </div>
@@ -502,19 +521,21 @@ video {
                      <!-- thoughts update here -->
                     
                       <div class="tools pull-left">
-                        <ul class="publishing-tools list-inline">
-                          <!-- <li><a href="#"><input type="file"><img src="<?php echo base_url('assets/images/create-event-icon-2.png'); ?>" alt="user" /></a></li> -->
+                        <ul class="publishing-tools list-inline">                         
                           <li>
-                           
-                              <input type="file" id="file1" name="thought_img" accept="image/*" style="display:none">
+                             
                               <img src='../assets/images/image-icon.png' alt="user" id="upfile1" style="cursor:pointer" />
                            
                           </li>
 
                           <li>
                             <a href="#">
-                              <input type="file" id="file2" name="thought_video" accept="video/*" style="display:none" >
+
+                              <input type="file" name="thought_video" id="video_size" class=" file" accept="video/*" style="display:none" >
                               <img src="<?php echo base_url('assets/images/video-icon.png'); ?>" alt="user" id="upfile2" style="cursor:pointer"/>
+
+                                
+
                             </a>
                           </li>
 
@@ -524,9 +545,21 @@ video {
                        <div class="tools pull-right">
                         <input type="submit" name="thoughts" class="btn btn-primary-1 pull-right" style="margin-top:3px;" value="Publish" >
                       </div>
-              </form>
+                      
+                      <div class="col-md-12"> <!-- image upload here -->
+                           <input type="hidden" onclick="document.getElementById('file1').click();" />
+                           <input type="file" id="file1" name="thought_img" accept="image/*" style="display:none">  
+                                  <div id="video_show" style="display: none;" >
+                                     <video width="200" height="150" controls>
+                                          <source src="mov_bbb.mp4" id="video_here">
+                                                Your browser does not support HTML5 video.
+                                      </video>
+                                  </div> 
+                      </div>                   
+             
 
                     </div>
+                </form>
 
                     <!-- start today end with shows array_slice 4 event name -->
                   <div class="todayevent_show"> 
@@ -747,10 +780,11 @@ video {
                             {
                       ?>
             
-                    <div class="col-md-12" style="position: relative;">
+                    <div class="col-md-12" style="position: relative; margin-top: 20px;">
                       
                       <div class="gallery" > <a class="test-popup-link" href='http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->thoughtsimage; ?>' > <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->thoughtsimage; ?>" alt="post-image" class="img-responsive post-image" /> </a> </div>
                     </div>
+                   
                       <!-- here end cover image --> 
                     <?php } 
                                       
@@ -760,7 +794,7 @@ video {
             
                     <div class="col-md-12" style="position: relative;">
                       
-                     <div class="video">
+                                      <div class="video">
                                           <div class="col-md-12"> <a href="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->thoughtsvideo; ?>" >
                                                 <video class="myvideo" controlsList="nodownload">
                                                <source src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->thoughtsvideo; ?>" type="video/mp4">
@@ -770,7 +804,7 @@ video {
                                       </div>
                     </div>
 
-                    <?php } ?>
+                    <?php }  else { echo " "; } ?>
 
                  
           </div>
@@ -806,10 +840,11 @@ video {
                                  <span style="color:#B8B8B8;">
                                   <?php 
                                       $timestamp = strtotime($com->commentedAt);                                      
-                                       $comment_date = date('Y-m-d H:i:s', $timestamp);                                
+                                      $comment_date = date('Y-m-d H:i:s', $timestamp);  
+
 
                                   ?>
-                                 <time class="timeago" datetime="<?php echo $comment_date; ?>"></time>
+                                <time class="timeago" datetime="<?php echo $comment_date; ?>"></time> 
                                  </span> 
                               </div>
                             </div>
@@ -850,6 +885,7 @@ video {
                                         $timestamp = strtotime($com->commentedAt);
                                          // echo date('D dS', $timestamp);
                                         $comment_date = date('Y-m-d H:i:s', $timestamp);
+
                                      
                                ?>
                                  <time class="timeago" datetime="<?php echo $comment_date; ?>"></time>
@@ -3013,7 +3049,7 @@ video {
 <script>  
 
 
-
+//social event count down
 $('.countdown').countdown('2018/04/02', function(event) {
         $(this).html(event.strftime('%H:%M:%S'));
       });
@@ -3022,7 +3058,7 @@ $('.countdown').countdown('2018/04/02', function(event) {
 
   $(document).ready(function(){
             // find the input fields and apply the time select to them.
-            jQuery("time.timeago").timeago();
+            $("time.timeago").timeago();
         });
 
 $(document).ready(function(){               //show view more commends
@@ -3257,7 +3293,7 @@ $("#upfile1").click(function () {
 });
 
 $("#upfile2").click(function () {
-    $("#file2").trigger('click');
+    $("#video_size").trigger('click');
 });
 
 //thougths  form submit
@@ -3369,17 +3405,17 @@ $(document).ready(function(){
 
 //video size limitation  video
 
-$(document).on("change", "#file2", function(evt)
-        {
-            var file = this.files[0];
+// $(document).on("change", "#file2", function(evt)
+//         {
+//             var file = this.files[0];
 
-            if (file.size > 2621440)
-             {
-                   //Now Here I need to update <span> 
-                 // $('#file2').hide();  
-                 alert('Filesize must 2.5MB or below');           
-             }
-    });
+//             if (file.size > 2621440)
+//              {
+//                    //Now Here I need to update <span> 
+//                  // $('#file2').hide();  
+//                  alert('Filesize must 2.5MB or below');           
+//              }
+//     });
 
 //thought wowsome like form submit
 
@@ -3419,6 +3455,57 @@ $(document).ready(function(){
             });
         });
 });
+
+
+//image preview and delete step1
+
+$(document).ready(function() {
+  if (window.File && window.FileList && window.FileReader) {
+    $("#file1").on("change", function(e) {
+      var files = e.target.files,
+        filesLength = files.length;
+      for (var i = 0; i < filesLength; i++) {
+        var f = files[i]
+        var fileReader = new FileReader();
+        fileReader.onload = (function(e) {
+          var file = e.target;
+          $("<span class=\"pip\">" +
+            "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
+            "<br/><span class=\"remove\">Remove image</span>" +
+            "</span>").insertAfter("#file1");
+          $(".remove").click(function(){
+            $(this).parent(".pip").remove();
+          });          
+                   
+        });
+        fileReader.readAsDataURL(f);
+      }
+    });
+  } else  {
+            alert("Your browser doesn't support to File API")
+          }
+});
+
+//video size limitation highlight video1
+
+$(document).on("change", "#video_size", function(evt)
+        {
+            var file = this.files[0];
+
+            if (file.size > 2621440)
+             {
+                   //Now Here I need to update <span> 
+                 $('#video_show').hide();  
+                 alert('Filesize must 2.5MB or below');           
+             }else
+             {  
+          var $source = $('#video_here');         
+          $source[0].src = URL.createObjectURL(this.files[0]);
+          $source.parent()[0].load();
+          $('#video_show').show();         
+         }
+    });
+
 
 </script>
 </body>

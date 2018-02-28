@@ -214,8 +214,20 @@ body {
     width: 100%;
     margin: 0 auto;
   }
-
+#delete_btn, #delete_btn_pro, #delete_btn_social, #delete_btn_personal {
+    background-image: url("<?php echo base_url('assets/images/delete-btn.png')?>");
+    background-repeat: no-repeat;
+    border: none;
+    width: 32px;
+    height: 31px;
+    cursor: pointer;
+    color: transparent;
+    background-color: transparent;
+    outline: none;
+  }
+  
 </style>
+
 <link href="<?php echo base_url ('assets/css/fullcalendar.min.css') ?>" rel='stylesheet' />
 <link href="<?php echo base_url ('assets/css/fullcalendar.print.min.css') ?>" rel='stylesheet' media='print' />
 
@@ -280,12 +292,15 @@ body {
           </div>
           <ul class="nav nav-tabs faq-cat-tabs">
             <li class="active"><a href="#faq-cat-5" data-toggle="tab" class="text-center" style="line-height:16px; font-size:14px; color:#333;">Personal/ Private Events</a></li>
-            <li><a href="#faq-cat-6" data-toggle="tab" class="text-center" style="line-height:16px; font-size:14px; color:#333;">Open Social Events</a></li>
+            
             <li><a href="#faq-cat-7" data-toggle="tab" class="text-center" style="line-height:16px; font-size:14px; color:#333;">Professional Events</a></li>
+            <li><a href="#faq-cat-6" data-toggle="tab" class="text-center" style="line-height:16px; font-size:14px; color:#333;">Open Social Events</a></li>
             <li><a href="#faq-cat-8" data-toggle="tab" class="text-center" style="line-height:16px; font-size:14px; color:#333;">Business Events</a></li>
             <li><a href="#faq-cat-9" data-toggle="tab" class="text-center" style="line-height:16px; font-size:14px; color:#333;">Event Draft</a></li>
           </ul>
 
+
+    <!-- personal event hubb  edit  -->
           <div class="tab-content faq-cat-content">
             <div class="tab-pane active in fade" id="faq-cat-5">
               <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pnl-brdr-clr">
@@ -300,6 +315,8 @@ body {
                     <td width="7%" height="40" bgcolor="#f9f9f9"><strong>Delete </strong></td>
                   </tr>
 
+                  <!-- personal event edit  -->
+
                     <?php 
                           foreach ($eventhubbfeed as $feeds) 
                           {
@@ -310,7 +327,9 @@ body {
                     ?>
 
                   <tr>
-                        <td width="14%" height="40" rowspan="2" align="left" valign="top" bgcolor="#fff"><div><img src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->coverpage; ?>" class="img-responsive img-thumbnail" alt=""></div>
+                        <td width="14%" height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
+                          <div><img src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->coverpage; ?>" class="img-responsive img-thumbnail" alt="">
+                          </div>
                           <strong style="font-size:16px; color:#fc6653;">
                             <?php if(isset($feeds->eventtitle)) { echo $feeds->eventtitle; } else{ echo "";} ?>
                               
@@ -399,10 +418,21 @@ body {
                             </td>
                             <td height="20">&nbsp;</td>
                           </tr>
+
                           <tr>
-                            <td height="20"><strong><a href="#">Event Schedule</a></strong></td>
+                            <td height="20">
+                                <strong>
+                                <a href="#">
+                                   <form action="#" id="event_details" method="POST">
+                                      
+                                        <input type="submit" style="border: none; background: transparent;" value="Event Schedule">
+                                    </form>
+                                </a>
+                                </strong>
+                            </td>
                             <td height="20">&nbsp;</td>
                           </tr>
+
                           <tr>
                             <td height="20">
                               <strong>
@@ -459,7 +489,7 @@ body {
                       <td height="40" rowspan="2" align="center" valign="top" bgcolor="#fff">
                         <form class="delete_event" action="<?php echo base_url('eventhubb/delete_event'); ?>" method="POST" >
                           <input type="hidden" name="event_id" value="<?php echo $feeds->_id; ?>">
-                          <input type="submit" class="btn-primary" value="Delete Event">
+                          <input type="submit" class="btn-primary" id="delete_btn_personal" value="Delete Event">
                         </form>
                       </td>
 
@@ -477,193 +507,7 @@ body {
             </div>
 
 
-            <div class="tab-pane fade" id="faq-cat-6">
-              <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pnl-brdr-clr">
-                <tbody>
-                  <tr style="font-size:16px;">
-                    <td height="40" bgcolor="#f9f9f9"><strong>Event Category</strong></td>
-                    <td width="16%" bgcolor="#f9f9f9"><strong>Venue</strong></td>
-                    <td width="16%" bgcolor="#f9f9f9"><strong>Attending</strong></td>
-                    <td width="13%" bgcolor="#f9f9f9"><strong>Edit Event</strong></td>
-                    <td width="24%" bgcolor="#f9f9f9"><strong>Send Event Notification</strong></td>
-                    <td width="15%" height="40" bgcolor="#f9f9f9"><strong>Advertise Your Event </strong></td>
-                  </tr>
-                  <tr>
-                    <td width="16%" height="40" rowspan="2" align="left" valign="top" bgcolor="#fff"><div><img src="../assets/images/post-images/15.jpg" class="img-responsive img-thumbnail" alt=""></div>
-                      <strong style="font-size:16px; color:#fc6653;">!Summer 2017</strong><br>
-                      Seminar/ Conferences</td>
-                    <td rowspan="2" align="left" valign="top" bgcolor="#fff"><strong>Grace Convection Center</strong><br>
-                      1234  Fire Street Houston<br>
-                      Texas 77777<br>
-                      13th- 14th  January 2017<br>
-                      09:00 AM</td>
-                    <td height="40" rowspan="2" align="left" valign="top" bgcolor="#fff"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <tbody>
-                          <tr>
-                            <td height="30"><strong>Registered</strong></td>
-                          </tr>
-                          <tr>
-                            <td height="30"><img src="../assets/images/profile-icon.png" alt=""><strong style="font-size:22px; color:#FF7600;">1500</strong></td>
-                          </tr>
-                          <tr>
-                            <td height="30"><a href="#" data-toggle="modal" data-target=".modal-2" >Invites List</a></td>
-                          </tr>
-                        </tbody>
-                      </table></td>
-                    <td rowspan="2" align="left" valign="top" bgcolor="#fff"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <tbody>
-                          <tr>
-                            <td width="82%" height="20"><strong>Event Details</strong></td>
-                            <td width="18%" height="20"><a href="#"><img src="../assets/images/edit_icon.png" alt=""></a></td>
-                          </tr>
-                          <tr>
-                            <td height="20">&nbsp;</td>
-                            <td height="20">&nbsp;</td>
-                          </tr>
-                          <tr>
-                            <td height="20" colspan="2"><a href="#"><img src="../assets/images/delete-icon.png" alt="" width="18" height="18"> Delete Event</a></td>
-                          </tr>
-                          <tr>
-                            <td height="20"></td>
-                            <td height="20">&nbsp;</td>
-                          </tr>
-                        </tbody>
-                      </table></td>
-                    <td align="left" valign="top" bgcolor="#fff"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                        <tbody>
-                          <tr>
-                            <td align="left" valign="top" bgcolor="#f9f9f9"><select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1; font-size:13px;">
-                                <option value="day1">Send Invite Notification</option>
-                                <option value="day1">Send General Notification</option>
-                              </select></td>
-                          </tr>
-                          <tr>
-                            <td><textarea type="text" id="description" name="event_description" class="form-control" style="min-height:90px; font-size:13px;" placeholder="Type Something "></textarea></td>
-                          </tr>
-                          <tr>
-                            <td><input type="submit" class="btn-primary" value="Send"></td>
-                          </tr>
-                        </tbody>
-                      </table></td>
-                    <td height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
-                    <div class="form-group col-sm-12" style="font-size: 15px;">
-                      <label>Select Country</label>
-                      <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1; font-size:13px;">
-                        <option value="day1">Country</option>
-                        <option value="day2">Afghanistan</option>
-                        <option value="day3">Albania</option>
-                        <option value="day4">Algeria</option>
-                        <option value="day5">American Somoa</option>
-                        <option value="day6">Angola</option>
-                        <option value="day7">Antartica</option>
-                      </select>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="pull-left" style="width:25%;">
-                        <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
-                      </div>
-                      <div class="pull-left" style="width:75%;"> Wowhubb Network</div>
-                    </div>
-                      <div class="col-md-12" style="margin-bottom:10px;">
-                        <div class="pull-left" style="width:25%;">
-                          <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
-                        </div>
-                        <div class="pull-left" style="width:75%;">Specific Target Group</div>
-                      </div>
-                      <input type="submit" class="btn-primary" style="background-color:#535353;" value="Create Your Event Ads">
-                      </td>
-                  </tr>
-                  <tr>
-                    <td align="left" valign="top" bgcolor="#fff">&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td width="16%" height="40" rowspan="2" align="left" valign="top" bgcolor="#f9f9f9"><div><img src="../assets/images/post-images/16.jpg" class="img-responsive img-thumbnail" alt=""></div>
-                      <strong style="font-size:16px; color:#fc6653;">!Fabulous events</strong><br>
-                      Meeting</td>
-                    <td rowspan="2" align="left" valign="top" bgcolor="#f9f9f9"><strong>Grace Convection Center</strong><br>
-                      1234  Fire Street Houston<br>
-                      Texas 77777<br>
-                      13th- 14th  January 2017<br>
-                      09:00 AM</td>
-                    <td height="40" rowspan="2" align="left" valign="top" bgcolor="#f9f9f9"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <tbody>
-                          <tr>
-                            <td height="30"><strong>Registered</strong></td>
-                          </tr>
-                          <tr>
-                            <td height="30"><img src="../assets/images/profile-icon.png" alt=""><strong style="font-size:22px; color:#FF7600;">1000</strong></td>
-                          </tr>
-                          <tr>
-                            <td height="30"><a href="#" data-toggle="modal" data-target=".modal-2" >Invites List</a></td>
-                          </tr>
-                        </tbody>
-                      </table></td>
-                    <td rowspan="2" align="left" valign="top" bgcolor="#f9f9f9">
-                      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <tbody>
-                          <tr>
-                            <td width="82%" height="20"><strong>Event Details</strong></td>
-                            <td width="18%" height="20"><a href="#"><img src="../assets/images/edit_icon.png" alt=""></a></td>
-                          </tr>
-                          <tr>
-                            <td height="20">&nbsp;</td>
-                            <td height="20">&nbsp;</td>
-                          </tr>
-                          <tr>
-                            <td height="20" colspan="2"><a href="#"><img src="../assets/images/delete-icon.png" alt="" width="18" height="18"> Delete Event</a></td>
-                          </tr>
-                        </tbody>
-                      </table></td>
-                    <td align="left" valign="top" bgcolor="#f9f9f9"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                        <tbody>
-                          <tr>
-                            <td align="left" valign="top" bgcolor="#f9f9f9"><select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1; font-size:13px;">
-                                <option value="day1">Send Invite Notification</option>
-                                <option value="day1">Send General Notification</option>
-                              </select></td>
-                          </tr>
-                          <tr>
-                            <td><textarea type="text" id="description" name="event_description" class="form-control" style="min-height:90px; font-size:13px;" placeholder="Type Something"></textarea></td>
-                          </tr>
-                          <tr>
-                            <td><input type="submit" class="btn-primary" value="Send"></td>
-                          </tr>
-                        </tbody>
-                      </table></td>
-                    <td height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
-                    <div class="form-group col-sm-12" style="font-size: 15px;">
-                      <label>Select Country</label>
-                      <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1; font-size:13px;">
-                        <option value="day1">Country</option>
-                        <option value="day2">Afghanistan</option>
-                        <option value="day3">Albania</option>
-                        <option value="day4">Algeria</option>
-                        <option value="day5">American Somoa</option>
-                        <option value="day6">Angola</option>
-                        <option value="day7">Antartica</option>
-                      </select>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="pull-left" style="width:25%;">
-                        <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
-                      </div>
-                      <div class="pull-left" style="width:75%;"> Wowhubb Network</div>
-                    </div>
-                      <div class="col-md-12" style="margin-bottom:10px;">
-                        <div class="pull-left" style="width:25%;">
-                          <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
-                        </div>
-                        <div class="pull-left" style="width:75%;">Specific Target Group</div>
-                      </div>
-                      
-                        <input type="submit" class="btn-primary" style="background-color:#535353;" value="Create Your Event Ads">
-                      
-                      </td>
-                      
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <!-- professional event hubb edit start here -->    
 
             <div class="tab-pane fade" id="faq-cat-7"> 
             
@@ -677,15 +521,43 @@ body {
                     <td width="24%" bgcolor="#f9f9f9"><strong>Send Event Notification</strong></td>
                     <td width="15%" height="40" bgcolor="#f9f9f9"><strong>Advertise Your Event </strong></td>
                   </tr>
+                    <?php 
+                          foreach ($eventhubbfeed as $feeds) 
+                          {
+                            
+                            if($feeds->eventtype == 'professional_event')
+                            {
+                          
+                    ?>
                   <tr>
-                    <td width="16%" height="40" rowspan="2" align="left" valign="top" bgcolor="#fff"><div><img src="../assets/images/post-images/5.jpg" class="img-responsive img-thumbnail" alt=""></div>
-                      <strong style="font-size:16px; color:#fc6653;">!Worship Explosion</strong><br>
-                      Music Program</td>
-                    <td rowspan="2" align="left" valign="top" bgcolor="#fff"><strong>Grace Convection Center</strong><br>
-                      1234  Fire Street Houston<br>
-                      Texas 77777<br>
-                      13th- 14th  January 2017<br>
-                      09:00 AM</td>
+                    <td width="16%" height="40" rowspan="2" align="left" valign="top" bgcolor="#fff"> 
+                      <div>
+                          <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->coverpage; ?>" class="img-responsive img-thumbnail" alt="">
+                      </div>
+                      <?php if(isset($feeds->eventtitle)) { echo $feeds->eventtitle; } else{ echo "";} ?>                     
+                    </td>
+
+                    <td rowspan="2" align="left" valign="top" bgcolor="#fff">
+                            <strong>
+                                    <?php
+
+                                       $i=0;
+
+                                        foreach ($feeds->eventvenue as $eventvenues)
+                                         {
+                                              if($i==0 && $eventvenues->eventvenuenumber == "1" )
+                                              {
+                                                if(isset($eventvenues->eventvenuecity))
+                                                {
+                                                  echo   $eventvenues->eventvenuename.", ".$eventvenues->eventvenuecity.", ".$eventvenues->eventvenueaddress1.", ".$eventvenues->eventvenuezipcode;
+                                                }
+                                              }  
+                                              $i++;                             
+                                          }                                    
+                                    ?>
+                            </strong>
+                    </td>
+
                     <td height="40" rowspan="2" align="left" valign="top" bgcolor="#fff"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tbody>
                           <tr>
@@ -710,7 +582,160 @@ body {
                             <td height="20">&nbsp;</td>
                           </tr>
                           <tr>
-                            <td height="20" colspan="2"><a href="#"><img src="../assets/images/delete-icon.png" alt="" width="18" height="18"> Delete Event</a></td>
+                            <td height="20" colspan="2">
+                              <form class="delete_event" action="<?php echo base_url('eventhubb/delete_event'); ?>" method="POST" >
+                                <input type="hidden" name="event_id" value="<?php echo $feeds->_id; ?>">
+                                <input type="submit" class="btn-primary" id="delete_btn_pro" value="Delete Event">
+                              </form>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td height="20"></td>
+                            <td height="20">&nbsp;</td>
+                          </tr>
+                        </tbody>
+                      </table></td>
+                    <td align="left" valign="top" bgcolor="#fff"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                          <tr>
+                            <td align="left" valign="top" bgcolor="#f9f9f9"><select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1; font-size:13px;">
+                                <option value="">Send Invite Notification</option>
+                                <option value="">Send General Notification</option>
+                              </select></td>
+                          </tr>
+                          <tr>
+                            <td><textarea type="text" id="description" name="event_description" class="form-control" style="min-height:90px; font-size:13px;" placeholder="Type Something "></textarea></td>
+                          </tr>
+                          <tr>
+                            <td><input type="submit" class="btn-primary" value="Send"></td>
+                          </tr>
+                        </tbody>
+                      </table></td>
+                    <td height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
+                    <div class="form-group col-sm-12" style="font-size: 15px;">
+                      <label>Select Country</label>
+                      <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1; font-size:13px;">
+                        <option value="">Country</option>
+                        <option value="">Afghanistan</option>
+                        <option value="">Albania</option>
+                        <option value="">Algeria</option>
+                        <option value="">American Somoa</option>
+                        <option value="">Angola</option>
+                        <option value="">Antartica</option>
+                      </select>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="pull-left" style="width:25%;">
+                        <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+                      </div>
+                      <div class="pull-left" style="width:75%;"> Wowhubb Network</div>
+                    </div>
+                      <div class="col-md-12" style="margin-bottom:10px;">
+                        <div class="pull-left" style="width:25%;">
+                          <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+                        </div>
+                        <div class="pull-left" style="width:75%;">Specific Target Group</div>
+                      </div>
+                      <input type="submit" class="btn-primary" style="background-color:#535353;" value="Create Your Event Ads">
+                      </td>
+                  </tr>
+                  <tr>
+                    <td align="left" valign="top" bgcolor="#fff">&nbsp;</td>
+                  </tr> 
+
+                   <?php } } ?>                   
+
+                </tbody>
+              </table>
+             
+            </div>
+
+          <!-- professional event hubb edit end here -->
+
+
+        <!-- social event hubb to edit here -->
+
+            <div class="tab-pane fade" id="faq-cat-6">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pnl-brdr-clr">
+                <tbody>
+                  <tr style="font-size:16px;">
+                    <td height="40" bgcolor="#f9f9f9"><strong>Event Category</strong></td>
+                    <td width="16%" bgcolor="#f9f9f9"><strong>Venue</strong></td>
+                    <td width="16%" bgcolor="#f9f9f9"><strong>Attending</strong></td>
+                    <td width="13%" bgcolor="#f9f9f9"><strong>Edit Event</strong></td>
+                    <td width="24%" bgcolor="#f9f9f9"><strong>Send Event Notification</strong></td>
+                    <td width="15%" height="40" bgcolor="#f9f9f9"><strong>Advertise Your Event </strong></td>
+                  </tr>
+                  <!-- social event start here -->
+                  <?php 
+                          foreach ($eventhubbfeed as $feeds) 
+                          {
+                            
+                            if($feeds->eventtype == 'socia1_event')
+                            {
+                          
+                    ?>
+
+                  <tr>
+                    <td width="16%" height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
+                          <div><img src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->coverpage; ?>" class="img-responsive img-thumbnail" alt="">
+                          </div>
+                          <strong style="font-size:16px; color:#fc6653;">
+                            <?php if(isset($feeds->eventtitle)) { echo $feeds->eventtitle; } else{ echo "";} ?>
+                              
+                          </strong>
+                    </td>
+                    <td rowspan="2" align="left" valign="top" bgcolor="#fff">
+                            <strong>
+                                    <?php
+
+                                       $i=0;
+
+                                        foreach ($feeds->eventvenue as $eventvenues)
+                                         {
+                                              if($i==0 && $eventvenues->eventvenuenumber == "1" )
+                                              {
+                                                if(isset($eventvenues->eventvenuecity))
+                                                {
+                                                  echo   $eventvenues->eventvenuename.", ".$eventvenues->eventvenuecity.", ".$eventvenues->eventvenueaddress1.", ".$eventvenues->eventvenuezipcode;
+                                                }
+                                              }  
+                                              $i++;                             
+                                          }                                    
+                                    ?>
+                            </strong>
+                    </td>
+
+                    <td height="40" rowspan="2" align="left" valign="top" bgcolor="#fff"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tbody>
+                          <tr>
+                            <td height="30"><strong>Registered</strong></td>
+                          </tr>
+                          <tr>
+                            <td height="30"><img src="../assets/images/profile-icon.png" alt=""><strong style="font-size:22px; color:#FF7600;">1500</strong></td>
+                          </tr>
+                          <tr>
+                            <td height="30"><a href="#" data-toggle="modal" data-target=".modal-2" >Invites List</a></td>
+                          </tr>
+                        </tbody>
+                      </table></td>
+                    <td rowspan="2" align="left" valign="top" bgcolor="#fff"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tbody>
+                          <tr>
+                            <td width="82%" height="20"><strong>Event Details</strong></td>
+                            <td width="18%" height="20"><a href="#"><img src="../assets/images/edit_icon.png" alt=""></a></td>
+                          </tr>
+                          <tr>
+                            <td height="20">&nbsp;</td>
+                            <td height="20">&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td height="20" colspan="2">
+                              <form class="delete_event" action="<?php echo base_url('eventhubb/delete_event'); ?>" method="POST" >
+                                <input type="hidden" name="event_id" value="<?php echo $feeds->_id; ?>">
+                                <input type="submit" class="btn-primary"  id="delete_btn_social" value="Delete Event">
+                              </form>
+                            </td>
                           </tr>
                           <tr>
                             <td height="20"></td>
@@ -765,94 +790,15 @@ body {
                   <tr>
                     <td align="left" valign="top" bgcolor="#fff">&nbsp;</td>
                   </tr>
-                  <tr>
-                    <td width="16%" height="40" rowspan="2" align="left" valign="top" bgcolor="#f9f9f9"><div><img src="../assets/images/post-images/6.jpg" class="img-responsive img-thumbnail" alt=""></div>
-                      <strong style="font-size:16px; color:#fc6653;">!Excellent 3PM</strong><br>
-                      Convention/ Meeting</td>
-                    <td rowspan="2" align="left" valign="top" bgcolor="#f9f9f9"><strong>Grace Convection Center</strong><br>
-                      1234  Fire Street Houston<br>
-                      Texas 77777<br>
-                      13th- 14th  January 2017<br>
-                      09:00 AM</td>
-                    <td height="40" rowspan="2" align="left" valign="top" bgcolor="#f9f9f9"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <tbody>
-                          <tr>
-                            <td height="30"><strong>Registered</strong></td>
-                          </tr>
-                          <tr>
-                            <td height="30"><img src="../assets/images/profile-icon.png" alt=""><strong style="font-size:22px; color:#FF7600;">1000</strong></td>
-                          </tr>
-                          <tr>
-                            <td height="30"><a href="#">Invites List</a></td>
-                          </tr>
-                        </tbody>
-                      </table></td>
-                    <td rowspan="2" align="left" valign="top" bgcolor="#f9f9f9"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <tbody>
-                          <tr>
-                            <td width="82%" height="20"><strong>Event Details</strong></td>
-                            <td width="18%" height="20"><a href="#"><img src="../assets/images/edit_icon.png" alt=""></a></td>
-                          </tr>
-                          <tr>
-                            <td height="20">&nbsp;</td>
-                            <td height="20">&nbsp;</td>
-                          </tr>
-                          <tr>
-                            <td height="20" colspan="2"><a href="#"><img src="../assets/images/delete-icon.png" alt="" width="18" height="18"> Delete Event</a></td>
-                          </tr>
-                        </tbody>
-                      </table></td>
-                    <td align="left" valign="top" bgcolor="#f9f9f9"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                        <tbody>
-                          <tr>
-                            <td align="left" valign="top" bgcolor="#f9f9f9"><select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1; font-size:13px;">
-                                <option value="day1">Send Invite Notification</option>
-                                <option value="day1">Send General Notification</option>
-                              </select></td>
-                          </tr>
-                          <tr>
-                            <td><textarea type="text" id="description" name="event_description" class="form-control" style="min-height:90px; font-size:13px;" placeholder="Type Something"></textarea></td>
-                          </tr>
-                          <tr>
-                            <td><input type="submit" class="btn-primary" value="Send"></td>
-                          </tr>
-                        </tbody>
-                      </table></td>
-                    <td height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
-                    <div class="form-group col-sm-12" style="font-size: 15px;">
-                      <label>Select Country</label>
-                      <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1; font-size:13px;">
-                        <option value="day1">Country</option>
-                        <option value="day2">Afghanistan</option>
-                        <option value="day3">Albania</option>
-                        <option value="day4">Algeria</option>
-                        <option value="day5">American Somoa</option>
-                        <option value="day6">Angola</option>
-                        <option value="day7">Antartica</option>
-                      </select>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="pull-left" style="width:25%;">
-                        <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
-                      </div>
-                      <div class="pull-left" style="width:75%;"> Wowhubb Network</div>
-                    </div>
-                      <div class="col-md-12" style="margin-bottom:10px;">
-                        <div class="pull-left" style="width:25%;">
-                          <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
-                        </div>
-                        <div class="pull-left" style="width:75%;">Specific Target Group</div>
-                      </div>
-                      
-                        <input type="submit" class="btn-primary" style="background-color:#535353;" value="Create Your Event Ads">
-                      
-                      </td>
-                      
-                  </tr>
+                   <?php } } ?>     
+
                 </tbody>
               </table>
             </div>
 
+        <!-- social event end here -->
+          
+            <!-- business event hubb start here -->
             <div class="tab-pane fade" id="faq-cat-8"> 
 
                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pnl-brdr-clr">
@@ -866,20 +812,53 @@ body {
                     <td bgcolor="#f9f9f9"><strong>Wowtag</strong></td>
                     <td height="40" bgcolor="#f9f9f9"><strong>Delete </strong></td>
                   </tr>
+                  <!-- business event start here -->
+
+                    <?php 
+                          foreach ($eventhubbfeed as $feeds) 
+                          {
+                            
+                            if($feeds->eventtype == 'business_event')
+                            {
+                          
+                    ?>
+
                   <tr style="font-size:16px;">
-                    <td height="40" colspan="2" bgcolor="#f9f9f9"><strong>Hosted by !BlackFridaySales</strong><strong></strong></td>
-                    <td width="9%" bgcolor="#f9f9f9">&nbsp;</td>
-                    <td width="19%" bgcolor="#f9f9f9">&nbsp;</td>
-                    <td width="20%" bgcolor="#f9f9f9">&nbsp;</td>
-                    <td width="13%" bgcolor="#f9f9f9">&nbsp;</td>
-                    <td width="7%" height="40" bgcolor="#f9f9f9">&nbsp;</td>
+                    <td height="40" colspan="2" bgcolor="#f9f9f9"><strong>
+                        <?php if(isset($feeds->eventtitle)) { echo $feeds->eventtitle; } else{ echo "";} ?>
+                    </strong></td>
+                    
                   </tr>
                   <tr>
-                    <td width="14%" height="40" rowspan="2" align="left" valign="top" bgcolor="#fff"><div><img src="../assets/images/target-1.jpg" class="img-responsive img-thumbnail" alt=""></div>
-                      <strong style="font-size:16px; color:#fc6653;">Target	</strong><br>
-                      Birthday</td>
-                    <td rowspan="2" align="left" valign="top" bgcolor="#fff"><img src="../assets/images/sales-1.png" class="img-responsive img-thumbnail" alt=""><br>
-                    <a href="#">www.target.coupon/Blacksales</a></td>
+                    <td width="14%" height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
+                      <div>
+                              <!-- sponsor logo show here -->
+                                <?php
+                                      if(isset($feeds->sponsorslogo) && ($feeds->sponsorslogo != 'null') )
+                                      {
+                                ?> 
+                                    <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->sponsorslogo; ?>" class="img-responsive img-thumbnail" alt="">
+
+                                <?php } ?>
+                      </div>
+                          <strong style="font-size:16px; color:#fc6653;">
+                            <?php if(isset($feeds->organisationname)) { echo $feeds->organisationname; } else{ echo "";} ?>
+                              
+                          </strong>
+                    </td>
+                    <td rowspan="2" align="left" valign="top" bgcolor="#fff">
+                              <!-- cover image show here -->
+                                <?php
+                                      if(isset($feeds->coverpage) && ($feeds->coverpage != 'null') )
+                                      {
+                                ?> 
+                                  <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->coverpage; ?>" class="img-responsive img-thumbnail" alt="">
+                                <?php } ?>
+                      <br>
+                       <a href="#">                         
+                        <?php if(isset($feeds->onlinesalespromotionurl)) { echo $feeds->onlinesalespromotionurl; } else{ echo "";} ?>                  
+                       </a>
+                  </td>
                     <td height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
                       <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tbody>
@@ -926,31 +905,66 @@ body {
 
                         <tbody>
                           <tr>
-                            <td align="left" valign="top" bgcolor="#f9f9f9"><a href="#"><img src="../assets/images/create-event-icon-2.png" alt=""></a></td>
+                            <td align="center" valign="top" bgcolor="#f9f9f9"><a href="#"><img src="../assets/images/create-event-icon-2.png" alt=""></a></td>
                           </tr>
                           <tr>
-                            <td>02/21/2018</td>
+                            <td align="center" > 
+                              <?php 
+                                 if(isset($feeds->eventsalescouponfrom1)) 
+                                  { 
+                                    echo $feeds->eventsalescouponfrom1." to ".$feeds->eventsalescouponto1; 
+                                  }
+                                   else{ echo "";}
+                              ?>
+                               
+                             </td>
                           </tr>
                           <tr>
                             <td>&nbsp;</td>
                           </tr>
                         </tbody>
                       </table></td>
-                    <td rowspan="2" align="center" valign="top" bgcolor="#fff"><a href="#"><iframe width="200" height="115" src="https://www.youtube.com/embed/HbPcjwKH0HM" frameborder="0"  encrypted-media allowfullscreen></iframe><br>
-                      Update </a></td>
-                    <td height="40" rowspan="2" align="center" valign="top" bgcolor="#fff"><input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
-                      <br>
-                      Promote</td>
+                    <td rowspan="2" align="center" valign="top" bgcolor="#fff">
+                      <a href="#">
+                        <!-- wowtag video show here -->
+                                <?php
+                                      if(isset($feeds->wowtagvideo) && ($feeds->wowtagvideo != 'null') )
+                                      {
+                                 ?> 
+
+                                      <div class="video">
+                                          <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
+                                               <source src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->wowtagvideo; ?>" type="video/mp4">
+                                          </video>
+                                      </div>
+
+                                <?php  } ?>
+                       
+                      </a>
+                    </td>   
+
+                      <!--event  delete option here -->
+                       <td height="40" rowspan="2" align="center" valign="top" bgcolor="#f9f9f9">
+                        <form class="delete_event" action="<?php echo base_url('eventhubb/delete_event'); ?>" method="POST" >
+                          <input type="hidden" name="event_id" value="<?php echo $feeds->_id; ?>">
+                          <input type="submit" id="delete_btn" class="btn-primary" value="Delete Event" >
+                        </form>
+                          <!-- <a href="#" class="delete_event"> -->
+                            <!-- <img src="<?php echo base_url('assets/images/delete-btn.png') ?>" alt=""> -->
+                          <!-- </a> -->
+                        </td>
                   </tr>
+
                   <tr>
                     <td align="left" valign="top" bgcolor="#fff">&nbsp;</td>
                   </tr>
+
+                  <?php }  } ?>
                 </tbody>
               </table>
-
-
-
             </div>
+
+            <!-- business event end here -->
 
              <div class="tab-pane fade" id="faq-cat-9">
               <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pnl-brdr-clr">
@@ -1119,6 +1133,7 @@ body {
                   </tr>
                 </tbody>
               </table>
+
             </div>
 
           </div>
@@ -1219,6 +1234,7 @@ body {
                 </tbody>
               </table>
         </div>
+
         <div class="tab-pane fade" id="faq-cat-3">
         <div class="col-md-12 text-center clr" style="margin-top:10px; margin-bottom:20px;">
             <h4 style="color:#fff; line-height:30px;">Event Hubb<br>
@@ -2009,11 +2025,24 @@ body {
 <!--<script src="<?php echo base_url('assets/js/jquery-1.12.4.js')?>"></script> -->
 <script src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script> 
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
+<script src="<?php echo base_url('assets/js/videopopup.js')?>" ></script> 
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script>   
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.js')?>"></script>   
 <script src="<?php echo base_url('assets/js/moment.js')?>"></script> 
 <script src="<?php echo base_url('assets/js/bootbox.js')?>"></script> <!-- conformation delete boot box -->
+
+
 <script>
+
+
+//video controls hide and show mouse hover  
+    $('.myvideo').hover(function toggleControls() {  
+    if (this.hasAttribute("controls")) {
+        this.removeAttribute("controls")
+    } else {
+        this.setAttribute("controls", "controls")
+    }
+})
 
 //user_id could pass to model popup using popup id
 $('#modal-eventdetails').on('show.bs.modal', function(e) 

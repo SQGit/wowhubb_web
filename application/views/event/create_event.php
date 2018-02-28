@@ -1511,7 +1511,7 @@ input[type=number]::-webkit-outer-spin-button {
 <script src="<?php echo base_url('assets/js/moment.js')?>"></script> 
  
 <!-- model popup bootstrap --> 
-<!-- <script src="<?php echo base_url('assets/js/bootstrap3.3.4.min.js')?>"></script> -->
+<script src="<?php echo base_url('assets/js/bootstrap3.3.4.min.js')?>"></script> 
 
 <script>
 	

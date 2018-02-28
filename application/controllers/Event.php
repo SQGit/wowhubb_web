@@ -956,14 +956,14 @@ public function professional_multicity_event()
 		    		
 					$this->rest->http_header('token',  $this->session->userdata('token'));
 
-	    	  		$url_count = count ($_POST['url_ticketurl']);	 
-	    	  		$engagementurl=array() ;	
+	    	  // 		$url_count = count ($_POST['url_ticketurl']);	 
+	    	  // 		$engagementurl=array() ;	
 	    	  		
 
-	   				for($i=0; $i<$url_count; $i++)
-	   				{
-	   						array_push($engagementurl, array('url' =>$_POST['url_ticketurl'][$i],'country' =>$_POST['url_country'][$i], 'checked' =>$_POST['ticket_url_check'][$i] ) );
-	   				}
+	   				// for($i=0; $i<$url_count; $i++)
+	   				// {
+	   				// 		array_push($engagementurl, array('url' =>$_POST['url_ticketurl'][$i],'country' =>$_POST['url_country'][$i], 'checked' =>$_POST['ticket_url_check'][$i] ) );
+	   				// }
 
 	    	  		$event_contact = array( 
 	    	  					'eventid' 		    => $this->session->userdata('id'),
@@ -971,9 +971,9 @@ public function professional_multicity_event()
 	    						'engagementformaction' => $this->input->post('action_btn2'),
 	    	  					'donationsurl'      => $this->input->post('url_donation_url'),	
 	    	  				    'websiteurl'    	=> $this->input->post('url_website_url'),
-	    					    'eventnolinks'   	=> $this->input->post('url_donthave_link'),
+	    					    'eventnolinks'   	=> $this->input->post('url_donthave_link')
 	    						// 'engagementurl'   	=> $this->input->post('audience_wowtag_id'),
-	    						'engagementurl'   	=> 	$engagementurl
+	    						// 'engagementurl'   	=> 	$engagementurl
 	    									
 	    						);		
 

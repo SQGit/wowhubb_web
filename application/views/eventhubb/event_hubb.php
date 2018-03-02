@@ -379,7 +379,7 @@ body {
                                 <form action="<?php echo base_url('eventhubb/get_eventdetails'); ?>" id="event_details" method="POST"> 
                                   <!-- <a href="#modal-eventdetails" data-toggle="modal" data-id='<?php echo $feeds->_id; ?>'>  -->
                                     <strong>
-                                      <a href="#">
+                                      <a href="#" style="color: #000;">
                                      <textarea style= "display: none;"  name="details"><?= json_encode($feeds); ?>
                                      </textarea>
                                       <!-- <input type="text" name="userid" value="<?php echo $feeds->_id; ?>" > -->
@@ -392,7 +392,7 @@ body {
                           <tr>
                             <td height="20">
                               <strong>
-                                <a href="#">
+                                <a href="#" style="color: #000;">
                                   <form action="<?php echo base_url('eventhubb/get_eventwowtag'); ?>" id="event_details" method="POST">
                                      <textarea style= "display: none;"  name="details"><?= json_encode($feeds); ?>
                                      </textarea>
@@ -407,7 +407,7 @@ body {
                           <tr>
                             <td height="20">
                               <strong>
-                                <a href="#">
+                                <a href="#" style="color: #000;">
                                     <form action="<?php echo base_url('eventhubb/get_eventvenue'); ?>" id="event_details" method="POST">
                                        <textarea style= "display: none;" name="details"><?= json_encode($feeds); ?>
                                        </textarea>
@@ -422,7 +422,7 @@ body {
                           <tr>
                             <td height="20">
                                 <strong>
-                                <a href="#">
+                                <a href="#" style="color: #000;">
                                    <form action="#" id="event_details" method="POST">
                                       
                                         <input type="submit" style="border: none; background: transparent;" value="Event Schedule">
@@ -436,7 +436,7 @@ body {
                           <tr>
                             <td height="20">
                               <strong>
-                                <a href="#">
+                                <a href="#" style="color: #000;">
                                     <form action="<?php echo base_url('eventhubb/get_eventhighlight'); ?>" id="event_details" method="POST">
                                        <textarea style="display: none;" name="details"><?= json_encode($feeds); ?>
                                        </textarea>
@@ -450,7 +450,7 @@ body {
                           <tr>
                             <td height="20">
                               <strong>
-                              <a href="#">
+                              <a href="#" style="color: #000;">
                                     <form action="<?php echo base_url('eventhubb/get_eventcontact'); ?>" id="event_details" method="POST">
                                        <textarea style= "display: none;" name="details"><?= json_encode($feeds); ?>
                                        </textarea>
@@ -862,9 +862,7 @@ body {
                     <td height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
                       <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tbody>
-                          <tr>
-                            <td height="30" align="center" valign="middle"><strong style="font-size:16px;">RSVP</strong></td>
-                          </tr>
+                          
                           <tr>
                             <td height="30"><img src="../assets/images/profile-icon.png" alt=""><strong style="font-size:22px; color:#FF7600;">1500</strong></td>
                           </tr>
@@ -1427,7 +1425,7 @@ body {
                                  <div class="row" style="padding:10px;">                           
                   <form action="" method="post"  id="personal_update_aboutme" class="form-inline">                           
                     <div class="row">  
-                      <div class="col-md-2">
+                      <div class="col-md-4">
                            <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                              <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
                              <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>                            
@@ -1435,12 +1433,12 @@ body {
                             <div style="font-size:11px;">Account Manager</div> 
                               <div style="font-size:12px; color: #e91e63;">!emeka  </div>
                                Houston
-                             <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>                     
+                             <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>           
                        
                            </div>
                       </div>
 
-                        <div class="col-md-2">
+                        <div class="col-md-4">
                            <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                              <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
                              <div style="font-size:15px; font-weight:bold; line-height: 15px;">Emeka </div>                            
@@ -1453,7 +1451,7 @@ body {
                            </div>
                        </div>
 
-                      <div class="col-md-2">
+                      <div class="col-md-4">
                            <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                              <div class="col-md-12 text-center"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
                              <div style="font-size:15px; font-weight:bold; line-height: 15px;"> Emeka Daniells</div>                            
@@ -1466,7 +1464,7 @@ body {
                            </div>
                       </div>
 
-                      <div class="col-md-2">
+                      <div class="col-md-4">
                            <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                              <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
                              <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>
@@ -1480,7 +1478,7 @@ body {
                            </div>
                       </div>
 
-                      <div class="col-md-2">
+                      <div class="col-md-4">
                            <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                              <div class="col-md-12 text-center"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
                              <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>
@@ -1494,7 +1492,7 @@ body {
                            </div>
                       </div>
 
-                      <div class="col-md-2">
+                      <div class="col-md-4">
                            <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                              <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
                              <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>
@@ -1512,7 +1510,7 @@ body {
 
                       <!-- end first -->
                     <div class="row" style="margin-top: 20px;">
-                        <div class="col-md-2">
+                        <div class="col-md-4">
                            <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                              <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
                              <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>                            
@@ -1525,7 +1523,7 @@ body {
                            </div>
                     </div>
 
-                        <div class="col-md-2">
+                        <div class="col-md-4">
                            <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                              <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
                              <div style="font-size:15px; font-weight:bold; line-height: 15px;">Emeka </div>                            
@@ -1538,7 +1536,7 @@ body {
                            </div>
                        </div>
 
-                      <div class="col-md-2">
+                      <div class="col-md-4">
                            <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                              <div class="col-md-12 text-center"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
                              <div style="font-size:15px; font-weight:bold; line-height: 15px;"> Emeka Daniells</div>                            
@@ -1551,7 +1549,7 @@ body {
                            </div>
                       </div>
 
-                      <div class="col-md-2">
+                      <div class="col-md-4">
                            <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                              <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
                              <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>
@@ -1565,7 +1563,7 @@ body {
                            </div>
                       </div>
 
-                      <div class="col-md-2">
+                      <div class="col-md-4">
                            <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                              <div class="col-md-12 text-center"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
                              <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>
@@ -1579,7 +1577,7 @@ body {
                            </div>
                       </div>
 
-                      <div class="col-md-2">
+                      <div class="col-md-4">
                            <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                              <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
                              <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>
@@ -1596,7 +1594,7 @@ body {
                       <!-- end second row -->
                       <div class="row" style="margin-top: 20px;">
 
-                        <div class="col-md-2">
+                        <div class="col-md-4">
                            <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                              <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
                              <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>                            
@@ -1609,7 +1607,7 @@ body {
                            </div>
                           </div>
 
-                          <div class="col-md-2">
+                          <div class="col-md-4">
                            <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                              <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
                              <div style="font-size:15px; font-weight:bold; line-height: 15px;">Emeka </div>                            
@@ -1622,7 +1620,7 @@ body {
                            </div>
                           </div>
 
-                          <div class="col-md-2">
+                          <div class="col-md-4">
                            <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                              <div class="col-md-12 text-center"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
                              <div style="font-size:15px; font-weight:bold; line-height: 15px;"> Emeka Daniells</div>                            
@@ -1635,7 +1633,7 @@ body {
                            </div>
                           </div>
 
-                          <div class="col-md-2">
+                          <div class="col-md-4">
                            <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                              <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
                              <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>
@@ -1649,7 +1647,7 @@ body {
                            </div>
                           </div>
 
-                          <div class="col-md-2">
+                          <div class="col-md-4">
                            <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                              <div class="col-md-12 text-center"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
                              <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>
@@ -1663,7 +1661,7 @@ body {
                            </div>
                           </div>
 
-                          <div class="col-md-2">
+                          <div class="col-md-4">
                            <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                              <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
                              <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>

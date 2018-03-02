@@ -9,9 +9,9 @@
 
     <!-- Stylesheets
     ================================================= -->
-		<link rel="stylesheet" href="<?php echo base_url ('assets/css/bootstrap.min.css') ?>" />
-		<link rel="stylesheet" href="<?php echo base_url ('assets/css/style.css') ?>" />
-		<link rel="stylesheet" href="<?php echo base_url ('assets/css/ionicons.min.css') ?>" />
+	<link rel="stylesheet" href="<?php echo base_url ('assets/css/bootstrap.min.css') ?>" />
+	<link rel="stylesheet" href="<?php echo base_url ('assets/css/style.css') ?>" />
+	<link rel="stylesheet" href="<?php echo base_url ('assets/css/ionicons.min.css') ?>" />
     <link rel="stylesheet" href="<?php echo base_url ('assets/css/font-awesome.min.css') ?>" />
     <link rel="stylesheet" href="<?php echo base_url ('assets/js/sweetalert.css')?>" />
      <!-- magnific-popup image-->
@@ -141,10 +141,16 @@ ul li {
   display: none;
 }
 #calendar {
-    max-width: 900px;
+    width: 100%;
     margin: 0 auto;
   }
-
+video {
+    position: relative; 
+    top: 15%;
+    left: 0;
+    width: 100%;
+    opacity: 1 !important;
+}
 </style>
 
 	</head>
@@ -205,7 +211,7 @@ ul li {
                 <img  src="http://104.197.80.225:3010/wow/media/personal/<?php echo $cover; ?>"  style="background-size:cover; width:100%; max-height:300px;"/>
                 <?php }   else{   ?>
               <img src="<?php echo base_url('assets/images/covers/1.jpg')?>" style="background-size:cover; width:100%; max-height:300px;" >
-                <?php }  ?> ;
+                <?php }  ?>
                     
       <!--Timeline Menu for Large Screens-->
 
@@ -230,7 +236,8 @@ ul li {
                 <?php
                        } 
                 ?>
-                            
+               
+             
             </div>
           </div>
 
@@ -240,9 +247,9 @@ ul li {
               <p style="color:#fff;" class="text-muted"><?php echo $this->session->userdata('designation'); ?></p>
             </div>
             <ul class="list-inline profile-menu">
-              <li><a href="<?php echo base_url ('event/profile_get_eventfeed'); ?>" class="active">Event Feed</a></li>
+              <li><a href="<?php echo base_url ('event/profile_get_eventfeed') ?>" class="active">Event Feed</a></li>
               <li><a href="<?php echo base_url('Profile/profile_get'); ?>" > Profile</a></li>
-              <li><a href="<?php echo base_url ('home/interest_get'); ?>" > Interests</a></li>
+              <li><a href="<?php echo base_url ('home/interest_get') ?>" > Interests</a></li>
               <li><a href="#">Friend Connections</a></li>
               <li><a href="#">Eventhubb</a></li>
               <li><a href="#">Photos</a></li>
@@ -276,10 +283,11 @@ ul li {
       <!--Timeline Menu for Small Screens End--> 
       
     </div>
+<div id="page-contents" style="border:1px solid #e6e6e6; background-color: #fff; padding-top: 15px; margin-top:15px;">
+      <div class="row">
+   <div class="col-md-3" style="width:20%;">
 
-   <div class="col-md-3">
-
-        <div class="profile-card">
+        <div class="profile-card" style="margin-left:10px;">
 
             <div style="width:100%; float:left;">
               <?php 
@@ -290,21 +298,21 @@ ul li {
                
                  <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo" />
                  <?php } ?>
-                <span class="text-white" style="margin-top:5px; font-size:18px;"><?php echo $this->session->userdata('first_name')." ".$this->session->userdata('last_name'); ?>        
+                <span class="text-white" style="margin-top:5px; font-size:17px;"><?php echo $this->session->userdata('first_name')." ".$this->session->userdata('last_name'); ?>        
                 </span>
 
-                    <p>
+                    <div style="margin-left:65px;">
                         <?php 
                            if(!is_null($this->session->userdata('designation')))
                            { echo $this->session->userdata('designation');  }
                             else { echo " ";} 
                         ?>                              
-                    </p>
+                    </div>
              </div>
 
           <div style="font-size:20px; color:#fff; margin-top:-20px; width:100%; float:right; text-align:right;"><a href="#"> &nbsp;&nbsp;<i class="icon ion-arrow-right-b" style="font-size:28px; color:#fff;"></i></a> </div>
           <div class="row">
-            <div class="col-md-12 text-center" style="font-size:18px; margin-bottom:10px;">Your Network Connections</div>
+            <div class="col-md-12 text-center" style="font-size:17px; margin-bottom:10px; margin-top:15px;">Your Network Connections</div>
             <div class="col-md-12 text-center" style="font-size:22px; margin-bottom:150px;">128</div>
             <!-- <div class="col-md-12 text-center" style="font-size:22px; margin-bottom:10px;"><a href="#" style="font-size:15px; color:#fff;">Manage Your Connections</a></div> -->
           </div>
@@ -315,15 +323,15 @@ ul li {
 
          <!-- center part for event feed -->
 
-      <div class="col-md-6">   
+      <div class="col-md-6" style="width:46%;">   
 
-       <!-- thoughts  start here -->
+
+      <!-- thoughts  start here -->
                   <?php                            
                         foreach ($eventfeed as $feeds)
                           {                     
                            
                               if($feeds->eventtype == 'thought')  
-
                                 {                              
                                   // print_r($feeds);
                   ?>
@@ -362,7 +370,6 @@ ul li {
                           <div class="col-md-9">
                               <div class="col-md-2" style="width:20%;">
                                       <?php 
-
                                         if(!is_null($this->session->userdata('personal_image')))
                                           {
                                       ?>
@@ -414,11 +421,11 @@ ul li {
                       <!-- here end cover image --> 
                     <?php } 
                                       
-                            elseif(isset($feeds->thoughtsvideo) && ($feeds->thoughtsvideo != 'null') )
+                            if(isset($feeds->thoughtsvideo) && ($feeds->thoughtsvideo != 'null') )
                             {
                       ?>
             
-                    <div class="col-md-12" style="position: relative;">
+                    <div class="col-md-12" style="position: relative; margin-top: 20px;">
                       
                      <div class="video">
                                           <div class="col-md-12"> <a href="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->thoughtsvideo; ?>" >
@@ -430,7 +437,7 @@ ul li {
                                       </div>
                     </div>
 
-                    <?php } ?>
+                    <?php } else { echo " ";} ?>
 
                  
           </div>
@@ -467,7 +474,6 @@ ul li {
                                   <?php 
                                       $timestamp = strtotime($com->commentedAt);                                      
                                        $comment_date = date('Y-m-d H:i:s', $timestamp);                                
-
                                   ?>
                                  <time class="timeago" datetime="<?php echo $comment_date; ?>"></time>
                                  </span> 
@@ -586,7 +592,7 @@ ul li {
 
          <?php }  } ?> 
 
-     <!-- thoughts  end here -->     
+     <!-- thoughts  end here -->          
            
 
     <!-- personal evnt start here -->
@@ -970,7 +976,7 @@ ul li {
                                         </div>
                                   </form>
 
-                                  <div class="col-md-3 text-center">
+                                  <div class="col-md-4 text-center">
                                       <div class="dropdown"> 
                                           <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration:none; cursor:pointer; font-size:11px;">
                                             <i class="fa fa-share"></i> Shares 
@@ -984,7 +990,7 @@ ul li {
                                       </div>
                                   </div>
 
-                                  <div class="col-md-3 text-center">
+                                  <div class="col-md-2 text-center">
                                       <a class="btn text-red" style="font-size:11px;"> 
                                           <i class="fa fa-comments"></i> Comments
                                       </a> 
@@ -1417,7 +1423,7 @@ ul li {
 
                         <div class="row" style="margin-top:0px;">
                               <div class="col-md-7">
-                                  <form class="wowsome_form" action="<?php // echo base_url('event/wowsome/'.$feeds->_id); ?>" method="post">
+                                  <form class="wowsome_form" action="<?php //echo base_url('event/wowsome/'.$feeds->_id); ?>" method="post">
                                         <div class="col-md-5 text-center" style="position: relative; margin-top: -3px;">
                                             <div style="position: absolute; left: 97px; top: 3px; ">
                                                  <input type="text" style="border: none; background: transparent; color: #e91e63; font-size: 11px;" id="wow_increment" value="<?php $like = count($feeds->wowsome); echo $like; ?>">
@@ -1982,11 +1988,9 @@ ul li {
                                         
                                   <div class="post-detail" style="margin:0;"> 
 
-                                        <a href="<?php echo base_url('profile/profile_thirdparty_view/'.$feeds->userid->_id); ?>" > 
-
+                                       
                                               <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->sponsorslogo; ?>" alt="user" class="profile-photo-md pull-left" />
-                                        </a> 
-
+                                        
                                   </div>
 
                                   <?php  } else  { ?>
@@ -2340,21 +2344,20 @@ ul li {
 
             <?php }  } ?>
 
-    <!-- end business event here -->
+    <!-- end business event here -->     
 
-      </div>
-
-
-
-         <div class="col-md-3 static"> 
+     </div>
+     
+       <div class="col-md-4 static"> 
           
           <!--Sticky Timeline Activity Sidebar-->
           <div id="calendar"></div>
         </div>
+     
 
-      </div>
     </div>    
-
+</div>
+</div>
     <!-- Footer
     ================================================= -->
 
@@ -2378,7 +2381,8 @@ ul li {
 <script src="<?php echo base_url ('assets/js/jquery.min.js') ?>"></script>
 <script src="<?php echo base_url ('assets/js/fullcalendar.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script> 
-    <script>
+    
+  <script>
 
     //magnific-popup image shows
 
@@ -2392,6 +2396,16 @@ ul li {
 //     });
 // });
    
+
+  //video controls hide and show mouse hover  
+    $('.myvideo').hover(function toggleControls() {  
+    if (this.hasAttribute("controls")) {
+        this.removeAttribute("controls")
+    } else {
+        this.setAttribute("controls", "controls")
+    }
+})
+ 
  //calendar shows col-md-3
 
   $(document).ready(function() {

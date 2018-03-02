@@ -17,7 +17,7 @@
 <!-- magnific-popup image-->
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/magnific-popup.css')?>" />
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/normalize.css')?>" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url ('assets/css/videopopup.css')?>" media="screen" />
+<link rel="stylesheet" href="<?php echo base_url ('assets/css/videopopup.css')?>"/>
 <!--Google Font-->
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
@@ -198,6 +198,7 @@ video {
     width: 100%;
     opacity: 1 !important;
 }
+
 img {
     max-width: 200px;
     height: auto;
@@ -493,15 +494,17 @@ img {
         <!--chat block ends--> 
       </div>
 
-        <!-- center part for event feed -->
+        <!-- center part for event feed start here-->
 
       <div class="col-md-6"> 
         
             <div class="create-post" style="background-color: #fff; padding:10px; border-radius:5px;">
                 <div class="row">
+
+                  <!-- thought form submit here -->
                    <form id="thougths" action="<?php echo base_url('event/update_thoughts'); ?>" method="POST" enctype="multipart/form-data">
 
-                    <div class="col-md-8 col-sm-8">
+                    <div class="col-md-7 col-sm-7">
                         <div class="form-group">
                             
                             <?php if(!is_null($this->session->userdata('personal_image')))
@@ -512,58 +515,67 @@ img {
                               <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo-md" />
                             <?php } ?>             
 
-                              <textarea name="texts" id="exampleTextarea" cols="30" rows="1" class="form-control" placeholder="Share your thoughts.." style="margin-left:10px; min-height: 70px; width: 300px!important;"></textarea>
+                              <textarea name="texts" id="exampleTextarea" cols="30" rows="1" class="form-control" placeholder="Share your thoughts.." style="margin-left:10px; min-height: 70px; width: 250px!important;"></textarea>
                         </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-md-5 col-sm-5">
 
                      <!-- thoughts update here -->
                     
                       <div class="tools pull-left">
                         <ul class="publishing-tools list-inline">                         
-                          <li>
-                             
-                              <img src='../assets/images/image-icon.png' alt="user" id="upfile1" style="cursor:pointer" />
-                           
+                          <li>                             
+                              <img src='<?php echo base_url('assets/images/link-icon.png'); ?>' alt="user" id="url_link" style="cursor:pointer" />                           
+                          </li>
+                          
+                          <li>                             
+                              <img src='<?php echo base_url('assets/images/image-icon.png'); ?>' alt="user" id="upfile1" style="cursor:pointer" />                           
                           </li>
 
                           <li>
                             <a href="#">
-
                               <input type="file" name="thought_video" id="video_size" class=" file" accept="video/*" style="display:none" >
-                              <img src="<?php echo base_url('assets/images/video-icon.png'); ?>" alt="user" id="upfile2" style="cursor:pointer"/>
-
-                                
-
+                              <img src="<?php echo base_url('assets/images/video-icon.png'); ?>" alt="user" id="upfile2" style="cursor:pointer"/>  
                             </a>
                           </li>
 
                         </ul>
                       </div>
 
-                       <div class="tools pull-right">
+                      <div class="tools pull-right">
                         <input type="submit" name="thoughts" class="btn btn-primary-1 pull-right" style="margin-top:3px;" value="Publish" >
+                      </div>                 
+                           
+
+                    </div>
+
+                      <div class="col-md-12" style="margin-top: 20px; margin-bottom: 20px; display: none;" id="show_text" >
+                          <input type="text" class="form-control" name="thought_url_link" placeholder="Enter URL Link">
                       </div>
-                      
-                      <div class="col-md-12"> <!-- image upload here -->
+
+                      <div class="col-md-12" style="margin-top: 20px; margin-bottom: 20px;" > <!-- image upload here -->
+                          <div class="col-md-6">
                            <input type="hidden" onclick="document.getElementById('file1').click();" />
-                           <input type="file" id="file1" name="thought_img" accept="image/*" style="display:none">  
-                                  <div id="video_show" style="display: none;" >
-                                     <video width="200" height="150" controls>
-                                          <source src="mov_bbb.mp4" id="video_here">
+                           <input type="file" id="file1" name="thought_img" accept="image/*" style="display:none"> 
+                          </div>
+
+                          <div class="col-md-6"> 
+                                  <div id="video_show"  style="display: none;" >
+                                      <video width="200" height="150" controls>
+                                          <source src="mov_bbb.mp4" id="video_here" class="remove_video">
                                                 Your browser does not support HTML5 video.
                                       </video>
                                   </div> 
-                      </div>                   
-             
-
-                    </div>
+                                  <!--  <div style="position:absolute; right:203px; top:0px;"><a href="#" class="delete"><i class="glyphicon glyphicon-remove"></i></a></div> -->
+                          </div>
+                      </div>      
                 </form>
+                <!-- thought form submit end here -->
 
                     <!-- start today end with shows array_slice 4 event name -->
-                  <div class="todayevent_show"> 
-                    <div class=" col-md-12">
+                  <div class="todayevent_show" > 
+                    <div class=" col-md-12" style="border-top: 10px solid #f5f5f5;">
                       <h3 style="font-size:14px; font-weight:bold; color: #333;">Today Events</h3>
                     </div>
                                  
@@ -697,8 +709,8 @@ img {
                       <div class="col-md-12" style="margin-top: 20px;">
                           <div class="col-md-9 user-info" >
                             <p style="font-size:13px; font-weight:bold;"> 
-                              <img src="../assets/images/wow-black-small.png"> 
-                            Saravanan shared a link 2 hrs.</p>
+                              <!--<img src="../assets/images/wow-black-small.png"> 
+                            Saravanan shared a link 2 hrs.--></p>
                           </div>
 
                       
@@ -771,28 +783,24 @@ img {
                       <div class="col-md-12" style="margin-top:5px;">
                         <p class="text-muted"><?php if(isset($feeds->thoughtstext)) { echo $feeds->thoughtstext; } ?></p>
                       </div>
+                       <div class="col-md-12" style="margin-top:3px;">
+                        <p class="text-muted"><?php if(isset($feeds->urllink)) { echo $feeds->urllink; } ?></p>
+                      </div>
                     </div>
 
                       <!-- here start with cover image -->
 
                       <?php 
-                            if(isset($feeds->thoughtsimage) && ($feeds->thoughtsimage != 'null') )
+                            if(isset($feeds->thoughtsimage) && ($feeds->thoughtsimage != 'null') && ($feeds->thoughtsvideo != 'null'))
                             {
                       ?>
             
-                    <div class="col-md-12" style="position: relative; margin-top: 20px;">
+                    <div class="col-md-6" style="position: relative; margin-top: 20px;">
                       
-                      <div class="gallery" > <a class="test-popup-link" href='http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->thoughtsimage; ?>' > <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->thoughtsimage; ?>" alt="post-image" class="img-responsive post-image" /> </a> </div>
-                    </div>
-                   
-                      <!-- here end cover image --> 
-                    <?php } 
-                                      
-                            elseif(isset($feeds->thoughtsvideo) && ($feeds->thoughtsvideo != 'null') )
-                            {
-                      ?>
+                      <div class="gallery" > <a class="test-popup-link" href='http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->thoughtsimage; ?>' > <img style="height: 150px;" src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->thoughtsimage; ?>" alt="post-image" class="img-responsive post-image" /> </a> </div>
+                    </div>                 
             
-                    <div class="col-md-12" style="position: relative;">
+                    <div class="col-md-6" style="position: relative; margin-top: 20px;">
                       
                                       <div class="video">
                                           <div class="col-md-12"> <a href="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->thoughtsvideo; ?>" >
@@ -804,7 +812,21 @@ img {
                                       </div>
                     </div>
 
+                    <?php }  
+
+                    // view only image
+
+                      elseif(isset($feeds->thoughtsimage) && ($feeds->thoughtsimage != 'null'))
+                            { ?>
+
+                    <div class="col-md-12" style="position: relative; margin-top: 20px;">
+                      
+                      <div class="gallery" > <a class="test-popup-link" href='http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->thoughtsimage; ?>' > <img  src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->thoughtsimage; ?>" alt="post-image" class="img-responsive post-image" /> </a> </div>
+                    </div>
+
                     <?php }  else { echo " "; } ?>
+
+                  <!-- here end with cover image -->
 
                  
           </div>
@@ -980,10 +1002,10 @@ img {
                 <div class="row">
                   <div class="col-md-12">
                     <div class="post-detail" style="margin-top:10px;">
-                          <div class="col-md-9 user-info">
+                          <div class="col-md-9 user-info" >
                             <p style="font-size:13px; font-weight:bold;"> 
-                              <img src="../assets/images/wow-black-small.png"> 
-                            Saravanan shared a link 2 hrs.</p>
+                              <!--<img src="../assets/images/wow-black-small.png"> 
+                            Saravanan shared a link 2 hrs.--></p>
                           </div>
 
                           <div class="col-md-3 user-info text-right">
@@ -1422,10 +1444,10 @@ img {
                 <div class="row">
                   <div class="col-md-12">
                     <div class="post-detail" style="margin-top:10px;">
-                          <div class="col-md-9 user-info">
+                          <div class="col-md-9 user-info" >
                             <p style="font-size:13px; font-weight:bold;"> 
-                              <img src="../assets/images/wow-black-small.png"> 
-                            Saravanan shared a link 2 hrs.</p>
+                              <!--<img src="../assets/images/wow-black-small.png"> 
+                            Saravanan shared a link 2 hrs.--></p>
                           </div>
 
                           <div class="col-md-3 user-info text-right">
@@ -1911,10 +1933,10 @@ img {
                   
                   <div class="col-md-12">
                     <div class="post-detail" style="margin-top:10px;">
-                          <div class="col-md-9 user-info">
+                          <div class="col-md-9 user-info" >
                             <p style="font-size:13px; font-weight:bold;"> 
-                              <img src="../assets/images/wow-black-small.png"> 
-                            Saravanan shared a link 2 hrs.</p>
+                              <!--<img src="../assets/images/wow-black-small.png"> 
+                            Saravanan shared a link 2 hrs.--></p>
                           </div>
 
                           <div class="col-md-3 user-info text-right">
@@ -2383,10 +2405,10 @@ img {
                   
                   <div class="col-md-12">
                     <div class="post-detail" style="margin-top:10px;">
-                          <div class="col-md-9 user-info">
+                          <div class="col-md-9 user-info" >
                             <p style="font-size:13px; font-weight:bold;"> 
-                              <img src="../assets/images/wow-black-small.png"> 
-                            Saravanan shared a link 2 hrs.</p>
+                              <!--<img src="../assets/images/wow-black-small.png"> 
+                            Saravanan shared a link 2 hrs.--></p>
                           </div>
 
                           <div class="col-md-3 user-info text-right">
@@ -2827,7 +2849,7 @@ img {
             <div class="col-md-12" style="background-color:#f8f8f8; border:1px solid #f5f5f5; padding:5px; border-radius:5px;"><a href="<?php echo base_url('service/service_provider'); ?>" style="text-decoration:none; color:#333; font-size:14px;"><i class="fa fa-users"></i> Search Service Provider</a></div>
           </div>
           <div class="row" style="margin:5px 0;">
-            <div class="col-md-12" style="background-color:#f8f8f8; border:1px solid #f5f5f5; padding:5px; border-radius:5px;"><a href="<?php echo base_url('event/nearby_event'); ?>" style="text-decoration:none; color:#333; font-size:14px;"><i class="fa fa-location-arrow"></i> Search for Nearby Events</a></div>
+            <div class="col-md-12" style="background-color:#f8f8f8; border:1px solid #f5f5f5; padding:5px; border-radius:5px;"><a href="<?php echo base_url('Nearbyevents/nearby_event'); ?>" style="text-decoration:none; color:#333; font-size:14px;"><i class="fa fa-location-arrow"></i> Search for Nearby Events</a></div>
           </div>
         </ul>
         <ul class="nav-news-feed">
@@ -3506,6 +3528,15 @@ $(document).on("change", "#video_size", function(evt)
          }
     });
 
+//delete cover image from db shows
+$(".delete").click(function(){
+    $(".remove_video").remove();
+});
+
+// show url link text box for thought
+$("#url_link").click(function(){
+    $("#show_text").show();
+});
 
 </script>
 </body>

@@ -499,6 +499,7 @@ img {
             <!-- Form progress --> 
             <!-- Form Step 1 -->
   		<form id="create_social_multicity_event" action="<?php echo base_url('event/social_multicity_event'); ?>"  method="post" enctype="multipart/form-data" >  
+    	  
     	  <fieldset>
                 <!-- Progress Bar -->
                 <div class="progress">
@@ -535,15 +536,39 @@ img {
 				                  	</select>
 		                    </div>
 
+		                    <div id="date_hide" style="display: none;">
+
+			                    <div class='form-group col-sm-6' style="width:45%;" >
+			                      <label>Currrent Event Start Date</label>
+			                      <input type='text' id="event_startdate" name="event_startdate"  class="form-control "  />
+			                    </div>
+
+			                    <div  class='form-group col-sm-6' style="width:45%; " >
+			                      <label>Currrent Event Start Time</label>
+			                      <input type='text' id="event_startime" name="event_startime"  class="form-control  "  />
+			                    </div>
+
+			                
+			                    <div class='form-group col-sm-6' style="width:45%;" >
+			                      <label>Currrent Event End Date</label>
+			                      <input type='text' id="event_enddate" name="event_enddate"  class="form-control" readonly />
+			                    </div>
+
+			                    <div class='form-group col-sm-6' style="width:45%;">
+			                      <label>Currrent Event End Time</label>
+			                      <input type='text' id="event_endtiming" name="event_endtiming"  class="form-control "  />
+			                    </div>		                    
+		                	</div>   
+
 		                </div>
 		                   <div class='row'>                   
 			                    <div class='form-group col-sm-6' >
 			                      <label>This is</label>
 			                      <select name="ticket_type" id="ticket_type" class="form-control" style="background-color:#eff0f1;">
 			                      	<option value="select">Select</option>
-			                        <option value="free_event">Free Event</option>
-			                        <option value="paid_event">Paid Event Tickets</option>
-			                        <option value="donation_base">Donation Based</option>
+			                        <option value="Free Event">Free Event</option>
+			                        <option value="Paid Event">Paid Event Tickets</option>
+			                        <option value="Donation Base">Donation Based</option>
 			                      </select>
 			                    </div>
 
@@ -551,6 +576,11 @@ img {
 			                      <label>Enter Ticket Price</label>
 			                      <input type='text'  name="ticket_price"  class="form-control"  />
 			                    </div> 
+
+			                    <div class='form-group col-sm-12' style="display: none;" id="ticker_url_show">
+		                     		 <label>Ticket URL</label>
+		                      		<input type='text' name="ticket_url" class="form-control" >
+		                    	</div>  
 
 			                </div>        
        				</div>
@@ -625,15 +655,11 @@ img {
     	</fieldset>
 
 
-              <!-- Form Step 1 --> 
+              <!-- Form Step 1  end--> 
               
-              <!-- Form Step 2 -->
-
-  
-   	
-              <!-- end Step 2 --> 
+             
               
-              <!--  Step 3 -->
+              <!--  Step 2 -->
     <fieldset>
                 <!-- Progress Bar -->
                 <div class="progress">
@@ -666,11 +692,11 @@ img {
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>City</label>
-		                      <input type='text' id="city_1" name="venue_city[]" class="form-control" />
+		                      <input type='text' id="city_1" name="venue_city[]" class="form-control" onblur="update_vanue()"/>
 		                    </div>
 		                    <div class='form-group col-sm-12'>
 		                      <label>Zipcode/ Postal Code</label>
-		                      <input type='text' id="zipcode_1" name="zipcode[]"  class="form-control"  />
+		                      <input type='text' id="zipcode_1" name="zipcode[]"  class="form-control"  onblur="update_vanue()"/>
 		                    </div>
                		</div>
             	</div> 
@@ -1613,6 +1639,37 @@ img {
                 <h4> <span>Step 8 - 8</span></h4>
                 <div style="clear:both;"></div>
 
+                <div class="col-md-12" >     
+	                <div class="col-md-6" >                	
+	                    	<h3>Your Current Event City</h3>   
+	                    	<div class="form-group col-sm-12" style="font-weight: bold">
+		                		<div class="pull-left" style="width:40%;"> Event Venue</div> 
+		                		<div class="pull-left" style="width:30%;">Event City </div>
+		                		<div class="pull-left" style="width:30%;">Zipcode</div>	                		
+		                	</div>            		
+	               
+		                <div  class="col-md-12 event_venue_details_show" >
+		                    
+		                </div>
+	            	</div>
+
+	            	<div class="col-md-6">
+		                    <h3>Your Future Event City</h3>    
+		                    	<div class="form-group col-sm-12" style="font-weight: bold">
+			                		<div class="pull-left" style="width:20%;"> Event city</div> 
+			                		<div class="pull-left" style="width:30%;">Event Start and End Date </div>
+			                		<div class="pull-left" style="width:35%;">Ticket URL</div>
+			                		<div class="pull-left" style="width:15%;">Ticket Price </div> 
+			                	</div>
+
+			                	<!-- dynamically show event tours details here -->
+		                
+			                <div  class="col-md-12 event_tour_details_show" >
+			                    
+			                </div>
+		            </div>
+           		</div>
+
         	<div class='form-group col-sm-12'> 
                   
                  		 <!-- Nav tabs category -->
@@ -1695,23 +1752,12 @@ img {
 
 				            <div class="col-md-12" style="margin-top:15px;">
 		                       <div class="pull-left" style="width:5%;">
-		                        <input type="checkbox" name="audience_email" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+		                        <input type="checkbox" name="audience_gender" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 		                       </div>
-		                       <div style="width:9%;" class="pull-left text-left">
+		                       <div style="width:20%;" class="pull-left text-left">
 		                       		 <label>Gender</label>		                       		 
 		                        </div>	
-			                    <div style="width:70%; margin-top: -2px;" class="pull-left text-left" >
-			                        <div class="form-group gender col-xs-12" style="font-size: 14px;">
-					                     <p class='container_test'>
-					                    <label for="gender" class="radio-inline">
-					                       <input type="radio" id="gender"  name="male"  class="" value="male" >Male
-					                    </label>                      
-					                    <label for="gender" class="radio-inline">
-					                      <input type="radio" id=""  name="female"  class="" value="female" >Female                      
-					                    </label>   
-					                    </p>                 
-					                </div>	
-					            </div>                         
+			                                    
 				            </div>
 
 
@@ -2065,7 +2111,9 @@ img {
 <script>
 	
 var option_template = ''; //golabal variable for dynamic address
- 
+var step_to_show = '';
+var step_to_tour ='';
+
 // hide enter button to submit the form
 $(document).ready(function(){
 $('#create_social_multicity_event').on('keyup keypress', function(e) {
@@ -2077,7 +2125,41 @@ $('#create_social_multicity_event').on('keyup keypress', function(e) {
 });	
 });		
 
-   // event start date and end date time 
+
+// hide and show date depend on select days  step1
+$(document).ready(function(){
+		$("#btn-add-tab").change(function () {				
+           		 
+                	$("#date_hide").show();
+           		
+		});
+
+});	
+
+// event start time picker
+  $("#event_startime").datetimepicker(
+		  	{ 
+               datepicker:false,   //12 hours time format 
+                format:'g:i A',
+                formatTime: 'g:i A',
+                mask:'29:59 99',  
+                step: 5,   
+                ampm: true 
+                                    
+             });
+
+  $("#event_endtiming").datetimepicker(
+            { 
+                datepicker:false,   //12 hours time format 
+                format:'g:i A',
+                formatTime: 'g:i A',
+                mask:'29:59 99',  
+                step: 5,   
+                ampm: true 
+             });
+
+
+// event start date and end date time 
 
    $('body').on('focus',".event_startdate", function(){   //dynamically add date
     	$(this).datetimepicker(
@@ -2258,7 +2340,7 @@ $(document).on("change", "#video_size2", function(evt)
 
 function generate_address_fields(count)
  {	
-	var address  = '<div id="event_address_'+count+'" class="animated bounceInRight tab"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_venue_name_'+count+'" name="event_venue_name[]"  class="form-control" onblur="update_vanue()" /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="address1_'+count+'" name="address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="address2_'+count+'" name="address2[]"  class="form-control" /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="city_'+count+'" name="venue_city[]" class="form-control" /> </div>  <div class="form-group col-sm-12"> <label>Zipcode/ Postal Code</label> <input type="text" id="zipcode_'+count+'" name="zipcode[]" class="form-control"  /> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnAdd10" class="remove_address btn btn-info btn-sm"> </a> </div> </div>';
+	var address  = '<div id="event_address_'+count+'" class="animated bounceInRight tab"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_venue_name_'+count+'" name="event_venue_name[]"  class="form-control" onblur="update_vanue()" /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="address1_'+count+'" name="address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="address2_'+count+'" name="address2[]"  class="form-control" /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="city_'+count+'" name="venue_city[]" class="form-control" onblur="update_vanue()"/> </div>  <div class="form-group col-sm-12"> <label>Zipcode/ Postal Code</label> <input type="text" id="zipcode_'+count+'" name="zipcode[]" class="form-control" onblur="update_vanue()" /> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnAdd10" class="remove_address btn btn-info btn-sm"> </a> </div> </div>';
 
         return address;
 }
@@ -2328,21 +2410,27 @@ function nextPrev(n)
 function update_vanue() {
 	
 	option_template = '';
+	step_to_venue = '';	
 
     $('#show_vanue').find('div').remove();
     $('.venueselectpicker option').remove();
+    $('.event_venue_details_show').find('div').remove();
 
     $(".tab").each(function(index){
         var index = index+1;   
         var venue = $(this).find("[id^=event_venue_name_]").val();  
-        var address = $(this).find("[id^=address1_]").val();
-        // var city = $(this).find("[id^=city_]").val();
+        var city = $(this).find("[id^=city_]").val();
+        var zipcode = $(this).find("[id^=zipcode_]").val(); 
 
-        if(venue != '' || address != '')
+        if(venue != '' || city != '' || zipcode != '')
         {
             var template = ' <div class="form-group col-sm-12" style="background-color:#9e9999; margin-top:10px; "> <div class="pull-left" style="width:40%;">Event Venue '+index+'</div>'+
                     '<div class="pull-left" style="width:45%;">'+venue+'</div>'+
                     '<div class="pull-left" style="width:15%;"><img src="../assets/images/map-icon.png" alt="map-icon" /></div> </div>';
+
+            step_to_venue += ' <div class="form-group col-sm-12" style="background-color:#e8e3e3;"> <div class="pull-left" style="width:40%;">'+venue+'</div>'+
+                    '<div class="pull-left" style="width:30%;">'+city+' </div>'+
+                    '<div class="pull-left" style="width:30%;">'+zipcode+'</div> </div>';
 
             option_template += '<option value="'+venue+' ">'+venue+' </option>';
         }
@@ -2353,6 +2441,7 @@ function update_vanue() {
     }); 
 
      $('.venueselectpicker').append(option_template);
+     $('.event_venue_details_show').append(step_to_venue);
     	          
 }
 
@@ -2429,10 +2518,10 @@ function nextPreview(n)
 	
 function update_tour() {
 	
-	// option_template = '';
+	step_to_tour = '';
 
     $('#show_tours').find('div').remove();
-   
+    $('.event_tour_details_show').find('div').remove();
 
     $(".tab1").each(function(index1){
         var index1 = index1+1;   
@@ -2443,7 +2532,7 @@ function update_tour() {
         var start_date = $(this).find("[id^=tour_startdate_]").val();
         var end_date = $(this).find("[id^=tour_enddate_]").val();
         var ticket_url = $(this).find("[id^=ticket_url_]").val();
-
+        var ticket_price = $(this).find("[id^=ticket_price_]").val();
 
 
         if(city != '' || ticket_url != '' || start_date != '' || end_date != '' )
@@ -2451,12 +2540,19 @@ function update_tour() {
             
             var event_tour = ' <div class="form-group col-sm-12" style="background-color:#9e9999; margin-top:10px; "> <div class="pull-left" style="width:20%;">'+city+'</div>'+
                     '<div class="pull-left" style="width:60%;">'+start_date+','+end_date+'</div>'+                    
-                    '<div class="pull-left" style="width:20%;">'+ticket_url+'</div></div>';          
+                    '<div class="pull-left" style="width:20%;">'+ticket_url+'</div></div>'; 
+
+            step_to_tour  += '<div class="form-group col-sm-12" style="background-color:#e8e3e3; "> <div class="pull-left" style="width:20%;">'+city+'</div>'+
+                    '<div class="pull-left" style="width:30%;">'+start_date+','+end_date+'</div>'+                    
+                    '<div class="pull-left" style="width:35%;"> '+ticket_url+'</div>'+
+                    '<div class="pull-left" style="width:15%;"> '+ticket_price+'</div></div>';           
         }        
 
         $('#show_tours').append(event_tour);    
       
     }); 
+
+    $('.event_tour_details_show').append(step_to_tour);  
     	          
 }
 
@@ -2495,24 +2591,42 @@ $(function(){
 });
 });
 
-// end date
 
-$(function(){
-
-  $('#event_enddate').datetimepicker({
-  timepicker:false,
-  format:'M-d-Y',
-  onChangeDateTime:function(dp,$input){
-    // alert($input.val())
-  }
-});
-});
 
 // pass value with in same form
 $('#event_startime').change(function() {
     $('#day1_start_time').val($(this).val());
 });
 
+//event schedule day start and end time 
+
+$('body').on('focus',".day_end_time", function(){   //dynamically add time
+      $(this).datetimepicker(
+      {
+          datepicker:false,   //12 hours time format 
+                format:'h:i A',
+                formatTime: 'h:i A',
+                // mask:'29:59 99',  
+                step: 5,   
+                ampm: true  
+      });
+    
+  });
+
+$('body').on('focus',".day_start_time", function(){   //dynamically add time
+      $(this).datetimepicker(
+      {
+          datepicker:false,   //12 hours time format 
+                format:'h:i A',
+                formatTime: 'h:i A',
+                // mask:'29:59 99',  
+                step: 5,   
+                ampm: true  
+      });
+    
+  });
+
+//dynamic add tab view for event days
 
 $(document).ready(function() {
     $('#btn-add-tab').on('change',function()
@@ -2664,10 +2778,12 @@ $(document).ready(function(){
 				if ($(this).val() == "free_event" || $(this).val() == "select") 
 				 {
                 	$("#ticket_price").hide();
+                	$("#ticker_url_show").hide();
            		 }
            	    else
            		 {
                 	$("#ticket_price").show();
+                	$("#ticker_url_show").show();
            		 }
 		});
 

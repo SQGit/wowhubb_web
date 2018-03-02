@@ -570,6 +570,7 @@ public function professional_multicity_event()
 							'eventname:'        .$this->input->post('event_name'),	
 							'tickettype:'       .$this->input->post('ticket_type'),	
 							'ticketprice:'      .$this->input->post('ticket_price'),
+							'eventticketurl:'   .$this->input->post('ticket_url'),
 							'eventdescription:' .$this->input->post('event_description')
 							);
 		   	 
@@ -615,8 +616,7 @@ public function professional_multicity_event()
 		    	$token2  =  $this->session->userdata('token');
 
 		     	$header2 = array('token:'  .$token2,
-		     				'eventid:' 	   .$this->session->userdata('id'),
-		     				// 'eventcity:'   .$this->input->post('venue_city[]'),
+		     				'eventid:' 	   .$this->session->userdata('id'),		     				
 							'eventtitle:'  .$this->input->post('event_title'), 
 							'runtimefrom:' .$this->input->post('runtime_from'),
 							'runtimeto:'   .$this->input->post('totime_to')					
@@ -898,7 +898,7 @@ public function professional_multicity_event()
 	    								 'wowtagid'   => $this->input->post('audience_wowtag_id'),
 	    								 'email'      => $this->input->post('audience_email'),
 	    								 'phone' 	  => $this->input->post('audience_phone'),
-	    								 'gender'	  => $this->input->post('gender'),
+	    								 'gender'	  => $this->input->post('audience_gender'),
 	    								 'address1'   => $this->input->post('audience_address1'),
 	    								 'address2'   => $this->input->post('audience_address2'),
 	    								 'city'       => $this->input->post('audience_city'),
@@ -909,7 +909,7 @@ public function professional_multicity_event()
 	    	  			$json_data = json_encode($event_contact); 
 						$result3 = $this->rest->post('http://104.197.80.225:3010/wow/event/proengagementform',$json_data,'json');
 					}
-				// print_r($result3);
+				
 
 				// third select proffesional coupon
 
@@ -947,8 +947,7 @@ public function professional_multicity_event()
 	    	  		$data4 =json_decode($response4);
 	    	  		curl_close($ch4);	    	  	
 	    		}
-
-	    		// print_r($data4);
+	    		
 	    	// url link ticket form
 	    		
 	    	 else if($this->input->post('audience_form_type') == 'url_link')
@@ -971,8 +970,7 @@ public function professional_multicity_event()
 	    						'engagementformaction' => $this->input->post('action_btn2'),
 	    	  					'donationsurl'      => $this->input->post('url_donation_url'),	
 	    	  				    'websiteurl'    	=> $this->input->post('url_website_url'),
-	    					    'eventnolinks'   	=> $this->input->post('url_donthave_link')
-	    						// 'engagementurl'   	=> $this->input->post('audience_wowtag_id'),
+	    					    'eventnolinks'   	=> $this->input->post('url_donthave_link')	    						
 	    						// 'engagementurl'   	=> 	$engagementurl
 	    									
 	    						);		
@@ -983,7 +981,7 @@ public function professional_multicity_event()
 					$result4 = $this->rest->post('http://104.197.80.225:3010/wow/event/proengagementurl',$json_data,'json');
 					
 				}
-				// print_r($result4);
+				
 					
 				if($result->success == true)
 					{		 	
@@ -1015,6 +1013,7 @@ public function social_multicity_event()
 							'eventname:'        .$this->input->post('event_name'),	
 							'tickettype:'       .$this->input->post('ticket_type'),	
 							'ticketprice:'      .$this->input->post('ticket_price'),
+							'eventticketurl:'   .$this->input->post('ticket_url'),
 							'eventdescription:' .$this->input->post('event_description')
 							);
 		   	 
@@ -1327,24 +1326,25 @@ public function social_multicity_event()
 						$this->rest->http_header('token',  $this->session->userdata('token'));
 
 	    	  			$event_contact = array( 
-	    	  							'eventid' 		       => $this->session->userdata('id'),
-	    	  							'engagementformtype'     => $this->input->post('audience_form_type'),	
-	    	  							 'engagementformaction'    => $this->input->post('audience_formaction_btn'),
-	    								 'fullname'   => $this->input->post('audience_full_name'),
-	    								 'wowtagid'   => $this->input->post('audience_wowtag_id'),
-	    								 'email'      => $this->input->post('audience_email'),
-	    								 'phone' 	  => $this->input->post('audience_phone'),
-	    								 'address1'   => $this->input->post('audience_address1'),
-	    								 'address2'   => $this->input->post('audience_address2'),
-	    								 'city'       => $this->input->post('audience_city'),
-	    								 'zipcode'    => $this->input->post('audience_zipcode'),
-	    								 'country'    => $this->input->post('audience_country')							 
+	    	  							 'eventid' 		        => $this->session->userdata('id'),
+	    	  							 'engagementformtype'   => $this->input->post('audience_form_type'),	
+	    	  							 'engagementformaction' => $this->input->post('audience_formaction_btn'),
+	    								 'fullname'   			=> $this->input->post('audience_full_name'),
+	    								 'wowtagid'   			=> $this->input->post('audience_wowtag_id'),
+	    								 'email'      			=> $this->input->post('audience_email'),
+	    								 'phone' 	  			=> $this->input->post('audience_phone'),
+	    								 'gender'	  			=> $this->input->post('audience_gender'),
+	    								 'address1'   			=> $this->input->post('audience_address1'),
+	    								 'address2'   			=> $this->input->post('audience_address2'),
+	    								 'city'       			=> $this->input->post('audience_city'),
+	    								 'zipcode'    			=> $this->input->post('audience_zipcode'),
+	    								 'country'    			=> $this->input->post('audience_country')							 
 	    								 );		
 
 	    	  			$json_data = json_encode($event_contact); 
 						$result3 = $this->rest->post('http://104.197.80.225:3010/wow/event/proengagementform',$json_data,'json');
 					}
-				// print_r($result3);
+				
 
 				// third select proffesional coupon
 
@@ -1382,34 +1382,22 @@ public function social_multicity_event()
 	    	  		$data4 =json_decode($response4);
 	    	  		curl_close($ch4);	    	  	
 	    		}
-
-	    		// print_r($data4);
+	    		
 	    	// url link ticket form
 	    		
 	    	 else if($this->input->post('audience_form_type') == 'url_link')
 		    	{
 		    		
-					$this->rest->http_header('token',  $this->session->userdata('token'));
-
-	    	  		$url_count = count ($_POST['url_ticketurl']);	 
-	    	  		$engagementurl=array() ;	
-	    	  		
-
-	   				for($i=0; $i<$url_count; $i++)
-	   				{
-	   						array_push($engagementurl, array('url' =>$_POST['url_ticketurl'][$i],'country' =>$_POST['url_country'][$i], 'checked' =>$_POST['ticket_url_check'][$i] ) );
-	   				}
+					$this->rest->http_header('token',  $this->session->userdata('token'));	    	  
 
 	    	  		$event_contact = array( 
-	    	  					'eventid' 		    => $this->session->userdata('id'),
-	    	  					'engagementformtype'   => $this->input->post('audience_form_type'),
-	    						'engagementformaction' => $this->input->post('action_btn2'),
-	    	  					'donationsurl'      => $this->input->post('url_donation_url'),	
-	    	  				    'websiteurl'    	=> $this->input->post('url_website_url'),
-	    					    'eventnolinks'   	=> $this->input->post('url_donthave_link'),
-	    						// 'engagementurl'   	=> $this->input->post('audience_wowtag_id'),
-	    						'engagementurl'   	=> 	$engagementurl
-	    									
+	    	  					'eventid' 		        => $this->session->userdata('id'),
+	    	  					'engagementformtype'    => $this->input->post('audience_form_type'),
+	    						'engagementformaction'  => $this->input->post('action_btn2'),
+	    	  					'donationsurl'      	=> $this->input->post('url_donation_url'),	
+	    	  				    'websiteurl'    		=> $this->input->post('url_website_url'),
+	    					    'eventnolinks'   		=> $this->input->post('url_donthave_link')   						
+    									
 	    						);		
 
 	    	  		$json_data = json_encode($event_contact); 
@@ -1418,7 +1406,7 @@ public function social_multicity_event()
 					$result4 = $this->rest->post('http://104.197.80.225:3010/wow/event/proengagementurl',$json_data,'json');
 					
 				}
-				// print_r($result4);
+				
 					
 				if($result->success == true)
 					{		 	
@@ -1699,7 +1687,8 @@ public function today_event()
 			   	   
 	}
 
-public function profile_get_eventfeed()  //profile page shows event feeds
+//profile page shows my  event feeds 
+public function profile_get_eventfeed()  
 	{ 
 		   	if(is_null($this->session->userdata('email')))
 		 	{ 	
@@ -1853,7 +1842,8 @@ public function update_thoughts()
  			
 		   	$header   = array('token:'        .$token,
 		   					  'eventtype:'    .'thought',
-		   					  'thoughtstext:' .$this->input->post('texts')
+		   					  'thoughtstext:' .$this->input->post('texts'),
+		   					  'urllink:'      .$this->input->post('thought_url_link')
 		   					);
 
 			$ch = curl_init();

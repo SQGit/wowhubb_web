@@ -112,7 +112,7 @@ input[type=checkbox] {
                 <img  src="http://104.197.80.225:3010/wow/media/personal/<?php echo $cover; ?>"  style="background-size:cover; width:100%; max-height:300px;"/>
                 <?php }   else{   ?>
               <img src="<?php echo base_url('assets/images/covers/1.jpg')?>" style="background-size:cover; width:100%; max-height:300px;" >
-                <?php }  ?> ;
+                <?php }  ?> 
                     
       <!--Timeline Menu for Large Screens-->
       <div class="timeline-nav-bar hidden-sm hidden-xs">
@@ -185,7 +185,7 @@ input[type=checkbox] {
         <div id="page-contents">
           <div class="row">
             
-            <div class="form-wizard col-md-8">
+            <div class="form-wizard col-md-12">
 
               <!-- Edit Interests
               ================================================= -->
@@ -198,7 +198,7 @@ input[type=checkbox] {
                     <!-- First  row check box-->                   
          <form id="interest_update" action="<?php echo base_url('home/interest_update'); ?>" method="POST" >             
                 <div class="row" style="margin-bottom: 15px;">                 
-                      <div class="col-md-3 col-sm-6" >
+                      <div class="col-md-2 col-sm-6" >
                             <div style=" left:11px; top:1px;">
                               <input name="img1[]" type="checkbox" id="check1" value="Business"
                               <?php if (preg_match("/business/i", "$interest")) { echo "checked";} else {echo "";} ?> > <!-- here i is a case sensitive name -->
@@ -209,7 +209,7 @@ input[type=checkbox] {
                         <div class="col-md-12 col-sm-12" style="margin-top:10px;"  ><div style="text-align:left; line-height:22px;">Business Networking Events</div></div>
                       </div>
 
-                      <div class="col-md-3 col-sm-6" >
+                      <div class="col-md-2 col-sm-6" >
                           <div style=" left:11px; top:1px;">
                               <input name="img1[]" type="checkbox" id="check2" value="startup" 
                               <?php if(preg_match("/startup/i", "$interest")) { echo "checked";} else {echo "";} ?> >
@@ -220,7 +220,7 @@ input[type=checkbox] {
                            <div class="col-md-12 col-sm-12" style="margin-top:10px;"  ><div style="text-align:left; line-height:22px;">Startup Technology Events</div> </div>
                       </div>
 
-                      <div class="col-md-3 col-sm-6" >
+                      <div class="col-md-2 col-sm-6" >
                           <div style=" left:11px; top:1px;">
                                <input name="img1[]" type="checkbox" id="check3" value="professional"
                                <?php if (preg_match("/professional/i", "$interest")) { echo "checked";} else {echo "";} ?> >
@@ -232,7 +232,7 @@ input[type=checkbox] {
                           <div class="col-md-12 col-sm-12" style="margin-top:10px;" > <div style="text-align:left; line-height:22px;">Professional Training Events</div></div>
                       </div>
 
-                  <div class="col-md-3 col-sm-6" >
+                  <div class="col-md-2 col-sm-6" >
                     <div style=" left:11px; top:1px;">
                         <input type="checkbox"  name="img1[]" id="check7" value="Hobbies"
                          <?php if (preg_match("/hobbies/i", "$interest")) { echo "checked";} else {echo "";} ?>>
@@ -243,14 +243,7 @@ input[type=checkbox] {
                     </div>
                     <div class="col-md-12 col-sm-12" style="margin-top:10px;"  ><div style="text-align:left; line-height:22px;">Hobbies</div></div>
                   </div>
-
-            </div>
-
-               <!-- second  row check box-->   
-
-            <div class="row" style="margin-bottom:20px;">        
-
-                  <div class="col-md-3 col-sm-6" >
+                   <div class="col-md-2 col-sm-6" >
                         <div style=" left:11px; top:1px;">
                           <input name="img1[]" type="checkbox" id="check5" value="Media"
                            <?php if (preg_match("/media/i", "$interest")) { echo "checked";} else {echo "";} ?>>
@@ -261,20 +254,7 @@ input[type=checkbox] {
                         <div style="text-align:left; line-height:22px;">Media Film Fashion &amp; Culture Events</div></div>
                       
                   </div>
-
-                  <div class="col-md-3 col-sm-6" >
-                      <div style="left:11px; top:1px;">
-                       <input  type="checkbox" name="img1[]" id="check6" value="Homelife"
-                         <?php if (preg_match("/homelife/i", "$interest")) { echo "checked";} else {echo "";} ?>>
-                         <label for="check6">   
-                      <div style="border:1px solid #ccc; border-radius:8px;   width:125px; height:100px; text-align:center; cursor: pointer;"><img src="<?php echo base_url('assets/images/interests/icon_6_pink_hdpi.png')?>" alt=""/></div></label>
-                      </div>
-                      <div class="col-md-12 col-sm-12" style="margin-top:10px;"  >
-                      <div style="text-align:left; line-height:22px;">Homelife Styles</div>
-                      </div>
-                  </div>
-               
-                  <div class="col-md-3 col-sm-6">
+                   <div class="col-md-2 col-sm-6">
                               <div  style="left:11px; top:1px;">
                                 <input name="img1[]" type="checkbox" id="check4" value="comedy"
                                  <?php if (preg_match("/comedy/i", "$interest")) { echo "checked";} else {echo "";} ?> >
@@ -286,7 +266,38 @@ input[type=checkbox] {
                             
                   </div>
 
-                <div class="col-md-3 col-sm-6" >
+            </div>
+
+               <!-- second  row check box-->   
+
+            <div class="row" style="margin-bottom:20px;">        
+
+                 
+
+                  <div class="col-md-2 col-sm-6" >
+                      <div style="left:11px; top:1px;">
+                       <input  type="checkbox" name="img1[]" id="check6" value="Homelife"
+                         <?php if (preg_match("/homelife/i", "$interest")) { echo "checked";} else {echo "";} ?>>
+                         <label for="check6">   
+                      <div style="border:1px solid #ccc; border-radius:8px;   width:125px; height:100px; text-align:center; cursor: pointer;"><img src="<?php echo base_url('assets/images/interests/icon_6_pink_hdpi.png')?>" alt=""/></div></label>
+                      </div>
+                      <div class="col-md-12 col-sm-12" style="margin-top:10px;"  >
+                      <div style="text-align:left; line-height:22px;">Homelife Styles</div>
+                      </div>
+                  </div>
+               
+                  <div class="col-md-2 col-sm-6">
+                      <div style="left:11px; top:1px;">
+                        <input type="checkbox" name="img1[]" id="check15" value="Sports"
+                         <?php if (preg_match("/sports/", "$interest")) { echo "checked";} else {echo "";} ?>>
+                       <label for="check15">   
+                      <div style="border:1px solid #ccc; border-radius:8px;   width:125px; height:100px; text-align:center; cursor: pointer;"><img src="<?php echo base_url('assets/images/interests/icon_15_pink_hdpi.png')?>" alt=""/></div></label>
+                       </div>
+                      <div style="text-align:left; line-height:22px;">Sports Events</div>
+                   
+                  </div>
+
+                <div class="col-md-2 col-sm-6" >
                       <div style=" left:11px; top:1px;">
                         <input type="checkbox" name="img1[]" id="check8" value="Music"
                          <?php if (preg_match("/music/i", "$interest")) { echo "checked";} else {echo "";} ?>>
@@ -298,12 +309,7 @@ input[type=checkbox] {
                     </div>
                    
                 </div>
-
-          </div>  
-                        <!-- third row -->             
-          <div class="row" style="margin-bottom: 10px;">    
-
-                    <div class="col-md-3 col-sm-6">
+                <div class="col-md-2 col-sm-6">
                           <div style="  left:11px; top:1px;">
                               <input type="checkbox" name="img1[]" id="check9" value="Parties"
                                <?php if (preg_match("/parties/i", "$interest")) { echo "checked";} else {echo "";} ?>>
@@ -314,8 +320,8 @@ input[type=checkbox] {
                         </div>
                        
                     </div>
-
-                     <div class="col-md-3 col-sm-6">
+                    
+                     <div class="col-md-2 col-sm-6">
                           <div style=" left:11px; top:1px;">
                                <input type="checkbox" name="img1[]" id="check10" value="Religion"
                                <?php if (preg_match("/religion/i", "$interest")) { echo "checked";} else {echo "";} ?>>
@@ -325,8 +331,9 @@ input[type=checkbox] {
                            <div style="text-align:left; line-height:22px;">Religion Spirtuality</div>
                           </div>
                       </div>
+                      
 
-                      <div class="col-md-3 col-sm-6" >
+                      <div class="col-md-2 col-sm-6" >
                             <div style=" left:11px; top:1px;">
                                   <input type="checkbox" name="img1[]" id="check11" value="Charity"
                                   <?php if (preg_match("/charity/i", "$interest")) { echo "checked";} else {echo "";} ?>>
@@ -337,24 +344,24 @@ input[type=checkbox] {
                         
                       </div>
 
-                       <div class="col-md-3 col-sm-6" >
+
+          </div>  
+                        <!-- third row -->             
+          <div class="row" style="margin-bottom: 10px;">    
+
+                    
+
+                       <div class="col-md-2 col-sm-6" >
                             <div style="left:11px; top:1px;">
                               <input type="checkbox" name="img1[]" id="check12" value="Family"
                                <?php if (preg_match("/family/i", "$interest")) { echo "checked";} else {echo "";} ?>>
                              <label for="check12">   
                             <div style="border:1px solid #ccc; border-radius:8px;   width:125px; height:100px; text-align:center; cursor: pointer;"><img src="<?php echo base_url('assets/images/interests/icon_12_pink_hdpi.png')?>" alt=""/></div></label></div>
-                            <div class="col-md-12 col-sm-12" style="margin-top:10px;"  >
+                            <div class="col-md-12 col-sm-12" style="margin-top:0px;"  >
                             <div style="text-align:left; line-height:22px;">Family Education</div>
                             </div>
                       </div>
-
-            </div>       
-
-            <!-- fourth row -->
-
-         <div class="row" style="margin-bottom: 20px;">
-
-                    <div class="col-md-3 col-sm-6">
+                        <div class="col-md-2 col-sm-6">
                           <div style=" left:11px; top:1px;">
                             <input type="checkbox" name="img1[]" id="check13" value="Food"
                              <?php if (preg_match("/food/", "$interest")) { echo "checked";} else {echo "";} ?>>
@@ -365,7 +372,7 @@ input[type=checkbox] {
                           
                     </div>
 
-                    <div class="col-md-3 col-sm-6" >
+                    <div class="col-md-2 col-sm-6" >
                         <div style="left:11px; top:1px;">
                           <input type="checkbox" name="img1[]" id="check14" value="Wellness"
                            <?php if (preg_match("/wellness/", "$interest")) { echo "checked";} else {echo "";} ?>>
@@ -375,18 +382,18 @@ input[type=checkbox] {
                         
                     </div>
 
-                  <div class="col-md-3 col-sm-6">
-                      <div style="left:11px; top:1px;">
-                        <input type="checkbox" name="img1[]" id="check15" value="Sports"
-                         <?php if (preg_match("/sports/", "$interest")) { echo "checked";} else {echo "";} ?>>
-                       <label for="check15">   
-                      <div style="border:1px solid #ccc; border-radius:8px;   width:125px; height:100px; text-align:center; cursor: pointer;"><img src="<?php echo base_url('assets/images/interests/icon_15_pink_hdpi.png')?>" alt=""/></div></label>
-                       </div>
-                      <div style="text-align:left; line-height:22px;">Sports Events</div>
-                   
-                  </div>
+                      <div class="col-md-2 col-sm-6" >
+                        <div style="left:20px; top:5px;">
+                           <input name="img1[]" type="checkbox" id="check21" value="Political"
+                              <?php if (preg_match("/political/", "$interest")) { echo "checked";} else {echo "";} ?>>
+                          <label for="check21">   
+                       <div style="border:1px solid #ccc; border-radius:8px;   width:125px; height:100px; text-align:center; cursor: pointer;"><img src="<?php echo base_url('assets/images/interests/icon_21_pink_hdpi.png')?>" alt=""/>
+                       </div></label></div>
+                       <div style="text-align:left; line-height:22px;">Political Events</div>
+                     
+                   </div>
 
-                  <div class="col-md-3 col-sm-6" >
+                  <div class="col-md-2 col-sm-6" >
                       <div style=" left:20px; top:5px;">
                         <input type="checkbox" name="img1[]" id="check16" value="Travel"
                          <?php if (preg_match("/travel/", "$interest")) { echo "checked";} else {echo "";} ?>>
@@ -396,12 +403,7 @@ input[type=checkbox] {
                       <div style="text-align:left; line-height:22px;">Travel Tours &amp; Vacation Sports</div>
                    
                   </div>
-
-            </div>
-              <!-- fifth row -->
-         <div class="row" style="margin-bottom: 20px;">  
-
-                  <div class="col-md-3 col-sm-6">
+                  <div class="col-md-2 col-sm-6">
                         <div style="left:20px; top:5px;">
                              <input type="checkbox" name="img1[]" id="check17" value="Auto"
                               <?php if (preg_match("/auto/", "$interest")) { echo "checked";} else {echo "";} ?>>
@@ -412,7 +414,15 @@ input[type=checkbox] {
                   
                 </div>
 
-                <div class="col-md-3 col-sm-6">
+            </div>       
+
+    
+              <!-- fourth row -->
+         <div class="row" style="margin-bottom: 20px;">  
+
+                  
+
+                <div class="col-md-2 col-sm-6">
                      <div style="left:20px; top:5px;">
                           <input type="checkbox" name="img1[]" id="check18" value="Holiday"
                                 <?php if (preg_match("/holiday/", "$interest")) { echo "checked";} else {echo "";} ?>>
@@ -423,7 +433,7 @@ input[type=checkbox] {
                  
                </div>
 
-               <div class="col-md-3 col-sm-6">
+               <div class="col-md-2 col-sm-6">
                      <div style="left:20px; top:5px;">
                           <input name="img1[]" type="checkbox" id="check19" value="school"
                            <?php if (preg_match("/school/", "$interest")) { echo "checked";} else {echo "";} ?> >
@@ -434,7 +444,7 @@ input[type=checkbox] {
                 
               </div>
 
-              <div class="col-md-3 col-sm-6">
+              <div class="col-md-2 col-sm-6">
                     <div style="left:20px; top:5px;">
                           <input name="img1[]" type="checkbox"  id="check20" value="Govt"
                           <?php if (preg_match("/govt/", "$interest")) { echo "checked";} else {echo "";} ?> >
@@ -444,27 +454,17 @@ input[type=checkbox] {
                      <div style="text-align:left; line-height:22px;">Govt Events</div>
                    
               </div>
+         
 
       </div>            
-              <!-- sixth row -->    
+          
 
-              <div class="row" style="margin-bottom: 20px;">           
-                   <div class="col-md-3 col-sm-6" >
-                        <div style="left:20px; top:5px;">
-                           <input name="img1[]" type="checkbox" id="check21" value="Political"
-                              <?php if (preg_match("/political/", "$interest")) { echo "checked";} else {echo "";} ?>>
-                          <label for="check21">   
-                       <div style="border:1px solid #ccc; border-radius:8px;   width:125px; height:100px; text-align:center; cursor: pointer;"><img src="<?php echo base_url('assets/images/interests/icon_21_pink_hdpi.png')?>" alt=""/>
-                       </div></label></div>
-                       <div style="text-align:left; line-height:22px;">Political Events</div>
-                     
-                   </div>
-             </div>  
-
-                <div class="row">                    
-                    <div class="form-group col-sm-4 text-center" style="margin-top: 0px; margin-left: 160px;">
-                      <input type="submit" value="Update" class="btn btn-primary">
-                    </div>                    
+           <div class="row">                    
+                    <div class="form-group col-md-12 col-sm-12 text-center" style="margin-top: 30px;">
+                      <div class="col-md-3 col-md-offset-4">
+                        <input type="submit" value="Update" class="btn btn-primary">
+                      </div>
+               </div>                    
                 </div>
             </div>
       </form>        
@@ -472,37 +472,7 @@ input[type=checkbox] {
           </div>
 
         </div>
-         <div class="col-md-3 static"> 
-          
-          <!--Sticky Timeline Activity Sidebar-->
-          <div id="sticky-sidebar">
-            <h4 class="grey" style="margin-top: 10px;"><i class="fa fa-search"></i> Search for Event</h4>
-            <div class="feed-item">
-              <div class="live-activity">
-                <span><a href="#" style="font-size:16px;">Event Venues</a></span>
-                <p class="text-muted">All Event Venues</p>
-              </div>
-            </div>
-            <div class="feed-item">
-              <div class="live-activity">
-                <span><a href="#" style="font-size:16px;">Event Service Providers</a></span>
-                <p class="text-muted">Service Providers</p>
-              </div>
-            </div>
-            <div class="feed-item">
-              <div class="live-activity">
-                <span><a href="#" style="font-size:16px;">Event Tickets</a></span>
-                <p class="text-muted">Browse all</p>
-              </div>
-            </div>
-            <div class="feed-item">
-              <div class="live-activity">
-                <span><a href="#" style="font-size:16px;">!WOW</a></span>
-                <p class="text-muted">Upcoming Events</p>
-              </div>
-            </div>
-          </div>
-        </div>
+         
       </div>
     </div>    
 

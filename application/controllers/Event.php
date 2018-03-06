@@ -777,34 +777,18 @@ public function professional_multicity_event()
 					    		$highlight_img1 = ""; 
 					    	}
 
-					if(!empty($_FILES['highlight_video1']['name']))
-			       		{
-				    	 $highlight_video1 = curl_file_create($_FILES['highlight_video1']['tmp_name'],$_FILES['highlight_video1']['type']);
-				    	}else
-					    	{
-					    		$highlight_video1 = ""; 
-					    	}
-
-					 if(!empty($_FILES['highlight_img2']['name']))
+					
+					if(!empty($_FILES['highlight_img2']['name']))
 			       		{
 				    	 $highlight_img2 = curl_file_create($_FILES['highlight_img2']['tmp_name'],$_FILES['highlight_img2']['type']);
 				    	}else
 					    	{
 					    		$highlight_img2 = ""; 
 					    	}
-
-					 if(!empty($_FILES['highlight_video2']['name']))
-			       		{
-				    	 $highlight_video2 = curl_file_create($_FILES['highlight_video2']['tmp_name'],$_FILES['highlight_video2']['type']);
-				    	}else
-					    	{
-					    		$highlight_video2 = ""; 
-					    	}
+					
 				
 	    		$event_highlight = array('eventhighlights1'       => @$highlight_img1,
-	    								 'eventhighlights2'       => @$highlight_img2,
-	    								 'eventhighlightsvideo1'  => @$highlight_video1,
-	    								 'eventhighlightsvideo2'  => @$highlight_video2 								 
+	    								 'eventhighlights2'       => @$highlight_img2,	    																 
 	    								 );		    	 				
 	    	 
 	    	  	curl_setopt($ch3, CURLOPT_URL,'http://104.197.80.225:3010/wow/event/highlights');	   

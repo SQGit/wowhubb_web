@@ -240,9 +240,11 @@ table {
                       <!-- wowtag video part start here -->
 
                     <?php 
+                        
                           foreach ($wowtagvideo as $wowtagvideos) 
                           {                                                      
-                              
+                            if(isset($wowtagvideos->wowtagvideo) && ($wowtagvideos->wowtagvideo != 'null') )
+                            {  
                     ?>
 
           <div class="col-md-12">
@@ -261,7 +263,7 @@ table {
                           <td width="14%" height="40" align="left" valign="top" bgcolor="#fff">
                             <div>
                                <?php
-                                      if(isset($wowtagvideos->wowtagvideo) && ($wowtagvideos->wowtagvideo != 'null') )
+                                      if(isset($wowtagvideos->wowtagvideo) && ($wowtagvideos->wowtagvideo != 'null') && ($wowtagvideos->wowtagvideo != '') )
                                       {
                                  ?> 
 
@@ -278,11 +280,23 @@ table {
                             </span>
                             </strong><br>
                           </td>
-                          <td align="left" valign="top" bgcolor="#fff"><strong>Hebron Plus</strong><br>
-                            Minute Maid Hall <br>
-                            1234, White Lane Av  Houston Texas 77798<br>
-                            13th- 14th &nbsp;January 2017<br>
-                            09:00 AM -12:00 PM
+                          <td align="left" valign="top" bgcolor="#fff">
+                            <strong>
+                                                <?php
+                                                    if(isset($wowtagvideos->eventvenue))
+                                                    {
+                                                      foreach ($wowtagvideos->eventvenue as $eventvenues)
+                                                        {
+                                                          // echo $eventvenues->eventvenuecity;
+                                                          if(($eventvenues->eventvenuenumber == 1))
+                                                             {
+                                                                echo   $eventvenues->eventvenuename.", ".$eventvenues->eventvenueaddress1.", ".$eventvenues->eventvenuecity.", ".$eventvenues->eventvenuezipcode."<br>";
+                                                              }
+                                                        }         
+                                                    }
+
+                                                ?>
+                            </strong>
                           </td>
                           <td height="40" align="left" valign="top" bgcolor="#fff">
                             <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -298,8 +312,13 @@ table {
                               <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                               <tbody>
                                 <tr>
-                                  <td height="20"><a href="#"><img src="../assets/images/edit_icon.png" alt=""></a></td>
-                                  </tr>
+                                    <td height="20">
+                                        <a href="#modal-1" data-toggle="modal" data-id='<?php echo $wowtagvideos->_id; ?>'>
+                                           <input type="hidden" name="userid" value="<?php echo $wowtagvideos->_id; ?>" >
+                                           <img src="../assets/images/edit_icon.png" alt="">
+                                        </a>
+                                    </td>
+                                </tr>
                               </tbody>
                               </table>
                             </td>
@@ -345,7 +364,7 @@ table {
                           <tr>
                             <td height="40" align="left" valign="top" bgcolor="#fff">&nbsp;</td>
                             <td height="40" colspan="6" align="center" valign="middle" bgcolor="#F9F9F9">
-                              <strong style="color:#F00;">
+                              <strong style="color:#F00;">Wowtag Runtime From
                                   <?php
                                         if(isset($wowtagvideos->runtimefrom) ) 
                                         {                       
@@ -362,7 +381,7 @@ table {
             </table>
           </div>
 
-          <?php } ?>
+          <?php } } ?>
             
           </div>
 
@@ -410,6 +429,50 @@ table {
 </div>
 </div>
 
+<!-- model popup for video upload -->
+
+<div class="modal fade" id="modal-1" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="post-content">
+                      <div class="post-container" style="padding-bottom:20px;">
+                        <div class="post-detail">
+                                          <div class="user-info">
+                                              <h3>Edit Wowtag Video</h3>
+                                               
+                                          </div>
+                                          <div class="line-divider"></div>
+                          <div class="user-info">
+                            <div class="row" style="padding:10px;">
+                                               <div class="alert alert-success" id="rsvp_success" role="alert" style="display:none;" >Successfully Register
+                                               </div>
+                                                <!-- this form submit rsvp -->
+                              <form action="<?php echo base_url('nearbyevents/update_wowtagvideo/'.$wowtagvideos->_id); ?>" method="post" class="wowtag" class="form-inline" enctype="multipart/form-data">
+                                  <div class="row">
+                                         <input type="hidden" name="wowid">
+                                    <div class="col-md-12" style="margin: 10px 0px;">
+                                        <div class="form-group col-xs-12">
+                                          <label for="date-to" class="">Wowtag Video</label>
+                                          <input  type="file" id="self_video" class="form-control input-group-lg" name="wowtag_video" title="Enter a Date" accept="video/*" />
+                                        </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="row">
+                                    <div style="width:100%;" class="text-center">
+                                      <input type="submit" value="Update" class="btn btn-primary" style="width:140px;">
+                                    </div>
+                                  </div>
+                              </form> 
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
 <!-- Footer
     ================================================= --> 
 
@@ -440,6 +503,12 @@ table {
     }
 })
  
+ //user_id could pass to model popup using popup id
+$('#modal-1').on('show.bs.modal', function(e) 
+  {
+    var bookId = $(e.relatedTarget).data('id');
+    $(e.currentTarget).find('input[name="wowid"]').val(bookId);
+    });
 //event delete from db
 
 var base_url = '<?php echo base_url() ?>'; //form submited
@@ -488,6 +557,46 @@ $(document).ready(function(){
 
 });    
    
+//wowtag  form submit
+
+var base_url = '<?php echo base_url() ?>'; //form submited
+$(document).ready(function(){
+
+    $(document).on("submit", ".wowtag", function(e){
+         e.preventDefault();
+        var url = $(this).attr('action');
+        var formdata = new FormData(this);
+      
+        $.ajax({
+                url : url,
+                context:this,
+                method: 'POST',
+                data: formdata,
+                processData: false,
+                contentType: false,
+                dataType:'json',
+                context:this,   //here we use this function so declare here
+                error: function(xhr,status,error)
+                {   
+                    alert(xhr.responseText);
+                },              
+                
+                success: function(response)
+                {
+                   if(response.status == 'success')
+                   {
+                     $('#rsvp_success').show(); //success notification id
+                     window.location.href = base_url + 'nearbyevents/get_wowtag_video';
+                                                         
+                    }else 
+                     {                    
+                        swal("Sorry!", "somethink wrong try again !", "error");
+                     }
+                }
+
+            });
+        });
+ });
 </script>
 
 </body>

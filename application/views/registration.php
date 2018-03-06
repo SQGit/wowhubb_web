@@ -164,9 +164,7 @@ label.error {
         <div class="col-md-12" style="margin-bottom:25px;">
           <div class="pull-left"><i class="fa fa-3x fa-share-square" style="color:#fff"></i> </div>
           <div class="pull-left">
-            <h1 class="text-white" style="font-size:20px; margin:0 15px;  line-height:30px; font-weight: 300;">Create, Share & Advertise 
-              Your 
-              Personal /<br> Professional Events</h1>
+            <h1 class="text-white" style="font-size:20px; margin:0 15px;  line-height:30px; font-weight: 300;">Create, Share & Advertise Your Personal, <br> Social Corporate and  Professional Events</h1>
           </div>
         </div>
         <div class="col-md-12" style="margin-bottom:25px;">
@@ -183,12 +181,12 @@ label.error {
           </div>
         </div>
         <div class="col-md-12" style="margin-bottom:10px;">
-          <p style="color:#fff; font-size: 15px;">Create, Host and Share your Personal, Professional and Business Leads and Sales events. We are Best Event Networking Platform Anytime and Anywhere. 
+          <p style="color:#fff; font-size: 15px;">Create, Host and Share your Personal, Professional, Business Leads and Sales events. We are Best Event Networking Platform Anytime and Anywhere. 
            <!--span style="color: #FFE500; font-size: 17px; font-weight: bold;"><i class="fa fa-play"></i> Create Your Events - Personal, Professional & Business Events.
            </span-->
             <div class="col-sm-12  text-left" style="margin-bottom:10px;">
         <p>
-        <a href="#modal-1" data-toggle="modal"  style="color:#FFE500; font-size:17px;">
+        <a href="#modal-1" data-toggle="modal"  style="color:#FFE500; font-size:17px;"> <!-- this is register model popup -->       
         <div class="pull-left" style="width:5%;"><img src="<?php echo base_url('assets/images/cb.png'); ?>"></div>
         <div class="pull-left" style="width:95%; margin-top:4px;">
               <span style="color:#ff0; font-size:17px;"> Create an Event Business Hosting Page </span>
@@ -212,7 +210,7 @@ label.error {
             </div></a>
           </div>
           <div class="col-md-4">
-          <a href="<?php echo base_url('event/nearby_event'); ?>"><div class="col-md-12 text-center" style="border:1px solid #fff; border-radius:5px; padding-bottom:15px;">
+          <a href="<?php echo base_url('nearbyevents/nearby_event'); ?>"><div class="col-md-12 text-center" style="border:1px solid #fff; border-radius:5px; padding-bottom:15px;">
             <div class="col-md-12" style="margin-top:15px; text-align:center;"><img src="<?php echo base_url('assets/images/home-3.png'); ?>" alt="img"></div>
               <div class="col-md-12" style="margin-top:15px; color:#fff; line-height:20px;">Click To Discover Event Happening Near You</div>
             </div></a>

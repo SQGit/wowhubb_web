@@ -11,7 +11,7 @@ class Service extends CI_Controller
 
 	public function test()
 	{
-		$this->load->view('mytest/dynamic_tab');
+		$this->load->view('mytest/url');
 	}
 
 	public function service_provider()

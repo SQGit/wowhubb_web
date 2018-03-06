@@ -33,7 +33,7 @@ public function delete_wowvideo()
 		$delete_event = array('eventid' =>$this->input->post('event_id'));
 		$json_data = json_encode($delete_event); 
 
-			$result = $this->rest->post('http://104.197.80.225:3010/wow/event/deleteevent',$json_data,'json');
+			$result = $this->rest->post('http://104.197.80.225:3010/wow/event/deletewowtagvideo',$json_data,'json');
 
 				// print_r($result);
 				
@@ -47,6 +47,50 @@ public function delete_wowvideo()
 					 	$response['status'] = 'failed';
 					}
 			echo json_encode($response); 	
+	}
+
+
+public function update_wowtagvideo()
+	{
+	 		 		   	
+		    	
+		    	$token2 =  $this->session->userdata('token');
+		     	$header2 = array('token:'  	.$token2,
+		     					 'eventid:' .$this->input->post('wowid') 	
+							);
+		   	 
+	       		$ch2 = curl_init();
+       		      				    	
+			    	if(!empty($_FILES['wowtag_video']['name']))
+			       		{
+				    	 $wowtag_video = curl_file_create($_FILES['wowtag_video']['tmp_name'],$_FILES['wowtag_video']['type']);
+				    	}else
+					    	{
+					    		$wowtag_video = ""; 
+					    	}
+			
+	
+	    		$wowtag_video = array('wowtagvideo'  => @$wowtag_video );	    	 				
+	    	 
+	    	  	curl_setopt($ch2, CURLOPT_URL,'http://104.197.80.225:3010/wow/event/editwowtagvideo');	   
+		    	curl_setopt($ch2, CURLOPT_HTTPHEADER,$header2);
+		    	curl_setopt($ch2, CURLOPT_POST, true);
+		    	curl_setopt($ch2, CURLOPT_POSTFIELDS, $wowtag_video); 	
+		        curl_setopt($ch2, CURLOPT_RETURNTRANSFER, TRUE); //don't print automatic response   
+	    	  	$response2 = curl_exec($ch2); 	 
+	    	  	$data =json_decode($response2);
+	    	  	curl_close($ch2);
+
+	    	  	if($data->success == true)
+					{		 	
+						 $response['status'] = 'success'; 			
+					}
+					else 
+					{	
+					 	$response['status'] = 'failed';
+					}
+			echo json_encode($response); 
+	    	  	
 	}
 
 public function nearby_event()

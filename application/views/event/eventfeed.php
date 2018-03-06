@@ -437,7 +437,7 @@ img {
             <li><img src="<?php echo base_url('assets/images/network-icon.png'); ?>" alt="user" />
               <a href="<?php echo base_url('Searchfriends/add_friends'); ?>">My Network</a></li>
             <li><img src="<?php echo base_url('assets/images/album-icon.png'); ?>" alt="user" /><a href="#">My Album</a></li>
-            <li><img src="<?php echo base_url('assets/images/wow-tag-icon-1.png'); ?>" alt="user" /><a href="<?php echo base_url('Event/event_wowtag'); ?>">Wowtags</a></li>
+            <li><img src="<?php echo base_url('assets/images/wow-tag-icon-1.png'); ?>" alt="user" /><a href="<?php echo base_url('Nearbyevents/get_wowtag_video'); ?>">Wowtags</a></li>
             <li>
               <div style="margin-left:0; text-align:left;"><a href="<?php echo base_url('eventhubb/get_eventhubb'); ?>"><img src="<?php echo base_url('assets/images/event-hubb-icon.png'); ?>" alt="user" />Event Hubb</a></div>
             </li>
@@ -458,10 +458,10 @@ img {
             <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Business Pages</h5>
             <li style="background-color:#EFEFEF; padding:5px 10px; border-radius:5px;"><strong>Organisations</strong></li>
             <li>
-              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Vineture Party</a></div>
+              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Vineture Inc </a></div>
             </li>
             <li>
-              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Maxwell Party</a></div>
+              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Maxwell Inc</a></div>
             </li>
             <li style="background-color:#EFEFEF; padding:5px 10px; border-radius:5px;"><strong>Event Service Providers</strong></li>
             <li>
@@ -478,13 +478,16 @@ img {
           <ul class="nav-news-feed">
             <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Create</h5>
              <li>
-              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Create Group</a></div>
+              <div style="margin-left:0; text-align:left;"><a href="<?php echo base_url('Searchfriends/create_group'); ?>"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Create Group</a></div>
             </li>
             <li>
               <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Create Ad</a></div>
             </li>
             <li>
               <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Create Business Ad</a></div>
+            </li>
+            <li>
+              <div style="margin-left:0; text-align:left;"><a href="<?php echo base_url('business/ohp_form'); ?>"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Create Business Page</a></div>
             </li>
             
           </ul>

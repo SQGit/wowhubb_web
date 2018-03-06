@@ -518,7 +518,7 @@ input[type=number]::-webkit-outer-spin-button {
               <!-- Step 6 -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-user" aria-hidden="true"></i></div>
-                <p>Event Contact/ URL Links</p>
+                <p>Event Contact/ URL</p>
               </div>
               <!-- Step 6 --> 
               
@@ -546,7 +546,26 @@ input[type=number]::-webkit-outer-spin-button {
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="12.5" aria-valuemin="0" aria-valuemax="100" style="width: 12.5%"> </div>
                 </div>
                 <!-- Progress Bar -->
-                <h4> <span>Step 1 - 8</span></h4>
+                  <div class="row" style="margin-bottom:15px;">
+                     <div class="col-md-12">
+                       <div class="col-md-12" style="background:#f5f5f5; padding-top:15px; padding-bottom:15px;">
+                         <div class="col-md-12">
+                           <div class="col-md-11">
+                             <div class="pull-left" style="width:4%;">
+                               <img src="../assets/images/ques.png" alt="">
+                             </div>
+                             <div class="pull-left" style="width:96%;">
+                               <p style="line-height:23px;">This includes following Events like Class, Convention, Seminar, Webinar, Online Meeting, Podcasting etc. In Event details, We provide Event Days, Event Category and also add it is a Free, Paid or Donation based.</p>
+                             </div>
+                           </div>
+                           <div class="col-md-1">
+                             <h4> <span>Step 1 - 8</span></h4>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                </div>
+            
        				<div class='col-sm-5'>
                  		<div class='row'>
 		                  	<div class='form-group col-sm-12' style="display: none;" >
@@ -602,6 +621,230 @@ input[type=number]::-webkit-outer-spin-button {
 
 		                </div>
 
+<!-- here country rupee shows -->
+	<script type="text/javascript">
+
+		   	var con=new Array();
+			var cur=new Array();
+			con[0]='Afghanistan';cur[0]=' ؋';
+			con[1]='Albania';cur[1]='L';
+			con[2]='Algeria';cur[2]=' د.ج';
+			con[3]='Andorra';cur[3]='€ ';
+			con[4]='Angola';cur[4]='Kz ';
+			con[5]='Antigua and Barbuda';cur[5]='$ ';
+			con[6]='Argentina';cur[6]='$ ';
+			con[7]='Armenia';cur[7]='֏ ';
+			con[8]='Australia';cur[8]='$ ';
+			con[9]='Austria';cur[9]='€ ';
+			con[10]='Azerbaijan';cur[10]='₼ ';
+			con[11]='Bahamas';cur[11]='$ ';
+			con[12]='Bahrain';cur[12]='دينار ';
+			con[13]='Bangladesh';cur[13]='৳ ';
+			con[14]='Barbados';cur[14]='$ ';
+			con[15]='Belarus';cur[15]='Br ';
+			con[16]='Belgium';cur[16]='€ ';
+			con[17]='Belize';cur[17]='$ ';
+			con[18]='Benin';cur[18]='Fr ';
+			con[19]='Bhutan';cur[19]='Nu.';
+			con[20]='Bolivia';cur[20]='Bs.';
+			con[21]='Bosnia and Herzegovina';cur[21]=' KM';
+			con[22]='Botswana';cur[22]='P ';
+			con[23]='Brazil';cur[23]='R$';
+			con[24]='Brunei';cur[24]='$';
+			con[25]='Bulgaria';cur[25]='лв';
+			con[26]='Burkina Faso';cur[26]='Fr ';
+			con[27]='Burundi';cur[27]='Fr ';
+			con[28]='Cambodia';cur[28]=' ៛ ';
+			con[29]='Cameroon';cur[29]='Fr ';
+			con[30]='Canada';cur[30]='$ ';
+			con[31]='Cape Verde';cur[31]='Cape Verdean escudo';
+			con[32]='Central African Republic';cur[32]='Fr ';
+			con[33]='Chad';cur[33]='Fr ';
+			con[34]='Chile';cur[34]='$ ';
+			con[35]='China';cur[35]='¥';
+			con[36]='Colombia';cur[36]='$ ';
+			con[37]='Comoros';cur[37]='Fr ';
+			con[38]='Congo(DRC)';cur[38]='Fr ';
+			con[39]='Congo(ROC)';cur[39]='CFA Franc';
+			con[40]='Costa Rica';cur[40]='₡';
+			con[41]='Cóte d\'Ivoire';cur[41]='Fr ';
+			con[42]='Croatia';cur[42]='kn ';
+			con[43]='Cuba';cur[43]='$ ';
+			con[44]='Cyprus';cur[44]='€ ';
+			con[45]='Czech Republic';cur[45]='Kč ';
+			con[46]='Denmark';cur[46]='kr ';
+			con[47]='Djibouti';cur[47]='Fr ';
+			con[48]='Dominica';cur[48]='$ ';
+			con[49]='Dominican Republic';cur[49]='$ ';
+			con[50]='East Timor';cur[50]='$ ';
+			con[51]='Ecuador';cur[51]='$ ';
+			con[52]='Egypt';cur[52]=' £';
+			con[53]='El Salvador';cur[53]='$ ';
+			con[54]='Equatorial Guinea';cur[54]='Fr ';
+			con[55]='Eritrea';cur[55]='Nfk ';
+			con[56]='Estonia';cur[56]='€ ';
+			con[57]='Ethiopia';cur[57]='Br ';
+			con[58]='Fiji';cur[58]='$ ';
+			con[59]='Finland';cur[59]='€ ';
+			con[60]='France';cur[60]='€ ';
+			con[61]='Gabon';cur[61]='Fr ';
+			con[62]='Gambia';cur[62]='D ';
+			con[63]='Georgia';cur[63]='₾ ';
+			con[64]='Germany';cur[64]='€ ';
+			con[65]='Ghana';cur[65]='₵ ';
+			con[66]='Greece';cur[66]='€ ';
+			con[67]='Grenada';cur[67]='$ ';
+			con[68]='Guatemala';cur[68]='Q ';
+			con[69]='Guinea';cur[69]='Fr ';
+			con[70]='Guinea-Bissau';cur[70]='Fr ';
+			con[71]='Guyana';cur[71]='$ ';
+			con[72]='Haiti';cur[72]='G ';
+			con[73]='Honduras';cur[73]='L ';
+			con[74]='Hungary';cur[74]='Ft ';
+			con[75]='Iceland';cur[75]='Kr ';
+			con[76]='India';cur[76]='₹';
+			con[77]='Indonesia';cur[77]='Rp ';
+			con[78]='Iran';cur[78]='﷼';
+			con[79]='Iraq';cur[79]='ع.د ';
+			con[80]='Ireland';cur[80]='€ ';
+			con[81]='Israel';cur[81]='₪ ';
+			con[82]='Italy';cur[82]='€ ';
+			con[83]='Jamaica';cur[83]='$ ';
+			con[84]='Japan';cur[84]='¥ ';
+			con[85]='Jordan';cur[85]=' د.ا ';
+			con[86]='Kazakhstan';cur[86]='₸ ';
+			con[87]='Kenya';cur[87]='Sh ';
+			con[88]='Kiribati';cur[88]='$ ';
+			con[89]='Korea, North';cur[89]='Won';
+			con[90]='Korea, South';cur[90]='Won';
+			con[91]='Kuwait';cur[91]=' د.ك';
+			con[92]='Kyrgyzstan';cur[92]='c ';
+			con[93]='Laos';cur[93]='₭ ';
+			con[94]='Latvia';cur[94]='€ ';
+			con[95]='Lebanon';cur[95]='ل.ل ';
+			con[96]='Lesotho';cur[96]='L ';
+			con[97]='Liberia';cur[97]='$ ';
+			con[98]='Libya';cur[98]=' ل.د ';
+			con[99]='Liechtenstein';cur[99]='Fr ';
+			con[100]='Lithuania';cur[100]='€ ';
+			con[101]='Luxembourg';cur[101]='€ ';
+			con[102]='Macedonia ';cur[102]=' ден';
+			con[103]='Madagascar';cur[103]='Ar ';
+			con[104]='Malawi';cur[104]='MK ';
+			con[105]='Malaysia';cur[105]='RM ';
+			con[106]='Maldives';cur[106]='.ރ ';
+			con[107]='Mali';cur[107]='Fr ';
+			con[108]='Malta';cur[108]='€ ';
+			con[109]='Mauritania';cur[109]='UM ';
+			con[110]='Mauritius';cur[110]='₨ ';
+			con[111]='Mexico';cur[111]='$ ';
+			con[112]='Moldova';cur[112]='L ';
+			con[113]='Monaco';cur[113]='€ ';
+			con[114]='Mongolia';cur[114]='₮ ';
+			con[115]='Montenegro';cur[115]='€ ';
+			con[116]='Morocco';cur[116]='د.م. ';
+			con[117]='Mozambique';cur[117]='MT ';
+			con[118]='Myanmar';cur[118]='Ks';
+			con[119]='Namibia';cur[119]='$ ';
+			con[120]='Nauru';cur[120]='$ ';
+			con[121]='Nepal';cur[121]='₨ ';
+			con[122]='Netherlands';cur[122]='€ ';
+			con[123]='New Zealand';cur[123]='$ ';
+			con[124]='Nicaragua';cur[124]='C$';
+			con[125]='Niger';cur[125]='Fr';
+			con[126]='Nigeria';cur[126]='₦';
+			con[127]='Norway';cur[127]='kr';
+			con[128]='Oman';cur[128]='ر.ع.';
+			con[129]='Pakistan';cur[129]='₨';
+			con[130]='Palau';cur[130]='$';
+			con[131]='Palestinian State (proposed)';cur[131]='₪';
+			con[132]='Panama';cur[132]='$';
+			con[133]='Papua New Guinea';cur[133]='K';
+			con[134]='Paraguay';cur[134]='₲';
+			con[135]='Peru';cur[135]='S/.';
+			con[136]='Philippines';cur[136]=' ₱ ';
+			con[137]='Poland';cur[137]=' zł ';
+			con[138]='Portugal';cur[138]='€ ';
+			con[139]='Qatar';cur[139]='ر.ق';
+			con[140]='Romania';cur[140]=' lei';
+			con[141]='Russia';cur[141]='₽ ';
+			con[142]='Rwanda';cur[142]='Fr ';
+			con[143]='St. Kitts and Nevis';cur[143]='$ ';
+			con[144]='St. Lucia';cur[144]='$ ';
+			con[145]='St. Vincent and the Grenadines';cur[145]='$';
+			con[146]='Samoa';cur[146]='T';
+			con[147]='San Marino';cur[147]='€ ';
+			con[148]='Sáo Tomé and Príncipe';cur[148]='Db';
+			con[149]='Saudi Arabia';cur[149]=' ر.س';
+			con[150]='Senegal';cur[150]='Fr ';
+			con[151]='Serbia';cur[151]=' дин. Or din.';
+			con[152]='Seychelles';cur[152]='₨ ';
+			con[153]='Sierra Leone';cur[153]='Le ';
+			con[154]='Singapore';cur[154]='$ ';
+			con[155]='Slovakia';cur[155]=' € ';
+			con[156]='Slovenia';cur[156]=' € ';
+			con[157]='Solomon Islands';cur[157]='$ ';
+			con[158]='Somalia';cur[158]='Sh ';
+			con[159]='South Africa';cur[159]='R ';
+			con[160]='Spain';cur[160]='€ ';
+			con[161]='Sri Lanka';cur[161]='Rs ';
+			con[162]='Sudan';cur[162]=' ج.س.';
+			con[163]='Suriname';cur[163]='$ ';
+			con[164]='Swaziland';cur[164]='L';
+			con[165]='Sweden';cur[165]='Kr';
+			con[166]='Switzerland';cur[166]='Fr ';
+			con[167]='Syria';cur[167]='£';
+			con[168]='Taiwan';cur[168]=' $ ';
+			con[169]='Tajikistan';cur[169]='ЅМ ';
+			con[170]='Tanzania';cur[170]='Sh ';
+			con[171]='Thailand';cur[171]='฿ ';
+			con[172]='Togo';cur[172]='Fr ';
+			con[173]='Tonga';cur[173]='T$';
+			con[174]='Trinidad and Tobago';cur[174]='$';
+			con[175]='Tunisia';cur[175]='ملّيم';
+			con[176]='Turkey';cur[176]='₺';
+			con[177]='Turkmenistan';cur[177]='m ';
+			con[178]='Tuvalu';cur[178]='$ ';
+			con[179]='Uganda';cur[179]='Sh ';
+			con[180]='Ukraine';cur[180]='₴ ';
+			con[181]='United Arab Emirates';cur[181]='فلس';
+			con[182]='United Kingdom';cur[182]='£ ';
+			con[183]='United States';cur[183]='$ ';
+			con[184]='Uruguay';cur[184]='$';
+			con[185]='Uzbekistan';cur[185]='soʻm';
+			con[186]='Vanuatu';cur[186]='Vt ';
+			con[187]='Vatican City (Holy See)';cur[187]='€ ';
+			con[188]='Venezuela';cur[188]='Bs ';
+			con[189]='Vietnam';cur[189]='₫ ';
+			con[190]='Western Sahara (proposed state)';cur[190]='$ ';
+			con[191]='Yemen';cur[191]=' ﷼ ';
+			con[192]='Zambia';cur[192]='ZK ';
+			con[193]='Zimbabwe';cur[193]='$ ';
+
+			function list(index)
+			{
+				var con=document.getElementById('curr');
+				if(index==-1)
+				{
+					con.value=""; return;
+				}
+				con.value=cur[index];
+			}
+
+	</script>
+		                	<div class='row'>    
+				               <div class='form-group col-sm-12' >
+					                <select name=country id=con onChange=list(this.value) class="form-control">
+										<script type="text/javascript">
+										document.write("<option value=-1>Select Country</option>");
+										count=con.length;
+										for(i=0;i<count;i++)
+										document.write("<option value="+i+">"+con[i]+"</option>");
+										</script>
+									</select>
+								</div>
+							</div>
+
 		                   <div class='row'>                   
 			                    <div class='form-group col-sm-6' >
 			                      <label>This is</label>
@@ -615,7 +858,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 			                    <div class='form-group col-sm-6' style="display: none;" id="ticket_price">
 			                      <label>Enter Ticket Price</label>
-			                      <input type='text'  name="ticket_price"  class="form-control"  />
+			                      <input type='text'  name="ticket_price" id="curr"  class="form-control"  />
 			                    </div> 
 
 			                    <div class='form-group col-sm-12' style="display: none;" id="ticker_url_show">
@@ -719,7 +962,25 @@ input[type=number]::-webkit-outer-spin-button {
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%"> </div>
                 </div>
                 <!-- Progress Bar -->
-                <h4> <span>Step 2 - 8</span></h4>
+                   <div class="row" style="margin-bottom:15px;">
+                     <div class="col-md-12">
+                       <div class="col-md-12" style="background:#f5f5f5; padding-top:15px; padding-bottom:15px;">
+                         <div class="col-md-12">
+                           <div class="col-md-11">
+                             <div class="pull-left" style="width:4%;">
+                               <img src="../assets/images/ques.png" alt="">
+                             </div>
+                             <div class="pull-left" style="width:96%;">
+                               <p style="line-height:23px;">You can enter one or multiple venue for your event on this page.  If your event is taking place on the same date but at multiple location then wowhubb makes it possible for your to do this easily.      </p>
+                             </div>
+                           </div>
+                           <div class="col-md-1">
+                             <h4> <span>Step 2 - 8</span></h4>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                </div>
         <div class='col-sm-5'>
             <div class='col-sm-12' style="background-color:#f9f9f9;padding-top:10px; ">
                   		<div id="show_vanue" style="background-color:#bfbebe;padding-top:10px; ">
@@ -904,7 +1165,25 @@ input[type=number]::-webkit-outer-spin-button {
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="37.5" aria-valuemin="0" aria-valuemax="100" style="width: 37.5%"> </div>
                 </div>
                 <!-- Progress Bar -->
-                <h4> <span>Step 3 - 8</span></h4>
+                  <div class="row" style="margin-bottom:15px;">
+                     <div class="col-md-12">
+                       <div class="col-md-12" style="background:#f5f5f5; padding-top:15px; padding-bottom:15px;">
+                         <div class="col-md-12">
+                           <div class="col-md-11">
+                             <div class="pull-left" style="width:4%;">
+                               <img src="../assets/images/ques.png" alt="">
+                             </div>
+                             <div class="pull-left" style="width:96%;">
+                               <p style="line-height:23px;">!Wowtag  is a  catch word or phrase that uniquely identifies your  events  on the wowhubb network,  !Wowtag  can be used to advertise and promote your event  to your audience  to make it more effective create and attach  a 20 to 60 seconds  invite video to your wowtag title or event catch word</p>
+                             </div>
+                           </div>
+                           <div class="col-md-1">
+                             <h4> <span>Step 3 - 8</span></h4>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                </div>
                 <div class='col-sm-9'>
                   <div class='col-sm-12'>
                     <div class='col-sm-12' style="padding: 10px 0;">
@@ -1016,16 +1295,32 @@ input[type=number]::-webkit-outer-spin-button {
                   		 </div>
                 </div>
                 <!-- Progress Bar -->
-                <div class="row">
-                  <div class="col-md-6">
+                   <div class="row" style="margin-bottom:15px;">
+                   <div class="col-md-1">
                     <div class='form-group col-sm-12'> <a class="btn-next" href="JavaScript:void(0);"><i class="fa fa-fast-forward"></i> Skip</a> </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="pull-right">
-                      <h4> <span>Step 4 - 8</span></h4>
-                    </div>
-                  </div>
+                     <div class="col-md-10">
+                       <div class="col-md-12" style="background:#f5f5f5; padding-top:15px; padding-bottom:15px;">
+                         <div class="col-md-12">
+                   
+                             <div class="pull-left" style="width:4%;">
+                               <img src="../assets/images/ques.png" alt="">
+                             </div>
+                             <div class="pull-left" style="width:96%;">
+                               <p style="line-height:23px;">Wowhubb saves the cost of printing your next event program schedules / agenda you can simply enter your program time-slots, event facilitators, event agenda and and select specific location for each event slots. Also you can have multiple days event slots  displayed on wowhubb mobile devices of your attendees.</p>
+                             </div>
+                           
+                          
+                         </div>
+                         
+                       </div>
+                     </div>
+                     
+                      <div class="col-md-1">
+                             <h4> <span>Step 4 - 8</span></h4>
+                           </div>
                 </div>
+               
 
         		<div class='form-group col-sm-9' style="margin-top: 30px;"> 
                   
@@ -1100,26 +1395,44 @@ input[type=number]::-webkit-outer-spin-button {
 	                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%"> </div>
 	        </div>
                 <!-- Progress Bar -->
-            <h4> <span>Step 5 - 8</span></h4>
+           <div class="row" style="margin-bottom:15px;">
+                     <div class="col-md-12">
+                       <div class="col-md-12" style="background:#f5f5f5; padding-top:15px; padding-bottom:15px;">
+                         <div class="col-md-12">
+                           <div class="col-md-11">
+                             <div class="pull-left" style="width:4%;">
+                               <img src="../assets/images/ques.png" alt="">
+                             </div>
+                             <div class="pull-left" style="width:96%;">
+                               <p style="line-height:23px;">Your Event Highlights includes list of Invited Guest Speaker, Guest Artist, Special Activities etc </p>
+                             </div>
+                           </div>
+                           <div class="col-md-1">
+                             <h4> <span>Step 5 - 8</span></h4>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                </div>
                  <div class='form-group col-sm-12'>
                   	  <label>Add Your Event Highlights </label>
                 </div>
                 <div class='col-sm-9' id="highlight2">
 	                <div class='form-group col-sm-7' style="margin-bottom: 0px;">
-	                  	<div class='col-md-12' style="background-color:#f9f9f9; padding-top:15px;">
+	                  	<!-- <div class='col-md-12' style="background-color:#f9f9f9; padding-top:15px;">
 	                      <div class="form-group">                       
 	                        <input type="button" class="btn btn-primary"  value="Browse Image.." onclick="document.getElementById('img_files').click();" />
-	                        <input type="file" style="display:none;" name="highlight_img1" id="img_files" class="file" accept="image/*">
+	                        <input type="file" style="display:none;" name="highlight_img1" id="img_files" class="file">
 	                      </div>
-	                    </div>
+	                    </div> -->
+
 	                    <div class='col-md-12' style="background-color:#f9f9f9; padding-top:15px;">
 	                      <div class="form-group">                       
 	                        <div class="input-group col-xs-12" style="margin-top:0px;">
 	                          <p style="line-height:23px;">Choose a compelling 60-120 seconds event promotional ads video that will create a lasting impression in your viewers mind</p>
 	                        </div>
-	                         <span class="btn btn-primary btn-file"> 
-	                        		Browse Video...  <input type="file" name="highlight_video1" id="video_size1" accept="video/*" >  
-	                     	</span> 
+	                         <input type="button" class="btn btn-primary"  value="Browse " onclick="document.getElementById('video_size1').click();" />
+	                        <input type="file" style="display:none;" name="highlight_img1" id="video_size1" class="file">
 	                     	<div id="video_show1" style="display: none;" >
 	                        	<video width="200" height="150" controls>
 								 	 <source src="mov_bbb.mp4" id="video_here1">
@@ -1128,6 +1441,7 @@ input[type=number]::-webkit-outer-spin-button {
 	                        </div>                 
 	                      </div>
 	                    </div>
+	                    
 	                </div>
                 <div class='col-sm-5'>
 	                <div class='form-group col-sm-12'>
@@ -1158,19 +1472,19 @@ input[type=number]::-webkit-outer-spin-button {
                 <div id="event_high" style="display: none;">
 	                <div class='form-group col-sm-7' style="margin-bottom: 0px;">
 	                  	<div class='col-md-12' style="background-color:#f9f9f9; padding-top:15px;">
-	                      <div class="form-group">                       
+	                      <!-- <div class="form-group">                       
 	                        <input type="button" class="btn btn-primary"  value="Browse Image.." onclick="document.getElementById('img_files2').click();" />
 	                        <input type="file" style="display:none;" name="highlight_img2" id="img_files2" class="file" accept="image/*">
-	                      </div>
+	                      </div> -->
 	                    </div>
 	                    <div class='col-md-12' style="background-color:#f9f9f9; padding-top:15px;">
 	                      <div class="form-group">                       
 	                        <div class="input-group col-xs-12" style="margin-top:0px;">
 	                          <p style="line-height:23px;">Choose a compelling 60-120 seconds event promotional ads video that will create a lasting impression in your viewers mind</p>
 	                        </div>
-	                         <span class="btn btn-primary btn-file"> 
-	                        		Browse Video...  <input type="file" name="highlight_video2" id="video_size2" accept="video/*" >  
-	                     	</span> 
+	                         <input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('video_size2').click();" />
+	                        <input type="file" style="display:none;" name="highlight_img2" id="video_size2" class="file">
+	                      
 	                     	<div id="video_show2" style="display: none;" >
 	                        	<video width="200" height="150" controls>
 								 	 <source src="mov_bbb.mp4" id="video_here2">
@@ -1267,7 +1581,25 @@ input[type=number]::-webkit-outer-spin-button {
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="74.5" aria-valuemin="0" aria-valuemax="100" style="width: 74.5%"> </div>
                 </div>
                 <!-- Progress Bar -->
-                <h4> <span>Step 6 - 8</span></h4>
+                 <div class="row" style="margin-bottom:15px;">
+                     <div class="col-md-12">
+                       <div class="col-md-12" style="background:#f5f5f5; padding-top:15px; padding-bottom:15px;">
+                         <div class="col-md-12">
+                           <div class="col-md-11">
+                             <div class="pull-left" style="width:4%;">
+                               <img src="../assets/images/ques.png" alt="">
+                             </div>
+                             <div class="pull-left" style="width:96%;">
+                               <p style="line-height:23px;">Enter the event host details on this page  and also select how your event attendee can contact your organisation</p>
+                             </div>
+                           </div>
+                           <div class="col-md-1">
+                             <h4> <span>Step 6 - 8</span></h4>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                </div>
                 <div style="clear:both;"></div>
                 <div class="col-md-9">
                 <div class="col-md-6">
@@ -1419,10 +1751,20 @@ input[type=number]::-webkit-outer-spin-button {
                 </div>
                 <!-- Progress Bar -->
                  <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-md-3">
                     <div class='form-group col-sm-12'> <a class="btn-next" href="JavaScript:void(0);"><i class="fa fa-fast-forward"></i> Skip  Event Does not have Event Tours</a> </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-8">
+                           <div class="col-md-11">
+                             <div class="pull-left" style="width:6%;">
+                               <img src="../assets/images/ques.png" alt="">
+                             </div>
+                             <div class="pull-left" style="width:94%;">
+                               <p style="line-height:23px;">For Event taking place in Multiple Cities Across The Globe We Got You Covered</p>
+                             </div>
+                           </div>
+                   </div>
+                  <div class="col-md-1">
                     <div class="pull-right">
                       <h4> <span>Step 7 - 8</span></h4>
                     </div>
@@ -1710,7 +2052,25 @@ input[type=number]::-webkit-outer-spin-button {
 
                			 <!-- Progress Bar -->
 
-                <h4> <span>Step 8 - 8</span></h4>
+                <div class="row" style="margin-bottom:15px;">
+                     <div class="col-md-12">
+                       <div class="col-md-12" style="background:#f5f5f5; padding-top:15px; padding-bottom:15px;">
+                         <div class="col-md-12">
+                           <div class="col-md-11">
+                             <div class="pull-left" style="width:4%;">
+                               <img src="../assets/images/ques.png" alt="">
+                             </div>
+                             <div class="pull-left" style="width:96%;">
+                               <p style="line-height:23px;">Choose From The Tabs Below How Your Event Audience Will Engage With Your Event Post</p>
+                             </div>
+                           </div>
+                           <div class="col-md-1">
+                             <h4> <span>Step 8 - 8</span></h4>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                </div>
                 <div style="clear:both;"></div>
 
                 <!-- show all added address here -->
@@ -2795,7 +3155,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   if (window.File && window.FileList && window.FileReader) {
-    $("#img_files").on("change", function(e) {
+    $("#video_size1").on("change", function(e) {
       var files = e.target.files,
         filesLength = files.length;
       for (var i = 0; i < filesLength; i++) {
@@ -2806,7 +3166,7 @@ $(document).ready(function() {
           $("<span class=\"pip\">" +
             "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
             "<br/><span class=\"remove1\">Remove image</span>" +
-            "</span>").insertAfter("#img_files");
+            "</span>").insertAfter("#video_size1");
           $(".remove1").click(function(){
             $(this).parent(".pip").remove();
           });          
@@ -2824,7 +3184,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   if (window.File && window.FileList && window.FileReader) {
-    $("#img_files2").on("change", function(e) {
+    $("#video_size2").on("change", function(e) {
       var files = e.target.files,
         filesLength = files.length;
       for (var i = 0; i < filesLength; i++) {
@@ -2835,7 +3195,7 @@ $(document).ready(function() {
           $("<span class=\"pip\">" +
             "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
             "<br/><span class=\"remove1\">Remove image</span>" +
-            "</span>").insertAfter("#img_files2");
+            "</span>").insertAfter("#video_size2");
           $(".remove1").click(function(){
             $(this).parent(".pip").remove();
           });          
@@ -2897,7 +3257,7 @@ $(document).ready(function()
 //ticket select option  show and hide
 $(document).ready(function(){
 		$("#ticket_type").change(function () {
-				if ($(this).val() == "free_event" || $(this).val() == "select") 
+				if ($(this).val() == "Free Event" || $(this).val() == "select") 
 				 {
                 	$("#ticket_price").hide();
                 	$("#ticker_url_show").hide();
@@ -3203,6 +3563,7 @@ var base_url = '<?php echo base_url() ?>'; //form submited
     });
 
 
+</script>
 </script>
 
 </body>

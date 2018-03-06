@@ -480,7 +480,7 @@ img {
               <!-- Step 6 -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-user" aria-hidden="true"></i></div>
-                <p>Event Contact/ URL Links</p>
+                <p>Event Contact/ URL</p>
               </div>
               <!-- Step 6 --> 
                 <!-- Step 7 -->
@@ -506,7 +506,25 @@ img {
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="12.5" aria-valuemin="0" aria-valuemax="100" style="width: 12.5%"> </div>
                 </div>
                 <!-- Progress Bar -->
-                <h4> <span>Step 1 - 8</span></h4>
+                 <div class="row" style="margin-bottom:15px;">
+                     <div class="col-md-12">
+                       <div class="col-md-12" style="background:#f5f5f5; padding-top:15px; padding-bottom:15px;">
+                         <div class="col-md-12">
+                           <div class="col-md-11">
+                             <div class="pull-left" style="width:4%;">
+                               <img src="../assets/images/ques.png" alt="">
+                             </div>
+                             <div class="pull-left" style="width:96%;">
+                               <p style="line-height:23px;">This includes following Events like Religious Meetings, Conventions, Conferences, Comedy Shows, Music Concerts, Night Parties, Group Meetings etc. In Event details, We provide Event Days, Event Category and also add it is a Free, Paid or Donation based.</p>
+                             </div>
+                           </div>
+                           <div class="col-md-1">
+                             <h4> <span>Step 1 - 8</span></h4>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                </div>
        				<div class='col-sm-5'>
                  		<div class='row'>
 		                  	<div class='form-group col-sm-12' style="display: none;" >
@@ -666,7 +684,25 @@ img {
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width:25%"> </div>
                 </div>
                 <!-- Progress Bar -->
-                <h4> <span>Step 2 - 8</span></h4>
+                <div class="row" style="margin-bottom:15px;">
+                     <div class="col-md-12">
+                       <div class="col-md-12" style="background:#f5f5f5; padding-top:15px; padding-bottom:15px;">
+                         <div class="col-md-12">
+                           <div class="col-md-11">
+                             <div class="pull-left" style="width:4%;">
+                               <img src="../assets/images/ques.png" alt="">
+                             </div>
+                             <div class="pull-left" style="width:96%;">
+                               <p style="line-height:23px;">You can enter one or multiple venue for your event on this page.  If your event is taking place on the same date but at multiple location then wowhubb makes it possible for your to do this easily.      </p>
+                             </div>
+                           </div>
+                           <div class="col-md-1">
+                             <h4> <span>Step 2 - 8</span></h4>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                </div>
         <div class='col-sm-5'>
             <div class='col-sm-12' style="background-color:#f9f9f9;padding-top:10px; ">
                   		<div id="show_vanue" style="background-color:#bfbebe;padding-top:10px; ">
@@ -850,7 +886,25 @@ img {
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="37.5" aria-valuemin="0" aria-valuemax="100" style="width:37.5%"> </div>
                 </div>
                 <!-- Progress Bar -->
-                <h4> <span>Step 3 - 8</span></h4>
+                <div class="row" style="margin-bottom:15px;">
+                     <div class="col-md-12">
+                       <div class="col-md-12" style="background:#f5f5f5; padding-top:15px; padding-bottom:15px;">
+                         <div class="col-md-12">
+                           <div class="col-md-11">
+                             <div class="pull-left" style="width:4%;">
+                               <img src="../assets/images/ques.png" alt="">
+                             </div>
+                             <div class="pull-left" style="width:96%;">
+                               <p style="line-height:23px;">!Wowtag  is a  catch word or phrase that uniquely identifies your  events  on the wowhubb network,  !Wowtag  can be used to advertise and promote your event  to your audience  to make it more effective create and attach  a 20 to 60 seconds  invite video to your wowtag title or event catch word</p>
+                             </div>
+                           </div>
+                           <div class="col-md-1">
+                             <h4> <span>Step 3 - 8</span></h4>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                </div>
                 <div class='col-sm-9'>
                   <div class='col-sm-12'>
                     <div class='col-sm-12' style="padding: 10px 0;">
@@ -962,16 +1016,32 @@ img {
                   		 </div>
                 </div>
                 <!-- Progress Bar -->
-                <div class="row">
-                  <div class="col-md-6">
+                      <div class="row" style="margin-bottom:15px;">
+                   <div class="col-md-1">
                     <div class='form-group col-sm-12'> <a class="btn-next" href="JavaScript:void(0);"><i class="fa fa-fast-forward"></i> Skip</a> </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="pull-right">
-                      <h4> <span>Step 4 - 8</span></h4>
-                    </div>
-                  </div>
+                     <div class="col-md-10">
+                       <div class="col-md-12" style="background:#f5f5f5; padding-top:15px; padding-bottom:15px;">
+                         <div class="col-md-12">
+                   
+                             <div class="pull-left" style="width:4%;">
+                               <img src="../assets/images/ques.png" alt="">
+                             </div>
+                             <div class="pull-left" style="width:96%;">
+                               <p style="line-height:23px;">Wowhubb saves the cost of printing your next event program schedules / agenda you can simply enter your program time-slots, event facilitators, event agenda and and select specific location for each event slots. Also you can have multiple days event slots  displayed on wowhubb mobile devices of your attendees.</p>
+                             </div>
+                           
+                          
+                         </div>
+                         
+                       </div>
+                     </div>
+                     
+                      <div class="col-md-1">
+                             <h4> <span>Step 4 - 8</span></h4>
+                           </div>
                 </div>
+                
 
         		<div class='form-group col-sm-9' style="margin-top: 30px;"> 
                   
@@ -1044,7 +1114,25 @@ img {
 	                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%"> </div>
 	        </div>
                 <!-- Progress Bar -->
-            <h4> <span>Step 5 - 8</span></h4>
+           <div class="row" style="margin-bottom:15px;">
+                     <div class="col-md-12">
+                       <div class="col-md-12" style="background:#f5f5f5; padding-top:15px; padding-bottom:15px;">
+                         <div class="col-md-12">
+                           <div class="col-md-11">
+                             <div class="pull-left" style="width:4%;">
+                               <img src="../assets/images/ques.png" alt="">
+                             </div>
+                             <div class="pull-left" style="width:96%;">
+                               <p style="line-height:23px;">Your Event Highlights includes list of Invited Guest Speaker, Guest Artist, Special Activities etc </p>
+                             </div>
+                           </div>
+                           <div class="col-md-1">
+                             <h4> <span>Step 5 - 8</span></h4>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                </div>
                  <div class='form-group col-sm-12'>
                   	  <label>Add Your Event Highlights </label>
                 </div>
@@ -1211,7 +1299,25 @@ img {
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="74.5" aria-valuemin="0" aria-valuemax="100" style="width: 74.5%"> </div>
                 </div>
                 <!-- Progress Bar -->
-                <h4> <span>Step 6 - 8</span></h4>
+                     <div class="row" style="margin-bottom:15px;">
+                     <div class="col-md-12">
+                       <div class="col-md-12" style="background:#f5f5f5; padding-top:15px; padding-bottom:15px;">
+                         <div class="col-md-12">
+                           <div class="col-md-11">
+                             <div class="pull-left" style="width:4%;">
+                               <img src="../assets/images/ques.png" alt="">
+                             </div>
+                             <div class="pull-left" style="width:96%;">
+                               <p style="line-height:23px;">Enter the event host details on this page  and also select how your event attendee can contact your organisation</p>
+                             </div>
+                           </div>
+                           <div class="col-md-1">
+                             <h4> <span>Step 6 - 8</span></h4>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                </div>
                 <div style="clear:both;"></div>
                 <div class="col-md-9">
                 <div class="col-md-6">
@@ -1353,7 +1459,26 @@ img {
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" style="width: 87%"> </div>
                 </div>
                 <!-- Progress Bar -->
-                <h4> <span>Step 6 - 7</span></h4>
+                 <div class="row">
+                  <div class="col-md-3">
+                    <div class='form-group col-sm-12'> <a class="btn-next" href="JavaScript:void(0);"><i class="fa fa-fast-forward"></i> Skip  Event Does not have Event Tours</a> </div>
+                  </div>
+                  <div class="col-md-8">
+                           <div class="col-md-11">
+                             <div class="pull-left" style="width:6%;">
+                               <img src="../assets/images/ques.png" alt="">
+                             </div>
+                             <div class="pull-left" style="width:94%;">
+                               <p style="line-height:23px;">For Event taking place in Multiple Cities Across The Globe We Got You Covered</p>
+                             </div>
+                           </div>
+                   </div>
+                  <div class="col-md-1">
+                    <div class="pull-right">
+                      <h4> <span>Step 7 - 8</span></h4>
+                    </div>
+                  </div>
+                </div>
 
                 <div class='col-sm-5'>
            					  <div class='col-sm-12' >
@@ -1636,7 +1761,25 @@ img {
 
                			 <!-- Progress Bar -->
 
-                <h4> <span>Step 8 - 8</span></h4>
+                <div class="row" style="margin-bottom:15px;">
+                     <div class="col-md-12">
+                       <div class="col-md-12" style="background:#f5f5f5; padding-top:15px; padding-bottom:15px;">
+                         <div class="col-md-12">
+                           <div class="col-md-11">
+                             <div class="pull-left" style="width:4%;">
+                               <img src="../assets/images/ques.png" alt="">
+                             </div>
+                             <div class="pull-left" style="width:96%;">
+                               <p style="line-height:23px;">Choose From The Tabs Below How Your Event Audience Will Engage With Your Event Post</p>
+                             </div>
+                           </div>
+                           <div class="col-md-1">
+                             <h4> <span>Step 8 - 8</span></h4>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                </div>
                 <div style="clear:both;"></div>
 
                 <div class="col-md-12" >     

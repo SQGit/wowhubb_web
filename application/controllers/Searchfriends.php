@@ -69,7 +69,7 @@ class Searchfriends extends CI_Controller
 			echo json_encode($response);
 	}
 
-	public function decline_request($decline_id) //decline request
+public function decline_request($decline_id) //decline request
 	{
 		$response = array(); 
 		$this->rest->http_header('token', $this->session->userdata('token'));
@@ -88,6 +88,11 @@ class Searchfriends extends CI_Controller
 		 	 	 $response['message'] = $result->message;
 		    }
 			echo json_encode($response);
+	}
+
+public function create_group() 
+	{
+		$this->load->view('friends/creategroup');
 	}
 
 }

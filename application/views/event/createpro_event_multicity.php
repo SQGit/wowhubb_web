@@ -833,7 +833,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 	</script>
 		                	<div class='row'>    
-				               <div class='form-group col-sm-12' >
+				               <div class='form-group col-sm-12' style="margin-top: 15px;">
 					                <select name=country id=con onChange=list(this.value) class="form-control">
 										<script type="text/javascript">
 										document.write("<option value=-1>Select Country</option>");
@@ -858,7 +858,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 			                    <div class='form-group col-sm-6' style="display: none;" id="ticket_price">
 			                      <label>Enter Ticket Price</label>
-			                      <input type='text'  name="ticket_price" id="curr"  class="form-control"  />
+			                      <input type='text'  name="ticket_price" id="curr"  class="form-control" />
 			                    </div> 
 
 			                    <div class='form-group col-sm-12' style="display: none;" id="ticker_url_show">

@@ -197,6 +197,11 @@ public function reg_load()
 			 				$this->session->set_userdata('designation', $result->user->designation);
 			 			}
 
+			 			if(isset($result->user->business))	
+				 		{
+			 				$this->session->set_userdata('business', $result->user->business);
+			 			}
+
 				 		$response['status'] = "success";
 				 		$checking = $this->login_check(); //this is login_check for first time function
 				 		$response['redirect_url'] = $checking;						
@@ -266,11 +271,16 @@ public function reg_load()
 			 				$this->session->set_userdata('self_video', $result->user->personalself);
 			 			}
 
-
 			 		if(isset($result->user->designation))	
 				 		{
 			 				$this->session->set_userdata('designation', $result->user->designation);
 			 			}
+
+			 		if(isset($result->user->business))	
+				 		{
+			 				$this->session->set_userdata('business', $result->user->business);
+			 			}
+
 			 			$response['status'] = "success";
 				 		$checking = $this->login_check();    //this is login_check function
 				 		$response['redirect_url'] = $checking;					 					

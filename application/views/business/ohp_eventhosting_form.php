@@ -538,7 +538,7 @@
                    			<div class='row'>
                   				<div class="form-group col-sm-12 animated bounceInUp" id="company" style="font-size: 15px;">
 				                    <label>Choose a Category</label>
-				                    <select name="business_category"  class="form-control" style="background-color:#eff0f1;">
+				                    <select name="company_category"  class="form-control" style="background-color:#eff0f1;">
 				                      	<option selected="selected" value="Arts Craft Company">Arts &amp; &nbsp;Craft Company</option>
 				                        <option value="Aerospace Company">Aerospace Company</option>
 				                        <option value="Advertising Media">Advertising Media &amp; Public Relations</option>
@@ -566,7 +566,7 @@
 		                    		<!-- second form -->
 		                    	<div class="form-group col-sm-12 animated bounceInUp" id="public" style="display: none; font-size: 15px;" > 
 				                      <label>Choose a Category</label>
-				                    	<select name="business_category"  class="form-control" style="background-color:#eff0f1;">
+				                    	<select name="public_category"  class="form-control" style="background-color:#eff0f1;">
 					                      <option selected="selected" value="Artist">Artist</option>
 					                       <option value="Author">Author</option>
 					                       <option value="Music Band">Music Band</option>
@@ -590,7 +590,7 @@
 		                    	<!-- third form -->
 		                    	<div class="form-group col-sm-12 animated bounceInUp" id="local_business" style="display: none; font-size: 15px;">
 				                     <label>Choose a Category</label>
-					                    <select name="business_category"  class="form-control" style="background-color:#eff0f1;">
+					                    <select name="local_category"  class="form-control" style="background-color:#eff0f1;">
 					                      <option selected="selected" value="Auto Dealer" >Auto Dealer </option>
 					                       <option value="Bar Resturant">Bar &amp; Resturant </option>
 					                       <option value="Appliance Store">Appliance Store</option>
@@ -623,7 +623,7 @@
 		                    	<!-- fourth form -->
 		                    	<div class="form-group col-sm-12 animated bounceInUp" id="Entertainment" style="display: none; font-size: 15px;">
 				                    <label>Choose a Category</label>
-				                    <select name="business_category"  class="form-control" style="background-color:#eff0f1;">
+				                    <select name="entertainment_category"  class="form-control" style="background-color:#eff0f1;">
 				                       <option selected="selected" value="Sports Team">Sports Team</option>
 				                       <option value="Concert Tour">Concert Tour</option>
 				                       <option value="Cultural Groups">Cultural Groups</option>

@@ -9,12 +9,17 @@ class Searchfriends extends CI_Controller
 		 $this->load->library('session'); 
 		 $this->load->helper(array('form','url'));
 	}
-	public function searching_friends()
+public function searching_friends()
 	{
 		$this->load->view('friends/search_friends');
 	}
 
-	public function add_friends() //find friend request
+public function grouphubb()
+	{
+		$this->load->view('friends/grouphubb');
+	}
+
+public function add_friends() //find friend request
 	{		
 		
 		$this->rest->http_header('token', $this->session->userdata('token'));
@@ -26,7 +31,7 @@ class Searchfriends extends CI_Controller
 		$this->load->view('serviceprovider/add_friends',$data);
 	}
 	
-	public function send_request($request_id) //send request
+public function send_request($request_id) //send request
 	{
 		$response = array(); 
 		$this->rest->http_header('token', $this->session->userdata('token'));
@@ -48,7 +53,7 @@ class Searchfriends extends CI_Controller
 		echo json_encode($response);
 	}
 
-	public function accept_request($accept_id) //accept request
+public function accept_request($accept_id) //accept request
 	{
 		$response = array(); 
 		$this->rest->http_header('token', $this->session->userdata('token'));
@@ -90,9 +95,93 @@ public function decline_request($decline_id) //decline request
 			echo json_encode($response);
 	}
 
-public function create_group() 
+public function create_group_page() 
 	{
 		$this->load->view('friends/creategroup');
+	}
+
+public function search_friendsold($search_val) //add search and friend request
+   {
+			   
+			   	$this->rest->http_header('token', $this->session->userdata('token'));
+			   	$search =array('search' => $search_val);
+			   	$json_data = json_encode($search);
+			   	$result = $this->rest->post('http://104.197.80.225:3010/wow/network/friendsuggestion',$json_data,'json');
+			  
+			   	if($result->success)
+					{	 
+						 $response = $result->message;
+						 echo '<ul class="live-search-list">';						
+						 foreach ($response as $responses) {
+						 	echo '<li><a href="#" data-id="'.$responses->_id.'" >'.$responses->firstname.'</a></li>';  //here add base url
+						 }						 
+						 echo '</ul>';
+
+						 echo ' <script type="text/javascript">$("#display1 li a").on("click",  function(e){
+								    e.preventDefault();
+								    var name = $(this).text();	
+								    var id = $(this).data("id");							   
+								    $("#user_name option ").val(name);
+								    $("#name_id").val(id);
+
+									});
+								</script>';
+					}
+				  else 
+				   {	
+						 echo 'failed';						 
+				    }					
+
+	}
+
+public function search_friends($search_val) //add search and friend request
+   {
+			   
+			   	$this->rest->http_header('token', $this->session->userdata('token'));
+			   	$search =array('search' => $search_val);
+			   	$json_data = json_encode($search);
+			   	$result = $this->rest->post('http://104.197.80.225:3010/wow/network/friendsuggestion',$json_data,'json');
+			  
+			   	if($result->success)
+					{	 
+						 $response = $result->message;
+						 echo '<select class="live-search-list" multiple>';						
+						 foreach ($response as $responses) {
+						 	echo '<option><a href="#" data-id="'.$responses->_id.'" >'.$responses->firstname.'</a></optino>';  //here add base url
+						 }						 
+						 echo '</select>';
+
+						 echo ' <script type="text/javascript">$("#display1 li a").on("click",  function(e){
+								    e.preventDefault();
+								    var name = $(this).text();	
+								    var id = $(this).data("id");							   
+								    $("#searchbox ").val(name);
+								    $("#name_id").val(id);
+
+									});
+								</script>';
+					}
+
+				  else 
+				   {	
+						echo 'failed';						 
+				    }					
+
+	}
+
+
+public function create_group() 
+	{
+
+		$response = array(); 
+
+		$this->rest->http_header('token', $this->session->userdata('token'));
+		$group =array('groupname'  => $this->input->post('group_name'),	
+						'users' 	=> $this->input->post('people_add'));
+		$json_data = json_encode($group);
+		$result = $this->rest->post('http://104.197.80.225:3010/wow/group/creategroup',$json_data,'json');
+		print_r($result);
+		
 	}
 
 }

@@ -219,6 +219,23 @@ img {
     background: white;
     color: black;
   }
+  
+  @media (min-width: 1024px)
+  {
+	  .menu form .form-group input.form-control{
+		  width:250px;
+	  }
+	  textarea.form-control
+	  {
+		  width:100%;
+	  }
+  }
+  .profile-card{
+  
+  width: 100%;
+  height: 120px!important;
+  
+}
 </style>
 
 </head>
@@ -371,7 +388,7 @@ img {
 
         <form class="navbar-form navbar-right hidden-sm" style="position:absolute; right:410px; top:0px;" >
           <div class="form-group"> <i class="icon ion-android-search"></i>
-            <input type="text" class="search form-control live-search-box" id="searchbox" name="friends_search" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px; min-width:330px;" />
+            <input type="text" class="search form-control live-search-box" id="searchbox" name="friends_search" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px;" />
             <br/>
             <span id="display1"> </span> </div>
         </form>
@@ -443,6 +460,7 @@ img {
             </li>
             <li><img src="<?php echo base_url('assets/images/profile-icon.png'); ?>" alt="user" /><a href="#">Event Organizer</a></li>
              <li><img src="<?php echo base_url('assets/images/album-icon.png'); ?>" alt="user" /><a href="#">My Coupons</a></li>
+             <li><img src="<?php echo base_url('assets/images/network-icon.png'); ?>" alt="user" /><a href="<?php echo base_url('searchfriends/grouphubb'); ?>">Group Hubb</a></li>
 
             <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
           </ul>
@@ -457,14 +475,31 @@ img {
           <ul class="nav-news-feed">
             <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Business Pages</h5>
             <li style="background-color:#EFEFEF; padding:5px 10px; border-radius:5px;"><strong>Organisations</strong></li>
-            <li>
-              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Vineture Inc </a></div>
+           
+
+            <!-- company name show here from login page -->
+             <?php
+                  $business =  $this->session->userdata('business');
+                  
+                    foreach ($business as $business_name) { 
+                    if(isset($business_name->companyname)) 
+                    {            
+                  
+              ?>
+            <li>             
+              <div style="margin-left:0; text-align:left;">
+                <a href="<?php echo base_url('business/my_business_pageshow/'.$business_name->_id); ?>">
+                    <i class="fa fa-caret-right" style="margin-top:4px;"></i>
+                    <?php  echo $business_name->companyname; ?>
+                </a>
+              </div>
             </li>
-            <li>
-              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Maxwell Inc</a></div>
-            </li>
+
+            <?php } }  ?>
+            <!-- company name show end here  -->
+
             <li style="background-color:#EFEFEF; padding:5px 10px; border-radius:5px;"><strong>Event Service Providers</strong></li>
-            <li>
+            <li> 
               <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Amazing Bakery</a></div>
             </li>
             <li style="background-color:#EFEFEF; padding:5px 10px; border-radius:5px;"><strong>Event Venues</strong></li>
@@ -478,7 +513,7 @@ img {
           <ul class="nav-news-feed">
             <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Create</h5>
              <li>
-              <div style="margin-left:0; text-align:left;"><a href="<?php echo base_url('Searchfriends/create_group'); ?>"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Create Group</a></div>
+              <div style="margin-left:0; text-align:left;"><a href="<?php echo base_url('Searchfriends/create_group_page'); ?>"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Create Group</a></div>
             </li>
             <li>
               <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Create Ad</a></div>
@@ -487,7 +522,7 @@ img {
               <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Create Business Ad</a></div>
             </li>
             <li>
-              <div style="margin-left:0; text-align:left;"><a href="<?php echo base_url('business/ohp_form'); ?>"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Create Business Page</a></div>
+              <div style="margin-left:0; text-align:left;"><a href="<?php echo base_url('business/business_page_landing'); ?>"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Create Business Page</a></div>
             </li>
             
           </ul>
@@ -507,7 +542,7 @@ img {
                   <!-- thought form submit here -->
                    <form id="thougths" action="<?php echo base_url('event/update_thoughts'); ?>" method="POST" enctype="multipart/form-data">
 
-                    <div class="col-md-7 col-sm-7">
+                    <div class="col-md-6 col-sm-12">
                         <div class="form-group">
                             
                             <?php if(!is_null($this->session->userdata('personal_image')))
@@ -518,11 +553,11 @@ img {
                               <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo-md" />
                             <?php } ?>             
 
-                              <textarea name="texts" id="exampleTextarea" cols="30" rows="1" class="form-control" placeholder="Share your thoughts.." style="margin-left:10px; min-height: 70px; width: 250px!important;"></textarea>
+                              <textarea name="texts" id="exampleTextarea" cols="30" rows="1" class="form-control" placeholder="Share your thoughts.." style="margin-left:10px; min-height: 70px;"></textarea>
                         </div>
                     </div>
 
-                    <div class="col-md-5 col-sm-5">
+                    <div class="col-md-6 col-sm-12">
 
                      <!-- thoughts update here -->
                     
@@ -554,13 +589,13 @@ img {
                     </div>
 
                       <div class="col-md-12" style="margin-top: 20px; margin-bottom: 20px; display: none;" id="show_text" >
-                          <input type="text" class="form-control" name="thought_url_link" placeholder="Enter URL Link">
-                      </div>
+                          <input type="text" class="form-control" name="thought_url_link" id="" placeholder="Enter URL Link">                         
+                      </div>                      
 
                       <div class="col-md-12" style="margin-top: 20px; margin-bottom: 20px;" > <!-- image upload here -->
                           <div class="col-md-6">
-                           <input type="hidden" onclick="document.getElementById('file1').click();" />
-                           <input type="file" id="file1" name="thought_img" accept="image/*" style="display:none"> 
+                             <input type="hidden" onclick="document.getElementById('file1').click();" />
+                             <input type="file" id="file1" name="thought_img" accept="image/*" style="display:none"> 
                           </div>
 
                           <div class="col-md-6"> 
@@ -572,7 +607,8 @@ img {
                                   </div> 
                                   <!--  <div style="position:absolute; right:203px; top:0px;"><a href="#" class="delete"><i class="glyphicon glyphicon-remove"></i></a></div> -->
                           </div>
-                      </div>      
+                      </div>   
+                      
                 </form>
                 <!-- thought form submit end here -->
 
@@ -695,15 +731,12 @@ img {
                 </div>
             </div>
 
-    <!-- thoughts  start here -->
+      <!-- thoughts  start here -->
                   <?php                            
                         foreach ($eventfeed as $feeds)
-                          {                     
-                           
-                              if($feeds->eventtype =='thought')  
-
-                                {                              
-                                  // print_r($feeds);
+                          {                    
+                            if($feeds->eventtype =='thought')  
+                              {                              
                   ?>
 
             <div class="container post-content">
@@ -775,7 +808,7 @@ img {
                                             { 
                                                echo $feeds->userid->designation; 
                                             } 
-                                          else { echo " ";} 
+                                          else { echo " ";  } 
                                   ?>
                                 </p> 
                                 
@@ -787,7 +820,16 @@ img {
                         <p class="text-muted"><?php if(isset($feeds->thoughtstext)) { echo $feeds->thoughtstext; } ?></p>
                       </div>
                        <div class="col-md-12" style="margin-top:3px;">
-                        <p class="text-muted"><?php if(isset($feeds->urllink)) { echo $feeds->urllink; } ?></p>
+                        <p class="text-muted" style="font-size: 16px;"><a href=" <?php if(isset($feeds->urllink)) { echo $feeds->urllink; } ?>" target="_blank"> <?php if(isset($feeds->urllink)) { echo $feeds->urllink; } ?></p>
+                       
+                        <?php if(isset($feeds->imageurl)){ ?>
+                          <div class="gallery" > <img style="width:476; height: 249px;" src="<?php echo $feeds->imageurl; ?>" alt="post-image" class="img-responsive post-image" /></div>
+                        <?php } ?>
+
+                         <p ><?php if(isset($feeds->title)) { echo $feeds->title; } ?></p>
+                          <p ><?php if(isset($feeds->description)) { echo $feeds->description; } ?></p>
+                          </a>
+                          
                       </div>
                     </div>
 
@@ -958,7 +1000,7 @@ img {
                                         </div>
                                   </form>
 
-                                  <div class="col-md-3 text-center">
+                                  <div class="col-md-4 text-center">
                                       <div class="dropdown"> 
                                           <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration:none; cursor:pointer; font-size:11px;">
                                             <i class="fa fa-share"></i> Shares 
@@ -972,7 +1014,7 @@ img {
                                       </div>
                                   </div>
 
-                                  <div class="col-md-3 text-center">
+                                  <div class="col-md-2 text-center">
                                       <a class="btn text-red" style="font-size:11px;"> 
                                           <i class="fa fa-comments"></i> Comments
                                       </a> 
@@ -987,17 +1029,15 @@ img {
 
          <?php }  } ?> 
 
-     <!-- thoughts  end here -->
+      <!-- thoughts  end here -->
 
-    <!-- personal evnt start here -->
+      <!-- personal evnt start here -->
                   <?php                            
                         foreach ($eventfeed as $feeds)
-                          {                            
-                           
+                          {                          
                               if($feeds->eventtype =='personal_event')  
-
                                 {                              
-                                  
+                     
                   ?>
 
             <div class="container post-content">
@@ -1906,28 +1946,19 @@ img {
 
             <?php }  } ?>
 
-
-          
+       
     <!-- professional event end  here -->
-
 
 
     <!-- social event show here -->
 
-                <?php 
-
-                  // if(isset($eventfeed)) 
-                  //   {          
+                <?php                         
                       foreach ($eventfeed as $feeds)
-                        {                              
-                            // print_r($feeds->eventtype);
-
-                            if($feeds->eventtype == 'socia1_event')  
-
+                        {                       
+                            if($feeds->eventtype == 'socia1_event') 
                               {                                
                              
-                                // print_r($feeds->eventtype); } 
-                                // else {
+                              
                 ?>
 
             <div class="container post-content">
@@ -2394,12 +2425,10 @@ img {
               <?php 
                              
                   foreach ($eventfeed as $feeds)
-                    {                     
-
+                    {                   
                       if($feeds->eventtype == 'business_event')  
-
-                        {                             
-                           
+                        {                           
+                         
               ?>
 
             <div class="container post-content">
@@ -3540,6 +3569,43 @@ $(".delete").click(function(){
 $("#url_link").click(function(){
     $("#show_text").show();
 });
+
+// url link  form submit
+var base_url = '<?php echo base_url() ?>'; //form submited
+$(document).ready(function(){
+
+   $('.url_link').on('change', function(){
+     
+              
+       var searchbox = $('#link_value').val();
+       alert(searchbox);
+       // var dataString = 'searchword='+ searchbox;
+     
+        $.ajax({
+
+                url : base_url+'event/thoughtlink/'+searchbox,
+                context:this,
+                type: 'POST',
+                //data: dataString,
+                processData: false,
+                contentType: false,
+                // dataType:'json',
+                error: function(xhr,status,error)
+                {   
+                   alert(xhr.responseText);
+                },              
+                
+                success: function(response)
+                {
+                   $('#display1').html(response);
+                }
+
+            });
+       
+    }); 
+   
+});
+
 
 </script>
 </body>

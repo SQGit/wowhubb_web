@@ -562,6 +562,11 @@ public function professional_multicity_event()
  	//first step
 
  			$token   =  $this->session->userdata('token');	
+
+ 			 $start_date = $_POST['event_startdate'];
+		     $end_date   = $_POST['event_enddate'];		    
+		     $s_date = date('Y/m/d', strtotime($start_date)); 
+		     $e_date = date('Y/m/d', strtotime($end_date));  
  			
 		   	$header1 = array('token:'           .$token,
 		   					'eventtype:'        .$this->input->post('event_type'), 
@@ -569,6 +574,8 @@ public function professional_multicity_event()
 							'eventtypeint:'     ."2",
 							'eventname:'        .$this->input->post('event_name'),	
 							'tickettype:'       .$this->input->post('ticket_type'),	
+							'eventstartdate:'	.$s_date.' '.$this->input->post('event_startime'),
+							'eventenddate:'   	.$e_date.' '. $this->input->post('event_endtiming'),
 							'ticketprice:'      .$this->input->post('ticket_price'),
 							'eventticketurl:'   .$this->input->post('ticket_url'),
 							'eventdescription:' .$this->input->post('event_description')
@@ -989,6 +996,11 @@ public function social_multicity_event()
  	//first step
 
  			$token   =  $this->session->userdata('token');	
+
+ 			$start_date = $_POST['event_startdate'];
+		    $end_date   = $_POST['event_enddate'];		    
+		    $s_date = date('Y/m/d', strtotime($start_date)); 
+		    $e_date = date('Y/m/d', strtotime($end_date));  
  			
 		   	$header1 = array('token:'           .$token,
 		   					'eventtype:'        .$this->input->post('event_type'), 
@@ -996,6 +1008,8 @@ public function social_multicity_event()
 							'eventtypeint:'     ."3",
 							'eventname:'        .$this->input->post('event_name'),	
 							'tickettype:'       .$this->input->post('ticket_type'),	
+							'eventstartdate:'	.$s_date.' '.$this->input->post('event_startime'),
+							'eventenddate:'   	.$e_date.' '. $this->input->post('event_endtiming'),
 							'ticketprice:'      .$this->input->post('ticket_price'),
 							'eventticketurl:'   .$this->input->post('ticket_url'),
 							'eventdescription:' .$this->input->post('event_description')
@@ -1820,14 +1834,63 @@ public function keyword()
 public function update_thoughts()
 	{
 			
-			$response = array(); 			
+			$response = array(); 	
+
+			$url_link = $this->input->post('thought_url_link');		
+			$tags = get_meta_tags($test);
+            // $link_keyword = $tags['keywords']; 
+
+            // if(isset($tags['keywords']))
+            // {
+            // 	$link_keyword = $tags['keywords']; 
+            // }
+            // else
+            // {
+            // 	$link_keyword = ""; 
+            // }
+
+            	libxml_use_internal_errors(true);  // Yeah if you are so worried about using @ with warnings
+				$c = file_get_contents("$url_link");
+				$d = new DomDocument();
+				$d->loadHTML($c);
+				$xp = new domxpath($d);
+
+				if(isset($xp))
+				{
+					foreach ($xp->query("//meta[@property='og:title']" ) as $el)
+						{
+											
+						    	$title = $el->getAttribute("content");
+						    
+						}
+
+				foreach ($xp->query("//meta[@property='og:description']") as $el)
+					{
+					    $description = $el->getAttribute("content");
+					}
+
+				$i=0;
+
+				foreach ($xp->query("//meta[@property='og:image']") as $el)
+					 {
+						if($i++ == 0)
+							 {
+								  $img =  $el->getAttribute("content");
+								 
+							 }					  
+					}
+				}	
 
 			$token    =  $this->session->userdata('token');	
  			
 		   	$header   = array('token:'        .$token,
 		   					  'eventtype:'    .'thought',
 		   					  'thoughtstext:' .$this->input->post('texts'),
-		   					  'urllink:'      .$this->input->post('thought_url_link')
+		   					  'urllink:'      .$this->input->post('thought_url_link'), 
+		   					  'title:'  	  .$title,
+		   					  'description:'  .$description,
+		   					  'imageurl:'  	  .$img
+
 		   					);
 
 			$ch = curl_init();
@@ -1948,6 +2011,15 @@ public function thought_wowsome($thought_wow_id)
 			echo json_encode($response);
 	}
 
+
+public function thoughtlink()
+	{	
+
+		// $link = $this->input->post('thought_url_link');
+		// $tags = get_meta_tags($link);
+  //       echo $tags['keywords']; 
+        echo 'fhhgf';
+	}
 
 }	
 

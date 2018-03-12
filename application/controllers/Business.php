@@ -16,6 +16,9 @@ public function business_page_landing()
 		$this->load->view('business/create_business_page');
 	}
 
+
+
+
 // organisation hosting page form 
 public function ohp_form()   
 	{
@@ -28,26 +31,105 @@ public function create_business_page()
  	
  	//first step business details
 
- 			$token   =  $this->session->userdata('token');	
- 			
-		   	$header1 = array('token:'           .$token,
-		   					'firstname:'        .$this->input->post('first_name'), 
-							'lastname:'    .$this->input->post('last_name'), 
-							'email:'     .$this->input->post('email'),
-							'phone:'        .$this->input->post('phone'),	
-							'businesstype:'       .$this->input->post('business_type'),	
-							'category:'      .$this->input->post('business_category'),
-							'companyname:'   .$this->input->post('company_name'),
-							'venue:' .$this->input->post('venue'),
-							'address1:'   .$this->input->post('address1'),
-							'address2:'   .$this->input->post('address2'),
-							'zipcode:'   .$this->input->post('zipcode'),
-							'state:'   .$this->input->post('state'),
-							'country:'   .$this->input->post('country'),
-							'websitelink:'   .$this->input->post('website_link'),
-							'description:'   .$this->input->post('description'),
+		if($this->input->post('business_type') == 'company')
+			{	
 
-							);
+		 			$token   =  $this->session->userdata('token');	
+		 			
+				   	$header1 = array('token:'           .$token,
+				   					'firstname:'        .$this->input->post('first_name'), 
+									'lastname:'    .$this->input->post('last_name'), 
+									'email:'     .$this->input->post('email'),
+									'phone:'        .$this->input->post('phone'),	
+									'businesstype:'       .$this->input->post('business_type'),	
+									'category:'      .$this->input->post('company_category'),
+									'companyname:'   .$this->input->post('company_name'),
+									'venue:' .$this->input->post('venue'),
+									'address1:'   .$this->input->post('address1'),
+									'address2:'   .$this->input->post('address2'),
+									'zipcode:'   .$this->input->post('zipcode'),
+									'state:'   .$this->input->post('state'),
+									'country:'   .$this->input->post('country'),
+									'websitelink:'   .$this->input->post('website_link'),
+									'description:'   .$this->input->post('description'),
+
+									);
+			}
+
+		else if($this->input->post('business_type') == 'public')
+			{	
+
+		 			$token   =  $this->session->userdata('token');	
+		 			
+				   	$header1 = array('token:'           .$token,
+				   					'firstname:'        .$this->input->post('first_name'), 
+									'lastname:'    .$this->input->post('last_name'), 
+									'email:'     .$this->input->post('email'),
+									'phone:'        .$this->input->post('phone'),	
+									'businesstype:'       .$this->input->post('business_type'),	
+									'category:'      .$this->input->post('public_category'),
+									'companyname:'   .$this->input->post('company_name'),
+									'venue:' .$this->input->post('venue'),
+									'address1:'   .$this->input->post('address1'),
+									'address2:'   .$this->input->post('address2'),
+									'zipcode:'   .$this->input->post('zipcode'),
+									'state:'   .$this->input->post('state'),
+									'country:'   .$this->input->post('country'),
+									'websitelink:'   .$this->input->post('website_link'),
+									'description:'   .$this->input->post('description'),
+
+									);
+			}
+
+		else if($this->input->post('business_type') == 'local_business')
+			{	
+
+		 			$token   =  $this->session->userdata('token');	
+		 			
+				   	$header1 = array('token:'           .$token,
+				   					'firstname:'        .$this->input->post('first_name'), 
+									'lastname:'    .$this->input->post('last_name'), 
+									'email:'     .$this->input->post('email'),
+									'phone:'        .$this->input->post('phone'),	
+									'businesstype:'       .$this->input->post('business_type'),	
+									'category:'      .$this->input->post('local_category'),
+									'companyname:'   .$this->input->post('company_name'),
+									'venue:' .$this->input->post('venue'),
+									'address1:'   .$this->input->post('address1'),
+									'address2:'   .$this->input->post('address2'),
+									'zipcode:'   .$this->input->post('zipcode'),
+									'state:'   .$this->input->post('state'),
+									'country:'   .$this->input->post('country'),
+									'websitelink:'   .$this->input->post('website_link'),
+									'description:'   .$this->input->post('description'),
+
+									);
+			}
+
+		else if($this->input->post('business_type') == 'Entertainment')
+			{	
+
+		 			$token   =  $this->session->userdata('token');	
+		 			
+				   	$header1 = array('token:'           .$token,
+				   					'firstname:'        .$this->input->post('first_name'), 
+									'lastname:'    .$this->input->post('last_name'), 
+									'email:'     .$this->input->post('email'),
+									'phone:'        .$this->input->post('phone'),	
+									'businesstype:'       .$this->input->post('business_type'),	
+									'category:'      .$this->input->post('entertainment_category'),
+									'companyname:'   .$this->input->post('company_name'),
+									'venue:' .$this->input->post('venue'),
+									'address1:'   .$this->input->post('address1'),
+									'address2:'   .$this->input->post('address2'),
+									'zipcode:'   .$this->input->post('zipcode'),
+									'state:'   .$this->input->post('state'),
+									'country:'   .$this->input->post('country'),
+									'websitelink:'   .$this->input->post('website_link'),
+									'description:'   .$this->input->post('description'),
+
+									);
+			}
 		   	 
 	       	$ch1 = curl_init();
        		      				    	
@@ -151,6 +233,18 @@ public function create_business_page()
 					 	$response['status'] = 'failed';
 					}
 			echo json_encode($response); 
+
+	}
+
+	public function my_business_pageshow($id)
+	{
+		
+		$this->rest->http_header('token',  $this->session->userdata('token'));
+		$show_page = array('businessid' => $id);
+		$json_data = json_encode($show_page); 
+		$result = $this->rest->post('http://104.197.80.225:3010/wow/business/showparticularbusiness',$json_data,'json'); 	
+		$data['business'] = $result->message;
+		$this->load->view('business/ohp_admin_home', $data);
 
 	}
 

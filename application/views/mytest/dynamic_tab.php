@@ -1,3 +1,38 @@
+<?php
+
+// $result = file_get_contents('https://www.w3schools.com/html/');
+// echo $result;
+
+$url = 'https://www.w3schools.com';
+
+// $tags = get_meta_tags('https://www.w3schools.com/html/');
+
+// echo $tags['keywords'];     
+
+libxml_use_internal_errors(true);  // Yeah if you are so worried about using @ with warnings
+$c = file_get_contents("https://www.w3schools.com");
+$d = new DomDocument();
+$d->loadHTML($c);
+$xp = new domxpath($d);
+foreach ($xp->query("//meta[@property='og:title']" ) as $el) {
+    echo $el->getAttribute("content");
+}
+foreach ($xp->query("//meta[@property='og:description']") as $el) {
+    echo $el->getAttribute("content");
+  }
+  $i=0;
+foreach ($xp->query("//meta[@property='og:image']") as $el) {
+   if($i++ == 0) {
+  $test =  $el->getAttribute("content");
+  echo $test;
+ }
+  // echo  '<img src="$test" >';
+}
+// echo $xp->query("//meta[@property='og:image']");
+?>
+
+<!-- <img height="150px" width="150px" src="https://assets-cdn.github.com/images/modules/open_graph/github-logo.png"  > -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

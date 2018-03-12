@@ -467,8 +467,9 @@ body {
                         <tbody>
                           <tr>
                             <td align="left" valign="top" bgcolor="#f9f9f9"><select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1; font-size:13px;">
-                                <option value="day1">Send Invite Notification</option>
-                                <option value="day1">Send Group Notification</option>
+                                <option value="">Select</option>
+                                <option value="sms">Send Invite Notification via SMS</option>
+                                <option value="email">Send Invite Notification via Email</option>
                               </select></td>
                           </tr>
                           <tr>
@@ -599,8 +600,9 @@ body {
                         <tbody>
                           <tr>
                             <td align="left" valign="top" bgcolor="#f9f9f9"><select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1; font-size:13px;">
-                                <option value="">Send Invite Notification</option>
-                                <option value="">Send General Notification</option>
+                                <option value="">Select</option>
+                                <option value="sms">Send Invite Notification via SMS</option>
+                                <option value="email">Send Invite Notification via Email</option>
                               </select></td>
                           </tr>
                           <tr>
@@ -746,10 +748,13 @@ body {
                     <td align="left" valign="top" bgcolor="#fff"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tbody>
                           <tr>
-                            <td align="left" valign="top" bgcolor="#f9f9f9"><select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1; font-size:13px;">
-                                <option value="day1">Send Invite Notification</option>
-                                <option value="day1">Send General Notification</option>
-                              </select></td>
+                            <td align="left" valign="top" bgcolor="#f9f9f9">
+                              <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1; font-size:13px;">
+                                <option value="">Select</option>
+                                <option value="sms">Send Invite Notification via SMS</option>
+                                <option value="email">Send Invite Notification via Email</option>
+                              </select>
+                              </td>
                           </tr>
                           <tr>
                             <td><textarea type="text" id="description" name="event_description" class="form-control" style="min-height:90px; font-size:13px;" placeholder="Type Something "></textarea></td>
@@ -1031,8 +1036,9 @@ body {
                         <tbody>
                           <tr>
                             <td align="left" valign="top" bgcolor="#f9f9f9"><select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1; font-size:13px;">
-                                <option value="day1">Send Invite Notification</option>
-                                <option value="day1">Send Group Notification</option>
+                                <option value="">Select</option>
+                                <option value="sms">Send Invite Notification via SMS </option>
+                                <option value="email">Send Invite Notification via Email</option>
                               </select></td>
                           </tr>
                           <tr>
@@ -1106,8 +1112,9 @@ body {
                         <tbody>
                           <tr>
                             <td align="left" valign="top" bgcolor="#f9f9f9"><select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1; font-size:13px;">
-                                <option value="day1">Send Invite Notification</option>
-                                <option value="day1">Send Group Notification</option>
+                                <option value="">Select</option>
+                                <option value="sms">Send Invite Notification via SMS</option>
+                                <option value="email">Send Invite Notification via Email</option>
                               </select></td>
                           </tr>
 

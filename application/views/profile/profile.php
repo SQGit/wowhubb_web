@@ -151,7 +151,41 @@ table, td, tr
     max-width: 900px;
     margin: 0 auto;
   }
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 250px;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background:rgba(0,0,0,0.3);
+  z-index:998;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 16px;
+  position: absolute;
+  top: 45%;
+  right: 0%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  cursor:pointer;
+}
 </style>
 <link href="<?php echo base_url ('assets/css/fullcalendar.min.css') ?>" rel='stylesheet' />
 <link href="<?php echo base_url ('assets/css/fullcalendar.print.min.css') ?>" rel='stylesheet' media='print' />
@@ -215,12 +249,15 @@ table, td, tr
                    if(isset($cover))
                    {
                       ?>
-           <img id="profileImage1" class="cover-pic" src="http://104.197.80.225:3010/wow/media/personal/<?php echo $cover; ?>" style="background-size:cover; width:100%; max-height:300px;" alt=""/> 
+           <img id="profileImage1" class="cover-pic image" src="http://104.197.80.225:3010/wow/media/personal/<?php echo $cover; ?>" style="background-size:cover; width:100%; max-height:300px;" alt=""/> 
             <?php } else{ ?>
-              <img id="profileImage1" class="cover-pic" src="<?php echo base_url('assets/images/covers/1.jpg')?>" style="background-size:cover; width:100%; max-height:300px;" >
+              <img id="profileImage1" class="cover-pic image" src="<?php echo base_url('assets/images/covers/1.jpg')?>" style="background-size:cover; width:100%; max-height:300px;" >
                 <?php }  ?>       
-                    
-           <input class="cover-upload"  id="imageUpload1" type="file" name="cover_img" accept="image/*" capture>
+            <!-- <div class="overlay">          -->
+                <input class="cover-upload"  id="imageUpload1" type="file" name="cover_img" accept="image/*" capture>
+           
+                <div class="text"><img src="<?php echo base_url('assets/images/edit_icon.png'); ?>" alt="">Change Cover Image</div>
+            <!-- </div> -->
          </form><br>
 
       <!--Timeline Menu for Large Screens-->

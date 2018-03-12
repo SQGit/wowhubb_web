@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/font-awesome.min.css') ?>" />
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/jquery.datetimepicker.css')?>" />
 <link rel="stylesheet" href="<?php echo base_url ('assets/js/sweetalert.css')?>" />
+<link rel="stylesheet" href="<?php echo base_url ('assets/css/select2.min.css')?>" />
 
 <!--Google Font-->
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
@@ -185,6 +186,8 @@ img.profile-photo-2 {
     -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
 }
 
+
+
 </style>
 </head>
 <body class="landing-page">
@@ -206,9 +209,9 @@ img.profile-photo-2 {
         </ul>
         <form class="navbar-form navbar-right hidden-sm" style="position:absolute; right:325px; top:0px;" >
           <div class="form-group"> <i class="icon ion-android-search"></i>
-            <input type="text" class="search form-control live-search-box" id="searchbox" name="friends_search" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px; min-width:330px;" />
+            <input type="text" class=" form-control live-search-box" name="" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px; min-width:330px;" />
             <br/>
-            <span id="display1"> </span> 
+            
             <!-- <input type="text" class="search form-control" id="searchbox" name="friends_search" placeholder="Search !Events, !Venues, !Wowtags, !People">                 
                         --> 
           </div>
@@ -227,417 +230,93 @@ img.profile-photo-2 {
   <!-- Timeline
       ================================================= -->
   <div class="timeline">
-    <div class="timeline-cover"> <img id="profileImage1" class="cover-pic" src="../assets/images/cb-banner.jpg" style="background-size:cover; width:100%; margin-top:20px;" > </div>
-    <div id="page-contents" style="border:1px solid #e6e6e6; background-color: #fff; padding-top: 0px;">
-      <div class="row">
-        <div class="col-md-12 col-sm-12" style="margin-top:15px;">
-          <div class="col-md-12">
-            <div class="pull-right">
-              <button type="submit" class="btn btn-primary">+ Create Group</button>
-            </div>
-          </div>
-        </div>
-         <div class="col-md-12"> 
-                            <!-- Nav tabs category -->
-                              <ul class="nav nav-tabs faq-cat-tabs">
-                                  <li class="active"><a href="#faq-cat-1" data-toggle="tab" class="text-center">Event Groups</a></li>
-                                  <li><a href="#faq-cat-2" data-toggle="tab" class="text-center">Discover Groups</a></li>
-
-
-                              </ul>
-
-                          <div class="tab-content faq-cat-content">                                  
-
-                                    <div class="tab-pane active in fade" id="faq-cat-1"> 
-        <div class="col-md-12 col-sm-12" style="margin-top:15px;">
-          <div class="col-md-12 col-sm-12">
-            
-            <div class="col-md-12 col-sm-12" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px;">
-              <div class="col-md-12" style="background:#EDEDED; margin-bottom:15px;">
-                <div class="col-md-12" style="margin-top:5px; margin-bottom:5px;"><strong style="font-size:17px;">PENDING INVITATIONS</strong></div>
-              </div>
-              <div class="col-md-6">
-                <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Vineture Group</strong></div>
-                  <div class="col-md-12">Invited by Emeka<br>
-                    <span style="color:#727272;">6 Friends. 18 Members</span></div>
-                  <div class="col-md-12">
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                  </div>
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn btn-primary">Join</button>
-                  <button type="submit" class="btn btn-primary" style="background:transparent; border:1px solid #CCC; color:#333;">Decline</button>
-                </div>
-                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; border:0.5px solid #E5E5E5;"></div>
-              </div>
-              
-              <div class="col-md-6">
-                <div class="pull-left" style="width:15%;"><img src="../assets/images//users/user-9.jpg" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Rockers Team</strong></div>
-                  <div class="col-md-12">Invited by Saranya Chandrasekaran<br>
-                    <span style="color:#727272;">6 Friends. 18 Members</span></div>
-                  <div class="col-md-12">
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                  </div>
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn btn-primary">Join</button>
-                  <button type="submit" class="btn btn-primary" style="background:transparent; border:1px solid #CCC; color:#333;">Decline</button>
-                </div>
-                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; border:0.5px solid #E5E5E5;"></div>
-              </div>
-               <div class="col-md-6">
-                <div class="pull-left" style="width:15%;"><img src="../assets/images/users/user-3.jpg" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Houston Online</strong></div>
-                  <div class="col-md-12">Invited by Emily Jackson<br>
-                    <span style="color:#727272;">6 Friends. 18 Members</span></div>
-                  <div class="col-md-12">
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                  </div>
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn btn-primary">Join</button>
-                  <button type="submit" class="btn btn-primary" style="background:transparent; border:1px solid #CCC; color:#333;">Decline</button>
-                </div>
-                
-              </div>
-               <div class="col-md-6">
-                <div class="pull-left" style="width:15%;"><img src="../assets/images//users/user-19.jpg" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">GIT Team</strong></div>
-                  <div class="col-md-12">Invited by Hari<br>
-                    <span style="color:#727272;">6 Friends. 18 Members</span></div>
-                  <div class="col-md-12">
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                  </div>
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn btn-primary">Join</button>
-                  <button type="submit" class="btn btn-primary" style="background:transparent; border:1px solid #CCC; color:#333;">Decline</button>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-md-12 col-sm-12" style="margin-top:15px;">
-          <div class="col-md-12 col-sm-12">
-            
-            <div class="col-md-12 col-sm-12" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px;">
-              <div class="col-md-12" style="background:#EDEDED; margin-bottom:15px;">
-                <div class="col-md-12" style="margin-top:5px; margin-bottom:5px;"><strong style="font-size:17px;">YOUR GROUPS</strong></div>
-              </div>
-              <div class="col-md-6">
-                <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Vineture Group</strong></div>
-                  <div class="col-md-12">
-                    <span style="color:#727272;">2 Unread Posts</span></div>
-                
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn-1 btn-primary">Leave Group</button>
-
-                </div>
-                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; border:0.5px solid #E5E5E5;"></div>
-              </div>
-              <div class="col-md-6">
-                <div class="pull-left" style="width:15%;"><img src="../assets/images/users/user-1.jpg" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Parallels Group</strong></div>
-                  <div class="col-md-12">
-                    <span style="color:#727272;">2 Unread Posts</span></div>                
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn-1 btn-primary">Leave Group</button>
-
-                </div>
-                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; border:0.5px solid #E5E5E5;"></div>
-              </div>
-              <div class="col-md-6">
-                <div class="pull-left" style="width:15%;"><img src="../assets/images/users/user-3.jpg" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Synergy Structures</strong></div>
-                  <div class="col-md-12">
-                    <span style="color:#727272;">2 Unread Posts</span></div>
-                
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn-1 btn-primary">Leave Group</button>
-
-                </div>
-                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; border:0.5px solid #E5E5E5;"></div>
-              </div>
-              <div class="col-md-6">
-                <div class="pull-left" style="width:15%;"><img src="../assets/images/users/user-7.jpg" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Maxwell Inc</strong></div>
-                  <div class="col-md-12">
-                    <span style="color:#727272;">2 Unread Posts</span></div>
-                
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn-1 btn-primary">Leave Group</button>
-
-                </div>
-                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; border:0.5px solid #E5E5E5;"></div>
-              </div>
-              
-              
-               
-               
-            </div>
-          </div>
-        </div>
-        </div>
-        
-         <div class="tab-pane active in fade" id="faq-cat-2"> 
-        <div class="col-md-12 col-sm-12" style="margin-top:15px;">
-          <div class="col-md-12 col-sm-12">
-            
-            <div class="col-md-12 col-sm-12" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px;">
-              
-              <div class="col-md-6">
-              <div class="col-md-12" style="background:#EDEDED; margin-bottom:15px;">
-                <div class="col-md-12" style="margin-top:5px; margin-bottom:5px;"><strong style="font-size:17px;">Recommended</strong></div>
-              </div>
-                <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Vineture Group</strong></div>
-                  <div class="col-md-12">
-                    <span style="color:#727272;">6 Friends. 18 Members</span></div>
-                  
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn btn-primary">Join</button>
-                  <button type="submit" class="btn btn-primary" style="background:transparent; border:1px solid #CCC; color:#333;">Hide</button>
-                </div>
-                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; border:0.5px solid #E5E5E5;"></div>
-              </div>
-              
-              <div class="col-md-6">
-              <div class="col-md-12" style="background:#EDEDED; margin-bottom:15px;">
-                <div class="col-md-12" style="margin-top:5px; margin-bottom:5px;"><strong style="font-size:17px;">Local</strong></div>
-              </div>
-                <div class="pull-left" style="width:15%;"><img src="../assets/images//users/user-9.jpg" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Rockers Team</strong></div>
-                  <div class="col-md-12">
-                    <span style="color:#727272;">6 Friends. 18 Members</span></div>
-                 
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn btn-primary">Join</button>
-                  <button type="submit" class="btn btn-primary" style="background:transparent; border:1px solid #CCC; color:#333;">Hide</button>
-                </div>
-                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; border:0.5px solid #E5E5E5;"></div>
-              </div>
-               <div class="col-md-6">
-                <div class="pull-left" style="width:15%;"><img src="../assets/images/users/user-3.jpg" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Houston Online</strong></div>
-                  <div class="col-md-12">
-                    <span style="color:#727272;">6 Friends. 18 Members</span></div>
-                 
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn btn-primary">Join</button>
-                  <button type="submit" class="btn btn-primary" style="background:transparent; border:1px solid #CCC; color:#333;">Hide</button>
-                </div>
-                
-              </div>
-               <div class="col-md-6">
-                <div class="pull-left" style="width:15%;"><img src="../assets/images//users/user-19.jpg" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">GIT Team</strong></div>
-                  <div class="col-md-12">
-                    <span style="color:#727272;">6 Friends. 18 Members</span></div>
-                
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn btn-primary">Join</button>
-                  <button type="submit" class="btn btn-primary" style="background:transparent; border:1px solid #CCC; color:#333;">Decline</button>
-                </div>
-                
-              </div>
-            </div>
-            <div class="col-md-12 col-sm-12" style="border:1px solid #ccc; margin-top:15px; border-radius:8px; padding:15px 10px;">
-              
-              <div class="col-md-6">
-              <div class="col-md-12" style="background:#EDEDED; margin-bottom:15px;">
-                <div class="col-md-12" style="margin-top:5px; margin-bottom:5px;"><strong style="font-size:17px;">Films &amp; TV</strong></div>
-              </div>
-                <div class="pull-left" style="width:15%;"><img src="../assets/images/users/user-11.jpg" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Vineture Group</strong></div>
-                  <div class="col-md-12">
-                    <span style="color:#727272;">6 Friends. 18 Members</span></div>
-                  
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn btn-primary">Join</button>
-                  <button type="submit" class="btn btn-primary" style="background:transparent; border:1px solid #CCC; color:#333;">Hide</button>
-                </div>
-                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; border:0.5px solid #E5E5E5;"></div>
-              </div>
-              
-              <div class="col-md-6">
-              <div class="col-md-12" style="background:#EDEDED; margin-bottom:15px;">
-                <div class="col-md-12" style="margin-top:5px; margin-bottom:5px;"><strong style="font-size:17px;">Trending</strong></div>
-              </div>
-                <div class="pull-left" style="width:15%;"><img src="../assets/images/users/user-5.jpg" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Rockers Team</strong></div>
-                  <div class="col-md-12">
-                    <span style="color:#727272;">6 Friends. 18 Members</span></div>
-                 
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn btn-primary">Join</button>
-                  <button type="submit" class="btn btn-primary" style="background:transparent; border:1px solid #CCC; color:#333;">Hide</button>
-                </div>
-                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; border:0.5px solid #E5E5E5;"></div>
-              </div>
-               <div class="col-md-6">
-                <div class="pull-left" style="width:15%;"><img src="../assets/images/users/user-3.jpg" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Houston Online</strong></div>
-                  <div class="col-md-12">
-                    <span style="color:#727272;">6 Friends. 18 Members</span></div>
-                 
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn btn-primary">Join</button>
-                  <button type="submit" class="btn btn-primary" style="background:transparent; border:1px solid #CCC; color:#333;">Hide</button>
-                </div>
-                
-              </div>
-               <div class="col-md-6">
-                <div class="pull-left" style="width:15%;"><img src="../assets/images/users/user-10.jpg" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">GIT Team</strong></div>
-                  <div class="col-md-12">
-                    <span style="color:#727272;">6 Friends. 18 Members</span></div>
-                
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn btn-primary">Join</button>
-                  <button type="submit" class="btn btn-primary" style="background:transparent; border:1px solid #CCC; color:#333;">Hide</button>
-                </div>
-                
-              </div>
-            </div>
-            <div class="col-md-12 col-sm-12" style="border:1px solid #ccc; margin-top:15px; border-radius:8px; padding:15px 10px;">
-              
-              <div class="col-md-6">
-              <div class="col-md-12" style="background:#EDEDED; margin-bottom:15px;">
-                <div class="col-md-12" style="margin-top:5px; margin-bottom:5px;"><strong style="font-size:17px;">Friends</strong></div>
-              </div>
-                <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Vineture Group</strong></div>
-                  <div class="col-md-12">
-                    <span style="color:#727272;">6 Friends. 18 Members</span></div>
-                  
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn btn-primary">Join</button>
-                  <button type="submit" class="btn btn-primary" style="background:transparent; border:1px solid #CCC; color:#333;">Hide</button>
-                </div>
-                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; border:0.5px solid #E5E5E5;"></div>
-              </div>
-              
-              <div class="col-md-6">
-              <div class="col-md-12" style="background:#EDEDED; margin-bottom:15px;">
-                <div class="col-md-12" style="margin-top:5px; margin-bottom:5px;"><strong style="font-size:17px;">School &amp; Education</strong></div>
-              </div>
-                <div class="pull-left" style="width:15%;"><img src="../assets/images/users/user-4.jpg" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Rockers Team</strong></div>
-                  <div class="col-md-12">
-                    <span style="color:#727272;">6 Friends. 18 Members</span></div>
-                 
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn btn-primary">Join</button>
-                  <button type="submit" class="btn btn-primary" style="background:transparent; border:1px solid #CCC; color:#333;">Hide</button>
-                </div>
-                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; border:0.5px solid #E5E5E5;"></div>
-              </div>
-               <div class="col-md-6">
-                <div class="pull-left" style="width:15%;"><img src="../assets/images/users/user-3.jpg" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Houston Online</strong></div>
-                  <div class="col-md-12">
-                    <span style="color:#727272;">6 Friends. 18 Members</span></div>
-                 
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn btn-primary">Join</button>
-                  <button type="submit" class="btn btn-primary" style="background:transparent; border:1px solid #CCC; color:#333;">Hide</button>
-                </div>
-                
-              </div>
-               <div class="col-md-6">
-                <div class="pull-left" style="width:15%;"><img src="../assets/images//users/user-19.jpg" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">GIT Team</strong></div>
-                  <div class="col-md-12">
-                    <span style="color:#727272;">6 Friends. 18 Members</span></div>
-                
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn btn-primary">Join</button>
-                  <button type="submit" class="btn btn-primary" style="background:transparent; border:1px solid #CCC; color:#333;">Hide</button>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        
-        </div>
-        </div>
-        </div>
-      </div>
-    </div>
+    <div class="timeline-cover"> <img id="profileImage1" class="cover-pic" src="<?php echo base_url('assets/images/cb-banner.jpg');?>" style="background-size:cover; width:100%; margin-top:20px;" > </div>
+   
   </div>
 </div>
 </div>
+
+ <div class="row">
+        <div class="col-md-12 col-sm-12 text-center" style="margin-top:15px;">
+          <div class="col-md-12 ">
+            
+              <a href="#" data-toggle="modal" data-target=".modal-1"><button type="submit" class="btn btn-primary">+ Create Group</button></a>
+            
+          </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 text-center" style="margin-top:15px;">
+          <div class="col-md-12 ">
+            
+              <img src="<?php echo base_url('assets/images/no_results_icon.png');?>">
+            
+          </div>
+        </div>
+            
+      </div>
+
+<!-- create group modrl popup -->
+<div class="modal fade modal-1" tabindex="-1" role="dialog" aria-hidden="true">
+                      <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                          <div class="post-content">                            
+                            <div class="post-container" style="padding-bottom:20px;">                  
+                              <div class="post-detail">
+                                <div class="user-info">
+                                 <h3>Create Group</h3>
+                                 <span style="color:#333; font-size: 15px">Please give the following information to create group</span>
+                                </div>                              
+                                <div class="line-divider"></div>
+                                <div class="user-info">
+                                 <div class="row" style="padding:10px;">                              
+                   
+                    <!-- <form action="<?php echo base_url('searchfriends/create_group'); ?>"> -->
+                            <div class="row" >                              
+                              <div class="form-group col-xs-12">
+                                <label for="date-to" class="">Name Your Group</label>
+                                <input  type="text" class="form-control input-group-lg"  name="group_name" placeholder="Ex.Wowhubb Group"  />
+                              </div>
+                            </div>
+                           
+
+                             <div class="row">   
+                              <div class="form-group col-xs-12">
+                                <label for="date-to" class="">Add Some People</label>
+                                 <input type="text" class="search form-control " id="searchbox" name="people_add" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px;" />
+                                 <span id="display1"> </span>
+                                 <input type="text" id="name_id">
+                              </div>
+                            </div>
+                            
+                            
+                            <div class="row">   
+                              <div class="form-group col-xs-12">
+                                <label for="date-to" class="">Select Privacy</label>
+                                <select name="privacy" id="days" class="form-control" style="background-color:#f5f5f5;">
+                                      <option value="Public Group">Public Group</option>
+                                      <option value="Closed Group">Closed Group</option>
+                                      <option value="Secret Group">Secret Group</option>    
+                                      <option value="Secret Group">Secret Group</option>                                                                   
+                                     
+                                </select>
+                              </div>
+                            </div>
+                                                                                 
+                            <div class="row">
+                              <div  style="width:100%;" class="text-center">
+                                <input type="submit" value="Create" class="btn btn-primary" style="width:140px;">
+                              </div>
+                            </div>
+                    <!-- </form> -->
+                  
+                               </div>
+                                </div>
+                                  </div>                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+            </div>
 
 <!-- Footer
     ================================================= --> 
@@ -655,498 +334,67 @@ img.profile-photo-2 {
 <script src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script> 
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script> 
+<script src="<?php echo base_url('assets/js/select2.min.js')?>"></script> 
 <script>
 
+  $(document).ready(function() {
+    $('.live-search-list').select2();
+});
+//search option form submit
+var base_url = '<?php echo base_url() ?>'; //form submited
+$(document).ready(function(){
+
+    $(".search").keyup(function() 
+      {
+              
+       var searchbox = $('#searchbox').val();
+       var dataString = 'searchword='+ searchbox;
+
+      if(searchbox=='')
+        {
+          $('#display1').html("");
+        }
+
+        else
+        {
+          $.ajax({
+
+                  url : base_url+'searchfriends/search_friends/'+searchbox,
+                  context:this,
+                  type: 'POST',
+                  //data: dataString,
+                  processData: false,
+                  contentType: false,
+                  // dataType:'json',
+                  error: function(xhr,status,error)
+                  {   
+                     alert(xhr.responseText);
+                  },              
+                  
+                  success: function(response)
+                  {
+                     $('#display1').html(response);
+                  }
+
+              });
+       }
+    });   
+   
+});
   
-  $('#link_show').click(function() //professional work experience
-  {
-      $('#link_url').show();
-  });
 
-  $('#myvideo').hover(function toggleControls() {  //video controls hide and show mouse hover
-    if (this.hasAttribute("controls")) {
-        this.removeAttribute("controls")
-    } else {
-        this.setAttribute("controls", "controls")
-    }
-})
-
-    $(document).ready(function() {
-    var max_fields_limit      = 5; //set limit for maximum input fields
-    var x = 1; //initialize counter for text box
-    $('.add_more_button').click(function(e){ //click event on add more fields button having class add_more_button
-        e.preventDefault();
-        if(x < max_fields_limit){ //check conditions
-            x++; //counter increment
-            $('.input_fields_container').append('<div ><input type="text" class="form-control" style="margin-top:10px;" name="links[]"/></div>'); //add input field
-        }
-    });  
-    
+$("#display1 li").on("click",  function(e){
+    e.preventDefault();
+    var test = $(this).html();
+    // alert('test');
+    console.log(test);
+    console.log("test");
+    // $this.addClass("select").siblings().removeClass("select");
+    $("#searchbox").val(test);
 });
 
+</script>
 
-      $("#profileImage1").click(function(e) { //this two value is cover image  id name 
-             $("#imageUpload1").click();
-              });      
-
-             $("#profileImage").click(function(e) { //this two value is profile image  id name 
-            $("#imageUpload").click();  
-            }); 
-
-
-            $("#birthday").datetimepicker({
-            timepicker:false,
-            format:"M-d-Y",           
-            });
-           
-            $("#wedding").datetimepicker({
-            timepicker:false,
-            format:"M-d-Y",           
-            });
-
-            $("#socialfunction").datetimepicker({
-            timepicker:false,
-            format:"M-d-Y",           
-            });
-
-            $("#party").datetimepicker({
-            timepicker:false,
-            format:"M-d-Y",           
-            });
-
-
-
-         //personal profile over view submit and updated profile page
-
-var base_url = '<?php echo base_url() ?>'; //form submited
-
-    $(document).ready(function(){
-
-    $(document).on("submit", "#personal_update_overview", function(e){
-         e.preventDefault();
-
-          
-            var url = $(this).attr('action');
-            var formdata = new FormData(this);
-          
-            $.ajax({
-                    url : url,
-                    method: 'POST',
-                    data: formdata,
-                    processData: false,
-                    contentType: false,
-                    dataType:'json',
-                    error: function(xhr,status,error)
-                    {   
-                        alert(xhr.responseText);
-                    },
-                    success: function(response)
-                    {
-                       if(response.status == 'success')
-                       {
-                        swal("Good job!", "Your profile successfully updated!", "success");
-                        window.location.href = base_url + 'profile/profile_get';
-                        }else if(response.status == 'Failed')
-                       {
-                        
-                        swal("Sorry!", "somethink wrong !", "error");
-                       }          
-                    }
-                });
-          
-      });
-   });
-
-        
-//personal self intro video size limitation
-
-  // $(document).on("change", "#self_video", function(evt)
-  //       {
-  //           var file = this.files[0];
-
-  //           if (file.size > 2621440)
-  //            {
-  //                  //Now Here I need to update <span> 
-  //                $('#video_show1').hide();  
-  //                alert('Filesize must 2.5MB or below');           
-  //            }
-  //       });
-
-//personal profile self video submit and updated profile page
-
-var base_url = '<?php echo base_url() ?>'; //form submited
-
-    $(document).ready(function(){
-
-    $(document).on("submit", "#personal_update_video", function(e){
-         e.preventDefault();     
-
-         $.validator.addMethod('filesize', function(value, element, param) {
-         return this.optional(element) || (element.files[0].size <= param) 
-          });   
-          
-            $(this).validate({ 
-
-                              rules: {                             
-                                      self_video:{
-
-                                        required:true,
-                                        filesize: 2621440,   //max size 200 kb
-                                      },               
-                                     
-                                     },
-
-                              messages: {                           
-                                      self_video: {                                         
-                                         
-                                          required:"Please Choose file.",
-                                          filesize:" file size must be less than 2.5 MB.",
-                                      }, 
-                                     
-                                      },                                                   
-                            
-                           }); 
-
-    if($(this).valid())
-        {     
-
-              var url = $(this).attr('action');
-              var formdata = new FormData(this);
-            
-              $.ajax({
-                        url : url,
-                        method: 'POST',
-                        data: formdata,
-                        processData: false,
-                        contentType: false,
-                        dataType:'json',
-                        error: function(xhr,status,error)
-                        {   
-                            alert(xhr.responseText);
-                        },
-                      success: function(response)
-                      {
-                         if(response.status == 'success')
-                         {
-                          swal("Good job!", "Your profile successfully updated!", "success");
-                          window.location.href = base_url + 'profile/profile_get';
-                          }else if(response.status == 'Failed')
-                         {                    
-                          swal("Sorry!", "somethink wrong !", "error");
-                         }          
-                      }
-                  });
-           } 
-      });
-   });
-     //personal profile aboutme submit and updated profile page
-
-var base_url = '<?php echo base_url() ?>'; //form submited
-
-    $(document).ready(function(){
-
-    $(document).on("submit", "#personal_update_aboutme", function(e){
-         e.preventDefault();
-        var url = $(this).attr('action');
-        var formdata = new FormData(this);
-      
-        $.ajax({
-                url : url,
-                method: 'POST',
-                data: formdata,
-                processData: false,
-                contentType: false,
-                dataType:'json',
-                error: function(xhr,status,error)
-                {   
-                    alert(xhr.responseText);
-                },
-                success: function(response)
-                {
-                   if(response.status == 'success')
-                   {
-                    swal("Good job!", "Your profile successfully updated!", "success");
-                    window.location.href = base_url + 'profile/profile_get';
-                    }else if(response.status == 'Failed')
-                   {                    
-                    swal("Sorry!", "somethink wrong !", "error");
-                   }          
-                }
-            });
-      });
-   });
-
-        //personal profile contact info submit and updated profile page
-
-var base_url = '<?php echo base_url() ?>'; //form submited
-
-  $(document).ready(function(){
-
-    $(document).on("submit", "#personal_update_contactinfo", function(e){
-         e.preventDefault();
-        var url = $(this).attr('action');
-        var formdata = new FormData(this);
-      
-        $.ajax({
-                url : url,
-                method: 'POST',
-                data: formdata,
-                processData: false,
-                contentType: false,
-                dataType:'json',
-                error: function(xhr,status,error)
-                {   
-                    alert(xhr.responseText);
-                },
-                success: function(response)
-                {
-                   if(response.status == 'success')
-                   {
-                    swal("Good job!", "Your profile successfully updated!", "success");
-                    window.location.href = base_url + 'profile/profile_get';
-                    }else if(response.status == 'Failed')
-                   {
-                    
-                    swal("Sorry!", "somethink wrong !", "error");
-                   }          
-                }
-            });
-      });
-   });
-
- //personal profile event info submit and updated profile page
-
-var base_url = '<?php echo base_url() ?>'; //form submited
-
- $(document).ready(function(){
-
-    $(document).on("submit", "#personal_update_eventinfo", function(e){
-         e.preventDefault();
-        var url = $(this).attr('action');
-        var formdata = new FormData(this);
-      
-        $.ajax({
-                url : url,
-                method: 'POST',
-                data: formdata,
-                processData: false,
-                contentType: false,
-                dataType:'json',
-                error: function(xhr,status,error)
-                {   
-                    alert(xhr.responseText);
-                },
-                success: function(response)
-                {
-                   if(response.status == 'success')
-                   {
-                    swal("Good job!", "Your profile successfully updated!", "success");
-                    window.location.href = base_url + 'profile/profile_get';
-                    }else if(response.status == 'Failed')
-                   {
-                    
-                    swal("Sorry!", "somethink wrong !", "error");
-                   }          
-                }
-            });
-      });
-   });
-
- //professional profile full page submit and updated profile page
-
-     var base_url = '<?php echo base_url() ?>'; //form submited
-    $(document).ready(function(){
-
-    $(document).on("submit", "#professional_update", function(e){
-         e.preventDefault();
-        var url = $(this).attr('action');
-        var formdata = new FormData(this);
-      
-        $.ajax({
-                url : url,
-                method: 'POST',
-                data: formdata,
-                processData: false,
-                contentType: false,
-                dataType:'json',
-                error: function(xhr,status,error)
-                {   
-                    alert(xhr.responseText);
-                },
-                success: function(response)
-                {
-                   if(response.status == 'success')
-                   {
-                    swal("Good job!", "Your profile successfully updated!", "success");
-                    window.location.href = base_url + 'profile/profile_get';
-                    }else if(response.status == 'Failed')
-                   {
-                      swal("Sorry!", "somethink wrong !", "error");
-                   }          
-                }
-            });
-      });
-    });
-
-    //professional profile work experience update
-
-var base_url = '<?php echo base_url() ?>'; //form submited
-    $(document).ready(function(){
-
-    $(document).on("submit", "#professional_work_exp", function(e){
-         e.preventDefault();
-        var url = $(this).attr('action');
-        var formdata = new FormData(this);
-      
-        $.ajax({
-                url : url,
-                method: 'POST',
-                data: formdata,
-                processData: false,
-                contentType: false,
-                dataType:'json',
-                error: function(xhr,status,error)
-                {   
-                    alert(xhr.responseText);
-                },
-                success: function(response)
-                {
-                   if(response.status == 'success')
-                   {
-                    swal("Good job!", "Your profile successfully updated!", "success");
-                    window.location.href = base_url + 'profile/profile_get';
-                    }else if(response.status == 'Failed')
-                   {
-                      swal("Sorry!", "somethink wrong !", "error");
-                   }          
-                }
-            });
-      });
-    });
-
-//profile image upload here 
-//https://stackoverflow.com/questions/41406509/add-a-profile-picture-in-form-in-html-and-css
-$(document).ready(function() {
-    
-    var readURL = function(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('.profile-pic').attr('src', e.target.result);
-            }    
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    
-    $(".file-upload").on('change', function(){
-        readURL(this);
-        $('#profile_img').submit();
-        // document.getElementById('profile_img').submit();
-    });
-    
-    $(".upload-button").on('click', function() {
-       $(".file-upload").click();
-    });
-
-    $("#profile_img").submit(function(e){
-     e.preventDefault();
-    var url = $(this).attr('action');
-    var formdata = new FormData(this);
-
-        $.ajax({
-                url : url,
-                method: 'POST',
-                data: formdata,
-                processData: false,
-                contentType: false,
-                dataType:'json',
-                error: function(xhr,status,error)
-                {   
-                    alert(xhr.responseText);
-                },
-                success: function(response)
-                {
-                   if(response.status == 'success')
-                   {
-                    
-                    // window.location.href = "<?php //echo base_url('profile/profile_img_upload');?>";
-                   
-                   }else if(response.status == 'Failed')
-                   {
-                    
-                    swal('Somethink will be wrong plz try again..');
-                   }
-          
-
-                }
-                });
-           
-    });
-});
-
-//cover image upload here 
-
-$(document).ready(function() {
-    
-    var readURL = function(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('.cover-pic').attr('src', e.target.result);
-            }    
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    
-
-    $(".cover-upload").on('change', function(){
-        readURL(this);
-        $('#cover_img').submit();
-        // document.getElementById('profile_img').submit();
-    });
-    
-    $(".upload-button").on('click', function() {
-       $(".cover-upload").click();
-    });
-
-
-    $("#cover_img").submit(function(e){
-     e.preventDefault();
-    var url = $(this).attr('action');
-    var formdata = new FormData(this);
-
-        $.ajax({
-                url : url,
-                method: 'POST',
-                data: formdata,
-                processData: false,
-                contentType: false,
-                dataType:'json',
-                error: function(xhr,status,error)
-                {   
-                    alert(xhr.responseText);
-                },
-                success: function(response)
-                {
-                   if(response.status == 'success')
-                   {
-                    
-                    // window.location.href = "<?php //echo base_url('profile/profile_img_upload');?>";                   
-                   }else if(response.status == 'Failed')
-                   {
-                    
-                    swal('Somethink will be wrong plz try again..');
-                   }
-          
-
-                }
-                });
-           
-    });
-});
-
-  </script>
+  
 </body>
 </html>

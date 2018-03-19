@@ -1,42 +1,45 @@
 <?php
+ini_set('default_charset', 'UTF-8');
 
-// $result = file_get_contents('https://www.w3schools.com/html/');
-// echo $result;
-
-$url = 'https://www.w3schools.com';
+$html = 'https://stackoverflow.com/';
 
 // $tags = get_meta_tags('https://www.w3schools.com/html/');
 
 // echo $tags['keywords'];     
 
-libxml_use_internal_errors(true);  // Yeah if you are so worried about using @ with warnings
-$c = file_get_contents("https://www.w3schools.com");
+libxml_use_internal_errors(true);
+$c = file_get_contents("https://www.w3schools.com/");
 $d = new DomDocument();
 $d->loadHTML($c);
 $xp = new domxpath($d);
-foreach ($xp->query("//meta[@property='og:title']" ) as $el) {
-    echo $el->getAttribute("content");
+$length = $xp->query("//meta[@property='og:title']" );
+var_dump($length);
+if($length == 'true')
+{
+  echo "true";
 }
-foreach ($xp->query("//meta[@property='og:description']") as $el) {
-    echo $el->getAttribute("content");
-  }
-  $i=0;
-foreach ($xp->query("//meta[@property='og:image']") as $el) {
-   if($i++ == 0) {
-  $test =  $el->getAttribute("content");
-  echo $test;
- }
-  // echo  '<img src="$test" >';
+else
+{
+  echo "false";
 }
-// echo $xp->query("//meta[@property='og:image']");
+// foreach ($xp->query("//meta[@property='og:title']") as $el) {
+//     echo $el->getAttribute("content");
+// }
+// foreach ($xp->query("//meta[@property='og:description']") as $el) {
+//     echo $el->getAttribute("content");
+// }
+
+
 ?>
 
 <!-- <img height="150px" width="150px" src="https://assets-cdn.github.com/images/modules/open_graph/github-logo.png"  > -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html >
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="index, follow" />
 <title>Wowhubb | Your One Stop Event Networking Platform</title>
@@ -53,6 +56,7 @@ foreach ($xp->query("//meta[@property='og:image']") as $el) {
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/custom/css/form-wizard-blue.css') ?>">
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/theme-styles.css')?>" />
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/animate.css')?>" />
+<link rel="stylesheet" href="<?php echo base_url ('assets/css/select2.min.css')?>" />
 <style>
 .alert-success-alt {
   border-color: #694D9F;background: #694D9F;color: #fff; 
@@ -63,7 +67,37 @@ foreach ($xp->query("//meta[@property='og:image']") as $el) {
 
     <body>
 
-        <lavel>no.of days </lavel>
+      <!-- multiple option select -->
+       <!-- <form action="<?php echo base_url('searchfriends/create_group'); ?>"> -->
+                           
+
+                            <div class="row">   
+                              <div class="form-group col-xs-3">
+                                <label for="date-to" class="">Add Some People</label>
+                                <select id="select-client" class="form-control" style="width: 350px;">
+                            
+                                </select>
+                              </div>
+                            </div>                            
+                            
+                          
+                                                                                 
+                            <div class="row">
+                              <div  style="width:100%;" class="text-center">
+                                <input type="submit" value="Create" class="btn btn-primary" style="width:140px;">
+                              </div>
+                            </div>
+        <!-- </form>  -->
+
+
+      <input type="text" list="cars" />
+      <datalist id="cars">
+        <option>Volvo</option>
+        <option>Saab</option>
+        <option>Mercedes</option>
+        <option>Audi</option>
+      </datalist>
+          <lavel>no.of days </lavel>
 
         <select id="btn-add-tab">
 
@@ -302,8 +336,77 @@ foreach ($xp->query("//meta[@property='og:image']") as $el) {
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script>  
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.js')?>"></script> 
 <script src="<?php echo base_url('assets/js/moment.js')?>"></script> 
- 
+ <script src="<?php echo base_url('assets/js/select2.min.js')?>"></script> 
  <script>
+
+// select search option
+var base_url = '<?php echo base_url() ?>';
+
+var studentSelect = $('#select-client');
+
+var data=[{
+full_name:"chirag patel",
+id:"patel"
+},{
+full_name:"patel",
+id:"patel1"
+}]
+
+for(var i=0;i<data.length;i++){
+var option = new Option(data[i].full_name, data[i].id, true, true);
+studentSelect.append(option).trigger('change');
+}
+
+// manually trigger the `select2:select` event
+studentSelect.trigger({
+  type: 'select2:select',
+  params: {
+    data: data
+  }
+  
+});
+
+
+    function formatRepo (repo)
+      {
+          return repo.firstname;
+      }
+
+  function formatRepoSelection (repo) {
+    return repo.firstname || repo.text;
+  }
+
+$("#select-client").select2({
+           
+      multiple:true,
+
+            ajax: {
+
+                    url: base_url+'searchfriends/search_friends/',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                      return {
+                        q: params.term
+                      };
+                    },
+                    processResults: function (data) {     
+                      return {
+                        results: data.message
+                      };
+                    },
+                    cache: true
+                  },
+
+                  escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+                  minimumInputLength: 1,
+                  templateResult: formatRepo, // omitted for brevity, see the source of this page
+                  templateSelection: formatRepoSelection, // omitted for brevity, see the source of this page
+                  placeholder: "Enter name"
+});
+
+
+
  $("#end_time").datetimepicker(
             { 
                 datepicker:false,   //12 hours time format 

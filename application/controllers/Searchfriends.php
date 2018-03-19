@@ -134,38 +134,24 @@ public function search_friendsold($search_val) //add search and friend request
 
 	}
 
-public function search_friends($search_val) //add search and friend request
+public function search_friends() //add search and friend request
    {
-			   
+
+				$user_id = $this->input->get('q'); 
+
 			   	$this->rest->http_header('token', $this->session->userdata('token'));
-			   	$search =array('search' => $search_val);
+			   	// $search_val =  str_replace("?","",$search_val );
+			   	// echo $search_val;
+			   	$search =array('search' => $user_id);
 			   	$json_data = json_encode($search);
 			   	$result = $this->rest->post('http://104.197.80.225:3010/wow/network/friendsuggestion',$json_data,'json');
+
 			  
-			   	if($result->success)
-					{	 
-						 $response = $result->message;
-						 echo '<select class="live-search-list" multiple>';						
-						 foreach ($response as $responses) {
-						 	echo '<option><a href="#" data-id="'.$responses->_id.'" >'.$responses->firstname.'</a></optino>';  //here add base url
-						 }						 
-						 echo '</select>';
-
-						 echo ' <script type="text/javascript">$("#display1 li a").on("click",  function(e){
-								    e.preventDefault();
-								    var name = $(this).text();	
-								    var id = $(this).data("id");							   
-								    $("#searchbox ").val(name);
-								    $("#name_id").val(id);
-
-									});
-								</script>';
-					}
-
-				  else 
-				   {	
-						echo 'failed';						 
-				    }					
+			   	$myJSON = json_encode($result);
+			  
+			   	echo $myJSON;
+			  
+			  
 
 	}
 

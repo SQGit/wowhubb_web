@@ -248,4 +248,14 @@ public function create_business_page()
 
 	}
 
+	public function email_template()
+	{
+		$this->load->view('business/email_template');
+	}
+
+	public function web_mob_view()
+	{
+		$this->load->view('business/web_mob_view_template');
+	}
+
 }

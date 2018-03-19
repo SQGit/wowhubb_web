@@ -212,7 +212,7 @@ table, td, tr {
                 <p>Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu mauris eus, cum eros quis aliquam wisi. Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi, mi mattis pariatur aliquam pharetra eget.</p>
                 </div>
                 <div class="row text-center">
-                 <a href="<?php echo base_url('service/ohp_admin_home'); ?>"> <button type="submit" class="btn btn-primary">Create Your Organisation Event Hosting Page</button></a>
+                 <a href="<?php echo base_url('business/ohp_form'); ?>"> <button type="submit" class="btn btn-primary">Create Your Organisation Event Hosting Page</button></a>
              </div>
             </div>
               
@@ -229,8 +229,8 @@ table, td, tr {
                 <p>Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu mauris eus, cum eros quis aliquam wisi. Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi, mi mattis pariatur aliquam pharetra eget.</p>
                 </div>
                 <div class="row text-center">
-                  <a href="<?php echo base_url('service/eventvenue_landing'); ?>" >
-                    <button type="submit" class="btn btn-primary">List Your Event Venues</button>
+                  <a href="<?php echo base_url('service/eventvenue_form'); ?>" >
+                    <button type="submit" class="btn btn-primary">Create Your Event Venue Page</button>
                   </a>
              </div>
             </div>
@@ -248,8 +248,8 @@ table, td, tr {
                 <p>Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu mauris eus, cum eros quis aliquam wisi. Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi, mi mattis pariatur aliquam pharetra eget.</p>
                 </div>
                 <div class="row text-center">
-                  <a href="<?php echo base_url('service/eventvenue_landing'); ?>" >
-                    <button type="submit" class="btn btn-primary">List Your Event Services</button>
+                  <a href="<?php echo base_url('service/service_provider_form'); ?>" >
+                    <button type="submit" class="btn btn-primary">Create Your Event Service Page</button>
                   </a>
              </div>
             </div>
@@ -326,8 +326,8 @@ table, td, tr {
      
       <div class="col-md-12" style="margin-top:5px;">
         <div class="row text-center">
-                   <a href="<?php echo base_url('service/eventvenue_landing'); ?>" ><button type="submit" class="btn btn-primary">
-                   List Your Event Venues
+                   <a href="<?php echo base_url('service/eventvenue_form'); ?>" ><button type="submit" class="btn btn-primary">
+                   Create Your Event Venue Page
                   </button></a>
              </div>
       </div>
@@ -364,8 +364,8 @@ table, td, tr {
      
       <div class="col-md-12" style="margin-top:5px;">
         <div class="row text-center">
-                 <a href="<?php echo base_url('service/eventvenue_landing'); ?>" > 
-                  <button type="submit" class="btn btn-primary">List Your Event Services</button>
+                 <a href="<?php echo base_url('service/service_provider_form'); ?>" > 
+                  <button type="submit" class="btn btn-primary">Create Your Event Service Page</button>
                 </a>
              </div>
       </div>

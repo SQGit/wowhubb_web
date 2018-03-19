@@ -1027,14 +1027,13 @@ img {
 
         </div>   
 
-         <?php }  } ?> 
+         <?php }   ?> 
 
       <!-- thoughts  end here -->
 
       <!-- personal evnt start here -->
                   <?php                            
-                        foreach ($eventfeed as $feeds)
-                          {                          
+                                                
                               if($feeds->eventtype =='personal_event')  
                                 {                              
                      
@@ -1464,18 +1463,14 @@ img {
                         </form>
             </div>
 
-            <?php }  } ?>
+            <?php }   ?>
 
 
     <!-- personal event end here -->
 
     <!-- professional event show here -->
 
-                      <?php 
-                            
-                        foreach ($eventfeed as $feeds)
-                          {                           
-
+                      <?php                           
                               if($feeds->eventtype == 'professional_event')
 
                                 {                              
@@ -1596,21 +1591,21 @@ img {
                                       <span style="line-height: 20px; text-transform: uppercase; font-weight: bold; font-size: 14px;">
                                     <?php 
 
-                                       if(isset($feeds->runtimefrom) ) 
+                                       if(isset($feeds->eventstartdate) ) 
                                         {                                        
-                                          $timestamp = strtotime($feeds->runtimefrom);
+                                          $timestamp = strtotime($feeds->eventstartdate);
                                         // $new_date = date('M', $timestamp);
                                          echo date('M', $timestamp);
                                     ?></span>  <br>
 
                                       <?php
 
-                                      $timestamp = strtotime($feeds->runtimefrom);
+                                      $timestamp = strtotime($feeds->eventstartdate);
                                       echo date('D dS', $timestamp);
                                       ?>
                                   - <span style="font-size:10px; color:#333;"></span>
                                   <?php 
-                                      $timestamp = strtotime($feeds->runtimeto);
+                                      $timestamp = strtotime($feeds->eventenddate);
                                        echo date('D dS', $timestamp);
                                       // echo date('h:i A l - dS F, Y', $timestamp);
                                    ?>
@@ -1621,12 +1616,12 @@ img {
                            <div style="background-color: #c8c2c2; height: 25px; line-height: 25px; ">
                                 <p style="font-size: 10px;  font-weight: bold; color:#000; ">
                                   <?php 
-                                      $timestamp = strtotime($feeds->runtimefrom);
+                                      $timestamp = strtotime($feeds->eventstartdate);
                                       echo date('h:i A', $timestamp);
                                    ?>
                                   - <span style="font-size:10px;  color:#000;"></span>
                                   <?php 
-                                      $timestamp = strtotime($feeds->runtimeto);
+                                      $timestamp = strtotime($feeds->eventenddate);
                                        echo date('h:i A', $timestamp);
                                       // echo date('h:i A l - dS F, Y', $timestamp);
                                    }  ?>
@@ -1661,7 +1656,15 @@ img {
                             <ul class="follow-me1 list-inline">
                               <li><a href="#" data-toggle="modal" >
                                 <input type="hidden" name="userid" value="<?php echo $feeds->_id; ?>" >
-                                <span  style="padding: 2px 25px; font-size: 18px; color: #fff!important;"><?php if(isset($feeds->ticketprice)) { echo '$'.$feeds->ticketprice; } else { echo " ";} ?></span>
+                                <span  style="padding: 2px 25px; font-size: 18px; color: #fff!important;">
+                                  <?php 
+                                        if(isset($feeds->ticketprice))
+                                            {  
+                                               echo $feeds->ticketprice; 
+                                            } 
+                                            else { echo " "; }
+                                  ?>                                    
+                                </span>
                                 </a> </li>
                             </ul>
                           </div>
@@ -1670,7 +1673,15 @@ img {
                             <ul class="follow-me list-inline">
                               <li><a href="#" data-toggle="modal" >
                                 <input type="hidden" name="userid" value="<?php echo $feeds->_id; ?>" >
-                                <button class="btn-primary" style="padding: 2px 25px;"><?php if(isset($feeds->engagementformaction)) { echo $feeds->engagementformaction; } else { echo " ";} ?></button>
+                                 <?php 
+                                        if(isset($feeds->engagementformaction) && ($feeds->engagementformaction !="")) 
+                                            { 
+                                              '<button class="btn-primary" style="padding: 2px 25px;">';                                 
+                                                echo $feeds->engagementformaction;
+                                              '</button>';
+                                            } 
+                                  ?>                                    
+                                
                                 </a> </li>
                             </ul>
                           </div>
@@ -1810,15 +1821,8 @@ img {
                               <div class="pull-left" style="width:90%;"> Like. Reply.
                                  <span style="color:#B8B8B8;">
                                   <?php 
-                                      $timestamp = strtotime($com->commentedAt);
-                                       // echo date('D dS', $timestamp);
-                                     
-                                      // echo $comment_date;
-                                     // $time_test =  local_to_gmt($timestamp);
-                                       $comment_date = date('Y-m-d H:i:s', $timestamp);
-                                       // echo $comment_date;
-                                      // echo  date_default_timezone_get();
-                                      // echo strtotime(time());
+                                      $timestamp = strtotime($com->commentedAt);                                      
+                                       $comment_date = date('Y-m-d H:i:s', $timestamp);                                    
 
                                   ?>
                                  <time class="timeago" datetime="<?php echo $comment_date; ?>"></time>
@@ -1944,7 +1948,7 @@ img {
                         </form>
             </div>
 
-            <?php }  } ?>
+            <?php }   ?>
 
        
     <!-- professional event end  here -->
@@ -1953,8 +1957,7 @@ img {
     <!-- social event show here -->
 
                 <?php                         
-                      foreach ($eventfeed as $feeds)
-                        {                       
+                                             
                             if($feeds->eventtype == 'socia1_event') 
                               {                                
                              
@@ -2063,44 +2066,43 @@ img {
                               </div>
 
                               <div style="margin-top: 1px; padding:0px;">
-                                <p style="line-height: 17px; color:#000; font-weight:bold; font-size:10px; margin-bottom:0;">
-                                    <!-- <div style="line-height: 20px; margin-top: 5px;"> -->
-                                      <span style="line-height: 20px; text-transform: uppercase; font-weight: bold; font-size: 14px;">
+                                <p style="line-height: 17px; color:#000; font-weight:bold; font-size:10px; margin-bottom:0;">                
+                                  <span style="line-height: 20px; text-transform: uppercase; font-weight: bold; font-size: 14px;">
                                     <?php 
 
-                                       if(isset($feeds->runtimefrom) ) 
+                                       if(isset($feeds->eventstartdate) ) 
                                         {                                        
-                                          $timestamp = strtotime($feeds->runtimefrom);
-                                        // $new_date = date('M', $timestamp);
+                                          $timestamp = strtotime($feeds->eventstartdate);                                        
                                          echo date('M', $timestamp);
-                                    ?></span>  <br>
+                                    ?>
+                                      
+                                  </span>  <br>
 
                                       <?php
 
-                                      $timestamp = strtotime($feeds->runtimefrom);
+                                      $timestamp = strtotime($feeds->eventstartdate);
                                       echo date('D dS', $timestamp);
                                       ?>
                                   - <span style="font-size:10px; color:#333;"></span>
                                   <?php 
-                                      $timestamp = strtotime($feeds->runtimeto);
+                                      $timestamp = strtotime($feeds->eventenddate);
                                        echo date('D dS', $timestamp);
-                                      // echo date('h:i A l - dS F, Y', $timestamp);
+                                     
                                    ?>
-                                 <!-- </div> -->
+                                 
                                 </p>
                               </div>
 
                            <div style="background-color: #c8c2c2; height: 25px; line-height: 25px; ">
                                 <p style="font-size: 10px;  font-weight: bold; color:#000; ">
                                   <?php 
-                                      $timestamp = strtotime($feeds->runtimefrom);
+                                      $timestamp = strtotime($feeds->eventstartdate);
                                       echo date('h:i A', $timestamp);
                                    ?>
                                   - <span style="font-size:10px;  color:#000;"></span>
                                   <?php 
-                                      $timestamp = strtotime($feeds->runtimeto);
-                                       echo date('h:i A', $timestamp);
-                                      // echo date('h:i A l - dS F, Y', $timestamp);
+                                      $timestamp = strtotime($feeds->eventenddate);
+                                       echo date('h:i A', $timestamp);                                     
                                    }  ?>
                                   IST </p>
                               </div>
@@ -2414,7 +2416,7 @@ img {
                         </form>
             </div>
 
-            <?php }  } ?>
+            <?php }   ?>
 
     <!-- end socia event here -->
 
@@ -2424,8 +2426,7 @@ img {
 
               <?php 
                              
-                  foreach ($eventfeed as $feeds)
-                    {                   
+                                    
                       if($feeds->eventtype == 'business_event')  
                         {                           
                          

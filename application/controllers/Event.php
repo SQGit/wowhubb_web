@@ -1,5 +1,7 @@
 <?php
 	
+ini_set('default_charset', 'UTF-8');
+	
 class Event extends CI_Controller
 {
 	public function __construct()
@@ -125,45 +127,7 @@ public function create()
 	   		$this->load->view('mytest/create_test');
 	   }
 
-public function create_test()
-	   {
-	   			
-	   			$pgm_schedule = array();
-	   			
-	   			// day 1 count
-	   			$no_of_days = $this->input->post('no_of_days');
 
-	   			for($day=1; $day<=$no_of_days; $day++)
-	   			{	   				
-	   				$no_of_events = count ($this->input->post('day'.$day.'_from_hour'));
-
-	   				// echo "test";
-	   				for($event=0; $event<$no_of_events; $event++)
-	   				{
-	   					// echo $event;
-	   					array_push($pgm_schedule, array
-						(
-							'day'		   =>  $day,
-							'eventnumber'  =>  '1',
-							'starttime'    =>  $this->input->post('day'.$day.'_event_starttime'),
-							'endtime'      =>  $this->input->post('day'.$day.'_event_endtime'),
-							'facilitator'  =>  $this->input->post('day'.$day.'_facilitator_name')[$event],
-							'location'     =>  $this->input->post('day'.$day.'_location')[$event],
-							'agenda'       =>  $this->input->post('day'.$day.'_agenda')[$event],
-							'itystarttime' =>  $this->input->post('day'.$day.'_from_hour')[$event].' '.$this->input->post('day'.$day.'_from_min')[$event].' '.$this->input->post('day'.$day.'_from_sec')[$event],
-	   			 			'ityendtime'   =>  $this->input->post('day'.$day.'_to_hour')[$event].' '.$this->input->post('day'.$day.'_to_min')[$event].' '.$this->input->post('day'.$day.'_to_sec')[$event]
-	   			 		));
-	   			 	}	
-	   			}
-
-	   			 // $json_data = json_encode($pgm_schedule); 
-	   			print "<pre>";
-				// print_r($_POST);
-				print_r($pgm_schedule);
-				print "</pre>";
-	   		// 		var_dump($_POST);
-	   		
-	   }
  
 	      
 public function event_popup_details()
@@ -1427,6 +1391,11 @@ public function create_business_event()
 	 	
 	 	//first step
 
+	 			$start_date = $_POST['event_startdate'];
+			    $end_date   = $_POST['event_enddate'];		    
+			    $s_date = date('Y/m/d', strtotime($start_date)); 
+			    $e_date = date('Y/m/d', strtotime($end_date)); 
+
 	 			$token   =  $this->session->userdata('token');	
 	 			
 			   	$header1 = array('token:'            .$token,
@@ -1435,8 +1404,8 @@ public function create_business_event()
 								'eventtypeint:'      ."4", 
 								'brandawareness:'    .$this->input->post('brand_awareness'),	
 								'eventname:'         .$this->input->post('event_name'),	
-								'eventstartdate:'    .$this->input->post('event_startdate').' '.$this->input->post('event_startime'),
-								'eventenddate:'      .$this->input->post('event_enddate').' '.$this->input->post('event_endtiming'),
+								'eventstartdate:'	 .$s_date.' '.$this->input->post('event_startime'),
+								'eventenddate:'   	 .$e_date.' '. $this->input->post('event_endtiming'),
 								'eventdescription:'  .$this->input->post('event_description')
 								);
 			   	 
@@ -1837,7 +1806,7 @@ public function update_thoughts()
 			$response = array(); 	
 
 			$url_link = $this->input->post('thought_url_link');		
-			$tags = get_meta_tags($test);
+			// $tags = get_meta_tags($test);
             // $link_keyword = $tags['keywords']; 
 
             // if(isset($tags['keywords']))
@@ -1850,36 +1819,59 @@ public function update_thoughts()
             // }
 
             	libxml_use_internal_errors(true);  // Yeah if you are so worried about using @ with warnings
+				
 				$c = file_get_contents("$url_link");
 				$d = new DomDocument();
 				$d->loadHTML($c);
 				$xp = new domxpath($d);
 
-				if(isset($xp))
-				{
-					foreach ($xp->query("//meta[@property='og:title']" ) as $el)
+				// print_r($xp);
+
+				$length = $xp->query("//meta[@property='og:title']" );
+
+
+				if($length == 'true')	
+					{	
+						foreach ($xp->query("//meta[@property='og:title']" ) as $el)
 						{
-											
-						    	$title = $el->getAttribute("content");
-						    
+							$title = $el->getAttribute("content");
+						 						  
+						}
+					}
+				else
+					{
+						$title =" ";
+					}
+
+				if($length == 'true')	
+					{
+
+						foreach ($xp->query("//meta[@property='og:description']") as $el)
+							{
+							    $description = $el->getAttribute("content");
+							}
+					}
+				 else
+						{
+						    $description =" ";
 						}
 
-				foreach ($xp->query("//meta[@property='og:description']") as $el)
-					{
-					    $description = $el->getAttribute("content");
-					}
+				if($length == 'true')	
+					{	
+						$i=0;
 
-				$i=0;
-
-				foreach ($xp->query("//meta[@property='og:image']") as $el)
-					 {
-						if($i++ == 0)
-							 {
-								  $img =  $el->getAttribute("content");
-								 
-							 }					  
+						foreach ($xp->query("//meta[@property='og:image']") as $el)
+							{
+								if($i++ == 0)
+									{
+										$img =  $el->getAttribute("content");									 
+									}					  
+							}
 					}
-				}	
+				 else
+						{
+						    $img =" ";
+						}	
 
 			$token    =  $this->session->userdata('token');	
  			

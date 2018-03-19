@@ -270,24 +270,31 @@ img.profile-photo-2 {
                                 <div class="user-info">
                                  <div class="row" style="padding:10px;">                              
                    
-                    <!-- <form action="<?php echo base_url('searchfriends/create_group'); ?>"> -->
+                   <form action="<?php echo base_url('searchfriends/create_group'); ?>">
                             <div class="row" >                              
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class="">Name Your Group</label>
                                 <input  type="text" class="form-control input-group-lg"  name="group_name" placeholder="Ex.Wowhubb Group"  />
                               </div>
                             </div>
-                           
+
+                            <!-- <div class="row">   
+                              <div class="form-group col-xs-12">
+                                <label for="date-to" class="">Add Some People</label>
+                                 <input type="text" class="search form-control" id="searchbox" name="people_add" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px;" />
+                                 <span id="display1"> </span>
+                                 <input type="text" id="name_id">
+                              </div>
+                            </div>     -->   
 
                              <div class="row">   
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class="">Add Some People</label>
-                                 <input type="text" class="search form-control " id="searchbox" name="people_add" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px;" />
-                                 <span id="display1"> </span>
-                                 <input type="text" id="name_id">
-                              </div>
-                            </div>
+                                  <select id="select-client" class="form-control" style="width: 350px;">
                             
+                                  </select>
+                              </div>
+                            </div>                    
                             
                             <div class="row">   
                               <div class="form-group col-xs-12">
@@ -296,8 +303,7 @@ img.profile-photo-2 {
                                       <option value="Public Group">Public Group</option>
                                       <option value="Closed Group">Closed Group</option>
                                       <option value="Secret Group">Secret Group</option>    
-                                      <option value="Secret Group">Secret Group</option>                                                                   
-                                     
+                                                                          
                                 </select>
                               </div>
                             </div>
@@ -307,7 +313,7 @@ img.profile-photo-2 {
                                 <input type="submit" value="Create" class="btn btn-primary" style="width:140px;">
                               </div>
                             </div>
-                    <!-- </form> -->
+                   </form> 
                   
                                </div>
                                 </div>
@@ -337,9 +343,76 @@ img.profile-photo-2 {
 <script src="<?php echo base_url('assets/js/select2.min.js')?>"></script> 
 <script>
 
-  $(document).ready(function() {
-    $('.live-search-list').select2();
+// select search option
+var base_url = '<?php echo base_url() ?>';
+
+var studentSelect = $('#select-client');
+
+var data=[{
+full_name:"chirag patel",
+id:"patel"
+},{
+full_name:"patel",
+id:"patel1"
+}]
+
+for(var i=0;i<data.length;i++){
+var option = new Option(data[i].full_name, data[i].id, true, true);
+studentSelect.append(option).trigger('change');
+}
+
+// manually trigger the `select2:select` event
+studentSelect.trigger({
+  type: 'select2:select',
+  params: {
+    data: data
+  }
+  
 });
+
+
+    function formatRepo (repo)
+      {
+          return repo.firstname;
+      }
+
+  function formatRepoSelection (repo) {
+    return repo.firstname || repo.text;
+  }
+
+$("#select-client").select2({
+           
+      multiple:true,
+
+            ajax: {
+
+                    url: base_url+'searchfriends/search_friends/',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                      return {
+                        q: params.term
+                      };
+                    },
+                    processResults: function (data) {     
+                      return {
+                        results: data.message
+                      };
+                    },
+                    cache: true
+                  },
+
+                  escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+                  minimumInputLength: 1,
+                  templateResult: formatRepo, // omitted for brevity, see the source of this page
+                  templateSelection: formatRepoSelection, // omitted for brevity, see the source of this page
+                  placeholder: "Enter name"
+});
+
+
+//   $(document).ready(function() {
+//     $('.live-search-list').select2();
+// });
 //search option form submit
 var base_url = '<?php echo base_url() ?>'; //form submited
 $(document).ready(function(){

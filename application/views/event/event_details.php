@@ -1827,21 +1827,18 @@ body {
                                               <?php } ?>  
 
                                               <div style="width:73%;" class="pull-left">
-                                                <?php if(isset($event->eventhighlightsvideo1) && (($event->eventhighlightsvideo1) != 'null')  ) { ?>
+                                               
+                                              <?php if(isset($event->eventhighlightsvideo1) && (($event->eventhighlightsvideo1) != 'null')  )
 
-                                            <div id="vidBox">
-                                              <div id="videCont" style="margin-top: -19px!important;">
+                                              { ?>
+                                           
                                                 <a href="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlightsvideo1; ?>" id="video-trigger">
-                                                <video   id="demo"  style="width: 200px; height: 150px;" controls controlsList="nodownload">
+                                                <video  style="width: 200px; height: 150px;" controls controlsList="nodownload">
                                                    <source src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlightsvideo1; ?>" type="video/mp4">
                                                 </video>
                                                 </a>
-                                              </div>
-                                            </div>
+                                              <?php } ?>
                                            
-
-
-                                                <?php } ?>
                                                 <br>
                                                 <h5 style="color:#333; line-height:20px;">
                                                   <?php echo $event->eventspeakername1; ?><br>
@@ -1852,7 +1849,7 @@ body {
                                             </div>
 
                                           <div class="col-md-7">
-                                            <h5 style="color:#333; line-height:20px;">!Cdaniells</h5>
+                                            
                                             <p><?php echo $event->eventspeakeractivities1; ?></p>
                                             <a href="#"><?php echo $event->eventspeakerlink1; ?> </a>
                                           </div>
@@ -1881,12 +1878,10 @@ body {
                                                   </span></h5>
                                               </div>
                                             </div>
-                                            <div class="col-md-7">
-                                              <h5 style="color:#333; line-height:20px;">!Tdjakes</h5>
+                                            <div class="col-md-7">                                            
                                               <p> <?php echo $event->eventspeakeractivities2; ?></p>
                                               <a href="#"><?php echo $event->eventspeakerlink2; ?></a>
                                             </div>
-
                                           </div> 
                                         <?php } ?>
                                     </div>

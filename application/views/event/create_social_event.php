@@ -387,6 +387,51 @@ img {
     display: inline-block;
 	}
 
+/*here start with keyword input  words  */
+.keywordSearch-container {
+     border:1px #999 solid;
+     padding:1px;
+     padding-bottom:0;
+     cursor:text;
+     font-size:15px;
+     width:100%;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+ 
+.keywordSearch-container input {  
+    outline: none;
+    font-size:15px;
+    clear:both;
+    height:40px;
+    border:0;
+    margin-bottom:1px;
+    
+}
+ 
+.keywordSearch-container ul {
+    list-style-type:none;
+}
+ 
+li.keywordSearch-email {
+    float:left;
+    padding:6px ;
+    color: #fff;
+  background: #FD9160;
+  margin-top: 0;
+  border-radius: 6px;
+  margin: 6px 2px 6px 6px;
+}
+ 
+.keywordSearch-close {
+    width:16px;
+    height:16px;
+    display:block;
+    float:right;
+    margin: -2px 0px 0px 8px;
+  color: #fff;
+  font-size: 16px;
+}  
 
 </style>
 </head>
@@ -398,20 +443,188 @@ img {
 
 <!-- Header
     ================================================= -->
-<header id="header">
-  <nav class="navbar navbar-default navbar-fixed-top menu">
+ <header id="header">
+  <nav class="navbar navbar-default navbar-fixed-top menu" style="padding-top:3px!important; padding-bottom:3px!important;">
     <div class="container"> 
       
       <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header"> <a class="navbar-brand" href="JavaScript:void(0);" alt="logo" /></a> </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right main-menu" style="color:#fff; margin-top: 10px; margin-right:5px; font-size:25px;">
-          <a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none;"> <span style="font-size:14px;  background:#e91e63; padding:5px 10px; border-radius:13px; color:#fff;"><img src="<?php echo base_url('assets/images/home-icon.png'); ?>" alt="user" /> Home</span> </a> <a href="<?php echo base_url('event/event_popup'); ?>" style="text-decoration:none;"><span style="font-size:14px;  background:#757575; padding:5px 10px; border-radius:13px; color:#fff;"><img src="<?php echo base_url('assets/images/create-event-icon-3.png'); ?>" alt="user" /> Create Event</span> </a> <a href="<?php echo base_url('home/logout'); ?>" style="text-decoration:none;"><span style="font-size:14px;  padding:5px 10px; border-radius:5px; color:#fff;"><img src="<?php echo base_url('assets/images/logout-icon.png'); ?>" alt="user" />Logout</span> </a>
+      <div class="navbar-header" style="position:relative; z-index:969696;"> <a class="navbar-brand" href="<?php echo base_url('event/get_eventfeed'); ?>"><img src="<?php echo base_url ('assets/images/logo.png') ?>" alt="logo" /></a> </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style="position:relative;">
+        <ul class="nav navbar-nav navbar-right main-menu" style="color:#fff; margin-top: 0px; margin-right:0px; font-size:25px;">
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "><a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/home-icon-1.png'); ?>" alt="user" /><br>
+            Home </a></li>
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"> <img src="<?php echo base_url('assets/images/notification-icon.png'); ?>" alt="user" /> <br>
+            My Alerts <i class="fa fa-caret-down"></i> </a>
+            <ul class="dropdown-menu login">
+              <div>
+                <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;"><strong><i class="icon ion-android-notifications-none"></i> Alerts</strong></div>
+              </div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-10">Vineture  didn't get any new likes this week. Publish a post to engage your audience.
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 15 Hours Ago</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-10">Emeka added a New Event on Hari's Birthday. Lets Check!!
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 13 Hours Ago</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-10">It's Nickybeit Enjoy's birthday today. Help him celebrate!
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal; margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> Yesterday at 10:45pm</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div>
+                <div class="col-md-12">
+                  <div class="text-center"><a href="#" style="color:#555; text-align:center;" >See all</a></div>
+                </div>
+              </div>
+            </ul>
+          </li>
+          <li class="dropdown" style="margin-left:10px; margin-right:10px; text-align:center;"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"> <img src="<?php echo base_url('assets/images/chat-icon.png'); ?>" alt="user" /><br>
+            Friend Requests <i class="fa fa-caret-down"></i> </a>
+            <ul class="dropdown-menu login">
+              <div>
+                <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;"><strong><i class="icon ion-ios-person-outline"></i> Friend Requests</strong></div>
+              </div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Vicky
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Emeka
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Hari
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 10 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Roshan
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 4 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div>
+                <div class="col-md-12">
+                  <div class="text-center"><a href="#" style="color:#555; text-align:center;" >See all</a></div>
+                </div>
+              </div>
+            </ul>
+          </li>
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "><a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/chat-icon-1.png'); ?>" alt="user" /><br>
+            Messaging </a></li>
+          <li class="dropdown" style="text-align:center; margin-left:10px; margin-right:10px;"><a href="<?php echo base_url('event/event_popup'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/create-event-icon-1.png'); ?>" alt="user" /><br>
+            Create Event </a></li>
+         
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; padding-left:10px; padding-right:10px; border-left:1px solid #ccc;"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"><img src="<?php echo base_url('assets/images/prof-icon.png'); ?>" alt="user" /><br>
+            Profile <i class="fa fa-caret-down"></i> </a>
+            <ul class="dropdown-menu login">
+              <div>
+                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;">
+                 <div style="width:10%; float:left;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo" style="width:30px; height:30px;" /></div>
+                 <div style="width:90%; float:left;"><strong> Saranya Chandrasekaran</strong><br> 
+                 <span style="font-size:13px; color:#999;">Web developer at Vineture Inc.</span></div>
+                </div>
+              </div>
+              <div> 
+                
+                <div class="col-md-12 text-center">
+                <span style="color:e91e63;"><a href="#" style="color:#e91e63;" ><strong>View Profile</strong></a></span>
+                  
+                </div>
+                 <div class="col-md-12">
+               <div class="col-md-12" style="background:#f5f5f5; padding-top:5px; padding-bottom:5px;"><span style="color:e91e63;"><a href="#" style="color:#222; font-size:15px;" >My Account</a></span></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Settings</a></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Privacy Policy</a></div>
+                 
+                </div>
+                <div class="col-md-12">
+               <div class="col-md-12" style="background:#f5f5f5; padding-top:5px; padding-bottom:5px;"><span style="color:e91e63;"><a href="#" style="color:#222; font-size:15px;" >Manage</a></span></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Edit Profile</a></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> My Event Feed</a></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> My Interests</a></div>
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                
+                </div>
+              
+           
+              <div>
+                <div class="col-md-12">
+                  <div class="col-md-12">
+  <div class="text-left"><a href="<?php echo base_url('home/logout'); ?>" style="color:#333; text-align:left;" >Logout</a></div>
+                  </div>
+                </div>
+              </div>
+            </ul>
+            </li>
         </ul>
-        <form class="navbar-form navbar-right hidden-sm">
+        <form class="navbar-form navbar-right hidden-sm" style="position:absolute; left:210px; top:0px;" >
           <div class="form-group"> <i class="icon ion-android-search"></i>
-            <input type="text" class="form-control" placeholder="Search !Events, !Venues, !Wowtags, !People">
-          </div>
+            <input type="text" class="search form-control live-search-box" id="searchbox" name="friends_search" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px;" />
+            <br/>
+            <span id="display1"> </span> </div>
         </form>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling --> 
@@ -526,11 +739,13 @@ img {
                      </div>
                 </div>
        				<div class='col-sm-5'>
-                 		<div class='row'>
+                 		<div class='row'>                 			
 		                  	<div class='form-group col-sm-12' style="display: none;" >
 		                      	<label>Event Type</label>
 		                      	<input type='hidden' name="event_type"  class="form-control textBox" value="<?php echo $this->session->userdata('event_type'); ?>" />
 		                    </div>
+		                    
+
 		                    <div class='form-group col-sm-12' >
 		                      <label>Event Category</label>
 		                      <input type='text' name="event_category"  class="form-control textBox" value="<?php echo $this->session->userdata('event_category'); ?>"  readonly/>
@@ -579,6 +794,29 @@ img {
 		                	</div>   
 
 		                </div>
+
+		                <div class='form-group col-sm-12' >
+                    				<label> Organisation Name </label>
+                     			<!-- company name show here from login page -->
+			            	
+			              		<select name="tour_noof_city"  class="form-control " >
+			              			<option value="">Select</option>
+			              		<?php			             
+			                  		$business =  $this->session->userdata('business');
+			                  
+			                    	foreach ($business as $business_name) { 
+			                        	if(isset($business_name->companyname)) 
+			                          		{            
+			                  
+			              		?>
+				                    <option value="<?php  echo $business_name->companyname; ?>"><?php  echo $business_name->companyname; ?>
+				                    	
+				                    </option>	
+				                     <?php } }  ?>			                     
+			                 	</select>                    
+			           
+		            			<!-- company name show end here  -->
+                    	</div>
 
 <!-- here country rupee shows -->
 	<script type="text/javascript">
@@ -842,6 +1080,7 @@ img {
 					                        <div class="form-group" style="margin-bottom: 10px;"> 
 						                        <div class="field" align="left">
 						                         		<input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('files').click();" />
+						                         		 <div id="img_preview1"></div>
 						                         		<input type="file" style="display:none;" name="cover_img" id="files" class="file " accept="image/*" title="cover image">  
 						                        </div> 
 					                        </div>		                        
@@ -967,7 +1206,7 @@ img {
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>City</label>
-		                      <input type='text' id="city_1" name="venue_city[]" class="form-control" onblur="update_vanue()"/>
+		                      <input type='text' id="city_1" name="venue_city[]" class="form-control" onblur="update_vanue()"/ style="text-transform: capitalize;">
 		                    </div>
 		                    <div class='form-group col-sm-12'>
 		                      <label>Zipcode/ Postal Code</label>
@@ -1171,7 +1410,10 @@ img {
                        	</span>
 
                         <div id="video_show" style="display: none;" >
-                        	<video width="200" height="150" controls>
+                        	<div class="remove_video" style="cursor: pointer;">
+		                       <i class="fa fa-window-close" style="font-size:25px; margin-left: 171px;"></i>
+		                    </div>
+                        	<video width="200" height="110" controls>
 							 	 <source src="mov_bbb.mp4" id="video_here">
 							    Your browser does not support HTML5 video.
 							</video>
@@ -1183,11 +1425,11 @@ img {
                     </div>
                     <div class='col-sm-6' style="margin-top: 10px;">
                       <label>!Wowtag Runtime From: </label>
-                      <input type='text'  id="runtime_from" name="runtime_from" class="form-control " placeholder="Event Date" />
+                      <input type='text'  id="runtime_from" name="runtime_from" class="form-control " placeholder="Wowtag Runtime From" />
                     </div>
                     <div class='col-sm-6' style="margin-top: 10px;" >
                       <label>!Wowtag Runtime To: </label>
-                      <input type='text' id="totime_to" name="totime_to" class="form-control" placeholder="Event Date" />
+                      <input type='text' id="totime_to" name="totime_to" class="form-control" placeholder="Wowtag Runtime To" />
                     </div>                   
                   </div>
                 </div>
@@ -1377,29 +1619,29 @@ img {
                 </div>
                 <div class='col-sm-9' id="highlight2">
 	                <div class='form-group col-sm-7' style="margin-bottom: 0px;">
-	                  	<div class='col-md-12' style="background-color:#f9f9f9; padding-top:15px;">
-	                      <div class="form-group">                       
-	                        <input type="button" class="btn btn-primary"  value="Browse Image.." onclick="document.getElementById('img_files').click();" />
-	                        <input type="file" style="display:none;" name="highlight_img1" id="img_files" class="file" accept="image/*">
-	                      </div>
-	                    </div>
+	                  	
 	                    <div class='col-md-12' style="background-color:#f9f9f9; padding-top:15px;">
-	                      <div class="form-group">                       
-	                        <div class="input-group col-xs-12" style="margin-top:0px;">
-	                          <p style="line-height:23px;">Choose a compelling 60-120 seconds event promotional ads video that will create a lasting impression in your viewers mind</p>
-	                        </div>
-	                         <span class="btn btn-primary btn-file"> 
-	                        		Browse Video...  <input type="file" name="highlight_video1" id="video_size1" accept="video/*" >  
-	                     	</span> 
-	                     	<div id="video_show1" style="display: none;" >
-	                        	<video width="200" height="150" controls>
-								 	 <source src="mov_bbb.mp4" id="video_here1">
-								    Your browser does not support HTML5 video.
-								</video>
-	                        </div>                 
-	                      </div>
-	                    </div>
+	                        <div class="form-group">                       
+		                        <div class="input-group col-xs-12" style="margin-top:0px;">
+		                          <p style="line-height:23px;">Choose a compelling 60-120 seconds event promotional ads video that will create a lasting impression in your viewers mind</p>
+		                        </div>
+
+		                         <input type="button" class="btn btn-primary"  value="Browse" onclick="document.getElementById('video_size1').click();" />
+		                         <input type="file" style="display:none;" name="highlight_img1" id="video_size1" class="file">
+
+			                     	<div id="video_show1" style="display: none;" >
+			                     		<div class="remove_video1" style="cursor: pointer;">
+		                          			<i class="fa fa-times-rectangle" style="font-size:25px; margin-left: 171px;"></i>
+		                        		</div>
+			                        	<video width="200" height="110" controls>
+										 	 <source src="mov_bbb.mp4" id="video_here1">
+										    Your browser does not support HTML5 video.
+										</video>
+			                        </div>
+	                      	</div>
+	                    </div>	                    
 	                </div>
+
                 <div class='col-sm-5'>
 	                <div class='form-group col-sm-12'>
 	                  <select name="guest_type1" class="form-control" id="types" >
@@ -1428,22 +1670,21 @@ img {
 
                 <div id="event_high" style="display: none;">
 	                <div class='form-group col-sm-7' style="margin-bottom: 0px;">
-	                  	<div class='col-md-12' style="background-color:#f9f9f9; padding-top:15px;">
-	                      <div class="form-group">                       
-	                        <input type="button" class="btn btn-primary"  value="Browse Image.." onclick="document.getElementById('img_files2').click();" />
-	                        <input type="file" style="display:none;" name="highlight_img2" id="img_files2" class="file" accept="image/*">
-	                      </div>
-	                    </div>
+	                  	
 	                    <div class='col-md-12' style="background-color:#f9f9f9; padding-top:15px;">
 	                      <div class="form-group">                       
 	                        <div class="input-group col-xs-12" style="margin-top:0px;">
 	                          <p style="line-height:23px;">Choose a compelling 60-120 seconds event promotional ads video that will create a lasting impression in your viewers mind</p>
 	                        </div>
-	                         <span class="btn btn-primary btn-file"> 
-	                        		Browse Video...  <input type="file" name="highlight_video2" id="video_size2" accept="video/*" >  
-	                     	</span> 
+	                         <input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('video_size2').click();" />
+	                        <input type="file" style="display:none;" name="highlight_img2" id="video_size2" class="file">
+	                      	
+
 	                     	<div id="video_show2" style="display: none;" >
-	                        	<video width="200" height="150" controls>
+	                     		<div class="remove_video2" style="cursor: pointer;">
+		                          	<i class="fa fa-times-rectangle" style="font-size:25px;margin-left: 171px;"></i>
+		                        </div>
+	                        	<video width="200" height="110" controls>
 								 	 <source src="mov_bbb.mp4" id="video_here2">
 								    Your browser does not support HTML5 video.
 								</video>
@@ -1560,22 +1801,7 @@ img {
                 <div style="clear:both;"></div>
                 <div class="col-md-9">
                 <div class="col-md-6">
-                  <div class="form-group col-sm-12">
-                  <div class="pull-left" style="width:80%;">
-                    <label> Organisation Name </label>
-                    <input type="text" class="form-control"  name="organisation_name" placeholder="" >
-                    </div>
-                    <div class="pull-left" style="width:17%; margin-left:3%; margin-top:15px;">
                   
-                        <div class="toggle-switch">
-                          <label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider round"></span>
-                          </label>
-                        </div>
-                      
-                    </div>
-                  </div>
                   <div class="form-group col-sm-12">
                   <div class="pull-left" style="width:80%;">
                     <label> Contact Person Name </label>
@@ -1632,7 +1858,7 @@ img {
                   <div class="col-md-6">
                   <div class="form-group col-sm-12">
                     <label> Enter Keyword Search </label>
-                   <input type="text" id="keywordsearch" class="onkeyword form-control" name="keyword[]" style="margin-bottom: 15px;" value="">                   
+                   <input type="text" id="keyword_search" class="form-control" name="keyword[]" style="margin-bottom: 15px;" value="">                   
                      <span style="color: #e91e63; font-size: 17px; text-transform: capitalize;"  id="keyword_show" value=""> </span>
                   </div>
                  
@@ -2203,19 +2429,22 @@ img {
                      		<div class="form-group col-md-12">
 				                        <div class="form-group col-md-12">
 						                    <div class="pull-left" style="width:8%;">
-						                        <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+						                        <input type="radio" name="promotion_options" value="1" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 						                    </div>
 				                      		<div class="pull-left text-left" style="width:92%; font-size:15px;">Publish & Share On My !Wowhubb Network</div>
 				                        </div>
 					                    <div class="form-group col-md-12">
 					                      <div class="pull-left" style="width:8%;">
-					                        <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+					                        <input type="radio" name="promotion_options" value="2" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 					                      </div>
-					                      <div class="pull-left text-left" style="width:92%; font-size:15px;">Publish to Specific Group</div>
+					                      <div class="pull-left text-left" style="width:92%; font-size:15px;">Publish to Specific Group
+					                      		<!-- Modal -->
+                              
+					                      </div>
 					                    </div>
 					                    <div class="form-group col-md-12">
 						                      <div class="pull-left" style="width:8%;">
-						                        <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+						                        <input type="radio" name="promotion_options" value="3" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 						                      </div>
 					                      	  <div class="pull-left text-left" style="width:92%; font-size:15px;">This a Private Event</div>
 					                    </div>
@@ -2320,30 +2549,33 @@ img {
                		<div class='form-group col-sm-5'>
                      
                    		<div class='form-group col-sm-12' style="background:#f5f5f5; padding:15px 10px; margin-top:5px;">
+
                     		<div class="col-md-12" style="margin-bottom:5px;"><h5>Select Your Event Promotion Options<br> <br>
 							</h5></div>
+
                     		<div class="form-group col-md-12">
 			                   <div class="form-group col-md-12">
 			                   <div class="pull-left" style="width:8%;">
-			                        <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+			                        <input type="radio" name="promotion_options" value="1" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 			                      </div>
-			                      <div class="pull-left text-left" style="width:92%; font-size:15px;">Publish & Share On My !Wowhubb Network</div>
+			                      <div class="pull-left text-left" style="width:92%; font-size:15px;">Publish & Share On My !Wowhubb Network
+			                      </div>
 			                      </div>
 			                      <div class="form-group col-md-12">
 			                      <div class="pull-left" style="width:8%;">
-			                        <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+			                        <input type="radio" name="promotion_options" id="promotion_options" value="2" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 			                      </div>
 			                      <div class="pull-left text-left" style="width:92%; font-size:15px;">Publish to Specific Group</div>
 			                      </div>
 			                      <div class="form-group col-md-12">
 			                      <div class="pull-left" style="width:8%;">
-			                        <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+			                        <input type="radio" name="promotion_options" value="3" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 			                      </div>
 			                      <div class="pull-left text-left" style="width:92%; font-size:15px;">This a Private Event</div>
 			                      </div>
 			                      <div class="form-group col-md-12">
 			                      <div class="pull-left" style="width:8%;">
-			                        <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+			                        <input type="checkbox" name="promotion_options" value="4" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 			                      </div>
 			                      <div class="pull-left text-left" style="width:92%; font-size:15px;">Promote My Event On !Wowhubb Network</div>
 			                   </div>
@@ -2419,19 +2651,19 @@ img {
                      				<div class="form-group col-md-12">
 					                    <div class="form-group col-md-12">
 					                         <div class="pull-left" style="width:8%;">
-					                         	<input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+					                         	<input type="radio" name="promotion_options" value="1" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 					                         </div>
 					                      	 <div class="pull-left text-left" style="width:92%; font-size:15px;">Publish & Share On My !Wowhubb Network</div>
 					                    </div>
 					                    <div class="form-group col-md-12">
 					                      	<div class="pull-left" style="width:8%;">
-					                        	<input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+					                        	<input type="radio" name="promotion_options" value="2" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 					                      	</div>
 					                      	<div class="pull-left text-left" style="width:92%; font-size:15px;">Publish to Specific Group</div>
 					                    </div>
 					                    <div class="form-group col-md-12">
 						                      <div class="pull-left" style="width:8%;">
-						                        	<input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+						                        	<input type="radio" name="promotion_options" value="3" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 						                      </div>
 					                      	  <div class="pull-left text-left" style="width:92%; font-size:15px;">This a Private Event</div>
 					                    </div>
@@ -2457,6 +2689,43 @@ img {
                   </div>
                 </div>
     </fieldset>
+
+    <!-- publish to specific group -->
+    		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="z-index: 9999;">
+
+			                                  <div class="modal-dialog" >
+			                                    <div class="modal-content">
+			                                    
+			                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			                                        <h4 class="modal-title" style="text-align:center;">Select Group Name </h4>
+			                                        <?php                            
+						                               foreach ($group_name as $groups)
+						                                {                     
+						                            ?>
+			                                      	<div class="col-md-12">                           
+
+							                            <div class="pull-left" style="width:5%;"> 
+							                              <input type="checkbox" name="group_name" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="<?php echo $groups->_id;?>">
+							                            </div>
+							                          
+							                            <div class="pull-left text-left" style="width:95%;">
+							                               <?php echo $groups->groupname; ?> 
+							                            </div>
+
+							                        </div>
+							                            <div class="col-md-12" >
+							                              <div class="col-md-12" style="border: 0.5px solid #d7d6d6; margin-top: 10px; margin-bottom: 10px; "> 
+							                              </div>
+							                            </div>
+							                        <?php } ?>  				                        
+
+			                                      <div class="modal-footer">                                       
+			                                        <button type="button" class="btn cancel btn-primary" data-dismiss="modal">Submit</button>
+			                                      </div>
+			                                   
+			                                  </div>                                  
+			                                </div>
+		                                </div>
           </form>   
            
             <!-- end Step 8 --> 
@@ -2647,14 +2916,16 @@ $('body').on('focus',".day_start_time", function(){   //dynamically add time
     
   });
           
- //checkbox  with model popup box
-      $('input[type="checkbox"][name=specific_group]').on('change', function(e)
+ //radio  with model popup box
+      $('input[type="radio"][name=promotion_options]').on('change', function(e)
       		{
-	          if(e.target.checked){
-	          $('#myModal').modal();
-	        }
+	          if ($(this).val() == "2" ) 
+				{
+		          if(e.target.checked){
+		          $('#myModal').modal();
+		        }
+	    	}
        });
-
  
  
 //video size limitation cover video     
@@ -2673,56 +2944,21 @@ $(document).on("change", "#video_size", function(evt)
 				  var $source = $('#video_here');				 
 				  $source[0].src = URL.createObjectURL(this.files[0]);
 				  $source.parent()[0].load();
-				  $('#video_show').show();				  
+				  $('#video_show').show();
+				  $(".remove_video").click(function () { 
+			               	$('#video_show').hide();                 
+			                $('#video_size').val("");
+
+		                });  				  
 				 }
 				});
 
-
- //video size limitation highlight video1
-
-$(document).on("change", "#video_size1", function(evt)
-        {
-        		var file = this.files[0];
-
-        		if (file.size > 2621440)
-        		 {
-		               //Now Here I need to update <span> 
-		             $('#video_show1').hide();	
-		             alert('Filesize must 2.5MB or below');           
-         		 }else
-         		 {	
-				  var $source = $('#video_here1');				 
-				  $source[0].src = URL.createObjectURL(this.files[0]);
-				  $source.parent()[0].load();
-				  $('#video_show1').show();				  
-				 }
-		});
-
-//video size limitation highlight video2
-
-$(document).on("change", "#video_size2", function(evt)
-        {
-        		var file = this.files[0];
-
-        		if (file.size > 2621440)
-        		 {
-		               //Now Here I need to update <span> 
-		             $('#video_show2').hide();	
-		             alert('Filesize must 2.5MB or below');           
-         		 }else
-         		 {	
-				  var $source = $('#video_here2');				 
-				  $source[0].src = URL.createObjectURL(this.files[0]);
-				  $source.parent()[0].load();
-				  $('#video_show2').show();				  
-				 }
-		});
 
 //dynamically add event venue address
 
 function generate_address_fields(count)
  {	
-	var address  = '<div id="event_address_'+count+'" class="animated bounceInRight tab"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_venue_name_'+count+'" name="event_venue_name[]"  class="form-control" onblur="update_vanue()" /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="address1_'+count+'" name="address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="address2_'+count+'" name="address2[]"  class="form-control" /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="city_'+count+'" name="venue_city[]" class="form-control" onblur="update_vanue()"/> </div>  <div class="form-group col-sm-12"> <label>Zipcode/ Postal Code</label> <input type="text" id="zipcode_'+count+'" name="zipcode[]" class="form-control" onblur="update_vanue()" /> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnAdd10" class="remove_address btn btn-info btn-sm"> </a> </div> </div>';
+	var address  = '<div id="event_address_'+count+'" class="animated bounceInRight tab"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_venue_name_'+count+'" name="event_venue_name[]"  class="form-control" onblur="update_vanue()" /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="address1_'+count+'" name="address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="address2_'+count+'" name="address2[]"  class="form-control" /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="city_'+count+'" name="venue_city[]" class="form-control" onblur="update_vanue()"/ style="text-transform: capitalize;"> </div>  <div class="form-group col-sm-12"> <label>Zipcode/ Postal Code</label> <input type="text" id="zipcode_'+count+'" name="zipcode[]" class="form-control" onblur="update_vanue()" /> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnAdd10" class="remove_address btn btn-info btn-sm"> </a> </div> </div>';
 
         return address;
 }
@@ -3071,12 +3307,15 @@ $(document).ready(function() {
         var fileReader = new FileReader();
         fileReader.onload = (function(e) {
           var file = e.target;
-          $("<span class=\"pip\">" +
+
+          $("#img_preview1").html("<span class=\"pip\">" +
             "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
             "<br/><span class=\"remove\">Remove image</span>" +
-            "</span>").insertAfter("#files");
+            "</span>").insertAfter("#img_files");
+
           $(".remove").click(function(){
             $(this).parent(".pip").remove();
+            $('#files').val("");
           });          
                    
         });
@@ -3106,6 +3345,7 @@ $(document).ready(function() {
             "</span>").insertAfter("#logo");
           $(".remove").click(function(){
             $(this).parent(".pip").remove();
+            $('#logo').val("");
           });          
                    
         });
@@ -3117,63 +3357,145 @@ $(document).ready(function() {
   }
 });	
 
-//event highlight image preview and delete
+// event highlight1 video and image shows
+$(document).on("change", "#video_size1", function(evt)
+{
+	var files = $('#video_size1')[0].files;
+    var len = $('#video_size1').get(0).files.length;
 
-$(document).ready(function() {
-  if (window.File && window.FileList && window.FileReader) {
-    $("#img_files").on("change", function(e) {
-      var files = e.target.files,
-        filesLength = files.length;
-      for (var i = 0; i < filesLength; i++) {
-        var f = files[i]
-        var fileReader = new FileReader();
-        fileReader.onload = (function(e) {
-          var file = e.target;
-          $("<span class=\"pip\">" +
-            "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
-            "<br/><span class=\"remove1\">Remove image</span>" +
-            "</span>").insertAfter("#img_files");
-          $(".remove1").click(function(){
-            $(this).parent(".pip").remove();
-          });          
-                   
-        });
-        fileReader.readAsDataURL(f);
-      }
-    });
-  } else {
-    alert("Your browser doesn't support to File API")
-  }
+   
+   		 f = files[0];
+
+    var ext = f.name.split('.').pop().toLowerCase();
+
+    if ($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+      
+    		 var file = this.files[0];
+
+        		if (file.size > 2621440)
+        		 {
+		             $('#video_show1').hide();	
+		             alert('Filesize must 2.5MB or below');
+
+         		 }else{	
+         		 
+					  var $source = $('#video_here1');				 
+					  $source[0].src = URL.createObjectURL(this.files[0]);
+					  $source.parent()[0].load();
+					  $('#video_show1').show();					  	
+
+					  $(".remove_video1").click(function () { 
+			               	$('#video_show1').hide();                 
+			                $('#video_size1').val("");
+
+		                });   
+
+		              $(".pip").remove();
+		          			  
+				 	}
+    	
+    }
+    else{
+    		var files = evt.target.files,
+	        filesLength = files.length;    
+
+	        var f = files[0];
+	        var fileReader = new FileReader();
+
+	        fileReader.onload = (function(evt) {
+
+		          var file = evt.target;
+
+		          $("<span class=\"pip\">" +
+		            "<img class=\"imageThumb\" src=\"" + evt.target.result + "\" title=\"" + file.name + "\"/>" +
+		            "<br/><span class=\"remove1\">Remove image</span>" +
+		            "</span>").insertAfter("#video_size1");
+
+		          $(".remove1").click(function(){
+		            $(this).parent(".pip").remove();
+
+		          });          
+	                   
+	        	});
+
+	        	$('#video_show1').hide();                 
+			    $('#video_size1').val("");
+
+	    		fileReader.readAsDataURL(f);
+           
+		}
+    
 });
 	
-//event highlight2 image preview and delete
+// event highlight2 video and image shows
+$(document).on("change", "#video_size2", function(evt)
+{
+	var files = $('#video_size2')[0].files;
+    var len = $('#video_size2').get(0).files.length;
 
-$(document).ready(function() {
-  if (window.File && window.FileList && window.FileReader) {
-    $("#img_files2").on("change", function(e) {
-      var files = e.target.files,
-        filesLength = files.length;
-      for (var i = 0; i < filesLength; i++) {
-        var f = files[i]
-        var fileReader = new FileReader();
-        fileReader.onload = (function(e) {
-          var file = e.target;
-          $("<span class=\"pip\">" +
-            "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
-            "<br/><span class=\"remove1\">Remove image</span>" +
-            "</span>").insertAfter("#img_files2");
-          $(".remove1").click(function(){
-            $(this).parent(".pip").remove();
-          });          
-                   
-        });
-        fileReader.readAsDataURL(f);
-      }
-    });
-  } else {
-    alert("Your browser doesn't support to File API")
-  }
-});	
+   
+   		 f = files[0];
+
+    var ext = f.name.split('.').pop().toLowerCase();
+
+    if ($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+      
+    		 var file = this.files[0];
+
+        		if (file.size > 2621440)
+        		 {
+		             $('#video_show2').hide();	
+		             alert('Filesize must 2.5MB or below');
+
+         		 }else{	
+         		 
+					  var $source = $('#video_here2');				 
+					  $source[0].src = URL.createObjectURL(this.files[0]);
+					  $source.parent()[0].load();
+					  $('#video_show2').show();					  	
+
+					  $(".remove_video2").click(function () { 
+			               	$('#video_show2').hide();                 
+			                $('#video_size2').val("");
+
+		                });   
+
+		              $(".pip").remove();
+		          			  
+				 	}
+    	
+    }
+    else{
+    		var files = evt.target.files,
+	        filesLength = files.length;    
+
+	        var f = files[0];
+	        var fileReader = new FileReader();
+
+	        fileReader.onload = (function(evt) {
+
+		          var file = evt.target;
+
+		          $("<span class=\"pip\">" +
+		            "<img class=\"imageThumb\" src=\"" + evt.target.result + "\" title=\"" + file.name + "\"/>" +
+		            "<br/><span class=\"remove1\">Remove image</span>" +
+		            "</span>").insertAfter("#video_size2");
+
+		          $(".remove1").click(function(){
+		            $(this).parent(".pip").remove();
+
+		          });          
+	                   
+	        	});
+
+	        	$('#video_show2').hide();                 
+			    $('#video_size2').val("");
+
+	    		fileReader.readAsDataURL(f);
+           
+		}
+    
+});
 
 
 //event highlight2  show and hide
@@ -3338,15 +3660,69 @@ $(document).ready(function(){
 	});
 });	
 
-// keyword show span step6               
- $(document).ready(function(){
-        $(".onkeyword").keyup(function(e){
-        	
-            var message = $(this).val();
-            // alert(message);
-           	$('#keyword_show').html("!" +message );
-        });
-    });
+// here mltiple keyword 
+(function( $ ){
+ 
+     $.fn.keywordSearch  = function() {
+ 
+          return this.each(function() {
+  
+               // list of email addresses as unordered list
+               $list1 = $('<ul />');
+ 
+               // input
+               var $input = $('<input type="text" />').keyup(function(event) {
+ 
+                    if(event.which == 32 || event.which == 188) {
+                         // key press is space or comma
+                        var val = $(this).val().slice(0, -1); // remove space/comma from value
+ 
+                         // append to list of emails with remove button
+                         $list1.append($('<li class="keywordSearch-email"><span> ' + val + '</span></li>')
+                              .append($('<a href="#" class="keywordSearch-close" title="Remove">x</a>')
+                                   .click(function(e) {
+                                        $(this).parent().remove();
+                                        e.preventDefault();
+                                   })
+                              )
+                         );
+                         $(this).attr('placeholder', '');
+                         // empty input
+                         $(this).val('');
+                    }
+ 
+               });
+ 
+               // container div
+               var $container = $('<div class="keywordSearch-container" />').click(function() {
+                    $input.focus();
+               });
+ 
+               // insert elements into DOM
+               $container.append($list1).append($input).insertAfter($(this));
+ 
+               // add onsubmit handler to parent form to copy emails into original input as csv before submitting
+               var $orig = $(this);
+               $(this).closest('form').submit(function(e) {
+ 
+                    var emails = new Array();
+                    $('.keywordSearch-email span').each(function() {
+                         emails.push($(this).html());
+                    });
+                    emails.push($input.val());
+ 
+                    $orig.val(emails.join());
+ 
+               });
+ 
+               return $(this).hide();
+ 
+          });
+ 
+     };
+})( jQuery );
+
+$('#keyword_search').keywordSearch();
 
 //create event for social multi city form submit
 

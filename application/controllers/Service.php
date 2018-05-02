@@ -11,12 +11,17 @@ class Service extends CI_Controller
 
 	public function test()
 	{
-		$this->load->view('mytest/dynamic_tab');
+		$this->load->view('mytest/search');
 	}
 
 	public function service_provider()
 	{
 		$this->load->view('serviceprovider/event_serviceprov_landing');
+	}
+
+	public function service_provider_landing()
+	{
+		$this->load->view('serviceprovider/service_provider_landing_withoutlogin');
 	}
 
 	public function service_provider_form()
@@ -33,6 +38,11 @@ class Service extends CI_Controller
 	public function eventvenue_landing()
 	{
 		$this->load->view('serviceprovider/event_venue_landing');
+	}
+
+	public function eventvenue_landing_without()
+	{
+		$this->load->view('serviceprovider/event_venue_landing_withoutlogin');
 	}
 
 	public function eventvenue_business()
@@ -53,6 +63,11 @@ class Service extends CI_Controller
 	public function event_serviceprov_landing_ins()   //service provider image load to details
 	{
 		$this->load->view('serviceprovider/event_serviceprov_landing_ins');
+	}
+
+	public function event_serviceprov_landing_details()   //service provider image load to details
+	{
+		$this->load->view('serviceprovider/event_serviceprov_landing_withoutlogin');
 	}
 
 	public function create_business_page()   //create business page show in register page 

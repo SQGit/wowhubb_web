@@ -198,36 +198,189 @@ table, td, tr
 
 <!-- Header
     ================================================= -->
-<header id="header">
-  <nav class="navbar navbar-default navbar-fixed-top menu">
+ <header id="header">
+  <nav class="navbar navbar-default navbar-fixed-top menu" style="padding-top:3px!important; padding-bottom:3px!important;">
     <div class="container"> 
       
       <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header"> <a class="navbar-brand" href="<?php echo base_url('event/get_eventfeed'); ?>"> <img src="<?php echo base_url ('assets/images/logo.png') ?>" alt="logo" /></a> </div>
-       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style="position:relative;">
-        <ul class="nav navbar-nav navbar-right main-menu" style="color:#fff; margin-top: 10px; margin-right:5px; font-size:25px;">
-          <a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none;"> <span style="font-size:14px;  background:#e91e63; padding:5px 10px; border-radius:13px; color:#fff;"><img src="<?php echo base_url('assets/images/home-icon.png'); ?>" alt="user" /> Home</span>
-          </a> 
-          <a href="<?php echo base_url('event/event_popup'); ?>" style="text-decoration:none;"><span style="font-size:14px;  background:#757575; padding:5px 10px; border-radius:13px; color:#fff;"><img src="<?php echo base_url('assets/images/create-event-icon-3.png'); ?>" alt="user" /> Create Event</span>
-          </a> 
-          <a href="<?php echo base_url('home/logout'); ?>" style="text-decoration:none;"><span style="font-size:14px;  padding:5px 10px; border-radius:5px; color:#fff;"><img src="<?php echo base_url('assets/images/logout-icon.png'); ?>" alt="user" />Logout</span>
-          </a>
+      <div class="navbar-header" style="position:relative; z-index:969696;"> <a class="navbar-brand" href="<?php echo base_url('event/get_eventfeed'); ?>"><img src="<?php echo base_url ('assets/images/logo.png') ?>" alt="logo" /></a> </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style="position:relative;">
+        <ul class="nav navbar-nav navbar-right main-menu" style="color:#fff; margin-top: 0px; margin-right:0px; font-size:25px;">
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "><a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/home-icon-1.png'); ?>" alt="user" /><br>
+            Home </a></li>
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"> <img src="<?php echo base_url('assets/images/notification-icon.png'); ?>" alt="user" /> <br>
+            My Alerts <i class="fa fa-caret-down"></i> </a>
+            <ul class="dropdown-menu login">
+              <div>
+                <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;"><strong><i class="icon ion-android-notifications-none"></i> Alerts</strong></div>
+              </div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-10">Vineture  didn't get any new likes this week. Publish a post to engage your audience.
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 15 Hours Ago</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-10">Emeka added a New Event on Hari's Birthday. Lets Check!!
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 13 Hours Ago</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-10">It's Nickybeit Enjoy's birthday today. Help him celebrate!
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal; margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> Yesterday at 10:45pm</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div>
+                <div class="col-md-12">
+                  <div class="text-center"><a href="#" style="color:#555; text-align:center;" >See all</a></div>
+                </div>
+              </div>
+            </ul>
+          </li>
+          <li class="dropdown" style="margin-left:10px; margin-right:10px; text-align:center;"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"> <img src="<?php echo base_url('assets/images/chat-icon.png'); ?>" alt="user" /><br>
+            Friend Requests <i class="fa fa-caret-down"></i> </a>
+            <ul class="dropdown-menu login">
+              <div>
+                <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;"><strong><i class="icon ion-ios-person-outline"></i> Friend Requests</strong></div>
+              </div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Vicky
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Emeka
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Hari
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 10 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Roshan
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 4 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div>
+                <div class="col-md-12">
+                  <div class="text-center"><a href="#" style="color:#555; text-align:center;" >See all</a></div>
+                </div>
+              </div>
+            </ul>
+          </li>
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "><a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/chat-icon-1.png'); ?>" alt="user" /><br>
+            Messaging </a></li>
+          <li class="dropdown" style="text-align:center; margin-left:10px; margin-right:10px;"><a href="<?php echo base_url('event/event_popup'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/create-event-icon-1.png'); ?>" alt="user" /><br>
+            Create Event </a></li>
+         
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; padding-left:10px; padding-right:10px; border-left:1px solid #ccc;"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"><img src="<?php echo base_url('assets/images/prof-icon.png'); ?>" alt="user" /><br>
+            Profile <i class="fa fa-caret-down"></i> </a>
+            <ul class="dropdown-menu login">
+              <div>
+                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;">
+                 <div style="width:10%; float:left;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo" style="width:30px; height:30px;" /></div>
+                 <div style="width:90%; float:left;"><strong> Saranya Chandrasekaran</strong><br> 
+                 <span style="font-size:13px; color:#999;">Web developer at Vineture Inc.</span></div>
+                </div>
+              </div>
+              <div> 
+                
+                <div class="col-md-12 text-center">
+                <span style="color:e91e63;"><a href="#" style="color:#e91e63;" ><strong>View Profile</strong></a></span>
+                  
+                </div>
+                 <div class="col-md-12">
+               <div class="col-md-12" style="background:#f5f5f5; padding-top:5px; padding-bottom:5px;"><span style="color:e91e63;"><a href="#" style="color:#222; font-size:15px;" >My Account</a></span></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Settings</a></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Privacy Policy</a></div>
+                 
+                </div>
+                <div class="col-md-12">
+               <div class="col-md-12" style="background:#f5f5f5; padding-top:5px; padding-bottom:5px;"><span style="color:e91e63;"><a href="#" style="color:#222; font-size:15px;" >Manage</a></span></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Edit Profile</a></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> My Event Feed</a></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> My Interests</a></div>
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                
+                </div>
+              
+           
+              <div>
+                <div class="col-md-12">
+                  <div class="col-md-12">
+  <div class="text-left"><a href="<?php echo base_url('home/logout'); ?>" style="color:#333; text-align:left;" >Logout</a></div>
+                  </div>
+                </div>
+              </div>
+            </ul>
+            </li>
         </ul>
-        
-
-       <form class="navbar-form navbar-right hidden-sm" style="position:absolute; right:325px; top:0px;" >
-           <div class="form-group">
-                   <i class="icon ion-android-search"></i>
-
-                    <input type="text" class="search form-control live-search-box" id="searchbox" name="friends_search" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px; min-width:330px;" /><br/>
-
-                      <span id="display1">               
-                      </span>
-                      <!-- <input type="text" class="search form-control" id="searchbox" name="friends_search" placeholder="Search !Events, !Venues, !Wowtags, !People">                 
-                        -->
-           </div>            
-       </form>
-
+        <form class="navbar-form navbar-right hidden-sm" style="position:absolute; left:210px; top:0px;" >
+          <div class="form-group"> <i class="icon ion-android-search"></i>
+            <input type="text" class="search form-control live-search-box" id="searchbox" name="friends_search" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px;" />
+            <br/>
+            <span id="display1"> </span> </div>
+        </form>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling --> 
       <!-- /.navbar-collapse --> 
@@ -400,8 +553,11 @@ table, td, tr
             <div class="modal fade modal-1" tabindex="-1" role="dialog" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                          <div class="post-content">                            
-                            <div class="post-container" style="padding-bottom:20px;">                  
+                          <div class="post-content">   
+
+                            <div class="post-container" style="padding-bottom:20px;">  
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                            </button>                
                               <div class="post-detail">
                                 <div class="user-info">
                                  <h3>Edit Personal Profile</h3>
@@ -415,7 +571,7 @@ table, td, tr
                             <div class="row" >                              
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class="">Place You Live</label>
-                                <input  type="text" class="form-control input-group-lg"  name="place" title="Enter a Date" value="<?php if(isset($profile->place)) {echo $profile->place; } else{echo "";} ?>" />
+                                <input  type="text" class="form-control input-group-lg"  name="place" value="<?php if(isset($profile->place)) {echo $profile->place; } else{echo "";} ?>" />
                               </div>
                             </div>
                              <div class="row">   
@@ -450,7 +606,9 @@ table, td, tr
                       <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                           <div class="post-content">                            
-                            <div class="post-container" style="padding-bottom:20px;">                  
+                            <div class="post-container" style="padding-bottom:20px;">   
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                            </button>                  
                               <div class="post-detail">
                                 <div class="user-info">
                                  <h3>Edit Personal Profile</h3>
@@ -464,7 +622,7 @@ table, td, tr
                             <div class="row" >                              
                               <div class="form-group col-xs-12">
                                   <label for="date-to" class="">Self Intro Video</label>
-                                  <input  type="file" id="self_video" class="form-control input-group-lg"  name="self_video" title="Enter a Date" value="<?php if(isset($profile->place)) {echo $profile->place; } else{echo "";} ?>" accept="video/*" />
+                                  <input  type="file" id="self_video" class="form-control input-group-lg"  name="self_video" value="<?php if(isset($profile->place)) {echo $profile->place; } else{echo "";} ?>" accept="video/*" />
                               </div>
                             </div>
                                                                                                               
@@ -539,7 +697,9 @@ table, td, tr
                       <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                           <div class="post-content">                            
-                            <div class="post-container" style="padding-bottom:20px;">              
+                            <div class="post-container" style="padding-bottom:20px;">   
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                              </button>              
                               <div class="post-detail">
                                 <div class="user-info">
                                  <h3>Edit Personal Profile</h3>
@@ -553,7 +713,7 @@ table, td, tr
                             <div class="row" >                              
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class="">About Yourself</label>
-                                <input  type="text" class="form-control input-group-lg"  name="about_me" title="Enter a Date" value="<?php if(isset($profile->aboutme)) {echo $profile->aboutme; } else{echo "";} ?>" />
+                                <input  type="text" class="form-control input-group-lg"  name="about_me"  value="<?php if(isset($profile->aboutme)) {echo $profile->aboutme; } else{echo "";} ?>" />
                               </div>
                             </div>
                              <div class="row">   
@@ -565,17 +725,17 @@ table, td, tr
                              <div class="row">   
                               <div class="form-group col-xs-6">
                                 <label for="date-to" class="">Birth date</label>
-                                <input id="birthday" type="text" class="form-control input-group-lg" name="birthday" title="Enter a Date" value="<?php if(isset($profile->birthday)) {echo $profile->birthday; } else{echo "";} ?>" />
+                                <input id="birthday" type="text" class="form-control input-group-lg" name="birthday"  value="<?php if(isset($profile->birthday)) {echo $profile->birthday; } else{echo "";} ?>" />
                               </div>                          
                               <div class="form-group col-xs-6">
                                 <label for="date-to" class="">Religion</label>
-                                <input  type="text" class="form-control input-group-lg" name="religion" title="Enter a Date" value="<?php if(isset($profile->religion)) {echo $profile->religion; } else{echo "";} ?>" />
+                                <input  type="text" class="form-control input-group-lg" name="religion"  value="<?php if(isset($profile->religion)) {echo $profile->religion; } else{echo "";} ?>" />
                               </div>
                             </div>
                              <div class="row">   
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class="">Languages</label>
-                                <input  type="text" class="form-control input-group-lg" name="language" title="Enter a Date" value="<?php if(isset($profile->language)) {echo $profile->language; } else{echo "";} ?>" />
+                                <input  type="text" class="form-control input-group-lg" name="language"  value="<?php if(isset($profile->language)) {echo $profile->language; } else{echo "";} ?>" />
                               </div>
                             </div>
                             <div class="row">
@@ -650,7 +810,10 @@ table, td, tr
                       <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                           <div class="post-content">                            
-                            <div class="post-container" style="padding-bottom:20px;">              
+                            <div class="post-container" style="padding-bottom:20px;"> 
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;
+                            </span>
+                              </button>                
                               <div class="post-detail">
                                 <div class="user-info">
                                  <h3>Edit Personal Profile</h3>
@@ -673,7 +836,7 @@ table, td, tr
 
                               <div class="form-group col-xs-12">
                                 <label for="date-to"> Name </label>
-                                <input id="relation_name_1" type="text" class="form-control input-group-lg" name="relation_name[]" title="Enter a Date" value="<?php if(isset($relationships->name)) { echo $relationships->name; } else { echo " "; } ?>" />
+                                <input id="relation_name_1" type="text" class="form-control input-group-lg" name="relation_name[]"  value="<?php if(isset($relationships->name)) { echo $relationships->name; } else { echo " "; } ?>" />
                               </div>    
 
                               <div class="form-group col-sm-12" style="font-size: 15px;">
@@ -707,7 +870,7 @@ table, td, tr
 
                               <div class="form-group col-xs-12">
                                 <label for="date-to"> Name </label>
-                                <input id="relation_name_1" type="text" class="form-control input-group-lg" name="relation_name[]" title="Enter a Date" value="" />
+                                <input id="relation_name_1" type="text" class="form-control input-group-lg" name="relation_name[]" value="" />
                               </div>    
 
                               <div class="form-group col-sm-12" style="font-size: 15px;">
@@ -816,7 +979,9 @@ table, td, tr
                       <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                           <div class="post-content">                            
-                            <div class="post-container" style="padding-bottom:20px;">                  
+                            <div class="post-container" style="padding-bottom:20px;">    
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                              </button>                 
                               <div class="post-detail">
                                 <div class="user-info">
                                  <h3>Edit Personal Profile</h3>
@@ -836,13 +1001,13 @@ table, td, tr
                              <div class="row">   
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class="">State</label>
-                                <input id="birthday" type="text" class="form-control input-group-lg" name="state" title="Enter a Date" value="<?php if(isset($profile->state)){echo $profile->state; } else{echo "";} ?>" />
+                                <input id="birthday" type="text" class="form-control input-group-lg" name="state" value="<?php if(isset($profile->state)){echo $profile->state; } else{echo "";} ?>" />
                               </div>  
                               </div>                        
                             <div class="row ">  
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class="">Social Links</label>
-                                <input  type="text" class="form-control input-group-lg" name="social_link" title="Enter a Date" value="<?php if(isset($profile->sociallinks)){echo $profile->sociallinks; } else{echo "";} ?>" />
+                                <input  type="text" class="form-control input-group-lg" name="social_link" value="<?php if(isset($profile->sociallinks)){echo $profile->sociallinks; } else{echo "";} ?>" />
                               </div>  
                             </div>
                               <div class="row input_fields_container" style="margin-top:-25px;">  
@@ -918,7 +1083,9 @@ table, td, tr
                       <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                           <div class="post-content">                            
-                            <div class="post-container" style="padding-bottom:20px;">                  
+                            <div class="post-container" style="padding-bottom:20px;">  
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                              </button>                   
                               <div class="post-detail">
                                 <div class="user-info">
                                  <h3>Edit Personal Profile</h3>
@@ -938,13 +1105,13 @@ table, td, tr
                             <div class="row ">  
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class="">Social Functions</label>
-                                <input  type="text" id="socialfunction" class="form-control input-group-lg" name="social_function" title="Enter a Date" value="<?php if(isset($profile->socialfunction)){echo $profile->socialfunction; } else{echo "";} ?>" />
+                                <input  type="text" id="socialfunction" class="form-control input-group-lg" name="social_function" value="<?php if(isset($profile->socialfunction)){echo $profile->socialfunction; } else{echo "";} ?>" />
                               </div>  
                             </div>
                               <div class="row ">  
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class=""> Parties</label>
-                                <input  type="text" id="party" class="form-control input-group-lg" name="party" title="Enter a Date" value="<?php if(isset($profile->parties)){echo $profile->parties; } else{echo "";} ?>" />
+                                <input  type="text" id="party" class="form-control input-group-lg" name="party" value="<?php if(isset($profile->parties)){echo $profile->parties; } else{echo "";} ?>" />
                               </div>  
                             </div>
                                                       
@@ -1132,6 +1299,8 @@ table, td, tr
                            <div class="modal-content">
                                <div class="post-content">                            
                                    <div class="post-container" style="padding-bottom:20px;">
+                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                                      </button>   
                                          <div class="post-detail">
                                               <div class="user-info">
                                                     <h3>Edit Professional Profile</h3>
@@ -1154,19 +1323,19 @@ table, td, tr
                             <div class="row ">  
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class=""> Current Work Place</label>
-                                <input  type="text"  class="form-control input-group-lg" name="work_place" title="Enter a Date" value="<?php if(isset($profile->workplace)){echo $profile->workplace; } else{echo "";} ?>" />
+                                <input  type="text"  class="form-control input-group-lg" name="work_place" value="<?php if(isset($profile->workplace)){echo $profile->workplace; } else{echo "";} ?>" />
                               </div>  
                             </div>
                              <div class="row ">  
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class=""> Designation</label>
-                                <input  type="text" class="form-control input-group-lg" name="designation" title="Enter a Date" value="<?php if(isset($profile->designation)){echo $profile->designation; } else{echo "";} ?>" />
+                                <input  type="text" class="form-control input-group-lg" name="designation" value="<?php if(isset($profile->designation)){echo $profile->designation; } else{echo "";} ?>" />
                               </div>  
                             </div>
                               <div class="row ">  
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class=""> Certificates</label>
-                                <input  type="text"  class="form-control input-group-lg" name="certificates[]" title="Enter a Date" value="<?php
+                                <input  type="text"  class="form-control input-group-lg" name="certificates[]" value="<?php
                                    foreach ($profile->certification as $profiles) {
                                       echo $profiles;
                                    } ?>" />
@@ -1175,7 +1344,7 @@ table, td, tr
                             <div class="row ">  
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class=""> Awards</label>
-                                <input  type="text"  class="form-control input-group-lg" name="awards[]" title="Enter a Date" value="<?php
+                                <input  type="text"  class="form-control input-group-lg" name="awards[]"  value="<?php
                                    foreach ($profile->volunteer as $profiles) {
                                       echo $profiles;
                                    } ?>" />
@@ -1203,7 +1372,9 @@ table, td, tr
         <div class="modal-dialog modal-lg">
            <div class="modal-content">
                <div class="post-content">                            
-                  <div class="post-container" style="padding-bottom:20px;">               
+                  <div class="post-container" style="padding-bottom:20px;"> 
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>                 
                      <div class="post-detail">
                        <div class="user-info">
                          <h3>Edit Experience</h3>
@@ -1235,13 +1406,13 @@ table, td, tr
                             <div class="row ">  
                               <div class="form-group col-xs-12">
                                 <label for="date-to" >Company</label>
-                                <input  type="text" id="company_1" class="form-control input-group-lg" name="company[]" title="Enter a Date" value="<?php if(isset($workexperiences->company)){echo $workexperiences->company; } else{echo "";} ?>" required/>
+                                <input  type="text" id="company_1" class="form-control input-group-lg" name="company[]"  value="<?php if(isset($workexperiences->company)){echo $workexperiences->company; } else{echo "";} ?>" required/>
                               </div>  
                             </div>
                               <div class="row ">  
                                 <div class="form-group col-xs-12">
                                   <label for="date-to"> Location</label>
-                                  <input  type="text" id="location_1" class="form-control input-group-lg" name="location[]" title="Enter a Date" value="<?php if(isset($workexperiences->location)){echo $workexperiences->location; } else{echo "";} ?>" required />
+                                  <input  type="text" id="location_1" class="form-control input-group-lg" name="location[]"  value="<?php if(isset($workexperiences->location)){echo $workexperiences->location; } else{echo "";} ?>" required />
                                 </div>  
                              </div>
                             <div class="row">  
@@ -1389,7 +1560,7 @@ table, td, tr
                             <div class="row ">  
                               <div class="form-group col-xs-12">
                                 <label for="date-to" >Company</label>
-                                <input  type="text" id="company_1" class="form-control input-group-lg" name="company[]" title="Enter a Date">
+                                <input  type="text" id="company_1" class="form-control input-group-lg" name="company[]" >
                               </div>  
                             </div>
                               <div class="row ">  
@@ -1786,7 +1957,7 @@ table, td, tr
 
   function generete_dynamic_relationship(count){
 
-  var relation = ' <div id="add_relation_'+count+'"> <div class="row"> <div class="form-group col-xs-12"> <label for="date-to" class="">Name</label> <input id="relation_name_'+count+'" type="text" class="form-control input-group-lg" name="relation_name[]" title="Enter a Date" value="" /> </div> <div class="form-group col-sm-12" style="font-size: 15px;"> <label>Relationship</label> <select name="relation_type[]" id="relation_type_'+count+'" class="form-control" style="background-color:#eff0f1;"> <option value="">Choose Relationship</option> <option value="Mother">Mother</option> <option value="Father">Father</option> <option value="Daughter">Daughter</option> <option value="Son">Son</option> <option value="Sister">Sister</option> <option value="Brother">Brother</option> <option value="Uncle">Uncle</option> <option value="Aunt">Aunt</option> <option value="Friend">Friend</option> <option value="Niece">Niece</option> <option value="Cousin(female)">Cousin(female)</option> <option value="Cousin(male)">Cousin(male)</option> <option value="Grandfather">Grandfather</option> <option value="Grandmother">Grandmother</option> <option value="Grandson">Grandson</option> <option value="Granddaughter">Granddaughter</option> </select> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_relation btn btn-info btn-sm"> Remove</a> </div> </div> </div>';
+  var relation = ' <div id="add_relation_'+count+'"> <div class="row"> <div class="form-group col-xs-12"> <label for="date-to" class="">Name</label> <input id="relation_name_'+count+'" type="text" class="form-control input-group-lg" name="relation_name[]"  value="" /> </div> <div class="form-group col-sm-12" style="font-size: 15px;"> <label>Relationship</label> <select name="relation_type[]" id="relation_type_'+count+'" class="form-control" style="background-color:#eff0f1;"> <option value="">Choose Relationship</option> <option value="Mother">Mother</option> <option value="Father">Father</option> <option value="Daughter">Daughter</option> <option value="Son">Son</option> <option value="Sister">Sister</option> <option value="Brother">Brother</option> <option value="Uncle">Uncle</option> <option value="Aunt">Aunt</option> <option value="Friend">Friend</option> <option value="Niece">Niece</option> <option value="Cousin(female)">Cousin(female)</option> <option value="Cousin(male)">Cousin(male)</option> <option value="Grandfather">Grandfather</option> <option value="Grandmother">Grandmother</option> <option value="Grandson">Grandson</option> <option value="Granddaughter">Granddaughter</option> </select> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_relation btn btn-info btn-sm"> Remove</a> </div> </div> </div>';
 
     return relation;
 }
@@ -2117,7 +2288,7 @@ var base_url = '<?php echo base_url() ?>'; //form submited
 
 function generete_dynamic_exp(count){
 
-  var exp = ' <div class="row" id="profile_exp_'+count+'">  <div class="col-md-12" style="border-bottom:2px solid #ffb3d1; margin:15px 0;"></div> <div class="row"> <div class="form-group col-xs-12"> <label for="date-to" >Title</label> <input type="text" id="title_'+count+'" class="form-control" name="title[]"  /> </div> </div> <div class="row "> <div class="form-group col-xs-12"> <label for="date-to" >Company</label> <input  type="text" id="company_'+count+'" class="form-control input-group-lg" name="company[]" title="Enter a Date" > </div> </div> <div class="row "> <div class="form-group col-xs-12"> <label for="date-to"> Location</label> <input  type="text" id="location_'+count+'" class="form-control input-group-lg" name="location[]" title="Enter a Date" > </div> </div> <div class="row"> <div class="form-group col-md-6"> <label for="date-to"> From</label> <select name="from_month[]" id="frommonth_'+count+'" class="form-control"> <option value=""> Month</option> <option value="january"> January</option> <option value="february"> February</option> <option value="march"> March</option> <option value="april"> April</option> <option value="may"> May</option> <option value="june"> June</option> <option value="july"> July</option> <option value="august"> August</option> <option value="september"> September</option> <option value="october"> October</option> <option value="november"> November</option> <option value="december"> December</option> </select> </div> <div class="form-group col-md-6"> <label for="date-to">To</label> <select name="to_month[]" id="tomonth_'+count+'" class="form-control"> <option value=""> Month</option> <option value="january"> January</option> <option value="february"> February</option> <option value="march"> March</option> <option value="april"> April</option> <option value="may"> May</option> <option value="june"> June</option> <option value="july"> July</option> <option value="august"> August</option> <option value="september"> September</option> <option value="october"> October</option> <option value="november"> November</option> <option value="december"> December</option> </select> </div> </div> <div class="row"> <div class="form-group col-md-6"> <select name="from_year[]" id="fromyear_'+count+'" class="form-control"> <option value=""> Year</option><option value="2018"> 2018</option>  <option value="2017"> 2017</option> <option value="2016"> 2016</option> <option value="2015"> 2015</option> <option value="2014"> 2014</option> <option value="2013"> 2013 </option> <option value="2012"> 2012</option> <option value="2011"> 2011</option> <option value="2010"> 2010</option> <option value="2009"> 2009</option> <option value="2008"> 2008</option> <option value="2007"> 2007</option> <option value="2006"> 2006</option> <option value="2005"> 2005</option> <option value="2004"> 2004</option> <option value="2003"> 2003</option> <option value="2002"> 2002</option> <option value="2001"> 2001</option> <option value="2000"> 2000</option> </select> </div> <div class="form-group col-md-6"> <select name="to_year[]" id="toyear_'+count+'" class="form-control">  <option value=""> Year</option><option value="2018"> 2018</option> <option value="2017"> 2017</option> <option value="2016"> 2016</option> <option value="2015"> 2015</option> <option value="2014"> 2014</option> <option value="2013"> 2013 </option> <option value="2012"> 2012</option> <option value="2011"> 2011</option> <option value="2010"> 2010</option> <option value="2009"> 2009</option> <option value="2008"> 2008</option> <option value="2007"> 2007</option> <option value="2006"> 2006</option> <option value="2005"> 2005</option> <option value="2004"> 2004</option> <option value="2003"> 2003</option> <option value="2002"> 2002</option> <option value="2001"> 2001</option> <option value="2000"> 2000</option> </select> </div> </div> <div class="row"> <div class="form-group col-xs-12"> <label for="date-to"> Description</label> <textarea name="description[]" id="description_'+count+'" class="form-control" style="min-height:100px;" > </textarea> </div> </div> <div class="row"> <div class="form-group col-xs-12"> <label for="date-to">Add or link to external documents, photos, sites, videos, and presentations.</label> </div> </div> <div class="row"> <div class="form-group col-xs-12"> <input type="button"  id="link_show" value="Link" class="btn"> </div> </div> <div class="row"> <div class="form-group col-xs-12"> <input type="text" name="link[]" id="link_url_'+count+'" class="form-control" placeholder="Paste or type a link to a file or video"> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_exp btn btn-info btn-sm"> Remove</a> </div> </div> </div>';
+  var exp = ' <div class="row" id="profile_exp_'+count+'">  <div class="col-md-12" style="border-bottom:2px solid #ffb3d1; margin:15px 0;"></div> <div class="row"> <div class="form-group col-xs-12"> <label for="date-to" >Title</label> <input type="text" id="title_'+count+'" class="form-control" name="title[]"  /> </div> </div> <div class="row "> <div class="form-group col-xs-12"> <label for="date-to" >Company</label> <input  type="text" id="company_'+count+'" class="form-control input-group-lg" name="company[]"  > </div> </div> <div class="row "> <div class="form-group col-xs-12"> <label for="date-to"> Location</label> <input  type="text" id="location_'+count+'" class="form-control input-group-lg" name="location[]" > </div> </div> <div class="row"> <div class="form-group col-md-6"> <label for="date-to"> From</label> <select name="from_month[]" id="frommonth_'+count+'" class="form-control"> <option value=""> Month</option> <option value="january"> January</option> <option value="february"> February</option> <option value="march"> March</option> <option value="april"> April</option> <option value="may"> May</option> <option value="june"> June</option> <option value="july"> July</option> <option value="august"> August</option> <option value="september"> September</option> <option value="october"> October</option> <option value="november"> November</option> <option value="december"> December</option> </select> </div> <div class="form-group col-md-6"> <label for="date-to">To</label> <select name="to_month[]" id="tomonth_'+count+'" class="form-control"> <option value=""> Month</option> <option value="january"> January</option> <option value="february"> February</option> <option value="march"> March</option> <option value="april"> April</option> <option value="may"> May</option> <option value="june"> June</option> <option value="july"> July</option> <option value="august"> August</option> <option value="september"> September</option> <option value="october"> October</option> <option value="november"> November</option> <option value="december"> December</option> </select> </div> </div> <div class="row"> <div class="form-group col-md-6"> <select name="from_year[]" id="fromyear_'+count+'" class="form-control"> <option value=""> Year</option><option value="2018"> 2018</option>  <option value="2017"> 2017</option> <option value="2016"> 2016</option> <option value="2015"> 2015</option> <option value="2014"> 2014</option> <option value="2013"> 2013 </option> <option value="2012"> 2012</option> <option value="2011"> 2011</option> <option value="2010"> 2010</option> <option value="2009"> 2009</option> <option value="2008"> 2008</option> <option value="2007"> 2007</option> <option value="2006"> 2006</option> <option value="2005"> 2005</option> <option value="2004"> 2004</option> <option value="2003"> 2003</option> <option value="2002"> 2002</option> <option value="2001"> 2001</option> <option value="2000"> 2000</option> </select> </div> <div class="form-group col-md-6"> <select name="to_year[]" id="toyear_'+count+'" class="form-control">  <option value=""> Year</option><option value="2018"> 2018</option> <option value="2017"> 2017</option> <option value="2016"> 2016</option> <option value="2015"> 2015</option> <option value="2014"> 2014</option> <option value="2013"> 2013 </option> <option value="2012"> 2012</option> <option value="2011"> 2011</option> <option value="2010"> 2010</option> <option value="2009"> 2009</option> <option value="2008"> 2008</option> <option value="2007"> 2007</option> <option value="2006"> 2006</option> <option value="2005"> 2005</option> <option value="2004"> 2004</option> <option value="2003"> 2003</option> <option value="2002"> 2002</option> <option value="2001"> 2001</option> <option value="2000"> 2000</option> </select> </div> </div> <div class="row"> <div class="form-group col-xs-12"> <label for="date-to"> Description</label> <textarea name="description[]" id="description_'+count+'" class="form-control" style="min-height:100px;" > </textarea> </div> </div> <div class="row"> <div class="form-group col-xs-12"> <label for="date-to">Add or link to external documents, photos, sites, videos, and presentations.</label> </div> </div> <div class="row"> <div class="form-group col-xs-12"> <input type="button"  id="link_show" value="Link" class="btn"> </div> </div> <div class="row"> <div class="form-group col-xs-12"> <input type="text" name="link[]" id="link_url_'+count+'" class="form-control" placeholder="Paste or type a link to a file or video"> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_exp btn btn-info btn-sm"> Remove</a> </div> </div> </div>';
 
     return exp;
 }

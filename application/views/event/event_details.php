@@ -176,29 +176,201 @@ body {
 
 <!-- Header
     ================================================= -->
-<header id="header">
-  <nav class="navbar navbar-default navbar-fixed-top menu">
+ <header id="header">
+  <nav class="navbar navbar-default navbar-fixed-top menu" style="padding-top:3px!important; padding-bottom:3px!important;">
     <div class="container"> 
+      
       <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header"> <a class="navbar-brand" href="<?php echo base_url('event/get_eventfeed'); ?>"> <img src="<?php echo base_url ('assets/images/logo.png') ?>" alt="logo" /></a> </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right main-menu" style="color:#fff; margin-top: 10px; margin-right:5px; font-size:25px;">
-          <a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none;"> <span style="font-size:14px;  background:#e91e63; padding:5px 10px; border-radius:13px; color:#fff;"><img src="<?php echo base_url('assets/images/home-icon.png'); ?>" alt="user" /> Home</span> </a> <a href="<?php echo base_url('event/event_popup'); ?>" style="text-decoration:none;"><span style="font-size:14px;  background:#757575; padding:5px 10px; border-radius:13px; color:#fff;"><img src="<?php echo base_url('assets/images/create-event-icon-3.png'); ?>" alt="user" /> Create Event</span> </a> <a href="<?php echo base_url('home/logout'); ?>" style="text-decoration:none;"><span style="font-size:14px;  padding:5px 10px; border-radius:5px; color:#fff;"><img src="<?php echo base_url('assets/images/logout-icon.png'); ?>" alt="user" />Logout</span> </a>
+      <div class="navbar-header" style="position:relative; z-index:969696;"> <a class="navbar-brand" href="<?php echo base_url('event/get_eventfeed'); ?>"><img src="<?php echo base_url ('assets/images/logo.png') ?>" alt="logo" /></a> </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style="position:relative;">
+        <ul class="nav navbar-nav navbar-right main-menu" style="color:#fff; margin-top: 0px; margin-right:0px; font-size:25px;">
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "><a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/home-icon-1.png'); ?>" alt="user" /><br>
+            Home </a></li>
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"> <img src="<?php echo base_url('assets/images/notification-icon.png'); ?>" alt="user" /> <br>
+            My Alerts <i class="fa fa-caret-down"></i> </a>
+            <ul class="dropdown-menu login">
+              <div>
+                <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;"><strong><i class="icon ion-android-notifications-none"></i> Alerts</strong></div>
+              </div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-10">Vineture  didn't get any new likes this week. Publish a post to engage your audience.
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 15 Hours Ago</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-10">Emeka added a New Event on Hari's Birthday. Lets Check!!
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 13 Hours Ago</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-10">It's Nickybeit Enjoy's birthday today. Help him celebrate!
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal; margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> Yesterday at 10:45pm</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div>
+                <div class="col-md-12">
+                  <div class="text-center"><a href="#" style="color:#555; text-align:center;" >See all</a></div>
+                </div>
+              </div>
+            </ul>
+          </li>
+          <li class="dropdown" style="margin-left:10px; margin-right:10px; text-align:center;"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"> <img src="<?php echo base_url('assets/images/chat-icon.png'); ?>" alt="user" /><br>
+            Friend Requests <i class="fa fa-caret-down"></i> </a>
+            <ul class="dropdown-menu login">
+              <div>
+                <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;"><strong><i class="icon ion-ios-person-outline"></i> Friend Requests</strong></div>
+              </div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Vicky
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Emeka
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Hari
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 10 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Roshan
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 4 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div>
+                <div class="col-md-12">
+                  <div class="text-center"><a href="#" style="color:#555; text-align:center;" >See all</a></div>
+                </div>
+              </div>
+            </ul>
+          </li>
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "><a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/chat-icon-1.png'); ?>" alt="user" /><br>
+            Messaging </a></li>
+          <li class="dropdown" style="text-align:center; margin-left:10px; margin-right:10px;"><a href="<?php echo base_url('event/event_popup'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/create-event-icon-1.png'); ?>" alt="user" /><br>
+            Create Event </a></li>
+         
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; padding-left:10px; padding-right:10px; border-left:1px solid #ccc;"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"><img src="<?php echo base_url('assets/images/prof-icon.png'); ?>" alt="user" /><br>
+            Profile <i class="fa fa-caret-down"></i> </a>
+            <ul class="dropdown-menu login">
+              <div>
+                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;">
+                 <div style="width:10%; float:left;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo" style="width:30px; height:30px;" /></div>
+                 <div style="width:90%; float:left;"><strong> Saranya Chandrasekaran</strong><br> 
+                 <span style="font-size:13px; color:#999;">Web developer at Vineture Inc.</span></div>
+                </div>
+              </div>
+              <div> 
+                
+                <div class="col-md-12 text-center">
+                <span style="color:e91e63;"><a href="#" style="color:#e91e63;" ><strong>View Profile</strong></a></span>
+                  
+                </div>
+                 <div class="col-md-12">
+               <div class="col-md-12" style="background:#f5f5f5; padding-top:5px; padding-bottom:5px;"><span style="color:e91e63;"><a href="#" style="color:#222; font-size:15px;" >My Account</a></span></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Settings</a></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Privacy Policy</a></div>
+                 
+                </div>
+                <div class="col-md-12">
+               <div class="col-md-12" style="background:#f5f5f5; padding-top:5px; padding-bottom:5px;"><span style="color:e91e63;"><a href="#" style="color:#222; font-size:15px;" >Manage</a></span></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Edit Profile</a></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> My Event Feed</a></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> My Interests</a></div>
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                
+                </div>
+              
+           
+              <div>
+                <div class="col-md-12">
+                  <div class="col-md-12">
+  <div class="text-left"><a href="<?php echo base_url('home/logout'); ?>" style="color:#333; text-align:left;" >Logout</a></div>
+                  </div>
+                </div>
+              </div>
+            </ul>
+            </li>
         </ul>
-        <form class="navbar-form navbar-right hidden-sm">
+        <form class="navbar-form navbar-right hidden-sm" style="position:absolute; left:210px; top:0px;" >
           <div class="form-group"> <i class="icon ion-android-search"></i>
-            <input type="text" class="form-control" placeholder="Search !Events, !Venues, !Wowtags, !People">
-          </div>
+            <input type="text" class="search form-control live-search-box" id="searchbox" name="friends_search" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px;" />
+            <br/>
+            <span id="display1"> </span> </div>
         </form>
       </div>
+      <!-- Collect the nav links, forms, and other content for toggling --> 
+      <!-- /.navbar-collapse --> 
     </div>
+    <!-- /.container --> 
   </nav>
 </header>
 <!--Header End-->
 
                                       <div class="container">
                                               <div class="timeline-cover-event-details" style="position: relative; max-height:320px;">
-                                                 <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->coverpage; ?>" style="background-size:cover; width:100%; max-height:300px;" />            
+                                                 <img src="<?php echo $event->coverpageurl; ?>" style="background-size:cover; width:100%; max-height:300px;" />            
                                                 <div class="timeline-nav-bar hidden-sm hidden-xs">
                                                   <div class="row">
                                                     <div class="col-md-3">
@@ -259,7 +431,7 @@ body {
                                             </td>
                                           </tr>
                                           <tr>
-                                            <td height="40" colspan="2" bgcolor="#fff"><?php echo $event->eventdescription; ?> </td>
+                                            <td height="40" colspan="2" bgcolor="#fff"><?php if(isset($event->eventdescription)) { echo $event->eventdescription; } ?> </td>
                                           </tr>          
 
                                                   <!-- personal event -->
@@ -563,7 +735,7 @@ body {
                                               { ?>
 
                                               <div style="width:35%; margin-right: 5%;" class="pull-left" >
-                                                <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlights1; ?>" class="img-thumbnail"  />
+                                                <img src="<?php echo $event->eventhighlights1thumb; ?>" class="img-thumbnail"  />
                                               </div>
                                               <?php } ?>  
 
@@ -597,7 +769,7 @@ body {
                                             </div>
 
                                           <div class="col-md-5">
-                                            <h5 style="color:#333; line-height:20px;">!Cdaniells</h5>
+                                           
                                             <p><?php echo $event->eventspeakeractivities1; ?></p>
                                             <a href="#"><?php echo $event->eventspeakerlink1; ?> </a>
                                           </div>
@@ -1172,23 +1344,23 @@ body {
                                           <?php if(isset($event->eventspeakername1)) { ?>
                                             <div class="col-md-5">
 
-                                              <?php if(isset($event->eventhighlights1) && (($event->eventhighlights1) != 'null')  )
+                                              <?php if(isset($event->eventhighlights1url) && (($event->eventhighlights1url) != 'null')  )
 
                                               { ?>
 
                                               <div style="width:27%;" class="pull-left">
-                                                <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlights1; ?>" class="img-thumbnail"  />
+                                                <img src="<?php echo $event->eventhighlights1url; ?>" class="img-thumbnail"  />
                                               </div>
                                               <?php } ?>  
 
                                               <div style="width:73%;" class="pull-left">
-                                                <?php if(isset($event->eventhighlightsvideo1) && (($event->eventhighlightsvideo1) != 'null')  ) { ?>
+                                                <?php if(isset($event->eventhighlights2url) && (($event->eventhighlights2url) != 'null')  ) { ?>
 
                                             <div id="vidBox">
                                               <div id="videCont" style="margin-top: -19px!important;">
-                                                <a href="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlightsvideo1; ?>" id="video-trigger">
+                                                <a href="<?php echo $event->eventhighlights2url; ?>" id="video-trigger">
                                                 <video   id="demo"  style="width: 200px; height: 150px;" controls controlsList="nodownload">
-                                                   <source src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlightsvideo1; ?>" type="video/mp4">
+                                                   <source src="<?php echo $event->eventhighlights2url; ?>" type="video/mp4">
                                                 </video>
                                                 </a>
                                               </div>
@@ -1207,7 +1379,7 @@ body {
                                             </div>
 
                                           <div class="col-md-7">
-                                            <h5 style="color:#333; line-height:20px;">!Cdaniells</h5>
+                                           
                                             <p><?php echo $event->eventspeakeractivities1; ?></p>
                                             <a href="#"><?php echo $event->eventspeakerlink1; ?> </a>
                                           </div>
@@ -1222,13 +1394,13 @@ body {
                                             <div class="col-md-5">
                                               <?php if($event->eventhighlights2 != 'null'){ ?>
                                               <div style="width:27%;" class="pull-left">
-                                                <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlights2; ?>" class="img-thumbnail"  />
+                                                <img src="<?php echo $event->eventhighlights2url; ?>" class="img-thumbnail"  />
                                               </div>
                                               <?php } ?>
 
                                               <div style="width:73%;" class="pull-left">
                                                   <video style="width: 200px; height: 150px;" controls controlsList="nodownload">
-                                                    <source src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlightsvideo2; ?>" type="video/mp4">
+                                                    <source src="<?php echo $event->eventhighlights2url; ?>" type="video/mp4">
                                                   </video><br>
                                                 <h5 style="color:#333; line-height:20px;"><?php echo $event->eventspeakername2; ?><br>
                                                   <span style="font-size:12px;">
@@ -1237,7 +1409,7 @@ body {
                                               </div>
                                             </div>
                                             <div class="col-md-7">
-                                              <h5 style="color:#333; line-height:20px;">!Tdjakes</h5>
+                                             
                                               <p> <?php echo $event->eventspeakeractivities2; ?></p>
                                               <a href="#"><?php echo $event->eventspeakerlink2; ?></a>
                                             </div>

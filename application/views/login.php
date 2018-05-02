@@ -136,11 +136,11 @@
                    
                     <div class="form-group">
                           <i class="icon ion-android-call"></i>
-                              <input type="text" name="phone" id="phone" class="form-control " placeholder="Enter Phone number or Email address *">
+                              <input type="text" name="phone" id="phone" class="form-control " placeholder="Enter Phone number or Email address *" value="<?php echo $this->session->userdata('email'); ?>">
                     </div>
                     <div class="form-group">
                           <i class="icon ion-android-create"></i>
-                             <input  type="password" name="password" id="password" class="form-control" placeholder="Enter password *">
+                            <input  type="password" name="password" id="password" class="form-control" placeholder="Enter password *">
                     </div>
                     <div class="col-md-12 text-left">
                           <p><a href="<?php echo base_url('Home/forgot'); ?>">Forgot password?</a></p>

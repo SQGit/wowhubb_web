@@ -25,7 +25,10 @@
 body {
 	background-color: #e7e5e6;
 }
-
+.table>thead>tr>th
+{
+	border-bottom:0!important;
+}
 h3
 {
 	color:#333!important;
@@ -221,11 +224,13 @@ table {
           <div class="col-md-9" >
             <div class="profile-info-1"> </div>
             <ul class="list-inline profile-menu">
-              <li><a href="<?php echo base_url('service/ohp_admin_home'); ?>"  class="active">Home</a></li>
+              <li><a href="<?php echo base_url('service/ohp_admin_home'); ?>" class="active">Home</a></li>
               <li><a href="<?php echo base_url('service/ohp_eventfeed'); ?>">Event Feed</a></li>
               <li><a href="<?php echo base_url('service/ohp_network_members'); ?>">Network Members</a></li>
               <li><a href="#">Reviews</a></li>
               <li><a href="#">Settings</a></li>
+              <li><a href="#">Album</a></li>
+              <li><a href="#">Videos</a></li>
             </ul>
             <ul class="follow-me list-inline">
               <li>Help</li>
@@ -296,6 +301,7 @@ table {
             <div class="col-md-12">
               <div class="row">
                 <div class="row">
+                <div class="col-md-12" style="background: #fff; box-shadow: 1px 1px 1px 2px #ECECEC; padding: 10px 7px; border-radius: 3px; margin-top:15px;">
                   <div class="col-md-10">
                     <h3 style="font-size:17px; font-weight:bold;">About Us</h3>
                     <p> <?php if(isset($business->description)) { echo $business->description; } ?></p>
@@ -305,11 +311,13 @@ table {
                         <img src="<?php echo base_url('assets/images/edit_icon.png'); ?>" alt="" /> Edit
                       </a>
                     </div>
+                    </div>
                 </div>
               </div>
 
               <div class="row">
                 <div class="row">
+                <div class="col-md-12" style="background: #fff; box-shadow: 1px 1px 1px 2px #ECECEC; padding: 10px 7px; border-radius: 3px; margin-top:15px;">
                   <div class="col-md-6">
                     <h3 style="font-size:17px; font-weight:bold;">Address</h3>
                     <p> <?php if(isset($business->venue)) { echo $business->venue; } ?> <br>
@@ -318,34 +326,79 @@ table {
                       <strong>Call Us - </strong> <?php if(isset($business->phone)) { echo $business->phone; } ?> <br>
                       <strong>Web - </strong>  <?php if(isset($business->websitelink)) { echo $business->websitelink; } ?> </p>
                   </div>
-                  <div class="col-md-6"> <img src="<?php echo base_url('assets/images/ohp-hotels.jpg');?>" alt="" class="img-responsive img-thumbnail" /> </div>
+                  <div class="col-md-6" style="padding:15px;"> <img src="<?php echo base_url('assets/images/ohp-hotels.jpg');?>" alt="" class="img-responsive img-thumbnail" /> </div>
+                  </div>
                 </div>
               </div>
 
               <div class="row">
                 <div class="row">
+                <div class="col-md-12" style="background: #fff; box-shadow: 1px 1px 1px 2px #ECECEC; padding: 10px 7px; border-radius: 5px; margin-top:15px;">
                   <div class="col-md-10">
                     <h3 style="font-size:17px; font-weight:bold;">Business Hours</h3>
-                    Mondays - 
-                    9:00am-5:00pm<br>
-                    Tuesday - 
-                    9:00am-5:00pm<br>
-                    Wenesday - 
-                    9:00am-5:00pm<br>
-                    Thursday - 
-                    9:00am-5:00pm<br>
-                    Friday - 
-                    9:00am-5:00pm<br>
-                    Saturday - 
-                    Closed<br>
-                    Sunday - 
-                    Closed 
+ <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Days</th>
+      <th>Working Hours</th>
+      <th>Closed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Monday</td>
+      <td>9:00am-5:00pm</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Tuesday</td>
+      <td>9:00am-5:00pm</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Wednesday</td>
+      <td>9:00am-5:00pm</td>
+      <td>-</td>
+    </tr>
+     <tr>
+      <th scope="row">4</th>
+      <td>Thursday</td>
+      <td>9:00am-5:00pm</td>
+      <td>-</td>
+    </tr>
+     <tr>
+      <th scope="row">5</th>
+      <td>Friday</td>
+      <td>9:00am-5:00pm</td>
+      <td>-</td>
+    </tr>
+     <tr>
+      <th scope="row">6</th>
+      <td>Saturday</td>
+      <td>-</td>
+      <td>Closed</td>
+    </tr>
+     <tr>
+      <th scope="row">7</th>
+      <td>Sunday</td>
+      <td>-</td>
+      <td>Closed</td>
+    </tr>
+  </tbody>
+</table>
+
+                   
                   </div>
 
                   <div class="col-md-2 text-right" style="margin-top:15px;">
                     <a href="#">
                       <img src="<?php echo base_url('assets/images/edit_icon.png');?>" alt="" /> Edit 
                     </a>
+                  </div>
                   </div>
 
                 </div>

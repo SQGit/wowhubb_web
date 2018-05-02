@@ -236,7 +236,7 @@ public function create_business_page()
 
 	}
 
-	public function my_business_pageshow($id)
+public function business_pageshow($id)
 	{
 		
 		$this->rest->http_header('token',  $this->session->userdata('token'));
@@ -248,14 +248,19 @@ public function create_business_page()
 
 	}
 
-	public function email_template()
+public function my_eventserviceprovider_pageshow($id)
 	{
-		$this->load->view('business/email_template');
-	}
+		
+		$this->rest->http_header('token',  $this->session->userdata('token'));
+		$show_page = array('eventserviceid' => $id);
+		$json_data = json_encode($show_page); 
+		$result = $this->rest->post('http://104.197.80.225:3010/wow/eventservice/showparticulareventservice',$json_data,'json'); 	
+		$data['event_service_provider'] = $result->message;
+		$this->load->view('eventserviceprovider/event_service_provider_landing', $data);
+		
 
-	public function web_mob_view()
-	{
-		$this->load->view('business/web_mob_view_template');
 	}
+	
+
 
 }

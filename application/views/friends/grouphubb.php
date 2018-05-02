@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/font-awesome.min.css') ?>" />
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/jquery.datetimepicker.css')?>" />
 <link rel="stylesheet" href="<?php echo base_url ('assets/js/sweetalert.css')?>" />
-
+<link rel="stylesheet" href="<?php echo base_url ('assets/css/select2.min.css')?>" />
 <!--Google Font-->
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
 
@@ -196,24 +196,188 @@ img.profile-photo-2 {
 
 <!-- Header
     ================================================= -->
-<header id="header">
-  <nav class="navbar navbar-default navbar-fixed-top menu">
+ <header id="header">
+  <nav class="navbar navbar-default navbar-fixed-top menu" style="padding-top:3px!important; padding-bottom:3px!important;">
     <div class="container"> 
       
       <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header"> <a class="navbar-brand" href="<?php echo base_url('event/get_eventfeed'); ?>"> <img src="<?php echo base_url ('assets/images/logo.png') ?>" alt="logo" /></a> </div>
+      <div class="navbar-header" style="position:relative; z-index:969696;"> <a class="navbar-brand" href="<?php echo base_url('event/get_eventfeed'); ?>"><img src="<?php echo base_url ('assets/images/logo.png') ?>" alt="logo" /></a> </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style="position:relative;">
-        <ul class="nav navbar-nav navbar-right main-menu" style="color:#fff; margin-top: 10px; margin-right:5px; font-size:25px;">
-          <a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none;"> <span style="font-size:14px;  background:#e91e63; padding:5px 10px; border-radius:13px; color:#fff;"><img src="<?php echo base_url('assets/images/home-icon.png'); ?>" alt="user" /> Home</span> </a> <a href="<?php echo base_url('event/event_popup'); ?>" style="text-decoration:none;"><span style="font-size:14px;  background:#757575; padding:5px 10px; border-radius:13px; color:#fff;"><img src="<?php echo base_url('assets/images/create-event-icon-3.png'); ?>" alt="user" /> Create Event</span> </a> <a href="<?php echo base_url('home/logout'); ?>" style="text-decoration:none;"><span style="font-size:14px;  padding:5px 10px; border-radius:5px; color:#fff;"><img src="<?php echo base_url('assets/images/logout-icon.png'); ?>" alt="user" />Logout</span> </a>
+        <ul class="nav navbar-nav navbar-right main-menu" style="color:#fff; margin-top: 0px; margin-right:0px; font-size:25px;">
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "><a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/home-icon-1.png'); ?>" alt="user" /><br>
+            Home </a></li>
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"> <img src="<?php echo base_url('assets/images/notification-icon.png'); ?>" alt="user" /> <br>
+            My Alerts <i class="fa fa-caret-down"></i> </a>
+            <ul class="dropdown-menu login">
+              <div>
+                <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;"><strong><i class="icon ion-android-notifications-none"></i> Alerts</strong></div>
+              </div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-10">Vineture  didn't get any new likes this week. Publish a post to engage your audience.
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 15 Hours Ago</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-10">Emeka added a New Event on Hari's Birthday. Lets Check!!
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 13 Hours Ago</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-10">It's Nickybeit Enjoy's birthday today. Help him celebrate!
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal; margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> Yesterday at 10:45pm</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div>
+                <div class="col-md-12">
+                  <div class="text-center"><a href="#" style="color:#555; text-align:center;" >See all</a></div>
+                </div>
+              </div>
+            </ul>
+          </li>
+          <li class="dropdown" style="margin-left:10px; margin-right:10px; text-align:center;"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"> <img src="<?php echo base_url('assets/images/chat-icon.png'); ?>" alt="user" /><br>
+            Friend Requests <i class="fa fa-caret-down"></i> </a>
+            <ul class="dropdown-menu login">
+              <div>
+                <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;"><strong><i class="icon ion-ios-person-outline"></i> Friend Requests</strong></div>
+              </div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Vicky
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Emeka
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Hari
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 10 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Roshan
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 4 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div>
+                <div class="col-md-12">
+                  <div class="text-center"><a href="#" style="color:#555; text-align:center;" >See all</a></div>
+                </div>
+              </div>
+            </ul>
+          </li>
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "><a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/chat-icon-1.png'); ?>" alt="user" /><br>
+            Messaging </a></li>
+          <li class="dropdown" style="text-align:center; margin-left:10px; margin-right:10px;"><a href="<?php echo base_url('event/event_popup'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/create-event-icon-1.png'); ?>" alt="user" /><br>
+            Create Event </a></li>
+         
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; padding-left:10px; padding-right:10px; border-left:1px solid #ccc;"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"><img src="<?php echo base_url('assets/images/prof-icon.png'); ?>" alt="user" /><br>
+            Profile <i class="fa fa-caret-down"></i> </a>
+            <ul class="dropdown-menu login">
+              <div>
+                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;">
+                 <div style="width:10%; float:left;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo" style="width:30px; height:30px;" /></div>
+                 <div style="width:90%; float:left;"><strong> Saranya Chandrasekaran</strong><br> 
+                 <span style="font-size:13px; color:#999;">Web developer at Vineture Inc.</span></div>
+                </div>
+              </div>
+              <div> 
+                
+                <div class="col-md-12 text-center">
+                <span style="color:e91e63;"><a href="#" style="color:#e91e63;" ><strong>View Profile</strong></a></span>
+                  
+                </div>
+                 <div class="col-md-12">
+               <div class="col-md-12" style="background:#f5f5f5; padding-top:5px; padding-bottom:5px;"><span style="color:e91e63;"><a href="#" style="color:#222; font-size:15px;" >My Account</a></span></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Settings</a></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Privacy Policy</a></div>
+                 
+                </div>
+                <div class="col-md-12">
+               <div class="col-md-12" style="background:#f5f5f5; padding-top:5px; padding-bottom:5px;"><span style="color:e91e63;"><a href="#" style="color:#222; font-size:15px;" >Manage</a></span></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Edit Profile</a></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> My Event Feed</a></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> My Interests</a></div>
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                
+                </div>
+              
+           
+              <div>
+                <div class="col-md-12">
+                  <div class="col-md-12">
+  <div class="text-left"><a href="<?php echo base_url('home/logout'); ?>" style="color:#333; text-align:left;" >Logout</a></div>
+                  </div>
+                </div>
+              </div>
+            </ul>
+            </li>
         </ul>
-        <form class="navbar-form navbar-right hidden-sm" style="position:absolute; right:325px; top:0px;" >
+        <form class="navbar-form navbar-right hidden-sm" style="position:absolute; left:210px; top:0px;" >
           <div class="form-group"> <i class="icon ion-android-search"></i>
-            <input type="text" class=" form-control live-search-box" name="" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px; min-width:330px;" />
+            <input type="text" class="search form-control live-search-box" id="searchbox" name="friends_search" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px;" />
             <br/>
-            
-            <!-- <input type="text" class="search form-control" id="searchbox" name="friends_search" placeholder="Search !Events, !Venues, !Wowtags, !People">                 
-                        --> 
-          </div>
+            <span id="display1"> </span> </div>
         </form>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling --> 
@@ -248,178 +412,97 @@ img.profile-photo-2 {
 
                               </ul>
 
-                          <div class="tab-content faq-cat-content">                                  
+    <div class="tab-content faq-cat-content">                                  
 
-                                    <div class="tab-pane active in fade" id="faq-cat-1"> 
-        <div class="col-md-12 col-sm-12" style="margin-top:15px;">
-          <div class="col-md-12 col-sm-12">
-            
-            <div class="col-md-12 col-sm-12" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px;">
-              <div class="col-md-12" style="background:#EDEDED; margin-bottom:15px;">
-                <div class="col-md-12" style="margin-top:5px; margin-bottom:5px;"><strong style="font-size:17px;">PENDING INVITATIONS</strong></div>
-              </div>
-              <div class="col-md-6">
-                <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Vineture Group</strong></div>
-                  <div class="col-md-12">Invited by Emeka<br>
-                    <span style="color:#727272;">6 Friends. 18 Members</span></div>
-                  <div class="col-md-12">
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                  </div>
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn btn-primary">Join</button>
-                  <button type="submit" class="btn btn-primary" style="background:transparent; border:1px solid #CCC; color:#333;">Decline</button>
-                </div>
-                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; border:0.5px solid #E5E5E5;"></div>
-              </div>
-              
-              <div class="col-md-6">
-                <div class="pull-left" style="width:15%;"><img src="../assets/images//users/user-9.jpg" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Rockers Team</strong></div>
-                  <div class="col-md-12">Invited by Saranya Chandrasekaran<br>
-                    <span style="color:#727272;">6 Friends. 18 Members</span></div>
-                  <div class="col-md-12">
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                  </div>
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn btn-primary">Join</button>
-                  <button type="submit" class="btn btn-primary" style="background:transparent; border:1px solid #CCC; color:#333;">Decline</button>
-                </div>
-                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; border:0.5px solid #E5E5E5;"></div>
-              </div>
-               <div class="col-md-6">
-                <div class="pull-left" style="width:15%;"><img src="../assets/images/users/user-3.jpg" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Houston Online</strong></div>
-                  <div class="col-md-12">Invited by Emily Jackson<br>
-                    <span style="color:#727272;">6 Friends. 18 Members</span></div>
-                  <div class="col-md-12">
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                  </div>
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn btn-primary">Join</button>
-                  <button type="submit" class="btn btn-primary" style="background:transparent; border:1px solid #CCC; color:#333;">Decline</button>
-                </div>
-                
-              </div>
-               <div class="col-md-6">
-                <div class="pull-left" style="width:15%;"><img src="../assets/images//users/user-19.jpg" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">GIT Team</strong></div>
-                  <div class="col-md-12">Invited by Hari<br>
-                    <span style="color:#727272;">6 Friends. 18 Members</span></div>
-                  <div class="col-md-12">
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-2" ></div>
-                    <div class="pull-left" style="width:15%;"><img src="../assets/images/td.png" class="profile-photo-2" ></div>
-                  </div>
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn btn-primary">Join</button>
-                  <button type="submit" class="btn btn-primary" style="background:transparent; border:1px solid #CCC; color:#333;">Decline</button>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="tab-pane active in fade" id="faq-cat-1"> 
+       
         
         <div class="col-md-12 col-sm-12" style="margin-top:15px;">
           <div class="col-md-12 col-sm-12">
+             <div class="alert alert-success" id="group_delete_success" role="alert" style="display:none;" >Successfully Register
+              </div>
             
             <div class="col-md-12 col-sm-12" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px;">
               <div class="col-md-12" style="background:#EDEDED; margin-bottom:15px;">
-                <div class="col-md-12" style="margin-top:5px; margin-bottom:5px;"><strong style="font-size:17px;">YOUR GROUPS</strong></div>
+                <div class="col-md-12" style="margin-top:5px; margin-bottom:5px;"><strong style="font-size:17px;">MY GROUPS</strong></div>
               </div>
-              <div class="col-md-6">
-                <div class="pull-left" style="width:15%;"><img src="../assets/images/em.png" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Vineture Group</strong></div>
-                  <div class="col-md-12">
-                    <span style="color:#727272;">2 Unread Posts</span></div>
-                
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn-1 btn-primary">Leave Group</button>
 
-                </div>
-                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; border:0.5px solid #E5E5E5;"></div>
-              </div>
-              <div class="col-md-6">
-                <div class="pull-left" style="width:15%;"><img src="../assets/images/users/user-1.jpg" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Parallels Group</strong></div>
-                  <div class="col-md-12">
-                    <span style="color:#727272;">2 Unread Posts</span></div>                
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn-1 btn-primary">Leave Group</button>
+               <?php
 
-                </div>
-                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; border:0.5px solid #E5E5E5;"></div>
-              </div>
+                  if(isset($group_name))
+                    {
+                     foreach ($group_name as  $groups)
+                      {
+                     
+               ?>
               <div class="col-md-6">
-                <div class="pull-left" style="width:15%;"><img src="../assets/images/users/user-3.jpg" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Synergy Structures</strong></div>
-                  <div class="col-md-12">
-                    <span style="color:#727272;">2 Unread Posts</span></div>
-                
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn-1 btn-primary">Leave Group</button>
-
-                </div>
-                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; border:0.5px solid #E5E5E5;"></div>
-              </div>
-              <div class="col-md-6">
-                <div class="pull-left" style="width:15%;"><img src="../assets/images/users/user-7.jpg" class="profile-photo-1 img-thumbnail" > </div>
-                <div class="pull-left" style="width:50%;">
-                  <div class="col-md-12"><strong style="font-size:18px;">Maxwell Inc</strong></div>
-                  <div class="col-md-12">
-                    <span style="color:#727272;">2 Unread Posts</span></div>
-                
-                </div>
-                <div class="pull-left" style="width:35%; margin-top:35px;">
-                  <button type="submit" class="btn-1 btn-primary">Leave Group</button>
-
-                </div>
-                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; border:0.5px solid #E5E5E5;"></div>
-              </div>
-              
-              
+                 <?php 
+                      if(!is_null($this->session->userdata('personal_image')))
+                  { ?>
+                <div class="pull-left" style="width:15%;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata("personal_image"); ?>" alt="user" class="profile-photo" /></div>
+                 <?php }  else { ?>
+                <div class="pull-left" style="width:15%;"><img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo" /></div>
+                <?php } ?>
                
+                <div class="pull-left" style="width:50%;">
+                  <div class="col-md-12"><strong style="font-size:18px;"><?php echo $groups->groupname; ?> </strong></div>
+                  <div class="col-md-12">
+
+                    <a href="#" data-toggle="tooltip" title="
+                      <?php 
+                          foreach($groups->users as $group_users)
+                          {                         
+                              echo $group_users->userid->firstname."\n"; 
+                          }
+                      ?>"> 
+                     <span style="color:#727272;"><?php $user = count($groups->users); echo $user." ".'Friends'; ?></span>
+                    </a>
+                  </div>
+                
+                </div>
+                <div class="pull-left" style="width:35%; margin-top:15px;">
+                      <div class="col-md-3 user-info text-right">
+                            <div class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration:none; cursor:pointer;"><i class="fa fa-cog" style="color: #777; font-size: 20px;"></i></a>
+
+                              <?php if($this->session->userdata('user_id') == ($groups->adminid->_id) ){ ?>
+                              <ul class="dropdown-menu">
+                                <li>
+                                  <a href="#group_edit" style="cursor: pointer; padding-left: 25px;"  data-toggle="modal" data-id='<?php echo $groups->_id; ?>' data-name-id='<?php echo $groups->groupname; ?>' data-user-id='<?php 
+                                    $numItems = count($groups->users);
+                                      $i=0;
+                                      foreach($groups->users as $group_users)
+                                      {                        
+                                          echo $group_users->userid->firstname; 
+                                          if(++$i !== $numItems) {
+                                              echo ",";
+                                            }
+                                          
+                                      }?>' >
+                                   
+                                    Edit Group
+                                  </a>
+                                </li>
+
+                                <li> 
+                                 <a href="#">                                
+                                    <form class="delete_group"  action="<?php echo base_url('searchfriends/delete_group/'.$groups->_id);?>" method="POST">                       
+                                       <input type="submit" style="border: none; background: transparent;" value="Delete Group">
+                                    </form>   
+                                    </a>                               
+                                </li>                           
+                              </ul>
+                              <?php } ?>
+
+                            </div>
+                      </div>
+
+                </div>
+
+                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; border:0.5px solid #E5E5E5;"></div>
+               
+              </div>
+
+              <?php } } ?>
                
             </div>
           </div>
@@ -656,30 +739,33 @@ img.profile-photo-2 {
                                 <div class="user-info">
                                  <div class="row" style="padding:10px;">                              
                    
-                    <!-- <form action="<?php echo base_url('searchfriends/create_group'); ?>"> -->
+                   <form id="create_group" action="<?php echo base_url('searchfriends/create_group'); ?>" method="post">
                             <div class="row" >                              
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class="">Name Your Group</label>
-                                <input  type="text" class="form-control input-group-lg"  name="group_name" placeholder="Ex.Wowhubb Group"  />
+                                <input  type="text" class="form-control input-group-lg"  name="group_name" placeholder="Ex.Wowhubb Group" style="text-transform: capitalize;" />
                               </div>
                             </div>
+                           
+
                              <div class="row">   
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class="">Add Some People</label>
-                                 <input type="text" class="search form-control " id="searchbox" name="people_add" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px;" />
-                                 <span id="display1"> </span>
+                                  <select id="select-client" name="users_name[]" class="form-control" style="width:100%!important;" >
+                            
+                                  </select>
                               </div>
-                            </div>
+                            </div>                    
                             
                             <div class="row">   
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class="">Select Privacy</label>
-                                <select name="privacy" id="days" class="form-control" style="background-color:#f5f5f5;">
+                                <select name="group_type" id="days" class="form-control" style="background-color:#f5f5f5;">
                                       <option value="Public Group">Public Group</option>
                                       <option value="Closed Group">Closed Group</option>
-                                      <option value="Secret Group">Secret Group</option>                                 
-                                     
-                                    </select>
+                                      <option value="Secret Group">Secret Group</option>    
+                                                                          
+                                </select>
                               </div>
                             </div>
                                                                                  
@@ -688,7 +774,7 @@ img.profile-photo-2 {
                                 <input type="submit" value="Create" class="btn btn-primary" style="width:140px;">
                               </div>
                             </div>
-                    <!-- </form> -->
+                   </form> 
                   
                                </div>
                                 </div>
@@ -698,6 +784,43 @@ img.profile-photo-2 {
                           </div>
                         </div>
             </div>
+
+<!--edit and update group details -->
+<div class="modal fade" id="group_edit" role="dialog">
+        <div class="modal-dialog" style="width: 500px!important;">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title" style="text-align:center;">Send Invite By Email </h4>
+                </div>
+                <div class="modal-body">
+                  <div class="prescription_details">
+                    <form  class="edit_group" action="<?php echo base_url('searchfriends/edit_group'); ?>" method="post">  
+                        <div class="alert alert-success" id="email_success" role="alert" style="display:none;" >Successfully Send Invite
+                        </div>
+
+                         <input type="hidden" name="event_id">             
+                          <div class="col-sm-12 form-group ">      
+                            <input type="text"  name="g_name" class='form-control' placeholder="Enter Email ID">          
+                          </div>   
+
+                          <div class="row">   
+                            <div class="form-group col-xs-12">                             
+                              <select id="select-user" name="members_name[]" class="form-control" style="width:100%!important;" >                            
+                              </select>                                    
+                            </div> 
+                          </div>
+
+                        <div class="action text-center">
+                            <button type="submit" class="btn-primary">Invite</button>                            
+                        </div>
+                    </form>
+                  </div>
+                </div><!--/.modal nody -->
+                
+          </div>
+        </div>
+      </div>
 
 <!-- Footer
     ================================================= --> 
@@ -715,8 +838,338 @@ img.profile-photo-2 {
 <script src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script> 
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script> 
+<script src="<?php echo base_url('assets/js/select2.min.js')?>"></script> 
+<script src="<?php echo base_url('assets/js/bootbox.js')?>"></script> <!-- conformation delete boot box -->
 <script>
   
+var data = [];
+ //event_id could pass to email model popup using popup id
+$('#group_edit').on('show.bs.modal', function(e) 
+  {
+    var event_id   = $(e.relatedTarget).data('id');
+    var group_name = $(e.relatedTarget).data('name-id');
+    var user_name = $(e.relatedTarget).data('user-id');
+
+    var user_array = user_name.split(",");
+    console.log(user_array);
+
+    
+empty();
+
+    $.each(user_array, function (index, value) {
+
+      data.push({'full_name' : value,'id' : value});
+
+    });
+
+
+
+    $(e.currentTarget).find('input[name="event_id"]').val(event_id);
+    $(e.currentTarget).find('input[name="g_name"]').val(group_name);
+    
+
+      var studentSelect = $('#select-user');
+      studentSelect.html('');
+      
+      for(var i=0;i<data.length;i++){
+      var option = new Option(data[i].full_name, data[i].id, true, true);
+      studentSelect.append(option).trigger('change');
+      }
+
+    // manually trigger the `select2:select` event
+    studentSelect.trigger({
+      type: 'select2:select',
+      params: {
+        data: data
+      }
+    });
+
+    });
+
+
+function empty() {
+    //empty your array
+    data.length = 0;
+}
+     
+
+// here select group members 
+var base_url = '<?php echo base_url() ?>';
+
+var studentSelect = $('#select-user');
+
+
+function formatRepo (repo) {
+  // this first name came from serice
+return repo.firstname;
+  }
+
+  function formatRepoSelection (repo) {
+    return repo.firstname || repo.text;    
+  }
+
+$("#select-user").select2({
+  multiple:true,
+  ajax: {
+    url: base_url+'searchfriends/search_friends/',
+    dataType: 'json',
+    delay: 250,
+    data: function (params) {
+      return {
+        // here send name to service
+        q: params.term
+      };
+    },
+    processResults: function (data) {
+      
+      return {
+        // this result came from web service
+        results: data.result    
+      };
+    },
+    cache: true
+  },
+  escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+  minimumInputLength: 1,
+  templateResult: formatRepo, // omitted for brevity, see the source of this page
+  templateSelection: formatRepoSelection, // omitted for brevity, see the source of this page
+  placeholder: "Enter name"
+});
+
+
+// here select group members  create group
+var base_url = '<?php echo base_url() ?>';
+
+var studentSelect = $('#select-client');
+function formatRepo (repo) {
+  // this first name came from serice
+return repo.firstname;
+  }
+
+  function formatRepoSelection (repo) {
+    return repo.firstname || repo.text;    
+  }
+
+
+$("#select-client").select2({
+  multiple:true,
+  ajax: {
+    url: base_url+'searchfriends/search_friends/',
+    dataType: 'json',
+    delay: 250,
+    data: function (params) {
+      return {
+        // here send name to service
+        q: params.term
+      };
+    },
+    processResults: function (data) {
+      // parse the results into the format expected by Select2.
+      // since we are using custom formatting functions we do not need to
+      // alter the remote JSON data
+      return {
+        // this result came from web service
+        results: data.result    
+      };
+    },
+    cache: true
+  },
+  escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+  minimumInputLength: 1,
+  templateResult: formatRepo, // omitted for brevity, see the source of this page
+  templateSelection: formatRepoSelection, // omitted for brevity, see the source of this page
+  placeholder: "Enter name"
+});
+
+
+//search option form submit
+var base_url = '<?php echo base_url() ?>'; //form submited
+$(document).ready(function(){
+
+    $(".search").keyup(function() 
+      {
+              
+       var searchbox = $('#searchbox').val();
+       var dataString = 'searchword='+ searchbox;
+
+      if(searchbox=='')
+        {
+          $('#display1').html("");
+        }
+
+        else
+        {
+          $.ajax({
+
+                  url : base_url+'searchfriends/search_friends/'+searchbox,
+                  context:this,
+                  type: 'POST',
+                  //data: dataString,
+                  processData: false,
+                  contentType: false,
+                  // dataType:'json',
+                  error: function(xhr,status,error)
+                  {   
+                     alert(xhr.responseText);
+                  },              
+                  
+                  success: function(response)
+                  {
+                     $('#display1').html(response);
+                  }
+
+              });
+       }
+    });   
+   
+});
+  
+
+$("#display1 li").on("click",  function(e){
+    e.preventDefault();
+    var test = $(this).html();
+    // alert('test');
+    console.log(test);
+    console.log("test");
+    // $this.addClass("select").siblings().removeClass("select");
+    $("#searchbox").val(test);
+});
+
+// create group form submit
+
+var base_url = '<?php echo base_url() ?>'; //form submited
+$(document).ready(function(){
+
+    $(document).on("submit", "#create_group", function(e){
+         e.preventDefault();
+        var url = $(this).attr('action');
+        var formdata = new FormData(this);
+      
+        $.ajax({
+                url : url,
+                context:this,
+                method: 'POST',
+                data: formdata,
+                processData: false,
+                contentType: false,
+                dataType:'json',
+                context:this,   //here we use this function so declare here
+                error: function(xhr,status,error)
+                {   
+                    alert(xhr.responseText);
+                },              
+                
+                success: function(response)
+                {
+                   if(response.status == 'success')
+                   {
+                      swal("Success!", "Group created !", "success");     
+                      window.location.href = "<?php echo base_url('searchfriends/get_group'); ?>";                                                 
+                    }
+                    else 
+                     {                    
+                        swal("Sorry!", "somethink wrong try again !", "error");
+                     }
+                }
+
+            });
+        });
+});
+
+// delete group form submit
+
+var base_url = '<?php echo base_url() ?>'; //form submited
+$(document).ready(function(){
+
+    $(document).on("submit", ".delete_group", function(e){
+         e.preventDefault();
+        var url = $(this).attr('action');
+        var formdata = new FormData(this);
+      bootbox.confirm("Are you sure you want to delete?", function(result) {
+            if(result)
+               {
+            $.ajax({
+                    url : url,
+                    context:this,
+                    method: 'POST',
+                    data: formdata,
+                    processData: false,
+                    contentType: false,
+                    dataType:'json',
+                    context:this,   //here we use this function so declare here
+                    error: function(xhr,status,error)
+                    {   
+                        alert(xhr.responseText);
+                    },              
+                    
+                    success: function(response)
+                    {
+                       if(response.status == 'success')
+                       {
+                          swal("Success!", "Group deleted !", "success");     
+                          window.location.href = "<?php echo base_url('searchfriends/get_group'); ?>";                                                 
+                        }
+                        else 
+                         {                    
+                                        swal(
+                                              'Sorry!',
+                                              response.message, //refer : https://www.sitepoint.com/community/t/return-php-error-using-sweet-alert/265444
+                                              'error'
+                                             ); 
+                         }
+                    }
+
+                });
+            }
+               });
+            });
+});
+
+// Edit and update  group form submit
+
+var base_url = '<?php echo base_url() ?>'; //form submited
+$(document).ready(function(){
+
+    $(document).on("submit", ".edit_group", function(e){
+         e.preventDefault();
+        var url = $(this).attr('action');
+        var formdata = new FormData(this);
+      
+            $.ajax({
+                    url : url,
+                    context:this,
+                    method: 'POST',
+                    data: formdata,
+                    processData: false,
+                    contentType: false,
+                    dataType:'json',
+                    context:this,   //here we use this function so declare here
+                    error: function(xhr,status,error)
+                    {   
+                        alert(xhr.responseText);
+                    },              
+                    
+                    success: function(response)
+                    {
+                       if(response.status == 'success')
+                       {
+                          swal("Success!", "Group Updated !", "success");     
+                          window.location.href = "<?php echo base_url('searchfriends/get_group'); ?>";                                                 
+                        }
+                        else 
+                         {                    
+                                        swal(
+                                              'Sorry!',
+                                              response.message, //refer : https://www.sitepoint.com/community/t/return-php-error-using-sweet-alert/265444
+                                              'error'
+                                             ); 
+                         }
+                    }
+
+               
+               });
+            });
+});
 
 </script>
   

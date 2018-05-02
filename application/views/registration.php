@@ -198,19 +198,19 @@ label.error {
        </div> 
         <div class="col-md-12" style="margin-bottom:10px;">
           <div class="col-md-4">
-            <a href="<?php echo base_url('service/service_provider'); ?>" ><div class="col-md-12 text-center" style="border:1px solid #fff; border-radius:5px; padding-bottom:15px;">
+            <a href="<?php echo base_url('service/service_provider_landing'); ?>" ><div class="col-md-12 text-center" style="border:1px solid #fff; border-radius:5px; padding-bottom:15px;">
             <div class="col-md-12" style="margin-top:15px; text-align:center;"><img src="<?php echo base_url('assets/images/home-1.png'); ?>" alt="img"></div>
               <div class="col-md-12" style="margin-top:15px; color:#fff; line-height:20px;">Click To Find Your Next Event Services Professionals</div>
             </div></a>
           </div>
           <div class="col-md-4">
           <div class="col-md-12" style="border:1px solid #fff; border-radius:5px; padding-bottom:15px;">
-            <a href="<?php echo base_url('service/eventvenue_landing'); ?>"><div class="col-md-12" style="margin-top:15px; text-align:center;"><img src="<?php echo base_url('assets/images/home-2.png'); ?>" alt="img"></div>
+            <a href="<?php echo base_url('service/eventvenue_landing_without'); ?>"><div class="col-md-12" style="margin-top:15px; text-align:center;"><img src="<?php echo base_url('assets/images/home-2.png'); ?>" alt="img"></div>
               <div class="col-md-12 text-center" style="margin-top:15px; color:#fff; line-height:20px;">Click To Find And Book Your Next Event Venue</div>
             </div></a>
           </div>
           <div class="col-md-4">
-          <a href="<?php echo base_url('nearbyevents/nearby_event'); ?>"><div class="col-md-12 text-center" style="border:1px solid #fff; border-radius:5px; padding-bottom:15px;">
+          <a href="<?php echo base_url('nearbyevents/nearby_event_without'); ?>"><div class="col-md-12 text-center" style="border:1px solid #fff; border-radius:5px; padding-bottom:15px;">
             <div class="col-md-12" style="margin-top:15px; text-align:center;"><img src="<?php echo base_url('assets/images/home-3.png'); ?>" alt="img"></div>
               <div class="col-md-12" style="margin-top:15px; color:#fff; line-height:20px;">Click To Discover Event Happening Near You</div>
             </div></a>
@@ -227,8 +227,10 @@ label.error {
           <!--Registration Form Contents-->
           <div class="tab-content">
             <div class="tab-pane active" id="register">
-              <h2>Register with Wowhubb !!</h2>
-              <p class="text-muted">Enjoy Your Event Hosting Experience.</p>
+
+              <h2 style="text-align: center;">Create An Account</h2>
+
+              <h4 class="text-muted" style="font-weight: bold;text-align: center;">Join !Wowhubb Exciting Network </h4><p style="text-align: center;"> and Enjoy Your Next Event Hosting Experience</p>
               
               <!--Register Form-->
               <form id="registration_form" action ="<?php echo base_url('Home/reg_load'); ?>" method="post">
@@ -244,16 +246,12 @@ label.error {
                   </div>
                 </div>
 
-                 <div class="row">
-                    <div class="form-group col-xs-11">                   
-                      <input id="wowtag" class="form-control input-group-lg" name="wowtagid" placeholder="Your Wowtag id unique" />                                 
+                <div class="row" style="margin-bottom: 5px;">
+                    <div class="form-group col-xs-12">
+                       <label for="email" class="sr-only">Email</label>
+                       <input id="email" class="form-control input-group-lg" type="email" name="Email"  placeholder="Enter Your Email" />
                     </div>
-                    <div class="form-group col-xs-1" style="margin-top: 15px;">   
-                          <a href="#" data-toggle="tooltip" title="Wowtag is a unique identifier(Name) for your event that you can use to share, invite and advertise your event on billboards, online and on TV advertisements."><i class="fa  fa-question-circle" ></i></a>  
-                    </div>                      
                 </div>
-
-                  <div id="result"></div>
 
                 <div class="row">               
                   <div class="form-group col-xs-12">
@@ -261,18 +259,32 @@ label.error {
                     <input id="phone" pattern="^\+?\d{0,13}" class="frm-con input-group-lg" type="text" name="pho_no" style="font-size: 14px;" title="Enter phone number" placeholder="Your Phone Number" />      
                   </div>
                 </div>
+
+                <div class="row">
+
+                    <div class="form-group col-xs-3" style="margin-top: 10px;">                   
+                        <label>!Wowtag ID</label>                                 
+                    </div>
+
+                    <div class="form-group col-xs-8">                   
+                      <input id="wowtag" class="form-control input-group-lg" name="wowtagid" placeholder="Create Your Personalized ID" />                                 
+                    </div>
+
+                    <div class="form-group col-xs-1" style="margin-top: 15px;">   
+                          <a href="#" data-toggle="tooltip" title="Wowtag is a unique identifier(Name) for your event that you can use to share, invite and advertise your event on billboards, online and on TV advertisements."><i class="fa  fa-question-circle" ></i></a>  
+                    </div>                      
+                </div>
+
+                  <div id="result"></div>
+
+                
                 <div class="row">
                   <div class="form-group col-xs-12">
                       <label for="phone" class="sr-only">Password</label>
-                      <input type="password" id="password" class="form-control input-group-lg"  name="password" placeholder="Your Password" />                  
+                      <input type="password" id="password" class="form-control input-group-lg"  name="password" placeholder="New Password" />                  
                   </div>
                 </div>
-                <div class="row">
-                    <div class="form-group col-xs-12">
-                       <label for="email" class="sr-only">Email</label>
-                       <input id="email" class="form-control input-group-lg" type="email" name="Email"  placeholder="Your Email" />
-                    </div>
-                </div> 
+                 
 
                 <div class="row">
                   <p class="birth"><label>Date of Birth</label></p>
@@ -462,21 +474,10 @@ label.error {
                     </label>   
                     </p>                 
                 </div>
-               <div id="gender_val"> </div>
-				
-               <!--  <div class="form-group gender col-xs-12" style="font-size: 14px; background-color:#f5f5f5; padding-top:10px;">
-                   	<p><strong>OTP verification sent through</strong></p>
-                     <p class='container_test'>
-                    <label for="gender" class="radio-inline">
-                       <input type="radio" id=""  name="email"  class="" value="email"  style="width:18px; height:18px;" >&nbsp;By Email 
-                    </label>                      
-                    <label for="gender" class="radio-inline">
-                      <input type="radio" id=""  name="mobile"  class="" value="mobile" style="width:18px; height:18px;" >&nbsp;By Mobile                      
-                    </label>   
-                    </p>                 
-                </div> -->
-                
-              <p><a href="<?php echo base_url('Home/login'); ?>">Already have an account?</a></p>
+               <div id="gender_val"> </div>				
+              
+                <p > By clicking Join Now, you agree to our <a href="#" style="color:blue;font-weight: bold;">Terms, Data Policy</a>,  and <a href="#" style="color:blue;font-weight: bold;">Cookies  Policy, </a> You may receive SMS Notification from us  and can opt out any time.</p>
+              
               
               
               <div class="row text-center">
@@ -489,10 +490,11 @@ label.error {
           </div>
         </div>
         <div class="row">
-      <div class="col-sm-12"> 
+      <div class="col-sm-12 text-center" > 
         
         <!--Social Icons-->
-        <p style="color:#fff;"> By clicking the JOIN button you confirm that you have read and accepted our <a href="#" style="color:#ddb424;">Terms of use</a>, <a href="#" style="color:#ddb424;">Privacy policy</a> and <a href="#" style="color:#ddb424;">Cookies use policy</a></p>
+        <p><a style="color:#ddb424;" href="<?php echo base_url('Home/login'); ?>">Already have an account <strong style="font-weight: bold;">Sign in</strong> </a></p>
+        
       </div>
      
     </div>
@@ -644,7 +646,7 @@ label.error {
                                                  type: "success",
                                                  timer: 5000
                                                  }).then(() => {                
-                                               window.location.href = "<?php echo base_url('home/login'); ?>";              
+                                               window.location.href = "<?php echo base_url('home/otp_page'); ?>";              
                                                   });;  
                                                                           
                                    }
@@ -697,7 +699,7 @@ label.error {
                     if(response.status == 'success')
                      {
                        // $("#result").html(info); 
-                        $("#result").html('<div class="alert alert-success alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a> <strong>Success!</strong> Your Wowtag ID is available. </div>');
+                        $("#result").html('<div class="alert alert-success alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a> Your !Wowtag ID was Create Successfully. </div>');
                        // swal(
                        //      'Success!',
                        //      'Your Wowtag id Created Successfully', //refer : https://www.sitepoint.com/community/t/return-php-error-using-sweet-alert/265444

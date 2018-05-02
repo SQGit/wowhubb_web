@@ -1117,8 +1117,7 @@
 			                    		<a href="JavaScript:void(0);">
 			                    		<i class="fa fa-plus-circle"></i> Add More Products/ Services Photos/Images up to 10 </a>
 			                    	</div>
-		                        </div>                 
-		                     
+		                        </div>              
 		                    </div>              
 		                    
 		                </div>
@@ -1281,18 +1280,7 @@
   </div>
 </div>
 
-<!-- Footer
-    ================================================= 
-    <footer id="footer">
-        <div class="container">
-          <?php /*?><!--<?php  $this->load->view('includes/footer.php'); ?>--><?php */?>
-        </div>
-    </footer>
-    
-   
-    <!--div id="spinner-wrapper">
-      <div class="spinner"></div>
-    </div>--> 
+
 
 <!-- Scripts
     ================================================= --> 
@@ -1312,41 +1300,18 @@
 
 <script>
 	
+// hide enter button to submit the form
+$(document).ready(function(){
+$('#create_event').on('keyup keypress', function(e) {
+  var keyCode = e.keyCode || e.which;
+  if (keyCode === 13) { 
+    e.preventDefault();
+    return false;
+  }
+});	
+});		
 //organisation type select option  show and hide
 
-// $(document).ready(function(){
-// 		$("#organisation_type").change(function () {
-// 				if ($(this).val() == "company" ) 
-// 				 {
-//                 	$("#first_form").show();
-//                 	$("#second_form").hide();
-//                 	$("#third_form").hide();
-//                 	$("#fourth_form").hide();
-//            		 }
-//            	    else if ($(this).val() == "public" ) 
-//            		 {
-//                 	$("#first_form").hide();
-//                 	$("#second_form").show();
-//                 	$("#third_form").hide();
-//                 	$("#fourth_form").hide();
-//            		 }
-//            		else if ($(this).val() == "local_business" ) 
-//            		 {
-//                 	$("#first_form").hide();
-//                 	$("#second_form").hide();
-//                 	$("#third_form").show();
-//                 	$("#fourth_form").hide();
-//            		 }
-//            		else if ($(this).val() == "Entertainment" ) 
-//            		 {
-//                 	$("#first_form").hide();
-//                 	$("#second_form").hide();
-//                 	$("#third_form").hide();
-//                 	$("#fourth_form").show();
-//            		 }
-// 		});
-
-// });	
 
 $(document).ready(function(){
 		$("#organisation_type").change(function () {

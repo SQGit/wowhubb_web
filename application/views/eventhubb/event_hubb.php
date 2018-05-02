@@ -15,7 +15,8 @@
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/font-awesome.min.css') ?>" />
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/jquery.datetimepicker.css')?>" />
 <link rel="stylesheet" href="<?php echo base_url ('assets/js/sweetalert.css')?>" />
-
+<link rel="stylesheet" href="<?php echo base_url ('assets/css/select2.min.css')?>" />
+<link rel="stylesheet" href="<?php echo base_url ('assets/css/intlTelInput.css')?>">
 <!--Google Font-->
 <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet">
 
@@ -23,7 +24,7 @@
 <link rel="shortcut icon" type="image/png" href="<?php echo base_url ('assets/images/fav.png') ?>"/>
 <style type="text/css">
 
-
+.iti-flag {background-image: url("<?php echo base_url ('assets/css/flags.png')?>");}
 #footer {
 	background: #fff;
 	position: relative;
@@ -225,7 +226,49 @@ body {
     background-color: transparent;
     outline: none;
   }
-  
+/*here start with multiple email  */
+.multipleInput-container {
+     border:1px #999 solid;
+     padding:1px;
+     padding-bottom:0;
+     cursor:text;
+     font-size:15px;
+     width:100%;
+  border-radius: 6px
+}
+ 
+.multipleInput-container input {
+    outline: none;
+    font-size:15px;
+    clear:both;
+    height:60px;
+    border:0;
+    margin-bottom:1px;
+}
+ 
+.multipleInput-container ul {
+    list-style-type:none;
+}
+ 
+li.multipleInput-email {
+    float:left;
+    padding:6px ;
+    color: #fff;
+  background: #FD9160;
+  margin-top: 0;
+  border-radius: 6px;
+  margin: 6px 2px 6px 6px;
+}
+ 
+.multipleInput-close {
+    width:16px;
+    height:16px;
+    display:block;
+    float:right;
+    margin: -2px 0px 0px 8px;
+  color: #fff;
+  font-size: 16px;
+}  
 </style>
 
 <link href="<?php echo base_url ('assets/css/fullcalendar.min.css') ?>" rel='stylesheet' />
@@ -236,22 +279,194 @@ body {
 
 <!-- Header
     ================================================= -->
-<header id="header">
-  <nav class="navbar navbar-default navbar-fixed-top menu">
+ <header id="header">
+  <nav class="navbar navbar-default navbar-fixed-top menu" style="padding-top:3px!important; padding-bottom:3px!important;">
     <div class="container"> 
+      
       <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header"> <a class="navbar-brand" href="<?php echo base_url('event/get_eventfeed'); ?>"> <img src="<?php echo base_url ('assets/images/logo.png') ?>" alt="logo" /></a> </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right main-menu" style="color:#fff; margin-top: 10px; margin-right:5px; font-size:25px;">
-          <a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none;"> <span style="font-size:14px;  background:#e91e63; padding:5px 10px; border-radius:13px; color:#fff;"><img src="<?php echo base_url('assets/images/home-icon.png'); ?>" alt="user" /> Home</span> </a> <a href="<?php echo base_url('event/event_popup'); ?>" style="text-decoration:none;"><span style="font-size:14px;  background:#757575; padding:5px 10px; border-radius:13px; color:#fff;"><img src="<?php echo base_url('assets/images/create-event-icon-3.png'); ?>" alt="user" /> Create Event</span> </a> <a href="<?php echo base_url('home/logout'); ?>" style="text-decoration:none;"><span style="font-size:14px;  padding:5px 10px; border-radius:5px; color:#fff;"><img src="<?php echo base_url('assets/images/logout-icon.png'); ?>" alt="user" />Logout</span> </a>
+      <div class="navbar-header" style="position:relative; z-index:969696;"> <a class="navbar-brand" href="<?php echo base_url('event/get_eventfeed'); ?>"><img src="<?php echo base_url ('assets/images/logo.png') ?>" alt="logo" /></a> </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style="position:relative;">
+        <ul class="nav navbar-nav navbar-right main-menu" style="color:#fff; margin-top: 0px; margin-right:0px; font-size:25px;">
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "><a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/home-icon-1.png'); ?>" alt="user" /><br>
+            Home </a></li>
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"> <img src="<?php echo base_url('assets/images/notification-icon.png'); ?>" alt="user" /> <br>
+            My Alerts <i class="fa fa-caret-down"></i> </a>
+            <ul class="dropdown-menu login">
+              <div>
+                <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;"><strong><i class="icon ion-android-notifications-none"></i> Alerts</strong></div>
+              </div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-10">Vineture  didn't get any new likes this week. Publish a post to engage your audience.
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 15 Hours Ago</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-10">Emeka added a New Event on Hari's Birthday. Lets Check!!
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 13 Hours Ago</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-10">It's Nickybeit Enjoy's birthday today. Help him celebrate!
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal; margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> Yesterday at 10:45pm</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div>
+                <div class="col-md-12">
+                  <div class="text-center"><a href="#" style="color:#555; text-align:center;" >See all</a></div>
+                </div>
+              </div>
+            </ul>
+          </li>
+          <li class="dropdown" style="margin-left:10px; margin-right:10px; text-align:center;"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"> <img src="<?php echo base_url('assets/images/chat-icon.png'); ?>" alt="user" /><br>
+            Friend Requests <i class="fa fa-caret-down"></i> </a>
+            <ul class="dropdown-menu login">
+              <div>
+                <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;"><strong><i class="icon ion-ios-person-outline"></i> Friend Requests</strong></div>
+              </div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Vicky
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Emeka
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Hari
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 10 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Roshan
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 4 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div>
+                <div class="col-md-12">
+                  <div class="text-center"><a href="#" style="color:#555; text-align:center;" >See all</a></div>
+                </div>
+              </div>
+            </ul>
+          </li>
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "><a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/chat-icon-1.png'); ?>" alt="user" /><br>
+            Messaging </a></li>
+          <li class="dropdown" style="text-align:center; margin-left:10px; margin-right:10px;"><a href="<?php echo base_url('event/event_popup'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/create-event-icon-1.png'); ?>" alt="user" /><br>
+            Create Event </a></li>
+         
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; padding-left:10px; padding-right:10px; border-left:1px solid #ccc;"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"><img src="<?php echo base_url('assets/images/prof-icon.png'); ?>" alt="user" /><br>
+            Profile <i class="fa fa-caret-down"></i> </a>
+            <ul class="dropdown-menu login">
+              <div>
+                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;">
+                 <div style="width:10%; float:left;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo" style="width:30px; height:30px;" /></div>
+                 <div style="width:90%; float:left;"><strong> Saranya Chandrasekaran</strong><br> 
+                 <span style="font-size:13px; color:#999;">Web developer at Vineture Inc.</span></div>
+                </div>
+              </div>
+              <div> 
+                
+                <div class="col-md-12 text-center">
+                <span style="color:e91e63;"><a href="#" style="color:#e91e63;" ><strong>View Profile</strong></a></span>
+                  
+                </div>
+                 <div class="col-md-12">
+               <div class="col-md-12" style="background:#f5f5f5; padding-top:5px; padding-bottom:5px;"><span style="color:e91e63;"><a href="#" style="color:#222; font-size:15px;" >My Account</a></span></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Settings</a></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Privacy Policy</a></div>
+                 
+                </div>
+                <div class="col-md-12">
+               <div class="col-md-12" style="background:#f5f5f5; padding-top:5px; padding-bottom:5px;"><span style="color:e91e63;"><a href="#" style="color:#222; font-size:15px;" >Manage</a></span></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Edit Profile</a></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> My Event Feed</a></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> My Interests</a></div>
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                
+                </div>
+              
+           
+              <div>
+                <div class="col-md-12">
+                  <div class="col-md-12">
+  <div class="text-left"><a href="<?php echo base_url('home/logout'); ?>" style="color:#333; text-align:left;" >Logout</a></div>
+                  </div>
+                </div>
+              </div>
+            </ul>
+            </li>
         </ul>
-        <form class="navbar-form navbar-right hidden-sm">
+        <form class="navbar-form navbar-right hidden-sm" style="position:absolute; left:210px; top:0px;" >
           <div class="form-group"> <i class="icon ion-android-search"></i>
-            <input type="text" class="form-control" placeholder="Search !Events, !Venues, !Wowtags, !People">
-          </div>
+            <input type="text" class="search form-control live-search-box" id="searchbox" name="friends_search" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px;" />
+            <br/>
+            <span id="display1"> </span> </div>
         </form>
       </div>
+      <!-- Collect the nav links, forms, and other content for toggling --> 
+      <!-- /.navbar-collapse --> 
     </div>
+    <!-- /.container --> 
   </nav>
 </header>
 <!--Header End-->
@@ -315,7 +530,7 @@ body {
                     <td width="7%" height="40" bgcolor="#f9f9f9"><strong>Delete </strong></td>
                   </tr>
 
-                  <!-- personal event edit  -->
+                  <!-- personal event edit  -->                  
 
                     <?php 
                           foreach ($eventhubbfeed as $feeds) 
@@ -328,7 +543,7 @@ body {
 
                   <tr>
                         <td width="14%" height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
-                          <div><img src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->coverpage; ?>" class="img-responsive img-thumbnail" alt="">
+                          <div><img src="<?php echo $feeds->coverpageurl; ?>" class="img-responsive img-thumbnail" alt="">
                           </div>
                           <strong style="font-size:16px; color:#fc6653;">
                             <?php if(isset($feeds->eventtitle)) { echo $feeds->eventtitle; } else{ echo "";} ?>
@@ -364,10 +579,27 @@ body {
                             <td height="30" align="center" valign="middle"><strong style="font-size:16px;">RSVP</strong></td>
                           </tr>
                           <tr>
-                            <td height="30"><img src="../assets/images/profile-icon.png" alt=""><strong style="font-size:22px; color:#FF7600;">150</strong></td>
-                          </tr>
+                            <td height="30"><img src="../assets/images/profile-icon.png" alt="">
+                              <strong style="font-size:22px; color:#FF7600;">
+                                    <?php                                      
+                                         $sum = 0;
+                                          foreach ($feeds->rsvp as $rsvps)
+                                           {                                                                                              
+                                               $sum += $rsvps->extra;                                           
+                                           }
+                                        echo $sum;                              
+                                    ?>
+                              </strong>
+                           </td>
+                          </tr> 
                           <tr>
-                            <td height="30"><a href="#" data-toggle="modal" data-target=".modal-1" >Invites List</a></td>
+                            <td height="30">
+                              <a href="#modal_personal" style="cursor: pointer;" data-toggle="modal"  data-id='
+                                <?php                                    
+                                     echo json_encode($feeds->rsvp);                                     
+                                ?>'> Invites List</a>
+                                 
+                            </td>
                           </tr>
                         </tbody>
                       </table></td>
@@ -376,13 +608,12 @@ body {
                           <tr>
                            
                               <td width="82%" height="20">
-                                <form action="<?php echo base_url('eventhubb/get_eventdetails'); ?>" id="event_details" method="POST"> 
-                                  <!-- <a href="#modal-eventdetails" data-toggle="modal" data-id='<?php echo $feeds->_id; ?>'>  -->
+                                <form action="<?php echo base_url('eventhubb/get_eventdetails'); ?>" id="event_details" method="POST">                                
                                     <strong>
                                       <a href="#" style="color: #000;">
                                      <textarea style= "display: none;"  name="details"><?= json_encode($feeds); ?>
                                      </textarea>
-                                      <!-- <input type="text" name="userid" value="<?php echo $feeds->_id; ?>" > -->
+                                    
                                      <input type="submit" style="border: none; background: transparent;" value="Event Details">                            
                                      </a></strong>
                                 </form>
@@ -466,18 +697,24 @@ body {
                       <table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tbody>
                           <tr>
-                            <td align="left" valign="top" bgcolor="#f9f9f9"><select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1; font-size:13px;">
-                                <option value="">Select</option>
-                                <option value="sms">Send Invite Notification via SMS</option>
-                                <option value="email">Send Invite Notification via Email</option>
-                              </select></td>
-                          </tr>
-                          <tr>
-                            <td><textarea type="text" id="description" name="event_description" class="form-control" style="min-height:90px; font-size:13px;" placeholder="Describe What Your Event Is All About "></textarea></td>
-                          </tr>
-                          <tr>
-                            <td><input type="submit" class="btn-primary" value="Send"></td>
-                          </tr>
+                            <td align="left" valign="top" bgcolor="#f9f9f9">                              
+                              <div class="pull-left" style="width:50%;">
+                                <div class="text-center">
+                                    <a href="#modal_email" style=" cursor: pointer;" data-toggle="modal"  data-id='<?php echo $feeds->_id; ?>' data-title-id='<?php  if(isset($feeds->eventtitle)) { echo $feeds->eventtitle; } ?>'>
+                                    <img src="<?php echo base_url('assets/images/send-email-icon.png'); ?>" ><br>Via Email</a><br>
+                                </div>
+                              </div>
+                              
+                               <div class="pull-left" style="width:50%;">
+                                <div class="text-center">
+                                    <a href="#modal_group" style=" cursor: pointer;" data-toggle="modal"  data-id='<?php echo $feeds->_id; ?>' data-title-id='<?php  if(isset($feeds->eventtitle)) { echo $feeds->eventtitle; } ?>'>  
+                                    <img src="<?php echo base_url('assets/images/send-group.png'); ?>" ><br>Via Group</a>  
+                                </div>
+                              </div>
+                               
+                            </td>
+                          </tr>                         
+                        
                         </tbody>
                       </table></td>
                         <td rowspan="2" align="center" valign="top" bgcolor="#fff">
@@ -533,7 +770,7 @@ body {
                   <tr>
                     <td width="16%" height="40" rowspan="2" align="left" valign="top" bgcolor="#fff"> 
                       <div>
-                          <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->coverpage; ?>" class="img-responsive img-thumbnail" alt="">
+                          <img src="<?php echo $feeds->coverpageurl; ?>" class="img-responsive img-thumbnail" alt="">
                       </div>
                       <?php if(isset($feeds->eventtitle)) { echo $feeds->eventtitle; } else{ echo "";} ?>                     
                     </td>
@@ -599,18 +836,33 @@ body {
                     <td align="left" valign="top" bgcolor="#fff"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tbody>
                           <tr>
-                            <td align="left" valign="top" bgcolor="#f9f9f9"><select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1; font-size:13px;">
-                                <option value="">Select</option>
-                                <option value="sms">Send Invite Notification via SMS</option>
-                                <option value="email">Send Invite Notification via Email</option>
-                              </select></td>
+                            <td align="left" valign="top" bgcolor="#fff">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tbody>
+                                    <tr>
+                                      <td align="left" valign="top" bgcolor="#f9f9f9">                              
+                                        <div class="pull-left" style="width:50%;">
+                                          <div class="text-center">
+                                              <a href="#modal_email" style=" cursor: pointer;" data-toggle="modal"  data-id='<?php echo $feeds->_id; ?>'>
+                                              <img src="<?php echo base_url('assets/images/send-email-icon.png'); ?>" ><br>Via Email</a><br>
+                                          </div>
+                                        </div>
+                                        
+                                         <div class="pull-left" style="width:50%;">
+                                          <div class="text-center">
+                                              <a href="#modal_group" style=" cursor: pointer;" data-toggle="modal"  data-id='<?php echo $feeds->_id; ?>'>  
+                                              <img src="<?php echo base_url('assets/images/send-group.png'); ?>" ><br>Via Group</a>  
+                                          </div>
+                                        </div>
+                                         
+                                      </td>
+                                    </tr>                         
+                                  
+                                  </tbody>
+                                </table>
+                            </td>
                           </tr>
-                          <tr>
-                            <td><textarea type="text" id="description" name="event_description" class="form-control" style="min-height:90px; font-size:13px;" placeholder="Type Something "></textarea></td>
-                          </tr>
-                          <tr>
-                            <td><input type="submit" class="btn-primary" value="Send"></td>
-                          </tr>
+                         
                         </tbody>
                       </table></td>
                     <td height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
@@ -680,7 +932,7 @@ body {
 
                   <tr>
                     <td width="16%" height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
-                          <div><img src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->coverpage; ?>" class="img-responsive img-thumbnail" alt="">
+                          <div><img src="<?php echo $feeds->coverpageurl; ?>" class="img-responsive img-thumbnail" alt="">
                           </div>
                           <strong style="font-size:16px; color:#fc6653;">
                             <?php if(isset($feeds->eventtitle)) { echo $feeds->eventtitle; } else{ echo "";} ?>
@@ -748,20 +1000,33 @@ body {
                     <td align="left" valign="top" bgcolor="#fff"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tbody>
                           <tr>
-                            <td align="left" valign="top" bgcolor="#f9f9f9">
-                              <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1; font-size:13px;">
-                                <option value="">Select</option>
-                                <option value="sms">Send Invite Notification via SMS</option>
-                                <option value="email">Send Invite Notification via Email</option>
-                              </select>
-                              </td>
-                          </tr>
-                          <tr>
-                            <td><textarea type="text" id="description" name="event_description" class="form-control" style="min-height:90px; font-size:13px;" placeholder="Type Something "></textarea></td>
-                          </tr>
-                          <tr>
-                            <td><input type="submit" class="btn-primary" value="Send"></td>
-                          </tr>
+                            <td align="left" valign="top" bgcolor="#fff">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tbody>
+                                    <tr>
+                                      <td align="left" valign="top" bgcolor="#f9f9f9">                              
+                                        <div class="pull-left" style="width:50%;">
+                                          <div class="text-center">
+                                              <a href="#modal_email" style=" cursor: pointer;" data-toggle="modal"  data-id='<?php echo $feeds->_id; ?>'>
+                                              <img src="<?php echo base_url('assets/images/send-email-icon.png'); ?>" ><br>Via Email</a><br>
+                                          </div>
+                                        </div>
+                                        
+                                         <div class="pull-left" style="width:50%;">
+                                          <div class="text-center">
+                                              <a href="#modal_group" style=" cursor: pointer;" data-toggle="modal"  data-id='<?php echo $feeds->_id; ?>'>  
+                                              <img src="<?php echo base_url('assets/images/send-group.png'); ?>" ><br>Via Group</a>  
+                                          </div>
+                                        </div>
+                                         
+                                      </td>
+                                    </tr>                         
+                                  
+                                  </tbody>
+                                </table>
+                            </td>
+                          </tr>                         
+                         
                         </tbody>
                       </table></td>
                     <td height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
@@ -1417,7 +1682,7 @@ body {
 
    <!-- modal popup personal event   -->
 
-      <div class="modal fade modal-1" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal fade" id="modal_personal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                           <div class="post-content">                            
@@ -1430,12 +1695,27 @@ body {
                                 <div class="line-divider"></div>
                                 <div class="user-info">
                                  <div class="row" style="padding:10px;">                           
-                  <form action="" method="post"  id="personal_update_aboutme" class="form-inline">                           
+                                          
                     <div class="row">  
+                               <input type="text" name="user_name" >               
                       <div class="col-md-4">
                            <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                              <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                             <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>                            
+                             <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div> 
+                                                      
+                           
+                            <div style="font-size:11px;">Account Manager</div> 
+                              <div style="font-size:12px; color: #e91e63;">!emeka  </div>
+                               Houston
+                             <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>           
+                       
+                           </div>
+                      </div>  
+                      <div class="col-md-4">
+                           <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
+                             <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
+                             <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div> 
+                                                       
                              
                             <div style="font-size:11px;">Account Manager</div> 
                               <div style="font-size:12px; color: #e91e63;">!emeka  </div>
@@ -1443,255 +1723,17 @@ body {
                              <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>           
                        
                            </div>
-                      </div>
-
-                        <div class="col-md-4">
-                           <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-                             <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                             <div style="font-size:15px; font-weight:bold; line-height: 15px;">Emeka </div>                            
-                             
-                            <div style="font-size:11px;">Software Analyst</div> 
-                              <div style="font-size:12px; color: #e91e63;">!Tony  </div>
-                               Chennai
-                            <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>                   
-                       
-                           </div>
-                       </div>
-
-                      <div class="col-md-4">
-                           <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-                             <div class="col-md-12 text-center"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                             <div style="font-size:15px; font-weight:bold; line-height: 15px;"> Emeka Daniells</div>                            
-                             
-                            <div style="font-size:11px;">Account Manager</div> 
-                              <div style="font-size:12px; color: #e91e63;">!emeka  </div>
-                               Houston
-                            <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>                  
-                       
-                           </div>
-                      </div>
-
-                      <div class="col-md-4">
-                           <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-                             <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                             <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>
-                            
-                             
-                            <div style="font-size:11px;"> Developer</div> 
-                              <div style="font-size:12px; color: #e91e63;">!emeka  </div>
-                               Chennai
-                             <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>                   
-                       
-                           </div>
-                      </div>
-
-                      <div class="col-md-4">
-                           <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-                             <div class="col-md-12 text-center"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                             <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>
-                            
-                             
-                            <div style="font-size:11px;">Account Manager</div> 
-                              <div style="font-size:12px; color: #e91e63;">!emeka  </div>
-                               Houston
-                             <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>                    
-                       
-                           </div>
-                      </div>
-
-                      <div class="col-md-4">
-                           <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-                             <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                             <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>
-                            
-                             
-                            <div style="font-size:11px;">Account Manager</div> 
-                              <div style="font-size:12px; color: #e91e63;">!emeka  </div>
-                               Chennai
-                            <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>                     
-                       
-                           </div>
-                      </div>
+                      </div>                                                  
                     </div>
-
-
-                      <!-- end first -->
-                    <div class="row" style="margin-top: 20px;">
-                        <div class="col-md-4">
-                           <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-                             <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                             <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>                            
-                             
-                            <div style="font-size:11px;">Account Manager</div> 
-                              <div style="font-size:12px; color: #e91e63;">!emeka  </div>
-                               Houston
-                             <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>                     
-                       
-                           </div>
-                    </div>
-
-                        <div class="col-md-4">
-                           <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-                             <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                             <div style="font-size:15px; font-weight:bold; line-height: 15px;">Emeka </div>                            
-                             
-                            <div style="font-size:11px;">Software Analyst</div> 
-                              <div style="font-size:12px; color: #e91e63;">!Tony  </div>
-                               Chennai
-                            <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>                   
-                       
-                           </div>
-                       </div>
-
-                      <div class="col-md-4">
-                           <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-                             <div class="col-md-12 text-center"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                             <div style="font-size:15px; font-weight:bold; line-height: 15px;"> Emeka Daniells</div>                            
-                             
-                            <div style="font-size:11px;">Account Manager</div> 
-                              <div style="font-size:12px; color: #e91e63;">!emeka  </div>
-                               Houston
-                            <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>                  
-                       
-                           </div>
-                      </div>
-
-                      <div class="col-md-4">
-                           <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-                             <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                             <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>
-                            
-                             
-                            <div style="font-size:11px;"> Developer</div> 
-                              <div style="font-size:12px; color: #e91e63;">!emeka  </div>
-                               Chennai
-                             <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>                   
-                       
-                           </div>
-                      </div>
-
-                      <div class="col-md-4">
-                           <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-                             <div class="col-md-12 text-center"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                             <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>
-                            
-                             
-                            <div style="font-size:11px;">Account Manager</div> 
-                              <div style="font-size:12px; color: #e91e63;">!emeka  </div>
-                               Houston
-                             <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>                    
-                       
-                           </div>
-                      </div>
-
-                      <div class="col-md-4">
-                           <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-                             <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                             <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>
-                            
-                             
-                            <div style="font-size:11px;">Account Manager</div> 
-                              <div style="font-size:12px; color: #e91e63;">!emeka  </div>
-                               Chennai
-                            <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>                     
-                       
-                           </div>
-                         </div>
-                      </div>
-                      <!-- end second row -->
-                      <div class="row" style="margin-top: 20px;">
-
-                        <div class="col-md-4">
-                           <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-                             <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                             <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>                            
-                             
-                            <div style="font-size:11px;">Account Manager</div> 
-                              <div style="font-size:12px; color: #e91e63;">!emeka  </div>
-                               Houston
-                             <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>                     
-                       
-                           </div>
-                          </div>
-
-                          <div class="col-md-4">
-                           <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-                             <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                             <div style="font-size:15px; font-weight:bold; line-height: 15px;">Emeka </div>                            
-                             
-                            <div style="font-size:11px;">Software Analyst</div> 
-                              <div style="font-size:12px; color: #e91e63;">!Tony  </div>
-                               Chennai
-                            <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>                   
-                       
-                           </div>
-                          </div>
-
-                          <div class="col-md-4">
-                           <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-                             <div class="col-md-12 text-center"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                             <div style="font-size:15px; font-weight:bold; line-height: 15px;"> Emeka Daniells</div>                            
-                             
-                            <div style="font-size:11px;">Account Manager</div> 
-                              <div style="font-size:12px; color: #e91e63;">!emeka  </div>
-                               Houston
-                            <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>                  
-                       
-                           </div>
-                          </div>
-
-                          <div class="col-md-4">
-                           <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-                             <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                             <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>
-                            
-                             
-                            <div style="font-size:11px;"> Developer</div> 
-                              <div style="font-size:12px; color: #e91e63;">!emeka  </div>
-                               Chennai
-                             <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>                   
-                       
-                           </div>
-                          </div>
-
-                          <div class="col-md-4">
-                           <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-                             <div class="col-md-12 text-center"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                             <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>
-                            
-                             
-                            <div style="font-size:11px;">Account Manager</div> 
-                              <div style="font-size:12px; color: #e91e63;">!emeka  </div>
-                               Houston
-                             <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>                    
-                       
-                           </div>
-                          </div>
-
-                          <div class="col-md-4">
-                           <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-                             <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                             <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>
-                            
-                             
-                            <div style="font-size:11px;">Account Manager</div> 
-                              <div style="font-size:12px; color: #e91e63;">!emeka  </div>
-                               Chennai
-                            <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>                     
-                       
-                           </div>
-                          </div>
-
-                       </div>                             
                           
-                  </form>
-                               </div>
-                                </div>
-                                  </div>                                
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                  
+                </div>
+                </div>
+                </div>                                
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
                       <!-- end personal model popup -->
 
@@ -1913,8 +1955,7 @@ body {
 
 
    <!-- event details edit model popup -->
-   <!-- <?php print_r($event); ?> -->
-
+  
    <div class="modal fade" id="modal-eventdetails" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
@@ -2006,6 +2047,95 @@ body {
                 </div>
               </div>
 
+<!-- add send email model popup -->
+  <div class="modal fade" id="modal_email" role="dialog" style="z-index:99999;">
+        <div class="modal-dialog" style="width: 500px!important;">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title" style="text-align:center;">Send Invite By Email </h4>
+                </div>
+                <div class="modal-body">                    
+
+                    <form  class="invite_email_form" action="<?php echo base_url('searchfriends/invite_email/'.$feeds->_id);?>" method="post">    <div class="alert alert-success" id="email_success" role="alert" style="display:none;"  >Successfully Send Invite
+                        </div>
+
+                         <input type="hidden" name="event_id"> 
+                         
+                          
+
+                          <div class="col-sm-12 form-group ">      
+                            <input type="text" id="multi_email" name="email[]" class='form-control' placeholder="Enter Email ID">         
+                          </div>   
+
+                          <div class="col-sm-12 form-group ">      
+                            <input type="text"  name="invite_msg" class='form-control' placeholder="Send message">          
+                          </div>
+
+                        <div class="action text-center">
+                            <button type="submit" class="btn-primary">Invite</button>
+                        </div>
+                    </form>
+                  
+                </div><!--/.modal nody -->
+                
+          </div>
+        </div>
+      </div>
+<!-- end email popup mode -->
+
+
+
+<!-- add send group model popup -->
+  <div class="modal fade" id="modal_group" role="dialog" style="z-index:99999;" >
+        <div class="modal-dialog" style="width: 500px!important;" >
+            <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title" style="text-align:center;">Send Invite By Group </h4>
+                </div>
+                <div class="modal-body">
+                                     
+                    <form  class="invite_group_form" action="<?php echo base_url('searchfriends/invite_group/'.$feeds->_id);?>" method="post">    <div class="alert alert-success" id="group_success" role="alert" style="display:none;" >Successfully Send Invite
+                        </div>
+
+                          <input type="hidden" name="event_id">
+                          
+                           <?php                            
+                               foreach ($group_name as $groups)
+                                {                     
+                            ?>
+                          <div class="col-md-12">                           
+
+                            <div class="pull-left" style="width:5%;"> 
+                              <input type="checkbox" name="group_name" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="<?php echo $groups->_id;?>">
+                            </div>
+                          
+                            <div class="pull-left" style="width:95%;">
+                               <?php echo $groups->groupname; ?> 
+                            </div>
+
+                          </div>
+                          <div class="col-md-12" >
+                              <div class="col-md-12" style="border: 0.5px solid #d7d6d6; margin-top: 10px; margin-bottom: 10px; ">  </div>
+                          </div>
+                           <?php } ?>   
+
+                          <div class="col-sm-12 form-group ">      
+                            <input type="text"  name="invite_msg" class='form-control' placeholder="Send message">          
+                          </div>                          
+
+                        <div class="action text-center">
+                            <button type="submit" class="btn-primary">Invite</button>                            
+                        </div>
+                    </form>
+                  
+                </div>
+                
+          </div>
+        </div>
+      </div>
+<!-- end group popup mode -->
 
 <!-- Footer
     ================================================= -->
@@ -2018,6 +2148,7 @@ body {
 
 <!-- Scripts
     ================================================= --> 
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="<?php echo base_url ('assets/js/jquery-3.1.1.min.js') ?>"></script> 
 <script src="<?php echo base_url ('assets/js/bootstrap.min.js') ?>"></script> 
@@ -2035,9 +2166,207 @@ body {
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.js')?>"></script>   
 <script src="<?php echo base_url('assets/js/moment.js')?>"></script> 
 <script src="<?php echo base_url('assets/js/bootbox.js')?>"></script> <!-- conformation delete boot box -->
-
+<script src="<?php echo base_url('assets/js/select2.min.js')?>"></script> 
 
 <script>
+
+// here mltiple email add 
+(function( $ ){
+ 
+     $.fn.multipleInput = function() {
+ 
+          return this.each(function() {
+ 
+               // create html elements
+ 
+               // list of email addresses as unordered list
+               $list = $('<ul />');
+ 
+               // input
+               var $input = $('<input type="text" class="form-control" placeholder="Type Invites Email" style="font-size:14px;" />').keyup(function(event) {
+ 
+                    if(event.which == 32 || event.which == 188) {
+                         // key press is space or comma
+                        var val = $(this).val().slice(0, -1); // remove space/comma from value
+ 
+                         // append to list of emails with remove button
+                         $list.append($('<li class="multipleInput-email"><span> ' + val + '</span></li>')
+                              .append($('<a href="#" class="multipleInput-close" title="Remove">x</a>')
+                                   .click(function(e) {
+                                        $(this).parent().remove();
+                                        e.preventDefault();
+                                   })
+                              )
+                         );
+                         $(this).attr('placeholder', '');
+                         // empty input
+                         $(this).val('');
+                    }
+ 
+               });
+ 
+               // container div
+               var $container = $('<div class="multipleInput-container" />').click(function() {
+                    $input.focus();
+               });
+ 
+               // insert elements into DOM
+               $container.append($list).append($input).insertAfter($(this));
+ 
+               // add onsubmit handler to parent form to copy emails into original input as csv before submitting
+               var $orig = $(this);
+               $(this).closest('form').submit(function(e) {
+ 
+                    var emails = new Array();
+                    $('.multipleInput-email span').each(function() {
+                         emails.push($(this).html());
+                    });
+                    emails.push($input.val());
+ 
+                    $orig.val(emails.join());
+ 
+               });
+ 
+               return $(this).hide();
+ 
+          });
+ 
+     };
+})( jQuery );
+
+$('#multi_email').multipleInput();
+
+
+// hide phone number type text      
+function isNumberKey(evt) {
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}
+
+//event_id could pass to email model popup using popup id
+$('#modal_email').on('show.bs.modal', function(e) 
+  {
+    var event_id = $(e.relatedTarget).data('id');
+    var title =    $(e.relatedTarget).data('title-id');
+    $(e.currentTarget).find('input[name="event_id"]').val(event_id);
+     $(e.currentTarget).find('input[name="title"]').val(title);
+    });
+
+
+// submit model popup by invite by email
+var base_url = '<?php echo base_url() ?>'; //form submited
+$(document).ready(function(){
+
+    $(document).on("submit", ".invite_email_form", function(e){
+         e.preventDefault();
+        var url = $(this).attr('action');
+        var formdata = new FormData(this);
+      
+        $.ajax({
+                url : url,
+                context:this,
+                method: 'POST',
+                data: formdata,
+                processData: false,
+                contentType: false,
+                dataType:'json',
+                context:this,   //here we use this function so declare here
+                error: function(xhr,status,error)
+                {   
+                    alert(xhr.responseText);
+                },              
+                
+                success: function(response)
+                {
+                   if(response.status == 'success')
+                   {
+                      $('#email_success').show();
+                       window.location.href = base_url + 'eventhubb/get_eventhubb';                                                        
+                    }else 
+                     {                    
+                        swal("Sorry!", "something wrong try again !", "error");
+                     }
+                }
+
+            });
+        });
+});
+
+
+
+//event_id could pass to group model popup using popup id
+$('#modal_group').on('show.bs.modal', function(e) 
+  {
+    var event_id = $(e.relatedTarget).data('id');
+     var title =    $(e.relatedTarget).data('title-id');
+    $(e.currentTarget).find('input[name="event_id"]').val(event_id);
+    $(e.currentTarget).find('input[name="title"]').val(title);
+    });
+
+
+// submit model popup by invite by group
+var base_url = '<?php echo base_url() ?>'; //form submited
+$(document).ready(function(){
+
+    $(document).on("submit", ".invite_group_form", function(e){
+         e.preventDefault();
+        var url = $(this).attr('action');
+        var formdata = new FormData(this);
+      
+        $.ajax({
+                url : url,
+                context:this,
+                method: 'POST',
+                data: formdata,
+                processData: false,
+                contentType: false,
+                dataType:'json',
+                context:this,   //here we use this function so declare here
+                error: function(xhr,status,error)
+                {   
+                    alert(xhr.responseText);
+                },              
+                
+                success: function(response)
+                {
+                   if(response.status == 'success')
+                   {
+                      $('#group_success').show();
+                       window.location.href = base_url + 'eventhubb/get_eventhubb';                                                        
+                    }else 
+                     {                    
+                        swal("Sorry!", "something wrong try again !", "error");
+                     }
+                }
+
+            });
+        });
+});
+
+
+//event_id could pass to email model popup using popup id
+$('#modal_personal').on('show.bs.modal', function(e) 
+  {
+    var user_name = $(e.relatedTarget).data('id');
+    // var test = json_decode(user_name);
+   
+    $(e.currentTarget).find('input[name="user_name"]').val(user_name);
+    // var user_array = user_name.split(",");
+   
+
+  });
+
+
+  //video controls hide and show mouse hover  
+    $('.myvideo').hover(function toggleControls() {  
+    if (this.hasAttribute("controls")) {
+        this.removeAttribute("controls")
+    } else {
+        this.setAttribute("controls", "controls")
+    }
+})
 
 
 //video controls hide and show mouse hover  

@@ -197,24 +197,188 @@ img.profile-photo-2 {
 
 <!-- Header
     ================================================= -->
-<header id="header">
-  <nav class="navbar navbar-default navbar-fixed-top menu">
+ <header id="header">
+  <nav class="navbar navbar-default navbar-fixed-top menu" style="padding-top:3px!important; padding-bottom:3px!important;">
     <div class="container"> 
       
       <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header"> <a class="navbar-brand" href="<?php echo base_url('event/get_eventfeed'); ?>"> <img src="<?php echo base_url ('assets/images/logo.png') ?>" alt="logo" /></a> </div>
+      <div class="navbar-header" style="position:relative; z-index:969696;"> <a class="navbar-brand" href="<?php echo base_url('event/get_eventfeed'); ?>"><img src="<?php echo base_url ('assets/images/logo.png') ?>" alt="logo" /></a> </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style="position:relative;">
-        <ul class="nav navbar-nav navbar-right main-menu" style="color:#fff; margin-top: 10px; margin-right:5px; font-size:25px;">
-          <a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none;"> <span style="font-size:14px;  background:#e91e63; padding:5px 10px; border-radius:13px; color:#fff;"><img src="<?php echo base_url('assets/images/home-icon.png'); ?>" alt="user" /> Home</span> </a> <a href="<?php echo base_url('event/event_popup'); ?>" style="text-decoration:none;"><span style="font-size:14px;  background:#757575; padding:5px 10px; border-radius:13px; color:#fff;"><img src="<?php echo base_url('assets/images/create-event-icon-3.png'); ?>" alt="user" /> Create Event</span> </a> <a href="<?php echo base_url('home/logout'); ?>" style="text-decoration:none;"><span style="font-size:14px;  padding:5px 10px; border-radius:5px; color:#fff;"><img src="<?php echo base_url('assets/images/logout-icon.png'); ?>" alt="user" />Logout</span> </a>
+        <ul class="nav navbar-nav navbar-right main-menu" style="color:#fff; margin-top: 0px; margin-right:0px; font-size:25px;">
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "><a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/home-icon-1.png'); ?>" alt="user" /><br>
+            Home </a></li>
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"> <img src="<?php echo base_url('assets/images/notification-icon.png'); ?>" alt="user" /> <br>
+            My Alerts <i class="fa fa-caret-down"></i> </a>
+            <ul class="dropdown-menu login">
+              <div>
+                <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;"><strong><i class="icon ion-android-notifications-none"></i> Alerts</strong></div>
+              </div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-10">Vineture  didn't get any new likes this week. Publish a post to engage your audience.
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 15 Hours Ago</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-10">Emeka added a New Event on Hari's Birthday. Lets Check!!
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 13 Hours Ago</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-10">It's Nickybeit Enjoy's birthday today. Help him celebrate!
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal; margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> Yesterday at 10:45pm</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div>
+                <div class="col-md-12">
+                  <div class="text-center"><a href="#" style="color:#555; text-align:center;" >See all</a></div>
+                </div>
+              </div>
+            </ul>
+          </li>
+          <li class="dropdown" style="margin-left:10px; margin-right:10px; text-align:center;"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"> <img src="<?php echo base_url('assets/images/chat-icon.png'); ?>" alt="user" /><br>
+            Friend Requests <i class="fa fa-caret-down"></i> </a>
+            <ul class="dropdown-menu login">
+              <div>
+                <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;"><strong><i class="icon ion-ios-person-outline"></i> Friend Requests</strong></div>
+              </div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Vicky
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Emeka
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Hari
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 10 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div> <a href="#" style="color:#333;" >
+                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-4">Roshan
+                  <div class="pull-left" style="color:#555; width:100%;">
+                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 4 Mutual Friends</p>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
+                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
+                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                </a></div>
+              <div>
+                <div class="col-md-12">
+                  <div class="text-center"><a href="#" style="color:#555; text-align:center;" >See all</a></div>
+                </div>
+              </div>
+            </ul>
+          </li>
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "><a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/chat-icon-1.png'); ?>" alt="user" /><br>
+            Messaging </a></li>
+          <li class="dropdown" style="text-align:center; margin-left:10px; margin-right:10px;"><a href="<?php echo base_url('event/event_popup'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/create-event-icon-1.png'); ?>" alt="user" /><br>
+            Create Event </a></li>
+         
+          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; padding-left:10px; padding-right:10px; border-left:1px solid #ccc;"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"><img src="<?php echo base_url('assets/images/prof-icon.png'); ?>" alt="user" /><br>
+            Profile <i class="fa fa-caret-down"></i> </a>
+            <ul class="dropdown-menu login">
+              <div>
+                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;">
+                 <div style="width:10%; float:left;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo" style="width:30px; height:30px;" /></div>
+                 <div style="width:90%; float:left;"><strong> Saranya Chandrasekaran</strong><br> 
+                 <span style="font-size:13px; color:#999;">Web developer at Vineture Inc.</span></div>
+                </div>
+              </div>
+              <div> 
+                
+                <div class="col-md-12 text-center">
+                <span style="color:e91e63;"><a href="#" style="color:#e91e63;" ><strong>View Profile</strong></a></span>
+                  
+                </div>
+                 <div class="col-md-12">
+               <div class="col-md-12" style="background:#f5f5f5; padding-top:5px; padding-bottom:5px;"><span style="color:e91e63;"><a href="#" style="color:#222; font-size:15px;" >My Account</a></span></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Settings</a></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Privacy Policy</a></div>
+                 
+                </div>
+                <div class="col-md-12">
+               <div class="col-md-12" style="background:#f5f5f5; padding-top:5px; padding-bottom:5px;"><span style="color:e91e63;"><a href="#" style="color:#222; font-size:15px;" >Manage</a></span></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Edit Profile</a></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> My Event Feed</a></div>
+                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> My Interests</a></div>
+                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
+                </div>
+                
+                </div>
+              
+           
+              <div>
+                <div class="col-md-12">
+                  <div class="col-md-12">
+  <div class="text-left"><a href="<?php echo base_url('home/logout'); ?>" style="color:#333; text-align:left;" >Logout</a></div>
+                  </div>
+                </div>
+              </div>
+            </ul>
+            </li>
         </ul>
-        <form class="navbar-form navbar-right hidden-sm" style="position:absolute; right:325px; top:0px;" >
+        <form class="navbar-form navbar-right hidden-sm" style="position:absolute; left:210px; top:0px;" >
           <div class="form-group"> <i class="icon ion-android-search"></i>
-            <input type="text" class=" form-control live-search-box" name="" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px; min-width:330px;" />
+            <input type="text" class="search form-control live-search-box" id="searchbox" name="friends_search" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px;" />
             <br/>
-            
-            <!-- <input type="text" class="search form-control" id="searchbox" name="friends_search" placeholder="Search !Events, !Venues, !Wowtags, !People">                 
-                        --> 
-          </div>
+            <span id="display1"> </span> </div>
         </form>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling --> 
@@ -234,26 +398,38 @@ img.profile-photo-2 {
    
   </div>
 </div>
+
+      <div class="container"> 
+       
+            <div class="col-md-12" style="border:1px solid #ccc; border-radius: 7px; margin-top: 10px; padding-top: 15px; padding-bottom: 20px; box-shadow: 1px 1px 1px 2px #f5f5f5;">
+    
+               <div class="col-md-12">
+                  <div class="row">                    
+                    <div class="col-md-12 col-sm-12 text-center" style="margin-top:15px;">
+                      <div class="col-md-12 ">            
+                          <img src="<?php echo base_url('assets/images/create_grp_empty_icon_hdpi.png');?>">            
+                      </div>
+
+                       <div class="col-md-12 ">            
+                          <h3 style="color: #333;">Lets Connect all your Friends/members in your group</h3>
+                          <h4 style="color: #777;">Find, Share & Invite them</h4>
+                          <h5 style="color: #333;">Don't have a Group till yet?</h5>
+                      </div>
+                    </div>                 
+
+                    <div class="col-md-12 col-sm-12 text-center" style="margin-top:15px;">
+                      <div class="col-md-12 ">                        
+                          <a href="#" data-toggle="modal" data-target=".modal-1"><button type="submit" class="btn btn-primary">+ Create Group</button></a>                        
+                      </div>
+                    </div>                        
+                </div>
+              </div>
+        </div>
+       
+          </div>
 </div>
 
- <div class="row">
-        <div class="col-md-12 col-sm-12 text-center" style="margin-top:15px;">
-          <div class="col-md-12 ">
-            
-              <a href="#" data-toggle="modal" data-target=".modal-1"><button type="submit" class="btn btn-primary">+ Create Group</button></a>
-            
-          </div>
-        </div>
-
-        <div class="col-md-12 col-sm-12 text-center" style="margin-top:15px;">
-          <div class="col-md-12 ">
-            
-              <img src="<?php echo base_url('assets/images/no_results_icon.png');?>">
-            
-          </div>
-        </div>
-            
-      </div>
+ 
 
 <!-- create group modrl popup -->
 <div class="modal fade modal-1" tabindex="-1" role="dialog" aria-hidden="true">
@@ -270,27 +446,19 @@ img.profile-photo-2 {
                                 <div class="user-info">
                                  <div class="row" style="padding:10px;">                              
                    
-                   <form action="<?php echo base_url('searchfriends/create_group'); ?>">
+                   <form id="create_group" action="<?php echo base_url('searchfriends/create_group'); ?>" method="post">
                             <div class="row" >                              
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class="">Name Your Group</label>
-                                <input  type="text" class="form-control input-group-lg"  name="group_name" placeholder="Ex.Wowhubb Group"  />
+                                <input  type="text" class="form-control input-group-lg"  name="group_name" placeholder="Ex.Wowhubb Group" style="text-transform: capitalize;" />
                               </div>
                             </div>
-
-                            <!-- <div class="row">   
-                              <div class="form-group col-xs-12">
-                                <label for="date-to" class="">Add Some People</label>
-                                 <input type="text" class="search form-control" id="searchbox" name="people_add" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px;" />
-                                 <span id="display1"> </span>
-                                 <input type="text" id="name_id">
-                              </div>
-                            </div>     -->   
+                           
 
                              <div class="row">   
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class="">Add Some People</label>
-                                  <select id="select-client" class="form-control" style="width: 350px;">
+                                  <select id="select-client" name="users_name[]" class="form-control" style="width:100%!important;" >
                             
                                   </select>
                               </div>
@@ -299,11 +467,10 @@ img.profile-photo-2 {
                             <div class="row">   
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class="">Select Privacy</label>
-                                <select name="privacy" id="days" class="form-control" style="background-color:#f5f5f5;">
+                                <select name="group_type" id="days" class="form-control" style="background-color:#f5f5f5;">
                                       <option value="Public Group">Public Group</option>
                                       <option value="Closed Group">Closed Group</option>
-                                      <option value="Secret Group">Secret Group</option>    
-                                                                          
+                                      <option value="Secret Group">Secret Group</option>                                                                       
                                 </select>
                               </div>
                             </div>
@@ -331,6 +498,7 @@ img.profile-photo-2 {
     ================================================= --> 
 
 <script src="<?php echo base_url ('assets/js/jquery-3.1.1.min.js') ?>"></script> 
+
 <script src="<?php echo base_url ('assets/js/bootstrap.min.js') ?>"></script> 
 <script src="<?php echo base_url ('assets/js/jquery.validate.js') ?>"></script> 
 <script src="<?php echo base_url ('assets/js/additional-methods.js') ?>"></script> 
@@ -341,6 +509,7 @@ img.profile-photo-2 {
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script> 
 <script src="<?php echo base_url('assets/js/select2.min.js')?>"></script> 
+
 <script>
 
 // select search option
@@ -348,71 +517,63 @@ var base_url = '<?php echo base_url() ?>';
 
 var studentSelect = $('#select-client');
 
-var data=[{
-full_name:"chirag patel",
-id:"patel"
-},{
-full_name:"patel",
-id:"patel1"
-}]
+// var data=[{
+// firstname:"chirag patel",
+// id:"patel"
+// },{
+// firstname:"patel",
+// id:"patel1"
+// }]
 
-for(var i=0;i<data.length;i++){
-var option = new Option(data[i].full_name, data[i].id, true, true);
-studentSelect.append(option).trigger('change');
-}
+// for(var i=0;i<data.length;i++){
+// var id=i;
+// var option = new Option(data[i].firstname, id, true, true);
+// studentSelect.append(option).trigger('change');
 
-// manually trigger the `select2:select` event
-studentSelect.trigger({
-  type: 'select2:select',
-  params: {
-    data: data
+// }
+
+
+function formatRepo (repo) {
+  // this first name came from serice
+return repo.firstname;
   }
-  
-});
-
-
-    function formatRepo (repo)
-      {
-          return repo.firstname;
-      }
 
   function formatRepoSelection (repo) {
-    return repo.firstname || repo.text;
+    return repo.firstname || repo.text;    
   }
 
+
 $("#select-client").select2({
-           
-      multiple:true,
-
-            ajax: {
-
-                    url: base_url+'searchfriends/search_friends/',
-                    dataType: 'json',
-                    delay: 250,
-                    data: function (params) {
-                      return {
-                        q: params.term
-                      };
-                    },
-                    processResults: function (data) {     
-                      return {
-                        results: data.message
-                      };
-                    },
-                    cache: true
-                  },
-
-                  escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
-                  minimumInputLength: 1,
-                  templateResult: formatRepo, // omitted for brevity, see the source of this page
-                  templateSelection: formatRepoSelection, // omitted for brevity, see the source of this page
-                  placeholder: "Enter name"
+  multiple:true,
+  ajax: {
+    url: base_url+'searchfriends/search_friends/',
+    dataType: 'json',
+    delay: 250,
+    data: function (params) {
+      return {
+        // here send name to service
+        q: params.term
+      };
+    },
+    processResults: function (data) {
+      // parse the results into the format expected by Select2.
+      // since we are using custom formatting functions we do not need to
+      // alter the remote JSON data
+      return {
+        // this result came from web service
+        results: data.result    
+      };
+    },
+    cache: true
+  },
+  escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+  minimumInputLength: 1,
+  templateResult: formatRepo, // omitted for brevity, see the source of this page
+  templateSelection: formatRepoSelection, // omitted for brevity, see the source of this page
+  placeholder: "Enter name"
 });
 
 
-//   $(document).ready(function() {
-//     $('.live-search-list').select2();
-// });
 //search option form submit
 var base_url = '<?php echo base_url() ?>'; //form submited
 $(document).ready(function(){
@@ -464,6 +625,47 @@ $("#display1 li").on("click",  function(e){
     console.log("test");
     // $this.addClass("select").siblings().removeClass("select");
     $("#searchbox").val(test);
+});
+
+// create group form submit
+
+var base_url = '<?php echo base_url() ?>'; //form submited
+$(document).ready(function(){
+
+    $(document).on("submit", "#create_group", function(e){
+         e.preventDefault();
+        var url = $(this).attr('action');
+        var formdata = new FormData(this);
+      
+        $.ajax({
+                url : url,
+                context:this,
+                method: 'POST',
+                data: formdata,
+                processData: false,
+                contentType: false,
+                dataType:'json',
+                context:this,   //here we use this function so declare here
+                error: function(xhr,status,error)
+                {   
+                    alert(xhr.responseText);
+                },              
+                
+                success: function(response)
+                {
+                   if(response.status == 'success')
+                   {
+                      swal("Success!", "Group created !", "success");     
+                      window.location.href = "<?php echo base_url('event/get_eventfeed'); ?>";                                                 
+                    }
+                    else 
+                     {                    
+                        swal("Sorry!", "somethink wrong try again !", "error");
+                     }
+                }
+
+            });
+        });
 });
 
 </script>

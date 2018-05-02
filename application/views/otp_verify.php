@@ -62,7 +62,9 @@
         <a class="navbar-brand" href="#"><img src="<?php echo base_url ('assets/images/logo.png') ?>" alt="logo" /></a> </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right main-menu" style="color:#fff; font-size:25px;">
-          Join Wowhubb Network <br> <span style="font-size:13px; background:#e91e63; padding:5px 10px; border-radius:5px;">Enjoy Your Event Hosting Experience</span>
+          <a style="text-decoration: none;" href="<?php echo base_url('Home/login'); ?>">
+           <span style="font-size:13px; background:#e91e63; color:#fff;  padding:5px 10px; border-radius:5px;">Log In Here</span>
+         </a>
         </ul>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling --> 
@@ -82,8 +84,8 @@
             <div class="contact-us" style=" padding: 20px 40px;">
             	<div class="row">
             		<div class="col-md-12 col-sm-12">
-                  <h2 class="black" >Wowhubb OTP</h2>
-                  <span style="color:#333; font-size: 15px">Please type the OTP (One time Password) </span></h2><hr>
+                  <h2 class="black" >Verification Code</h2>
+                  <span style="color:#333; font-size: 15px">You Will recieve a verication code via your registered Mail or Phone please enter code to continue </span></h2><hr>
             <form id = "login_form" action ="<?php echo base_url('Home/otp_validation'); ?>" method="post" class="contact-form">
                    
                     <div class="form-group" >
@@ -99,7 +101,7 @@
                   
                       <button type="submit" class="btn-primary" style="margin-left: 200px;"> Submit </button>
                 
-           </form>
+            </form>
                 </div>
             		
             	</div>
@@ -159,8 +161,8 @@ $(document).on("submit", "#login_form", function(e){
                 {
                    if(response.status == 'success')
                    {
-                    //alert('success');
-                    window.location.href = "<?php echo base_url('Home/firsttime_interest') ?>";
+                   
+                      window.location.href = "<?php echo base_url('home/login') ?>";
                    
                    }else 
                    {

@@ -144,18 +144,18 @@ public function search_friends() //add search and friend request
 			   	// echo $search_val;
 			   	$search =array('search' => $user_id);
 			   	$json_data = json_encode($search);
-			   	$result = $this->rest->post('http://104.197.80.225:3010/wow/network/friendsuggestion',$json_data,'json');
+			   	$result = $this->rest->post('http://104.197.80.225:3010/wow/network/groupfriendsuggestion',$json_data,'json');
 
 			  
 			   	$myJSON = json_encode($result);
 			  
 			   	echo $myJSON;
+
 			  
-			  
+			
+	}	
 
-	}
-
-
+// send data to create group
 public function create_group() 
 	{
 
@@ -163,11 +163,163 @@ public function create_group()
 
 		$this->rest->http_header('token', $this->session->userdata('token'));
 		$group =array('groupname'  => $this->input->post('group_name'),	
-						'users' 	=> $this->input->post('people_add'));
+					    'users'    => $this->input->post('users_name'));
 		$json_data = json_encode($group);
 		$result = $this->rest->post('http://104.197.80.225:3010/wow/group/creategroup',$json_data,'json');
-		print_r($result);
+
+		if($result->success)
+			{		 
+				$response['status'] = 'success'; 
+				$response['message'] = $result->message;
+			}
+		else 
+		   {	
+				$response['status'] = 'failed';
+		 	 	$response['message'] = $result->message;
+		    }
+		echo json_encode($response);
 		
 	}
+
+// get group name 
+public function get_group()
+{
+		$this->rest->http_header('token', $this->session->userdata('token'));
+		$group =array();
+		$json_data = json_encode($group);
+		$result = $this->rest->post('http://104.197.80.225:3010/wow/group/fetchgroups',$json_data,'json');
+		$data['group_name'] = $result->groups;
+
+		$this->load->view('friends/grouphubb', $data);
+		
+}
+
+// delete group
+public function delete_group($id)
+{
+	$response = array(); 
+	$this->rest->http_header('token', $this->session->userdata('token'));
+	$group =array('groupid' => $id);
+	$json_data = json_encode($group);
+	$result = $this->rest->post('http://104.197.80.225:3010/wow/group/deletegroup',$json_data,'json');
+	
+	if($result ->success == true)
+			{		 
+				$response['status'] = 'success'; 
+				
+			}
+		  	else 
+		   	{	
+				 $response['status'] = 'failed';
+		 	 	 $response['message'] = $result->message;
+		    }
+		 echo json_encode($response);
+}
+
+// Edit group
+public function edit_group()
+{
+	$response = array(); 
+
+	$this->rest->http_header('token', $this->session->userdata('token'));
+	$group =array('groupid'    => $this->input->post('event_id'),	
+				  'groupname'  => $this->input->post('g_name'),	
+				  'users'      => $this->input->post('members_name[]'));
+	$json_data = json_encode($group);
+	$result = $this->rest->post('http://104.197.80.225:3010/wow/group/editgroup',$json_data,'json');
+
+		
+	if($result ->success == true)
+			{		 
+				$response['status'] = 'success'; 
+				
+			}
+		  	else 
+		   	{	
+				 $response['status'] = 'failed';
+		 	 	 $response['message'] = $result->message;
+		    }
+		 echo json_encode($response);
+}
+
+// invite email 
+public function invite_email()
+{
+			$response = array(); 
+
+			$pass_var = $this->input->post('event_id');			
+
+	   		$this->rest->http_header('token', $this->session->userdata('token'));		   		   	
+		  	$data = array('eventid' => $this->input->post('event_id'),
+		  	  				'message' => $this->input->post('invite_msg'),
+		  					'email'   => $this->input->post('email[]'));
+		   	$json_data = json_encode($data); 
+		   	$result = $this->rest->post('http://104.197.80.225:3010/wow/event/emailinvite',$json_data,'json');
+
+		   	if($result ->success == true)
+			{		 
+				 $response['status'] = 'success'; 
+				
+			}
+		  	else 
+		   	{	
+				 $response['status'] = 'failed';
+		 	 	
+		    }
+			echo json_encode($response);
+		   
+}
+
+
+// invite group 
+public function invite_group()
+{
+		$response = array(); 
+	
+	   		 $this->rest->http_header('token', $this->session->userdata('token'));		   		   	
+		  	  $data = array('eventid' => $this->input->post('event_id'),
+		  	  				'message' => $this->input->post('invite_msg'),		  	  				
+		  					'groupid' => $this->input->post('group_name'));
+
+		   	 $json_data = json_encode($data); 
+		   	 $result = $this->rest->post('http://104.197.80.225:3010/wow/event/groupemailinvite',$json_data,'json');
+		   	 
+		   	if($result ->success == true)
+			{		 
+				 $response['status'] = 'success'; 
+				
+			}
+		  	else 
+		   	{	
+				 $response['status'] = 'failed';
+		 	 	
+		    }
+		echo json_encode($response);
+		   
+}
+
+
+
+public function search_email() //add search email
+   {
+
+				$user_id = $this->input->get('q'); 
+
+			   	$this->rest->http_header('token', $this->session->userdata('token'));
+			   	// $search_val =  str_replace("?","",$search_val );
+			   	// echo $search_val;
+			   	$search =array('email' => $user_id);
+			   	$json_data = json_encode($search);
+			   	$result = $this->rest->post('http://104.197.80.225:3010/wow/network/groupfriendsuggestion',$json_data,'json');
+
+			  
+			   	$myJSON = json_encode($result);
+			  
+			   	echo $myJSON;
+
+			  
+			
+	}	
+
 
 }

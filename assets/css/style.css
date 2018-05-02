@@ -51,7 +51,7 @@ html, body {
 }
 
 body{
-  font-family: 'Source Sans Pro', sans-serif !important;
+  font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif !important;
   background-image:url(../images/bg.png);
   background-repeat:repeat;
   line-height: 26px;
@@ -74,7 +74,7 @@ body{
     src: url("../fonts/agency-fb.ttf") /* TTF file for CSS3 browsers */
 }
 
-h1, h2, h3, h4, h5, h6{color: #e91e63;}
+h1, h2, h3, h4, h5, h6{color: #333;}
 
 h1.grey, h2.grey, h3.grey, h4.grey, h5.grey, h6.grey{
   color: #6d6e71;
@@ -243,7 +243,7 @@ ul{
 }
 
 ul li{
-  list-style-image: url("../images/bullet.png");
+  /*list-style-image: url("../images/bullet.png");*/
 }
 
 .line{
@@ -345,8 +345,8 @@ textarea{
 
 .menu ul.main-menu li.dropdown a{
   color: #fff;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight:normal;
 }
 
 .menu ul.main-menu li.dropdown a:hover, .menu ul.main-menu li.dropdown a:active, .menu ul.main-menu li.dropdown a:focus{

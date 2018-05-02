@@ -11,6 +11,10 @@ class Nearbyevents extends CI_Controller
 
 	}
 
+public function nearby_event_without()
+{
+	 $this->load->view('nearbyevent/nearby_event_landing_withoutlogin');
+}
 // get my own wowtag video
 public function get_wowtag_video()  
 	{ 

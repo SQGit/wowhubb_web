@@ -248,7 +248,7 @@ table, td, tr {
                 <p>Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu mauris eus, cum eros quis aliquam wisi. Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi, mi mattis pariatur aliquam pharetra eget.</p>
                 </div>
                 <div class="row text-center">
-                  <a href="<?php echo base_url('service/service_provider_form'); ?>" >
+                  <a href="<?php echo base_url('Eventserviceprovider/service_provider_form'); ?>" >
                     <button type="submit" class="btn btn-primary">Create Your Event Service Page</button>
                   </a>
              </div>
@@ -304,7 +304,7 @@ table, td, tr {
       <div class="col-md-12 col-sm-12" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px;">
         <div class="col-md-5">
         <div class=" text-left" style="color:#333; padding-bottom:10px;">
-              <strong style="font-size:17px;">EVENT PROFESSIONAL VENDORS<br>
+              <strong style="font-size:17px;">EVENT VENUE PROVIDERS<br>
               </strong> List Your Event Services To local Clients Around you</div>
         <img src="../assets/images/crb-image-2.jpg" class="img-responsive img-thumbnail" ></div> 
       <div class="col-md-7">
@@ -342,7 +342,7 @@ table, td, tr {
       <div class="col-md-12 col-sm-12" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px;">
         <div class="col-md-5">
         <div class=" text-left" style="color:#333; padding-bottom:10px;">
-              <strong style="font-size:17px;">EVENT VENUE PROVIDERS<br>
+              <strong style="font-size:17px;">EVENT PROFESSIONAL VENDORS <br>
               </strong> List Your Event Venue Locally And Get Daily Business Leads</div>
         <img src="../assets/images/crb-image-3.jpg" class="img-responsive img-thumbnail" ></div> 
       <div class="col-md-7">
@@ -364,21 +364,17 @@ table, td, tr {
      
       <div class="col-md-12" style="margin-top:5px;">
         <div class="row text-center">
-                 <a href="<?php echo base_url('service/service_provider_form'); ?>" > 
+                 <a href="<?php echo base_url('Eventserviceprovider/service_provider_form'); ?>" > 
                   <button type="submit" class="btn btn-primary">Create Your Event Service Page</button>
                 </a>
              </div>
       </div>
       </div>
-      </div></div>
+      </div>
+    </div>
       
       </div>
       
-
-      
-      
-      
-
       
     </div>
   </div>

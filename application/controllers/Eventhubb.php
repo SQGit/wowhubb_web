@@ -25,8 +25,28 @@ public function get_eventhubb()
 
 			   	$result = $this->rest->post('http://104.197.80.225:3010/wow/event/hubbfeeds',$json_data,'json');	
 			   	$data['eventhubbfeed'] = $result->message;
+			   	
+			   	$this->get_gruop();	
+			   	$data['group_name'] = $this->get_gruop();			    	
+
 			   	$this->load->view('eventhubb/event_hubb', $data);
 	}
+
+// get group name 
+public function get_gruop()
+{
+				$this->rest->http_header('token',  $this->session->userdata('token'));
+
+		 		$data = array();
+			   	$json_data = json_encode($data);  
+			   	$group_name = $this->rest->post('http://104.197.80.225:3010/wow/group/fetchgroups',$json_data,'json');
+			   
+			   	if($group_name->success == true)
+			   	  	{	
+				   	  $data['group_name'] = $group_name->groups;
+				   	   return $data['group_name'];  //here variable send to get_eventhubb
+			   	   	} 
+}
 
 public function edit_eventdetails()
 	{

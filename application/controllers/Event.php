@@ -672,6 +672,8 @@ public function professional_multicity_event()
 		     $end_date   = $_POST['event_enddate'];		    
 		     $s_date = date('Y/m/d', strtotime($start_date)); 
 		     $e_date = date('Y/m/d', strtotime($end_date));  
+		     $s_time = str_replace(' ', '',$this->input->post('event_startime'));
+		     $e_time = str_replace(' ', '',$this->input->post('event_endtiming'));  
  			
 		   	$header1 = array('token:'           .$token,
 		   					'eventtype:'        .$this->input->post('event_type'), 
@@ -679,8 +681,8 @@ public function professional_multicity_event()
 							'eventtypeint:'     ."2",
 							'eventname:'        .$this->input->post('event_name'),	
 							'tickettype:'       .$this->input->post('ticket_type'),	
-							'eventstartdate:'	.$s_date.' '.$this->input->post('event_startime'),
-							'eventenddate:'   	.$e_date.' '. $this->input->post('event_endtiming'),
+							'eventstartdate:'	.$s_date.' '.$s_time,
+							'eventenddate:'   	.$e_date.' '.$e_time,
 							'ticketprice:'      .$this->input->post('ticket_price'),
 							'eventticketurl:'   .$this->input->post('ticket_url'),
 							'eventdescription:' .$this->input->post('event_description'),

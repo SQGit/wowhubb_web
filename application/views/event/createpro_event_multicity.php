@@ -13,12 +13,12 @@
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/ionicons.min.css') ?>" />
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/font-awesome.min.css') ?>" />
 <link rel="stylesheet" href="<?php echo base_url ('assets/js/sweetalert.css')?>" />
+<link rel="stylesheet" href="<?php echo base_url ('assets/css/wickedpicker.css')?>" />
 <!-- calender links -->
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/jquery.datetimepicker.css')?>" />
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/custom/css/form-wizard-blue.css') ?>">
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/theme-styles.css')?>" />
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/animate.css')?>" />
-
 
 <!-- file upload -->
 
@@ -476,202 +476,26 @@ li.keywordSearch-email {
 
 
 <body class="landing-page">
+	<!-- loading swal for full page hide -->
+	<div class="swal"></div>
+
 <div class="content-bg-wrap">
   <div class="content-bg"></div>
 </div>
 
 <!-- Header
     ================================================= -->
- <header id="header">
-  <nav class="navbar navbar-default navbar-fixed-top menu" style="padding-top:3px!important; padding-bottom:3px!important;">
-    <div class="container"> 
+  <header id="header">
+      <nav class="navbar navbar-default navbar-fixed-top menu" style="padding-top:3px!important; padding-bottom:3px!important;">
+        <div class="container"> 
       
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header" style="position:relative; z-index:969696;"> <a class="navbar-brand" href="<?php echo base_url('event/get_eventfeed'); ?>"><img src="<?php echo base_url ('assets/images/logo.png') ?>" alt="logo" /></a> </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style="position:relative;">
-        <ul class="nav navbar-nav navbar-right main-menu" style="color:#fff; margin-top: 0px; margin-right:0px; font-size:25px;">
-          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "><a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/home-icon-1.png'); ?>" alt="user" /><br>
-            Home </a></li>
-          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"> <img src="<?php echo base_url('assets/images/notification-icon.png'); ?>" alt="user" /> <br>
-            My Alerts <i class="fa fa-caret-down"></i> </a>
-            <ul class="dropdown-menu login">
-              <div>
-                <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;"><strong><i class="icon ion-android-notifications-none"></i> Alerts</strong></div>
-              </div>
-              <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
-                <div class="col-md-10">Vineture  didn't get any new likes this week. Publish a post to engage your audience.
-                  <div class="pull-left" style="color:#555; width:100%;">
-                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 15 Hours Ago</p>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                </a></div>
-              <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
-                <div class="col-md-10">Emeka added a New Event on Hari's Birthday. Lets Check!!
-                  <div class="pull-left" style="color:#555; width:100%;">
-                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 13 Hours Ago</p>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                </a></div>
-              <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
-                <div class="col-md-10">It's Nickybeit Enjoy's birthday today. Help him celebrate!
-                  <div class="pull-left" style="color:#555; width:100%;">
-                    <p style="font-weight:normal; margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> Yesterday at 10:45pm</p>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                </a></div>
-              <div>
-                <div class="col-md-12">
-                  <div class="text-center"><a href="#" style="color:#555; text-align:center;" >See all</a></div>
-                </div>
-              </div>
-            </ul>
-          </li>
-          <li class="dropdown" style="margin-left:10px; margin-right:10px; text-align:center;"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"> <img src="<?php echo base_url('assets/images/chat-icon.png'); ?>" alt="user" /><br>
-            Friend Requests <i class="fa fa-caret-down"></i> </a>
-            <ul class="dropdown-menu login">
-              <div>
-                <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;"><strong><i class="icon ion-ios-person-outline"></i> Friend Requests</strong></div>
-              </div>
-              <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
-                <div class="col-md-4">Vicky
-                  <div class="pull-left" style="color:#555; width:100%;">
-                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p>
-                  </div>
-                </div>
-                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
-                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
-                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
-                </div>
-                <div class="col-md-12">
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                </a></div>
-              <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
-                <div class="col-md-4">Emeka
-                  <div class="pull-left" style="color:#555; width:100%;">
-                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p>
-                  </div>
-                </div>
-                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
-                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
-                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
-                </div>
-                <div class="col-md-12">
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                </a></div>
-              <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
-                <div class="col-md-4">Hari
-                  <div class="pull-left" style="color:#555; width:100%;">
-                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 10 Mutual Friends</p>
-                  </div>
-                </div>
-                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
-                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
-                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
-                </div>
-                <div class="col-md-12">
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                </a></div>
-              <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
-                <div class="col-md-4">Roshan
-                  <div class="pull-left" style="color:#555; width:100%;">
-                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 4 Mutual Friends</p>
-                  </div>
-                </div>
-                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
-                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
-                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
-                </div>
-                <div class="col-md-12">
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                </a></div>
-              <div>
-                <div class="col-md-12">
-                  <div class="text-center"><a href="#" style="color:#555; text-align:center;" >See all</a></div>
-                </div>
-              </div>
-            </ul>
-          </li>
-          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "><a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/chat-icon-1.png'); ?>" alt="user" /><br>
-            Messaging </a></li>
-          <li class="dropdown" style="text-align:center; margin-left:10px; margin-right:10px;"><a href="<?php echo base_url('event/event_popup'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/create-event-icon-1.png'); ?>" alt="user" /><br>
-            Create Event </a></li>
-         
-          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; padding-left:10px; padding-right:10px; border-left:1px solid #ccc;"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"><img src="<?php echo base_url('assets/images/prof-icon.png'); ?>" alt="user" /><br>
-            Profile <i class="fa fa-caret-down"></i> </a>
-            <ul class="dropdown-menu login">
-              <div>
-                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;">
-                 <div style="width:10%; float:left;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo" style="width:30px; height:30px;" /></div>
-                 <div style="width:90%; float:left;"><strong> Saranya Chandrasekaran</strong><br> 
-                 <span style="font-size:13px; color:#999;">Web developer at Vineture Inc.</span></div>
-                </div>
-              </div>
-              <div> 
-                
-                <div class="col-md-12 text-center">
-                <span style="color:e91e63;"><a href="#" style="color:#e91e63;" ><strong>View Profile</strong></a></span>
-                  
-                </div>
-                 <div class="col-md-12">
-               <div class="col-md-12" style="background:#f5f5f5; padding-top:5px; padding-bottom:5px;"><span style="color:e91e63;"><a href="#" style="color:#222; font-size:15px;" >My Account</a></span></div>
-                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Settings</a></div>
-                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Privacy Policy</a></div>
-                 
-                </div>
-                <div class="col-md-12">
-               <div class="col-md-12" style="background:#f5f5f5; padding-top:5px; padding-bottom:5px;"><span style="color:e91e63;"><a href="#" style="color:#222; font-size:15px;" >Manage</a></span></div>
-                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Edit Profile</a></div>
-                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> My Event Feed</a></div>
-                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> My Interests</a></div>
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                
-                </div>
-              
-           
-              <div>
-                <div class="col-md-12">
-                  <div class="col-md-12">
-  <div class="text-left"><a href="<?php echo base_url('home/logout'); ?>" style="color:#333; text-align:left;" >Logout</a></div>
-                  </div>
-                </div>
-              </div>
-            </ul>
-            </li>
-        </ul>
-        <form class="navbar-form navbar-right hidden-sm" style="position:absolute; left:210px; top:0px;" >
-          <div class="form-group"> <i class="icon ion-android-search"></i>
-            <input type="text" class="search form-control live-search-box" id="searchbox" name="friends_search" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px;" />
-            <br/>
-            <span id="display1"> </span> </div>
-        </form>
-      </div>
-      <!-- Collect the nav links, forms, and other content for toggling --> 
-      <!-- /.navbar-collapse --> 
-    </div>
-    <!-- /.container --> 
-  </nav>
-</header>
+          <?php  include('/../includes/header.php'); ?>
+        </div>
+        <!-- /.container --> 
+      </nav>
+  </header>
+<!--Header End-->
+
 <div class="google-maps"> </div>
 <!--Header End-->
 
@@ -793,12 +617,12 @@ li.keywordSearch-email {
 		                    </div>
 		                    <div class='form-group col-sm-12' >
 		                      <label>Event Name</label>
-		                      <input type='text'  name="event_name" class="form-control " />
+		                      <input type='text'  name="event_name" class="form-control required" />
 		                    </div>		                    
 
-		                    <div class="form-group col-sm-12" style="font-size: 15px;">
+		                    <div class="form-group col-sm-12 " style="font-size: 15px;">
 				                      <label>Select Event Days</label>
-				                     <select name="event_totaldays" id="btn-add-tab" class="form-control " >
+				                     <select name="event_totaldays" id="btn-add-tab" class="form-control required" >
 				                      <option value="">Select Event Days</option>
 				                      <option value="1">1 Day Event</option>
 				                      <option value="2">2 Days Event</option>
@@ -814,7 +638,7 @@ li.keywordSearch-email {
 
 			                    <div class='form-group col-sm-6' style="width:45%;" >
 			                      <label>Currrent Event Start Date</label>
-			                      <input type='text' id="event_startdate" name="event_startdate"  class="form-control "  />
+			                      <input type='text' id="event_startdate" name="event_startdate"  class="form-control required"  />
 			                    </div>
 
 			                    <div  class='form-group col-sm-6' style="width:45%; " >
@@ -836,6 +660,7 @@ li.keywordSearch-email {
 
 		                </div>
 
+		            <div class='row'>   
 		                <div class='form-group col-sm-12' >
                     				<label> Organisation Name </label>
                      			<!-- company name show here from login page -->
@@ -858,7 +683,8 @@ li.keywordSearch-email {
 			                 	</select>                    
 			           
 		            			<!-- company name show end here  -->
-                    		</div>
+                    	</div>
+                    </div>
 
 
 <!-- here country rupee shows -->
@@ -1115,7 +941,7 @@ li.keywordSearch-email {
 			                <div class='row'>
 				                    <div class='form-group col-sm-12'>
 				                      <label>Event Description</label>
-				                      <textarea type='text' id="description" name="event_description"  class="form-control " style="min-height:150px;" placeholder="Describe What Your Event Is All About " ></textarea>
+				                      <textarea type='text' id="description" name="event_description"  class="form-control required" style="min-height:150px;" placeholder="Describe What Your Event Is All About " ></textarea>
 				                    </div>
 				                    <div class='form-group col-sm-12'>
 					                      <div class='col-sm-12' style="background-color:#f9f9f9;">
@@ -1125,23 +951,23 @@ li.keywordSearch-email {
 						                        <div class="field" align="left">
 						                         		<input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('files').click();" />
 						                         		<div id="img_preview1"></div>
-						                         		<input type="file" style="display:none;" name="cover_img" id="files" class="file " accept="image/*" title="cover image">  
+						                         		<input type="file" style="display:none;" name="cover_img" id="files" class="file required" accept="image/*" title="cover image">  
 						                        </div> 
 					                        </div>		                        
 					                      </div>
 				                    </div>
 
 				                    <div class='form-group col-sm-12' style="margin-top: 10px;">
-					                      <div class='col-sm-12' style="background-color:#f9f9f9;">
+					                    <div class='col-sm-12' style="background-color:#f9f9f9;">
 					                        <label>Organisation Logo</label>
 					                        <label>Please browse to upload Organisation Logo</label>
 					                        <div class="form-group" style="margin-bottom: 10px;"> 
 						                        <div class="field" align="left">
-						                         		<input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('logo').click();" />
-						                         		<input type="file" style="display:none;" name="logo_img" id="logo" class="file" accept="image/*" title="cover image">  
+						                         	<input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('logo').click();" />
+						                         	<input type="file" style="display:none;" name="logo_img" id="logo" class="file" accept="image/*" title="cover image">  
 						                        </div> 
 					                        </div>		                        
-					                      </div>
+					                    </div>
 				                    </div>
 			                </div>
                 	</div>
@@ -1448,18 +1274,22 @@ li.keywordSearch-email {
                       </div>
                       <div class="form-group">
                       	<span class="btn btn-primary btn-file"> 
-                       	 Browse...<input type="file" name="wowtag_video" id="video_size" class=" file" accept="video/*">
+                       	 Browse...<input type="file" name="wowtag_video" id="video_size" class="file required" accept="video/*">
                        	</span>
 
                         <div id="video_show" style="display: none;" >
-                        	<div class="remove_video3" style="cursor: pointer;">
+                        	<div class="remove_wowtag" style="cursor: pointer;">
 		                       <i class="fa fa-window-close" style="font-size:25px; margin-left: 171px;"></i>
 		                    </div>
                         	<video width="200" height="110" controls>
 							 	 <source src="mov_bbb.mp4" id="video_here">
 							    Your browser does not support HTML5 video.
 							</video>
+							<audio id="video_url"></audio>
                         </div>
+                        <!-- alert msg show here -->
+                        <div class="alert_msg" style="color: red; font-weight: bold; font-size: 16px;" ></div>
+
                         <div class="input-group col-xs-12" style="margin-top:0px;">
                           <p>Choose a compelling 60-120 seconds event promotional ads video that will create a lasting impression in your viewers mind</p>
                         </div>                        
@@ -2029,7 +1859,7 @@ li.keywordSearch-email {
 
 		                    <div class='form-group col-sm-6'>
 		                      <label>Event Start Time</label>
-		                      <input type='text' id="tour_startime_1" name="eventtour_startime[]"  class="event_startime form-control "  />
+		                      <input type='text' id="tour_startime_1" name="eventtour_startime[]"  class="day_start_time form-control "  />
 		                    </div>
 		                   
 		                    <div class='form-group col-sm-6' >
@@ -2039,7 +1869,7 @@ li.keywordSearch-email {
 
 		                    <div class='form-group col-sm-6'>
 		                      <label>Event End Time</label>
-		                      <input type='text' id="tour_endtiming_1" name="eventtour_endtiming[]"  class="event_endtiming form-control "  />
+		                      <input type='text' id="tour_endtiming_1" name="eventtour_endtiming[]"  class="day_end_time form-control "  />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
@@ -2784,7 +2614,8 @@ li.keywordSearch-email {
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script>   
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.js')?>"></script>   
 <script src="<?php echo base_url('assets/js/moment.js')?>"></script> 
- 
+ <!-- time picker -->
+ <script src="<?php echo base_url('assets/js/wickedpicker.js')?>"></script>  
 <!-- model popup bootstrap --> 
 <script src="<?php echo base_url('assets/js/bootstrap3.3.4.min.js')?>"></script> 
 
@@ -2827,130 +2658,110 @@ $('#create_proffesional_event_multicity').on('keyup keypress', function(e) {
 });		
 
 
-// event start time picker
-  $("#event_startime").datetimepicker(
-		  	{ 
-               datepicker:false,   //12 hours time format 
-                format:'g:i A',
-                formatTime: 'g:i A',
-                mask:'29:59 99',  
-                step: 5,   
-                ampm: true 
-                                    
-             });
+// event start time and end time picker step 1
+$("#event_startime").wickedpicker();		
+ 
+$("#event_endtiming").wickedpicker();
 
-  $("#event_endtiming").datetimepicker(
-            { 
-                datepicker:false,   //12 hours time format 
-                format:'g:i A',
-                formatTime: 'g:i A',
-                mask:'29:59 99',  
-                step: 5,   
-                ampm: true 
-             });
 
    // event start date and end date time 
 
-   $('body').on('focus',".event_startdate", function(){   //dynamically add date
-    	$(this).datetimepicker(
-    	{
+$('body').on('focus',".event_startdate", function(){   //dynamically add date
+    $(this).datetimepicker({    	
     		format:'M-d-Y',      
     		timepicker:false,
     		minDate: 0,  
-    	});
-    
-	});
+    });
+});
 
-    $('body').on('focus',".event_enddate", function(){   //dynamically add date
-    	$(this).datetimepicker(
-    	{
+$('body').on('focus',".event_enddate", function(){   //dynamically add date
+    $(this).datetimepicker({
     		format:'M-d-Y',      
     		timepicker:false,
     		minDate: 0,  
-    	});
-    
-	});
-
-	$('body').on('focus',".event_startime", function(){   //dynamically add time
-    	$(this).datetimepicker(
-    	{
-    			datepicker:false,   //12 hours time format 
-                format:'h:i A',
-                formatTime: 'h:i A',
-                // mask:'29:59 99',  
-                step: 5,   
-                ampm: true 
-    	});
-    
-	});
-
-
-	$('body').on('focus',".event_endtiming", function(){   //dynamically add time
-    	$(this).datetimepicker(
-    	{
-    			datepicker:false,   //12 hours time format 
-                format:'h:i A',
-                formatTime: 'h:i A',
-                // mask:'29:59 99',  
-                step: 5,   
-                ampm: true  
-    	});
-    
-	});
-
-
-  //wowtag run from and to date
-      $("#runtime_from").datetimepicker({      
-	                format:'M-d-Y',      
-	               	timepicker:false,  
-	               	minDate:0,   
-	               	onShow:function( ct )
-	               	{
-				  	 	this.setOptions({			  	 				   		
-				    	maxDate:jQuery('#event_enddate').val()?jQuery('#event_enddate').val():false
-				    	
-				   })
-				  },	                  
-   	  
     });
+    
+});
 
-    $("#totime_to").datetimepicker({      
-                format:'M-d-Y',      
-               	timepicker:false,
-               	 	onShow:function( ct )
-	               	{
-				  	 	this.setOptions({			  	 				   		
-				    	maxDate:jQuery('#event_enddate').val()?jQuery('#event_enddate').val():false,
-				    	minDate:jQuery('#event_startdate').val()?jQuery('#event_startdate').val():false
-				   })
-				  },	
-    });
+//event pgm schedule day  and event tour start and end time 
+
+$('body').on('focus',".day_end_time", function(){   //dynamically add time
+    $(this).wickedpicker();
+});
+
+$('body').on('focus',".day_start_time", function(){   //dynamically add time
+      $(this).wickedpicker();      
+    
+});
+
+//wowtag run from and to date
+$("#runtime_from").datetimepicker({      
+	format:'M-d-Y',      
+	timepicker:false,  
+	minDate:0,   
+	onShow:function( ct )
+	    {
+			this.setOptions({			  	 				   		
+				maxDate:jQuery('#event_enddate').val()?jQuery('#event_enddate').val():false
+			})
+		},	                  
+});
+
+$("#totime_to").datetimepicker({      
+    format:'M-d-Y',      
+    timepicker:false,
+    onShow:function( ct )
+	{
+		this.setOptions({			  	 				   		
+			maxDate:jQuery('#event_enddate').val()?jQuery('#event_enddate').val():false,
+			minDate:jQuery('#event_startdate').val()?jQuery('#event_startdate').val():false
+		})
+	},	
+});
 
 
-//video size limitation cover video     
+//video size and duration limitation cover video     
 
-$(document).on("change", "#video_size", function(evt)
-        {
-        		var file = this.files[0];
+$(document).on("change", "#video_size", function(e)
+{
 
-        		if (file.size > 2621440)
-        		 {
-		               //Now Here I need to update <span> 
-		             $('#video_show').hide();	
-		             alert('Filesize must 2.5MB or below');           
-         		 }else
-         		 {	
-				  var $source = $('#video_here');				 
-				  $source[0].src = URL.createObjectURL(this.files[0]);
-				  $source.parent()[0].load();
-				  $('#video_show').show();	
-				   $(".remove_video3").click(function () { 
+    var file = e.currentTarget.files[0];
+  	//check file extension for audio/video type
+  	if(file.name.match(/\.(avi|mp3|mp4|mpeg|ogg)$/i)){
+    	var obUrl = URL.createObjectURL(file);
+    	document.getElementById('video_url').setAttribute('src', obUrl);
+   
+  	}
+
+	var myVideoPlayer = document.getElementById('video_url');
+    
+	myVideoPlayer.addEventListener('loadedmetadata', function () {
+    	var duration = myVideoPlayer.duration;
+    	// console.log("Duration is " + duration.toFixed(0) + " seconds.");
+
+    	if (duration >= 120 )
+        	{
+		        $('#video_show').hide();	         
+		        $('.alert_msg').text("Pls upload 2 Mins video");  
+		        $('.alert_msg').show(); 		       
+
+         	}else
+         		{	
+				  	var $source = $('#video_here');				 
+				  	$source[0].src = URL.createObjectURL(e.currentTarget.files[0]);
+				  	$source.parent()[0].load();
+				  	$('#video_show').show();	
+				  	$('.alert_msg').hide();
+
+				  	$(".remove_wowtag").click(function () { 
 			               	$('#video_show').hide();                 
 			                $('#video_size').val("");
 
-		                });   			  
-				 }
-				});
+		            }); 	              			  
+				}
+	});
+
+});
 
 
 //dynamically add event venue address
@@ -3059,9 +2870,7 @@ function update_vanue() {
     }); 
 
      $('.venueselectpicker').append(option_template);
-     $('.event_venue_details_show').append(step_to_venue);
-    
-     // console.log('.event_venue_details_show') ; 
+     $('.event_venue_details_show').append(step_to_venue);    
 
 }
 
@@ -3071,7 +2880,7 @@ function update_vanue() {
 
 function generate_tour_fields(count)
  {	
-	var tour_address  = '<div id="event_tour_'+count+'" class="animated bounceInRight tab1"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_tour_name_'+count+'" name="event_tour_name[]"  class="form-control"  /> </div> <div class="form-group col-sm-6"> <label>Event Start Date</label> <input type="text" id="tour_startdate_'+count+'" name="eventtour_startdate[]"  class="event_startdate form-control " onblur="update_tour()"  /> </div> <div class="form-group col-sm-6"> <label>Event Start Time</label> <input type="text" id="tour_startime_'+count+'" name="eventtour_startime[]"  class="event_startime form-control "  /> </div> <div class="form-group col-sm-6" > <label>Event End Date</label> <input type="text" id="tour_enddate_'+count+'" name="eventtour_enddate[]"  class="event_enddate form-control " onblur="update_tour()" /> </div> <div class="form-group col-sm-6"> <label>Event End Time</label> <input type="text" id="tour_endtiming_'+count+'" name="eventtour_endtiming[]"  class="event_endtiming form-control "  /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="tour_address1_'+count+'" name="tour_address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="tour_address2_'+count+'" name="tour_address2[]"  class="form-control" /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="tour_city_'+count+'" name="tour_city[]" class="form-control" onblur="update_tour()" /> </div> <div class="form-group col-sm-12"> <label>Country</label> <select id="tour_country_'+count+'" name="tour_country[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="">Country </option> <option value="Afghanistan">Afghanistan </option> <option value="Albania">Albania </option> <option value="Algeria">Algeria </option> <option value="American Samoa">American Samoa </option> <option value="Andorra">Andorra </option> <option value="Angola">Angola </option> <option value="Australia">Australia </option> <option value="Bahamas">Bahamas </option> <option value="Bahrain">Bahrain </option> <option value="Bangladesh">Bangladesh </option> <option value="Barbodos">Barbodos </option> <option value="Canada">Canada </option> <option value="Cape Verde">Cape Verde </option> <option value="Chile">Chile </option> <option value="China">China </option> <option value="Colombia">Colombia </option> <option value="Denmark">Denmark </option> <option value="Dominica">Dominica </option> <option value="Dominican Republic">Dominican Republic </option> <option value="Finland">Finland </option> <option value="France">France </option> <option value="French Guiana">French Guiana </option> <option value="Gabon">Gabon </option> <option value="Gambia">Gambia </option> <option value="Greece">Greece </option> <option value="Greenland">Greenland </option> <option value="Hong Kong">Hong Kong </option> <option value="Hungary">Hungary </option> <option value="Iceland">Iceland </option> <option value="India">India </option> <option value="Iraq">Iraq </option> <option value="Ireland">Ireland </option> <option value="Italy">Italy </option> <option value="Jamaica">Jamaica </option> <option value="Japan">Japan </option> <option value="Kenya">Kenya </option> <option value="Kuwait">Kuwait </option> <option value="Latvia">Latvia </option> <option value="Lebanon">Lebanon </option> <option value="Liberia">Liberia </option> <option value="Macao">Macao </option> <option value="Madagaskar">Madagaskar </option> <option value="Malawi">Malawi </option> <option value="Malaysia">Malaysia </option> <option value="Mali">Mali </option> <option value="Malta">Malta </option> <option value="Mexico">Mexico </option> <option value="Monaco">Monaco </option> <option value="Myanmar">Myanmar </option> <option value="Nepal">Nepal </option> <option value="Netherlands">Netherlands </option> <option value="Niger">Niger </option> <option value="Norway">Norway </option> <option value="Oman">Oman </option> <option value="Pakistan">Pakistan </option> <option value="Palau">Palau </option> <option value="Panama">Panama </option> <option value="Peru">Peru </option> <option value="Philippines">Philippines </option> <option value="Poland">Poland </option> <option value="Qatar">Qatar </option> <option value="Romania">Romania </option> <option value="Russian Federation">Russian Federation </option> <option value="Samoa">Samoa </option> <option value="Senegal">Senegal </option> <option value="Spain">Spain </option> <option value="Srilanka">Srilanka </option> <option value="Switzerland">Switzerland </option> <option value="Thailand">Thailand </option> </select> </div><div class="form-group col-sm-6"> <label>Ticket URL</label> <input type="text" id="ticket_url_'+count+'" name="tour_ticket_url[]" class="form-control" /> </div> <div class="form-group col-sm-6"> <label>Ticket Price</label> <input type="text" id="ticket_price_'+count+'" name="tour_ticket_price[]" class="form-control" onblur="update_tour()" /> </div> <div class="form-group col-sm-12"> <label>Zipcode/ Postal Code</label> <input type="number" id="tour_zipcode_'+count+'" name="tour_zipcode[]"  class="form-control"  /> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnremove" class="remove_tour btn btn-info btn-sm"> </a> </div> </div>';
+	var tour_address  = '<div id="event_tour_'+count+'" class="animated bounceInRight tab1"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_tour_name_'+count+'" name="event_tour_name[]"  class="form-control"  /> </div> <div class="form-group col-sm-6"> <label>Event Start Date</label> <input type="text" id="tour_startdate_'+count+'" name="eventtour_startdate[]"  class="event_startdate form-control " onblur="update_tour()"  /> </div> <div class="form-group col-sm-6"> <label>Event Start Time</label> <input type="text" id="tour_startime_'+count+'" name="eventtour_startime[]"  class="day_start_time form-control "  /> </div> <div class="form-group col-sm-6" > <label>Event End Date</label> <input type="text" id="tour_enddate_'+count+'" name="eventtour_enddate[]"  class="event_enddate form-control " onblur="update_tour()" /> </div> <div class="form-group col-sm-6"> <label>Event End Time</label> <input type="text" id="tour_endtiming_'+count+'" name="eventtour_endtiming[]"  class="day_end_time form-control "  /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="tour_address1_'+count+'" name="tour_address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="tour_address2_'+count+'" name="tour_address2[]"  class="form-control" /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="tour_city_'+count+'" name="tour_city[]" class="form-control" onblur="update_tour()" /> </div> <div class="form-group col-sm-12"> <label>Country</label> <select id="tour_country_'+count+'" name="tour_country[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="">Country </option> <option value="Afghanistan">Afghanistan </option> <option value="Albania">Albania </option> <option value="Algeria">Algeria </option> <option value="American Samoa">American Samoa </option> <option value="Andorra">Andorra </option> <option value="Angola">Angola </option> <option value="Australia">Australia </option> <option value="Bahamas">Bahamas </option> <option value="Bahrain">Bahrain </option> <option value="Bangladesh">Bangladesh </option> <option value="Barbodos">Barbodos </option> <option value="Canada">Canada </option> <option value="Cape Verde">Cape Verde </option> <option value="Chile">Chile </option> <option value="China">China </option> <option value="Colombia">Colombia </option> <option value="Denmark">Denmark </option> <option value="Dominica">Dominica </option> <option value="Dominican Republic">Dominican Republic </option> <option value="Finland">Finland </option> <option value="France">France </option> <option value="French Guiana">French Guiana </option> <option value="Gabon">Gabon </option> <option value="Gambia">Gambia </option> <option value="Greece">Greece </option> <option value="Greenland">Greenland </option> <option value="Hong Kong">Hong Kong </option> <option value="Hungary">Hungary </option> <option value="Iceland">Iceland </option> <option value="India">India </option> <option value="Iraq">Iraq </option> <option value="Ireland">Ireland </option> <option value="Italy">Italy </option> <option value="Jamaica">Jamaica </option> <option value="Japan">Japan </option> <option value="Kenya">Kenya </option> <option value="Kuwait">Kuwait </option> <option value="Latvia">Latvia </option> <option value="Lebanon">Lebanon </option> <option value="Liberia">Liberia </option> <option value="Macao">Macao </option> <option value="Madagaskar">Madagaskar </option> <option value="Malawi">Malawi </option> <option value="Malaysia">Malaysia </option> <option value="Mali">Mali </option> <option value="Malta">Malta </option> <option value="Mexico">Mexico </option> <option value="Monaco">Monaco </option> <option value="Myanmar">Myanmar </option> <option value="Nepal">Nepal </option> <option value="Netherlands">Netherlands </option> <option value="Niger">Niger </option> <option value="Norway">Norway </option> <option value="Oman">Oman </option> <option value="Pakistan">Pakistan </option> <option value="Palau">Palau </option> <option value="Panama">Panama </option> <option value="Peru">Peru </option> <option value="Philippines">Philippines </option> <option value="Poland">Poland </option> <option value="Qatar">Qatar </option> <option value="Romania">Romania </option> <option value="Russian Federation">Russian Federation </option> <option value="Samoa">Samoa </option> <option value="Senegal">Senegal </option> <option value="Spain">Spain </option> <option value="Srilanka">Srilanka </option> <option value="Switzerland">Switzerland </option> <option value="Thailand">Thailand </option> </select> </div><div class="form-group col-sm-6"> <label>Ticket URL</label> <input type="text" id="ticket_url_'+count+'" name="tour_ticket_url[]" class="form-control" /> </div> <div class="form-group col-sm-6"> <label>Ticket Price</label> <input type="text" id="ticket_price_'+count+'" name="tour_ticket_price[]" class="form-control" onblur="update_tour()" /> </div> <div class="form-group col-sm-12"> <label>Zipcode/ Postal Code</label> <input type="number" id="tour_zipcode_'+count+'" name="tour_zipcode[]"  class="form-control"  /> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnremove" class="remove_tour btn btn-info btn-sm"> </a> </div> </div>';
 
         return tour_address;
 }
@@ -3232,33 +3041,7 @@ $('#event_startime').change(function() {
     $('#day1_start_time').val($(this).val());
 });
 
-//event schedule day start and end time 
 
-$('body').on('focus',".day_end_time", function(){   //dynamically add time
-      $(this).datetimepicker(
-      {
-          datepicker:false,   //12 hours time format 
-                format:'h:i A',
-                formatTime: 'h:i A',
-                // mask:'29:59 99',  
-                step: 5,   
-                ampm: true  
-      });
-    
-  });
-
-$('body').on('focus',".day_start_time", function(){   //dynamically add time
-      $(this).datetimepicker(
-      {
-          datepicker:false,   //12 hours time format 
-                format:'h:i A',
-                formatTime: 'h:i A',
-                // mask:'29:59 99',  
-                step: 5,   
-                ampm: true  
-      });
-    
-  });
 
 //dynamic add tab view for event days
  $(document).ready(function() {

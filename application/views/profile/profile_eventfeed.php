@@ -206,197 +206,16 @@ li.multipleInput-email {
 
     <!-- Header
     ================================================= -->
-	 <header id="header">
-  <nav class="navbar navbar-default navbar-fixed-top menu" style="padding-top:3px!important; padding-bottom:3px!important;">
-    <div class="container"> 
+  <header id="header">
+      <nav class="navbar navbar-default navbar-fixed-top menu" style="padding-top:3px!important; padding-bottom:3px!important;">
+        <div class="container"> 
       
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header" style="position:relative; z-index:969696;"> <a class="navbar-brand" href="<?php echo base_url('event/get_eventfeed'); ?>"><img src="<?php echo base_url ('assets/images/logo.png') ?>" alt="logo" /></a> </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style="position:relative;">
-        <ul class="nav navbar-nav navbar-right main-menu" style="color:#fff; margin-top: 0px; margin-right:0px; font-size:25px;">
-          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "><a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/home-icon-1.png'); ?>" alt="user" /><br>
-            Home </a></li>
-          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"> <img src="<?php echo base_url('assets/images/notification-icon.png'); ?>" alt="user" /> <br>
-            My Alerts <i class="fa fa-caret-down"></i> </a>
-            <ul class="dropdown-menu login">
-              <div>
-                <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;"><strong><i class="icon ion-android-notifications-none"></i> Alerts</strong></div>
-              </div>
-              <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
-                <div class="col-md-10">Vineture  didn't get any new likes this week. Publish a post to engage your audience.
-                  <div class="pull-left" style="color:#555; width:100%;">
-                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 15 Hours Ago</p>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                </a></div>
-              <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
-                <div class="col-md-10">Emeka added a New Event on Hari's Birthday. Lets Check!!
-                  <div class="pull-left" style="color:#555; width:100%;">
-                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 13 Hours Ago</p>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                </a></div>
-              <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
-                <div class="col-md-10">It's Nickybeit Enjoy's birthday today. Help him celebrate!
-                  <div class="pull-left" style="color:#555; width:100%;">
-                    <p style="font-weight:normal; margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> Yesterday at 10:45pm</p>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                </a></div>
-              <div>
-                <div class="col-md-12">
-                  <div class="text-center"><a href="#" style="color:#555; text-align:center;" >See all</a></div>
-                </div>
-              </div>
-            </ul>
-          </li>
-          <li class="dropdown" style="margin-left:10px; margin-right:10px; text-align:center;"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"> <img src="<?php echo base_url('assets/images/chat-icon.png'); ?>" alt="user" /><br>
-            Friend Requests <i class="fa fa-caret-down"></i> </a>
-            <ul class="dropdown-menu login">
-              <div>
-                <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;"><strong><i class="icon ion-ios-person-outline"></i> Friend Requests</strong></div>
-              </div>
-              <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
-                <div class="col-md-4">Vicky
-                  <div class="pull-left" style="color:#555; width:100%;">
-                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p>
-                  </div>
-                </div>
-                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
-                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
-                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
-                </div>
-                <div class="col-md-12">
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                </a></div>
-              <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
-                <div class="col-md-4">Emeka
-                  <div class="pull-left" style="color:#555; width:100%;">
-                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p>
-                  </div>
-                </div>
-                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
-                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
-                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
-                </div>
-                <div class="col-md-12">
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                </a></div>
-              <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
-                <div class="col-md-4">Hari
-                  <div class="pull-left" style="color:#555; width:100%;">
-                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 10 Mutual Friends</p>
-                  </div>
-                </div>
-                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
-                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
-                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
-                </div>
-                <div class="col-md-12">
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                </a></div>
-              <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
-                <div class="col-md-4">Roshan
-                  <div class="pull-left" style="color:#555; width:100%;">
-                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 4 Mutual Friends</p>
-                  </div>
-                </div>
-                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
-                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
-                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
-                </div>
-                <div class="col-md-12">
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                </a></div>
-              <div>
-                <div class="col-md-12">
-                  <div class="text-center"><a href="#" style="color:#555; text-align:center;" >See all</a></div>
-                </div>
-              </div>
-            </ul>
-          </li>
-          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "><a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/chat-icon-1.png'); ?>" alt="user" /><br>
-            Messaging </a></li>
-          <li class="dropdown" style="text-align:center; margin-left:10px; margin-right:10px;"><a href="<?php echo base_url('event/event_popup'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/create-event-icon-1.png'); ?>" alt="user" /><br>
-            Create Event </a></li>
-         
-          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; padding-left:10px; padding-right:10px; border-left:1px solid #ccc;"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"><img src="<?php echo base_url('assets/images/prof-icon.png'); ?>" alt="user" /><br>
-            Profile <i class="fa fa-caret-down"></i> </a>
-            <ul class="dropdown-menu login">
-              <div>
-                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;">
-                 <div style="width:10%; float:left;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo" style="width:30px; height:30px;" /></div>
-                 <div style="width:90%; float:left;"><strong> Saranya Chandrasekaran</strong><br> 
-                 <span style="font-size:13px; color:#999;">Web developer at Vineture Inc.</span></div>
-                </div>
-              </div>
-              <div> 
-                
-                <div class="col-md-12 text-center">
-                <span style="color:e91e63;"><a href="#" style="color:#e91e63;" ><strong>View Profile</strong></a></span>
-                  
-                </div>
-                 <div class="col-md-12">
-               <div class="col-md-12" style="background:#f5f5f5; padding-top:5px; padding-bottom:5px;"><span style="color:e91e63;"><a href="#" style="color:#222; font-size:15px;" >My Account</a></span></div>
-                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Settings</a></div>
-                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Privacy Policy</a></div>
-                 
-                </div>
-                <div class="col-md-12">
-               <div class="col-md-12" style="background:#f5f5f5; padding-top:5px; padding-bottom:5px;"><span style="color:e91e63;"><a href="#" style="color:#222; font-size:15px;" >Manage</a></span></div>
-                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Edit Profile</a></div>
-                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> My Event Feed</a></div>
-                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> My Interests</a></div>
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                
-                </div>
-              
-           
-              <div>
-                <div class="col-md-12">
-                  <div class="col-md-12">
-  <div class="text-left"><a href="<?php echo base_url('home/logout'); ?>" style="color:#333; text-align:left;" >Logout</a></div>
-                  </div>
-                </div>
-              </div>
-            </ul>
-            </li>
-        </ul>
-        <form class="navbar-form navbar-right hidden-sm" style="position:absolute; left:210px; top:0px;" >
-          <div class="form-group"> <i class="icon ion-android-search"></i>
-            <input type="text" class="search form-control live-search-box" id="searchbox" name="friends_search" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px;" />
-            <br/>
-            <span id="display1"> </span> </div>
-        </form>
-      </div>
-      <!-- Collect the nav links, forms, and other content for toggling --> 
-      <!-- /.navbar-collapse --> 
-    </div>
-    <!-- /.container --> 
-  </nav>
-</header>
-    <!--Header End-->
+          <?php  include('/../includes/header.php'); ?>
+        </div>
+        <!-- /.container --> 
+      </nav>
+  </header>
+<!--Header End-->
 
     <div class="container">
 
@@ -534,7 +353,7 @@ li.multipleInput-email {
                            
                               if($feeds->eventtype == 'thought')  
                                 {                              
-                                  // print_r($feeds);
+                                  
                   ?>
 
         <div class="container post-content">
@@ -1707,14 +1526,13 @@ li.multipleInput-email {
 
                               <div style="margin-top: 1px; padding:0px;">
                                 <p style="line-height: 17px; color:#000; font-weight:bold; font-size:10px; margin-bottom:0;">
-                                    <!-- <div style="line-height: 20px; margin-top: 5px;"> -->
+                                    
                                       <span style="line-height: 20px; text-transform: uppercase; font-weight: bold; font-size: 14px;">
                                     <?php 
 
                                        if(isset($feeds->runtimefrom) ) 
                                         {                                        
-                                          $timestamp = strtotime($feeds->runtimefrom);
-                                        // $new_date = date('M', $timestamp);
+                                          $timestamp = strtotime($feeds->runtimefrom);                                       
                                          echo date('M', $timestamp);
                                     ?></span>  <br>
 
@@ -1726,10 +1544,9 @@ li.multipleInput-email {
                                   - <span style="font-size:10px; color:#333;"></span>
                                   <?php 
                                       $timestamp = strtotime($feeds->runtimeto);
-                                       echo date('D dS', $timestamp);
-                                      // echo date('h:i A l - dS F, Y', $timestamp);
+                                       echo date('D dS', $timestamp);                                     
                                    ?>
-                                 <!-- </div> -->
+                                
                                 </p>
                               </div>
 
@@ -1743,7 +1560,7 @@ li.multipleInput-email {
                                   <?php 
                                       $timestamp = strtotime($feeds->runtimeto);
                                        echo date('h:i A', $timestamp);
-                                      // echo date('h:i A l - dS F, Y', $timestamp);
+                                      
                                    }  ?>
                                   IST </p>
                               </div>
@@ -1769,7 +1586,7 @@ li.multipleInput-email {
             
                     <div class="col-md-12" style="position: relative;">
                       
-                      <div class="gallery" > <a class="test-popup-link" href='http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->coverpage; ?>' > <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->coverpage; ?>" alt="post-image" class="img-responsive post-image" /> </a> </div>
+                      <div class="gallery" > <a class="test-popup-link" href='<?php echo $feeds->coverpageurl; ?>' > <img src="<?php echo $feeds->coverpageurl; ?>" alt="post-image" class="img-responsive post-image" /> </a> </div>
                     </div>
 
                   <!-- here end cover image --> 
@@ -1828,9 +1645,9 @@ li.multipleInput-email {
                           <div class="col-md-12">
                                   <?php if(isset($feeds->wowtagvideo)) { ?>
                                       <div class="video">
-                                          <div class="col-md-4"> <a href="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->wowtagvideo; ?>" >
+                                          <div class="col-md-4"> <a href="<?php echo $feeds->wowtagvideourl; ?>" >
                                                 <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
-                                               <source src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->wowtagvideo; ?>" type="video/mp4">
+                                               <source src="<?php echo $feeds->wowtagvideourl; ?>" type="video/mp4">
                                                </video>
                                             </a> 
                                           </div>
@@ -1840,10 +1657,10 @@ li.multipleInput-email {
                               <!-- here start event highlight image -->              
                                    
                                   <div class="gallery">
-                                     <?php  if(isset($feeds->eventhighlights1) && ($feeds->eventhighlights1 != 'null') ) { ?>
+                                     <?php  if(isset($feeds->eventhighlights1url) && ($feeds->eventhighlights1url != 'null') ) { ?>
                                       <div class="col-md-4"> 
-                                            <a class="test-popup-link" href='http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->eventhighlights1; ?>' > 
-                                               <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->eventhighlights1; ?>" style="width:160px; height:88px;"  alt="user" class="img-responsive img-thumbnail"/>
+                                            <a class="test-popup-link" href='<?php echo $feeds->eventhighlights1url; ?>' > 
+                                               <img src="<?php echo $feeds->eventhighlights1url; ?>" style="width:160px; height:88px;"  alt="user" class="img-responsive img-thumbnail"/>
                                              </a> 
                                       </div>
                                       <?php } else {  ?>
@@ -1854,11 +1671,11 @@ li.multipleInput-email {
                                   </div>               
 
                                   <div class="video">
-                                    <?php  if(isset($feeds->eventhighlightsvideo1 ) && ($feeds->eventhighlightsvideo1 != 'null')) { ?>
+                                    <?php  if(isset($feeds->eventhighlights2url ) && ($feeds->eventhighlights2url != 'null')) { ?>
                                         <div class="col-md-4"> 
-                                             <a href="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->eventhighlightsvideo1; ?>" >
+                                             <a href="<?php echo $feeds->eventhighlights2url; ?>" >
                                               <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
-                                                   <source src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->eventhighlightsvideo1; ?>" type="video/mp4">
+                                                   <source src="<?php echo $feeds->eventhighlights2url; ?>" type="video/mp4">
                                                </video>
                                                </a> 
                                         </div>
@@ -1868,7 +1685,6 @@ li.multipleInput-email {
                           </div>                            
                       </div>
 
-         
                     <!-- comments shows here -->
           
                       <div class="col-md-12">
@@ -1901,15 +1717,8 @@ li.multipleInput-email {
                               <div class="pull-left" style="width:90%;"> Like. Reply.
                                  <span style="color:#B8B8B8;">
                                   <?php 
-                                      $timestamp = strtotime($com->commentedAt);
-                                       // echo date('D dS', $timestamp);
-                                     
-                                      // echo $comment_date;
-                                     // $time_test =  local_to_gmt($timestamp);
-                                       $comment_date = date('Y-m-d H:i:s', $timestamp);
-                                       // echo $comment_date;
-                                      // echo  date_default_timezone_get();
-                                      // echo strtotime(time());
+                                      $timestamp = strtotime($com->commentedAt);                                       
+                                      $comment_date = date('Y-m-d H:i:s', $timestamp);                                     
 
                                   ?>
                                  <time class="timeago" datetime="<?php echo $comment_date; ?>"></time>
@@ -1921,7 +1730,6 @@ li.multipleInput-email {
 
                       </div>
           
-
                           <?php
           
                             if(isset($feeds->comments))
@@ -1951,8 +1759,7 @@ li.multipleInput-email {
 
                             </div>
                             <div class="pull-left" style="width:90%;"> Like. Reply. <span style="color:#B8B8B8;">   <?php 
-                                        $timestamp = strtotime($com->commentedAt);
-                                         // echo date('D dS', $timestamp);
+                                        $timestamp = strtotime($com->commentedAt);                                       
                                         $comment_date = date('Y-m-d H:i:s', $timestamp);
                                      
                                ?>
@@ -2076,8 +1883,7 @@ li.multipleInput-email {
                               </ul>
                             </div>
                           </div>
-
-                          <!--div class="col-md-12 line-divider"></div> -->
+                          
                           <div class="col-md-12 user-info text-left" style="background-color:#f5f5f5; margin:0px 0px 15px 0px; border-radius:5px;">
                             <p style="font-size:18px; font-weight:normal;  height:25px; padding-top:5px;"><a href="#" style="color:#e91e63; text-decoration:none; font-weight: bold;"><span style="font-size: 22px; font-weight: bold; text-transform:capitalize;"></span>
 
@@ -2154,15 +1960,14 @@ li.multipleInput-email {
 
                               <div style="margin-top: 1px; padding:0px;">
                                 <p style="line-height: 17px; color:#000; font-weight:bold; font-size:10px; margin-bottom:0;">
-                                    <!-- <div style="line-height: 20px; margin-top: 5px;"> -->
-                                      <span style="line-height: 20px; text-transform: uppercase; font-weight: bold; font-size: 14px;">
+                                   
+                                    <span style="line-height: 20px; text-transform: uppercase; font-weight: bold; font-size: 14px;">
                                     <?php 
 
                                        if(isset($feeds->runtimefrom) ) 
                                         {                                        
-                                          $timestamp = strtotime($feeds->runtimefrom);
-                                        // $new_date = date('M', $timestamp);
-                                         echo date('M', $timestamp);
+                                          $timestamp = strtotime($feeds->runtimefrom);                                        
+                                          echo date('M', $timestamp);
                                     ?></span>  <br>
 
                                       <?php
@@ -2173,10 +1978,9 @@ li.multipleInput-email {
                                   - <span style="font-size:10px; color:#333;"></span>
                                   <?php 
                                       $timestamp = strtotime($feeds->runtimeto);
-                                       echo date('D dS', $timestamp);
-                                      // echo date('h:i A l - dS F, Y', $timestamp);
+                                       echo date('D dS', $timestamp);                                      
                                    ?>
-                                 <!-- </div> -->
+                                 
                                 </p>
                               </div>
 
@@ -2190,7 +1994,7 @@ li.multipleInput-email {
                                   <?php 
                                       $timestamp = strtotime($feeds->runtimeto);
                                        echo date('h:i A', $timestamp);
-                                      // echo date('h:i A l - dS F, Y', $timestamp);
+                                      
                                    }  ?>
                                   IST </p>
                               </div>
@@ -2213,7 +2017,7 @@ li.multipleInput-email {
             
                     <div class="col-md-12" style="position: relative;">
                       
-                      <div class="gallery" > <a class="test-popup-link" href='http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->coverpage; ?>' > <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->coverpage; ?>" alt="post-image" class="img-responsive post-image" /> </a> </div>
+                      <div class="gallery" > <a class="test-popup-link" href='<?php echo $feeds->coverpageurl; ?>' > <img src="<?php echo $feeds->coverpageurl; ?>" alt="post-image" class="img-responsive post-image" /> </a> </div>
                     </div>
 
                   <!-- here end cover image --> 
@@ -2273,9 +2077,9 @@ li.multipleInput-email {
                           <div class="col-md-12">
                                   <?php if(isset($feeds->wowtagvideo)) { ?>
                                       <div class="video">
-                                          <div class="col-md-4"> <a href="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->wowtagvideo; ?>" >
+                                          <div class="col-md-4"> <a href="<?php echo $feeds->wowtagvideourl; ?>" >
                                                 <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
-                                               <source src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->wowtagvideo; ?>" type="video/mp4">
+                                               <source src="<?php echo $feeds->wowtagvideourl; ?>" type="video/mp4">
                                                </video>
                                             </a> 
                                           </div>
@@ -2287,8 +2091,8 @@ li.multipleInput-email {
                                   <div class="gallery">
                                      <?php  if(isset($feeds->eventhighlights1) && ($feeds->eventhighlights1 != 'null') ) { ?>
                                       <div class="col-md-4"> 
-                                            <a class="test-popup-link" href='http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->eventhighlights1; ?>' > 
-                                               <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->eventhighlights1; ?>" style="width:160px; height:88px;"  alt="user" class="img-responsive img-thumbnail"/>
+                                            <a class="test-popup-link" href='<?php echo $feeds->eventhighlights1url; ?>' > 
+                                               <img src="<?php echo $feeds->eventhighlights1url; ?>" style="width:160px; height:88px;"  alt="user" class="img-responsive img-thumbnail"/>
                                              </a> 
                                       </div>
                                       <?php } else {  ?>
@@ -2299,12 +2103,12 @@ li.multipleInput-email {
                                   </div>               
 
                                   <div class="video">
-                                    <?php  if(isset($feeds->eventhighlightsvideo1) && ($feeds->eventhighlightsvideo1 != 'null') ) { ?>
+                                    <?php  if(isset($feeds->eventhighlights2url) && ($feeds->eventhighlights2url != 'null') ) { ?>
                                         <div class="col-md-4"> 
-                                             <a href="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->eventhighlightsvideo1; ?>" >
+                                             <a href="<?php echo $feeds->eventhighlights2url; ?>" >
                                               <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
-                                                   <source src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->eventhighlightsvideo1; ?>" type="video/mp4">
-                                               </video>
+                                                   <source src="<?php echo $feeds->eventhighlights2url; ?>" type="video/mp4">
+                                              </video>
                                                </a> 
                                         </div>
                                         <?php }   ?>              

@@ -211,7 +211,8 @@ public function login_auth()
 
 				 		$response['status'] = "success";
 				 		$checking = $this->login_check(); //this is login_check for first time function
-				 		$response['redirect_url'] = $checking;						
+				 		$response['redirect_url'] = $checking;	
+
 				 	}
 
 				 else if(isset($result->message) && ($result->message =='Otp verification is must'))
@@ -291,7 +292,8 @@ public function login_auth()
 
 			 			$response['status'] = "success";
 				 		$checking = $this->login_check();    //this is login_check function
-				 		$response['redirect_url'] = $checking;					 					
+				 		$response['redirect_url'] = $checking;		
+				 			 					
 			 	}
 			 	
 			 	else if(isset($result->message) && ($result->message =='Otp verification is must'))

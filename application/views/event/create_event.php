@@ -96,20 +96,9 @@
 		cursor: inherit;
 		display: block;
 	}
-	/*https://stackoverflow.com/questions/14199788/how-do-i-use-an-image-as-a-submit-button */ 
-	  #btnAdd4, #btnAdd5, #btnAdd6 {
-		background-image: url("<?php echo base_url('assets/images/Plus.png')?>");
-		background-repeat: no-repeat;
-		border: none;
-		width: 32px;
-		height: 32px;
-		cursor: pointer;
-		color: transparent;
-		background-color: transparent;
-		outline: none;
-	}
-	
-	#btnAdd10{
+
+	/*https://stackoverflow.com/questions/14199788/how-do-i-use-an-image-as-a-submit-button */ 	 
+	#btnAdd10,#remove_day{
 		background-image: url("<?php echo base_url('assets/images/close-outline-32.png')?>");
 		background-repeat: no-repeat;
 		border: none;
@@ -120,52 +109,8 @@
 		background-color: transparent;
 		outline: none;
 	}
-	#textAdd {
-		background-image: url("<?php echo base_url('assets/images/Plus.png')?>");
-		background-size: cover;
-		border: none;
-		width: 32px;
-		height: 32px;
-		cursor: pointer;
-		color: transparent;
-		background-color: transparent;
-		outline: none;
-	}
-	#imageUpload1 {
-		display: none;
-	}
-	#profileImage1 {
-		cursor: pointer;
-	}
-	#profile-container1 {
-		width: 150px;
-		height: 150px;
-	}
-	#imageUpload2 {
-		display: none;
-	}
-	#profileImage2 {
-		cursor: pointer;
-	}
-	#imageUpload3 {
-		display: none;
-	}
-	#profileImage3 {
-		cursor: pointer;
-	}
-	#imageUpload4 {
-		display: none;
-	}
-	#profile-container4 {
-		width: 150px;
-		height: 150px;
-	}
-	#imageUpload5 {
-		display: none;
-	}
-	#profileImage5 {
-		cursor: pointer;
-	}
+	
+	
 	.faq-cat-content {
 		margin-top: 25px;
 	}
@@ -1096,9 +1041,9 @@ input[type=number]::-webkit-outer-spin-button {
     </fieldset>
 
              
-              <!--  Step 5 -->
+              <!--  Step 5 event highlights-->
     <fieldset>
-            <!--<form id="create_event" action="" method="post" enctype="multipart/form-data" > --> 
+          
                <!-- Progress Bar -->
 	        <div class="progress">
 	                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="71.37" aria-valuemin="0" aria-valuemax="100" style="width: 71.37%"> </div>
@@ -1122,12 +1067,11 @@ input[type=number]::-webkit-outer-spin-button {
 		                          <p style="line-height:23px;">Choose a compelling 60-120 seconds event promotional ads video that will create a lasting impression in your viewers mind</p>
 		                        </div>
 
-		                         <input type="button" class="btn btn-primary"  value="Browse" onclick="document.getElementById('video_size1').click();" />
-		                         <div id="img_preview1"></div>
-		                         <input type="file" style="display:none;" name="highlight_img1" id="video_size1" class="file">
+		                        <input type="button" class="btn btn-primary"  value="Browse" onclick="document.getElementById('video_hightlight1').click();" />		                         
+		                        <input type="file" style="display:none;" name="highlight_img1" id="video_hightlight1" class="file">
 
 			                     	<div id="video_show1" style="display: none;" >
-			                     		<div class="remove_video1" style="cursor: pointer;">
+			                     		<div class="remove_highlightvideo1" style="cursor: pointer;">
 		                          			<i class="fa fa-times-rectangle" style="font-size:25px; margin-left: 171px;"></i>
 		                        		</div>
 			                        	<video width="200" height="110" controls>
@@ -1183,7 +1127,7 @@ input[type=number]::-webkit-outer-spin-button {
 		                         <input type="file" style="display:none;" name="highlight_img2" id="video_size2" class="file">
 
 			                     	<div id="video_show2" style="display: none;" >
-			                     		<div class="remove_video2" style="cursor: pointer;">
+			                     		<div class="remove_highlightvideo2" style="cursor: pointer;">
 		                          			<i class="fa fa-times-rectangle" style="font-size:25px; margin-left: 171px;"></i>
 		                        		</div>
 			                        	<video width="200" height="110" controls>
@@ -1554,7 +1498,7 @@ $(document).ready(function(){
 		});
 });	
 
-    // event start time and end time picker
+// event start time and end time picker
   $("#event_startime").wickedpicker();		
  
   $("#event_endtiming").wickedpicker();
@@ -1608,7 +1552,7 @@ $('body').on('focus',".day_start_time", function(){   //dynamically add time
     
   });
  
-//video size and duration limitation cover video     
+//video size and duration limitation wowtag video     
 
 $(document).on("change", "#video_size", function(e)
 {
@@ -1655,12 +1599,12 @@ $(document).on("change", "#video_size", function(e)
 
  //video size limitation highlight video1
 // event highlight1 video and image shows
-$(document).on("change", "#video_size1", function(evt)
+$(document).on("change", "#video_hightlight1", function(evt)
 {
-	var files = $('#video_size1')[0].files;
-    var len = $('#video_size1').get(0).files.length;
+	var files = $('#video_hightlight1')[0].files;
+    var len = $('#video_hightlight1').get(0).files.length;
    
-   		 f = files[0];
+   		f = files[0];
 
     var ext = f.name.split('.').pop().toLowerCase();
 
@@ -1680,9 +1624,9 @@ $(document).on("change", "#video_size1", function(evt)
 					  $source.parent()[0].load();
 					  $('#video_show1').show();					  	
 
-					  $(".remove_video1").click(function () { 
+					  $(".remove_highlightvideo1").click(function () { 
 			               	$('#video_show1').hide();                 
-			                $('#video_size1').val("");
+			                $('#video_hightlight1').val("");
 
 		                });   
 
@@ -1704,10 +1648,10 @@ $(document).on("change", "#video_size1", function(evt)
 
 		          $("<span class=\"pip\">" +
 		            "<img class=\"imageThumb\" src=\"" + evt.target.result + "\" title=\"" + file.name + "\"/>" +
-		            "<br/><span class=\"remove1\">Remove image</span>" +
-		            "</span>").insertAfter("#video_size1");
+		            "<br/><span class=\"remove\">Remove image</span>" +
+		            "</span>").insertAfter("#video_hightlight1");
 
-		          $(".remove1").click(function(){
+		          $(".remove").click(function(){
 		            $(this).parent(".pip").remove();
 
 		          });          
@@ -1715,7 +1659,7 @@ $(document).on("change", "#video_size1", function(evt)
 	        	});
 
 	        	$('#video_show1').hide();                 
-			    $('#video_size1').val("");
+			    $('#video_hightlight1').val("");
 
 	    		fileReader.readAsDataURL(f);
            
@@ -1750,7 +1694,7 @@ $(document).on("change", "#video_size2", function(evt)
 					  $source.parent()[0].load();
 					  $('#video_show2').show();					  	
 
-					  $(".remove_video2").click(function () { 
+					  $(".remove_highlightvideo2").click(function () { 
 			               	$('#video_show2').hide();                 
 			                $('#video_size2').val("");
 
@@ -1993,12 +1937,19 @@ $(document).ready(function() {
 // Add more event program time slot
 function generete_dynamic_venue(day, count){
 
-  var day1  = ' <div class="form-group col-sm-12" id="day1_dynamicadd_'+count+'"> <div class="col-md-12"> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label><span style="font-size:13px; color:#333;">Itinerary Start Time</span></label></div> <div style="width:30%" class="pull-left"> <select  id="from_hour_'+count+'" name="day'+day+'_from_hour[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="0">1 </option> <option value="1">2 </option> <option value="2">3 </option> <option value="3">4 </option> <option value="4">5 </option> <option value="5">6 </option> <option value="6">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select></div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="from_min_'+count+'" name="day'+day+'_from_min[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select></div> <div style="width:30%" class="pull-left"> <select id="from_sec_'+count+'" name="day'+day+'_from_sec[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select></div> </div> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label><span style="font-size:13px; color:#333;">Itinerary End Time</span></label></div> <div style="width:30%" class="pull-left"> <select id="to_hour_'+count+'" name="day'+day+'_to_hour[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="0">1 </option> <option value="1">2 </option> <option value="2">3 </option> <option value="3">4 </option> <option value="4">5 </option> <option value="5">6 </option> <option value="6">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select></div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="to_min_'+count+'" name="day'+day+'_to_min[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select></div> <div style="width:30%" class="pull-left"> <select id="to_sec_'+count+'" name="day'+day+'_to_sec[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select></div> </div> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Event Agenda</span></label> <input type="text" id="agenta_1" name="day'+day+'_agenda[]"  class="form-control"  /> </div> </div> <div class="col-md-12"> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Facilitator</span></label> <input type="text" id="facilitator_name_'+count+'" name="day'+day+'_facilitator_name[]"  class="form-control"  /> </div> <div class="col-md-8"> <label><span style="font-size:13px; color:#333;">Event Location Venue</span></label> <select id="location_1" name="day'+day+'_location[]" class="form-group venueselectpicker" style="width:100%; padding: 7px 10px; border-radius: 5px;"> </select> </div> </div> </div>'; 
+  var day1  = ' <div class="form-group col-sm-12" id="day1_dynamicadd_'+count+'"> <div class="col-md-12"> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label><span style="font-size:13px; color:#333;">Itinerary Start Time</span></label></div> <div style="width:30%" class="pull-left"> <select  id="from_hour_'+count+'" name="day'+day+'_from_hour[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="0">1 </option> <option value="1">2 </option> <option value="2">3 </option> <option value="3">4 </option> <option value="4">5 </option> <option value="5">6 </option> <option value="6">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select></div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="from_min_'+count+'" name="day'+day+'_from_min[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select></div> <div style="width:30%" class="pull-left"> <select id="from_sec_'+count+'" name="day'+day+'_from_sec[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select></div> </div> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label><span style="font-size:13px; color:#333;">Itinerary End Time</span></label></div> <div style="width:30%" class="pull-left"> <select id="to_hour_'+count+'" name="day'+day+'_to_hour[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="0">1 </option> <option value="1">2 </option> <option value="2">3 </option> <option value="3">4 </option> <option value="4">5 </option> <option value="5">6 </option> <option value="6">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select></div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="to_min_'+count+'" name="day'+day+'_to_min[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select></div> <div style="width:30%" class="pull-left"> <select id="to_sec_'+count+'" name="day'+day+'_to_sec[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select></div> </div> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Event Agenda</span></label> <input type="text" id="agenta_1" name="day'+day+'_agenda[]"  class="form-control"  /> </div> </div> <div class="col-md-12"> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Facilitator</span></label> <input type="text" id="facilitator_name_'+count+'" name="day'+day+'_facilitator_name[]"  class="form-control"  /> </div> <div class="col-md-8"> <label><span style="font-size:13px; color:#333;">Event Location Venue</span></label> <select id="location_1" name="day'+day+'_location[]" class="form-group venueselectpicker" style="width:100%; padding: 7px 10px; border-radius: 5px;"> </select> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="remove_day" class="remove_dayslot btn btn-info btn-sm"></a> </div> </div> </div>'; 
 
     return day1;
 }
       
-   
+ //remove days from program schedule function
+
+$(document).on('click', '.remove_dayslot', function(e)
+    {
+	    $(this).parents('[id^=day1_dynamicadd_]').remove();
+    });
+
+  
 //image preview and delete step1
 
 $(document).ready(function() {
@@ -2036,66 +1987,66 @@ $(document).ready(function() {
   }
 });
 
-//event highlight image preview and delete
+// //event highlight image preview and delete
 
-$(document).ready(function() {
-  if (window.File && window.FileList && window.FileReader) {
-    $("#img_files").on("change", function(e) {
-      var files = e.target.files,
-        filesLength = files.length;
-      for (var i = 0; i < filesLength; i++) {
-        var f = files[i]
-        var fileReader = new FileReader();
-        fileReader.onload = (function(e) {
-          var file = e.target;
+// $(document).ready(function() {
+//   if (window.File && window.FileList && window.FileReader) {
+//     $("#img_files").on("change", function(e) {
+//       var files = e.target.files,
+//         filesLength = files.length;
+//       for (var i = 0; i < filesLength; i++) {
+//         var f = files[i]
+//         var fileReader = new FileReader();
+//         fileReader.onload = (function(e) {
+//           var file = e.target;
 
-          $("#img_preview1").html("<span class=\"pip\">" +
-            "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
-            "<br/><span class=\"remove1\">Remove image</span>" +
-            "</span>").insertAfter("#img_files");
+//           $("#img_preview1").html("<span class=\"pip\">" +
+//             "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
+//             "<br/><span class=\"remove1\">Remove image</span>" +
+//             "</span>").insertAfter("#img_files");
           
 
-          $(".remove1").click(function(){
-            $(this).parent(".pip").remove();
-          });          
+//           $(".remove1").click(function(){
+//             $(this).parent(".pip").remove();
+//           });          
                    
-        });
-        fileReader.readAsDataURL(f);
-      }
-    });
-  } else {
-    alert("Your browser doesn't support to File API")
-  }
-});
+//         });
+//         fileReader.readAsDataURL(f);
+//       }
+//     });
+//   } else {
+//     alert("Your browser doesn't support to File API")
+//   }
+// });
 	
 //event highlight2 image preview and delete
 
-$(document).ready(function() {
-  if (window.File && window.FileList && window.FileReader) {
-    $("#img_files2").on("change", function(e) {
-      var files = e.target.files,
-        filesLength = files.length;
-      for (var i = 0; i < filesLength; i++) {
-        var f = files[i]
-        var fileReader = new FileReader();
-        fileReader.onload = (function(e) {
-          var file = e.target;
-          $("<span class=\"pip\">" +
-            "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
-            "<br/><span class=\"remove1\">Remove image</span>" +
-            "</span>").insertAfter("#img_files2");
-          $(".remove1").click(function(){
-            $(this).parent(".pip").remove();
-          });          
+// $(document).ready(function() {
+//   if (window.File && window.FileList && window.FileReader) {
+//     $("#img_files2").on("change", function(e) {
+//       var files = e.target.files,
+//         filesLength = files.length;
+//       for (var i = 0; i < filesLength; i++) {
+//         var f = files[i]
+//         var fileReader = new FileReader();
+//         fileReader.onload = (function(e) {
+//           var file = e.target;
+//           $("<span class=\"pip\">" +
+//             "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
+//             "<br/><span class=\"remove1\">Remove image</span>" +
+//             "</span>").insertAfter("#img_files2");
+//           $(".remove1").click(function(){
+//             $(this).parent(".pip").remove();
+//           });          
                    
-        });
-        fileReader.readAsDataURL(f);
-      }
-    });
-  } else {
-    alert("Your browser doesn't support to File API")
-  }
-});	
+//         });
+//         fileReader.readAsDataURL(f);
+//       }
+//     });
+//   } else {
+//     alert("Your browser doesn't support to File API")
+//   }
+// });	
 
 
 //event highlight2  show and hide
@@ -2222,7 +2173,7 @@ var base_url = '<?php echo base_url() ?>'; //form submited
 		                {
 		                   if(response.status == 'success')
 		                   {
-		                   // alert("success");
+		                   
 		                    swal({
 		                                                 title: "Success!",
 		                                                 text: "Your Event Created Successfully...",
@@ -2234,9 +2185,8 @@ var base_url = '<?php echo base_url() ?>'; //form submited
 		                   
 		                    }
 		                    else 
-		                   	{
-		                    
-		                    	swal("Sorry!", "somethink wrong try again !", "error");
+		                   	{		                    
+		                    	swal("Sorry!", "Oops!! Something Went Wrong! Please Try Again !", "error");
 		                  	 }          
 		                }
 

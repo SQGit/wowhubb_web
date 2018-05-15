@@ -204,9 +204,7 @@ body {
                                                     <div class="col-md-8">
                                                       <ul class="follow-me list-inline">
                                                         <li><?php echo $event->wowsomecount.' '. 'wowsome'; ?> &nbsp;&nbsp; Comments </li>
-                                                        <li>
-                                                          <button class="btn-primary" style="padding: 2px 25px;">RSVP</button>
-                                                        </li>
+                                                       
                                                       </ul>
                                                     </div>
                                                     <div class="col-md-1">
@@ -234,7 +232,6 @@ body {
                               <?php 
                                  if($event->eventtype == 'personal_event') 
                                     { 
-                                                  
                               ?>  
 
                                     <!-- personal event info -->
@@ -262,19 +259,16 @@ body {
                                                             <i class="fa fa-calendar"></i> Date</strong>
                                                         </td>
                                                         <td width="75%" height="40" bgcolor="#f9f9f9">
-                                                          <strong> 
-                                                                
-                                                                      <?php 
-                                                                          $timestamp = strtotime($event->eventstartdate);                                                                              
-                                                                                // echo date('D d Y', $timestamp);
-                                                                      echo date("D d Y", strtotime($event->eventstartdate));
-
-                                                                      ?> 
+                                                          <strong>                                                                 
+                                                            <?php 
+                                                                $timestamp = strtotime($event->eventstartdate);                          
+                                                                echo date("D d Y", strtotime($event->eventstartdate));
+                                                            ?> 
                                                         -  <span style="font-size:10px; color:#333;"></span> 
-                                                                      <?php 
-                                                                                $timestamp = strtotime($event->eventenddate);
-                                                                                 echo date('D d Y', $timestamp);                         
-                                                                     ?>IST
+                                                              <?php 
+                                                                 $timestamp = strtotime($event->eventenddate);
+                                                                 echo date('D d Y', $timestamp);                         
+                                                              ?>IST
                                                           </strong>
                                                         </td>
                                                       </tr>
@@ -284,94 +278,47 @@ body {
                                                         <td height="40" bgcolor="#ffffff"> 
                                                           <strong> 
                                                             <?php 
-                                                                     $timestamp = strtotime($event->eventstartdate);
-                                                                      echo date(' h:i A', $timestamp);
-                                                                  ?> -              
-                                                                  <span style="font-size:10px; color:#333;"></span> 
-                                                                  <?php 
-                                                                     $timestamp = strtotime($event->eventenddate);
-                                                                     echo date(' h:i A', $timestamp);
-                                                             ?>
-                                                         </strong>
-                                                        </td>
-                                                      </tr>
-
-                                                      <?php } else { ?>
-
-                                                       <!-- professional event -->
-                                    
-                                                      <tr>
-                                                        <td width="24%" bgcolor="#f9f9f9"><strong>
-                                                            <i class="fa fa-calendar"></i> Date</strong>
-                                                        </td>
-                                                        <td width="75%" height="40" bgcolor="#f9f9f9">
-                                                          <strong> 
-                                                                
-                                                                      <?php 
-                                                                          
-                                                                               $timestamp = strtotime($event->runtimefrom);
-                                                                                echo date('D d Y', $timestamp);
-                                                                      ?> -  <span style="font-size:10px; color:#333;"></span> 
-                                                                      <?php 
-                                                                                $timestamp = strtotime($event->runtimefrom);
-                                                                                 echo date('D d Y', $timestamp);                         
-                                                                     ?> IST
-                                                          </strong>
-                                                        </td>
-                                                      </tr>
-
-                                                      <tr>
-                                                        <td bgcolor="#ffffff"><strong><i class="fa fa-clock-o"></i> Time</strong></td>
-                                                        <td height="40" bgcolor="#ffffff"> 
-                                                          <strong> 
+                                                                $timestamp = strtotime($event->eventstartdate);
+                                                                echo date(' h:i A', $timestamp);
+                                                            ?> -              
+                                                              <span style="font-size:10px; color:#333;"></span> 
                                                             <?php 
-                                                                     $timestamp = strtotime($event->runtimeto);
-                                                                      echo date(' h:i A', $timestamp);
-                                                                  ?> -              
-                                                                  <span style="font-size:10px; color:#333;"></span> 
-                                                                  <?php 
-                                                                     $timestamp = strtotime($event->runtimeto);
-                                                                     echo date(' h:i A', $timestamp);
-                                                             ?>
+                                                                $timestamp = strtotime($event->eventenddate);
+                                                                echo date(' h:i A', $timestamp);
+                                                            ?>
                                                          </strong>
                                                         </td>
                                                       </tr>
 
-                                                      <?php } ?>
-                                                      <!-- end professional event date and time-->
+                                                      <?php }  ?>
 
                                                       <!-- event venue show start  here -->
 
                                                       <?php
-
-                                                             foreach ($event->eventvenue as $eventvenues)
-                                                                   {
-                                                                   
-                                                            ?>
-                                                        <tr>
-                                                          
+                                                          foreach ($event->eventvenue as $eventvenues)
+                                                            { ?>                                                                   
+                                                      
+                                                        <tr>                                                          
                                                           <td bgcolor="#f9f9f9"> 
                                                             <strong>
                                                               <i class="fa fa-map-marker"></i> Venue <?php echo $eventvenues->eventvenuenumber ; ?>
                                                             </strong>
                                                           </td>
+
                                                           <td height="40" bgcolor="#f9f9f9">                                                          
-                                                             <?php   
-                                                                      
-                                                                          if(isset($eventvenues->eventvenuecity))
-                                                                          {
-                                                                            echo   $eventvenues->eventvenuename.", ".$eventvenues->eventvenuecity.", ".$eventvenues->eventvenueaddress1.", ".$eventvenues->eventvenuezipcode."<br>";
-                                                                          }
-                                                                                              
-                                                             ?>
-                                                          </td>                                                       
+                                                              <?php   
+                                                                  if(isset($eventvenues->eventvenuecity))
+                                                                    {
+                                                                      echo   $eventvenues->eventvenuename.", ".$eventvenues->eventvenuecity.", ".$eventvenues->eventvenueaddress1.", ".$eventvenues->eventvenuezipcode."<br>";
+                                                                    }
+                                                              ?>
+                                                          </td>                                                     
 
                                                         </tr>  
-                                                                  <?php                                                         
+                                                        
+                                                        <?php } ?>                                                      
                                                                         
-                                                                      }                                    
-                                                                   ?>   
-                                                         <!-- event venue end show here -->
+                                                        <!-- event venue end show here -->
                                                         <!-- donation url start here -->
 
                                                         <tr>
@@ -396,8 +343,7 @@ body {
                                                             </a>
                                                             </span>
                                                           </td>
-                                                        </tr>   
-
+                                                        </tr> 
                                                                                                              
                                                         <tr>
                                                           <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:16px;">Event FAQs</strong></td>
@@ -527,9 +473,9 @@ body {
                             <!-- Nav tabs category -->
                               <ul class="nav nav-tabs faq-cat-tabs">
                                   <li class="active" style="width: 33.33%;"><a href="#faq-cat-1" data-toggle="tab" class="text-center">Event Highlights</a></li>
-                                  <li style="width: 33.33%;"><a href="#faq-cat-2" data-toggle="tab" class="text-center">Event Schedule</a></li>
+                                  <li style="width: 33.33%;"><a href="#personal_schedule" data-toggle="tab" class="text-center">Event Schedule</a></li>
                                   <li style="width: 33.33%;"><a href="#faq-cat-3" data-toggle="tab" class="text-center">Event Discussions</a></li>
-                                  <!--<li><a href="#faq-cat-4" data-toggle="tab" class="text-center">Event Tours</a></li> -->
+                                 
                               </ul>
 
                           <div class="tab-content faq-cat-content">                                  
@@ -542,8 +488,7 @@ body {
                                                <img src="../assets/images/wow-white-big.png">
                                                 <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                               </span></h4>
-                                        </div>
-                                          
+                                        </div>                                          
 
                                         <div class="col-md-12 pnl-brdr-clr">
                                           <?php if(isset($event->eventspeakername1)) { ?>
@@ -564,7 +509,7 @@ body {
                                             <div id="vidBox">
                                               <div id="videCont" style="margin-top: -19px!important;"> 
                                                 <a href="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlightsvideo1; ?>" id="video-trigger">
-                                                <video  id="demo"  style="width: 200px; height: 150px;" controls controlsList="nodownload">
+                                                <video  id="demo"  style="width: 200px; height: 150px;" controlsList="nodownload">
                                                    <source src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlightsvideo1; ?>" type="video/mp4">
                                                 </video>
                                                 </a>
@@ -595,42 +540,13 @@ body {
                                             <?php } else { echo "You didn't add any Event Highlights";  } ?>
                                         </div>
 
-                                        <!-- event highlight 2 -->
-
-                                        <?php if(isset($event->eventspeakername2)) { ?>
-
-                                          <div class="col-md-12 pnl-brdr-clr">
-                                            <div class="col-md-5">
-                                              <?php if($event->eventhighlights2 != 'null'){ ?>
-                                              <div style="width:27%;" class="pull-left">
-                                                <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlights2; ?>" class="img-thumbnail"  />
-                                              </div>
-                                              <?php } ?>
-
-                                              <div style="width:73%;" class="pull-left">
-                                                  <video style="width: 200px; height: 150px;" controls controlsList="nodownload">
-                                                    <source src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlightsvideo2; ?>" type="video/mp4">
-                                                  </video><br>
-                                                <h5 style="color:#333; line-height:20px;"><?php echo $event->eventspeakername2; ?><br>
-                                                  <span style="font-size:12px;">
-                                                    <?php echo $event->eventguesttype2; ?>
-                                                  </span></h5>
-                                              </div>
-                                            </div>
-                                            <div class="col-md-7">
-                                              <h5 style="color:#333; line-height:20px;">!Tdjakes</h5>
-                                              <p> <?php echo $event->eventspeakeractivities2; ?></p>
-                                              <a href="#"><?php echo $event->eventspeakerlink2; ?></a>
-                                            </div>
-
-                                          </div> 
-                                        <?php } ?>
+                                       
                                     </div>
                                     
 
                                     <!-- event schedule start here -->
                               
-                              <div class="tab-pane fade" id="faq-cat-2">
+                              <div class="tab-pane fade" id="personal_schedule">
                                           <div class="col-md-12 text-center clr" style="margin-top:10px; margin-bottom:10px;">
                                               <h4 style="color:#fff; line-height:30px;">Event Schedules<br>
                                               <span style="font-size:28px;">
@@ -641,73 +557,164 @@ body {
                                   
                                               <!-- tab content show here  -->
 
-                                          <ul class="nav nav-tabs" role="tablist">
+                                        <ul class="nav nav-tabs" role="tablist">
                                             <?php 
-                                                $tabid = 1;  
-                                                 $timestamp1 = strtotime("$event->eventstartdate +1 day");
-                                                 $date_add = date('M-d-Y', $timestamp1 );
+                                                $day = 1;                                                 
+                                                $dayinc = 0;
 
-                                                 foreach ($event->programschedule as $events) { 
+                                                foreach ($event->programschedule as $events) { 
                                                  
+                                                    $timestamp = strtotime("$event->eventstartdate +$dayinc day");
+                                                    $date = date('M-d-Y', $timestamp);
+
                                                   if($events->eventnumber == "1")
                                                   {
-                                                     
-                                                    if($tabid == 1)
-                                                    {
-                                                       
-                                                       $timestamp = strtotime($event->eventstartdate);
-                                                       $date = date('M-d-Y', $timestamp);
-                                                       
+                                                        
 
-                                                        echo '<li class="active"><a data-toggle="tab" href="#tab-'.$tabid.'" style="line-height:16px; font-size:12px; color:#333;">Day- '.$events->day.'<br> '.$date.'</a></li>';
+                                                    if($day == 1)
+                                                    {
+                                                      
+
+                                                      echo '<li class="active"><a data-toggle="tab" href="#tab-'.$day.'" style="line-height:16px; font-size:12px; color:#333;">Day- '.$events->day.'<br> '.$date.'</a></li>';
 
                                                     }else{
-                                                        echo '<li><a data-toggle="tab" href="#tab-'.$tabid.'" style="line-height:16px; font-size:12px; color:#333;">Day- '.$events->day.'<br> '.$date_add.'</a></li>';
+
+                                                        echo '<li><a data-toggle="tab" href="#tab-'.$day.'" style="line-height:16px; font-size:12px; color:#333;">Day- '.$events->day.'<br> '.$date.'</a></li>';
                                                     }
 
-                                                    $tabid++;                                                     
+                                                    $day++;
+                                                    $dayinc++;                                                    
                                                   }  
                                                
                                                 } ?>
-                                          </ul>
+                                        </ul>
 
-                                  
-                                          <!-- tab content show here  -->
 
-                                    <div  id="tab-content" class="tab-content"> 
+                                        <!-- tab content show here  -->
+
+                                        <div  id="tab-content" class="tab-content"> 
+
+                                        <?php
+
+                                        for($eventday = 1; $eventday<$day; $eventday++)
+                                        {
+
+                                        ?>
+                                            <?php if($eventday == 1){ ?>
+
+                                            <div class="tab-pane fade in active" id="tab-<?php echo $eventday; ?>">
+
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody> 
+                                                <tr>
+                                                  <td height="40" colspan="3" align="center" valign="middle" bgcolor="#f9f9f9">
+                                                    <strong style="font-size:16px;">Event Duration
+                                                      <br>
+                                            <?php
+
+                                            foreach ($event->programschedule as $events) {
+                                            
+                                                if($events->day == $eventday )
+                                                {
+                                                    if( $events->eventnumber == "1" )
+                                                            {  
+                                                                echo $events->starttime."-". $events->endtime ; 
+                                                            } 
+                                                    
+                                                }
+                                                
+                                            }
+
+                                            ?>
+
+                                             <br>
+                                                    </strong>
+                                                  </td>
+                                                </tr>
+
+                                                 <tr>
+                                                  <td width="30%" height="40" bgcolor="#fff"><strong>Event Itinerary Time</strong></td>
+                                                  <td width="51%" bgcolor="#fff"><strong>Event Topic/Agenda</strong></td>
+                                                  <td width="19%" height="40" bgcolor="#fff"><strong>Event Location</strong></td>
+                                                </tr>
+
                                                 <?php 
-                                                 $tabcontent_id = 1;  
-                                                 foreach ($event->programschedule as $events) { 
-                                                    if($tabcontent_id == 1)
-                                                    {
+                                                    foreach ($event->programschedule as $events) {
+                                                     if( $events->day == "1" )
+                                                        {  
+                                                                   
+                                                ?> 
+                                                 <tr>
+                                                    <td height="40" bgcolor="#f9f9f9">
+                                                      <strong>
+                                                        <?php echo $events->itystarttime.' - ' .$events->ityendtime; ?>
+                                                      </strong><br>Event Facilitator:
+                                                      <?php echo  $events->facilitator; ?> 
+                                                    </td>
 
-                                                ?>  
+                                                    <td height="40" bgcolor="#f9f9f9">
+                                                      <strong><?php echo $events->agenda; ?>
+                                                      </strong>
+                                                    </td>
 
-                                        <!-- day1   -->
-                                        <div class="tab-pane fade in active" id="tab-<?php echo $tabcontent_id; ?>">
-                                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                    <td height="40" bgcolor="#f9f9f9"><strong><?php if(isset( $events->location)){ echo  $events->location; } else { echo " ";} ?></strong><br>
+                                                    </td>
+                                                </tr>
+                                                 <?php } }?>
+
+                                                </tbody>
+                                            </table>
+
+                                            </div>
+
+                                            <?php } else{ ?>
+
+
+                                        <div class="tab-pane fade" id="tab-<?php echo $eventday; ?>">
+
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                             <tbody> 
+
                                                 <tr>
                                                   <td height="40" colspan="3" align="center" valign="middle" bgcolor="#f9f9f9">
                                                     <strong style="font-size:16px;">Event Duration
                                                       <br>
-                                                        <?php                                                 
-                                                          if( $events->eventnumber == "1" )
-                                                                  {  
-                                                                    echo $events->starttime."-". $events->endtime ; 
-                                                                    
-                                                                  }                          
-                                                        ?>                                                       
-                                                      <br>
+                                            <?php
+
+                                            foreach ($event->programschedule as $events) {
+                                            
+                                                if($events->day == $eventday )
+                                                {
+                                                    if( $events->eventnumber == "1" )
+                                                            {  
+                                                                echo $events->starttime."-". $events->endtime ; 
+                                                            } 
+                                                    
+                                                }
+                                                
+                                            }
+
+                                            ?>
+
+                                             <br>
                                                     </strong>
                                                   </td>
                                                 </tr>
+
+
                                                 <tr>
                                                   <td width="30%" height="40" bgcolor="#fff"><strong>Event Itinerary Time</strong></td>
                                                   <td width="51%" bgcolor="#fff"><strong>Event Topic/Agenda</strong></td>
                                                   <td width="19%" height="40" bgcolor="#fff"><strong>Event Location</strong></td>
                                                 </tr>
-                                                  
+
+                                            <?php
+
+                                            foreach ($event->programschedule as $events) {
+                                            
+                                                if($events->day == $eventday )
+                                                { ?>
+
                                                 <tr>
                                                     <td height="40" bgcolor="#f9f9f9">
                                                       <strong>
@@ -724,60 +731,28 @@ body {
                                                     <td height="40" bgcolor="#f9f9f9"><strong><?php if(isset( $events->location)){ echo  $events->location; } else { echo " ";} ?></strong><br>
                                                     </td>
                                                 </tr>
+                                            
+                                            <?php  
+                                                }
+                                                
+                                            }
+
+                                            ?>
 
                                             </tbody>
-                                          </table>
-                                        </div>  
-                                                                 
-                                   <?php } else{ ?>
+                                            </table>
+                                              
+                                        </div>
 
-                                        <div class="tab-pane fade" id="tab-<?php echo $tabcontent_id; ?>">
-                                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                            <tbody> 
-                                                <tr>
-                                                  <td height="40" colspan="3" align="center" valign="middle" bgcolor="#f9f9f9">
-                                                    <strong style="font-size:16px;">Event Duration
-                                                      <br>
-                                                        <?php                                                 
-                                                          if( $events->eventnumber == "1" )
-                                                                  {  
-                                                                    echo $events->starttime."-". $events->endtime ; 
-                                                                    
-                                                                  }                          
-                                                        ?>                                                       
-                                                      <br>
-                                                    </strong>
-                                                  </td>
-                                                </tr>
-                                                <tr>
-                                                  <td width="30%" height="40" bgcolor="#fff"><strong>Event Itinerary Time</strong></td>
-                                                  <td width="51%" bgcolor="#fff"><strong>Event Topic/Agenda</strong></td>
-                                                  <td width="19%" height="40" bgcolor="#fff"><strong>Event Location</strong></td>
-                                                </tr>
-                                                  
-                                                <tr>
-                                                    <td height="40" bgcolor="#f9f9f9">
-                                                      <strong>
-                                                        <?php echo $events->itystarttime.' - ' .$events->ityendtime; ?>
-                                                      </strong><br>Event Facilitator:
-                                                      <?php echo  $events->facilitator; ?> 
-                                                    </td>
 
-                                                    <td height="40" bgcolor="#f9f9f9">
-                                                      <strong><?php echo $events->agenda; ?>
-                                                      </strong>
-                                                    </td>
+                                    <?php 
+                                            }
 
-                                                    <td height="40" bgcolor="#f9f9f9"><strong><?php if(isset( $events->location)){ echo  $events->location; } else { echo " ";} ?></strong><br>
-                                                    </td>
-                                                </tr>
+                                    }
 
-                                            </tbody>
-                                          </table>
-                                        </div> 
+                                    ?>
+                                    </div>
 
-                                   <?php }  $tabcontent_id++; } ?>  
-                                    </div>                               
 
                               </div>
                                  <!-- event schedule end here -->
@@ -866,7 +841,7 @@ body {
                                             <td height="40" colspan="2" bgcolor="#fff"><?php echo $event->eventdescription; ?> </td>
                                           </tr>          
 
-                                                  <!-- personal event -->
+                                                  <!-- professional event -->
                                                     <?php 
                                                     if(isset($event->eventstartdate))
                                                         { ?>
@@ -907,81 +882,36 @@ body {
                                                         </td>
                                                       </tr>
 
-                                                      <?php } else { ?>
-
-                                                       <!-- professional event -->
-                                    
-                                                      <tr>
-                                                        <td width="24%" bgcolor="#f9f9f9"><strong>
-                                                            <i class="fa fa-calendar"></i> Date</strong>
-                                                        </td>
-                                                        <td width="75%" height="40" bgcolor="#f9f9f9">
-                                                          <strong> 
-                                                                
-                                                                      <?php 
-                                                                          
-                                                                               $timestamp = strtotime($event->runtimefrom);
-                                                                                echo date('D d Y', $timestamp);
-                                                                      ?> -  <span style="font-size:10px; color:#333;"></span> 
-                                                                      <?php 
-                                                                                $timestamp = strtotime($event->runtimefrom);
-                                                                                 echo date('D d Y', $timestamp);                         
-                                                                     ?>IST
-                                                          </strong>
-                                                        </td>
-                                                      </tr>
-
-                                                      <tr>
-                                                        <td bgcolor="#ffffff"><strong><i class="fa fa-clock-o"></i> Time</strong></td>
-                                                        <td height="40" bgcolor="#ffffff"> 
-                                                          <strong> 
-                                                            <?php 
-                                                                     $timestamp = strtotime($event->runtimeto);
-                                                                      echo date(' h:i A', $timestamp);
-                                                                  ?> -              
-                                                                  <span style="font-size:10px; color:#333;"></span> 
-                                                                  <?php 
-                                                                     $timestamp = strtotime($event->runtimeto);
-                                                                     echo date(' h:i A', $timestamp);
-                                                             ?>
-                                                         </strong>
-                                                        </td>
-                                                      </tr>
-
-                                                      <?php } ?>
-                                                      <!-- end professional event date and time-->
+                                                      <?php } ?>                                                    
 
                                                         <!-- event venue show start  here -->
 
                                                       <?php
-
-                                                             foreach ($event->eventvenue as $eventvenues)
-                                                                   {
+                                                          foreach ($event->eventvenue as $eventvenues)
+                                                            {
                                                                    
                                                             ?>
-                                                        <tr>
-                                                          
+
+                                                        <tr>                                                          
                                                           <td bgcolor="#f9f9f9"> 
                                                             <strong>
                                                               <i class="fa fa-map-marker"></i> Venue <?php echo $eventvenues->eventvenuenumber ; ?>
                                                             </strong>
                                                           </td>
-                                                          <td height="40" bgcolor="#f9f9f9">                                                          
-                                                             <?php   
-                                                                      
-                                                                          if(isset($eventvenues->eventvenuecity))
-                                                                          {
-                                                                            echo   $eventvenues->eventvenuename.", ".$eventvenues->eventvenuecity.", ".$eventvenues->eventvenueaddress1.", ".$eventvenues->eventvenuezipcode."<br>";
-                                                                          }
+                                                          <td height="40" bgcolor="#f9f9f9">
+                                                            <?php   
+                                                                  if(isset($eventvenues->eventvenuecity))
+                                                                    {
+                                                                      echo   $eventvenues->eventvenuename.", ".$eventvenues->eventvenuecity.", ".$eventvenues->eventvenueaddress1.", ".$eventvenues->eventvenuezipcode."<br>";
+                                                                    }
                                                                                               
-                                                             ?>
+                                                            ?>
                                                           </td>                                                       
 
                                                         </tr>  
-                                                                  <?php                                                         
-                                                                        
-                                                                      }                                    
-                                                                   ?>   
+                                                        
+                                                        <?php  }   ?>                                                       
+                                                                
                                                          <!-- event venue end show here -->
                                                          <tr>
                                                           <td bgcolor="#ffffff"><strong>Ticket URL</strong></td>
@@ -1136,18 +1066,14 @@ body {
                             <!-- Nav tabs category -->
                               <ul class="nav nav-tabs faq-cat-tabs">
                                   <li class="active" style="width: 25%;"><a href="#faq-cat-1" data-toggle="tab" class="text-center">Event Highlights</a></li>
-                                  <li style="width: 25%;"><a href="#faq-cat-2" data-toggle="tab" class="text-center">Event Schedule</a></li>
+                                  <li style="width: 25%;"><a href="#professional_schedule" data-toggle="tab" class="text-center">Event Schedule</a></li>
                                   <li style="width: 25%;"><a href="#faq-cat-3" data-toggle="tab" class="text-center">Event Discussions</a></li>
-                                  <li style="width: 25%;"><a href="#faq-cat-4" data-toggle="tab" class="text-center">Event Tours</a></li> 
+                                  <li style="width: 25%;"><a href="#professional_tour" data-toggle="tab" class="text-center">Event Tours</a></li> 
                               </ul>
 
-                          <div class="tab-content faq-cat-content">
+                          <div class="tab-content faq-cat-content">                                  
 
-                                  
-
-                                    <div class="tab-pane active in fade" id="faq-cat-1">
-
-                                      
+                                    <div class="tab-pane active in fade" id="faq-cat-1">                                      
 
                                         <div class="col-md-12 text-center clr" style="margin-top:10px;">
                                           <h4 style="color:#fff; line-height:30px;">Event Highlights<br>
@@ -1238,7 +1164,7 @@ body {
                                     </div>
                                     
 
-                             <div class="tab-pane fade" id="faq-cat-2">
+                                    <div class="tab-pane fade" id="professional_schedule">
                                           <div class="col-md-12 text-center clr" style="margin-top:10px; margin-bottom:10px;">
                                               <h4 style="color:#fff; line-height:30px;">Event Schedules<br>
                                               <span style="font-size:28px;">
@@ -1249,62 +1175,164 @@ body {
                                   
                                               <!-- tab content show here  -->
 
-                                          <ul class="nav nav-tabs" role="tablist">
+                                        <ul class="nav nav-tabs" role="tablist">
                                             <?php 
-                                                $tabid = 1;  
+                                                $day = 1;                                                 
+                                                $dayinc = 0;
+
                                                 foreach ($event->programschedule as $events) { 
+                                                 
+                                                    $timestamp = strtotime("$event->eventstartdate +$dayinc day");
+                                                    $date = date('M-d-Y', $timestamp);
+
                                                   if($events->eventnumber == "1")
                                                   {
-                                                    if($tabid == 1)
+                                                        
+
+                                                    if($day == 1)
                                                     {
-                                                        echo '<li class="active"><a data-toggle="tab" href="#tab-'.$tabid.'" style="line-height:16px; font-size:12px; color:#333;">Day '.$events->day.'</a></li>';
+                                                      
+
+                                                      echo '<li class="active"><a data-toggle="tab" href="#tab-'.$day.'" style="line-height:16px; font-size:12px; color:#333;">Day- '.$events->day.'<br> '.$date.'</a></li>';
 
                                                     }else{
-                                                        echo '<li><a data-toggle="tab" href="#tab-'.$tabid.'" style="line-height:16px; font-size:12px; color:#333;">Day '.$events->day.'</a></li>';
+
+                                                        echo '<li><a data-toggle="tab" href="#tab-'.$day.'" style="line-height:16px; font-size:12px; color:#333;">Day- '.$events->day.'<br> '.$date.'</a></li>';
                                                     }
-                                                    
-                                                    $tabid++; 
+
+                                                    $day++;
+                                                    $dayinc++;                                                    
                                                   }  
+                                               
                                                 } ?>
-                                          </ul>
+                                        </ul>
 
                                   
                                           <!-- tab content show here  -->
 
                                     <div  id="tab-content" class="tab-content"> 
+
+                                        <?php
+
+                                        for($eventday = 1; $eventday<$day; $eventday++)
+                                        {
+
+                                        ?>
+                                            <?php if($eventday == 1){ ?>
+
+                                            <div class="tab-pane fade in active" id="tab-<?php echo $eventday; ?>">
+
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody> 
+                                                <tr>
+                                                  <td height="40" colspan="3" align="center" valign="middle" bgcolor="#f9f9f9">
+                                                    <strong style="font-size:16px;">Event Duration
+                                                      <br>
+                                            <?php
+
+                                            foreach ($event->programschedule as $events) {
+                                            
+                                                if($events->day == $eventday )
+                                                {
+                                                    if( $events->eventnumber == "1" )
+                                                            {  
+                                                                echo $events->starttime."-". $events->endtime ; 
+                                                            } 
+                                                    
+                                                }
+                                                
+                                            }
+
+                                            ?>
+
+                                             <br>
+                                                    </strong>
+                                                  </td>
+                                                </tr>
+
+                                                 <tr>
+                                                  <td width="30%" height="40" bgcolor="#fff"><strong>Event Itinerary Time</strong></td>
+                                                  <td width="51%" bgcolor="#fff"><strong>Event Topic/Agenda</strong></td>
+                                                  <td width="19%" height="40" bgcolor="#fff"><strong>Event Location</strong></td>
+                                                </tr>
+
                                                 <?php 
-                                                 $tabcontent_id = 1;  
-                                                 foreach ($event->programschedule as $events) { 
-                                                    if($tabcontent_id == 1)
-                                                    {
+                                                    foreach ($event->programschedule as $events) {
+                                                     if( $events->day == "1" )
+                                                        {  
+                                                                   
+                                                ?> 
+                                                 <tr>
+                                                    <td height="40" bgcolor="#f9f9f9">
+                                                      <strong>
+                                                        <?php echo $events->itystarttime.' - ' .$events->ityendtime; ?>
+                                                      </strong><br>Event Facilitator:
+                                                      <?php echo  $events->facilitator; ?> 
+                                                    </td>
 
-                                                ?>  
+                                                    <td height="40" bgcolor="#f9f9f9">
+                                                      <strong><?php echo $events->agenda; ?>
+                                                      </strong>
+                                                    </td>
 
-                                        <!-- day1   -->
-                                        <div class="tab-pane fade in active" id="tab-<?php echo $tabcontent_id; ?>">
-                                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                    <td height="40" bgcolor="#f9f9f9"><strong><?php if(isset( $events->location)){ echo  $events->location; } else { echo " ";} ?></strong><br>
+                                                    </td>
+                                                </tr>
+                                                 <?php } }?>
+
+                                                </tbody>
+                                            </table>
+
+                                            </div>
+
+                                            <?php } else{ ?>
+
+
+                                        <div class="tab-pane fade" id="tab-<?php echo $eventday; ?>">
+
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                             <tbody> 
+
                                                 <tr>
                                                   <td height="40" colspan="3" align="center" valign="middle" bgcolor="#f9f9f9">
                                                     <strong style="font-size:16px;">Event Duration
                                                       <br>
-                                                        <?php                                                 
-                                                          if( $events->eventnumber == "1" )
-                                                                  {  
-                                                                    echo $events->starttime."-". $events->endtime ; 
-                                                                    
-                                                                  }                          
-                                                        ?>                                                       
-                                                      <br>
+                                            <?php
+
+                                            foreach ($event->programschedule as $events) {
+                                            
+                                                if($events->day == $eventday )
+                                                {
+                                                    if( $events->eventnumber == "1" )
+                                                            {  
+                                                                echo $events->starttime."-". $events->endtime ; 
+                                                            } 
+                                                    
+                                                }
+                                                
+                                            }
+
+                                            ?>
+
+                                             <br>
                                                     </strong>
                                                   </td>
                                                 </tr>
+
+
                                                 <tr>
                                                   <td width="30%" height="40" bgcolor="#fff"><strong>Event Itinerary Time</strong></td>
                                                   <td width="51%" bgcolor="#fff"><strong>Event Topic/Agenda</strong></td>
                                                   <td width="19%" height="40" bgcolor="#fff"><strong>Event Location</strong></td>
                                                 </tr>
-                                                  
+
+                                            <?php
+
+                                            foreach ($event->programschedule as $events) {
+                                            
+                                                if($events->day == $eventday )
+                                                { ?>
+
                                                 <tr>
                                                     <td height="40" bgcolor="#f9f9f9">
                                                       <strong>
@@ -1321,63 +1349,31 @@ body {
                                                     <td height="40" bgcolor="#f9f9f9"><strong><?php if(isset( $events->location)){ echo  $events->location; } else { echo " ";} ?></strong><br>
                                                     </td>
                                                 </tr>
+                                            
+                                            <?php  
+                                                }
+                                                
+                                            }
+
+                                            ?>
 
                                             </tbody>
-                                          </table>
-                                        </div>  
-                                                                 
-                                   <?php } else{ ?>
+                                            </table>
+                                              
+                                        </div>
 
-                                        <div class="tab-pane fade" id="tab-<?php echo $tabcontent_id; ?>">
-                                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                            <tbody> 
-                                                <tr>
-                                                  <td height="40" colspan="3" align="center" valign="middle" bgcolor="#f9f9f9">
-                                                    <strong style="font-size:16px;">Event Duration
-                                                      <br>
-                                                        <?php                                                 
-                                                          if( $events->eventnumber == "1" )
-                                                                  {  
-                                                                    echo $events->starttime."-". $events->endtime ; 
-                                                                    
-                                                                  }                          
-                                                        ?>                                                       
-                                                      <br>
-                                                    </strong>
-                                                  </td>
-                                                </tr>
-                                                <tr>
-                                                  <td width="30%" height="40" bgcolor="#fff"><strong>Event Itinerary Time</strong></td>
-                                                  <td width="51%" bgcolor="#fff"><strong>Event Topic/Agenda</strong></td>
-                                                  <td width="19%" height="40" bgcolor="#fff"><strong>Event Location</strong></td>
-                                                </tr>
-                                                  
-                                                <tr>
-                                                    <td height="40" bgcolor="#f9f9f9">
-                                                      <strong>
-                                                        <?php echo $events->itystarttime.' - ' .$events->ityendtime; ?>
-                                                      </strong><br>Event Facilitator:
-                                                      <?php echo  $events->facilitator; ?> 
-                                                    </td>
 
-                                                    <td height="40" bgcolor="#f9f9f9">
-                                                      <strong><?php echo $events->agenda; ?>
-                                                      </strong>
-                                                    </td>
+                                    <?php 
+                                            }
 
-                                                    <td height="40" bgcolor="#f9f9f9"><strong><?php if(isset( $events->location)){ echo  $events->location; } else { echo " ";} ?></strong><br>
-                                                    </td>
-                                                </tr>
+                                    }
 
-                                            </tbody>
-                                          </table>
-                                        </div> 
+                                    ?>
+                                    </div>  
 
-                                   <?php }  $tabcontent_id++; } ?>  
-                                    </div>                               
+                                </div>
 
-                              </div>
-
+                                     <!-- event schedule end here -->
 
                                         <div class="tab-pane fade" id="faq-cat-3">
                                               <div class="col-md-12 text-center clr" style="margin-bottom:20px;">
@@ -1433,7 +1429,7 @@ body {
 
                                        <!-- four tab view  event tours-->
 
-                                      <div class="tab-pane fade" id="faq-cat-4">
+                                      <div class="tab-pane fade" id="professional_tour">
                                           <div class="col-md-12 text-center clr" style="margin-top:10px;">
                                             <h4 style="color:#fff; line-height:30px;">Event Tours<br>
                                               <span style="font-size:28px;">
@@ -1458,43 +1454,49 @@ body {
                                               <div style="width:35%;" class="pull-left"><img src="../assets/images/city-1.jpg" class="img-responsive"/></div>
                                               <div style="width:65%;" class="pull-left">
                                                 <div style="width:100%; padding:10px 5px; background-color:#333; color:#fff;" class="pull-left">
-                                                  <div class="pull-left">
 
-                                                    <?php if(isset($eventtours->eventtourcountry)) { echo $eventtours->eventtourcountry; } ?>
-                                                      
+                                                  <div class="pull-left">
+                                                    <?php if(isset($eventtours->eventtourcountry)) { echo $eventtours->eventtourcountry; } ?>                                                      
                                                   </div>
 
                                                   <div class="pull-right">
                                                       <?php
                                                           if(isset($eventtours->eventtourstartdate) ) 
                                                           {
-                                                              $timestamp = strtotime($eventtours->eventtourstartdate);                                              
+                                                              
+                                                             $tourstartdate = str_replace(' ', '',$eventtours->eventtourstartdate);
+                                                            
+                                                              $timestamp = strtotime($tourstartdate);
+
                                                               echo date('M &\nb\sp;', $timestamp); 
 
-                                                             $timestamp = strtotime($eventtours->eventtourstartdate);
-                                                             echo date('d', $timestamp);  
+                                                             $timestamp1 = strtotime($tourstartdate);
+                                                             echo date('d', $timestamp1);  
                                                           ?>
                                                             -
                                                           <?php
-                                                             $timestamp = strtotime($eventtours->eventtourenddate);
-                                                             echo date('d', $timestamp); 
+                                                            $tourenddate = str_replace(' ', '',$eventtours->eventtourenddate);
+                                                            $enddate = strtotime($tourenddate);
+                                                            echo date('d', $enddate); 
                                                           }                                   
                                                       ?>
                                                  
                                                   </div>
-
                                                 </div>
+
                                                 <p style="padding:10px;">Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. <br>
                                                   <a>
                                                     <?php if(isset($eventtours->eventtourname)) { echo $eventtours->eventtourname; } ?>
                                                       
-                                                    </a><br>
+                                                  </a><br>
                                                   <a>
                                                      <?php if(isset($eventtours->eventtouraddress1))
                                                       { 
                                                         echo $eventtours->eventtouraddress1." ".$eventtours->eventtourcity." ".$eventtours->eventtourzipcode ;
                                                       } ?>
-                                                  </a></p>
+                                                  </a>
+                                                </p>
+
                                               </div>
                                             </div>
          
@@ -1505,7 +1507,7 @@ body {
                                                    <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                                 </div>
                                                 <div class="pull-right"><span style="color:#fc6653;">
-                                                   <?php if(isset($eventtours->eventtourticketprice) ) { echo "$"." ".$eventtours->eventtourticketprice; } else {echo " "; } ?>
+                                                   <?php if(isset($eventtours->eventtourticketprice) ) { echo $eventtours->eventtourticketprice; } else {echo " "; } ?>
                                                 </span></div>
                                               </div>
                                               <div style="width:100%; margin-top:15px; color:#333;" class="pull-left text-center">
@@ -1514,18 +1516,18 @@ body {
                                                           if(isset($eventtours->eventtourstartdate) ) 
                                                           {
                                                              
-                                                             $timestamp = strtotime($eventtours->eventtourstartdate);
+                                                             $timestamp = strtotime($tourstartdate);
                                                              echo date('h:i A', $timestamp);  
                                                           ?>
                                                             -
                                                           <?php
-                                                             $timestamp = strtotime($eventtours->eventtourenddate);
+                                                             $timestamp = strtotime($tourenddate);
                                                              echo date('h:i A', $timestamp); 
                                                           }                                   
                                                       ?>
-
-                                                </p>
+                                                </p>                                                
                                               </div>
+
                                               <div style="width:100%; color:#333;" class="pull-left text-center">
                                                 <p>
                                                   <button class="btn-primary" style="padding: 2px 25px;">Grab Your Tickets</button>
@@ -1609,7 +1611,6 @@ body {
                                                       </tr>
 
                                                       <?php } ?>
-
                                                        
                                     
                                                       <!-- event venue show start  here -->
@@ -1725,9 +1726,21 @@ body {
                                                         <tr>
                                                           <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:16px;">Event Sponsors Details</strong></td>
                                                         </tr>
+                                                         <?php 
+                                                              if(isset($event->eventcontactmessage) || ($event->eventcontactemail) || ($event->eventcontactphone) || ($event->eventcontactname) ) 
+                                                                 { 
+                                                        ?>
                                                         <tr>
-                                                          <td height="40" colspan="2" bgcolor="#fff">Soundbeat  Jam Club</td>
-                                                        </tr>
+                                                          <td height="40" colspan="2" bgcolor="#fff">
+                                                            <?php 
+                                                                  echo $event->eventcontactname." <br>".$event->eventcontactphone." <br>".$event->eventcontactemail."<br>".$event->eventcontactmessage;
+
+                                                            ?>
+
+                                                          </td>
+                                                        </tr>   
+
+                                                        <?php } ?>                                                   
 
                                                        
                                                         <tr >
@@ -1784,15 +1797,15 @@ body {
                       <div class="col-md-8"> 
                             <!-- Nav tabs category -->
                               <ul class="nav nav-tabs faq-cat-tabs">
-                                  <li class="active" style="width: 25%;"><a href="#faq-cat-1" data-toggle="tab" class="text-center">Event Highlights</a></li>
-                                  <li style="width: 25%;"><a href="#faq-cat-2" data-toggle="tab" class="text-center">Event Schedule</a></li>
+                                  <li class="active" style="width: 25%;"><a href="#event_highlight" data-toggle="tab" class="text-center">Event Highlights</a></li>
+                                  <li style="width: 25%;"><a href="#social_schedule" data-toggle="tab" class="text-center">Event Schedule</a></li>
                                   <li style="width: 25%;"><a href="#faq-cat-3" data-toggle="tab" class="text-center">Event Discussions</a></li>
-                                  <li style="width: 25%;"><a href="#faq-cat-4" data-toggle="tab" class="text-center">Event Tours</a></li> 
+                                  <li style="width: 25%;"><a href="#social_tour" data-toggle="tab" class="text-center">Event Tours</a></li> 
                               </ul>
 
                           <div class="tab-content faq-cat-content">                                  
 
-                                    <div class="tab-pane active in fade" id="faq-cat-1">                                      
+                                    <div class="tab-pane active in fade" id="event_highlight">                                      
 
                                         <div class="col-md-12 text-center clr" style="margin-top:10px;">
                                           <h4 style="color:#fff; line-height:30px;">Event Highlights<br>
@@ -1801,7 +1814,6 @@ body {
                                               <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                             </span></h4>
                                         </div>
-
                                           
 
                                         <div class="col-md-12 pnl-brdr-clr">
@@ -1878,73 +1890,177 @@ body {
                                     </div>
                                     
 
-                              <div class="tab-pane fade" id="faq-cat-2">
-                                          <div class="col-md-12 text-center clr" style="margin-top:10px; margin-bottom:10px;">
-                                              <h4 style="color:#fff; line-height:30px;">Event Schedules<br>
+                              <div class="tab-pane fade" id="social_schedule">
+                                        <div class="col-md-12 text-center clr" style="margin-top:10px; margin-bottom:10px;">
+                                            <h4 style="color:#fff; line-height:30px;">Event Schedules<br>
                                               <span style="font-size:28px;">
                                                  <img src="../assets/images/wow-white-big.png">
                                                 <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
-                                              </span></h4>
-                                          </div>                             
+                                              </span>
+                                            </h4>
+                                        </div>                             
                                   
                                               <!-- tab content show here  -->
 
-                                          <ul class="nav nav-tabs" role="tablist">
+                                        <ul class="nav nav-tabs" role="tablist">
                                             <?php 
-                                                $tabid = 1;  
-                                                foreach ($event->programschedule as $events) { 
+                                                $day = 1;                                                 
+                                                $dayinc = 0;                                               
+                                                
+                                                foreach ($event->programschedule as $events) {
+
+                                                 
+                                                    $timestamp = strtotime("$event->eventstartdate +$dayinc day");
+                                                    $date = date('M-d-Y', $timestamp);
+
                                                   if($events->eventnumber == "1")
-                                                  {
-                                                    if($tabid == 1)
+                                                  {                                                        
+
+                                                    if($day == 1)
                                                     {
-                                                        echo '<li class="active"><a data-toggle="tab" href="#tab-'.$tabid.'" style="line-height:16px; font-size:12px; color:#333;">Day '.$events->day.'</a></li>';
+                                                      
+
+                                                      echo '<li class="active"><a data-toggle="tab" href="#tab-'.$day.'" style="line-height:16px; font-size:12px; color:#333;">Day- '.$events->day.'<br> '.$date.'</a></li>';
 
                                                     }else{
-                                                        echo '<li><a data-toggle="tab" href="#tab-'.$tabid.'" style="line-height:16px; font-size:12px; color:#333;">Day '.$events->day.'</a></li>';
+
+                                                        echo '<li><a data-toggle="tab" href="#tab-'.$day.'" style="line-height:16px; font-size:12px; color:#333;">Day- '.$events->day.'<br> '.$date.'</a></li>';
                                                     }
 
-                                                    $tabid++; 
+                                                    $day++;
+                                                    $dayinc++;                                                    
                                                   }  
+                                               
                                                 } ?>
-                                          </ul>
+                                      </ul>
 
                                   
                                           <!-- tab content show here  -->
 
+                                        
                                     <div  id="tab-content" class="tab-content"> 
+
+                                        <?php
+
+                                        for($eventday = 1; $eventday<$day; $eventday++)
+                                        {
+
+                                        ?>
+                                            <?php if($eventday == 1){ ?>
+
+                                            <div class="tab-pane fade in active" id="tab-<?php echo $eventday; ?>">
+
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody> 
+                                                <tr>
+                                                  <td height="40" colspan="3" align="center" valign="middle" bgcolor="#f9f9f9">
+                                                    <strong style="font-size:16px;">Event Duration
+                                                      <br>
+                                            <?php
+
+                                            foreach ($event->programschedule as $events) {
+                                            
+                                                if($events->day == $eventday )
+                                                {
+                                                    if( $events->eventnumber == "1" )
+                                                            {  
+                                                                echo $events->starttime."-". $events->endtime ; 
+                                                            } 
+                                                    
+                                                }
+                                                
+                                            }
+
+                                            ?>
+
+                                             <br>
+                                                    </strong>
+                                                  </td>
+                                                </tr>
+
+                                                 <tr>
+                                                  <td width="30%" height="40" bgcolor="#fff"><strong>Event Itinerary Time</strong></td>
+                                                  <td width="51%" bgcolor="#fff"><strong>Event Topic/Agenda</strong></td>
+                                                  <td width="19%" height="40" bgcolor="#fff"><strong>Event Location</strong></td>
+                                                </tr>
+
                                                 <?php 
-                                                 $tabcontent_id = 1;  
-                                                 foreach ($event->programschedule as $events) { 
-                                                    if($tabcontent_id == 1)
-                                                    {
+                                                    foreach ($event->programschedule as $events) {
+                                                     if( $events->day == "1" )
+                                                        {  
+                                                                   
+                                                ?> 
+                                                 <tr>
+                                                    <td height="40" bgcolor="#f9f9f9">
+                                                      <strong>
+                                                        <?php echo $events->itystarttime.' - ' .$events->ityendtime; ?>
+                                                      </strong><br>Event Facilitator:
+                                                      <?php echo  $events->facilitator; ?> 
+                                                    </td>
 
-                                                ?>  
+                                                    <td height="40" bgcolor="#f9f9f9">
+                                                      <strong><?php echo $events->agenda; ?>
+                                                      </strong>
+                                                    </td>
 
-                                        <!-- day1   -->
-                                        <div class="tab-pane fade in active" id="tab-<?php echo $tabcontent_id; ?>">
-                                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                    <td height="40" bgcolor="#f9f9f9"><strong><?php if(isset( $events->location)){ echo  $events->location; } else { echo " ";} ?></strong><br>
+                                                    </td>
+                                                </tr>
+                                                 <?php } }?>
+
+                                                </tbody>
+                                            </table>
+
+                                            </div>
+
+                                            <?php } else{ ?>
+
+
+                                        <div class="tab-pane fade" id="tab-<?php echo $eventday; ?>">
+
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                             <tbody> 
+
                                                 <tr>
                                                   <td height="40" colspan="3" align="center" valign="middle" bgcolor="#f9f9f9">
                                                     <strong style="font-size:16px;">Event Duration
                                                       <br>
-                                                        <?php                                                 
-                                                          if( $events->eventnumber == "1" )
-                                                                  {  
-                                                                    echo $events->starttime."-". $events->endtime ; 
-                                                                    
-                                                                  }                          
-                                                        ?>                                                       
-                                                      <br>
+                                            <?php
+
+                                            foreach ($event->programschedule as $events) {
+                                            
+                                                if($events->day == $eventday )
+                                                {
+                                                    if( $events->eventnumber == "1" )
+                                                            {  
+                                                                echo $events->starttime."-". $events->endtime ; 
+                                                            } 
+                                                    
+                                                }
+                                                
+                                            }
+
+                                            ?>
+
+                                             <br>
                                                     </strong>
                                                   </td>
                                                 </tr>
+
+
                                                 <tr>
                                                   <td width="30%" height="40" bgcolor="#fff"><strong>Event Itinerary Time</strong></td>
                                                   <td width="51%" bgcolor="#fff"><strong>Event Topic/Agenda</strong></td>
                                                   <td width="19%" height="40" bgcolor="#fff"><strong>Event Location</strong></td>
                                                 </tr>
-                                                  
+
+                                            <?php
+
+                                            foreach ($event->programschedule as $events) {
+                                            
+                                                if($events->day == $eventday )
+                                                { ?>
+
                                                 <tr>
                                                     <td height="40" bgcolor="#f9f9f9">
                                                       <strong>
@@ -1961,63 +2077,31 @@ body {
                                                     <td height="40" bgcolor="#f9f9f9"><strong><?php if(isset( $events->location)){ echo  $events->location; } else { echo " ";} ?></strong><br>
                                                     </td>
                                                 </tr>
+                                            
+                                            <?php  
+                                                }
+                                                
+                                            }
+
+                                            ?>
 
                                             </tbody>
-                                          </table>
-                                        </div>  
-                                                                 
-                                   <?php } else{ ?>
+                                            </table>
+                                              
+                                        </div>
 
-                                        <div class="tab-pane fade" id="tab-<?php echo $tabcontent_id; ?>">
-                                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                            <tbody> 
-                                                <tr>
-                                                  <td height="40" colspan="3" align="center" valign="middle" bgcolor="#f9f9f9">
-                                                    <strong style="font-size:16px;">Event Duration
-                                                      <br>
-                                                        <?php                                                 
-                                                          if( $events->eventnumber == "1" )
-                                                                  {  
-                                                                    echo $events->starttime."-". $events->endtime ; 
-                                                                    
-                                                                  }                          
-                                                        ?>                                                       
-                                                      <br>
-                                                    </strong>
-                                                  </td>
-                                                </tr>
-                                                <tr>
-                                                  <td width="30%" height="40" bgcolor="#fff"><strong>Event Itinerary Time</strong></td>
-                                                  <td width="51%" bgcolor="#fff"><strong>Event Topic/Agenda</strong></td>
-                                                  <td width="19%" height="40" bgcolor="#fff"><strong>Event Location</strong></td>
-                                                </tr>
-                                                  
-                                                <tr>
-                                                    <td height="40" bgcolor="#f9f9f9">
-                                                      <strong>
-                                                        <?php echo $events->itystarttime.' - ' .$events->ityendtime; ?>
-                                                      </strong><br>Event Facilitator:
-                                                      <?php echo  $events->facilitator; ?> 
-                                                    </td>
 
-                                                    <td height="40" bgcolor="#f9f9f9">
-                                                      <strong><?php echo $events->agenda; ?>
-                                                      </strong>
-                                                    </td>
+                                    <?php 
+                                            }
 
-                                                    <td height="40" bgcolor="#f9f9f9"><strong><?php if(isset( $events->location)){ echo  $events->location; } else { echo " ";} ?></strong><br>
-                                                    </td>
-                                                </tr>
+                                    }
 
-                                            </tbody>
-                                          </table>
-                                        </div> 
-
-                                   <?php }  $tabcontent_id++; } ?>  
-                                    </div>                               
+                                    ?>
+                                    </div> 
 
                               </div>
 
+                                     <!-- event schedule end here -->
 
                                         <div class="tab-pane fade" id="faq-cat-3">
                                               <div class="col-md-12 text-center clr" style="margin-bottom:20px;">
@@ -2073,7 +2157,7 @@ body {
 
                                       <!-- four tab view  event tours-->
 
-                                      <div class="tab-pane fade" id="faq-cat-4">
+                                      <div class="tab-pane fade" id="social_tour">
                                           <div class="col-md-12 text-center clr" style="margin-top:10px;">
                                             <h4 style="color:#fff; line-height:30px;">Event Tours<br>
                                               <span style="font-size:28px;">
@@ -2087,7 +2171,7 @@ body {
                                           <div class="col-md-12 pnl-brdr-clr">
 
                                              <?php 
-                                                 if(isset($event->eventtour))
+                                                 if(isset($event->eventtour) )
                                                   {
                                                     foreach ($event->eventtour as $eventtours) 
                                                     {                                                 
@@ -2108,16 +2192,19 @@ body {
                                                       <?php
                                                           if(isset($eventtours->eventtourstartdate) ) 
                                                           {
-                                                              $timestamp = strtotime($eventtours->eventtourstartdate);                                              
+                                                              $tourstartdate = str_replace(' ', '',$eventtours->eventtourstartdate);
+                                                              $timestamp = strtotime($tourstartdate);                                              
                                                               echo date('M &\nb\sp;', $timestamp); 
 
-                                                             $timestamp = strtotime($eventtours->eventtourstartdate);
-                                                             echo date('d', $timestamp);  
+                                                            
+                                                            $startdate = strtotime($eventtours->eventtourstartdate);
+                                                            echo date('d', $startdate);  
                                                           ?>
                                                             -
                                                           <?php
-                                                             $timestamp = strtotime($eventtours->eventtourenddate);
-                                                             echo date('d', $timestamp); 
+                                                              $tourenddate = str_replace(' ', '',$eventtours->eventtourenddate);
+                                                              $enddate = strtotime($tourenddate);
+                                                              echo date('d', $enddate); 
                                                           }                                   
                                                       ?>
                                                  
@@ -2145,24 +2232,21 @@ body {
                                                    <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                                 </div>
                                                 <div class="pull-right"><span style="color:#fc6653;">
-                                                   <?php if(isset($eventtours->eventtourticketprice) ) { echo "$"." ".$eventtours->eventtourticketprice; } else {echo " "; } ?>
+                                                   <?php if(isset($eventtours->eventtourticketprice) ) { echo $eventtours->eventtourticketprice; } else {echo " "; } ?>
                                                 </span></div>
                                               </div>
                                               <div style="width:100%; margin-top:15px; color:#333;" class="pull-left text-center">
                                                 <p style="font-size:16px;">
                                                   <?php
                                                           if(isset($eventtours->eventtourstartdate) ) 
-                                                          {
-                                                             
-                                                             $timestamp = strtotime($eventtours->eventtourstartdate);
-                                                             echo date('h:i A', $timestamp);  
-                                                          ?>
-                                                            -
-                                                          <?php
-                                                             $timestamp = strtotime($eventtours->eventtourenddate);
-                                                             echo date('h:i A', $timestamp); 
+                                                          {                                                             
+                                                            $starttime = strtotime($eventtours->eventtourstartdate);
+                                                            echo date('h:i A', $starttime);                                               
+                                                            echo "-";                                                        
+                                                            $endtime = strtotime($eventtours->eventtourenddate);
+                                                            echo date('h:i A', $endtime); 
                                                           }                                   
-                                                      ?>
+                                                  ?>
 
                                                 </p>
                                               </div>
@@ -2176,7 +2260,6 @@ body {
                                               <?php  }  } else { echo "You miss to add Event Tours "; } ?>
 
                                           </div>
-
                                         
 
                                           <!-- here end event tours -->
@@ -2185,9 +2268,7 @@ body {
                           </div>
                       </div>
 
-                      
-
-  <!-- social event end here -->
+   <!-- social event end here -->
 
 
 
@@ -2214,8 +2295,7 @@ body {
                                             <td height="40" colspan="2" bgcolor="#fff"><?php echo $event->eventdescription; ?> </td>
                                           </tr>        
 
-
-                                                        <tr>
+                                                       <tr>
                                                           <td bgcolor="#f9f9f9"> 
                                                             <strong>
                                                               <i class="fa fa-map-marker"></i> Offer
@@ -2307,9 +2387,22 @@ body {
                                                         <tr>
                                                           <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:16px;">Event Sponsors Details</strong></td>
                                                         </tr>
+                                                         <?php 
+                                                              if(isset($event->organisationname) || ($event->salesemail) || ($event->salesphonenumber) || ($event->saleshostmessage) ) 
+                                                                 { 
+                                                        ?>
                                                         <tr>
-                                                          <td height="40" colspan="2" bgcolor="#fff">Soundbeat  Jam Club</td>
-                                                        </tr>
+                                                          <td height="40" colspan="2" bgcolor="#fff">
+                                                            <?php 
+                                                                  echo $event->organisationname." <br>".$event->salesphonenumber." <br>".$event->salesemail."<br>".$event->saleshostmessage;
+
+                                                            ?>
+
+                                                          </td>
+                                                        </tr>   
+
+                                                        <?php } ?>                                                   
+
 
                                                         <tr>
                                                           <td height="40" colspan="2" bgcolor="#fff">
@@ -2345,13 +2438,17 @@ body {
                                         </div>
                                           
                                         <!-- here add business event details  first set-->
+                                      <?php 
+                                        if(isset($event->eventsalescoupon1) && ($event->eventsalescoupon1 != 'null'))
+                                          {  
+                                      ?>
 
                                          <div class="col-md-12 pnl-brdr-clr">
 
                                             <div class="col-md-8">
                                               <div style="width:35%;" class="pull-left">
-                                                 <?php  if(isset($event->eventsalescoupon1 ) && ($event->eventsalescoupon1 != 'null') ) { ?>
-                                                  <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventsalescoupon1; ?>" style="width:160px; height:88px;"  alt="user" class="img-responsive img-thumbnail"/>
+                                                 <?php  if(isset($event->eventsalescoupon1url ) && ($event->eventsalescoupon1url != 'null') ) { ?>
+                                                  <img src="<?php echo $event->eventsalescoupon1url; ?>" style="width:160px; height:88px;"  alt="user" class="img-responsive img-thumbnail"/>
                                                    <?php } else {  ?>
                                                 <img src="../assets/images/sales-1.png" class="img-responsive">
                                                 <?php }  ?>  
@@ -2360,10 +2457,8 @@ body {
                                                 <div style="width:100%; padding:10px 5px; background-color:#333; color:#fff;" class="pull-left">
                                                   <div class="pull-left">
 
-                                                    Teen Back To School Wears                                                     
+                                                    <?php if(isset($event->eventsalesservicename1) ) { echo $event->eventsalesservicename1; } else {echo " "; } ?>                                                   
                                                   </div>
-
-                                                  
 
                                                 </div>
                                                 <p style="padding:10px;">Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. <br>
@@ -2398,17 +2493,29 @@ body {
                                                 </p>
                                               </div>
                                               <div style="width:100%; color:#333;" class="pull-left text-center">
-                                                <p>
-                                                  <button class="btn-primary" style="padding: 2px 25px;">Grab Your Coupons</button>
+                                                <p>                                                  
+                                                    <?php
+                                                        if(isset($event->eventsalesaction1) && ($event->eventsalesaction1 != 'null')) 
+                                                        {                                                      
+                                                           echo '<button class="btn-primary" style="padding: 2px 25px;">';
+                                                           echo $event->eventsalesaction1;
+                                                           echo '</button>';
+                                                        }                                          
+                                                    ?>  
                                                 </p>
                                               </div>
                                             </div>
 
-                                          </div>                                        
+                                          </div>  
+                                        <?php } ?>                                      
 
                                         <!-- event coupon 2 -->
+                                    <?php 
+                                      if(isset($event->eventsalescoupon2) && ($event->eventsalescoupon2 != 'null'))
+                                        {  
+                                    ?>
 
-                                         <div class="col-md-12 pnl-brdr-clr">
+                                        <div class="col-md-12 pnl-brdr-clr">
 
                                             <div class="col-md-8">
                                               <div style="width:35%;" class="pull-left">
@@ -2425,8 +2532,6 @@ body {
                                                     Teen Back To School Wears                                                     
                                                   </div>
 
-                                                  
-
                                                 </div>
                                                 <p style="padding:10px;">Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. <br>
                                                   <a>
@@ -2436,7 +2541,8 @@ body {
                                                                echo "Sponsors ".$event->onlinesalespromotionur2; 
                                                             }
                                                       ?>                                                       
-                                                    </a></p>
+                                                  </a>
+                                                </p>
                                               </div>
                                             </div>
          
@@ -2459,21 +2565,23 @@ body {
                                               </div>
                                               <div style="width:100%; color:#333;" class="pull-left text-center">
                                                 <p>
-                                                  <button class="btn-primary" style="padding: 2px 25px;">Grab Your Coupons</button>
+                                                  <?php
+                                                        if(isset($event->eventsalesdiscount2) && ($event->eventsalesdiscount2 != 'null')) 
+                                                        { 
+                                                            echo '<button class="btn-primary" style="padding: 2px 25px;">';
+                                                            echo $event->eventsalesdiscount2;
+                                                            echo '</button>';
+                                                        }                                          
+                                                    ?>   
+                                                 
                                                 </p>
                                               </div>
                                             </div>
+                                        </div>
+                                        <?php } ?>
 
-                                          </div>
                                     </div>
-                                    
-
-                             
-
-                                        
-
-                                       
-
+                                  
                           </div>
                       </div>
 

@@ -102,7 +102,7 @@
 		outline: none;
 	}
 	
-	#btnAdd10, #btnremove{
+	#btnAdd10, #btnremove,#remove_day{
 		background-image: url("<?php echo base_url('assets/images/close-outline-32.png')?>");
 		background-repeat: no-repeat;
 		border: none;
@@ -617,12 +617,12 @@ li.keywordSearch-email {
 		                    </div>
 		                    <div class='form-group col-sm-12' >
 		                      <label>Event Name</label>
-		                      <input type='text'  name="event_name" class="form-control required" />
+		                      <input type='text'  name="event_name" class="form-control " />
 		                    </div>		                    
 
 		                    <div class="form-group col-sm-12 " style="font-size: 15px;">
 				                      <label>Select Event Days</label>
-				                     <select name="event_totaldays" id="btn-add-tab" class="form-control required" >
+				                     <select name="event_totaldays" id="btn-add-tab" class="form-control " >
 				                      <option value="">Select Event Days</option>
 				                      <option value="1">1 Day Event</option>
 				                      <option value="2">2 Days Event</option>
@@ -638,7 +638,7 @@ li.keywordSearch-email {
 
 			                    <div class='form-group col-sm-6' style="width:45%;" >
 			                      <label>Currrent Event Start Date</label>
-			                      <input type='text' id="event_startdate" name="event_startdate"  class="form-control required"  />
+			                      <input type='text' id="event_startdate" name="event_startdate"  class="form-control "  />
 			                    </div>
 
 			                    <div  class='form-group col-sm-6' style="width:45%; " >
@@ -665,7 +665,7 @@ li.keywordSearch-email {
                     				<label> Organisation Name </label>
                      			<!-- company name show here from login page -->
 			            	
-			              		<select name="tour_noof_city"  class="form-control " >
+			              		<select name="organisation_name"  class="form-control" >
 			              			<option value="">Select</option>
 			              		<?php			             
 			                  		$business =  $this->session->userdata('business');
@@ -676,7 +676,8 @@ li.keywordSearch-email {
 			                  
 			              		?>
 			              			
-				                    <option value="<?php  echo $business_name->companyname; ?>"><?php  echo $business_name->companyname; ?>
+				                    <option value="<?php  echo $business_name->companyname; ?>">
+				                    	<?php  echo $business_name->companyname; ?>
 				                    	
 				                    </option>	
 				                     <?php } }  ?>			                     
@@ -897,10 +898,35 @@ li.keywordSearch-email {
 				con.value=cur[index];
 			}
 
+			function list_dynamic(index)
+			{
+				var con=document.getElementById('ticket_price_1');
+				if(index==-1)
+				{
+					con.value=""; return;
+				}
+				con.value=cur[index];
+			}
+
 	</script>
 		                	<div class='row'>    
 				               <div class='form-group col-sm-12' style="margin-top: 15px;">
-					                <select name=country id=con onChange=list(this.value) class="form-control">
+
+				               	<label>This is</label>
+			                      <select name="ticket_type" id="ticket_type" class="form-control" style="background-color:#eff0f1;">
+			                      	<option value="select">Select</option>
+			                        <option value="Free Event">Free Event</option>
+			                        <option value="Paid Event">Paid Event Tickets</option>
+			                        <option value="Donation Base">Donation Based</option>
+			                      </select>
+					                
+								</div>
+							</div>
+
+		                   <div class='row'>                   
+			                    <div class='form-group col-sm-6' style="display: none;" id="price_country">
+			                    	<label>Select country</label>
+			                      	<select name=country  onChange=list(this.value) class="con form-control">
 										<script type="text/javascript">
 										document.write("<option value=-1>Select Country</option>");
 										count=con.length;
@@ -908,18 +934,6 @@ li.keywordSearch-email {
 										document.write("<option value="+i+">"+con[i]+"</option>");
 										</script>
 									</select>
-								</div>
-							</div>
-
-		                   <div class='row'>                   
-			                    <div class='form-group col-sm-6' >
-			                      <label>This is</label>
-			                      <select name="ticket_type" id="ticket_type" class="form-control" style="background-color:#eff0f1;">
-			                      	<option value="select">Select</option>
-			                        <option value="Free Event">Free Event</option>
-			                        <option value="Paid Event">Paid Event Tickets</option>
-			                        <option value="Donation Base">Donation Based</option>
-			                      </select>
 			                    </div>
 
 			                    <div class='form-group col-sm-6' style="display: none;" id="ticket_price">
@@ -941,7 +955,7 @@ li.keywordSearch-email {
 			                <div class='row'>
 				                    <div class='form-group col-sm-12'>
 				                      <label>Event Description</label>
-				                      <textarea type='text' id="description" name="event_description"  class="form-control required" style="min-height:150px;" placeholder="Describe What Your Event Is All About " ></textarea>
+				                      <textarea type='text' id="description" name="event_description"  class="form-control " style="min-height:150px;" placeholder="Describe What Your Event Is All About " ></textarea>
 				                    </div>
 				                    <div class='form-group col-sm-12'>
 					                      <div class='col-sm-12' style="background-color:#f9f9f9;">
@@ -951,7 +965,7 @@ li.keywordSearch-email {
 						                        <div class="field" align="left">
 						                         		<input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('files').click();" />
 						                         		<div id="img_preview1"></div>
-						                         		<input type="file" style="display:none;" name="cover_img" id="files" class="file required" accept="image/*" title="cover image">  
+						                         		<input type="file" style="display:none;" name="cover_img" id="files" class="file " accept="image/*" title="cover image">  
 						                        </div> 
 					                        </div>		                        
 					                      </div>
@@ -1172,7 +1186,6 @@ li.keywordSearch-email {
                 </div>
 
 
-
                 <div class='col-sm-3'>
                   <div class='col-sm-12' style="background-color:#f9f9f9;">
                     <div class='col-sm-12'>
@@ -1274,7 +1287,7 @@ li.keywordSearch-email {
                       </div>
                       <div class="form-group">
                       	<span class="btn btn-primary btn-file"> 
-                       	 Browse...<input type="file" name="wowtag_video" id="video_size" class="file required" accept="video/*">
+                       	 Browse...<input type="file" name="wowtag_video" id="video_size" class="file " accept="video/*">
                        	</span>
 
                         <div id="video_show" style="display: none;" >
@@ -1461,7 +1474,7 @@ li.keywordSearch-email {
                 </div>
     </fieldset>
             
-              <!--  Step 5 -->
+              <!--  Step 5  event highlight-->
     <fieldset>
             <!--<form id="create_event" action="" method="post" enctype="multipart/form-data" > --> 
                <!-- Progress Bar -->
@@ -1831,13 +1844,13 @@ li.keywordSearch-email {
 
                 <div class='col-sm-5'>
            					  <div class='col-sm-12' >
-           					  		<div class='col-sm-3'>
-           					  			<label>Evnt Tour City</label>
+           					  		<div class='col-sm-3' >
+           					  			<label>Event Tour City</label>
            					  		</div>
            					  		<div class='col-sm-4'>
            					  			<label>Date</label>
            					  		</div>
-           					  		<div class='col-sm-4'>
+           					  		<div class='col-sm-5'>
            					  			<label>Ticket URL</label>
            					  		</div>
            					  	 <div id="show_tours">
@@ -1888,79 +1901,17 @@ li.keywordSearch-email {
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>	
-		                    	 <label>Country</label>	                  
-		                          	<select id="tour_country_1" name="tour_country[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> 
-                                           <option value="">Country </option> 
-                                            <option value="Afghanistan">Afghanistan </option>
-                                            <option value="Albania">Albania </option>
-                                            <option value="Algeria">Algeria </option>
-                                            <option value="American Samoa">American Samoa </option>
-                                            <option value="Andorra">Andorra </option>
-                                            <option value="Angola">Angola </option>
-                                            <option value="Australia">Australia </option>
-                                            <option value="Bahamas">Bahamas </option>
-                                            <option value="Bahrain">Bahrain </option>
-                                            <option value="Bangladesh">Bangladesh </option>
-                                            <option value="Barbodos">Barbodos </option>
-                                            <option value="Canada">Canada </option>
-                                            <option value="Cape Verde">Cape Verde </option>
-                                            <option value="Chile">Chile </option>
-                                            <option value="China">China </option>
-                                            <option value="Colombia">Colombia </option>
-                                            <option value="Denmark">Denmark </option>
-                                            <option value="Dominica">Dominica </option>
-                                            <option value="Dominican Republic">Dominican Republic </option>
-                                            <option value="Finland">Finland </option>
-                                            <option value="France">France </option>
-                                            <option value="French Guiana">French Guiana </option>
-                                            <option value="Gabon">Gabon </option>
-                                            <option value="Gambia">Gambia </option>
-                                            <option value="Greece">Greece </option>
-                                            <option value="Greenland">Greenland </option>
-                                            <option value="Hong Kong">Hong Kong </option>
-                                            <option value="Hungary">Hungary </option>
-                                            <option value="Iceland">Iceland </option>
-                                            <option value="India">India </option>
-                                            <option value="Iraq">Iraq </option>
-                                            <option value="Ireland">Ireland </option>
-                                            <option value="Italy">Italy </option>
-                                            <option value="Jamaica">Jamaica </option>
-                                            <option value="Japan">Japan </option>
-                                            <option value="Kenya">Kenya </option>
-                                            <option value="Kuwait">Kuwait </option>
-                                            <option value="Latvia">Latvia </option>
-                                            <option value="Lebanon">Lebanon </option>
-                                            <option value="Liberia">Liberia </option>
-                                            <option value="Macao">Macao </option>
-                                            <option value="Madagaskar">Madagaskar </option>
-                                            <option value="Malawi">Malawi </option>
-                                            <option value="Malaysia">Malaysia </option>
-                                            <option value="Mali">Mali </option>
-                                            <option value="Malta">Malta </option>
-                                            <option value="Mexico">Mexico </option>
-                                            <option value="Monaco">Monaco </option>
-                                            <option value="Myanmar">Myanmar </option>
-                                            <option value="Nepal">Nepal </option>
-                                            <option value="Netherlands">Netherlands </option>
-                                            <option value="Nigeria">Nigeria </option>
-                                            <option value="Norway">Norway </option>
-                                            <option value="Oman">Oman </option>
-                                            <option value="Pakistan">Pakistan </option>
-                                            <option value="Palau">Palau </option>
-                                            <option value="Panama">Panama </option>
-                                            <option value="Peru">Peru </option>
-                                            <option value="Philippines">Philippines </option>
-                                            <option value="Poland">Poland </option>
-                                            <option value="Qatar">Qatar </option>
-                                            <option value="Romania">Romania </option>
-                                            <option value="Russian Federation">Russian Federation </option>
-                                            <option value="Samoa">Samoa </option>
-                                            <option value="Senegal">Senegal </option>
-                                            <option value="Spain">Spain </option>
-                                            <option value="Srilanka">Srilanka </option>
-                                            <option value="Switzerland">Switzerland </option>
-                                            <option value="Thailand">Thailand </option>                                           
-                        		</select>
+		                    	<label>Country</label>
+		                    	
+					                <select name="tour_country[]" onChange=list_dynamic(this.value) class="con form-control " >
+										<script type="text/javascript">
+										document.write("<option value=-1>Select Country</option>");
+										count=con.length;
+										for(i=0;i<count;i++)
+										document.write("<option value="+i+">"+con[i]+"</option>");
+										</script>
+									</select>
+								
 		                    </div>
 		                    
 
@@ -2023,27 +1974,21 @@ li.keywordSearch-email {
 		                      <div class="pull-left" style="width:10%;">
 		                        <input type="checkbox" name="eventtour_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:15px;">Address can only be viewed by invited guest</div>
+		                      <div class="pull-left" style="width:90%; font-size:15px;">Public Event</div>
 		                    </div>
 		                    <div class='form-group-1 col-sm-12'>
 			                    <div class="pull-left" style="width:10%;">
 			                       <input type="checkbox" name="eventtour_guestshare" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 			                    </div>
-			                    <div class="pull-left" style="width:90%; font-size:15px;">Invited guest can share event</div>
+			                    <div class="pull-left" style="width:90%; font-size:15px;">Private Event</div>
 		                    </div>
 		                    <div class='form-group-1 col-sm-12'>
 		                      <div class="pull-left" style="width:10%;">
 		                        <input type="checkbox" name="eventtour_onlineevent" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:15px;">Online  Event</div>
+		                      <div class="pull-left" style="width:90%; font-size:15px;">Online Event</div>
 		                    </div>
-		                    <div class='form-group-1 col-sm-12'>
-		                      <div class="pull-left" style="width:10%;">
-		                        <input type="checkbox" name="eventtour_inviteonlyevent" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
-		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:15px;">Invite Only Event</div>
-		                    </div>		                  
-
+		                   
                   	</div>
                 </div>
 
@@ -2880,7 +2825,7 @@ function update_vanue() {
 
 function generate_tour_fields(count)
  {	
-	var tour_address  = '<div id="event_tour_'+count+'" class="animated bounceInRight tab1"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_tour_name_'+count+'" name="event_tour_name[]"  class="form-control"  /> </div> <div class="form-group col-sm-6"> <label>Event Start Date</label> <input type="text" id="tour_startdate_'+count+'" name="eventtour_startdate[]"  class="event_startdate form-control " onblur="update_tour()"  /> </div> <div class="form-group col-sm-6"> <label>Event Start Time</label> <input type="text" id="tour_startime_'+count+'" name="eventtour_startime[]"  class="day_start_time form-control "  /> </div> <div class="form-group col-sm-6" > <label>Event End Date</label> <input type="text" id="tour_enddate_'+count+'" name="eventtour_enddate[]"  class="event_enddate form-control " onblur="update_tour()" /> </div> <div class="form-group col-sm-6"> <label>Event End Time</label> <input type="text" id="tour_endtiming_'+count+'" name="eventtour_endtiming[]"  class="day_end_time form-control "  /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="tour_address1_'+count+'" name="tour_address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="tour_address2_'+count+'" name="tour_address2[]"  class="form-control" /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="tour_city_'+count+'" name="tour_city[]" class="form-control" onblur="update_tour()" /> </div> <div class="form-group col-sm-12"> <label>Country</label> <select id="tour_country_'+count+'" name="tour_country[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="">Country </option> <option value="Afghanistan">Afghanistan </option> <option value="Albania">Albania </option> <option value="Algeria">Algeria </option> <option value="American Samoa">American Samoa </option> <option value="Andorra">Andorra </option> <option value="Angola">Angola </option> <option value="Australia">Australia </option> <option value="Bahamas">Bahamas </option> <option value="Bahrain">Bahrain </option> <option value="Bangladesh">Bangladesh </option> <option value="Barbodos">Barbodos </option> <option value="Canada">Canada </option> <option value="Cape Verde">Cape Verde </option> <option value="Chile">Chile </option> <option value="China">China </option> <option value="Colombia">Colombia </option> <option value="Denmark">Denmark </option> <option value="Dominica">Dominica </option> <option value="Dominican Republic">Dominican Republic </option> <option value="Finland">Finland </option> <option value="France">France </option> <option value="French Guiana">French Guiana </option> <option value="Gabon">Gabon </option> <option value="Gambia">Gambia </option> <option value="Greece">Greece </option> <option value="Greenland">Greenland </option> <option value="Hong Kong">Hong Kong </option> <option value="Hungary">Hungary </option> <option value="Iceland">Iceland </option> <option value="India">India </option> <option value="Iraq">Iraq </option> <option value="Ireland">Ireland </option> <option value="Italy">Italy </option> <option value="Jamaica">Jamaica </option> <option value="Japan">Japan </option> <option value="Kenya">Kenya </option> <option value="Kuwait">Kuwait </option> <option value="Latvia">Latvia </option> <option value="Lebanon">Lebanon </option> <option value="Liberia">Liberia </option> <option value="Macao">Macao </option> <option value="Madagaskar">Madagaskar </option> <option value="Malawi">Malawi </option> <option value="Malaysia">Malaysia </option> <option value="Mali">Mali </option> <option value="Malta">Malta </option> <option value="Mexico">Mexico </option> <option value="Monaco">Monaco </option> <option value="Myanmar">Myanmar </option> <option value="Nepal">Nepal </option> <option value="Netherlands">Netherlands </option> <option value="Niger">Niger </option> <option value="Norway">Norway </option> <option value="Oman">Oman </option> <option value="Pakistan">Pakistan </option> <option value="Palau">Palau </option> <option value="Panama">Panama </option> <option value="Peru">Peru </option> <option value="Philippines">Philippines </option> <option value="Poland">Poland </option> <option value="Qatar">Qatar </option> <option value="Romania">Romania </option> <option value="Russian Federation">Russian Federation </option> <option value="Samoa">Samoa </option> <option value="Senegal">Senegal </option> <option value="Spain">Spain </option> <option value="Srilanka">Srilanka </option> <option value="Switzerland">Switzerland </option> <option value="Thailand">Thailand </option> </select> </div><div class="form-group col-sm-6"> <label>Ticket URL</label> <input type="text" id="ticket_url_'+count+'" name="tour_ticket_url[]" class="form-control" /> </div> <div class="form-group col-sm-6"> <label>Ticket Price</label> <input type="text" id="ticket_price_'+count+'" name="tour_ticket_price[]" class="form-control" onblur="update_tour()" /> </div> <div class="form-group col-sm-12"> <label>Zipcode/ Postal Code</label> <input type="number" id="tour_zipcode_'+count+'" name="tour_zipcode[]"  class="form-control"  /> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnremove" class="remove_tour btn btn-info btn-sm"> </a> </div> </div>';
+	var tour_address  = '<div id="event_tour_'+count+'" class="animated bounceInRight tab1"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_tour_name_'+count+'" name="event_tour_name[]"  class="form-control"  /> </div> <div class="form-group col-sm-6"> <label>Event Start Date</label> <input type="text" id="tour_startdate_'+count+'" name="eventtour_startdate[]"  class="event_startdate form-control " onblur="update_tour()"  /> </div> <div class="form-group col-sm-6"> <label>Event Start Time</label> <input type="text" id="tour_startime_'+count+'" name="eventtour_startime[]"  class="day_start_time form-control "  /> </div> <div class="form-group col-sm-6" > <label>Event End Date</label> <input type="text" id="tour_enddate_'+count+'" name="eventtour_enddate[]"  class="event_enddate form-control " onblur="update_tour()" /> </div> <div class="form-group col-sm-6"> <label>Event End Time</label> <input type="text" id="tour_endtiming_'+count+'" name="eventtour_endtiming[]"  class="day_end_time form-control "  /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="tour_address1_'+count+'" name="tour_address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="tour_address2_'+count+'" name="tour_address2[]"  class="form-control" /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="tour_city_'+count+'" name="tour_city[]" class="form-control" onblur="update_tour()" /> </div> <div class="form-group col-sm-12"> <label>Country</label> <select id="tour_country_'+count+'" name="tour_country[]" onChange=list_dynamic(this.value) class="con form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="">Country </option> <option value="Afghanistan">Afghanistan </option> <option value="Albania">Albania </option> <option value="Algeria">Algeria </option> <option value="American Samoa">American Samoa </option> <option value="Andorra">Andorra </option> <option value="Angola">Angola </option> <option value="Australia">Australia </option> <option value="Bahamas">Bahamas </option> <option value="Bahrain">Bahrain </option> <option value="Bangladesh">Bangladesh </option> <option value="Barbodos">Barbodos </option> <option value="Canada">Canada </option> <option value="Cape Verde">Cape Verde </option> <option value="Chile">Chile </option> <option value="China">China </option> <option value="Colombia">Colombia </option> <option value="Denmark">Denmark </option> <option value="Dominica">Dominica </option> <option value="Dominican Republic">Dominican Republic </option> <option value="Finland">Finland </option> <option value="France">France </option> <option value="French Guiana">French Guiana </option> <option value="Gabon">Gabon </option> <option value="Gambia">Gambia </option> <option value="Greece">Greece </option> <option value="Greenland">Greenland </option> <option value="Hong Kong">Hong Kong </option> <option value="Hungary">Hungary </option> <option value="Iceland">Iceland </option> <option value="India">India </option> <option value="Iraq">Iraq </option> <option value="Ireland">Ireland </option> <option value="Italy">Italy </option> <option value="Jamaica">Jamaica </option> <option value="Japan">Japan </option> <option value="Kenya">Kenya </option> <option value="Kuwait">Kuwait </option> <option value="Latvia">Latvia </option> <option value="Lebanon">Lebanon </option> <option value="Liberia">Liberia </option> <option value="Macao">Macao </option> <option value="Madagaskar">Madagaskar </option> <option value="Malawi">Malawi </option> <option value="Malaysia">Malaysia </option> <option value="Mali">Mali </option> <option value="Malta">Malta </option> <option value="Mexico">Mexico </option> <option value="Monaco">Monaco </option> <option value="Myanmar">Myanmar </option> <option value="Nepal">Nepal </option> <option value="Netherlands">Netherlands </option> <option value="Niger">Niger </option> <option value="Norway">Norway </option> <option value="Oman">Oman </option> <option value="Pakistan">Pakistan </option> <option value="Palau">Palau </option> <option value="Panama">Panama </option> <option value="Peru">Peru </option> <option value="Philippines">Philippines </option> <option value="Poland">Poland </option> <option value="Qatar">Qatar </option> <option value="Romania">Romania </option> <option value="Russian Federation">Russian Federation </option> <option value="Samoa">Samoa </option> <option value="Senegal">Senegal </option> <option value="Spain">Spain </option> <option value="Srilanka">Srilanka </option> <option value="Switzerland">Switzerland </option> <option value="Thailand">Thailand </option> </select> </div><div class="form-group col-sm-6"> <label>Ticket URL</label> <input type="text" id="ticket_url_'+count+'" name="tour_ticket_url[]" class="form-control" /> </div> <div class="form-group col-sm-6"> <label>Ticket Price</label> <input type="text" id="ticket_price_'+count+'" name="tour_ticket_price[]" class="form-control" onblur="update_tour()" /> </div> <div class="form-group col-sm-12"> <label>Zipcode/ Postal Code</label> <input type="number" id="tour_zipcode_'+count+'" name="tour_zipcode[]"  class="form-control"  /> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnremove" class="remove_tour btn btn-info btn-sm"> </a> </div> </div>';
 
         return tour_address;
 }
@@ -2970,13 +2915,13 @@ function update_tour() {
         if(city != '' || ticket_url != '' || start_date != '' || end_date != '' )
         {
             
-            var event_tour = ' <div class="form-group col-sm-12" style="background-color:#c4c4c4; margin-top:10px; "> <div class="pull-left" style="width:20%;">'+city+'</div>'+
-                    '<div class="pull-left" style="width:60%;">'+start_date+','+end_date+'</div>'+                    
-                    '<div class="pull-left" style="width:20%;">'+ticket_url+'</div></div>'; 
+            var event_tour = ' <div class="form-group col-sm-12" style="background-color:#c4c4c4; margin-top:10px; "> <div class="pull-left" style="width:20%;word-wrap: break-word;">'+city+'</div>'+
+                    '<div class="pull-left" style="width:40%;word-wrap: break-word;">'+start_date+','+end_date+'</div>'+                    
+                    '<div class="pull-left" style="width:40%;word-wrap: break-word;">'+ticket_url+'</div></div>'; 
 
-            step_to_tour  += '<div class="form-group col-sm-12" style="background-color:#e8e3e3; "> <div class="pull-left" style="width:20%;">'+city+'</div>'+
-                    '<div class="pull-left" style="width:30%;">'+start_date+','+end_date+'</div>'+                    
-                    '<div class="pull-left" style="width:35%;"> '+ticket_url+'</div>'+
+            step_to_tour  += '<div class="form-group col-sm-12" style="background-color:#e8e3e3;"> <div class="pull-left" style="width:20%;word-wrap: break-word;">'+city+'</div>'+
+                    '<div class="pull-left" style="width:30%;word-wrap: break-word;">'+start_date+','+end_date+'</div>'+                    
+                    '<div class="pull-left" style="width:35%;word-wrap: break-word;"> '+ticket_url+'</div>'+
                     '<div class="pull-left" style="width:15%;"> '+ticket_price+'</div></div>';  
            
         }            	          
@@ -3044,6 +2989,7 @@ $('#event_startime').change(function() {
 
 
 //dynamic add tab view for event days
+
  $(document).ready(function() {
     $('#btn-add-tab').on('change',function()
      {
@@ -3061,7 +3007,7 @@ $('#event_startime').change(function() {
          
         $('#tab-list').append($('<li><a style="text-align:center;" href="#tab' + tabID + '" role="tab" data-toggle="tab"> Day ' + tabID + ' <br> <span id="' + tabID + '"> </span></a></li>'));
 
-        $('#tab-content').append($('<div class=" tab-pane fade tab_' + tabID + '" id="tab' + tabID + '">  <div class="form-group col-sm-12 text-center"> <div class="form-group col-sm-12 text-center" style="background:#f5f5f5; padding:15px 10px;"> <div style="width:10%" class="pull-left"><span style="color:#e9e9e9;">width</span></div> <div style="width:17%" class="pull-left"> <label>Event Start Time</label> </div> <div style="width:12%" class="pull-left"> <input type="text" id="day1_start_time" name="day'+tabID+'_event_starttime"  class="form-control day_start_time" /> </div> <div style="width:17%; margin-left:35px;" class="pull-left"> <label>Event End Time</label> </div> <div style="width:12%" class="pull-left"> <input type="text" id="day1_end_time" name="day'+tabID+'_event_endtime"  class="form-control day_end_time" placeholder="8:14"  /> </div> </div> </div> <div id="day_' +tabID+' "> <div class="form-group col-sm-12" id="day1_dynamicadd_1"> <div class="col-md-12"> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label><span style="font-size:13px; color:#333;">Itinerary Start Time</span></label> </div> <div style="width:30%" class="pull-left"> <select  id="from_hour_1" name="day'+tabID+'_from_hour[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="1">1 </option> <option value="2">2 </option> <option value="3">3 </option> <option value="4">4 </option> <option value="5">5 </option> <option value="6">6 </option> <option value="7">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select> </div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="from_min_1" name="day'+tabID+'_from_min[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select> </div> <div style="width:30%" class="pull-left"> <select id="from_sec_1" name="day'+tabID+'_from_sec[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select> </div> </div> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label> <span style="font-size:13px; color:#333;">Itinerary End Time</span></label> </div> <div style="width:30%" class="pull-left"> <select id="to_hour_1" name="day'+tabID+'_to_hour[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="1">1 </option> <option value="2">2 </option> <option value="3">3 </option> <option value="4">4 </option> <option value="5">5 </option> <option value="6">6 </option> <option value="7">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select> </div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="to_min_1" name="day'+tabID+'_to_min[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select> </div> <div style="width:30%" class="pull-left"> <select id="to_sec_1" name="day'+tabID+'_to_sec[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select> </div> </div> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Event Agenda</span></label> <input type="text" id="agenta_1" name="day'+tabID+'_agenda[]"  class="form-control"  /> </div> </div> <div class="col-md-12"> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Facilitator</span></label> <input type="text" id="facilitator_name_1" name="day'+tabID+'_facilitator_name[]"  class="form-control"  /> </div> <div class="col-md-8"> <label><span style="font-size:13px; color:#333;">Event Location Venue</span></label> <select id="location_1" name="day'+tabID+'_location[]" class="form-group venueselectpicker" style="width:100%; padding: 7px 10px; border-radius: 5px;"> </select> </div> </div> </div> </div> <div class="form-group col-md-12" > <a href="JavaScript:void(0);" class="add_address_dynamic" data-day="' + tabID + '" data-nxt_event_venue="2" > <i class="fa fa-plus-circle"></i> Add more event program time slot</a> </div> </div>'));
+        $('#tab-content').append($('<div class=" tab-pane fade tab_' + tabID + '" id="tab' + tabID + '">  <div class="form-group col-sm-12 text-center"> <div class="form-group col-sm-12 text-center" style="background:#f5f5f5; padding:15px 10px;"> <div style="width:10%" class="pull-left"><span style="color:#e9e9e9;">width</span></div> <div style="width:17%" class="pull-left"> <label>Event Start Time</label> </div> <div style="width:12%" class="pull-left"> <input type="text" id="day1_start_time" name="day'+tabID+'_event_starttime"  class="form-control day_start_time" /> </div> <div style="width:17%; margin-left:35px;" class="pull-left"> <label>Event End Time</label> </div> <div style="width:12%" class="pull-left"> <input type="text" id="day1_end_time" name="day'+tabID+'_event_endtime"  class="form-control day_end_time" placeholder="8:14"  /> </div> </div> </div> <div id="day_' +tabID+' "> <div class="form-group col-sm-12" id="day1_dynamicadd_1"> <div class="col-md-12"> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label><span style="font-size:13px; color:#333;">Itinerary Start Time</span></label> </div> <div style="width:30%" class="pull-left"> <select  id="from_hour_1" name="day'+tabID+'_from_hour[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="1">1 </option> <option value="2">2 </option> <option value="3">3 </option> <option value="4">4 </option> <option value="5">5 </option> <option value="6">6 </option> <option value="7">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select> </div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="from_min_1" name="day'+tabID+'_from_min[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select> </div> <div style="width:30%" class="pull-left"> <select id="from_sec_1" name="day'+tabID+'_from_sec[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select> </div> </div> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label> <span style="font-size:13px; color:#333;">Itinerary End Time</span></label> </div> <div style="width:30%" class="pull-left"> <select id="to_hour_1" name="day'+tabID+'_to_hour[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="1">1 </option> <option value="2">2 </option> <option value="3">3 </option> <option value="4">4 </option> <option value="5">5 </option> <option value="6">6 </option> <option value="7">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select> </div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="to_min_1" name="day'+tabID+'_to_min[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select> </div> <div style="width:30%" class="pull-left"> <select id="to_sec_1" name="day'+tabID+'_to_sec[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select> </div> </div> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Event Agenda</span></label> <input type="text" id="agenta_1" name="day'+tabID+'_agenda[]"  class="form-control"  /> </div> </div> <div class="col-md-12"> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Facilitator</span></label> <input type="text" id="facilitator_name_1" name="day'+tabID+'_facilitator_name[]"  class="form-control"  /> </div> <div class="col-md-8"> <label><span style="font-size:13px; color:#333;">Event Location Venue</span></label> <select id="location_1" name="day'+tabID+'_location[]" class="form-group venueselectpicker" style="width:100%; padding: 7px 10px; border-radius: 5px;"> </select> </div>  </div> </div> </div> <div class="form-group col-md-12" > <a href="JavaScript:void(0);" class="add_address_dynamic" data-day="' + tabID + '" data-nxt_event_venue="2" > <i class="fa fa-plus-circle"></i> Add more event program time slot</a> </div> </div>'));
          
           tabID++;
       }
@@ -3085,15 +3031,24 @@ $('#event_startime').change(function() {
    
 });
 
+ 
+
 // Add more event program time slot
 function generete_dynamic_venue(day, count){
 
-  var day1  = ' <div class="form-group col-sm-12" id="day1_dynamicadd_'+count+'"> <div class="col-md-12"> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label><span style="font-size:13px; color:#333;">Itinerary Start Time</span></label></div> <div style="width:30%" class="pull-left"> <select  id="from_hour_'+count+'" name="day'+day+'_from_hour[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="0">1 </option> <option value="1">2 </option> <option value="2">3 </option> <option value="3">4 </option> <option value="4">5 </option> <option value="5">6 </option> <option value="6">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select></div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="from_min_'+count+'" name="day'+day+'_from_min[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select></div> <div style="width:30%" class="pull-left"> <select id="from_sec_'+count+'" name="day'+day+'_from_sec[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select></div> </div> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label><span style="font-size:13px; color:#333;">Itinerary End Time</span></label></div> <div style="width:30%" class="pull-left"> <select id="to_hour_'+count+'" name="day'+day+'_to_hour[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="0">1 </option> <option value="1">2 </option> <option value="2">3 </option> <option value="3">4 </option> <option value="4">5 </option> <option value="5">6 </option> <option value="6">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select></div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="to_min_'+count+'" name="day'+day+'_to_min[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select></div> <div style="width:30%" class="pull-left"> <select id="to_sec_'+count+'" name="day'+day+'_to_sec[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select></div> </div> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Event Agenda</span></label> <input type="text" id="agenta_1" name="day'+day+'_agenda[]"  class="form-control"  /> </div> </div> <div class="col-md-12"> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Facilitator</span></label> <input type="text" id="facilitator_name_'+count+'" name="day'+day+'_facilitator_name[]"  class="form-control"  /> </div> <div class="col-md-8"> <label><span style="font-size:13px; color:#333;">Event Location Venue</span></label> <select id="location_1" name="day'+day+'_location[]" class="form-group venueselectpicker" style="width:100%; padding: 7px 10px; border-radius: 5px;"> </select> </div> </div> </div>'; 
+  var day1  = ' <div class="form-group col-sm-12" id="day1_dynamicadd_'+count+'"> <div class="col-md-12"> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label><span style="font-size:13px; color:#333;">Itinerary Start Time</span></label></div> <div style="width:30%" class="pull-left"> <select  id="from_hour_'+count+'" name="day'+day+'_from_hour[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="0">1 </option> <option value="1">2 </option> <option value="2">3 </option> <option value="3">4 </option> <option value="4">5 </option> <option value="5">6 </option> <option value="6">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select></div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="from_min_'+count+'" name="day'+day+'_from_min[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select></div> <div style="width:30%" class="pull-left"> <select id="from_sec_'+count+'" name="day'+day+'_from_sec[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select></div> </div> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label><span style="font-size:13px; color:#333;">Itinerary End Time</span></label></div> <div style="width:30%" class="pull-left"> <select id="to_hour_'+count+'" name="day'+day+'_to_hour[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="0">1 </option> <option value="1">2 </option> <option value="2">3 </option> <option value="3">4 </option> <option value="4">5 </option> <option value="5">6 </option> <option value="6">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select></div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="to_min_'+count+'" name="day'+day+'_to_min[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select></div> <div style="width:30%" class="pull-left"> <select id="to_sec_'+count+'" name="day'+day+'_to_sec[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select></div> </div> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Event Agenda</span></label> <input type="text" id="agenta_1" name="day'+day+'_agenda[]"  class="form-control"  /> </div> </div> <div class="col-md-12"> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Facilitator</span></label> <input type="text" id="facilitator_name_'+count+'" name="day'+day+'_facilitator_name[]"  class="form-control"  /> </div> <div class="col-md-8"> <label><span style="font-size:13px; color:#333;">Event Location Venue</span></label> <select id="location_1" name="day'+day+'_location[]" class="form-group venueselectpicker" style="width:100%; padding: 7px 10px; border-radius: 5px;"> </select> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="remove_day" class="remove_dayslot btn btn-info btn-sm"></a> </div></div> </div>'; 
 
     return day1;
 }
 
-  
+ 
+//remove days from program schedule function
+
+$(document).on('click', '.remove_dayslot', function(e)
+    {
+	    $(this).parents('[id^=day1_dynamicadd_]').remove();
+    });
+
 
 //image preview and delete step1 cover image
 
@@ -3132,24 +3087,23 @@ $(document).ready(function() {
 // event highlight1 video and image shows
 $(document).on("change", "#video_size1", function(evt)
 {
-	var files = $('#video_size1')[0].files;
-    var len = $('#video_size1').get(0).files.length;
-
+	var files 	= $('#video_size1')[0].files;
+    var len 	= $('#video_size1').get(0).files.length;
    
    		 f = files[0];
 
     var ext = f.name.split('.').pop().toLowerCase();
-
+    
     if ($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
       
-    		 var file = this.files[0];
+    		var file = this.files[0];
 
-        		if (file.size > 2621440)
-        		 {
-		             $('#video_show1').hide();	
-		             alert('Filesize must 2.5MB or below');
+        	if (file.size > 2621440)
+        		{
+		            $('#video_show1').hide();	
+		            alert('Filesize must 2.5MB or below');
 
-         		 }else{	
+         		}else{	
          		 
 					  var $source = $('#video_here1');				 
 					  $source[0].src = URL.createObjectURL(this.files[0]);
@@ -3162,12 +3116,14 @@ $(document).on("change", "#video_size1", function(evt)
 
 		                });   
 
-		              $(".pip").remove();
+		              $(".pip1").remove();
 		          			  
 				 	}
     	
     }
     else{
+
+    	// alert("images");
     		var files = evt.target.files,
 	        filesLength = files.length;    
 
@@ -3176,22 +3132,22 @@ $(document).on("change", "#video_size1", function(evt)
 
 	        fileReader.onload = (function(evt) {
 
-		          var file = evt.target;
+		        var file = evt.target;
+		        $('#video_show1').hide();  
 
-		          $("<span class=\"pip\">" +
+		        $("<span class=\"pip1\">" +
 		            "<img class=\"imageThumb\" src=\"" + evt.target.result + "\" title=\"" + file.name + "\"/>" +
-		            "<br/><span class=\"remove1\">Remove image</span>" +
+		            "<br/><span class=\"remove\">Remove image</span>" +
 		            "</span>").insertAfter("#video_size1");
 
-		          $(".remove1").click(function(){
-		            $(this).parent(".pip").remove();
+		        $(".remove").click(function(){
+		            $(this).parent(".pip1").remove();
+		            $('#video_size1').val("");
 
-		          });          
+		        });          
 	                   
-	        	});
+	        });
 
-	        	$('#video_show1').hide();                 
-			    $('#video_size1').val("");
 
 	    		fileReader.readAsDataURL(f);
            
@@ -3233,7 +3189,7 @@ $(document).on("change", "#video_size2", function(evt)
 
 		                });   
 
-		              $(".pip").remove();
+		              $(".pip2").remove();
 		          			  
 				 	}
     	
@@ -3248,21 +3204,21 @@ $(document).on("change", "#video_size2", function(evt)
 	        fileReader.onload = (function(evt) {
 
 		          var file = evt.target;
+		          $('#video_show2').hide(); 
 
-		          $("<span class=\"pip\">" +
+		          $("<span class=\"pip2\">" +
 		            "<img class=\"imageThumb\" src=\"" + evt.target.result + "\" title=\"" + file.name + "\"/>" +
 		            "<br/><span class=\"remove1\">Remove image</span>" +
 		            "</span>").insertAfter("#video_size2");
 
 		          $(".remove1").click(function(){
-		            $(this).parent(".pip").remove();
+		            $(this).parent(".pip2").remove();
+		            $('#video_size2').val("");
 
 		          });          
 	                   
 	        	});
-
-	        	$('#video_show2').hide();                 
-			    $('#video_size2').val("");
+	     
 
 	    		fileReader.readAsDataURL(f);
            
@@ -3313,7 +3269,6 @@ $(document).ready(function()
          });
  });
 
-
  
 //ticket select option  show and hide
 $(document).ready(function(){
@@ -3322,11 +3277,13 @@ $(document).ready(function(){
 				 {
                 	$("#ticket_price").hide();
                 	$("#ticker_url_show").hide();
+                	$("#price_country").hide();
            		 }
            	    else
            		 {
                 	$("#ticket_price").show();
                 	$("#ticker_url_show").show();
+                	$("#price_country").show();
            		 }
 		});
 
@@ -3614,14 +3571,18 @@ var base_url = '<?php echo base_url() ?>'; //form submited
                 {
                    if(response.status == 'success')
                    {
-                   // alert("success");
-                    // swal('Your Event Created Successfully...');
-                    window.location.href = "<?php echo base_url('event/get_eventfeed'); ?>";
+                   		swal({
+		                        title: "Success!",
+		                        text: "Your Event Created Successfully...",
+		                        type: "success",
+		                        timer: 5000
+		                        }).then(() => {                     
+		                   						window.location.href = "<?php echo base_url('event/get_eventfeed'); ?>";
+		                   					});;  
                    
-                    }else 
-                   {
+                    }else{                   
                     
-                    swal("Sorry!", "somethink wrong try again !", "error");
+                    	swal("Sorry!", "Oops!! Something Went Wrong! Please Try Again !", "error");
                    }          
                 }
 

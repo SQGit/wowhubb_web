@@ -15,6 +15,8 @@
 <link rel="stylesheet" href="<?php echo base_url ('assets/js/sweetalert.css')?>" />
 <!-- calender links -->
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/jquery.datetimepicker.css')?>" />
+<link rel="stylesheet" href="<?php echo base_url ('assets/css/wickedpicker.css')?>" />
+
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/custom/css/form-wizard-blue.css') ?>">
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/theme-styles.css')?>" />
 
@@ -394,207 +396,39 @@ img, #img_files4 {
     height: auto;
     display: inline-block;
 	}
-
+	
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  border-bottom: 16px solid blue;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
 </style>
 </head>
 
 <body class="landing-page">
+	<div class="swal"></div>
 <div class="content-bg-wrap">
   <div class="content-bg"></div>
 </div>
 
 <!-- Header
     ================================================= -->
- <header id="header">
-  <nav class="navbar navbar-default navbar-fixed-top menu" style="padding-top:3px!important; padding-bottom:3px!important;">
-    <div class="container"> 
+  <header id="header">
+      <nav class="navbar navbar-default navbar-fixed-top menu" style="padding-top:3px!important; padding-bottom:3px!important;">
+        <div class="container"> 
       
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header" style="position:relative; z-index:969696;"> <a class="navbar-brand" href="<?php echo base_url('event/get_eventfeed'); ?>"><img src="<?php echo base_url ('assets/images/logo.png') ?>" alt="logo" /></a> </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style="position:relative;">
-        <ul class="nav navbar-nav navbar-right main-menu" style="color:#fff; margin-top: 0px; margin-right:0px; font-size:25px;">
-          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "><a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/home-icon-1.png'); ?>" alt="user" /><br>
-            Home </a></li>
-          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"> <img src="<?php echo base_url('assets/images/notification-icon.png'); ?>" alt="user" /> <br>
-            My Alerts <i class="fa fa-caret-down"></i> </a>
-            <ul class="dropdown-menu login">
-              <div>
-                <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;"><strong><i class="icon ion-android-notifications-none"></i> Alerts</strong></div>
-              </div>
-              <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
-                <div class="col-md-10">Vineture  didn't get any new likes this week. Publish a post to engage your audience.
-                  <div class="pull-left" style="color:#555; width:100%;">
-                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 15 Hours Ago</p>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                </a></div>
-              <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
-                <div class="col-md-10">Emeka added a New Event on Hari's Birthday. Lets Check!!
-                  <div class="pull-left" style="color:#555; width:100%;">
-                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 13 Hours Ago</p>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                </a></div>
-              <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
-                <div class="col-md-10">It's Nickybeit Enjoy's birthday today. Help him celebrate!
-                  <div class="pull-left" style="color:#555; width:100%;">
-                    <p style="font-weight:normal; margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> Yesterday at 10:45pm</p>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                </a></div>
-              <div>
-                <div class="col-md-12">
-                  <div class="text-center"><a href="#" style="color:#555; text-align:center;" >See all</a></div>
-                </div>
-              </div>
-            </ul>
-          </li>
-          <li class="dropdown" style="margin-left:10px; margin-right:10px; text-align:center;"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"> <img src="<?php echo base_url('assets/images/chat-icon.png'); ?>" alt="user" /><br>
-            Friend Requests <i class="fa fa-caret-down"></i> </a>
-            <ul class="dropdown-menu login">
-              <div>
-                <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;"><strong><i class="icon ion-ios-person-outline"></i> Friend Requests</strong></div>
-              </div>
-              <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
-                <div class="col-md-4">Vicky
-                  <div class="pull-left" style="color:#555; width:100%;">
-                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p>
-                  </div>
-                </div>
-                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
-                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
-                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
-                </div>
-                <div class="col-md-12">
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                </a></div>
-              <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
-                <div class="col-md-4">Emeka
-                  <div class="pull-left" style="color:#555; width:100%;">
-                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p>
-                  </div>
-                </div>
-                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
-                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
-                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
-                </div>
-                <div class="col-md-12">
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                </a></div>
-              <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
-                <div class="col-md-4">Hari
-                  <div class="pull-left" style="color:#555; width:100%;">
-                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 10 Mutual Friends</p>
-                  </div>
-                </div>
-                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
-                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
-                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
-                </div>
-                <div class="col-md-12">
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                </a></div>
-              <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
-                <div class="col-md-4">Roshan
-                  <div class="pull-left" style="color:#555; width:100%;">
-                    <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 4 Mutual Friends</p>
-                  </div>
-                </div>
-                <div class="col-md-6 text-right pull-right" style="margin-top:10px;">
-                  <button class="btn-primary" style="padding: 2px 10px; background:#e91e63; font-size:11px;">Confirm</button>
-                  <button class="btn-primary" style="padding: 2px 10px; font-size:11px; background:#727272;">Delete Request</button>
-                </div>
-                <div class="col-md-12">
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                </a></div>
-              <div>
-                <div class="col-md-12">
-                  <div class="text-center"><a href="#" style="color:#555; text-align:center;" >See all</a></div>
-                </div>
-              </div>
-            </ul>
-          </li>
-          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; "><a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/chat-icon-1.png'); ?>" alt="user" /><br>
-            Messaging </a></li>
-          <li class="dropdown" style="text-align:center; margin-left:10px; margin-right:10px;"><a href="<?php echo base_url('event/event_popup'); ?>" style="text-decoration:none; padding:0;"> <img src="<?php echo base_url('assets/images/create-event-icon-1.png'); ?>" alt="user" /><br>
-            Create Event </a></li>
-         
-          <li class="dropdown" style="text-align:center;margin-left:10px; margin-right:10px; padding-left:10px; padding-right:10px; border-left:1px solid #ccc;"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding:0;"><img src="<?php echo base_url('assets/images/prof-icon.png'); ?>" alt="user" /><br>
-            Profile <i class="fa fa-caret-down"></i> </a>
-            <ul class="dropdown-menu login">
-              <div>
-                <div class="col-md-12" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;">
-                 <div style="width:10%; float:left;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo" style="width:30px; height:30px;" /></div>
-                 <div style="width:90%; float:left;"><strong> Saranya Chandrasekaran</strong><br> 
-                 <span style="font-size:13px; color:#999;">Web developer at Vineture Inc.</span></div>
-                </div>
-              </div>
-              <div> 
-                
-                <div class="col-md-12 text-center">
-                <span style="color:e91e63;"><a href="#" style="color:#e91e63;" ><strong>View Profile</strong></a></span>
-                  
-                </div>
-                 <div class="col-md-12">
-               <div class="col-md-12" style="background:#f5f5f5; padding-top:5px; padding-bottom:5px;"><span style="color:e91e63;"><a href="#" style="color:#222; font-size:15px;" >My Account</a></span></div>
-                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Settings</a></div>
-                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Privacy Policy</a></div>
-                 
-                </div>
-                <div class="col-md-12">
-               <div class="col-md-12" style="background:#f5f5f5; padding-top:5px; padding-bottom:5px;"><span style="color:e91e63;"><a href="#" style="color:#222; font-size:15px;" >Manage</a></span></div>
-                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> Edit Profile</a></div>
-                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> My Event Feed</a></div>
-                <div class="col-md-12" style="padding-top:3px; padding-bottom:3px;"><a href="#" style="color:#333;" ><i class="fa fa-caret-right"></i> My Interests</a></div>
-                  <div class="col-md-12" style="border-bottom:1px solid #e7e7e7; margin-top:10px; margin-bottom:10px;"></div>
-                </div>
-                
-                </div>
-              
-           
-              <div>
-                <div class="col-md-12">
-                  <div class="col-md-12">
-  <div class="text-left"><a href="<?php echo base_url('home/logout'); ?>" style="color:#333; text-align:left;" >Logout</a></div>
-                  </div>
-                </div>
-              </div>
-            </ul>
-            </li>
-        </ul>
-        <form class="navbar-form navbar-right hidden-sm" style="position:absolute; left:210px; top:0px;" >
-          <div class="form-group"> <i class="icon ion-android-search"></i>
-            <input type="text" class="search form-control live-search-box" id="searchbox" name="friends_search" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px;" />
-            <br/>
-            <span id="display1"> </span> </div>
-        </form>
-      </div>
-      <!-- Collect the nav links, forms, and other content for toggling --> 
-      <!-- /.navbar-collapse --> 
-    </div>
-    <!-- /.container --> 
-  </nav>
-</header>
+          <?php  include('/../includes/header.php'); ?>
+        </div>
+        <!-- /.container --> 
+      </nav>
+  </header>
+<!--Header End-->
+
 <div class="google-maps"> </div>
 <!--Header End-->
 
@@ -608,13 +442,7 @@ img, #img_files4 {
       
         <div class="col-md-12">
           <div class="col-md-10 form-wizard form-body-classic form-header-classic" style="min-width:1200px;"> 
-            <!-- 
-            Just change the class name for make it with different style of design.
-
-            Use anyone class "form-header-classic" or "form-header-modarn" or "form-header-stylist" for set your form header design.
             
-            Use anyone class "form-body-classic" or "form-body-material" or "form-body-stylist" for set your form element design.
-            -->
             
             <h3>Create Your Event</h3>
             <p>Please fill information to a create an event </p>
@@ -674,7 +502,7 @@ img, #img_files4 {
 		                </div>
 		                <!-- Progress Bar -->
 		                <h4> <span>Step 1 - 5</span></h4>
-		            	<div class='col-sm-5'>
+		            <div class='col-sm-5'>
 
 		                <div class='row'>
 			                  <div class='form-group col-sm-12' style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63;">Sales Event Objective</div>
@@ -690,7 +518,7 @@ img, #img_files4 {
 
 			                    <div class='form-group col-sm-12' >
 			                      <label>Sales Event Campaign Objective</label>
-			                      <input type='text' name="brand_awareness"  class="form-control textBox" value="<?php echo $this->session->userdata('campaign_objective'); ?>"  readonly/>
+			                      <input type='text' name="brand_awareness"  class="form-control textBox" value="<?php echo $this->session->userdata('campaign_objective'); ?>" readonly/>
 			                    </div>
 			                    <div class='form-group col-sm-12' >
 			                      <label>Event Name</label>
@@ -701,65 +529,62 @@ img, #img_files4 {
 	                 		<div class='row'>                   
 	                    
 			                    <div class='form-group col-sm-6' style="width:45%;" >
-			                      <label>Event Start Date</label>
+			                      <label>Sales Event Start Date</label>
 			                      <input type='text' id="event_startdate" name="event_startdate"  class="form-control "  />
 			                    </div>
 
 			                    <div  class='form-group col-sm-6' style="width:45%; " >
-			                      <label>Event Start Time</label>
+			                      <label>Sales Event Start Time</label>
 			                      <input type='text' id="event_startime" name="event_startime"  class="form-control "  />
 			                    </div>
 
 			                   
 			                    <div class='form-group col-sm-6' style="width:45%;" >
-			                      <label>Event End Date</label>
+			                      <label>Sales Event End Date</label>
 			                      <input type='text' id="event_enddate" name="event_enddate"  class="form-control " />
 			                    </div>
 
 			                    <div class='form-group col-sm-6' style="width:45%;">
-			                      <label>Event End Time</label>
+			                      <label>Sales Event End Time</label>
 			                      <input type='text' id="event_endtiming" name="event_endtiming"  class="form-control "  />
 			                    </div>
 	                   
 	                  		</div>
 
-	                  		
-
-                		</div>
+                	</div>
 
 			            <div class='col-sm-4'>
 			                <div class='row'>
-
 			                    <div class='form-group col-sm-12'>
 			                      <label>Event Description</label>
 			                      <textarea type='text' id="description" name="event_description"  class="form-control" style="min-height:300px;" placeholder="Describe What Your Event Is All About " ></textarea>
 			                    </div>
 
-			                    		<div class='form-group col-sm-12'>
-						                      <div class='col-sm-12' style="background-color:#f9f9f9;">
-						                        <label>Event Cover Photo <strong style="color: red; font-size: 20px;"> * </strong></label>
-						                        <label>Please browse to upload cover photo</label>
-						                        <div class="form-group" style="margin-bottom: 10px;"> 
-							                        <div class="field" align="left">
-							                         		<input type="button" class="btn btn-primary"  value="Browse..." onclick="document.getElementById('files').click();" />
-							                         		<input type="file" style="display:none;" name="cover_img" id="files" class="file" accept="image/*" title="cover image">  
-							                        </div> 
-						                        </div>		                        
-						                      </div>
-					                    </div>
+			                    <div class='form-group col-sm-12'>
+						            <div class='col-sm-12' style="background-color:#f9f9f9;">
+						                <label>Event Cover Photo <strong style="color: red; font-size: 20px;"> * </strong></label>
+						                <label>Please browse to upload cover photo</label>
+						                    <div class="form-group" style="margin-bottom: 10px;"> 
+							                    <div class="field" align="left">
+							                        <input type="button" class="btn btn-primary"  value="Browse..." onclick="document.getElementById('files').click();" />
+							                        <input type="file" style="display:none;" name="cover_img" id="files" class="file" accept="image/*" title="cover image">  
+							                    </div> 
+						                    </div>		                        
+						            </div>
+					            </div>
 
-			                     		<div class='form-group col-sm-12'>
-						                      <div class='col-sm-12' style="background-color:#f9f9f9;">
-						                        <label>Sponsors Logo <strong style="color: red; font-size: 20px;"> * </strong></label>
+			                    <div class='form-group col-sm-12'>
+						            <div class='col-sm-12' style="background-color:#f9f9f9;">
+						                <label>Sponsors Logo <strong style="color: red; font-size: 20px;"> * </strong></label>
 						                        
-						                        <div class="form-group" style="margin-bottom: 10px;"> 
-							                        		<div class="field" align="left">
-									                         		<input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('logo').click();" />
-									                         		<input type="file" style="display:none;" name="logo_img" id="logo" class="file" accept="image/*" title="cover image">  
-									                        </div> 
-						                        </div>		                        
-						                      </div>
-					                    </div>
+						                    <div class="form-group" style="margin-bottom: 10px;"> 
+							                    <div class="field" align="left">
+									                <input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('logo').click();" />
+									                <input type="file" style="display:none;" name="logo_img" id="logo" class="file" accept="image/*" title="cover image">  
+									            </div> 
+						                    </div>		                        
+						            </div>
+					            </div>
 
 			                </div>
 			            </div>
@@ -851,11 +676,16 @@ img, #img_files4 {
 					                       	</span>
 
 					                        <div id="video_show" style="display: none;" >
-					                        	<video width="200" height="150" controls>
+					                        	<div class="remove_wowtag" style="cursor: pointer;">
+							                       <i class="fa fa-window-close" style="font-size:25px; margin-left: 171px;"></i>
+							                    </div>
+					                        	<video width="200" height="110" controls>
 												 	 <source src="mov_bbb.mp4" id="video_here">
 												    Your browser does not support HTML5 video.
 												</video>
+												<audio id="video_url"></audio>
 					                        </div>
+					                        
 					                        <div class="input-group col-xs-12" style="margin-top:0px;">
 					                          <p>Choose a compelling 60-120 seconds event promotional ads video that will create a lasting impression in your viewers mind</p>
 					                        </div>                        
@@ -1230,8 +1060,8 @@ img, #img_files4 {
 															Select Your Audience Call To Action
                       				<select name="audience_callto_action"  class="form-control" style="background-color:#eff0f1;">
                       				  <option >Select</option>
-				                      <option value="Book Now">Book Now</option>
-				                      <option value="Grab Your Coupon">Grab Your Coupon</option>			                      
+				                      <option value="Book_Now">Book Now</option>
+				                      <option value="Grab_Your_Coupon">Grab Your Coupon</option>			                      
 				                     
 				                  	</select>
                     			</div>                    
@@ -1308,12 +1138,10 @@ img, #img_files4 {
 		                                    </div>
 		                                <div class="col-md-12" style="margin-top:15px; margin-bottom:15px;">
 												Select Your Audience Call To Action
-
 		                     				<select name="audience_callto_action" class="form-control" style="background-color:#eff0f1;">
-			                     				  <option >Select</option>
+			                     				  <option value="">Select</option>
 							                      <option value="Book Now">Book Now</option>
-							                      <option value="Grab Your Coupon">Grab Your Coupon</option>                      
-						                     
+							                      <option value="Grab Your Coupon">Grab Your Coupon</option>                     
 						                  	</select>
 		                   				</div>                    
 		                    	</div>
@@ -1504,18 +1332,7 @@ img, #img_files4 {
   </div>
 </div>
 
-<!-- Footer
-    ================================================= 
-    <footer id="footer">
-        <div class="container">
-          <?php  //$this->load->view('includes/footer.php'); ?>
-        </div>
-    </footer>
-    
-    preloader
-    <div id="spinner-wrapper">
-      <div class="spinner"></div>
-    </div>--> 
+
 
 <!-- Scripts
     ================================================= --> 
@@ -1528,11 +1345,12 @@ img, #img_files4 {
 <script src="<?php echo base_url('assets/js/jquery-1.12.4.js')?>"></script> 
 <script src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script> 
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
-<script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script> 
+<!-- <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script>  -->
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.js')?>"></script> 
 
+<script src="<?php echo base_url('assets/js/wickedpicker.js')?>"></script>  
 <!-- model popup bootstrap --> 
-<!-- <script src="<?php echo base_url('assets/js/bootstrap3.3.4.min.js')?>"></script> -->
+<script src="<?php echo base_url('assets/js/bootstrap3.3.4.min.js')?>"></script> 
 
 <script>
 
@@ -1545,128 +1363,99 @@ function alphaOnly(wow_title) {
 
 // event start date and end date time 
 
-    $("#event_startdate").datetimepicker({       //event stat and end date      
+$("#event_startdate").datetimepicker({       //event stat and end date      
                 format:'M-d-Y',      
                 timepicker:false,    
                 minDate: 0,           
             });
 
-   $("#event_enddate").datetimepicker({      
-                format:'M-d-Y',      
-               timepicker:false,
-               
+$("#event_enddate").datetimepicker({      
+            format:'M-d-Y',      
+            timepicker:false,
 
-               onShow:function( ct )  //hide max and min date using picker
-	               	{
-				  	 	this.setOptions({			  	 				   		
+            onShow:function( ct )  //hide max and min date using picker
+	            {
+				  	this.setOptions({			  	 				   		
 				    	maxDate:jQuery('#event_enddate').val()?jQuery('#event_enddate').val():false,
 				    	minDate:jQuery('#event_startdate').val()?jQuery('#event_startdate').val():false
-				 		})
-				 	},
-         }); 
+				 	})
+				},
+}); 
 
-    //time picker
-  $("#event_startime").datetimepicker(
-		  	{ 
-                datepicker:false,   //12 hours time format 
-                format:'g:i A',
-                formatTime: 'g:i A',
-                // mask:'29:59 99',  
-                step: 5,   
-                ampm: true                        
-             });
-
-  $("#event_endtiming").datetimepicker(
-            { 
-                datepicker:false,   //12 hours time format 
-                format:'g:i A',
-                formatTime: 'g:i A',
-                mask:'29:59 99',  
-                step: 5,   
-                ampm: true 
-             });
+   // event start time and end time picker
+  $("#event_startime").wickedpicker();		
+ 
+  $("#event_endtiming").wickedpicker();
 	
 //wowtag run from and to date
-    $("#runtime_from").datetimepicker({      
-                
-                format:'M-d-Y ', 
-                timepicker:false,
-                minDate: 0,        
-              
-            });
-
-    $("#totime_to").datetimepicker({      
-               format:'M-d-Y', 
-               timepicker:false,
-               onShow:function( ct )
-	               	{
-				  	 	this.setOptions({			  	 				   		
-				    	maxDate:jQuery('#event_enddate').val()?jQuery('#event_enddate').val():false,
-				    	minDate:jQuery('#event_startdate').val()?jQuery('#event_startdate').val():false
-				   })
-				  },	
-                
-            });
-         
-// begine from  event offering 
-
-$(document).ready(function () {
-
- $("#begine_from1").datetimepicker({       //event stat and end date      
-                format:'M-d-Y ',  
-                 // formatTime:'g:i A',    
-                // timepicker:false,    
-                minDate: 0,           
-            });
-
- $("#ends_on1").datetimepicker({      
-                format:'M-d-Y',  
-                 // formatTime:'g:i A',
-               
-
-               onShow:function( ct )  //hide max and min date using picker
-	               	{
-				  	 	this.setOptions({				    	
-				    	minDate:jQuery('#begine_from1').val()?jQuery('#begine_from1').val():false
-				 		})
-				 	},
-         }); 
-
- 	  var d1 = $('#begine_from1').datepicker('getDate');
-      var d2 = $('#ends_on1').datepicker('getDate');
-      var diff = 0;
-      if (d1 && d2) 
-      {
-         diff = Math.floor((d2.getTime() - d1.getTime()) / 86400000); // ms per day
-      }
-
-      $('#count_down').val(diff);
-
+$("#runtime_from").datetimepicker({      
+	format:'M-d-Y',      
+	timepicker:false,	
+	minDate: 0, 
+	onShow:function( ct )
+	{
+		this.setOptions({			  	 				   		
+			maxDate:jQuery('#event_enddate').val()?jQuery('#event_enddate').val():false
+		})
+	},	                  
 });
 
- $("#begine_from2").datetimepicker({       //event stat and end date      
-               format:'M-d-Y H:i A',  
-                formatTime:'g:i A',   
-                minDate: 0,           
+$("#totime_to").datetimepicker({      
+    format:'M-d-Y', 
+    timepicker:false,
+    onShow:function( ct )
+	{
+		this.setOptions({			  	 				   		
+			maxDate:jQuery('#event_enddate').val()?jQuery('#event_enddate').val():false,
+			minDate:jQuery('#event_startdate').val()?jQuery('#event_startdate').val():false
+		})
+	},	
+                
+});
+         
+// begine from  event offering step4
+
+$("#begine_from1").datetimepicker({        
+                format:'M-d-Y G:i a',  
+                formatTime:'g:i a',                    
+                minDate: 0, 
+                step :5,          
             });
 
+$("#ends_on1").datetimepicker({      
+    format:'M-d-Y G:i a',  
+    formatTime:'g:i a',                    
+    minDate: 0, 
+    step :5,    
+   
+    onShow:function( ct )  //hide max and min date using picker
+	{
+		this.setOptions({				    	
+			minDate:jQuery('#begine_from1').val()?jQuery('#begine_from1').val():false
+		})
+	},
+}); 
 
+ 
 
+ $("#begine_from2").datetimepicker({       //event stat and end date      
+               format:'M-d-Y ',  
+               timepicker:false,   
+               minDate: 0,           
+            });
 
 
 $("#ends_on2").datetimepicker({      
-                format:'M-d-Y H:i A',  
-                 formatTime:'g:i A',               
+                format:'M-d-Y ',  
+                timepicker:false,
 
                onShow:function( ct )  //hide max and min date using picker
-	               	{
-				  	 	this.setOptions({				    	
+	            {
+				  	this.setOptions({				    	
 				    	minDate:jQuery('#begine_from2').val()?jQuery('#begine_from2').val():false
-				 		})
-				 	},
-         }); 
-
-
+				 	})
+				},
+}); 
 
 
 //image preview and delete step1
@@ -1786,25 +1575,48 @@ $(document).ready(function() {
 });	
 
 
-//video size limitation wowtag video   step2  
+//video size and duration limitation cover video     
 
-$(document).on("change", "#video_size", function(evt)
-        {
-        		var file = this.files[0];
+$(document).on("change", "#video_size", function(e)
+{
 
-        		if (file.size > 2621440)
-        		 {
-		               //Now Here I need to update <span> 
-		             $('#video_show').hide();	
-		             alert('Filesize must 2.5MB or below');           
-         		 }else
-         		 {	
-				  var $source = $('#video_here');				 
-				  $source[0].src = URL.createObjectURL(this.files[0]);
-				  $source.parent()[0].load();
-				  $('#video_show').show();				  
-				 }
-		});
+    var file = e.currentTarget.files[0];
+  	//check file extension for audio/video type
+  	if(file.name.match(/\.(avi|mp3|mp4|mpeg|ogg)$/i)){
+    	var obUrl = URL.createObjectURL(file);
+    	document.getElementById('video_url').setAttribute('src', obUrl);
+   
+  	}
+
+	var myVideoPlayer = document.getElementById('video_url');
+    
+	myVideoPlayer.addEventListener('loadedmetadata', function () {
+    	var duration = myVideoPlayer.duration;
+    	// console.log("Duration is " + duration.toFixed(0) + " seconds.");
+
+    	if (duration >= 120 )
+        	{
+		        $('#video_show').hide();	         
+		        $('.alert_msg').text("Pls upload 2 Mins video");  
+		        $('.alert_msg').show(); 		       
+
+         	}else
+         		{	
+				  	var $source = $('#video_here');				 
+				  	$source[0].src = URL.createObjectURL(e.currentTarget.files[0]);
+				  	$source.parent()[0].load();
+				  	$('#video_show').show();	
+				  	$('.alert_msg').hide();
+
+				  	$(".remove_wowtag").click(function () { 
+			               	$('#video_show').hide();                 
+			                $('#video_size').val("");
+
+		            }); 	              			  
+				}
+	});
+
+});
 
 // dynamic store location here
 
@@ -1854,7 +1666,7 @@ var base_url = '<?php echo base_url() ?>'; //form submited
         var url = $(this).attr('action');
         var formdata = new FormData(this);
       
-        $.ajax({
+    $.ajax({
                 url : url,
                 method: 'POST',
                 data: formdata,
@@ -1882,16 +1694,20 @@ var base_url = '<?php echo base_url() ?>'; //form submited
                 success: function(response)
                 {
                    if(response.status == 'success')
-                   {
-                   // alert("success");
-                    // swal('Your Event Created Successfully...');
-                    window.location.href = "<?php echo base_url('event/get_eventfeed'); ?>";
-                   
-                    }else 
-                   {
-                    
-                    swal("Sorry!", "somethink wrong try again !", "error");
-                   }          
+		                {
+		                   
+		                    swal({
+		                            title: "Success!",
+		                            text: "Your Event Created Successfully...",
+		                            type: "success",
+		                            timer: 5000
+		                            }).then(() => {                     
+		                   				window.location.href = "<?php echo base_url('event/get_eventfeed'); ?>";
+		                  		});;  
+		                   
+		                }else   { 
+                    		    	swal("Sorry!", "somethink wrong try again !", "error");
+                   		    	}          
                 }
 
             });
@@ -1901,7 +1717,6 @@ var base_url = '<?php echo base_url() ?>'; //form submited
  });
 
 </script>
-
 
 
 </body>

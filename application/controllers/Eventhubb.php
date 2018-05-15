@@ -16,21 +16,40 @@ public function edit_event_hubb()
 		$this->load->view('eventhubb/event_hubb');
 	}
 
-public function get_eventhubb()
+public function get_future_eventhubb()
 	{
 				$this->rest->http_header('token',  $this->session->userdata('token'));
 
 		 		$data = array();
 			   	$json_data = json_encode($data);  
 
-			   	$result = $this->rest->post('http://104.197.80.225:3010/wow/event/hubbfeeds',$json_data,'json');	
+			   	$result = $this->rest->post('http://104.197.80.225:3010/wow/event/futurehubbfeeds',$json_data,'json');	
 			   	$data['eventhubbfeed'] = $result->message;
 			   	
-			   	$this->get_gruop();	
-			   	$data['group_name'] = $this->get_gruop();			    	
+			   	$this->get_gruop();	 //here get group name  
+			   	$data['group_name'] = $this->get_gruop();		
+
+			   	$this->get_past_eventhubb();	 //here get past event
+			   	$data['past_event'] = $this->get_past_eventhubb();		    	
 
 			   	$this->load->view('eventhubb/event_hubb', $data);
 	}
+
+// get group name 
+public function get_past_eventhubb()
+{
+				$this->rest->http_header('token',  $this->session->userdata('token'));
+
+		 		$data = array();
+			   	$json_data = json_encode($data);  
+			   	$past_event = $this->rest->post('http://104.197.80.225:3010/wow/event/pasthubbfeeds',$json_data,'json');
+			   
+			   	if($past_event->success == true)
+			   	  	{	
+				   	  $data['past_event'] = $past_event->message;
+				   	   return $data['past_event'];  //here variable send to get_eventhubb
+			   	   	} 
+}
 
 // get group name 
 public function get_gruop()
@@ -58,7 +77,7 @@ public function get_eventdetails() //using form submit
            $name= $_POST['details'];
            $json = json_decode($name);
            $result['event'] = $json;        
-           // print_r($result['event']);			
+          		
 		   $this->load->view('eventhubb/edit_event_details', $result);
 		   // $this->load->view('eventhubb/event_hubb', $result);
  	}
@@ -127,7 +146,7 @@ public function get_eventwowtag() //using form submit
            $name= $_POST['details'];
            $json = json_decode($name);
            $result['event'] = $json;        
-           // print_r($result['event']);			
+          			
 		   $this->load->view('eventhubb/edit_eventwowtag', $result);
 		   // $this->load->view('eventhubb/event_hubb', $result);
  	}
@@ -251,11 +270,11 @@ public function update_eventvenue()
 
 				 $result = $this->rest->post('http://104.197.80.225:3010/wow/event/venue',$json_data,'json');
 
-				 // print_r($result);
+				
 				
 				 if($result->success == true)
 					{		 	
-						// echo "delete";
+						
 						 $response['status'] = 'success'; 			
 					}
 					else 
@@ -269,10 +288,10 @@ public function get_eventcontact() //using form submit
 	{
            $name= $_POST['details'];
            $json = json_decode($name);
-           $result['event'] = $json;        
-           // print_r($result['event']);			
+           $result['event'] = $json;       
+          			
 		   $this->load->view('eventhubb/edit_eventcontact', $result);
-		   // $this->load->view('eventhubb/event_hubb', $result);
+		 
  	}
 
 public function update_eventcontact()
@@ -416,6 +435,21 @@ public function delete_event()
 					 	$response['status'] = 'failed';
 					}
 			echo json_encode($response); 	
+	}
+
+// view rsvp attend members
+public function rsvp_members($_id)
+	{
+		$this->rest->http_header('token',  $this->session->userdata('token'));
+
+		 		$data = array('eventid' =>$_id );
+			   	$json_data = json_encode($data);  
+			   	$group_name = $this->rest->post('http://104.197.80.225:3010/wow/event/fetchparticularevent',$json_data,'json');
+			   	$data['event'] = $group_name->event;
+
+			   	// print_r($data['event']);
+			   	
+		$this->load->view('eventhubb/rsvp_attend_members',$data);
 	}
 
 

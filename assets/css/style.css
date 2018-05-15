@@ -1244,7 +1244,7 @@ ul.online-users li span.online-dot{
  /*background: url("../images/post-images/1.jpg") no-repeat;*/
   background-position: center;
   background-size: cover;
-  min-height: 300px;
+  /*min-height: 300px;*/
   border-radius: 0 0 4px 4px;
   position: relative;
 }
@@ -1254,7 +1254,7 @@ ul.online-users li span.online-dot{
   background: rgba(0,0,0, .7);
   width: 100%;
   position: absolute;
-  bottom: 25px;
+  top: 125px;
   height:60px;
 }
 

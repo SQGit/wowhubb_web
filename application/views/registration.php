@@ -239,24 +239,24 @@ label.error {
                
                 <div class="row">                 
                   <div class="form-group col-xs-6">                   
-                    <input type="text" class="form-control input-group-lg" name="firstname" id="firstname" placeholder="First Name" />
+                    <input type="text" class="form-control input-group-lg" name="firstname" id="firstname" placeholder="First Name" autocomplete="off" />
                   </div>
                   <div class="form-group col-xs-6">                   
-                    <input id="lastname" class="form-control input-group-lg" type="text" name="lastname"  placeholder="Last name" />
+                    <input id="lastname" class="form-control input-group-lg" type="text" name="lastname"  placeholder="Last name"  autocomplete="off"/>
                   </div>
                 </div>
 
                 <div class="row" style="margin-bottom: 5px;">
                     <div class="form-group col-xs-12">
                        <label for="email" class="sr-only">Email</label>
-                       <input id="email" class="form-control input-group-lg" type="email" name="Email"  placeholder="Enter Your Email" />
+                       <input id="email" class="form-control input-group-lg" type="email" name="Email"  placeholder="Enter Your Email" autocomplete="off" />
                     </div>
                 </div>
 
                 <div class="row">               
                   <div class="form-group col-xs-12">
                     <label for="phone" class="sr-only">Phone Number</label>
-                    <input id="phone" pattern="^\+?\d{0,13}" class="frm-con input-group-lg" type="text" name="pho_no" style="font-size: 14px;" title="Enter phone number" placeholder="Your Phone Number" />      
+                    <input id="phone" pattern="^\+?\d{0,13}" class="frm-con input-group-lg" type="text" name="pho_no" style="font-size: 14px;" title="Enter phone number" placeholder="Your Phone Number" autocomplete="off" />      
                   </div>
                 </div>
 
@@ -267,7 +267,7 @@ label.error {
                     </div>
 
                     <div class="form-group col-xs-8">                   
-                      <input id="wowtag" class="form-control input-group-lg" name="wowtagid" placeholder="Create Your Personalized ID" />                                 
+                      <input id="wowtag" class="form-control input-group-lg" name="wowtagid" placeholder="Create Your Personalized ID" autocomplete="off"/>                                 
                     </div>
 
                     <div class="form-group col-xs-1" style="margin-top: 15px;">   
@@ -281,7 +281,7 @@ label.error {
                 <div class="row">
                   <div class="form-group col-xs-12">
                       <label for="phone" class="sr-only">Password</label>
-                      <input type="password" id="password" class="form-control input-group-lg"  name="password" placeholder="New Password" />                  
+                      <input type="password" id="password" class="form-control input-group-lg"  name="password" placeholder="New Password" autocomplete="off"/>                  
                   </div>
                 </div>
                  

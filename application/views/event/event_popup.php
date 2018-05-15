@@ -234,7 +234,7 @@
                         <div class="col-md-4"><img src="<?php echo base_url('assets/images/create-open-banner.jpg'); ?>" alt="user"  class="img-thumbnail" alt="user" style="margin-bottom:15px;" /></div>
                         <div class="col-md-8">
                          <input type="radio" name="event_type" value="3" id="event_type" onClick="javascript:return yourfunction(3)">
-                          <span style="font-size: 17px; font-weight: bold;">Social Open Events</span>
+                          <span style="font-size: 17px; font-weight: bold;"> Open Social Events</span>
                            <p style="line-height: 25px;"> This includes following events Religious Meetings, Coventions,  Conferences, Comedy Shows, Music Concerts, Night Parties, Group Meetings e.t.c 
                            </p>
                          </div>

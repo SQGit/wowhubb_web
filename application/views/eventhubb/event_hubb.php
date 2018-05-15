@@ -354,10 +354,8 @@ li.multipleInput-email {
                     <?php 
                           foreach ($eventhubbfeed as $feeds) 
                           {
-                            
-                            if($feeds->eventtype == 'personal_event')
+                            if(isset($feeds->eventtype) && ($feeds->eventtype == 'personal_event'))
                             {
-                          
                     ?>
 
                   <tr>
@@ -412,12 +410,9 @@ li.multipleInput-email {
                            </td>
                           </tr> 
                           <tr>
-                            <td height="30">
-                              <a href="#modal_personal" style="cursor: pointer;" data-toggle="modal"  data-id='
-                                <?php                                    
-                                     echo json_encode($feeds->rsvp);                                     
-                                ?>'> Invites List</a>
-                                 
+                            <td height="30">                             
+                              <a onclick="showAjaxModal('<?php echo base_url('eventhubb/rsvp_members/'.$feeds->_id); ?>');" style="cursor: pointer;" > Invites List</a>
+                                
                             </td>
                           </tr>
                         </tbody>
@@ -582,7 +577,7 @@ li.multipleInput-email {
                           foreach ($eventhubbfeed as $feeds) 
                           {
                             
-                            if($feeds->eventtype == 'professional_event')
+                            if(isset($feeds->eventtype) && ($feeds->eventtype == 'professional_event'))
                             {
                           
                     ?>
@@ -744,7 +739,7 @@ li.multipleInput-email {
                           foreach ($eventhubbfeed as $feeds) 
                           {
                             
-                            if($feeds->eventtype == 'socia1_event')
+                            if(isset($feeds->eventtype) && ($feeds->eventtype == 'socia1_event'))
                             {
                           
                     ?>
@@ -907,7 +902,7 @@ li.multipleInput-email {
                           foreach ($eventhubbfeed as $feeds) 
                           {
                             
-                            if($feeds->eventtype == 'business_event')
+                            if(isset($feeds->eventtype) && ($feeds->eventtype == 'business_event'))
                             {
                           
                     ?>
@@ -923,10 +918,10 @@ li.multipleInput-email {
                       <div>
                               <!-- sponsor logo show here -->
                                 <?php
-                                      if(isset($feeds->sponsorslogo) && ($feeds->sponsorslogo != 'null') )
+                                      if(isset($feeds->sponsorslogourl) && ($feeds->sponsorslogourl != 'null') )
                                       {
                                 ?> 
-                                    <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->sponsorslogo; ?>" class="img-responsive img-thumbnail" alt="">
+                                    <img src="<?php echo $feeds->sponsorslogourl; ?>" class="img-responsive img-thumbnail" alt="">
 
                                 <?php } ?>
                       </div>
@@ -938,10 +933,10 @@ li.multipleInput-email {
                     <td rowspan="2" align="left" valign="top" bgcolor="#fff">
                               <!-- cover image show here -->
                                 <?php
-                                      if(isset($feeds->coverpage) && ($feeds->coverpage != 'null') )
+                                      if(isset($feeds->coverpageurl) && ($feeds->coverpageurl != 'null') )
                                       {
                                 ?> 
-                                  <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->coverpage; ?>" class="img-responsive img-thumbnail" alt="">
+                                  <img src="<?php echo $feeds->coverpageurl; ?>" class="img-responsive img-thumbnail" alt="">
                                 <?php } ?>
                       <br>
                        <a href="#">                         
@@ -1020,8 +1015,8 @@ li.multipleInput-email {
                                  ?> 
 
                                       <div class="video">
-                                          <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
-                                               <source src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->wowtagvideo; ?>" type="video/mp4">
+                                          <video style="width:160px; height:88px;" class="myvideo" >
+                                               <source src="<?php echo $feeds->wowtagvideourl; ?>" type="video/mp4">
                                           </video>
                                       </div>
 
@@ -1036,9 +1031,7 @@ li.multipleInput-email {
                           <input type="hidden" name="event_id" value="<?php echo $feeds->_id; ?>">
                           <input type="submit" id="delete_btn" class="btn-primary" value="Delete Event" >
                         </form>
-                          <!-- <a href="#" class="delete_event"> -->
-                            <!-- <img src="<?php echo base_url('assets/images/delete-btn.png') ?>" alt=""> -->
-                          <!-- </a> -->
+                         
                         </td>
                   </tr>
 
@@ -1324,72 +1317,478 @@ li.multipleInput-email {
               </table>
         </div>
 
+          <!-- here start with past event  -->
         <div class="tab-pane fade" id="faq-cat-3">
-        <div class="col-md-12 text-center clr" style="margin-top:10px; margin-bottom:20px;">
+          <div class="col-md-12 text-center clr" style="margin-top:10px; margin-bottom:20px;">
             <h4 style="color:#fff; line-height:30px;">Event Hubb<br>
               <span style="font-size:28px;">Past Events</span></h4>
           </div>
-         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pnl-brdr-clr">
+
+          <ul class="nav nav-tabs faq-cat-tabs">
+            <li class="active"><a href="#personal" data-toggle="tab" class="text-center" style="line-height:16px; font-size:14px; color:#333;">Personal/ Private Events</a></li>
+            
+            <li><a href="#Professional" data-toggle="tab" class="text-center" style="line-height:16px; font-size:14px; color:#333;">Professional Events</a></li>
+            <li><a href="#Social" data-toggle="tab" class="text-center" style="line-height:16px; font-size:14px; color:#333;">Open Social Events</a></li>
+            <li><a href="#Business" data-toggle="tab" class="text-center" style="line-height:16px; font-size:14px; color:#333;">Business Events</a></li>
+            
+          </ul>
+
+             <!-- personal event hubb  edit  -->
+          <div class="tab-content faq-cat-content">
+
+            <div class="tab-pane active in fade" id="personal">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pnl-brdr-clr">
                 <tbody>
                   <tr style="font-size:16px;">
                     <td height="40" bgcolor="#f9f9f9"><strong>Event Category</strong></td>
-                    <td width="22%" bgcolor="#f9f9f9"><strong>Venue</strong></td>
-                    <td width="18%" bgcolor="#f9f9f9"><strong>Attending</strong></td>
+                    <td width="18%" bgcolor="#f9f9f9"><strong>Venue</strong></td>
+                    <td width="9%" bgcolor="#f9f9f9"><strong>Attending</strong></td>          
+                    
+                    <td width="13%" bgcolor="#f9f9f9"><strong>Event Organizer</strong></td>
                     <td width="7%" height="40" bgcolor="#f9f9f9"><strong>Delete </strong></td>
                   </tr>
+
+                  <!-- personal event edit  -->                  
+
+                    <?php 
+                          foreach ($past_event as $feeds) 
+                          {
+                            if(isset($feeds->eventtype) && ($feeds->eventtype == 'personal_event'))
+                            {
+                    ?>
+
                   <tr>
-                    <td width="14%" height="40" align="left" valign="top" bgcolor="#fff"><div><img src="../assets/images/post-images/1.jpg" class="img-responsive img-thumbnail" alt=""></div>
-                      <strong style="font-size:16px; color:#fc6653;">!Craigs Birthday</strong><br>
-                      Birthday<br>
-                      <a href="#"><strong>View Event Details</strong></a></td>
-                    <td align="left" valign="top" bgcolor="#fff"><strong>Grace Convection Center</strong><br>
-                      1234  Fire Street Houston<br>
-                      Texas 77777<br>
-                      13th- 14th  January 2017<br>
-                      09:00 AM</td>
-                    <td height="40" align="left" valign="top" bgcolor="#fff"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <td width="14%" height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
+                          <div><img src="<?php echo $feeds->coverpageurl; ?>" class="img-responsive img-thumbnail" alt="">
+                          </div>
+                          <strong style="font-size:16px; color:#fc6653;">
+                            <?php if(isset($feeds->eventtitle)) { echo $feeds->eventtitle; } else{ echo "";} ?>
+                              
+                            </strong>
+                        </td>
+
+                        <td rowspan="2" align="left" valign="top" bgcolor="#fff">
+                          <strong>
+                                    <?php
+
+                                       $i=0;
+
+                                        foreach ($feeds->eventvenue as $eventvenues)
+                                         {
+                                              if($i==0 && $eventvenues->eventvenuenumber == "1" )
+                                              {
+                                                if(isset($eventvenues->eventvenuecity))
+                                                {
+                                                  echo   $eventvenues->eventvenuename.", ".$eventvenues->eventvenuecity.", ".$eventvenues->eventvenueaddress1.", ".$eventvenues->eventvenuezipcode;
+                                                }
+                                              }  
+                                              $i++;                             
+                                          }                                    
+                                    ?>
+                            </strong>
+                        </td>
+
+                    <td height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
+                      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tbody>
-                          
                           <tr>
-                            <td height="30"><img src="../assets/images/profile-icon.png" alt=""><strong style="color:#FF7600;">Attended</strong></td>
+                            <td height="30" align="center" valign="middle"><strong style="font-size:16px;">RSVP</strong></td>
                           </tr>
                           <tr>
-                            <td height="30"><img src="../assets/images/profile-icon.png" alt=""><strong style="color:#2C4683;">1000 Attended</strong></td>
+                            <td height="30"><img src="../assets/images/profile-icon.png" alt="">
+                              <strong style="font-size:22px; color:#FF7600;">
+                                    <?php                                      
+                                         $sum = 0;
+                                          foreach ($feeds->rsvp as $rsvps)
+                                           {                                                                                              
+                                               $sum += $rsvps->extra;                                           
+                                           }
+                                        echo $sum;                              
+                                    ?>
+                              </strong>
+                           </td>
+                          </tr> 
+                          <tr>
+                            <td height="30">                             
+                              <a onclick="showAjaxModal('<?php echo base_url('eventhubb/rsvp_members/'.$feeds->_id); ?>');" style="cursor: pointer;" > Invites List</a>
+                                
+                            </td>
                           </tr>
-                         
                         </tbody>
-                      </table></td>
-                    <td height="40" align="left" valign="top" bgcolor="#fff"><input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
-                    </td>
+                      </table></td>                  
+
+                   
+                        <td rowspan="2" align="center" valign="top" bgcolor="#fff">
+                          <a href="#">
+                            <img src="../assets/images/create-event-icon-2.png" alt=""> <br>
+                          Event Service Provider 
+                        </a>
+                      </td>
+
+                      <td height="40" rowspan="2" align="center" valign="top" bgcolor="#fff">
+                        <form class="delete_event" action="<?php echo base_url('eventhubb/delete_event'); ?>" method="POST" >
+                          <input type="hidden" name="event_id" value="<?php echo $feeds->_id; ?>">
+                          <input type="submit" class="btn-primary" id="delete_btn_personal" value="Delete Event">
+                        </form>
+                      </td>
+
                   </tr>
+
+                                                 
+                              
+                  <?php } } ?>              
+
+                  
+              </tbody>
+              </table>
+            </div>
+
+
+            <!-- professional event hubb edit start here -->    
+
+            <div class="tab-pane fade" id="Professional"> 
+            
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pnl-brdr-clr">
+                <tbody>
+                  <tr style="font-size:16px;">
+                    <td height="40" bgcolor="#f9f9f9"><strong>Event Category</strong></td>
+                    <td width="16%" bgcolor="#f9f9f9"><strong>Venue</strong></td>
+                    <td width="16%" bgcolor="#f9f9f9"><strong>Attending</strong></td>
+                   
+                    <td width="15%" height="40" bgcolor="#f9f9f9"><strong>Advertise Your Event </strong></td>
+                  </tr>
+                    <?php 
+                          foreach ($past_event as $feeds) 
+                          {
+                            
+                            if(isset($feeds->eventtype) && ($feeds->eventtype == 'professional_event'))
+                            {
+                          
+                    ?>
                   <tr>
-                    <td width="14%" height="40" align="left" valign="top" bgcolor="#f9f9f9"><div><img src="../assets/images/post-images/1.jpg" class="img-responsive img-thumbnail" alt=""></div>
-                      <strong style="font-size:16px; color:#fc6653;">!Summer 2017</strong><br>
-                      Seminar/ Conferences<br>
-                      <a href="#"><strong>View Event Details</strong></a></td>
-                    <td align="left" valign="top" bgcolor="#f9f9f9"><strong>Green Exhibition Center</strong><br>
-                      1234  Fire Street Houston<br>
-                      Texas 77777<br>
-                      13th- 14th  January 2017<br>
-                    09:00 AM</td>
-                    <td height="40" align="left" valign="top" bgcolor="#f9f9f9"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <tbody>
-                          
-                          <tr>
-                            <td height="30"><img src="../assets/images/profile-icon.png" alt=""><strong style="color:#FF7600;">Attended</strong></td>
-                          </tr>
-                          <tr>
-                            <td height="30"><img src="../assets/images/profile-icon.png" alt=""><strong style="color:#2C4683;">1000 Attended</strong></td>
-                          </tr>
-                          
-                        </tbody>
-                    </table></td>
-                    <td height="40" align="left" valign="top" bgcolor="#f9f9f9"><input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+                    <td width="16%" height="40" rowspan="2" align="left" valign="top" bgcolor="#fff"> 
+                      <div>
+                          <img src="<?php echo $feeds->coverpageurl; ?>" class="img-responsive img-thumbnail" alt="">
+                      </div>
+                      <?php if(isset($feeds->eventtitle)) { echo $feeds->eventtitle; } else{ echo "";} ?>                     
                     </td>
+
+                    <td rowspan="2" align="left" valign="top" bgcolor="#fff">
+                            <strong>
+                                    <?php
+
+                                       $i=0;
+
+                                        foreach ($feeds->eventvenue as $eventvenues)
+                                         {
+                                              if($i==0 && $eventvenues->eventvenuenumber == "1" )
+                                              {
+                                                if(isset($eventvenues->eventvenuecity))
+                                                {
+                                                  echo   $eventvenues->eventvenuename.", ".$eventvenues->eventvenuecity.", ".$eventvenues->eventvenueaddress1.", ".$eventvenues->eventvenuezipcode;
+                                                }
+                                              }  
+                                              $i++;                             
+                                          }                                    
+                                    ?>
+                            </strong>
+                    </td>
+
+                    <td height="40" rowspan="2" align="left" valign="top" bgcolor="#fff"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tbody>
+                          <tr>
+                            <td height="30"><strong>Registered</strong></td>
+                          </tr>
+                          <tr>
+                            <td height="30"><img src="../assets/images/profile-icon.png" alt=""><strong style="font-size:22px; color:#FF7600;">1500</strong></td>
+                          </tr>
+                          <tr>
+                            <td height="30"><a href="#">Invites List</a></td>
+                          </tr>
+                        </tbody>
+                      </table></td>                    
+                    
+                    <td height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
+                    <div class="form-group col-sm-12" style="font-size: 15px;">
+                      <label>Select Country</label>
+                      <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1; font-size:13px;">
+                        <option value="">Country</option>
+                        <option value="">Afghanistan</option>
+                        <option value="">Albania</option>
+                        <option value="">Algeria</option>
+                        <option value="">American Somoa</option>
+                        <option value="">Angola</option>
+                        <option value="">Antartica</option>
+                      </select>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="pull-left" style="width:25%;">
+                        <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+                      </div>
+                      <div class="pull-left" style="width:75%;"> Wowhubb Network</div>
+                    </div>
+                      <div class="col-md-12" style="margin-bottom:10px;">
+                        <div class="pull-left" style="width:25%;">
+                          <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+                        </div>
+                        <div class="pull-left" style="width:75%;">Specific Target Group</div>
+                      </div>
+                      <input type="submit" class="btn-primary" style="background-color:#535353;" value="Create Your Event Ads">
+                      </td>
                   </tr>
+                  
+
+                   <?php } } ?>                   
+
                 </tbody>
               </table>
+             
+            </div>
+
+          <!-- professional event hubb edit end here -->
+
+
+        <!-- social event hubb to edit here -->
+
+            <div class="tab-pane fade" id="Social">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pnl-brdr-clr">
+                <tbody>
+                  <tr style="font-size:16px;">
+                    <td height="40" bgcolor="#f9f9f9"><strong>Event Category</strong></td>
+                    <td width="16%" bgcolor="#f9f9f9"><strong>Venue</strong></td>
+                    <td width="16%" bgcolor="#f9f9f9"><strong>Attending</strong></td>
+                   
+                    <td width="15%" height="40" bgcolor="#f9f9f9"><strong>Advertise Your Event </strong></td>
+                  </tr>
+                  <!-- social event start here -->
+                  <?php 
+                          foreach ($past_event as $feeds) 
+                          {
+                            
+                            if(isset($feeds->eventtype) && ($feeds->eventtype == 'socia1_event'))
+                            {
+                          
+                    ?>
+
+                  <tr>
+                    <td width="16%" height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
+                          <div><img src="<?php echo $feeds->coverpageurl; ?>" class="img-responsive img-thumbnail" alt="">
+                          </div>
+                          <strong style="font-size:16px; color:#fc6653;">
+                            <?php if(isset($feeds->eventtitle)) { echo $feeds->eventtitle; } else{ echo "";} ?>
+                              
+                          </strong>
+                    </td>
+                    <td rowspan="2" align="left" valign="top" bgcolor="#fff">
+                            <strong>
+                                    <?php
+
+                                       $i=0;
+
+                                        foreach ($feeds->eventvenue as $eventvenues)
+                                         {
+                                              if($i==0 && $eventvenues->eventvenuenumber == "1" )
+                                              {
+                                                if(isset($eventvenues->eventvenuecity))
+                                                {
+                                                  echo   $eventvenues->eventvenuename.", ".$eventvenues->eventvenuecity.", ".$eventvenues->eventvenueaddress1.", ".$eventvenues->eventvenuezipcode;
+                                                }
+                                              }  
+                                              $i++;                             
+                                          }                                    
+                                    ?>
+                            </strong>
+                    </td>
+
+                    <td height="40" rowspan="2" align="left" valign="top" bgcolor="#fff"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tbody>
+                          <tr>
+                            <td height="30"><strong>Registered</strong></td>
+                          </tr>
+                          <tr>
+                            <td height="30"><img src="../assets/images/profile-icon.png" alt=""><strong style="font-size:22px; color:#FF7600;">1500</strong></td>
+                          </tr>
+                          <tr>
+                            <td height="30"><a href="#" data-toggle="modal" data-target=".modal-2" >Invites List</a></td>
+                          </tr>
+                        </tbody>
+                      </table></td>
+                   
+                    <td height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
+                    <div class="form-group col-sm-12" style="font-size: 15px;">
+                      <label>Select Country</label>
+                      <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1; font-size:13px;">
+                        <option value="day1">Country</option>
+                        <option value="day2">Afghanistan</option>
+                        <option value="day3">Albania</option>
+                        <option value="day4">Algeria</option>
+                        <option value="day5">American Somoa</option>
+                        <option value="day6">Angola</option>
+                        <option value="day7">Antartica</option>
+                      </select>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="pull-left" style="width:25%;">
+                        <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+                      </div>
+                      <div class="pull-left" style="width:75%;"> Wowhubb Network</div>
+                    </div>
+                      <div class="col-md-12" style="margin-bottom:10px;">
+                        <div class="pull-left" style="width:25%;">
+                          <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+                        </div>
+                        <div class="pull-left" style="width:75%;">Specific Target Group</div>
+                      </div>
+                      <input type="submit" class="btn-primary" style="background-color:#535353;" value="Create Your Event Ads">
+                      </td>
+                  </tr>
+                 
+                   <?php } } ?>     
+
+                </tbody>
+              </table>
+            </div>
+
+        <!-- social event end here -->
+          
+            <!-- business event hubb start here -->
+            <div class="tab-pane fade" id="Business"> 
+
+               <table width="100%" border="0" cellspacing="0" cellpadding="0" class="pnl-brdr-clr">
+                <tbody>
+                  <tr style="font-size:16px;">
+                    <td height="40" bgcolor="#f9f9f9"><strong>Event Category</strong></td>
+                    <td width="18%" bgcolor="#f9f9f9"><strong>Venue</strong></td>
+                    <td bgcolor="#f9f9f9"><strong>Coupon Clicks</strong></td>
+                   
+                    <td bgcolor="#f9f9f9"><strong>Expires</strong></td>
+                    <td bgcolor="#f9f9f9"><strong>Wowtag</strong></td>
+                    <td height="40" bgcolor="#f9f9f9"><strong>Delete </strong></td>
+                  </tr>
+                  <!-- business event start here -->
+
+                    <?php 
+                          foreach ($past_event as $feeds) 
+                          {
+                            
+                            if(isset($feeds->eventtype) && ($feeds->eventtype == 'business_event'))
+                            {
+                          
+                    ?>
+
+                  <tr style="font-size:16px;">
+                    <td height="40" colspan="2" bgcolor="#f9f9f9"><strong>
+                        <?php if(isset($feeds->eventtitle)) { echo $feeds->eventtitle; } else{ echo "";} ?>
+                    </strong></td>
+                    
+                  </tr>
+                  <tr>
+                    <td width="14%" height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
+                      <div>
+                              <!-- sponsor logo show here -->
+                                <?php
+                                      if(isset($feeds->sponsorslogourl) && ($feeds->sponsorslogourl != 'null') )
+                                      {
+                                ?> 
+                                    <img src="<?php echo $feeds->sponsorslogourl; ?>" class="img-responsive img-thumbnail" alt="">
+
+                                <?php } ?>
+                      </div>
+                          <strong style="font-size:16px; color:#fc6653;">
+                            <?php if(isset($feeds->organisationname)) { echo $feeds->organisationname; } else{ echo "";} ?>
+                              
+                          </strong>
+                    </td>
+                    <td rowspan="2" align="left" valign="top" bgcolor="#fff">
+                              <!-- cover image show here -->
+                                <?php
+                                      if(isset($feeds->coverpageurl) && ($feeds->coverpageurl != 'null') )
+                                      {
+                                ?> 
+                                  <img src="<?php echo $feeds->coverpageurl; ?>" class="img-responsive img-thumbnail" alt="">
+                                <?php } ?>
+                      <br>
+                       <a href="#">                         
+                        <?php if(isset($feeds->onlinesalespromotionurl)) { echo $feeds->onlinesalespromotionurl; } else{ echo "";} ?>                  
+                       </a>
+                  </td>
+                    <td height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
+                      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tbody>
+                          
+                          <tr>
+                            <td height="30"><img src="../assets/images/profile-icon.png" alt=""><strong style="font-size:22px; color:#FF7600;">1500</strong></td>
+                          </tr>
+                          <tr>
+                            <td height="30">&nbsp;</td>
+                          </tr>
+                        </tbody>
+                      </table></td>
+                    
+                    <td align="left" valign="top" bgcolor="#fff"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                        <tbody>
+                          <tr>
+                            <td align="center" valign="top" bgcolor="#f9f9f9"><a href="#"><img src="../assets/images/create-event-icon-2.png" alt=""></a></td>
+                          </tr>
+                          <tr>
+                            <td align="center" > 
+                              <?php 
+                                 if(isset($feeds->eventsalescouponfrom1)) 
+                                  { 
+                                    echo $feeds->eventsalescouponfrom1." to ".$feeds->eventsalescouponto1; 
+                                  }
+                                   else{ echo "";}
+                              ?>
+                               
+                             </td>
+                          </tr>
+                          <tr>
+                            <td>&nbsp;</td>
+                          </tr>
+                        </tbody>
+                      </table></td>
+                    <td rowspan="2" align="center" valign="top" bgcolor="#fff">
+                      <a href="#">
+                        <!-- wowtag video show here -->
+                                <?php
+                                      if(isset($feeds->wowtagvideo) && ($feeds->wowtagvideo != 'null') )
+                                      {
+                                 ?> 
+
+                                      <div class="video">
+                                          <video style="width:160px; height:88px;" class="myvideo" >
+                                               <source src="<?php echo $feeds->wowtagvideourl; ?>" type="video/mp4">
+                                          </video>
+                                      </div>
+
+                                <?php  } ?>
+                       
+                      </a>
+                    </td>   
+
+                      <!--event  delete option here -->
+                       <td height="40" rowspan="2" align="center" valign="top" bgcolor="#f9f9f9">
+                        <form class="delete_event" action="<?php echo base_url('eventhubb/delete_event'); ?>" method="POST" >
+                          <input type="hidden" name="event_id" value="<?php echo $feeds->_id; ?>">
+                          <input type="submit" id="delete_btn" class="btn-primary" value="Delete Event" >
+                        </form>
+                         
+                        </td>
+                  </tr>
+
+                  
+
+                  <?php }  } ?>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- business event end here -->
+        
         </div>
+      </div>
+        <!-- end with past event -->
 
         <div class="tab-pane fade" id="faq-cat-4">
         <div class="col-md-12 text-center clr" style="margin-top:10px; margin-bottom:20px;">
@@ -1499,64 +1898,48 @@ li.multipleInput-email {
 
 
 
-   <!-- modal popup personal event   -->
+    <!-- modal popup personal event   -->
 
       <div class="modal fade" id="modal_personal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                      <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                          <div class="post-content">                            
-                            <div class="post-container" style="padding-bottom:20px; background-color: #908c8c2e;">              
-                              <div class="post-detail">
-                                <div class="user-info">
-                                 <h3>Invite a Friend</h3>
-                                 <span style="color:#333; font-size: 15px">Please give the following information</span>
-                                </div>                              
-                                <div class="line-divider"></div>
-                                <div class="user-info">
-                                 <div class="row" style="padding:10px;">                           
-                                          
-                    <div class="row">  
-                               <input type="text" name="user_name" >               
-                      <div class="col-md-4">
-                           <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-                             <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                             <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div> 
-                                                      
-                           
-                            <div style="font-size:11px;">Account Manager</div> 
-                              <div style="font-size:12px; color: #e91e63;">!emeka  </div>
-                               Houston
-                             <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>           
-                       
-                           </div>
-                      </div>  
-                      <div class="col-md-4">
-                           <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
-                             <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                             <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div> 
-                                                       
-                             
-                            <div style="font-size:11px;">Account Manager</div> 
-                              <div style="font-size:12px; color: #e91e63;">!emeka  </div>
-                               Houston
-                             <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>           
-                       
-                           </div>
-                      </div>                                                  
-                    </div>
-                          
-                  
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="post-content">                            
+                <div class="post-container" style="padding-bottom:20px; background-color: #908c8c2e;">              
+                  <div class="post-detail">
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="user-info">
+                        <h3>Invite a Friend</h3>
+                        <span style="color:#333; font-size: 15px">Please give the following information</span>
+                    </div>                              
+                    <div class="line-divider"></div>
+                      <div class="user-info">
+                        <div class="row" style="padding:10px;">          
+                          <div class="row">  
+
+                                    
+                            <div class="col-md-4">
+
+                              <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
+                                  <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
+                                  <div style="font-size:15px; font-weight:bold; line-height: 15px;">Tony Adams</div>        
+                                  <div style="font-size:11px;">Account Manager</div> 
+                                  <div style="font-size:12px; color: #e91e63;">!emeka  </div>
+                                  Houston
+                                  <div style="color: #0e8e18; font-weight: bold;"> RSVP <i class="glyphicon glyphicon-ok"> </i> </div>   
+                              </div>
+
+                            </div>   
+
+                          </div>                     
+                        </div>
+                      </div>
+                  </div>                                
                 </div>
-                </div>
-                </div>                                
               </div>
             </div>
           </div>
-        </div>
       </div>
-                      <!-- end personal model popup -->
-
-
+    <!-- end personal model popup -->
 
 
  <!-- modal open social event event   -->
@@ -1751,12 +2134,6 @@ li.multipleInput-email {
                       </div>
                     </div>
                        <!-- third row end -->
-
-
-
-
-
-                  
                       
                   </form>
                                </div>
@@ -1770,12 +2147,9 @@ li.multipleInput-email {
                       <!-- end open social event model popup -->
 
 
-
-
-
    <!-- event details edit model popup -->
   
-   <div class="modal fade" id="modal-eventdetails" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal fade" id="modal-eventdetails" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="post-content">
@@ -1864,7 +2238,7 @@ li.multipleInput-email {
                     </div>
                   </div>
                 </div>
-              </div>
+  </div>
 
 <!-- add send email model popup -->
   <div class="modal fade" id="modal_email" role="dialog" style="z-index:99999;">
@@ -1876,20 +2250,18 @@ li.multipleInput-email {
                 </div>
                 <div class="modal-body">                    
 
-                    <form  class="invite_email_form" action="<?php echo base_url('searchfriends/invite_email/'.$feeds->_id);?>" method="post">    <div class="alert alert-success" id="email_success" role="alert" style="display:none;"  >Successfully Send Invite
+                    <form  class="invite_email_form" action="<?php echo base_url('searchfriends/invite_email/'.$feeds->_id);?>" method="post">   
+                     <div class="alert alert-success" id="email_success" role="alert" style="display:none;"  >Successfully Send Invite
                         </div>
 
-                         <input type="hidden" name="event_id"> 
-                         
+                         <input type="hidden" name="event_id">                        
                           
-
                           <div class="col-sm-12 form-group ">      
                             <input type="text" id="multi_email" name="email[]" class='form-control' placeholder="Enter Email ID">         
-                          </div>   
-
-                          <div class="col-sm-12 form-group ">      
-                            <input type="text"  name="invite_msg" class='form-control' placeholder="Send message">          
-                          </div>
+                          </div>  
+                        <div class="col-md-12" style="margin-bottom: 10px;" > 
+                          <textarea type='text'  name="invite_msg"  class="form-control required" style="min-height:120px;" placeholder="Add Message" ></textarea> 
+                        </div>
 
                         <div class="action text-center">
                             <button type="submit" class="btn-primary">Invite</button>
@@ -1903,8 +2275,6 @@ li.multipleInput-email {
       </div>
 <!-- end email popup mode -->
 
-
-
 <!-- add send group model popup -->
   <div class="modal fade" id="modal_group" role="dialog" style="z-index:99999;" >
         <div class="modal-dialog" style="width: 500px!important;" >
@@ -1915,7 +2285,8 @@ li.multipleInput-email {
                 </div>
                 <div class="modal-body">
                                      
-                    <form  class="invite_group_form" action="<?php echo base_url('searchfriends/invite_group/'.$feeds->_id);?>" method="post">    <div class="alert alert-success" id="group_success" role="alert" style="display:none;" >Successfully Send Invite
+                    <form  class="invite_group_form" action="<?php echo base_url('searchfriends/invite_group/'.$feeds->_id);?>" method="post">   
+                        <div class="alert alert-success" id="group_success" role="alert" style="display:none;" >Successfully Send Invite
                         </div>
 
                           <input type="hidden" name="event_id">
@@ -1935,18 +2306,21 @@ li.multipleInput-email {
                             </div>
 
                           </div>
-                          <div class="col-md-12" >
-                              <div class="col-md-12" style="border: 0.5px solid #d7d6d6; margin-top: 10px; margin-bottom: 10px; ">  </div>
+                          <div class="col-md-12">
+                              <div class="col-md-12" style="border: 0.5px solid #d7d6d6; margin-top: 10px; margin-bottom: 10px;"> 
+                              </div>
                           </div>
-                           <?php } ?>   
 
-                          <div class="col-sm-12 form-group ">      
-                            <input type="text"  name="invite_msg" class='form-control' placeholder="Send message">          
-                          </div>                          
+                           <?php } ?> 
+
+                        <div class="col-md-12" style="margin-bottom: 10px;" >
+                          <textarea type='text' name="invite_msg"  class="form-control required" style="min-height:120px;" placeholder="Add Message" >                            
+                          </textarea>  
+                        </div>                       
 
                         <div class="action text-center">
                             <button type="submit" class="btn-primary">Invite</button>                            
-                        </div>
+                        </div>                        
                     </form>
                   
                 </div>
@@ -1956,14 +2330,16 @@ li.multipleInput-email {
       </div>
 <!-- end group popup mode -->
 
-<!-- Footer
-    ================================================= -->
-<footer id="footer"> </footer>
+<!-- (Ajax Modal)-->
+    <div class="modal fade" id="modal_ajax" role="dialog" style="z-index:99999;">
+        <div class="modal-dialog" style="width:860px;">
+            <div class="modal-content">
+                
+                <!-- ajax response goes here -->
 
-<!--preloader-->
-<div id="spinner-wrapper">
-  <div class="spinner"></div>
-</div>
+            </div>
+        </div>
+    </div>
 
 <!-- Scripts
     ================================================= --> 
@@ -1977,17 +2353,38 @@ li.multipleInput-email {
 <script src="<?php echo base_url('assets/js/sweetalert.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/sweetalert.min.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/sweetalert2.all.js') ?>"></script> 
-<!--<script src="<?php echo base_url('assets/js/jquery-1.12.4.js')?>"></script> -->
+
 <script src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script> 
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
 <script src="<?php echo base_url('assets/js/videopopup.js')?>" ></script> 
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script>   
-<script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.js')?>"></script>   
+<script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.js')?>"></script> 
+<script src="<?php echo base_url ('assets/js/moment.min.js') ?>"></script>  
 <script src="<?php echo base_url('assets/js/moment.js')?>"></script> 
+<script src="<?php echo base_url ('assets/js/fullcalendar.min.js') ?>"></script>
+
 <script src="<?php echo base_url('assets/js/bootbox.js')?>"></script> <!-- conformation delete boot box -->
 <script src="<?php echo base_url('assets/js/select2.min.js')?>"></script> 
 
 <script>
+
+// here onclick function to show model popup
+function showAjaxModal(url)
+    {       
+        // LOADING THE AJAX MODAL
+        jQuery('#modal_ajax').modal('show', {backdrop: 'true'});
+        
+        // SHOW AJAX RESPONSE ON REQUEST SUCCESS
+        $.ajax({
+            url: url,
+            success: function(response)
+            {
+                jQuery('#modal_ajax .modal-content').html(response);
+            }
+        });
+    }
+    
+    
 
 // here mltiple email add 
 (function( $ ){
@@ -2165,19 +2562,6 @@ $(document).ready(function(){
 });
 
 
-//event_id could pass to email model popup using popup id
-$('#modal_personal').on('show.bs.modal', function(e) 
-  {
-    var user_name = $(e.relatedTarget).data('id');
-    // var test = json_decode(user_name);
-   
-    $(e.currentTarget).find('input[name="user_name"]').val(user_name);
-    // var user_array = user_name.split(",");
-   
-
-  });
-
-
   //video controls hide and show mouse hover  
     $('.myvideo').hover(function toggleControls() {  
     if (this.hasAttribute("controls")) {
@@ -2188,14 +2572,7 @@ $('#modal_personal').on('show.bs.modal', function(e)
 })
 
 
-//video controls hide and show mouse hover  
-    $('.myvideo').hover(function toggleControls() {  
-    if (this.hasAttribute("controls")) {
-        this.removeAttribute("controls")
-    } else {
-        this.setAttribute("controls", "controls")
-    }
-})
+
 
 //user_id could pass to model popup using popup id
 $('#modal-eventdetails').on('show.bs.modal', function(e) 
@@ -2238,7 +2615,7 @@ $(document).ready(function(){
                 {
                    if(response.status == 'success')
                    {                     
-                        window.location.href = base_url+'eventhubb/get_eventhubb';                                     
+                        window.location.href = base_url+'eventhubb/get_future_eventhubb';                                     
                     }else 
                      {                    
                         swal("Sorry!", "somethink wrong try again !", "error");
@@ -2254,11 +2631,7 @@ $(document).ready(function(){
 
 });
 
-</script>
-<script src="<?php echo base_url ('assets/js/moment.min.js') ?>"></script>
-<script src="<?php echo base_url ('assets/js/jquery.min.js') ?>"></script>
-<script src="<?php echo base_url ('assets/js/fullcalendar.min.js') ?>"></script>
-<script>
+
 
   $(document).ready(function() {
 

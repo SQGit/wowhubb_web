@@ -12,7 +12,6 @@ class Event extends CI_Controller
 		 $this->load->helper(array('form','url','date'));		 
 
 	}
-
 	
 public function eventfeed()
 	{
@@ -69,10 +68,6 @@ public function get_gruop()
 		   	   	
 }
 
-public function create_event_landing()
-	{
-		$this->load->view('event/event_landing');
-	}
 
 public function eenthubb()
 	{
@@ -85,15 +80,6 @@ public function event_popup()
 		$this->load->view('event/event_popup');
 	}
 
-public function event_details()
-	{
-		$this->load->view('event/event_details');
-	}
-	
-public function create_professional_landing()  //professional landing page 
-	   {
-	   		$this->load->view('event/create_professional_landing');
-	   }
 
 public function event_wowtag()  //wowtag page from eventfeed
 	   {
@@ -110,55 +96,7 @@ public function nearby_event_details()  //wowtag page from eventfeed
 	   		$this->load->view('event/nearby_events_details');
 	   }
 
-public function createpro_multiple_event()  //select option to redirect pages
-	{
-		
-		if($_POST['city_count'] == 'city1')
-			{
-				$this->load->view('event/create_professional_event');  //single city
-			}	
-		else
-			{
-				$this->load->view('event/createpro_event_multicity');  //multiple city
-			}
-	}
-
-
-public function create_social_landing()  //social landing page function
-	   {
-	   		$this->load->view('event/create_social_landing');
-	   }
-
-
-public function createsocial_multiple_event()  //select option to redirect pages
-	{
-		
-		if($_POST['city_count'] == 'city1')
-			{
-				$this->load->view('event/create_social_event');  //single city
-			}	
-		else
-			{
-				$this->load->view('event/createsocial_event_multicity');  //multiple city
-			}
-	}
-
-public function business_event()
-	{
-		$this->load->view('event/create_business_event');
-	}
-
-public function business_landing()
-	   {
-	   		$this->load->view('event/business_landing_page');
-	   }
-
-public function create()
-	   {
-	   		$this->load->view('mytest/create_test');
-	   }
-
-	      
+   
 public function event_popup_details()
 	{
 	 			
@@ -265,21 +203,22 @@ public function event_popup_details()
 
 public function personal_event()
  {
- 				$response = array();
+ 	$response = array();
+
  	//first step
  			
-		     $start_date = $_POST['event_startdate'];
-		     $end_date   = $_POST['event_enddate'];		    
-		     $s_date = date('Y/m/d', strtotime($start_date)); 
-		     $e_date = date('Y/m/d', strtotime($end_date)); 
-		     $s_time = str_replace(' ', '',$this->input->post('event_startime'));
-		     $e_time = str_replace(' ', '',$this->input->post('event_endtiming'));    
+		    $start_date = $this->input->post('event_startdate');
+		    $end_date   = $this->input->post('event_enddate');		    
+		    $s_date = date('Y/m/d', strtotime($start_date)); 
+		    $e_date = date('Y/m/d', strtotime($end_date)); 
+		    $s_time = str_replace(' ', '',$this->input->post('event_startime'));
+		    $e_time = str_replace(' ', '',$this->input->post('event_endtiming'));    
 
 
  			$token =  $this->session->userdata('token');		
  			
 		   	$header1 = array('token:'			.$token,
-		   					'eventtype:' 	 	.$this->input->post('event_type'),
+		   					'eventtype:' 	 	.'personal_event',
 							'eventcategory:' 	.$this->input->post('event_category'), 
 							'eventtypeint:'     ."1",
 							'eventname:'     	.$this->input->post('event_name'),
@@ -318,8 +257,8 @@ public function personal_event()
 		     	
 		//second step
 
-		     $runtime = $_POST['runtime_from'];
-		     $totime = $_POST['totime_to'];
+		     $runtime = $this->input->post('runtime_from');
+		     $totime  = $this->input->post('totime_to');
 		     $runtime_from = date('Y/m/d', strtotime($runtime)); 
 		     $totime_to = date('Y/m/d', strtotime($totime));   
 
@@ -487,7 +426,7 @@ public function personal_event()
 					    	}
 				
 	    		$event_highlight = array('eventhighlights1'       => @$highlight_img1,
-	    								 'eventhighlights2'       => @$highlight_img2,	    								 								 
+	    								 'eventhighlights2'       => @$highlight_img2
 	    								 );		    	 				
 	    	 
 	    	  	curl_setopt($ch3, CURLOPT_URL,'http://104.197.80.225:3010/wow/event/highlights');	   
@@ -539,8 +478,8 @@ public function quick_event()
  			$response = array(); 
  			//first step
  			
-		     $start_date = $_POST['event_startdate'];
-		     $end_date   = $_POST['event_enddate'];		    
+		     $start_date = $this->input->post('event_startdate');
+		     $end_date   = $this->input->post('event_enddate');		    
 		     $s_date = date('Y/m/d', strtotime($start_date)); 
 		     $e_date = date('Y/m/d', strtotime($end_date)); 
 		    
@@ -589,8 +528,7 @@ public function quick_event()
 		        $test = $data1->success;
 		        $this->session->set_userdata('success', $test);	
 		    	$this->session->set_userdata('id', $id);	
-		     	curl_close($ch1);
-		     	// print_r($data1);
+		     	curl_close($ch1);		     	
 
 		//second step online event
 
@@ -606,12 +544,7 @@ public function quick_event()
 
 				$event_venue_result = $this->rest->post('http://104.197.80.225:3010/wow/event/androidonlineevent',$json_data,'json');	
 	       		
-	    	  	
-	    	 // }
-	    	 // print_r($data2);
-
-		
-
+	    	  
 	   	// third step event venue
 	    	
 	    		$this->rest->http_header('token',  $this->session->userdata('token'));
@@ -644,8 +577,7 @@ public function quick_event()
 
 				$event_venue_result = $this->rest->post('http://104.197.80.225:3010/wow/event/androideventvenue',$json_data,'json');
 
-				
-				// print_r($event_venue_result);
+			
 				if($event_venue_result->success == true)
 					{		 	
 						 $response['status'] = 'success'; 			
@@ -654,6 +586,8 @@ public function quick_event()
 					{	
 					 	$response['status'] = 'failed';
 					}
+		
+
 			echo json_encode($response); 
 }
 
@@ -668,8 +602,8 @@ public function professional_multicity_event()
 
  			$token   =  $this->session->userdata('token');	
 
- 			 $start_date = $_POST['event_startdate'];
-		     $end_date   = $_POST['event_enddate'];		    
+ 			 $start_date = $this->input->post('event_startdate');
+		     $end_date   = $this->input->post('event_enddate');		    
 		     $s_date = date('Y/m/d', strtotime($start_date)); 
 		     $e_date = date('Y/m/d', strtotime($end_date));  
 		     $s_time = str_replace(' ', '',$this->input->post('event_startime'));
@@ -686,7 +620,7 @@ public function professional_multicity_event()
 							'ticketprice:'      .$this->input->post('ticket_price'),
 							'eventticketurl:'   .$this->input->post('ticket_url'),
 							'eventdescription:' .$this->input->post('event_description'),
-							'organisationname:'   .$this->input->post('organisation_name')	
+							'organisationname:' .$this->input->post('organisation_name')	
 							);
 		   	 
 	       	$ch1 = curl_init();
@@ -721,17 +655,12 @@ public function professional_multicity_event()
 		        $this->session->set_userdata('success', $test);	
 		    	$this->session->set_userdata('id', $id);	
 		     	curl_close($ch1);
-		     	// print_r($data1);
-
-		//second step
-
-		// if($this->session->userdata('success') == true)
-		//     {	
+		     
 		    	
 		    	$token2  =  $this->session->userdata('token');
 
-		    	$runtime = $_POST['runtime_from'];
-		     	$totime = $_POST['totime_to'];
+		    	$runtime = $this->input->post('runtime_from');
+		     	$totime = $this->input->post('totime_to');
 		     	$runtime_from = date('Y/m/d', strtotime($runtime)); 
 		     	$totime_to = date('Y/m/d', strtotime($totime));   
 
@@ -764,8 +693,7 @@ public function professional_multicity_event()
 	    	  	$data2 =json_decode($response2);
 	    	  	curl_close($ch2);
 	    	  	
-	    	// }
-	    	 // print_r($data2);
+	    	
 
 	    // third step event venue
 	    	
@@ -847,7 +775,7 @@ public function professional_multicity_event()
 	   					array_push($pgm_schedule, array
 						(
 							'day'		   =>  $day,
-							'eventnumber'  =>  '1',
+							'eventnumber'  =>  $event+1,
 							'starttime'    =>  $this->input->post('day'.$day.'_event_starttime'),
 							'endtime'      =>  $this->input->post('day'.$day.'_event_endtime'),
 							'facilitator'  =>  $this->input->post('day'.$day.'_facilitator_name')[$event],
@@ -905,7 +833,7 @@ public function professional_multicity_event()
 					
 				
 	    		$event_highlight = array('eventhighlights1'       => @$highlight_img1,
-	    								 'eventhighlights2'       => @$highlight_img2,	    																 
+	    								 'eventhighlights2'       => @$highlight_img2
 	    								 );		    	 				
 	    	 
 	    	  	curl_setopt($ch3, CURLOPT_URL,'http://104.197.80.225:3010/wow/event/highlights');	   
@@ -917,7 +845,7 @@ public function professional_multicity_event()
 	    	  	$data3 =json_decode($response3);
 	    	  	curl_close($ch3);
 	    	// }  	
- 	// print_r($data3);
+ 	
 
 	// step 6 event contact
 				
@@ -1095,10 +1023,12 @@ public function social_multicity_event()
 
  			$token   =  $this->session->userdata('token');	
 
- 			$start_date = $_POST['event_startdate'];
-		    $end_date   = $_POST['event_enddate'];		    
+ 			$start_date = $this->input->post('event_startdate');
+		    $end_date   =$this->input->post('event_enddate');		    
 		    $s_date = date('Y/m/d', strtotime($start_date)); 
 		    $e_date = date('Y/m/d', strtotime($end_date));  
+		    $s_time = str_replace(' ', '',$this->input->post('event_startime'));
+		    $e_time = str_replace(' ', '',$this->input->post('event_endtiming')); 
  			
 		   	$header1 = array('token:'           .$token,
 		   					'eventtype:'        .$this->input->post('event_type'), 
@@ -1106,8 +1036,8 @@ public function social_multicity_event()
 							'eventtypeint:'     ."3",
 							'eventname:'        .$this->input->post('event_name'),	
 							'tickettype:'       .$this->input->post('ticket_type'),	
-							'eventstartdate:'	.$s_date.' '.$this->input->post('event_startime'),
-							'eventenddate:'   	.$e_date.' '. $this->input->post('event_endtiming'),
+							'eventstartdate:'	.$s_date.' '.$s_time,
+							'eventenddate:'   	.$e_date.' '.$e_time,
 							'ticketprice:'      .$this->input->post('ticket_price'),
 							'eventticketurl:'   .$this->input->post('ticket_url'),
 							'eventdescription:' .$this->input->post('event_description'),
@@ -1138,18 +1068,14 @@ public function social_multicity_event()
 		        $test =  $data1->success;
 		        $this->session->set_userdata('success', $test);	
 		    	$this->session->set_userdata('id', $id);	
-		     	curl_close($ch1);
-		     	// print_r($data1);
+		     	curl_close($ch1);		     	
 
 		//second step
-
-		// if($this->session->userdata('success') == true)
-		//     {	
-		    	
+		
 		    	$token2  =  $this->session->userdata('token');
 
-		    	$runtime = $_POST['runtime_from'];
-		     	$totime = $_POST['totime_to'];
+		    	$runtime = $this->input->post('runtime_from');
+		     	$totime = $this->input->post('totime_to');
 		     	$runtime_from = date('Y/m/d', strtotime($runtime)); 
 		     	$totime_to = date('Y/m/d', strtotime($totime));   
 
@@ -1181,10 +1107,7 @@ public function social_multicity_event()
 	    	  	$response2 = curl_exec($ch2); 	 
 	    	  	$data2 =json_decode($response2);
 	    	  	curl_close($ch2);
-	    	  	
-	    	// }
-	    	 // print_r($data2);
-
+	    	 
 	    // third step event venue
 	    	
 	    		$this->rest->http_header('token',  $this->session->userdata('token'));
@@ -1243,8 +1166,6 @@ public function social_multicity_event()
 	   			 $json_data = json_encode($evnt_venue); 
 
 				 $event_venue_result = $this->rest->post('http://104.197.80.225:3010/wow/event/venue',$json_data,'json');	  
-				 // print_r($event_venue_result);
-
 
 	//four step program shedule upload	    		
 		
@@ -1266,7 +1187,7 @@ public function social_multicity_event()
 	   					array_push($pgm_schedule, array
 						(
 							'day'		   =>  $day,
-							'eventnumber'  =>  '1',
+							'eventnumber'  =>  $event+1,
 							'starttime'    =>  $this->input->post('day'.$day.'_event_starttime'),
 							'endtime'      =>  $this->input->post('day'.$day.'_event_endtime'),
 							'facilitator'  =>  $this->input->post('day'.$day.'_facilitator_name')[$event],
@@ -1284,14 +1205,10 @@ public function social_multicity_event()
 				 $json_data = json_encode($program_schedule); 
 
 				 $result = $this->rest->post('http://104.197.80.225:3010/wow/event/program',$json_data,'json');	  	
-	  		 	
 
-	// print_r($result);
-
+				 // print_r($program_schedule);
+	  		
 	//fifth  step event highlight  upload
-
-			// if($this->session->userdata('success') == true)
-		 //     {	
 
 				$token3 =  $this->session->userdata('token');
 		     	$header3 = array('token:'              .$token3,
@@ -1309,43 +1226,26 @@ public function social_multicity_event()
 		   	 
 	       		$ch3 = curl_init();
        		      				    	
-			    	if(!empty($_FILES['highlight_img1']['name']))
+			    	if(!empty($_FILES['event_highlight1']['name']))
 			       		{
-				    	 $highlight_img1 = curl_file_create($_FILES['highlight_img1']['tmp_name'],$_FILES['highlight_img1']['type']);
+				    	 	$highlight1 = curl_file_create($_FILES['event_highlight1']['tmp_name'],$_FILES['event_highlight1']['type']);
 				    	}else
 					    	{
-					    		$highlight_img1 = ""; 
+					    		$highlight1 = ""; 
 					    	}
-
-					if(!empty($_FILES['highlight_video1']['name']))
+					
+					if(!empty($_FILES['event_highlight2']['name']))
 			       		{
-				    	 $highlight_video1 = curl_file_create($_FILES['highlight_video1']['tmp_name'],$_FILES['highlight_video1']['type']);
+				    	 	$highlight2 = curl_file_create($_FILES['event_highlight2']['tmp_name'],$_FILES['event_highlight2']['type']);
 				    	}else
 					    	{
-					    		$highlight_video1 = ""; 
+					    		$highlight2 = ""; 
 					    	}
-
-					 if(!empty($_FILES['highlight_img2']['name']))
-			       		{
-				    	 $highlight_img2 = curl_file_create($_FILES['highlight_img2']['tmp_name'],$_FILES['highlight_img2']['type']);
-				    	}else
-					    	{
-					    		$highlight_img2 = ""; 
-					    	}
-
-					 if(!empty($_FILES['highlight_video2']['name']))
-			       		{
-				    	 $highlight_video2 = curl_file_create($_FILES['highlight_video2']['tmp_name'],$_FILES['highlight_video2']['type']);
-				    	}else
-					    	{
-					    		$highlight_video2 = ""; 
-					    	}
+					 
 				
-	    		$event_highlight = array('eventhighlights1'       => @$highlight_img1,
-	    								 'eventhighlights2'       => @$highlight_img2,
-	    								 'eventhighlightsvideo1'  => @$highlight_video1,
-	    								 'eventhighlightsvideo2'  => @$highlight_video2 								 
-	    								 );		    	 				
+	    		$event_highlight = array('eventhighlights1'  => @$highlight1,
+	    								 'eventhighlights2'  => @$highlight2													 
+	    								);		    	 				
 	    	 
 	    	  	curl_setopt($ch3, CURLOPT_URL,'http://104.197.80.225:3010/wow/event/highlights');	   
 		    	curl_setopt($ch3, CURLOPT_HTTPHEADER,$header3);
@@ -1355,26 +1255,23 @@ public function social_multicity_event()
 	    	  	$response3 = curl_exec($ch3); 	 
 	    	  	$data3 =json_decode($response3);
 	    	  	curl_close($ch3);
-	    	// }  	
- 	// print_r($data3);
-
+	   
 	// step 6 event contact
 				
 	    	  	$this->rest->http_header('token',  $this->session->userdata('token'));
 
-	    	  	$event_contact = array( 'eventid' 		       => $this->session->userdata('id'),	    	  							
-	    	  							 'eventcontactname'    => $this->input->post('contact_persona_name'),
-	    								 'eventcontactphone'   => $this->input->post('eventcontactphone'),
-	    								 'eventcontactemail'   => $this->input->post('eventcontactemail'),
-	    								 'eventcontactmessage'  => $this->input->post('eventcontactmsg'),
-	    								 'keywordsearch' 	   => $this->input->post('keyword')
+	    	  	$event_contact = array( 'eventid' 		      => $this->session->userdata('id'),	    	  							
+	    	  							'eventcontactname'    => $this->input->post('contact_persona_name'),
+	    								'eventcontactphone'   => $this->input->post('eventcontactphone'),
+	    								'eventcontactemail'   => $this->input->post('eventcontactemail'),
+	    								'eventcontactmessage' => $this->input->post('eventcontactmsg'),
+	    								'keywordsearch' 	  => $this->input->post('keyword')
 	    								 								 
 	    								 );		
 
 	    	  	$json_data = json_encode($event_contact); 
 				$result2 = $this->rest->post('http://104.197.80.225:3010/wow/event/proeventcontact',$json_data,'json');
-				// print_r($result2);
-
+				
    // seven  step 7 event tour
 	    
 	    		$this->rest->http_header('token',  $this->session->userdata('token'));
@@ -1525,15 +1422,16 @@ public function social_multicity_event()
 
 public function create_business_event()
 	{
-
 		$response = array();
 	 	
 	 	//first step
 
-	 			$start_date = $_POST['event_startdate'];
-			    $end_date   = $_POST['event_enddate'];		    
+	 			$start_date = $this->input->post('event_startdate');
+			    $end_date   = $this->input->post('event_enddate');		    
 			    $s_date = date('Y/m/d', strtotime($start_date)); 
 			    $e_date = date('Y/m/d', strtotime($end_date)); 
+			    $s_time = str_replace(' ', '',$this->input->post('event_startime'));
+		    	$e_time = str_replace(' ', '',$this->input->post('event_endtiming')); 
 
 	 			$token   =  $this->session->userdata('token');	
 	 			
@@ -1543,8 +1441,8 @@ public function create_business_event()
 								'eventtypeint:'      ."4", 
 								'brandawareness:'    .$this->input->post('brand_awareness'),	
 								'eventname:'         .$this->input->post('event_name'),	
-								'eventstartdate:'	 .$s_date.' '.$this->input->post('event_startime'),
-								'eventenddate:'   	 .$e_date.' '. $this->input->post('event_endtiming'),
+								'eventstartdate:'	 .$s_date.' '.$s_time,
+								'eventenddate:'   	 .$e_date.' '.$e_time,
 								'eventdescription:'  .$this->input->post('event_description')
 								);
 			   	 
@@ -1585,8 +1483,8 @@ public function create_business_event()
 
 			    $token2  =  $this->session->userdata('token');
 
-			    $runtime = $_POST['runtime_from'];
-		     	$totime = $_POST['totime_to'];
+			    $runtime = $this->input->post('runtime_from');
+		     	$totime = $this->input->post('totime_to');
 		     	$runtime_from = date('Y/m/d', strtotime($runtime)); 
 		     	$totime_to = date('Y/m/d', strtotime($totime));   
 
@@ -1847,8 +1745,8 @@ public function get_eventdetails() //using form submit
 	{
            $name= $_POST['details'];
            $json = json_decode($name);
-           $result['event'] = $json;        
-           // print_r($result['event']);			
+           $result['event'] = $json;   
+                    	
 		   $this->load->view('event/event_details', $result);
  	}	  
 	   
@@ -1856,20 +1754,20 @@ public function get_eventdetails() //using form submit
 public function wowsome($id)
 	{
 	   		$response = array(); 
-	   		 $this->rest->http_header('token', $this->session->userdata('token'));		   		   	
-		  	  $data = array('eventid' =>  $id);
-		   	 $json_data = json_encode($data); 
-		   	 $result = $this->rest->post('http://104.197.80.225:3010/wow/event/wowsome',$json_data,'json');
+	   		$this->rest->http_header('token', $this->session->userdata('token'));		   		   	
+		  	$data = array('eventid' =>  $id);
+		   	$json_data = json_encode($data); 
+		   	$result = $this->rest->post('http://104.197.80.225:3010/wow/event/wowsome',$json_data,'json');
 		   	 		   	 
 		  if(isset($result->success) && ($result ->success == true))
 			{		 
-				 $response['status'] = 'success'; 
-				 $response['message'] = $result->wowsomes;
+				$response['status'] = 'success'; 
+				$response['message'] = $result->wowsomes;
 			}
 		  else 
 		   {	
-				 $response['status'] = 'failed';
-		 	 	 $response['message'] = $result->message;
+				$response['status'] = 'failed';
+		 	 	$response['message'] = $result->message;
 		    }
 			echo json_encode($response);
 	}
@@ -1882,7 +1780,7 @@ public function rsvp_update()
 		  						'extra' => $this->input->post('rsvp'));
 		   	 $json_data = json_encode($data); 
 		   	 $result = $this->rest->post('http://104.197.80.225:3010/wow/event/postrsvp',$json_data,'json');
-		   	  // print_r($result);
+		   	 
 		   if($result->success) 
 			{		 
 				 $response['status'] = 'success'; 				
@@ -1911,7 +1809,7 @@ public function comments($command_id)
 public function update_thoughts()
 	{
 			
-			error_reporting(E_ERROR); //this is not showing error
+			// error_reporting(E_ERROR); //this is not showing error
 			$response = array(); 	
 
 			$url_link = $this->input->post('thought_url_link');		
@@ -2019,21 +1917,23 @@ public function update_thoughts()
 		        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); //don't print automatic response   
 	    	  	$response3 = curl_exec($ch); 	 
 	    	  	$data3 =json_decode($response3);
-	    	  	curl_close($ch);   	 
-		   	 	
-		if(isset($data3->success) && ($data3 ->success == true))
-			{		 
-				 $response['status'] = 'success'; 
-				 $response['message'] = $data3->message;
-				
-			}
-		else 
-		   {	
-				 $response['status'] = 'failed';
-		 	 	 $response['message'] = $data3->message;
-		    }
+	    	  	curl_close($ch);
 
-			echo json_encode($response);
+	    	  	print_r($data3);  	 
+		   	 	
+		// if(isset($data3->success) && ($data3 ->success == true))
+		// 	{		 
+		// 		 $response['status'] = 'success'; 
+		// 		 $response['message'] = $data3->message;
+				
+		// 	}
+		// else 
+		//    {	
+		// 		 $response['status'] = 'failed';
+		//  	 	 $response['message'] = $data3->message;
+		//     }
+
+		// 	echo json_encode($response);
 
 	}	 
 
@@ -2136,7 +2036,7 @@ public function getparticularevent($event_id)
 		$result = $this->rest->post('http://104.197.80.225:3010/wow/event/fetchparticulareventnoauth',$json_data,'json');
 		
 		$data['eventfeed'] = $result->event;
-		// print_r($data['eventfeed']);
+		
 		$this->load->view('event/email_link_landing',$data);
 
 	}

@@ -15,6 +15,8 @@
 <link rel="stylesheet" href="<?php echo base_url ('assets/js/sweetalert.css')?>" />
 <!-- calender links -->
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/jquery.datetimepicker.css')?>" />
+<link rel="stylesheet" href="<?php echo base_url ('assets/css/wickedpicker.css')?>" />
+
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/custom/css/form-wizard-blue.css') ?>">
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/theme-styles.css')?>" />
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/animate.css')?>" />
@@ -84,19 +86,8 @@
 		display: block;
 	}
 	/*https://stackoverflow.com/questions/14199788/how-do-i-use-an-image-as-a-submit-button */ 
-	  #btnAdd4, #btnAdd5, #btnAdd6 {
-		background-image: url("<?php echo base_url('assets/images/Plus.png')?>");
-		background-repeat: no-repeat;
-		border: none;
-		width: 32px;
-		height: 32px;
-		cursor: pointer;
-		color: transparent;
-		background-color: transparent;
-		outline: none;
-	}
-	
-	#btnAdd10{
+	  
+	#btnAdd10, #btnremove,#remove_day{
 		background-image: url("<?php echo base_url('assets/images/close-outline-32.png')?>");
 		background-repeat: no-repeat;
 		border: none;
@@ -576,12 +567,12 @@ li.keywordSearch-email {
 		                    </div>
 		                    <div class='form-group col-sm-12' >
 		                      <label>Event Name</label>
-		                      <input type='text'  name="event_name" class="form-control " />
+		                      <input type='text'  name="event_name" class="form-control required" />
 		                    </div>	                    
 
 		                    <div class="form-group col-sm-12" style="font-size: 15px;">
 				                      <label>Select Event Days</label>
-				                     <select name="event_totaldays" id="btn-add-tab" class="form-control " style="background-color:#eff0f1;">
+				                     <select name="event_totaldays" id="btn-add-tab" class="form-control required" style="background-color:#eff0f1;">
 				                      <option value="">Select Event Days</option>
 				                      <option value="1">1 Day Event</option>
 				                      <option value="2">2 Days Event</option>
@@ -597,7 +588,7 @@ li.keywordSearch-email {
 
 			                    <div class='form-group col-sm-6' style="width:45%;" >
 			                      <label>Currrent Event Start Date</label>
-			                      <input type='text' id="event_startdate" name="event_startdate"  class="form-control "  />
+			                      <input type='text' id="event_startdate" name="event_startdate"  class="form-control required"  />
 			                    </div>
 
 			                    <div  class='form-group col-sm-6' style="width:45%; " >
@@ -619,11 +610,12 @@ li.keywordSearch-email {
 
 		                </div>
 
+		            <div class='row'>    
 		                <div class='form-group col-sm-12' >
-                    				<label> Organisation Name </label>
+                    		<label> Organisation Name </label>
                      			<!-- company name show here from login page -->
 			            	
-			              		<select name="tour_noof_city"  class="form-control " >
+			              	<select name="tour_noof_city"  class="form-control " >
 			              			<option value="">Select</option>
 			              		<?php			             
 			                  		$business =  $this->session->userdata('business');
@@ -637,10 +629,11 @@ li.keywordSearch-email {
 				                    	
 				                    </option>	
 				                     <?php } }  ?>			                     
-			                 	</select>                    
+			                </select>                    
 			           
 		            			<!-- company name show end here  -->
                     	</div>
+                   	</div>
 
 <!-- here country rupee shows -->
 	<script type="text/javascript">
@@ -855,7 +848,23 @@ li.keywordSearch-email {
 	</script>
 		                	<div class='row'>    
 				               <div class='form-group col-sm-12' style="margin-top: 15px;">
-					                <select name=country id=con onChange=list(this.value) class="form-control">
+
+				               	<label>This is</label>
+			                      <select name="ticket_type" id="ticket_type" class="form-control" style="background-color:#eff0f1;">
+			                      	<option value="select">Select</option>
+			                        <option value="Free Event">Free Event</option>
+			                        <option value="Paid Event">Paid Event Tickets</option>
+			                        <option value="Donation Base">Donation Based</option>
+			                      </select>
+					                
+								</div>
+							</div>
+
+
+		                   <div class='row'>                   
+			                    <div class='form-group col-sm-6' style="display: none;" id="price_country">
+			                    	<label>Select Country</label>
+			                      	<select name=country id=con onChange=list(this.value) class="form-control">
 										<script type="text/javascript">
 										document.write("<option value=-1>Select Country</option>");
 										count=con.length;
@@ -863,19 +872,6 @@ li.keywordSearch-email {
 										document.write("<option value="+i+">"+con[i]+"</option>");
 										</script>
 									</select>
-								</div>
-							</div>
-
-
-		                   <div class='row'>                   
-			                    <div class='form-group col-sm-6' >
-			                      <label>This is</label>
-			                      <select name="ticket_type" id="ticket_type" class="form-control" style="background-color:#eff0f1;">
-			                      	<option value="select">Select</option>
-			                        <option value="Free Event">Free Event</option>
-			                        <option value="Paid Event">Paid Event Tickets</option>
-			                        <option value="Donation Base">Donation Based</option>
-			                      </select>
 			                    </div>
 
 			                    <div class='form-group col-sm-6' style="display: none;" id="ticket_price">
@@ -884,10 +880,9 @@ li.keywordSearch-email {
 			                    </div> 
 
 			                    <div class='form-group col-sm-12' style="display: none;" id="ticker_url_show">
-		                     		 <label>Ticket URL</label>
+		                     		<label>Ticket URL</label>
 		                      		<input type='text' name="ticket_url" class="form-control" >
-		                    	</div>  
-
+		                    	</div>
 			                </div>        
        				</div>
 
@@ -895,20 +890,20 @@ li.keywordSearch-email {
 			                <div class='row'>
 				                    <div class='form-group col-sm-12'>
 				                      <label>Event Description</label>
-				                      <textarea type='text' id="description" name="event_description"  class="form-control " style="min-height:150px;" placeholder="Describe What Your Event Is All About " ></textarea>
+				                      <textarea type='text' id="description" name="event_description"  class="form-control required" style="min-height:150px;" placeholder="Describe What Your Event Is All About " ></textarea>
 				                    </div>
 				                    <div class='form-group col-sm-12'>
-					                      <div class='col-sm-12' style="background-color:#f9f9f9;">
+					                    <div class='col-sm-12' style="background-color:#f9f9f9;">
 					                        <label>Event Cover Photo <strong style="color: red; font-size: 20px;"> * </strong></label>
 					                        <label>Please browse to upload cover photo</label>
 					                        <div class="form-group" style="margin-bottom: 10px;"> 
 						                        <div class="field" align="left">
 						                         		<input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('files').click();" />
 						                         		 <div id="img_preview1"></div>
-						                         		<input type="file" style="display:none;" name="cover_img" id="files" class="file " accept="image/*" title="cover image">  
+						                         		<input type="file" style="display:none;" name="cover_img" id="files" class="file required" accept="image/*" title="cover image">  
 						                        </div> 
 					                        </div>		                        
-					                      </div>
+					                    </div>
 				                    </div>	
 
 				                     <div class='form-group col-sm-12' style="margin-top: 10px;">
@@ -1129,7 +1124,6 @@ li.keywordSearch-email {
                 </div>
 
 
-
                 <div class='col-sm-3'>
                   <div class='col-sm-12' style="background-color:#f9f9f9;">
                     <div class='col-sm-12'>
@@ -1230,17 +1224,18 @@ li.keywordSearch-email {
                       </div>
                       <div class="form-group">
                       	<span class="btn btn-primary btn-file"> 
-                       	 Browse...<input type="file" name="wowtag_video" id="video_size" class=" file" accept="video/*">
+                       	 Browse...<input type="file" name="wowtag_video" id="video_size" class="file" accept="video/*">
                        	</span>
 
                         <div id="video_show" style="display: none;" >
-                        	<div class="remove_video" style="cursor: pointer;">
+                        	<div class="remove_wowtag" style="cursor: pointer;">
 		                       <i class="fa fa-window-close" style="font-size:25px; margin-left: 171px;"></i>
 		                    </div>
                         	<video width="200" height="110" controls>
 							 	 <source src="mov_bbb.mp4" id="video_here">
 							    Your browser does not support HTML5 video.
 							</video>
+							<audio id="video_url"></audio>
                         </div>
                         <div class="input-group col-xs-12" style="margin-top:0px;">
                           <p>Choose a compelling 60-120 seconds event promotional ads video that will create a lasting impression in your viewers mind</p>
@@ -1402,6 +1397,7 @@ li.keywordSearch-email {
                     </div>
                   </div>
                 </div>
+
                 <div class='form-group col-sm-12' style="margin-top: 30px;">
                   <div class="form-wizard-buttons">
                     <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
@@ -1451,7 +1447,7 @@ li.keywordSearch-email {
 		                        </div>
 
 		                         <input type="button" class="btn btn-primary"  value="Browse" onclick="document.getElementById('video_size1').click();" />
-		                         <input type="file" style="display:none;" name="highlight_img1" id="video_size1" class="file">
+		                         <input type="file" style="display:none;" name="event_highlight1" id="video_size1" class="file">
 
 			                     	<div id="video_show1" style="display: none;" >
 			                     		<div class="remove_video1" style="cursor: pointer;">
@@ -1501,7 +1497,7 @@ li.keywordSearch-email {
 	                          <p style="line-height:23px;">Choose a compelling 60-120 seconds event promotional ads video that will create a lasting impression in your viewers mind</p>
 	                        </div>
 	                         <input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('video_size2').click();" />
-	                        <input type="file" style="display:none;" name="highlight_img2" id="video_size2" class="file">
+	                        <input type="file" style="display:none;" name="event_highlight2" id="video_size2" class="file">
 	                      	
 
 	                     	<div id="video_show2" style="display: none;" >
@@ -1730,7 +1726,9 @@ li.keywordSearch-email {
                     </div>
                   </div>
                 </div>
+
                 <br>
+
                 <div class='form-group col-sm-12' style="margin-top: 30px;">
                   <div class="form-wizard-buttons">
                   <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
@@ -1916,7 +1914,7 @@ li.keywordSearch-email {
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>Zipcode/ Postal Code</label>
-		                      <input type='number' id="tour_zipcode_1" name="tour_zipcode[]"  class="form-control"  />
+		                      <input type='text' id="tour_zipcode_1" name="tour_zipcode[]"  class="form-control"  />
 		                    </div>
                		</div>
             	</div> 
@@ -2576,11 +2574,12 @@ li.keywordSearch-email {
 <script src="<?php echo base_url('assets/js/sweetalert.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/sweetalert.min.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/sweetalert2.all.js') ?>"></script> 
-<!--<script src="<?php echo base_url('assets/js/jquery-1.12.4.js')?>"></script> -->
+
 <script src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script> 
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script>
-<script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.js')?>"></script>   
+<script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.js')?>"></script> 
+<script src="<?php echo base_url('assets/js/wickedpicker.js')?>"></script>   
 <script src="<?php echo base_url('assets/js/moment.js')?>"></script> 
 
 <script>
@@ -2604,35 +2603,15 @@ $('#create_social_multicity_event').on('keyup keypress', function(e) {
 // hide and show date depend on select days  step1
 $(document).ready(function(){
 		$("#btn-add-tab").change(function () {				
-           		 
-                	$("#date_hide").show();
-           		
+            $("#date_hide").show();
 		});
 
 });	
 
-// event start time picker
-  $("#event_startime").datetimepicker(
-		  	{ 
-               datepicker:false,   //12 hours time format 
-                format:'g:i A',
-                formatTime: 'g:i A',
-                mask:'29:59 99',  
-                step: 5,   
-                ampm: true 
-                                    
-             });
-
-  $("#event_endtiming").datetimepicker(
-            { 
-                datepicker:false,   //12 hours time format 
-                format:'g:i A',
-                formatTime: 'g:i A',
-                mask:'29:59 99',  
-                step: 5,   
-                ampm: true 
-             });
-
+// event start time and end time picker
+  $("#event_startime").wickedpicker();		
+ 
+  $("#event_endtiming").wickedpicker();
 
 // event start date and end date time 
 
@@ -2657,30 +2636,13 @@ $(document).ready(function(){
 	});
 
 	$('body').on('focus',".event_startime", function(){   //dynamically add time
-    	$(this).datetimepicker(
-    	{
-    			datepicker:false,   //12 hours time format 
-                format:'h:i A',
-                formatTime: 'h:i A',
-                // mask:'29:59 99',  
-                step: 5,   
-                ampm: true 
-    	});
-    
+    	$(this).wickedpicker();
+   
 	});
 
 
 	$('body').on('focus',".event_endtiming", function(){   //dynamically add time
-    	$(this).datetimepicker(
-    	{
-    			datepicker:false,   //12 hours time format 
-                format:'h:i A',
-                formatTime: 'h:i A',
-                // mask:'29:59 99',  
-                step: 5,   
-                ampm: true  
-    	});
-    
+    	$(this).wickedpicker();
 	});
 
    
@@ -2715,30 +2677,16 @@ $(document).ready(function(){
 //event schedule day start and end time 
 
 $('body').on('focus',".day_end_time", function(){   //dynamically add time
-      $(this).datetimepicker(
-      {
-          datepicker:false,   //12 hours time format 
-                format:'h:i A',
-                formatTime: 'h:i A',
-                // mask:'29:59 99',  
-                step: 5,   
-                ampm: true  
-      });
-    
-  });
+    	$(this).wickedpicker();
+   
+	});
+
 
 $('body').on('focus',".day_start_time", function(){   //dynamically add time
-      $(this).datetimepicker(
-      {
-          datepicker:false,   //12 hours time format 
-                format:'h:i A',
-                formatTime: 'h:i A',
-                // mask:'29:59 99',  
-                step: 5,   
-                ampm: true  
-      });
-    
-  });
+    	$(this).wickedpicker();
+	});
+
+
           
  //radio  with model popup box
       $('input[type="radio"][name=promotion_options]').on('change', function(e)
@@ -2752,30 +2700,49 @@ $('body').on('focus',".day_start_time", function(){   //dynamically add time
        });
  
  
-//video size limitation cover video     
+//video size and duration limitation cover video     
 
-$(document).on("change", "#video_size", function(evt)
-        {
-        		var file = this.files[0];
+$(document).on("change", "#video_size", function(e)
+{
 
-        		if (file.size > 2621440)
-        		 {
-		               //Now Here I need to update <span> 
-		             $('#video_show').hide();	
-		             alert('Filesize must 2.5MB or below');           
-         		 }else
-         		 {	
-				  var $source = $('#video_here');				 
-				  $source[0].src = URL.createObjectURL(this.files[0]);
-				  $source.parent()[0].load();
-				  $('#video_show').show();
-				  $(".remove_video").click(function () { 
+    var file = e.currentTarget.files[0];
+  	//check file extension for audio/video type
+  	if(file.name.match(/\.(avi|mp3|mp4|mpeg|ogg)$/i)){
+    	var obUrl = URL.createObjectURL(file);
+    	document.getElementById('video_url').setAttribute('src', obUrl);
+   
+  	}
+
+	var myVideoPlayer = document.getElementById('video_url');
+    
+	myVideoPlayer.addEventListener('loadedmetadata', function () {
+    	var duration = myVideoPlayer.duration;
+    	// console.log("Duration is " + duration.toFixed(0) + " seconds.");
+
+    	if (duration >= 120 )
+        	{
+		        $('#video_show').hide();	         
+		        $('.alert_msg').text("Pls upload 2 Mins video");  
+		        $('.alert_msg').show(); 		       
+
+         	}else
+         		{	
+				  	var $source = $('#video_here');				 
+				  	$source[0].src = URL.createObjectURL(e.currentTarget.files[0]);
+				  	$source.parent()[0].load();
+				  	$('#video_show').show();	
+				  	$('.alert_msg').hide();
+
+				  	$(".remove_wowtag").click(function () { 
 			               	$('#video_show').hide();                 
 			                $('#video_size').val("");
 
-		                });  				  
-				 }
-				});
+		            }); 	              			  
+				}
+	});
+
+});
+
 
 
 //dynamically add event venue address
@@ -3040,33 +3007,7 @@ $('#event_startime').change(function() {
     $('#day1_start_time').val($(this).val());
 });
 
-//event schedule day start and end time 
 
-$('body').on('focus',".day_end_time", function(){   //dynamically add time
-      $(this).datetimepicker(
-      {
-          datepicker:false,   //12 hours time format 
-                format:'h:i A',
-                formatTime: 'h:i A',
-                // mask:'29:59 99',  
-                step: 5,   
-                ampm: true  
-      });
-    
-  });
-
-$('body').on('focus',".day_start_time", function(){   //dynamically add time
-      $(this).datetimepicker(
-      {
-          datepicker:false,   //12 hours time format 
-                format:'h:i A',
-                formatTime: 'h:i A',
-                // mask:'29:59 99',  
-                step: 5,   
-                ampm: true  
-      });
-    
-  });
 
 //dynamic add tab view for event days
 
@@ -3114,11 +3055,19 @@ $(document).ready(function() {
 // Add more event program time slot
 function generete_dynamic_venue(day, count){
 
-  var day1  = ' <div class="form-group col-sm-12" id="day1_dynamicadd_'+count+'"> <div class="col-md-12"> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label><span style="font-size:13px; color:#333;">Itinerary Start Time</span></label></div> <div style="width:30%" class="pull-left"> <select  id="from_hour_'+count+'" name="day'+day+'_from_hour[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="0">1 </option> <option value="1">2 </option> <option value="2">3 </option> <option value="3">4 </option> <option value="4">5 </option> <option value="5">6 </option> <option value="6">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select></div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="from_min_'+count+'" name="day'+day+'_from_min[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select></div> <div style="width:30%" class="pull-left"> <select id="from_sec_'+count+'" name="day'+day+'_from_sec[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select></div> </div> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label><span style="font-size:13px; color:#333;">Itinerary End Time</span></label></div> <div style="width:30%" class="pull-left"> <select id="to_hour_'+count+'" name="day'+day+'_to_hour[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="0">1 </option> <option value="1">2 </option> <option value="2">3 </option> <option value="3">4 </option> <option value="4">5 </option> <option value="5">6 </option> <option value="6">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select></div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="to_min_'+count+'" name="day'+day+'_to_min[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select></div> <div style="width:30%" class="pull-left"> <select id="to_sec_'+count+'" name="day'+day+'_to_sec[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select></div> </div> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Event Agenda</span></label> <input type="text" id="agenta_1" name="day'+day+'_agenda[]"  class="form-control"  /> </div> </div> <div class="col-md-12"> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Facilitator</span></label> <input type="text" id="facilitator_name_'+count+'" name="day'+day+'_facilitator_name[]"  class="form-control"  /> </div> <div class="col-md-8"> <label><span style="font-size:13px; color:#333;">Event Location Venue</span></label> <select id="location_1" name="day'+day+'_location[]" class="form-group venueselectpicker" style="width:100%; padding: 7px 10px; border-radius: 5px;"> </select> </div> </div> </div>'; 
+  var day1  = ' <div class="form-group col-sm-12" id="day1_dynamicadd_'+count+'"> <div class="col-md-12"> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label><span style="font-size:13px; color:#333;">Itinerary Start Time</span></label></div> <div style="width:30%" class="pull-left"> <select  id="from_hour_'+count+'" name="day'+day+'_from_hour[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="0">1 </option> <option value="1">2 </option> <option value="2">3 </option> <option value="3">4 </option> <option value="4">5 </option> <option value="5">6 </option> <option value="6">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select></div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="from_min_'+count+'" name="day'+day+'_from_min[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select></div> <div style="width:30%" class="pull-left"> <select id="from_sec_'+count+'" name="day'+day+'_from_sec[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select></div> </div> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label><span style="font-size:13px; color:#333;">Itinerary End Time</span></label></div> <div style="width:30%" class="pull-left"> <select id="to_hour_'+count+'" name="day'+day+'_to_hour[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="0">1 </option> <option value="1">2 </option> <option value="2">3 </option> <option value="3">4 </option> <option value="4">5 </option> <option value="5">6 </option> <option value="6">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select></div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="to_min_'+count+'" name="day'+day+'_to_min[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select></div> <div style="width:30%" class="pull-left"> <select id="to_sec_'+count+'" name="day'+day+'_to_sec[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select></div> </div> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Event Agenda</span></label> <input type="text" id="agenta_1" name="day'+day+'_agenda[]"  class="form-control"  /> </div> </div> <div class="col-md-12"> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Facilitator</span></label> <input type="text" id="facilitator_name_'+count+'" name="day'+day+'_facilitator_name[]"  class="form-control"  /> </div> <div class="col-md-8"> <label><span style="font-size:13px; color:#333;">Event Location Venue</span></label> <select id="location_1" name="day'+day+'_location[]" class="form-group venueselectpicker" style="width:100%; padding: 7px 10px; border-radius: 5px;"> </select> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="remove_day" class="remove_dayslot btn btn-info btn-sm"></a> </div> </div> </div>'; 
 
     return day1;
 }
   
+//remove days from program schedule function
+
+$(document).on('click', '.remove_dayslot', function(e)
+    {
+	    $(this).parents('[id^=day1_dynamicadd_]').remove();
+    });
+
+
 //image preview and delete step1
 
 $(document).ready(function() {
@@ -3229,6 +3178,7 @@ $(document).on("change", "#video_size1", function(evt)
 	        fileReader.onload = (function(evt) {
 
 		          var file = evt.target;
+		          $('#video_show1').hide();    
 
 		          $("<span class=\"pip\">" +
 		            "<img class=\"imageThumb\" src=\"" + evt.target.result + "\" title=\"" + file.name + "\"/>" +
@@ -3237,13 +3187,11 @@ $(document).on("change", "#video_size1", function(evt)
 
 		          $(".remove1").click(function(){
 		            $(this).parent(".pip").remove();
+		            $('#video_size1').val("");
 
 		          });          
 	                   
 	        	});
-
-	        	$('#video_show1').hide();                 
-			    $('#video_size1').val("");
 
 	    		fileReader.readAsDataURL(f);
            
@@ -3299,6 +3247,7 @@ $(document).on("change", "#video_size2", function(evt)
 	        fileReader.onload = (function(evt) {
 
 		          var file = evt.target;
+		          $('#video_show2').hide(); 
 
 		          $("<span class=\"pip\">" +
 		            "<img class=\"imageThumb\" src=\"" + evt.target.result + "\" title=\"" + file.name + "\"/>" +
@@ -3307,14 +3256,12 @@ $(document).on("change", "#video_size2", function(evt)
 
 		          $(".remove1").click(function(){
 		            $(this).parent(".pip").remove();
-
+		            $('#video_size2').val("");
 		          });          
 	                   
 	        	});
 
-	        	$('#video_show2').hide();                 
-			    $('#video_size2').val("");
-
+	        	 
 	    		fileReader.readAsDataURL(f);
            
 		}
@@ -3336,11 +3283,13 @@ $(document).ready(function(){
 				 {
                 	$("#ticket_price").hide();
                 	$("#ticker_url_show").hide();
+                	$("#price_country").hide();
            		 }
            	    else
            		 {
                 	$("#ticket_price").show();
                 	$("#ticker_url_show").show();
+                	$("#price_country").show();
            		 }
 		});
 
@@ -3588,14 +3537,13 @@ var base_url = '<?php echo base_url() ?>'; //form submited
                 {
                    if(response.status == 'success')
                    {
-                   // alert("success");
-                    // swal('Your Event Created Successfully...');
+                   
                     window.location.href = "<?php echo base_url('event/get_eventfeed'); ?>";
                    
                     }else 
                    {
                     
-                    swal("Sorry!", "somethink wrong try again !", "error");
+                    swal("Sorry!", "Oops!! Something Went Wrong! Please Try Again !", "error");
                    }          
                 }
 

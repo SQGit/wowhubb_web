@@ -146,22 +146,16 @@ table, td, tr
 
 <!-- Header
     ================================================= -->
-<header id="header">
-  <nav class="navbar navbar-default navbar-fixed-top menu">
-    <div class="container"> 
+<!-- Header
+    ================================================= -->
+  <header id="header">
+      <nav class="navbar navbar-default navbar-fixed-top menu" style="padding-top:3px!important; padding-bottom:3px!important;">
+        <div class="container"> 
       
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header"> <a class="navbar-brand" href="<?php echo base_url('event/get_eventfeed'); ?>"><img src="<?php echo base_url ('assets/images/logo.png') ?>" alt="logo" /></a> </div>
-       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style="position:relative;">
-        <ul class="nav navbar-nav navbar-right main-menu" style="color:#fff; margin-top: 10px; margin-right:5px; font-size:25px;">
-          <a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none;"> <span style="font-size:14px;  background:#e91e63; padding:5px 10px; border-radius:13px; color:#fff;"><img src="<?php echo base_url('assets/images/home-icon.png'); ?>" alt="user" /> Home</span>
-          </a> 
-          <a href="<?php echo base_url('event/event_popup'); ?>" style="text-decoration:none;"><span style="font-size:14px;  background:#757575; padding:5px 10px; border-radius:13px; color:#fff;"><img src="<?php echo base_url('assets/images/create-event-icon-3.png'); ?>" alt="user" /> Create Event</span>
-          </a> 
-          <a href="<?php echo base_url('home/logout'); ?>" style="text-decoration:none;"><span style="font-size:14px;  padding:5px 10px; border-radius:5px; color:#fff;"><img src="<?php echo base_url('assets/images/logout-icon.png'); ?>" alt="user" />Logout</span>
-          </a>
-        </ul>
-        
+          <?php  include('/../includes/header.php'); ?>
+        </div>
+        <!-- /.container --> 
+      </nav>
 
        <form class="navbar-form navbar-right hidden-sm" style="position:absolute; right:325px; top:0px;" >
            <div class="form-group">
@@ -171,19 +165,13 @@ table, td, tr
 
                       <span id="display1">               
                       </span>
-                      <!-- <input type="text" class="search form-control" id="searchbox" name="friends_search" placeholder="Search !Events, !Venues, !Wowtags, !People">                 
-                        -->
+                     
            </div>            
        </form>
-
-      </div>
-      <!-- Collect the nav links, forms, and other content for toggling --> 
-      <!-- /.navbar-collapse --> 
-    </div>
-    <!-- /.container --> 
-  </nav>
-</header>
+  </header>
 <!--Header End-->
+  
+
 <div class="google-maps"> </div>
 <div class="container"> 
   

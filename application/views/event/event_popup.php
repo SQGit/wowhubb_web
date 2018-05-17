@@ -39,18 +39,19 @@
     background-color: rgba(255, 94, 58, 0.95);
     animation-name: none;
 }
-  
 
-    #footer {
+#footer {
       background: #fff;
       position: relative;
       top: 0px;
     }
-      input[type=radio] {
+
+input[type=radio] {
     border: 0px;
     width: 5%;
     height: 15px;
 }
+
 .form-wizard {
     padding: 25px;
     background: #fff;
@@ -58,7 +59,6 @@
     -webkit-border-radius: 4px;
     border-radius: 4px;
     box-shadow: 0px 0px 6px 3px #777;
-    font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
     font-size: 13px;
     font-weight: normal;
     color: #333;

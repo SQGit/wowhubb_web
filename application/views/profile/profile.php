@@ -209,6 +209,15 @@ table, td, tr
   </header>
 <!--Header End-->
 
+<!-- breadcrumb for page link -->
+<div class="container" style="margin-top:20px; margin-bottom:-30px;">
+
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="<?php echo base_url('event/get_eventfeed'); ?>"><strong>Home</strong></a></li>  
+      <li class="breadcrumb-item active"><strong>Profile</strong></li>
+    </ol>
+</div>
+
 <div class="google-maps"> </div>
 <div class="container"> 
   
@@ -263,7 +272,7 @@ table, td, tr
               <p style="color:#fff;" class="text-muted"><?php if(!is_null($this->session->userdata('designation') )) { echo $this->session->userdata('designation'); } else { echo " "; } ?></p>
             </div>
             <ul class="list-inline profile-menu">
-              <li><a href="<?php echo base_url ('event/profile_get_eventfeed') ?>" >Event Feed</a></li>
+              <!-- <li><a href="<?php echo base_url ('event/profile_get_eventfeed') ?>" >Event Feed</a></li> -->
               <li><a href="<?php echo base_url('Profile/profile_get'); ?>" class="active">Profile</a></li>
               <li><a href="<?php echo base_url ('home/interest_get') ?>" >Interests</a></li>
               <li><a href="#">Friend Connections</a></li>
@@ -271,7 +280,7 @@ table, td, tr
               <li><a href="#">Photos</a></li>
             </ul>
             <ul class="follow-me list-inline">
-              <li>102 Connections</li>
+              <li><?php if(isset($frds_count)) { echo $frds_count; } ?> Connections</li>
             </ul>
           </div>
         </div>
@@ -381,7 +390,7 @@ table, td, tr
                               <div class="post-detail">
                                 <div class="user-info">
                                  <h3>Edit Personal Profile</h3>
-                                 <span style="color:#333; font-size: 15px">Please give the following information to edit</span>
+                                 <span style="color:#333; font-size: 15px">Please give the following information </span>
                                 </div>                              
                                 <div class="line-divider"></div>
                                 <div class="user-info">
@@ -394,13 +403,13 @@ table, td, tr
                                 <input  type="text" class="form-control input-group-lg"  name="place" value="<?php if(isset($profile->place)) {echo $profile->place; } else{echo "";} ?>" />
                               </div>
                             </div>
-                             <div class="row">   
+                            <div class="row">   
                               <div class="form-group col-xs-12">
-                                <label for="date-to" class="">Marital Status</label>
+                                <label for="date-to" >Marital Status</label>
                                 <select name="marital_status" class="form-control" id="types" >       
-                                  <option value="select"><?php if(isset($profile->maritalstatus)){echo $profile->maritalstatus; } else{echo "";} ?>  </option>
-                                  <option value="single">Single </option>
-                                  <option value="married">Married </option>
+                                  
+                                  <option value="Single" <?php if(isset($profile->maritalstatus) && ($profile->maritalstatus == "Single" )){ echo "selected"; } else { echo ""; } ?> >Single </option>
+                                  <option value="Married" <?php if(isset($profile->maritalstatus) && ($profile->maritalstatus == "Married" )){ echo "selected"; } else { echo ""; } ?>>Married </option>
                                 </select>
                               </div>
                             </div>
@@ -432,7 +441,7 @@ table, td, tr
                               <div class="post-detail">
                                 <div class="user-info">
                                  <h3>Edit Personal Profile</h3>
-                                 <span style="color:#333; font-size: 15px">Please give the following information to edit</span>
+                                 <span style="color:#333; font-size: 15px">Please give the following information</span>
                                 </div>                              
                                 <div class="line-divider"></div>
                                 <div class="user-info">
@@ -523,7 +532,7 @@ table, td, tr
                               <div class="post-detail">
                                 <div class="user-info">
                                  <h3>Edit Personal Profile</h3>
-                                 <span style="color:#333; font-size: 15px">Please give the following information to edit</span>
+                                 <span style="color:#333; font-size: 15px">Please give the following information </span>
                                 </div>                              
                                 <div class="line-divider"></div>
                                 <div class="user-info">
@@ -595,10 +604,11 @@ table, td, tr
                                             </span>
                                             <br>
                                           </div>
-                                   <!--      <div class="pull-left" style="width:5%; margin-top:10px;"><a href="#">Hide</a></div> -->
+                                  
                                         <div class="pull-left text-right" style="width:10%; margin-top:10px;"> 
                                           <a href="#" data-toggle="modal" data-target=".modal-relation" >
-                                            <img src="../assets/images/edit_icon.png" alt=""/></a></div>
+                                            <img src="../assets/images/edit_icon.png" alt=""/></a>
+                                        </div>
                                       </div>
 
                                      
@@ -637,7 +647,7 @@ table, td, tr
                               <div class="post-detail">
                                 <div class="user-info">
                                  <h3>Edit Personal Profile</h3>
-                                 <span style="color:#333; font-size: 15px">Please give the following information to edit</span>
+                                 <span style="color:#333; font-size: 15px">Please give the following information</span>
                                 </div>                              
                                 <div class="line-divider"></div>
                                 <div class="user-info">
@@ -690,7 +700,7 @@ table, td, tr
 
                               <div class="form-group col-xs-12">
                                 <label for="date-to"> Name </label>
-                                <input id="relation_name_1" type="text" class="form-control input-group-lg" name="relation_name[]" value="" />
+                                <input id="relation_name_1" type="text" class="form-control input-group-lg" name="relation_name[]" value="" required />
                               </div>    
 
                               <div class="form-group col-sm-12" style="font-size: 15px;">
@@ -805,7 +815,7 @@ table, td, tr
                               <div class="post-detail">
                                 <div class="user-info">
                                  <h3>Edit Personal Profile</h3>
-                                 <span style="color:#333; font-size: 15px">Please give the following information to edit</span>
+                                 <span style="color:#333; font-size: 15px">Please give the following information</span>
                                 </div>                              
                                 <div class="line-divider"></div>
                                 <div class="user-info">
@@ -824,15 +834,15 @@ table, td, tr
                                 <input id="birthday" type="text" class="form-control input-group-lg" name="state" value="<?php if(isset($profile->state)){echo $profile->state; } else{echo "";} ?>" />
                               </div>  
                               </div>                        
-                            <div class="row ">  
+                            <div class="row">  
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class="">Social Links</label>
-                                <input  type="text" class="form-control input-group-lg" name="social_link" value="<?php if(isset($profile->sociallinks)){echo $profile->sociallinks; } else{echo "";} ?>" />
+                                <input  type="text" class="form-control input-group-lg" name="social_link[]" value="<?php if(isset($profile->sociallinks)){echo $profile->sociallinks; } else{echo "";} ?>" />
                               </div>  
                             </div>
-                              <div class="row input_fields_container" style="margin-top:-25px;">  
+                              <!-- <div class="row input_fields_container" style="margin-top:-25px;">  
                                 <button class="add_more_button" style="border: none; background: transparent; float: right;">+Add More Fields</button>
-                              </div>
+                              </div> -->
                                                       
                             <div class="row">
                               <div  style="width:100%;" class="text-center">
@@ -909,7 +919,7 @@ table, td, tr
                               <div class="post-detail">
                                 <div class="user-info">
                                  <h3>Edit Personal Profile</h3>
-                                 <span style="color:#333; font-size: 15px">Please give the following information to edit</span>
+                                 <span style="color:#333; font-size: 15px">Please give the following information</span>
                                 </div>                              
                                 <div class="line-divider"></div>
                                 <div class="user-info">
@@ -1124,7 +1134,7 @@ table, td, tr
                                          <div class="post-detail">
                                               <div class="user-info">
                                                     <h3>Edit Professional Profile</h3>
-                                                     <span style="color:#333; font-size: 15px">Please give the following information to edit</span>
+                                                     <span style="color:#333; font-size: 15px">Please give the following information </span>
                                                </div>                              
                                                <div class="line-divider"></div>
                                                <div class="user-info">
@@ -1198,7 +1208,7 @@ table, td, tr
                      <div class="post-detail">
                        <div class="user-info">
                          <h3>Edit Experience</h3>
-                            <span style="color:#333; font-size: 15px">Please give the following information to edit</span>
+                            <span style="color:#333; font-size: 15px">Please give the following information </span>
                         </div>                              
                         <div class="line-divider"></div>
                          <div class="modal-body">
@@ -1704,12 +1714,8 @@ table, td, tr
 <script src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script> 
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
 <script src="<?php echo base_url ('assets/js/moment.min.js') ?>"></script>
-<script src="<?php echo base_url ('assets/js/jquery.min.js') ?>"></script>
 <script src="<?php echo base_url ('assets/js/fullcalendar.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script> 
-
-
-
 
 <script>
 
@@ -1736,7 +1742,7 @@ table, td, tr
         e.preventDefault();
         if(x < max_fields_limit){ //check conditions
             x++; //counter increment
-            $('.input_fields_container').append('<div ><input type="text" class="form-control" style="margin-top:10px;" name="links[]"/></div>'); //add input field
+            $('.input_fields_container').append('<div class="row"><div class="form-group col-xs-12"> <input type="text" class="form-control" style="margin-top:10px;" name="links[]"/> </div> </div>'); //add input field
         }
     });  
     

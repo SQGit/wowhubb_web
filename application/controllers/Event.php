@@ -157,7 +157,7 @@ public function event_popup_details()
 
 	 	if($radio_button == 3 ) 
 	 		{
-	 		 	$event_type = 'socia1_event'; 
+	 		 	$event_type = 'social_event'; 
 	 		 	$this->session->set_userdata('event_type', $event_type);
 
 	 		 	$select = $this->input->post('social');
@@ -1712,11 +1712,29 @@ public function profile_get_eventfeed()
 			   	$data['eventfeed'] = $result->message;	
 
 			   	$this->get_gruop();	 //get group name
-			   	$data['group_name'] = $this->get_gruop();	 	    	   	 
+			   	$data['group_name'] = $this->get_gruop();
+
+			   	$this->friends_count();	
+				$data['frds_count'] = $this->friends_count();	 	    	   	 
 				
 				$this->load->view('profile/profile_eventfeed', $data);
 		 	}
 	}
+
+public function friends_count() //friends count
+{
+	$this->rest->http_header('token', $this->session->userdata('token'));
+
+	$data =array();
+	$json_data = json_encode($data);
+	$result = $this->rest->post('http://104.197.80.225:3010/wow/network/friendscount',$json_data,'json');
+
+	if($result->success == true)
+			   	  	{	
+				   	   $data['frds_count'] = $result->message;
+				   	   return $data['frds_count'];  //here variable send to add_friends
+			   	   	} 
+}
 
 public function search($search_val) //add search and friend request
    {
@@ -1792,18 +1810,35 @@ public function rsvp_update()
 			echo json_encode($response);
 	}
 
+// command service call here
 public function comments($command_id)
 	{
-	   		
+	   		$comment_date = date('Y-m-d H:i:s');
 	   		$this->rest->http_header('token', $this->session->userdata('token'));		   		   	
-		  	$data = array('eventid' =>  $command_id,
-		  				  'comment' => $this->input->post('comments'));
+		  	$data = array('eventid' 			=>  $command_id,
+		  				  'comment' 			=> $this->input->post('comments'),
+		  				  'createddisplaytime' 	=> $comment_date
+		  				 );
 		   	$json_data = json_encode($data); 
-		   	$result = $this->rest->post('http://104.197.80.225:3010/wow/event/postcomment',$json_data,'json');
+		   	$result = $this->rest->post('http://104.197.80.225:3010/wow/event/postcomment',$json_data,'json');		   	
 	 
 		   	redirect('event/get_eventfeed'); //page redirect 
-	 }
+	}
 
+// my feeds command service call here
+public function myfeeds_comments($command_id)
+	{
+	   		$comment_date = date('Y-m-d H:i:s');
+	   		$this->rest->http_header('token', $this->session->userdata('token'));		   		   	
+		  	$data = array('eventid' 			=>  $command_id,
+		  				  'comment' 			=> $this->input->post('comments'),
+		  				  'createddisplaytime' 	=> $comment_date
+		  				 );
+		   	$json_data = json_encode($data); 
+		   	$result = $this->rest->post('http://104.197.80.225:3010/wow/event/postcomment',$json_data,'json');	
+
+		   	redirect('event/profile_get_eventfeed'); //page redirect 
+	}
 
 //publish thoughts for event feed page
 public function update_thoughts()
@@ -1994,10 +2029,12 @@ public function quick_delete($event_id)
 // thought commands
 public function thought_comments($thought_com_id)
 	{
-	   		
+	   		$comment_date = date('Y-m-d H:i:s');
 	   		 $this->rest->http_header('token', $this->session->userdata('token'));		   		   	
-		  	  $data = array('thoughtid' =>  $thought_com_id,
-		  					'comment' => $this->input->post('comments'));
+		  	  $data = array('thoughtid' 		 =>  $thought_com_id,
+		  					'comment' 			 => $this->input->post('comments'),
+		  					'createddisplaytime' => $comment_date
+		  					);
 		   	 $json_data = json_encode($data); 
 		   	 $result = $this->rest->post('http://104.197.80.225:3010/wow/event/postthoughtscomment',$json_data,'json');
 

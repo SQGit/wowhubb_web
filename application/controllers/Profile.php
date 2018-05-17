@@ -53,13 +53,13 @@ class Profile extends CI_Controller
 
 	}
 
-	public function personal_update_video() //personal self intro video
+public function personal_update_video() //personal self intro video
 	{
 		$response = array();
 		$token =  $this->session->userdata('token');
 		$header = array('token:'.$token);
 		
-		 $ch = curl_init();		
+		$ch = curl_init();		
 		if(!empty($_FILES['self_video']['name']))
 
 	       		{
@@ -73,13 +73,14 @@ class Profile extends CI_Controller
 		    $profile_video = array('personalself' =>@$self_video);
 									
 		    curl_setopt($ch, CURLOPT_URL,'http://104.197.80.225:3010/wow/user/personalself');	   
-	    	  curl_setopt($ch, CURLOPT_HTTPHEADER,$header);
-	    	  curl_setopt($ch, CURLOPT_POST, true);
-	    	  curl_setopt($ch, CURLOPT_POSTFIELDS, $profile_video); 	
-	    	  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); //don't print automatic response   
-	    	  $result = curl_exec($ch); 
+	    	curl_setopt($ch, CURLOPT_HTTPHEADER,$header);
+	    	curl_setopt($ch, CURLOPT_POST, true);
+	    	curl_setopt($ch, CURLOPT_POSTFIELDS, $profile_video); 	
+	    	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); //don't print automatic response   
+	    	$result = curl_exec($ch); 
 			$data =json_decode($result);
-			// print_r($data);
+			
+			// print_r($result);
 		if($data->success)
 	 	{
 	 		$response['status'] = "success";	 			
@@ -124,15 +125,15 @@ class Profile extends CI_Controller
 		$response = array();
 		$this->rest->http_header('token', $this->session->userdata('token'));
 
-			$relation_count = count($_POST['relation_name']); 
+			$relation_count = count($this->input->post('relation_name')); 
 		   	$personal_relation = array();
 
 		   	for($i=0; $i<$relation_count; $i++)
 		   			{	   				
 		   				array_push($personal_relation, array
 		   								(	   								
-		   			 						'name'    	 =>  $_POST['relation_name'][$i],
-		   			 						'relation'   =>  $_POST['relation_type'][$i] 			 						
+		   			 						'name'    	 =>  $this->input->post('relation_name')[$i],
+		   			 						'relation'   =>  $this->input->post('relation_type')[$i] 			 						
 		   			 					));	   				 
 		   			}
 
@@ -162,10 +163,11 @@ public function personal_update_contactinfo() //personal contact info
 		$response = array();
 		$this->rest->http_header('token', $this->session->userdata('token'));
 
-		$profile_update = array('country' =>$this->input->post('country'),
-								'state' =>$this->input->post('state'),
-								'sociallinks' =>$this->input->post('social_link')	
+		$profile_update = array('country' 	  => $this->input->post('country'),
+								'state' 	  => $this->input->post('state'),
+								'sociallinks' => $this->input->post('social_link[]')	
 								);
+
 		$json_data = json_encode($profile_update); 
 
 		$result = $this->rest->post('http://104.197.80.225:3010/wow/user/profilecontact',$json_data,'json');	
@@ -233,10 +235,29 @@ public function profile_get()  //all update personal profile data get here
 		 $data['cover'] = $result->message->personalcover;
 		 $this->session->set_userdata('cover_img', $data['cover']);
 		}
+
+		$this->friends_count();	
+		$data['frds_count'] = $this->friends_count();
+		
  	    $this->load->view('profile/profile', $data);
 	}
 
-	public function professional_update()
+public function friends_count() //friends count
+{
+	$this->rest->http_header('token', $this->session->userdata('token'));
+
+	$data =array();
+	$json_data = json_encode($data);
+	$result = $this->rest->post('http://104.197.80.225:3010/wow/network/friendscount',$json_data,'json');
+
+	if($result->success == true)
+			   	  	{	
+				   	   $data['frds_count'] = $result->message;
+				   	   return $data['frds_count'];  //here variable send to add_friends
+			   	   	} 
+}
+
+public function professional_update()
 	{
 		$response = array();
 		$this->rest->http_header('token', $this->session->userdata('token'));
@@ -344,8 +365,8 @@ function cover_img_upload() //working for image upload
 	    	  echo curl_error($ch);
 	   } 
 			
-		function video_upload() //working for image upload
-   	   {
+function video_upload() //working for image upload
+   	{
 		     $token =  $this->session->userdata('token');
 		   	 $header = array('token:'.$token);
 
@@ -362,9 +383,9 @@ function cover_img_upload() //working for image upload
 	    	  
 	    	  $response = curl_exec($ch);  
 	    	  echo curl_error($ch);
-	   }	
+	}	
 
-	public function profile_thirdparty_view($id)
+public function profile_thirdparty_view($id)
 		{
 	   		// $response = array(); 
 	   		 $this->rest->http_header('token', $this->session->userdata('token'));		   		   	

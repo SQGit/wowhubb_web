@@ -51,14 +51,13 @@ html, body {
 }
 
 body{
-  font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif !important;
+  font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   background-image:url(../images/bg.png);
   background-repeat:repeat;
   line-height: 26px;
   color: #000;
-  font-size: 13px;
+  font-size: 12px !important;
 }
-
 
 
 /*==================================================
@@ -2146,7 +2145,7 @@ input:checked + .slider:before{
 #footer{
   background: #fff;
   position: relative;
-  top:850px;
+  top:800px;
 
 }
 

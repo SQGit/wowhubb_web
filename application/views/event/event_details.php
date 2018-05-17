@@ -472,77 +472,116 @@ body {
                       <div class="col-md-8"> 
                             <!-- Nav tabs category -->
                               <ul class="nav nav-tabs faq-cat-tabs">
-                                  <li class="active" style="width: 33.33%;"><a href="#faq-cat-1" data-toggle="tab" class="text-center">Event Highlights</a></li>
+                                  <li class="active" style="width: 33.33%;"><a href="#personal_highlight" data-toggle="tab" class="text-center">Event Highlights</a></li>
                                   <li style="width: 33.33%;"><a href="#personal_schedule" data-toggle="tab" class="text-center">Event Schedule</a></li>
-                                  <li style="width: 33.33%;"><a href="#faq-cat-3" data-toggle="tab" class="text-center">Event Discussions</a></li>
+                                  <li style="width: 33.33%;"><a href="#personal_discussion" data-toggle="tab" class="text-center">Event Discussions</a></li>
                                  
                               </ul>
 
-                          <div class="tab-content faq-cat-content">                                  
+            <div class="tab-content faq-cat-content">                                  
 
-                                    <div class="tab-pane active in fade" id="faq-cat-1">                                      
+                    <div class="tab-pane active in fade" id="personal_highlight">                                      
 
-                                        <div class="col-md-12 text-center clr" style="margin-top:10px;">
-                                          <h4 style="color:#fff; line-height:30px;">Event Highlights<br>
-                                            <span style="font-size:28px;">
-                                               <img src="../assets/images/wow-white-big.png">
-                                                <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
-                                              </span></h4>
-                                        </div>                                          
+                            <div class="col-md-12 text-center clr" style="margin-top:10px;">
+                                  <h4 style="color:#fff; line-height:30px;">Event Highlights<br>
+                                    <span style="font-size:28px;">
+                                    <img src="../assets/images/wow-white-big.png">
+                                    <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
+                                    </span></h4>
+                            </div>
+                                          
+                                        <!-- event highlight 1 -->
+                            <?php if(isset($event->eventspeakername1)) { ?>             
+                            <div class="col-md-12 pnl-brdr-clr">                              
 
-                                        <div class="col-md-12 pnl-brdr-clr">
-                                          <?php if(isset($event->eventspeakername1)) { ?>
-                                            <div class="col-md-7">
+                              <div class="col-md-5">
 
-                                              <?php if(isset($event->eventhighlights1) && (($event->eventhighlights1) != 'null')  )
+                                <div style="width:100%;" class="pull-left">
+                                  <?php 
+                                      if (preg_match('/(\.jpg|\.png|\.bmp)$/i',$event->eventhighlights1url)) {
+                                  ?>
+                                  <div class="gallery">
+                                    <a class="test-popup-link" href='<?php echo $event->eventhighlights1url; ?>' > 
+                                    <img src="<?php echo $event->eventhighlights1url; ?>" style="width:160px; height:88px;"  alt="user" class="img-responsive img-thumbnail"/>
+                                    </a> 
+                                  </div>                                        
 
-                                              { ?>
+                                  <?php } else if (preg_match('/(\.mp4)$/i',$event->eventhighlights1url)){ ?>
+                                    <div class="video">                                    
+                                      <a href="<?php echo $event->eventhighlights1url; ?>" >
+                                        <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
+                                          <source src="<?php echo $event->eventhighlights1url; ?>" type="video/mp4">
+                                        </video>
+                                      </a>                                          
+                                    </div> 
+                                  <?php } ?>   
+                                  <br>
+                                  <h5 style="color:#333; line-height:20px;">
+                                  <?php echo $event->eventspeakername1; ?><br>
+                                  <span style="font-size:12px;">
+                                    <?php echo $event->eventguesttype1; ?>                                                  
+                                  </span>
+                                  </h5>
+                                </div>
+                              </div>
 
-                                              <div style="width:35%; margin-right: 5%;" class="pull-left" >
-                                                <img src="<?php echo $event->eventhighlights1thumb; ?>" class="img-thumbnail"  />
-                                              </div>
-                                              <?php } ?>  
+                              <div class="col-md-7">                                           
+                                <p><?php echo $event->eventspeakeractivities1; ?></p>
+                                <a href="#"><?php echo $event->eventspeakerlink1; ?> </a>
+                              </div>                    
 
-                                              <div style="width:60%;" class="pull-left">
-                                                <?php if(isset($event->eventhighlightsvideo1) && (($event->eventhighlightsvideo1) != 'null')  ) { ?>
+                              </div>
+                              <?php } ?>
 
-                                            <div id="vidBox">
-                                              <div id="videCont" style="margin-top: -19px!important;"> 
-                                                <a href="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlightsvideo1; ?>" id="video-trigger">
-                                                <video  id="demo"  style="width: 200px; height: 150px;" controlsList="nodownload">
-                                                   <source src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlightsvideo1; ?>" type="video/mp4">
+                                        <!-- event highlight 2 -->
+
+                              <?php if(isset($event->eventspeakername2)) { ?>
+
+                              <div class="col-md-12 pnl-brdr-clr">
+                                  <div class="col-md-5">
+
+                                    <div style="width:100%;" class="pull-left">
+                                      <?php 
+                                          if (preg_match('/(\.jpg|\.png|\.bmp)$/i',$event->eventhighlights2url)) {
+                                      ?>
+                                            <div class="gallery">
+                                              <a class="test-popup-link" href='<?php echo $event->eventhighlights2url; ?>' > 
+                                               <img src="<?php echo $event->eventhighlights2url; ?>" style="width:160px; height:88px;"  alt="user" class="img-responsive img-thumbnail"/>
+                                             </a> 
+                                            </div>                                        
+
+                                      <?php } else if (preg_match('/(\.mp4)$/i',$event->eventhighlights2url)){ ?>
+                                              <div class="video">                                       
+                                          
+                                               <a href="<?php echo $event->eventhighlights2url; ?>" >
+                                                <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
+                                                     <source src="<?php echo $event->eventhighlights2url; ?>" type="video/mp4">
                                                 </video>
-                                                </a>
-                                              </div>
-                                            </div>  
-                                                                                  
-                                                <?php } ?>
-                                               
-                                               
-                                                   <span style="color:#e91e63; line-height:20px; font-size: 17px; font-weight: bold; text-transform: capitalize;">
-                                                      <?php echo $event->eventspeakername1; ?>                                                    
-                                                  </span>
-                                                  <br>
-                                                   <span style="color:#333;  text-transform: capitalize;">
-                                                       <?php echo $event->eventguesttype1; ?>                                               
-                                                  </span>
-                                                  <br>
-                                               </span>
-                                              </div>
-
+                                                 </a>                                         
+                                                   
+                                              </div> 
+                                      <?php } ?>   
+                                                <br>
+                                              <h5 style="color:#333; line-height:20px;">
+                                                  <?php echo $event->eventspeakername2; ?><br>
+                                                <span style="font-size:12px;">
+                                                   <?php echo $event->eventguesttype2; ?>                                                  
+                                                </span>
+                                              </h5>
                                             </div>
 
-                                          <div class="col-md-5">
-                                           
-                                            <p><?php echo $event->eventspeakeractivities1; ?></p>
-                                            <a href="#"><?php echo $event->eventspeakerlink1; ?> </a>
                                           </div>
-                                            <?php } else { echo "You didn't add any Event Highlights";  } ?>
-                                        </div>
 
-                                       
-                                    </div>
-                                    
+                                          <div class="col-md-7">
+                                           
+                                            <p><?php echo $event->eventspeakeractivities2; ?></p>
+                                            <a href="#"><?php echo $event->eventspeakerlink2; ?> </a>
+                                          </div>                                    
+
+                                  </div> 
+                                  <?php }  ?>      
+                                        
+                              </div>                                    
 
                                     <!-- event schedule start here -->
                               
@@ -602,7 +641,7 @@ body {
                                         ?>
                                             <?php if($eventday == 1){ ?>
 
-                                            <div class="tab-pane fade in active" id="tab-<?php echo $eventday; ?>">
+                                            <div class="tab-pane fade " id="tab-<?php echo $eventday; ?>">
 
                                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                             <tbody> 
@@ -757,7 +796,7 @@ body {
                               </div>
                                  <!-- event schedule end here -->
 
-                                        <div class="tab-pane fade" id="faq-cat-3">
+                                        <div class="tab-pane fade" id="personal_discussion">
                                               <div class="col-md-12 text-center clr" style="margin-bottom:20px;">
                                                 <h4 style="color:#fff; line-height:30px;">Event Discussions<br>
                                                   <span style="font-size:28px;"> 
@@ -812,7 +851,7 @@ body {
                                        <!-- four tab view -->
 
                                      
-                                      </div>
+                                     
                           </div>
                       </div>
 
@@ -909,7 +948,7 @@ body {
                                                           </td>                                                       
 
                                                         </tr>  
-                                                        
+
                                                         <?php  }   ?>                                                       
                                                                 
                                                          <!-- event venue end show here -->
@@ -1065,7 +1104,7 @@ body {
                       <div class="col-md-8"> 
                             <!-- Nav tabs category -->
                               <ul class="nav nav-tabs faq-cat-tabs">
-                                  <li class="active" style="width: 25%;"><a href="#faq-cat-1" data-toggle="tab" class="text-center">Event Highlights</a></li>
+                                  <li class="active" style="width: 25%;"><a href="#event_highlight" data-toggle="tab" class="text-center">Event Highlights</a></li>
                                   <li style="width: 25%;"><a href="#professional_schedule" data-toggle="tab" class="text-center">Event Schedule</a></li>
                                   <li style="width: 25%;"><a href="#faq-cat-3" data-toggle="tab" class="text-center">Event Discussions</a></li>
                                   <li style="width: 25%;"><a href="#professional_tour" data-toggle="tab" class="text-center">Event Tours</a></li> 
@@ -1073,7 +1112,7 @@ body {
 
                           <div class="tab-content faq-cat-content">                                  
 
-                                    <div class="tab-pane active in fade" id="faq-cat-1">                                      
+                                    <div class="tab-pane active in fade" id="event_highlight">                                      
 
                                         <div class="col-md-12 text-center clr" style="margin-top:10px;">
                                           <h4 style="color:#fff; line-height:30px;">Event Highlights<br>
@@ -1082,86 +1121,99 @@ body {
                                               <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                             </span></h4>
                                         </div>
-
                                           
+                                        <!-- event highlight 1 -->
+                                        <?php if(isset($event->eventspeakername1)) { ?>
+                                        <div class="col-md-12 pnl-brdr-clr">                                    
+                                          <div class="col-md-5">
+                                            <div style="width:100%;" class="pull-left">
+                                      <?php 
+                                          if (preg_match('/(\.jpg|\.png|\.bmp)$/i',$event->eventhighlights1url)) {
+                                      ?>
+                                            <div class="gallery">
+                                              <a class="test-popup-link" href='<?php echo $event->eventhighlights1url; ?>' > 
+                                               <img src="<?php echo $event->eventhighlights1url; ?>" style="width:160px; height:88px;"  alt="user" class="img-responsive img-thumbnail"/>
+                                             </a> 
+                                            </div>                                        
 
-                                        <div class="col-md-12 pnl-brdr-clr">
-                                          <?php if(isset($event->eventspeakername1)) { ?>
-                                            <div class="col-md-5">
-
-                                              <?php if(isset($event->eventhighlights1url) && (($event->eventhighlights1url) != 'null')  )
-
-                                              { ?>
-
-                                              <div style="width:27%;" class="pull-left">
-                                                <img src="<?php echo $event->eventhighlights1url; ?>" class="img-thumbnail"  />
-                                              </div>
-                                              <?php } ?>  
-
-                                              <div style="width:73%;" class="pull-left">
-                                                <?php if(isset($event->eventhighlights2url) && (($event->eventhighlights2url) != 'null')  ) { ?>
-
-                                            <div id="vidBox">
-                                              <div id="videCont" style="margin-top: -19px!important;">
-                                                <a href="<?php echo $event->eventhighlights2url; ?>" id="video-trigger">
-                                                <video   id="demo"  style="width: 200px; height: 150px;" controls controlsList="nodownload">
-                                                   <source src="<?php echo $event->eventhighlights2url; ?>" type="video/mp4">
+                                      <?php } else if (preg_match('/(\.mp4)$/i',$event->eventhighlights1url)){ ?>
+                                        <div class="video">                                       
+                                          
+                                               <a href="<?php echo $event->eventhighlights1url; ?>" >
+                                                <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
+                                                     <source src="<?php echo $event->eventhighlights1url; ?>" type="video/mp4">
                                                 </video>
-                                                </a>
-                                              </div>
-                                            </div>
-                                           
-
-
-                                                <?php } ?>
+                                                 </a>                                          
+                                        </div> 
+                                      <?php } ?>   
                                                 <br>
-                                                <h5 style="color:#333; line-height:20px;">
+                                              <h5 style="color:#333; line-height:20px;">
                                                   <?php echo $event->eventspeakername1; ?><br>
                                                 <span style="font-size:12px;">
-                                                   <?php echo $event->eventguesttype1; ?></span></h5>
-                                              </div>
-
+                                                   <?php echo $event->eventguesttype1; ?>                                                  
+                                                </span>
+                                              </h5>
                                             </div>
+
+                                          </div>
 
                                           <div class="col-md-7">
                                            
                                             <p><?php echo $event->eventspeakeractivities1; ?></p>
                                             <a href="#"><?php echo $event->eventspeakerlink1; ?> </a>
-                                          </div>
-                                            <?php } else { echo "You didn't add any Event Highlights";  } ?>
-                                        </div>
+                                          </div>                                           
 
+                                        </div>
+                                    <?php } ?>
                                         <!-- event highlight 2 -->
 
                                         <?php if(isset($event->eventspeakername2)) { ?>
 
                                           <div class="col-md-12 pnl-brdr-clr">
                                             <div class="col-md-5">
-                                              <?php if($event->eventhighlights2 != 'null'){ ?>
-                                              <div style="width:27%;" class="pull-left">
-                                                <img src="<?php echo $event->eventhighlights2url; ?>" class="img-thumbnail"  />
-                                              </div>
-                                              <?php } ?>
 
-                                              <div style="width:73%;" class="pull-left">
-                                                  <video style="width: 200px; height: 150px;" controls controlsList="nodownload">
-                                                    <source src="<?php echo $event->eventhighlights2url; ?>" type="video/mp4">
-                                                  </video><br>
-                                                <h5 style="color:#333; line-height:20px;"><?php echo $event->eventspeakername2; ?><br>
-                                                  <span style="font-size:12px;">
-                                                    <?php echo $event->eventguesttype2; ?>
-                                                  </span></h5>
-                                              </div>
-                                            </div>
-                                            <div class="col-md-7">
-                                             
-                                              <p> <?php echo $event->eventspeakeractivities2; ?></p>
-                                              <a href="#"><?php echo $event->eventspeakerlink2; ?></a>
+                                              <div style="width:100%;" class="pull-left">
+                                      <?php 
+                                          if (preg_match('/(\.jpg|\.png|\.bmp)$/i',$event->eventhighlights2url)) {
+                                      ?>
+                                            <div class="gallery">
+                                              <a class="test-popup-link" href='<?php echo $event->eventhighlights2url; ?>' > 
+                                               <img src="<?php echo $event->eventhighlights2url; ?>" style="width:160px; height:88px;"  alt="user" class="img-responsive img-thumbnail"/>
+                                             </a> 
+                                            </div>                                        
+
+                                      <?php } else if (preg_match('/(\.mp4)$/i',$event->eventhighlights2url)){ ?>
+                                              <div class="video">                                       
+                                          
+                                               <a href="<?php echo $event->eventhighlights2url; ?>" >
+                                                <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
+                                                     <source src="<?php echo $event->eventhighlights2url; ?>" type="video/mp4">
+                                                </video>
+                                                 </a>                                         
+                                                   
+                                              </div> 
+                                      <?php } ?>   
+                                                <br>
+                                              <h5 style="color:#333; line-height:20px;">
+                                                  <?php echo $event->eventspeakername2; ?><br>
+                                                <span style="font-size:12px;">
+                                                   <?php echo $event->eventguesttype2; ?>                                                  
+                                                </span>
+                                              </h5>
                                             </div>
 
-                                          </div> 
-                                        <?php } ?>
-                                    </div>
+                                          </div>
+
+                                          <div class="col-md-7">
+                                           
+                                            <p><?php echo $event->eventspeakeractivities2; ?></p>
+                                            <a href="#"><?php echo $event->eventspeakerlink2; ?> </a>
+                                          </div>                                   
+
+                                  </div>
+                                   <?php } ?>       
+                                        
+                                </div>
                                     
 
                                     <div class="tab-pane fade" id="professional_schedule">
@@ -1550,7 +1602,7 @@ body {
   <!-- social event start here -->
 
                       <?php 
-                            } else  if($event->eventtype == 'socia1_event') 
+                            } else  if($event->eventtype == 'social_event') 
                               {
                       ?>
                           <!-- social event info -->
@@ -1812,83 +1864,101 @@ body {
                                             <span style="font-size:28px;">
                                                <img src="../assets/images/wow-white-big.png">
                                               <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
-                                            </span></h4>
+                                            </span>
+                                          </h4>
                                         </div>
                                           
+                                    <!-- event highlight 1 -->
+                                 <?php if(isset($event->eventspeakername1)) { ?>
+                                <div class="col-md-12 pnl-brdr-clr">
+                                  <div class="col-md-5">
+                                      <div style="width:100%;" class="pull-left">
+                                      <?php 
+                                          if (preg_match('/(\.jpg|\.png|\.bmp)$/i',$event->eventhighlights1url)) {
+                                      ?>
+                                            <div class="gallery">
+                                              <a class="test-popup-link" href='<?php echo $event->eventhighlights1url; ?>' > 
+                                               <img src="<?php echo $event->eventhighlights1url; ?>" style="width:160px; height:88px;"  alt="user" class="img-responsive img-thumbnail"/>
+                                             </a> 
+                                            </div>                                        
 
-                                        <div class="col-md-12 pnl-brdr-clr">
-                                          <?php if(isset($event->eventspeakername1)) { ?>
-                                            <div class="col-md-5">
-
-                                              <?php if(isset($event->eventhighlights1) && (($event->eventhighlights1) != 'null')  )
-
-                                              { ?>
-
-                                              <div style="width:27%;" class="pull-left">
-                                                <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlights1; ?>" class="img-thumbnail"  />
-                                              </div>
-                                              <?php } ?>  
-
-                                              <div style="width:73%;" class="pull-left">
-                                               
-                                              <?php if(isset($event->eventhighlightsvideo1) && (($event->eventhighlightsvideo1) != 'null')  )
-
-                                              { ?>
-                                           
-                                                <a href="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlightsvideo1; ?>" id="video-trigger">
-                                                <video  style="width: 200px; height: 150px;" controls controlsList="nodownload">
-                                                   <source src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlightsvideo1; ?>" type="video/mp4">
+                                      <?php } else if (preg_match('/(\.mp4)$/i',$event->eventhighlights1url)){ ?>
+                                        <div class="video">                                       
+                                          
+                                              <a href="<?php echo $event->eventhighlights1url; ?>" >
+                                                <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
+                                                     <source src="<?php echo $event->eventhighlights1url; ?>" type="video/mp4">
                                                 </video>
-                                                </a>
-                                              <?php } ?>
-                                           
+                                              </a>                                          
+                                        </div> 
+                                      <?php } ?>   
                                                 <br>
-                                                <h5 style="color:#333; line-height:20px;">
+                                              <h5 style="color:#333; line-height:20px;">
                                                   <?php echo $event->eventspeakername1; ?><br>
                                                 <span style="font-size:12px;">
-                                                   <?php echo $event->eventguesttype1; ?></span></h5>
-                                              </div>
-
+                                                   <?php echo $event->eventguesttype1; ?>                                                  
+                                                </span>
+                                              </h5>
                                             </div>
 
+                                          </div>
+
                                           <div class="col-md-7">
-                                            
+                                           
                                             <p><?php echo $event->eventspeakeractivities1; ?></p>
                                             <a href="#"><?php echo $event->eventspeakerlink1; ?> </a>
-                                          </div>
-                                            <?php } else { echo "You didn't add any Event Highlights";  } ?>
-                                        </div>
+                                          </div>                                         
+                              </div>
+                              <?php }  ?>
 
                                         <!-- event highlight 2 -->
 
-                                        <?php if(isset($event->eventspeakername2)) { ?>
+                              <?php if(isset($event->eventspeakername2)) { ?>
+                                  <div class="col-md-12 pnl-brdr-clr">
+                                    <div class="col-md-5">
+                                      <div style="width:100%;" class="pull-left">
+                                      <?php 
+                                          if (preg_match('/(\.jpg|\.png|\.bmp)$/i',$event->eventhighlights2url)) {
+                                      ?>
+                                            <div class="gallery">
+                                              <a class="test-popup-link" href='<?php echo $event->eventhighlights2url; ?>' > 
+                                               <img src="<?php echo $event->eventhighlights2url; ?>" style="width:160px; height:88px;"  alt="user" class="img-responsive img-thumbnail"/>
+                                             </a> 
+                                            </div>                                        
 
-                                          <div class="col-md-12 pnl-brdr-clr">
-                                            <div class="col-md-5">
-                                              <?php if($event->eventhighlights2 != 'null'){ ?>
-                                              <div style="width:27%;" class="pull-left">
-                                                <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlights2; ?>" class="img-thumbnail"  />
-                                              </div>
-                                              <?php } ?>
+                                      <?php } else if (preg_match('/(\.mp4)$/i',$event->eventhighlights2url)){ ?>
+                                              <div class="video">                                       
+                                          
+                                               <a href="<?php echo $event->eventhighlights2url; ?>" >
+                                                <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
+                                                     <source src="<?php echo $event->eventhighlights2url; ?>" type="video/mp4">
+                                                </video>
+                                                 </a>                                         
+                                                   
+                                              </div> 
+                                      <?php } ?>   
+                                                <br>
+                                              <h5 style="color:#333; line-height:20px;">
+                                                  <?php echo $event->eventspeakername2; ?><br>
+                                                <span style="font-size:12px;">
+                                                   <?php echo $event->eventguesttype2; ?>                                                  
+                                                </span>
+                                              </h5>
+                                            </div>
 
-                                              <div style="width:73%;" class="pull-left">
-                                                  <video style="width: 200px; height: 150px;" controls controlsList="nodownload">
-                                                    <source src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlightsvideo2; ?>" type="video/mp4">
-                                                  </video><br>
-                                                <h5 style="color:#333; line-height:20px;"><?php echo $event->eventspeakername2; ?><br>
-                                                  <span style="font-size:12px;">
-                                                    <?php echo $event->eventguesttype2; ?>
-                                                  </span></h5>
-                                              </div>
-                                            </div>
-                                            <div class="col-md-7">                                            
-                                              <p> <?php echo $event->eventspeakeractivities2; ?></p>
-                                              <a href="#"><?php echo $event->eventspeakerlink2; ?></a>
-                                            </div>
-                                          </div> 
-                                        <?php } ?>
-                                    </div>
+                                          </div>
+
+                                          <div class="col-md-7">                                           
+                                            <p><?php echo $event->eventspeakeractivities2; ?></p>
+                                            <a href="#"><?php echo $event->eventspeakerlink2; ?> </a>
+                                          </div>                                   
+
+                                  </div> 
+                            <?php }  ?>      
+                                        
+                          </div>
                                     
+                                    <!-- end event highlight here -->
 
                               <div class="tab-pane fade" id="social_schedule">
                                         <div class="col-md-12 text-center clr" style="margin-top:10px; margin-bottom:10px;">
@@ -2614,27 +2684,27 @@ body {
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script>
 <script src="<?php echo base_url('assets/js/videopopup.js')?>"></script> 
+<script src="<?php echo base_url('assets/js/html5gallery.js')?>" ></script>
 
 <script>
 
 
-  $(function () {
- $('#vidBox').VideoPopUp({
-  opener: "video-trigger"
-  // idvideo: "demo"
-  });
-});
-
-
-// $(document).ready(function(){
-
-//    $(".add_class").click(function(){
-
-//     $('.nav li').addClass('active');
-//     // $(menuid).addClass("active");
-
+//   $(function () {
+//  $('#vidBox').VideoPopUp({
+//   opener: "video-trigger"
+//   // idvideo: "demo"
+//   });
 // });
-// });
+
+
+//video controls hide and show mouse hover  
+    $('.myvideo').hover(function toggleControls() {  
+    if (this.hasAttribute("controls")) {
+        this.removeAttribute("controls")
+    } else {
+        this.setAttribute("controls", "controls")
+    }
+})
 
 </script>
 

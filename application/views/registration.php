@@ -92,16 +92,18 @@ label.error {
 }
 .landing-page {
     position: relative!important;
-    min-height: 140vh!important;
+    min-height: 40vh!important;
 }
 .copyright{
+	
   background: #231F20!important;
   text-align: center!important;
   color: #fff!important;
-  padding: 12px 0 4px!important;
-  position:relative!important; 
+  padding: 12px 0 0px!important;  
+   position:relative!important; 
   bottom: 0px!important;
   width: 100%!important;
+
 }
 @media (min-width: 768px)
 {
@@ -114,6 +116,21 @@ label.error {
 .modal-backdrop.in {
 	filter: alpha(opacity=50);
 	opacity: .7!important;
+}
+
+.footer-links li
+{
+	list-style-type:none; 
+	display:inline-block;
+	margin:5px 15px;
+	float:left;
+	color:#FDFDFD!important;
+}
+
+.footer-links li a
+{
+	
+	color:#FDFDFD!important;
 }
 
 </style>
@@ -504,7 +521,7 @@ label.error {
   </div>
 </div>
 
-<footer id="footer" style="background:transparent!important;">
+<footer id="footer"  style="background:transparent!important;">
     <div class="container">
         <?php  include('includes/footer.php'); ?>
     </div>

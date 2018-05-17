@@ -289,6 +289,15 @@ li.multipleInput-email {
       </nav>
   </header>
 <!--Header End-->
+<!-- breadcrumb for page link -->
+<div class="container" style="margin-top:20px; margin-bottom:-20px;">
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="<?php echo base_url('event/get_eventfeed'); ?>"><strong>Home</strong></a></li>  
+  <li class="breadcrumb-item active"><strong>Event Hubb</strong></li>
+</ol>
+</div>
+
 
 <div class="container">
   <div class="timeline-cover-event-details" style="position: relative; max-height:320px;"> <img src="../assets/images/eventhubb.jpg" style="background-size:cover; width:100%; max-height:300px;">

@@ -205,6 +205,14 @@ margin: 5px 0;
       </nav>
   </header>
 <!--Header End-->
+<!-- breadcrumb for page link -->
+<div class="container" style="margin-top:20px; margin-bottom:-50px;">
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="<?php echo base_url('event/get_eventfeed'); ?>"><strong>Home</strong></a></li>  
+  <li class="breadcrumb-item active"><strong>My Network</strong></li>
+</ol>
+</div>
 
 <div id="page-contents" style="padding:45px 0 50px;">
   <div class="container">
@@ -231,7 +239,7 @@ margin: 5px 0;
           <div style="font-size:20px; color:#fff; margin-top:-20px; width:100%; float:right; text-align:right;"><a href="#"> &nbsp;&nbsp;<i class="icon ion-arrow-right-b" style="font-size:28px; color:#fff;"></i></a> </div>
           <div class="row">
             <div class="col-md-12 text-center" style="font-size:18px; margin-bottom:10px;">Your Network Connections</div>
-            <div class="col-md-12 text-center" style="font-size:22px; margin-bottom:120px;">158</div>
+            <div class="col-md-12 text-center" style="font-size:22px; margin-bottom:120px;"><?php if(isset($frds_count)) { echo $frds_count; } ?></div>
 
             <div class="col-md-12 text-center" style="font-size:22px; margin-bottom:20px;">
             
@@ -266,17 +274,28 @@ margin: 5px 0;
         <div class="commend_show create-post" style="background-color: #fff; padding:10px; margin-bottom: 0px; ">
              <div class="row">
                          <div class="col-md-2 col-sm-12">
+
                              <div class="form-group" style="display:-webkit-inline-box; width:90%;"> 
                                   <?php if(isset($friends->personalimage))
                                   { ?>
-                               <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $friends->personalimage; ?>" alt="user" class="profile-photo" />
+                                <a href="<?php echo base_url('profile/profile_thirdparty_view/'.$friends->_id); ?>" > 
+                                <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $friends->personalimage; ?>" alt="user" class="profile-photo" />
+                                </a>
                                   <?php } else { ?>
-                               <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo-md" />
+
+                                <a href="<?php echo base_url('profile/profile_thirdparty_view/'.$friends->_id); ?>" >  
+                                <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo-md" />
+                                </a>
                                   <?php } ?>                                                       
                              </div>
                          </div>
+
                           <div class="col-md-4 col-sm-12">
-                                    <div class="pull-left" style="width:100%; text-transform: capitalize; font-size: 16px;"> <?php echo $friends->firstname.' '. $friends->lastname; ?> <i class="glyphicon glyphicon-play"></i><br>
+                                    <div class="pull-left" style="width:100%; text-transform: capitalize; font-size: 16px;"> 
+                                      <a href="<?php echo base_url('profile/profile_thirdparty_view/'.$friends->_id); ?>" >
+                                      <?php echo $friends->firstname.' '. $friends->lastname; ?> 
+                                      </a>
+                                      <i class="glyphicon glyphicon-play"></i><br>
                                           <span style="color:#333; font-size:13px;">
                                             <?php if(isset($friends->designation))
                                             {
@@ -374,14 +393,22 @@ margin: 5px 0;
                              <div class="form-group" style="display:-webkit-inline-box; width:90%;"> 
                                   <?php if(isset($friends->personalimage))
                                   { ?>
+                              <a href="<?php echo base_url('profile/profile_thirdparty_view/'.$friends->_id); ?>" >
                                <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $friends->personalimage; ?>" alt="user" class="profile-photo" />
+                              </a>
                                   <?php } else { ?>
+                              <a href="<?php echo base_url('profile/profile_thirdparty_view/'.$friends->_id); ?>" >
                                <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo-md" />
+                              <a href="<?php echo base_url('profile/profile_thirdparty_view/'.$friends->_id); ?>" >
                                   <?php } ?>                                                       
                              </div>
                          </div>
                           <div class="col-md-4 col-sm-12">
-                                    <div class="pull-left" style="width:100%; text-transform: capitalize; font-size: 16px;"> <?php echo $friends->firstname.' '. $friends->lastname; ?> <i class="glyphicon glyphicon-play"></i><br>
+                                    <div class="pull-left" style="width:100%; text-transform: capitalize; font-size: 16px;"> 
+                                      <a href="<?php echo base_url('profile/profile_thirdparty_view/'.$friends->_id); ?>" >
+                                      <?php echo $friends->firstname.' '. $friends->lastname; ?> 
+                                      </a>
+                                      <i class="glyphicon glyphicon-play"></i><br>
                                           <span style="color:#333; font-size:13px;">
                                             <?php if(isset($friends->designation))
                                             {

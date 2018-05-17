@@ -207,6 +207,15 @@ img.profile-photo-2 {
   </header>
 <!--Header End-->
 
+<!-- breadcrumb for page link -->
+<div class="container" style="margin-top:20px; margin-bottom:-40px;">
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="<?php echo base_url('event/get_eventfeed'); ?>"><strong>Home</strong></a></li>  
+    <li class="breadcrumb-item active"><strong>Group Hubb</strong></li>
+  </ol>
+</div>
+
 <div class="google-maps"> </div>
 <div class="container"> 
   
@@ -266,6 +275,11 @@ img.profile-photo-2 {
                
                 <div class="pull-left" style="width:50%;">
                   <div class="col-md-12"><strong style="font-size:18px;"><?php echo $groups->groupname; ?> </strong></div>
+                  <div class="col-md-12">Created By 
+                    <span style="font-weight: bold;"> 
+                    <?php echo $groups->adminid->firstname." ".$groups->adminid->lastname; ?> 
+                    </span> 
+                  </div>
                   <div class="col-md-12">
 
                     <a href="#" data-toggle="tooltip" title="
@@ -282,12 +296,16 @@ img.profile-photo-2 {
                 </div>
                 <div class="pull-left" style="width:35%; margin-top:15px;">
                       <div class="col-md-3 user-info text-right">
-                            <div class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration:none; cursor:pointer;"><i class="fa fa-cog" style="color: #777; font-size: 20px;"></i></a>
+                        <?php if($this->session->userdata('user_id') == ($groups->adminid->_id) ){ ?>
+                            <div class="dropdown"> 
+                              <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration:none; cursor:pointer;">
+                                <i class="fa fa-cog" style="color: #777; font-size: 20px;"></i>
+                              </a>
 
-                              <?php if($this->session->userdata('user_id') == ($groups->adminid->_id) ){ ?>
+                              
                               <ul class="dropdown-menu">
                                 <li>
-                                  <a href="#group_edit" style="cursor: pointer; padding-left: 25px;"  data-toggle="modal" data-id='<?php echo $groups->_id; ?>' data-name-id='<?php echo $groups->groupname; ?>' data-user-id='<?php 
+                                  <a href="#group_edit" style="cursor: pointer; padding-left: 25px;"  data-toggle="modal" data-id='<?php echo $groups->_id; ?>' data-name-id='<?php echo $groups->groupname; ?>' data-privacy='<?php echo $groups->privacy; ?>' data-user-id='<?php 
                                     $numItems = count($groups->users);
                                       $i=0;
                                       foreach($groups->users as $group_users)
@@ -310,10 +328,10 @@ img.profile-photo-2 {
                                     </form>   
                                     </a>                               
                                 </li>                           
-                              </ul>
-                              <?php } ?>
+                              </ul>                              
 
                             </div>
+                            <?php } ?>
                       </div>
 
                 </div>
@@ -547,12 +565,14 @@ img.profile-photo-2 {
 <!-- create group modrl popup -->
 <div class="modal fade modal-1" tabindex="-1" role="dialog" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
+                        <div class="modal-content">                         
                           <div class="post-content">                            
                             <div class="post-container" style="padding-bottom:20px;">                  
                               <div class="post-detail">
+                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 <div class="user-info">
                                  <h3>Create Group</h3>
+                                
                                  <span style="color:#333; font-size: 15px">Please give the following information to create group</span>
                                 </div>                              
                                 <div class="line-divider"></div>
@@ -580,7 +600,7 @@ img.profile-photo-2 {
                             <div class="row">   
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class="">Select Privacy</label>
-                                <select name="group_type" id="days" class="form-control" style="background-color:#f5f5f5;">
+                                <select name="group_type"  class="form-control" style="background-color:#f5f5f5;">
                                       <option value="Public Group">Public Group</option>
                                       <option value="Closed Group">Closed Group</option>
                                       <option value="Secret Group">Secret Group</option>    
@@ -611,28 +631,42 @@ img.profile-photo-2 {
             <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title" style="text-align:center;">Send Invite By Email </h4>
+                  <h4 class="modal-title" style="text-align:center;">Edit Group  </h4>
                 </div>
                 <div class="modal-body">
                   <div class="prescription_details">
                     <form  class="edit_group" action="<?php echo base_url('searchfriends/edit_group'); ?>" method="post">  
-                        <div class="alert alert-success" id="email_success" role="alert" style="display:none;" >Successfully Send Invite
+                        <div class="alert alert-success" id="email_success" role="alert" style="display:none;" >Successfully Done
                         </div>
 
                          <input type="hidden" name="event_id">             
-                          <div class="col-sm-12 form-group ">      
-                            <input type="text"  name="g_name" class='form-control' placeholder="Enter Email ID">          
-                          </div>   
+                          <div class="col-sm-12 form-group ">  
+                            <label for="date-to">Group Name</label>    
+                            <input type="text" name="g_name" class='form-control'>          
+                          </div> 
 
-                          <div class="row">   
-                            <div class="form-group col-xs-12">                             
+                          
+                              <div class="form-group col-xs-12">
+                                <label for="date-to" class="">Select Privacy</label>
+                                <select name="privacy" class="form-control" style="background-color:#f5f5f5;">
+                                      <option value="Public Group">Public Group</option>
+                                      <option value="Closed Group">Closed Group</option>
+                                      <option value="Secret Group">Secret Group</option>    
+                                                                          
+                                </select>
+                              </div>
+                             
+
+                             
+                            <div class="form-group col-xs-12"> 
+                              <label for="date-to" class="">Add or Remove People</label>                            
                               <select id="select-user" name="members_name[]" class="form-control" style="width:100%!important;" >                            
                               </select>                                    
                             </div> 
-                          </div>
+                          
 
                         <div class="action text-center">
-                            <button type="submit" class="btn-primary">Invite</button>                            
+                            <button type="submit" class="btn-primary">Update</button>                            
                         </div>
                     </form>
                   </div>
@@ -666,9 +700,10 @@ var data = [];
  //event_id could pass to email model popup using popup id
 $('#group_edit').on('show.bs.modal', function(e) 
   {
-    var event_id   = $(e.relatedTarget).data('id');
-    var group_name = $(e.relatedTarget).data('name-id');
-    var user_name = $(e.relatedTarget).data('user-id');
+    var event_id      = $(e.relatedTarget).data('id');
+    var group_name    = $(e.relatedTarget).data('name-id');
+    var user_name     = $(e.relatedTarget).data('user-id');
+    var group_privacy = $(e.relatedTarget).data('privacy');
 
     var user_array = user_name.split(",");
     console.log(user_array);
@@ -686,7 +721,7 @@ empty();
 
     $(e.currentTarget).find('input[name="event_id"]').val(event_id);
     $(e.currentTarget).find('input[name="g_name"]').val(group_name);
-    
+    $(e.currentTarget).find('input[name="privacy"]').val(group_privacy);
 
       var studentSelect = $('#select-user');
       studentSelect.html('');

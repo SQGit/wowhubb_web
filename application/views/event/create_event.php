@@ -39,7 +39,7 @@
 }
 	
 	label.error {
-    font-family: 'Roboto', sans-serif;
+    /*font-family: 'Roboto', sans-serif;*/
    	color:red; 
 	}
 
@@ -70,7 +70,7 @@
 		background: #fff none repeat scroll 0 0;
 		border: 1px solid rgb(197, 194, 195);
 		border-radius: 4px;
-		font-family: 'Source Sans Pro', sans-serif;
+		/*font-family: 'Source Sans Pro', sans-serif;*/
 		font-size: 14px;
 		font-weight: normal;
 		color: #333;
@@ -268,7 +268,7 @@
 	    margin: 0;
 	    padding: 0 20px;
 	    border: none;
-	    font-family: 'Lato', sans-serif;
+	    /*font-family: 'Lato', sans-serif;*/
 	    font-size: 16px;
 	    font-weight: normal;
 	    line-height:30px;
@@ -519,12 +519,12 @@ input[type=number]::-webkit-outer-spin-button {
             		<div class='row'>
 		                    <div class='form-group col-sm-12' >
 		                      <label>Event City </label>
-		                      <input type='text' id="time_zone" name="time_zone"  class="form-control required" />
+		                      <input type='text' id="time_zone" name="time_zone"  class="form-control " />
 		                    </div>
 
 		                    <div class="form-group col-sm-12 " style="font-size: 15px;">
 				                      <label>Select Event Days</label>
-				                    <select name="eventdayscount" id="btn-add-tab" class="form-control required" style="background-color:#eff0f1;">
+				                    <select name="eventdayscount" id="btn-add-tab" class="form-control " style="background-color:#eff0f1;">
 				                      <option value="" >Select Event Days</option>
 				                      <option value="1">1 Day Event</option>
 				                      <option value="2">2 Days Event</option>
@@ -540,7 +540,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 		                    <div class='form-group col-sm-6' style="width:45%;" >
 		                      <label>Event Start Date</label>
-		                      <input type='text' id="event_startdate" name="event_startdate"  class="form-control required"  />
+		                      <input type='text' id="event_startdate" name="event_startdate"  class="form-control "  />
 		                    </div>
 
 		                    <div  class='form-group col-sm-6' style="width:45%; " >
@@ -567,7 +567,7 @@ input[type=number]::-webkit-outer-spin-button {
 	                  <div class='row'>
 		                    <div class='form-group col-sm-12'>
 		                      <label>Event Description</label>
-		                      <textarea type='text' id="description" name="event_description"  class="form-control required" style="min-height:300px;" placeholder="Describe What Your Event Is All About " ></textarea>
+		                      <textarea type='text' id="description" name="event_description"  class="form-control " style="min-height:300px;" placeholder="Describe What Your Event Is All About " ></textarea>
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
@@ -578,7 +578,7 @@ input[type=number]::-webkit-outer-spin-button {
 				                        <div class="field" align="left">
 				                         		<input type="button" class="btn btn-primary re"  value="Browse Image..." onclick="document.getElementById('files').click();" />
 				                         		<div id="img_preview"></div>
-				                         		<input type="file" style="display:none;" name="cover_img" id="files" class="file required" accept="image/*" title="cover image">  
+				                         		<input type="file" style="display:none;" name="cover_img" id="files" class="file " accept="image/*" title="cover image">  
 				                        </div> 
 			                        </div>		                        
 			                      </div>
@@ -627,7 +627,7 @@ input[type=number]::-webkit-outer-spin-button {
                 </div>
                 <div class='col-sm-12'>
                   <div class="form-wizard-buttons">
-                    <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
+                    <button type="button" class="btn" style="background:#005898;">Save Draft</button>
                     <button type="button" class="btn btn-next">Next</button>
                   </div>
                 </div>
@@ -664,20 +664,20 @@ input[type=number]::-webkit-outer-spin-button {
                       <div class='form-group-1 col-sm-12'>
                         <div class="text-center" >
                         	<img src="../assets/images/wow-pink.png"> 
-                          <input type='text' name="event_title" class="form-control required"  style="padding: 6px 30px;"   placeholder="Enter Your !Wowtag Title Here      Example:  Craigsbirthday2017" />
+                          <input type='text' name="event_title" class="form-control "  style="padding: 6px 30px;"   placeholder="Enter Your !Wowtag Title Here      Example:  Craigsbirthday2017" />
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div class='form-group col-sm-12'>
+                <div class='form-group col-sm-12'>
                     <div class='col-sm-12' style="background-color:#f9f9f9; padding-top:15px;">
                       <div class="text-center">
                         <label style="color:#333; font-weight: bold; font-size: 16px">Upload Your Event -!Wowtag Video </label>
                       </div>
                       <div class="form-group">
                       	<span class="btn btn-primary btn-file"> 
-                       	 Browse...<input type="file" name="wowtag_video" id="video_size" class="file required" accept="video/*">
+                       	 Browse...<input type="file" name="wowtag_video" id="video_size" class="file " accept="video/*">
                        	</span>
 
                         <div id="video_show" style="display: none;" >
@@ -755,7 +755,7 @@ input[type=number]::-webkit-outer-spin-button {
 
                 <div class='form-group col-sm-12' style="margin-top:25px;">
                   <div class="form-wizard-buttons">
-                    <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
+                    <button type="button" class="btn" style="background:#005898;">Save Draft</button>
                     <button type="button" class="btn btn-previous">Previous</button>
                     <button type="button" class="btn btn-next">Next</button>
                   </div>
@@ -807,25 +807,25 @@ input[type=number]::-webkit-outer-spin-button {
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>City</label>
-		                      <input type='text' id="city_1" name="venue_city[]" class="form-control"   />
+		                      <input type='text' id="city_1" name="venue_city[]" class="txtOnly form-control" maxlength="25" />
 		                    </div>		                   
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>Zipcode/ Postal Code</label>
-		                      <input type='number' id="zipcode_1" name="zipcode[]"  class="form-control"  />
+		                      <input type='text' id="zipcode_1" name="zipcode[]"  class="form-control" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" maxlength="6"/>
 		                    </div>
                		</div>
             	</div> 
             </div>
 
                    <div class='col-sm-12'> 
-                    	<div class='col-sm-4'>
+                    	<div class='col-sm-5'>
                     		<a href="JavaScript:void(0);" id="btnAdd7" data-nxt_event_address="2">
                     		<i class="fa fa-plus-circle"></i> Add multiple venue </a>
                     	</div>
                     	<div style="overflow:hidden;">
 						 	
-							    <div  class="col-md-8">
+							    <div  class="col-md-7">
 							      <a href="JavaScript:void(0);" id="prevBtn" onclick="nextPrev(-1)">Previous</a>
 							      <a href="JavaScript:void(0);" id="nextBtn" onclick="nextPrev(1)" style="margin-left: 35px;"> Next</a>
 							    </div>					
@@ -870,7 +870,7 @@ input[type=number]::-webkit-outer-spin-button {
 			                       <div class="row">
 			                         	<div class="form-group-1 col-md-12">
 				                          <p>What is Event Age Requirement?</p>
-				                          <input type='text'  name="quesans1"  class="form-control"  />
+				                          <input type='text'  name="quesans1"  class="form-control" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" maxlength="2" />
 				                        </div>
 				                        <div class="form-group-1 col-md-12">
 				                          <p>This is a kids friendly event?</p>
@@ -946,7 +946,7 @@ input[type=number]::-webkit-outer-spin-button {
                 </div>
                 <div class='col-sm-12'>
                   <div class="form-wizard-buttons">
-                    <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
+                    <button type="button" class="btn" style="background:#005898;">Save Draft</button>
                     <button type="button" class="btn btn-previous">Previous</button>
                     <button type="button" class="btn btn-next">Next</button>
                   </div>
@@ -1033,7 +1033,7 @@ input[type=number]::-webkit-outer-spin-button {
                 </div>
                 <div class='form-group col-sm-12' style="margin-top: 30px;">
                   <div class="form-wizard-buttons">
-                    <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
+                    <button type="button" class="btn" style="background:#005898;">Save Draft</button>
                     <button type="button" class="btn btn-previous">Previous</button>
                     <button type="button" class="btn btn-next">Next</button>
                   </div>
@@ -1216,7 +1216,7 @@ input[type=number]::-webkit-outer-spin-button {
                 
                 <div class='form-group col-sm-12' style="margin-top: 30px;">
                   <div class="form-wizard-buttons">
-                    <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
+                    <button type="button" class="btn" style="background:#005898;">Save Draft</button>
                     <button type="button" class="btn btn-previous">Previous</button>
                     <button type="button" class="btn btn-next">Next</button>
                   </div>
@@ -1418,15 +1418,14 @@ input[type=number]::-webkit-outer-spin-button {
                           </article>
                         </div>
                       </section>
-                      <!-- panel-group --> 
-                      
+                      <!-- panel-group -->                       
                     </div>
                   </div>
                 </div>
                 <br>
                 <div class='form-group col-sm-12' style="margin-top: 30px;">
                   <div class="form-wizard-buttons">
-                  <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
+                  <button type="button" class="btn" style="background:#005898;">Save Draft</button>
                     <button type="button" class="btn btn-previous">Previous</button>
                     <button type="submit" class="btn btn-next">Publish</button>
                   </div>
@@ -1630,7 +1629,7 @@ $(document).on("change", "#video_hightlight1", function(evt)
 
 		                });   
 
-		              $(".pip").remove();
+		              $(".pip1").remove();
 		          			  
 				 	}
     	
@@ -1645,21 +1644,23 @@ $(document).on("change", "#video_hightlight1", function(evt)
 	        fileReader.onload = (function(evt) {
 
 		          var file = evt.target;
+		          $('#video_show1').hide();
 
-		          $("<span class=\"pip\">" +
+		          $("<span class=\"pip1\">" +
 		            "<img class=\"imageThumb\" src=\"" + evt.target.result + "\" title=\"" + file.name + "\"/>" +
 		            "<br/><span class=\"remove\">Remove image</span>" +
 		            "</span>").insertAfter("#video_hightlight1");
 
 		          $(".remove").click(function(){
-		            $(this).parent(".pip").remove();
+		            $(this).parent(".pip1").remove();
+		             $('#video_hightlight1').val("");
 
 		          });          
 	                   
 	        	});
 
-	        	$('#video_show1').hide();                 
-			    $('#video_hightlight1').val("");
+	        	                 
+			   
 
 	    		fileReader.readAsDataURL(f);
            
@@ -1700,7 +1701,7 @@ $(document).on("change", "#video_size2", function(evt)
 
 		                });   
 
-		              $(".pip").remove();
+		              $(".pip2").remove();
 		          			  
 				 	}
     	
@@ -1715,21 +1716,22 @@ $(document).on("change", "#video_size2", function(evt)
 	        fileReader.onload = (function(evt) {
 
 		          var file = evt.target;
+		          $('#video_show2').hide();  
 
-		          $("<span class=\"pip\">" +
+		          $("<span class=\"pip2\">" +
 		            "<img class=\"imageThumb\" src=\"" + evt.target.result + "\" title=\"" + file.name + "\"/>" +
 		            "<br/><span class=\"remove1\">Remove image</span>" +
 		            "</span>").insertAfter("#video_size2");
 
 		          $(".remove1").click(function(){
-		            $(this).parent(".pip").remove();
-
+		            $(this).parent(".pip2").remove();
+		            $('#video_size2').val("");
 		          });          
 	                   
 	        	});
 
-	        	$('#video_show2').hide();                 
-			    $('#video_size2').val("");
+	        	               
+			    
 
 	    		fileReader.readAsDataURL(f);
            
@@ -1741,7 +1743,7 @@ $(document).on("change", "#video_size2", function(evt)
 
 function generate_address_fields(count)
  {	
-	var address  = '<div id="event_address_'+count+'" class="animated bounceInRight tab"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_venue_name_'+count+'" name="event_venue_name[]"  class="form-control" onblur="update_vanue()" /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="address1_'+count+'" name="address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="address2_'+count+'" name="address2[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="city_'+count+'" name="venue_city[]" class="form-control" /> </div> <div class="form-group col-sm-12">  <div class="form-group col-sm-12"> <label>Zipcode/ Postal Code</label> <input type="number" id="zipcode_'+count+'" name="zipcode[]"  class="form-control"  /> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnAdd10" class="remove_address btn btn-info btn-sm"> </a> </div> </div>';
+	var address  = '<div id="event_address_'+count+'" class="animated bounceInRight tab"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_venue_name_'+count+'" name="event_venue_name[]"  class="form-control" onblur="update_vanue()" /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="address1_'+count+'" name="address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="address2_'+count+'" name="address2[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="city_'+count+'" name="venue_city[]" class="txtOnly form-control" maxlength="25" /> </div> <div class="form-group col-sm-12">  <label>Zipcode/ Postal Code</label> <input type="text" id="zipcode_'+count+'" name="zipcode[]"  class="form-control" maxlength="6"/> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnAdd10" class="remove_address btn btn-info btn-sm"> </a> </div> </div>';
 
         return address;
 }
@@ -1884,6 +1886,22 @@ $(function(){
   }
 });
 });
+
+// accept only text for city
+$('.txtOnly').keypress(function (e) {
+			var regex = new RegExp("^[a-zA-Z]+$");
+			var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+			if (regex.test(str)) {
+				return true;
+			}
+			else
+			{
+			e.preventDefault();
+			$('.error').show();
+			$('.error').text('Please Enter Alphabate');
+			return false;
+			}
+		});
 
 // pass value with in same form
 $('#event_startime').change(function() {

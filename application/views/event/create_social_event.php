@@ -963,7 +963,7 @@ li.keywordSearch-email {
                 </div>
                 <div class='col-sm-12'>
                   <div class="form-wizard-buttons">
-                    <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
+                    <button type="button" class="btn" style="background:#005898;">Save Draft</button>
                     <button type="button" class="btn btn-next">Next</button>
                   </div>
                 </div>
@@ -1165,7 +1165,7 @@ li.keywordSearch-email {
                 </div>
                 <div class='col-sm-12'>
                   <div class="form-wizard-buttons">
-                    <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
+                    <button type="button" class="btn" style="background:#005898;">Save Draft</button>
                     <button type="button" class="btn btn-previous">Previous</button>
                     <button type="button" class="btn btn-next">Next</button>
                   </div>
@@ -1297,7 +1297,7 @@ li.keywordSearch-email {
 
                 <div class='form-group col-sm-12' style="margin-top:25px;">
                   <div class="form-wizard-buttons">
-                    <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
+                    <button type="button" class="btn" style="background:#005898;">Save Draft</button>
                     <button type="button" class="btn btn-previous">Previous</button>
                     <button type="button" class="btn btn-next">Next</button>
                   </div>
@@ -1400,7 +1400,7 @@ li.keywordSearch-email {
 
                 <div class='form-group col-sm-12' style="margin-top: 30px;">
                   <div class="form-wizard-buttons">
-                    <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
+                    <button type="button" class="btn" style="background:#005898;">Save Draft</button>
                     <button type="button" class="btn btn-previous">Previous</button>
                     <button type="button" class="btn btn-next">Next</button>
                   </div>
@@ -1583,7 +1583,7 @@ li.keywordSearch-email {
                 
                 <div class='form-group col-sm-12' style="margin-top: 30px;">
                   <div class="form-wizard-buttons">
-                    <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
+                    <button type="button" class="btn" style="background:#005898;">Save Draft</button>
                     <button type="button" class="btn btn-previous">Previous</button>
                     <button type="button" class="btn btn-next">Next</button>
                   </div>
@@ -1731,7 +1731,7 @@ li.keywordSearch-email {
 
                 <div class='form-group col-sm-12' style="margin-top: 30px;">
                   <div class="form-wizard-buttons">
-                  <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
+                  <button type="button" class="btn" style="background:#005898;">Save Draft</button>
                     <button type="button" class="btn btn-previous">Previous</button>
                     <button type="button" class="btn btn-next">Next</button>
                   </div>
@@ -2028,7 +2028,7 @@ li.keywordSearch-email {
                 </div>
                 <div class='col-sm-12'>
                   <div class="form-wizard-buttons">
-                    <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
+                    <button type="button" class="btn" style="background:#005898;">Save Draft</button>
                     <button type="button" class="btn btn-previous">Previous</button>
                     <button type="button" class="btn btn-next">Next</button>
                   </div>
@@ -2133,7 +2133,8 @@ li.keywordSearch-email {
 	                      	<div class="col-md-12">
 	                        	<div class="col-md-offset-4 col-md-4">
 	                          		<select id="action_btn1" name="audience_formaction_btn" class="form-group" style="width:100%; margin-left:10px; padding: 7px 10px; border-radius: 5px;"> 
-	                          			<option value="">Select </option>    
+	                          			<option value="">Select </option>
+	                          			<option value="Register">Register </option>     
 			                            <option value="Learn More">Learn More </option> 
 			                            <option value="Book Now">Book Now</option>
 			                            <option value="Apply Now">Apply Now</option>
@@ -2421,7 +2422,8 @@ li.keywordSearch-email {
 		                      	<div class="col-md-12">
 			                        <div class="col-md-offset-4 col-md-4">
 			                          <select name="action_btn3" class="form-group selectpicker" style="width:100%; margin-left:10px; padding: 7px 10px; border-radius: 5px;"> 		
-			                          	<option value="">Select </option>                            
+			                          	<option value="">Select </option> 
+			                          	<option value="Register">Register </option>                            
 			                            <option value="Learn More">Learn More </option>
 			                            <option value="Book Now">Book Now</option>
 			                            <option value="Apply Now">Apply Now</option>
@@ -2505,7 +2507,7 @@ li.keywordSearch-email {
                 <br>
                 <div class='form-group col-sm-12' style="margin-top: 30px;">
                   <div class="form-wizard-buttons">
-                  <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
+                  <button type="button" class="btn" style="background:#005898;">Save Draft</button>
                     <button type="button" class="btn btn-previous">Previous</button>
                     <button type="submit" class="btn btn-next">Publish</button>
                   </div>

@@ -29,7 +29,7 @@
 #footer {
     background: transparent;
     position: relative;
-    top: 10px;
+    top: 115px;
 }
 .contact-us form.contact-form .form-group input.form-control {
     padding-left: 30px;
@@ -55,6 +55,20 @@
   position:relative!important; 
   bottom: 0px!important;
   width: 100%!important;
+}
+.footer-links li
+{
+	list-style-type:none; 
+	display:inline-block;
+	margin:5px 15px;
+	float:left;
+	color:#FDFDFD!important;
+}
+
+.footer-links li a
+{
+	
+	color:#FDFDFD!important;
 }
 </style>
 </head>

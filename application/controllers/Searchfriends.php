@@ -25,11 +25,28 @@ public function add_friends() //find friend request
 		$this->rest->http_header('token', $this->session->userdata('token'));
 				$search ='search=';	//keyword for db and empty values to pass			   	
 			   	$result = $this->rest->post('http://104.197.80.225:3010/wow/network/friendsuggestion',$search);		
-			   	// print_r($result);	   
-		 $data['friend'] = $result->message; 
-		 // $data['accept'] = $result->message->status; 
+			   	   
+		$data['friend'] = $result->message; 
+		$this->friends_count();	
+		$data['frds_count'] = $this->friends_count();
+				
 		$this->load->view('serviceprovider/add_friends',$data);
 	}
+
+public function friends_count() //friends count
+{
+	$this->rest->http_header('token', $this->session->userdata('token'));
+
+	$data =array();
+	$json_data = json_encode($data);
+	$result = $this->rest->post('http://104.197.80.225:3010/wow/network/friendscount',$json_data,'json');
+
+	if($result->success == true)
+			   	  	{	
+				   	   $data['frds_count'] = $result->message;
+				   	   return $data['frds_count'];  //here variable send to add_friends
+			   	   	} 
+}
 	
 public function send_request($request_id) //send request
 	{
@@ -162,7 +179,8 @@ public function create_group()
 		$response = array(); 
 
 		$this->rest->http_header('token', $this->session->userdata('token'));
-		$group =array('groupname'  => $this->input->post('group_name'),	
+		$group =array(	'groupname'  => $this->input->post('group_name'),
+						'privacy'  => $this->input->post('group_type'),
 					    'users'    => $this->input->post('users_name'));
 		$json_data = json_encode($group);
 		$result = $this->rest->post('http://104.197.80.225:3010/wow/group/creategroup',$json_data,'json');
@@ -224,6 +242,7 @@ public function edit_group()
 	$this->rest->http_header('token', $this->session->userdata('token'));
 	$group =array('groupid'    => $this->input->post('event_id'),	
 				  'groupname'  => $this->input->post('g_name'),	
+				  'privacy'    => $this->input->post('privacy'),	
 				  'users'      => $this->input->post('members_name[]'));
 	$json_data = json_encode($group);
 	$result = $this->rest->post('http://104.197.80.225:3010/wow/group/editgroup',$json_data,'json');

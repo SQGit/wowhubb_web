@@ -612,7 +612,7 @@ input[type=number]::-webkit-outer-spin-button {
 				                        </div> 
 			                        </div>	
 			                        <div class="remove_img" style="position:relative;">
-			                        	<img src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->coverpage; ?>" style="width:160px; height:88px;"  alt="user" class="img-responsive img-thumbnail"/>	
+			                        	<img src="<?php echo $event->coverpage; ?>" style="width:160px; height:88px;"  alt="user" class="img-responsive img-thumbnail"/>	
 			                        	 <div style="position:absolute; right:203px; top:0px;"><a href="#" class="delete"><i class="glyphicon glyphicon-remove"></i></a></div>
 			                        </div>  
 

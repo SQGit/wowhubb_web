@@ -71,7 +71,7 @@ input[type=checkbox] {
 <!--Header End-->
 
 <!-- breadcrumb for page link -->
-<div class="container" style="margin-top:20px; margin-bottom:-30px;">
+<div class="container" style="margin-top:20px; margin-bottom:-10px;">
 
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="<?php echo base_url('event/get_eventfeed'); ?>"><strong>Home</strong></a></li>  
@@ -132,7 +132,7 @@ input[type=checkbox] {
               <!-- <li><a href="<?php echo base_url ('event/profile_get_eventfeed') ?>" >Event Feed</a></li> -->
               <li><a href="<?php echo base_url('Profile/profile_get'); ?>" >Profile</a></li>
               <li><a href="<?php echo base_url ('home/interest_get') ?>" class="active" >Interests</a></li>
-              <li><a href="#">Friend Connections</a></li>
+              <li><a href="<?php echo base_url ('Profile/friends_connection') ?>">Friend Connections</a></li>
               <li><a href="#">Eventhubb</a></li>
               <li><a href="#">Photos</a></li>
             </ul>
@@ -164,6 +164,8 @@ input[type=checkbox] {
       <!--Timeline Menu for Small Screens End--> 
       
     </div>
+
+    
         <div id="page-contents">
           <div class="row">
             

@@ -79,7 +79,7 @@ public function get_eventdetails() //using form submit
            $result['event'] = $json;        
           		
 		   $this->load->view('eventhubb/edit_event_details', $result);
-		   // $this->load->view('eventhubb/event_hubb', $result);
+		   
  	}
 
 public function update_eventdetails()
@@ -444,12 +444,106 @@ public function rsvp_members($_id)
 
 		 		$data = array('eventid' =>$_id );
 			   	$json_data = json_encode($data);  
-			   	$group_name = $this->rest->post('http://104.197.80.225:3010/wow/event/fetchparticularevent',$json_data,'json');
-			   	$data['event'] = $group_name->event;
-
-			   	// print_r($data['event']);
+			   	$rsvp_name = $this->rest->post('http://104.197.80.225:3010/wow/event/fetchparticularevent',$json_data,'json');
+			   	$data['event'] = $rsvp_name->event;			   
 			   	
 		$this->load->view('eventhubb/rsvp_attend_members',$data);
+	}
+
+// view rsvp attend members
+public function engagementform_members($_id)
+	{
+		$this->rest->http_header('token',  $this->session->userdata('token'));
+
+		 	$data = array('eventid' =>$_id );
+			$json_data = json_encode($data);  
+			$engagementform_name = $this->rest->post('http://104.197.80.225:3010/wow/event/fetchparticularevent',$json_data,'json');
+			$data['event'] = $engagementform_name->event;			   
+			   
+		$this->load->view('eventhubb/engagementform_modelpopup',$data);
+	}
+
+
+// Edit professional event details
+public function pro_edit_eventdetails($_id)
+	{
+		$this->rest->http_header('token',  $this->session->userdata('token'));
+
+		 		$data = array('eventid' =>$_id );
+			   	$json_data = json_encode($data);  
+			   	$group_name = $this->rest->post('http://104.197.80.225:3010/wow/event/fetchparticularevent',$json_data,'json');
+			   	$data['event'] = $group_name->event;			   
+			   	
+		$this->load->view('eventhubb/pro_editeventdetails',$data);
+	}
+
+public function update_professional_eventdetails()
+	{
+		
+		$response = array();
+
+		$token =  $this->session->userdata('token');	
+
+			 $start_date = $this->input->post('event_startdate');
+		     $end_date   = $this->input->post('event_enddate');		    
+		     $s_date = date('Y/m/d', strtotime($start_date)); 
+		     $e_date = date('Y/m/d', strtotime($end_date));   	
+ 			
+		   $header1 = array('token:'           .$token,
+		   					'eventtype:'        .'professional_event', 
+		   					'eventid'           . $this->input->post('event_id'),	
+							'eventcategory:'    .$this->input->post('event_category'), 
+							'eventtypeint:'     ."2",
+							'eventname:'        .$this->input->post('event_name'),	
+							'tickettype:'       .$this->input->post('ticket_type'),	
+							'eventstartdate:'	.$s_date.' '.$this->input->post('event_startime'),
+							'eventenddate:'   	.$e_date.' '.$this->input->post('event_endtiming'),
+							'ticketprice:'      .$this->input->post('ticket_price'),
+							'eventticketurl:'   .$this->input->post('ticket_url'),
+							'eventdescription:' .$this->input->post('event_description'),
+							'organisationname:' .$this->input->post('organisation_name')	
+							);
+		   	 
+	       	$ch1 = curl_init();
+       		      				    	
+			    	if(!empty($_FILES['cover_img']['name']))
+			       		{
+				    	 $cover_page = curl_file_create($_FILES['cover_img']['tmp_name'],$_FILES['cover_img']['type']);
+				    	}else
+					    	{
+					    		$cover_page = ""; 
+					    	}
+
+					if(!empty($_FILES['logo_img']['name']))
+			       		{
+				    	 $org_logo = curl_file_create($_FILES['logo_img']['tmp_name'],$_FILES['logo_img']['type']);
+				    	}else
+					    	{
+					    		$org_logo = ""; 
+					    	}
+	
+	    		$wowtag_img = array('coverpage'  => @$cover_page,'organisationlogo'  => @$org_logo);		    	 				
+	    	
+	    	  	curl_setopt($ch1, CURLOPT_URL,'http://104.197.80.225:3010/wow/event/editproeventdetails');	   
+		    	curl_setopt($ch1, CURLOPT_HTTPHEADER,$header1);
+		    	curl_setopt($ch1, CURLOPT_POST, true);
+		    	curl_setopt($ch1, CURLOPT_POSTFIELDS, $wowtag_img); 	
+		        curl_setopt($ch1, CURLOPT_RETURNTRANSFER, TRUE); //don't print automatic response   
+	    	  	$response1 = curl_exec($ch1); 	    	
+		    	$data =json_decode($response1);	       	
+		     	curl_close($ch1);
+		     	
+		     	print_r($data);
+		     	
+		     	if($data->success == true)
+					{		 	
+						 $response['status'] = 'success'; 			
+					}
+					else 
+					{	
+					 	$response['status'] = 'failed';
+					}
+			echo json_encode($response); 
 	}
 
 

@@ -32,23 +32,20 @@
 <!--Favicon-->
 <link rel="shortcut icon" type="image/png" href="<?php echo base_url ('assets/images/fav.png') ?>"/><style type="text/css">
 	
-	.textBox {
-		background-image: url(./assets/images/designation-icon.png);
-		background-position: 0 5px;
-		background-size: 30px;
-		background-repeat: no-repeat;
-		padding-left: 17px;
-	}
-	/*popup close button  */
+	 /*animation stop*/
+.landing-page .content-bg {
+    background-color: rgba(255, 94, 58, 0.95);
+    animation-name: none;
+}	
+/*popup close button  */
 	.large.tooltip-inner {
 		max-width: 350px;
 		width: 350px;
 	}
-	#footer {
-		background: #fff;
-		position: relative;
-		top: 0px;
-	}
+	.form-wizard .btn.btn-previous, .form-wizard .btn.btn-previous:focus, .form-wizard .btn.btn-previous:active:focus, .form-wizard .btn.btn-previous.active:focus {
+    background: #888888!important;
+}
+
 	.btn-file {
 		position: relative;
 		overflow: hidden;
@@ -59,8 +56,8 @@
 		background: #fff none repeat scroll 0 0;
 		border: 1px solid rgb(197, 194, 195);
 		border-radius: 4px;
-		font-family: 'Source Sans Pro', sans-serif;
-		font-size: 14px;
+		
+		font-size: 13px;
 		font-weight: normal;
 		color: #333;
 		-moz-border-radius: none;
@@ -86,7 +83,23 @@
 		display: block;
 	}
 	/*https://stackoverflow.com/questions/14199788/how-do-i-use-an-image-as-a-submit-button */ 
-	  
+	  	.form-wizard h3 {
+    font-size: 13px;
+    font-weight: bold;
+    color: #e91e63;
+    line-height: 20px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    text-transform: none;
+}
+	.form-wizard h4 {
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+    color: #e91e63;
+    line-height: 26px;
+    width: 100%;
+}
 	#btnAdd10, #btnremove,#remove_day{
 		background-image: url("<?php echo base_url('assets/images/close-outline-32.png')?>");
 		background-repeat: no-repeat;
@@ -98,52 +111,8 @@
 		background-color: transparent;
 		outline: none;
 	}
-	#textAdd {
-		background-image: url("<?php echo base_url('assets/images/Plus.png')?>");
-		background-size: cover;
-		border: none;
-		width: 32px;
-		height: 32px;
-		cursor: pointer;
-		color: transparent;
-		background-color: transparent;
-		outline: none;
-	}
-	#imageUpload1 {
-		display: none;
-	}
-	#profileImage1 {
-		cursor: pointer;
-	}
-	#profile-container1 {
-		width: 150px;
-		height: 150px;
-	}
-	#imageUpload2 {
-		display: none;
-	}
-	#profileImage2 {
-		cursor: pointer;
-	}
-	#imageUpload3 {
-		display: none;
-	}
-	#profileImage3 {
-		cursor: pointer;
-	}
-	#imageUpload4 {
-		display: none;
-	}
-	#profile-container4 {
-		width: 150px;
-		height: 150px;
-	}
-	#imageUpload5 {
-		display: none;
-	}
-	#profileImage5 {
-		cursor: pointer;
-	}
+	
+	
 	.faq-cat-content {
 		margin-top: 25px;
 	}
@@ -200,94 +169,7 @@
 	.panel-default > .panel-heading + .panel-collapse > .panel-body {
 		border-top-color: #EEEEEE;
 	}
-	.ac-container {
-		width: 100%;
-		margin: 10px auto 30px auto;
-		text-align: left;
-	}
-	.ac-container label {
-		padding: 5px 10px;
-		position: relative;
-		z-index: 20;
-		display: block;
-		
-		cursor: pointer;
-		color: #777;
-		text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
-		line-height: 20px;
-		font-size: 12px;
-		background: #ffffff;
-		background: -moz-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #ffffff), color-stop(100%, #eaeaea));
-		background: -webkit-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-		background: -o-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-		background: -ms-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-		background: linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-	 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea', GradientType=0 );
-		box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3), 1px 0px 0px 0px rgba(255,255,255,0.9) inset, 0px 2px 2px rgba(0,0,0,0.1);
-	}
-	.ac-container label:hover {
-		background: #fff;
-	}
-	.ac-container input:checked + label, .ac-container input:checked + label:hover {
-		background: #c6e1ec;
-		color: #3d7489;
-		text-shadow: 0px 1px 1px rgba(255,255,255, 0.6);
-		box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3), 0px 2px 2px rgba(0,0,0,0.1);
-	}
-	.ac-container label:hover:after, .ac-container input:checked + label:hover:after {
-		content: '';
-		position: absolute;
-		width: 24px;
-		height: 24px;
-		right: 2px;
-		top: 2px;
-		background: transparent url(../assets/images/arrow_down.png) no-repeat center center;
-	}
-	.ac-container input:checked + label:hover:after {
-		background-image: url(../assets/images/arrow_up.png);
-	}
-	.ac-container input {
-		display: none;
-	}
-	.ac-container article {
-		background: rgba(255, 255, 255, 0.5);
-		margin-top: -1px;
-		overflow: hidden;
-		height: 0px;
-		position: relative;
-		z-index: 10;
-		-webkit-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-		-moz-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-		-o-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-		-ms-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-		transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-	}
-	.ac-container article p {
-		font-style: italic;
-		color: #777;
-		line-height: 23px;
-		font-size: 14px;
-		padding: 5px 20px;
-		text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
-	}
-	.ac-container input:checked ~ article {
-		-webkit-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		-moz-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		-o-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		-ms-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3);
-	}
-	.ac-container input:checked ~ article.ac-small {
-		height: 400px;
-	}
-	.ac-container input:checked ~ article.ac-medium {
-		height: 450px;
-	}
-	.ac-container input:checked ~ article.ac-large {
-		height: 500px;
-	}
+	
 
 	.form-group {
 		margin-bottom: 5px!important;
@@ -311,23 +193,8 @@
 	    text-shadow: none;
 	    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
 	}
-	.btn-file input[type=file] {
-	  position: absolute;
-	  top: 0;
-	  right: 0;
-	  min-width: 100%;
-	  min-height: 100%;
-	  font-size: 100px;
-	  text-align: right;
-	  filter: alpha(opacity=0);
-	  opacity: 0;
-	  outline: none;
-	  background: white;
-	  cursor: inherit;
-	  display: block;
-	}
-
-	.remove {
+	
+.remove {
 	  display: block;
 	  background: #444;
 	  border: 1px solid black;
@@ -335,14 +202,24 @@
 	  text-align: center;
 	  cursor: pointer;
 	  width: 200px;
-	  margin-left: 107px;
+	  
 	}
-	.remove:hover {
+.remove:hover,.log_remove:hover,.hghlight1_remove:hover,.hghlight2_remove:hover,.remove1:hover {
 	  background: white;
 	  color: black;
 	}
+.log_remove{
+	  display: block;
+	  background: #444;
+	  border: 1px solid black;
+	  color: white;
+	  text-align: center;
+	  cursor: pointer;
+	  width: 200px;
+	  margin-left: 108px;
+	}
 
-	.remove1 {
+.remove1 {
 	  display: block;
 	  background: #444;
 	  border: 1px solid black;
@@ -352,9 +229,25 @@
 	  width: 200px;
       margin-left: 144px;
 	}
-	.remove1:hover {
-	  background: white;
-	  color: black;
+.hghlight1_remove{
+	  display: block;
+	  background: #444;
+	  border: 1px solid black;
+	  color: white;
+	  text-align: center;
+	  cursor: pointer;
+	  width: 200px;
+      margin-left: 109px;
+	}
+.hghlight2_remove{
+	  display: block;
+	  background: #444;
+	  border: 1px solid black;
+	  color: white;
+	  text-align: center;
+	  cursor: pointer;
+	  width: 200px;
+      margin-left: 109px;
 	}
 
 	/*dynamic add event venue address*/
@@ -423,6 +316,34 @@ li.keywordSearch-email {
   color: #fff;
   font-size: 16px;
 }  
+.step-icn
+{
+	    width: 48px;
+    height: 48px;
+    margin-top: 0;
+    background: #e91e63;
+    font-size: 22px;
+    line-height: 48px;
+	border-radius:50%;
+	color:#fff;
+	padding:0px 15px;
+}
+.form-wizard-steps {
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    margin-top: 9px;
+}
+.progress {
+    height: 10px;
+    margin-bottom: 11px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    margin-top: 0px;
+}
 
 </style>
 </head>
@@ -440,8 +361,7 @@ li.keywordSearch-email {
   <header id="header">
       <nav class="navbar navbar-default navbar-fixed-top menu" style="padding-top:3px!important; padding-bottom:3px!important;">
         <div class="container"> 
-      
-          <?php  include('/../includes/header.php'); ?>
+      		<?php  include('/../includes/header.php'); ?>
         </div>
         <!-- /.container --> 
       </nav>
@@ -462,8 +382,7 @@ li.keywordSearch-email {
           <div class="col-md-10 form-wizard form-body-classic form-header-classic" style="min-width:1200px;"> 
            
             
-            <h3>Create Your Event</h3>
-            <p>Please fill information to a create an event </p>
+          
              <img src="../assets/images/open-banner.jpg" class="img-thumbnail"  alt="banner-image"/>
             <!-- Form progress -->
     <div class="form-wizard-steps form-wizard-tolal-steps-8">
@@ -473,14 +392,14 @@ li.keywordSearch-email {
               <!-- Step 1 -->
               <div class="form-wizard-step active">
                 <div class="form-wizard-step-icon"><i class="fa fa-child" aria-hidden="true"></i></div>
-                <p>Event Details</p>
+                <p style="font-weight:bold;">1.Event Details</p>
               </div>
               <!-- Step 1 --> 
               
               <!-- Step 2 -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
-                <p>Event Venue</p>
+                <p style="font-weight:bold;">2.Event Venue</p>
               </div>
               
               <!-- Step 2 --> 
@@ -488,39 +407,39 @@ li.keywordSearch-email {
               <!-- Step 3 -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-exclamation" aria-hidden="true"></i></div>
-                <p>!Wowtag</p>
+               <p style="font-weight:bold;">3.!Wowtag</p>
               </div>
               <!-- Step 3 --> 
               
               <!-- Step 4  -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-briefcase" aria-hidden="true"></i></div>
-                <p>Event Schedule</p>
+                <p style="font-weight:bold;">4.Event Schedule</p>
               </div>
               <!-- Step 4 --> 
               
               <!-- Step 5 -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-flash" aria-hidden="true"></i></div>
-                <p>Event Highlights</p>
+               <p style="font-weight:bold;">5.Event Highlights</p>
               </div>
               <!-- Step 5 --> 
               <!-- Step 6 -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-user" aria-hidden="true"></i></div>
-                <p>Event Contact/ URL</p>
+                <p style="font-weight:bold;">6.Event Contact/ URL</p>
               </div>
               <!-- Step 6 --> 
                 <!-- Step 7 -->
                <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-users" aria-hidden="true"></i></div>
-                <p>Event Tours</p>
+                <p style="font-weight:bold;">7.Event Tours</p>
               </div>
               <!--end  Step 7 -->
               <!-- Step 8 -->
                <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-users" aria-hidden="true"></i></div>
-                <p>Audience Engagement</p>
+                <p style="line-height:15px; font-weight:bold;">8.Audience Engagement</p>
               </div>
               
      </div>
@@ -538,36 +457,30 @@ li.keywordSearch-email {
                      <div class="col-md-12">
                        <div class="col-md-12" style="background:#f5f5f5; padding-top:15px; padding-bottom:15px;">
                          <div class="col-md-12">
-                           <div class="col-md-11">
+                        
                              <div class="pull-left" style="width:4%;">
                                <img src="../assets/images/ques.png" alt="">
                              </div>
                              <div class="pull-left" style="width:96%;">
                                <p style="line-height:23px;">This includes following Events like Religious Meetings, Conventions, Conferences, Comedy Shows, Music Concerts, Night Parties, Group Meetings etc. In Event details, We provide Event Days, Event Category and also add it is a Free, Paid or Donation based.</p>
                              </div>
-                           </div>
-                           <div class="col-md-1">
-                             <h4> <span>Step 1 - 8</span></h4>
-                           </div>
+                          
                          </div>
                        </div>
                      </div>
                 </div>
        				<div class='col-sm-5'>
                  		<div class='row'>                 			
-		                  	<div class='form-group col-sm-12' style="display: none;" >
-		                      	<label>Event Type</label>
-		                      	<input type='hidden' name="event_type"  class="form-control textBox" value="<?php echo $this->session->userdata('event_type'); ?>" />
-		                    </div>
+		                  	
 		                    
 
 		                    <div class='form-group col-sm-12' >
 		                      <label>Event Category</label>
-		                      <input type='text' name="event_category"  class="form-control textBox" value="<?php echo $this->session->userdata('event_category'); ?>"  readonly/>
+		                      <input type='text' name="event_category"  class="form-control" value="<?php echo $this->session->userdata('event_category'); ?>"  readonly/>
 		                    </div>
 		                    <div class='form-group col-sm-12' >
 		                      <label>Event Name</label>
-		                      <input type='text'  name="event_name" class="form-control required" />
+		                      <input type='text'  name="event_name" class="form-control required" autocomplete="off" />
 		                    </div>	                    
 
 		                    <div class="form-group col-sm-12" style="font-size: 15px;">
@@ -587,24 +500,24 @@ li.keywordSearch-email {
 		                    <div id="date_hide" style="display: none;">
 
 			                    <div class='form-group col-sm-6' style="width:45%;" >
-			                      <label>Currrent Event Start Date</label>
-			                      <input type='text' id="event_startdate" name="event_startdate"  class="form-control required"  />
+			                      <label>Current Event Start Date</label>
+			                      <input type='text' id="event_startdate" name="event_startdate" class="form-control required" autocomplete="off"  />
 			                    </div>
 
 			                    <div  class='form-group col-sm-6' style="width:45%; " >
-			                      <label>Currrent Event Start Time</label>
-			                      <input type='text' id="event_startime" name="event_startime"  class="form-control  "  />
+			                      <label>Current Event Start Time</label>
+			                      <input type='text' id="event_startime" name="event_startime" class="form-control" autocomplete="off" />
 			                    </div>
 
 			                
 			                    <div class='form-group col-sm-6' style="width:45%;" >
-			                      <label>Currrent Event End Date</label>
-			                      <input type='text' id="event_enddate" name="event_enddate"  class="form-control" readonly />
+			                      <label>Current Event End Date</label>
+			                      <input type='text' id="event_enddate" name="event_enddate" class="form-control" readonly autocomplete="off"/>
 			                    </div>
 
 			                    <div class='form-group col-sm-6' style="width:45%;">
-			                      <label>Currrent Event End Time</label>
-			                      <input type='text' id="event_endtiming" name="event_endtiming"  class="form-control "  />
+			                      <label>Current Event End Time</label>
+			                      <input type='text' id="event_endtiming" name="event_endtiming" class="form-control" autocomplete="off" />
 			                    </div>		                    
 		                	</div>   
 
@@ -876,10 +789,10 @@ li.keywordSearch-email {
 
 			                    <div class='form-group col-sm-6' style="display: none;" id="ticket_price">
 			                      <label>Enter Ticket Price</label>
-			                      <input type='text'  name="ticket_price" id="curr" class="form-control"  />
+			                      <input type='text'  name="ticket_price" id="curr" class="form-control" autocomplete="off" />
 			                    </div> 
 
-			                    <div class='form-group col-sm-12' style="display: none;" id="ticker_url_show">
+			                    <div class='form-group col-sm-12' style="display: none;" id="ticker_url_show" autocomplete="off">
 		                     		<label>Ticket URL</label>
 		                      		<input type='text' name="ticket_url" class="form-control" >
 		                    	</div>
@@ -890,7 +803,7 @@ li.keywordSearch-email {
 			                <div class='row'>
 				                    <div class='form-group col-sm-12'>
 				                      <label>Event Description</label>
-				                      <textarea type='text' id="description" name="event_description"  class="form-control required" style="min-height:150px;" placeholder="Describe What Your Event Is All About " ></textarea>
+				                      <textarea type='text' id="description" name="event_description" class="form-control required" style="min-height:150px;" placeholder="Describe What Your Event Is All About" autocomplete="off"></textarea>
 				                    </div>
 				                    <div class='form-group col-sm-12'>
 					                    <div class='col-sm-12' style="background-color:#f9f9f9;">
@@ -928,7 +841,7 @@ li.keywordSearch-email {
                       <h5>Helpful Hints</h5>
                       <section class="ac-container">
                         <div>
-                          <input id="ac-1" name="accordion-1" type="radio" checked />
+                          <input id="ac-1" name="accordion-1" type="radio" />
                           <label for="ac-1">What is an Event Name?</label>
                           <article class="ac-small">
                             <p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.</p>
@@ -961,10 +874,10 @@ li.keywordSearch-email {
                     </div>
                   </div>
                 </div>
-                <div class='col-sm-12'>
+                 <div class='col-sm-12'>
                   <div class="form-wizard-buttons">
-                    <button type="button" class="btn" style="background:#005898;">Save Draft</button>
-                    <button type="button" class="btn btn-next">Next</button>
+                    <button type="button" class="btn" style="background:#e72026;"> <i class="fa fa-save"></i> Save Draft</button>
+                    <button type="button" class="btn cancel btn-next">Next <i class="fa fa-arrow-right"></i></button>
                   </div>
                 </div>
     	</fieldset>
@@ -985,17 +898,14 @@ li.keywordSearch-email {
                      <div class="col-md-12">
                        <div class="col-md-12" style="background:#f5f5f5; padding-top:15px; padding-bottom:15px;">
                          <div class="col-md-12">
-                           <div class="col-md-11">
+                       
                              <div class="pull-left" style="width:4%;">
                                <img src="../assets/images/ques.png" alt="">
                              </div>
                              <div class="pull-left" style="width:96%;">
                                <p style="line-height:23px;">You can enter one or multiple venue for your event on this page.  If your event is taking place on the same date but at multiple location then wowhubb makes it possible for your to do this easily.      </p>
                              </div>
-                           </div>
-                           <div class="col-md-1">
-                             <h4> <span>Step 2 - 8</span></h4>
-                           </div>
+                           
                          </div>
                        </div>
                      </div>
@@ -1003,33 +913,33 @@ li.keywordSearch-email {
         <div class='col-sm-5'>
             <div class='col-sm-12' style="background-color:#f9f9f9;padding-top:10px; ">
                   		<div id="show_vanue" style="background-color:#bfbebe;padding-top:10px; ">
-							<center> <label >CREATE AND ADD YOUR EVENT TOURS CITIES HERE</label></center>  
+							<center style=" margin-bottom:5px; "> <label ><img src="../assets/images/map-icon.png" alt="map-icon">Create &amp; Add Your Event Tours Cities Here</label></center> 
 						</div>               
              	<div id="event_venues">
                 	<div id="event_address_1" class="tab">                			
 
 		                    <div class='form-group col-sm-12' style="margin-top:20px;">
 		                      <label>Enter Your Event Venue / location Name</label>		                      
-		                      <input type='text' id="event_venue_name_1" name="event_venue_name[]"  class="form-control textBox" onblur="update_vanue()"/>
+		                      <input type='text' id="event_venue_name_1" name="event_venue_name[]" class="form-control" onblur="update_vanue()" autocomplete="off"/>
 		                    </div>                
 		                   
 		                    <div class='form-group col-sm-12'>
 		                      <label>Address 1</label>
-		                      <input type='text' id="address1_1" name="address1[]"  class="form-control"  />
+		                      <input type='text' id="address1_1" name="address1[]" class="form-control" autocomplete="off"  />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>Address 2</label>
-		                      <input type='text' id="address2_1" name="address2[]"  class="form-control"  />
+		                      <input type='text' id="address2_1" name="address2[]" class="form-control" autocomplete="off" />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>City</label>
-		                      <input type='text' id="city_1" name="venue_city[]" class="form-control" onblur="update_vanue()"/ style="text-transform: capitalize;">
+		                      <input type='text' id="city_1" name="venue_city[]" class="form-control" onblur="update_vanue()"/ style="text-transform: capitalize;" autocomplete="off">
 		                    </div>
 		                    <div class='form-group col-sm-12'>
 		                      <label>Zipcode/ Postal Code</label>
-		                      <input type='text' id="zipcode_1" name="zipcode[]"  class="form-control"  onblur="update_vanue()"/>
+		                      <input type='text' id="zipcode_1" name="zipcode[]" class="form-control" onblur="update_vanue()" autocomplete="off"/>
 		                    </div>
                		</div>
             	</div> 
@@ -1038,13 +948,13 @@ li.keywordSearch-email {
                    <div class='col-sm-12'> 
                     	<div class='col-sm-4'>
                     		<a href="JavaScript:void(0);" id="btnAdd7" data-nxt_event_address="2">
-                    		<i class="fa fa-plus-circle"></i> Add multiple venue </a>
+                    		<i class="fa fa-plus-circle"></i> Add Multiple Venue </a>
                     	</div>
                     	<div style="overflow:hidden;">
 						 	
-							    <div  class="col-md-8">
-							      <a href="JavaScript:void(0);" id="prevBtn" onclick="nextPrev(-1)">Previous</a>
-							      <a href="JavaScript:void(0);" id="nextBtn" onclick="nextPrev(1)" style="margin-left: 35px;"> Next</a>
+							   <div  class="col-md-8 text-right" style="margin-top:1px;">
+							      <a href="JavaScript:void(0);" id="prevBtn" onclick="nextPrev(-1)"><i class="fa fa-arrow-left"></i> Previous</a>
+							      <a href="JavaScript:void(0);" id="nextBtn" onclick="nextPrev(1)" style="margin-left: 35px;">Next <i class="fa fa-arrow-right"></i></a>
 							    </div>					
 						</div>                     
                    </div>  
@@ -1086,19 +996,19 @@ li.keywordSearch-email {
 			                        <div class="row">
 			                         	<div class="form-group-1 col-md-12">
 				                          <p>What is Event Age Requirement?</p>
-				                          <input type='text' name="quesans1"  class="form-control"  />
+				                          <input type='text' name="quesans1" class="form-control" autocomplete="off" />
 				                        </div>
 				                        <div class="form-group-1 col-md-12">
 				                          <p>This is a kids friendly event?</p>
-				                          <input type='text' name="quesans2"  class="form-control"  />
+				                          <input type='text' name="quesans2" class="form-control" autocomplete="off" />
 				                        </div>
 				                        <div class="form-group-1 col-md-12">
 				                          <p>What are event parking/Transportantion options to and from event location?</p>
-				                          <input type='text' name="quesans3"  class="form-control"  />
+				                          <input type='text' name="quesans3" class="form-control" autocomplete="off" />
 				                        </div>
 				                        <div class="form-group-1 col-md-12">
 				                          <p> What are allowed into the event venue?</p>
-				                          <input type='text' name="quesans4"  class="form-control"  />
+				                          <input type='text' name="quesans4" class="form-control" autocomplete="off" />
 				                        </div>
 				                    </div>
 
@@ -1163,11 +1073,11 @@ li.keywordSearch-email {
                     </div>
                   </div>
                 </div>
-                <div class='col-sm-12'>
-                  <div class="form-wizard-buttons">
-                    <button type="button" class="btn" style="background:#005898;">Save Draft</button>
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="button" class="btn btn-next">Next</button>
+                  <div class='col-sm-12'>
+                 <div class="form-wizard-buttons">
+                    <button type="button" class="btn" style="background:#e72026;"><i class="fa fa-save"></i> Save Draft</button>
+                    <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
                   </div>
                 </div>
     </fieldset>
@@ -1186,17 +1096,14 @@ li.keywordSearch-email {
                      <div class="col-md-12">
                        <div class="col-md-12" style="background:#f5f5f5; padding-top:15px; padding-bottom:15px;">
                          <div class="col-md-12">
-                           <div class="col-md-11">
+
                              <div class="pull-left" style="width:4%;">
                                <img src="../assets/images/ques.png" alt="">
                              </div>
-                             <div class="pull-left" style="width:96%;">
+                              <div class="pull-left" style="width:96%;">
                                <p style="line-height:23px;">!Wowtag  is a  catch word or phrase that uniquely identifies your  events  on the wowhubb network,  !Wowtag  can be used to advertise and promote your event  to your audience  to make it more effective create and attach  a 20 to 60 seconds  invite video to your wowtag title or event catch word</p>
                              </div>
-                           </div>
-                           <div class="col-md-1">
-                             <h4> <span>Step 3 - 8</span></h4>
-                           </div>
+                          
                          </div>
                        </div>
                      </div>
@@ -1212,43 +1119,47 @@ li.keywordSearch-email {
                       <div class='form-group-1 col-sm-12'>
                         <div class="text-center" >
                         	<img src="../assets/images/wow-pink.png"> 
-                          <input type='text' name="event_title" class="form-control required" style="padding: 6px 30px;" placeholder="Enter Your !Wowtag Title Here      Example:  Craigsbirthday2017" />
+                          <input type='text' name="event_title" class="form-control required" style="padding: 6px 30px;" placeholder="Enter Your !Wowtag Title Here      Example:  Craigsbirthday2017" autocomplete="off"/>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class='form-group col-sm-12'>
-                    <div class='col-sm-12' style="background-color:#f9f9f9; padding-top:15px;">
+                    <div class='col-sm-6' style="background-color:#f9f9f9; padding-top:15px;">
                       <div class="text-center">
                         <label style="color:#333; font-weight: bold; font-size: 16px">Upload Your Event -!Wowtag Video </label>
                       </div>
                       <div class="form-group">
-                      	<span class="btn btn-primary btn-file"> 
-                       	 Browse...<input type="file" name="wowtag_video" id="video_size" class="file" accept="video/*">
-                       	</span>
-
+                      	
                         <div id="video_show" style="display: none;" >
-                        	<div class="remove_wowtag" style="cursor: pointer;">
-		                       <i class="fa fa-window-close" style="font-size:25px; margin-left: 171px;"></i>
+                        	<div class="remove_wowtag" style="cursor: pointer; position:absolute; top: 55px; left: 210px; z-index:9999;">
+		                       <img src="<?php echo base_url('assets/images/wow-close.png'); ?>" />
 		                    </div>
-                        	<video width="200" height="110" controls>
+                        	<video width="200" height="170" controls>
 							 	 <source src="mov_bbb.mp4" id="video_here">
 							    Your browser does not support HTML5 video.
 							</video>
 							<audio id="video_url"></audio>
                         </div>
-                        <div class="input-group col-xs-12" style="margin-top:0px;">
-                          <p>Choose a compelling 60-120 seconds event promotional ads video that will create a lasting impression in your viewers mind</p>
+                         <span class="btn btn-primary btn-file"> 
+                       	 <i class="fa fa-play-circle"></i> Upload Video<input type="file" name="wowtag_video" id="video_size" class="file" accept="video/*">
+                       	</span>
+
+                        <div class="input-group col-xs-12" style="margin-top:0px; ">
+                           <p style="line-height:20px;">Choose a compelling 60-120 seconds event promotional ads video that will create a lasting impression in your viewers mind</p>
                         </div>                        
                       </div>
                     </div>
-                    <div class='col-sm-6' style="margin-top: 10px;">
+                    <div class='col-sm-6' style="margin-top: 5px;">
+                    <div class="text-left">
+                        <label style="color:#333; font-weight: bold; font-size: 14px">Event Promotional Video </label>
+                      </div>
                       <label>!Wowtag Runtime From: </label>
-                      <input type='text'  id="runtime_from" name="runtime_from" class="form-control " placeholder="Wowtag Runtime From" />
+                      <input type='text'  id="runtime_from" name="runtime_from" class="form-control required" placeholder="Wowtag Runtime From" autocomplete="off" />
                     </div>
                     <div class='col-sm-6' style="margin-top: 10px;" >
                       <label>!Wowtag Runtime To: </label>
-                      <input type='text' id="totime_to" name="totime_to" class="form-control" placeholder="Wowtag Runtime To" />
+                      <input type='text' id="totime_to" name="totime_to" class="form-control required" placeholder="Wowtag Runtime To"  autocomplete="off"/>
                     </div>                   
                   </div>
                 </div>
@@ -1296,10 +1207,10 @@ li.keywordSearch-email {
                 </div>
 
                 <div class='form-group col-sm-12' style="margin-top:25px;">
-                  <div class="form-wizard-buttons">
-                    <button type="button" class="btn" style="background:#005898;">Save Draft</button>
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="button" class="btn btn-next">Next</button>
+                 <div class="form-wizard-buttons">
+                    <button type="button" class="btn" style="background:#e72026;"><i class="fa fa-save"></i> Save Draft</button>
+                    <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
                   </div>
                 </div>
     </fieldset>
@@ -1316,13 +1227,13 @@ li.keywordSearch-email {
                   		 </div>
                 </div>
                 <!-- Progress Bar -->
-                      <div class="row" style="margin-bottom:15px;">
+                     <div class="row" style="margin-bottom:15px;">
                    <div class="col-md-1">
                     <div class='form-group col-sm-12'> <a class="btn-next" href="JavaScript:void(0);"><i class="fa fa-fast-forward"></i> Skip</a> </div>
                   </div>
-                     <div class="col-md-10">
+                     <div class="col-md-11">
                        <div class="col-md-12" style="background:#f5f5f5; padding-top:15px; padding-bottom:15px;">
-                         <div class="col-md-12">
+                        
                    
                              <div class="pull-left" style="width:4%;">
                                <img src="../assets/images/ques.png" alt="">
@@ -1331,15 +1242,10 @@ li.keywordSearch-email {
                                <p style="line-height:23px;">Wowhubb saves the cost of printing your next event program schedules / agenda you can simply enter your program time-slots, event facilitators, event agenda and and select specific location for each event slots. Also you can have multiple days event slots  displayed on wowhubb mobile devices of your attendees.</p>
                              </div>
                            
-                          
                          </div>
                          
-                       </div>
                      </div>
                      
-                      <div class="col-md-1">
-                             <h4> <span>Step 4 - 8</span></h4>
-                           </div>
                 </div>
                 
 
@@ -1400,9 +1306,9 @@ li.keywordSearch-email {
 
                 <div class='form-group col-sm-12' style="margin-top: 30px;">
                   <div class="form-wizard-buttons">
-                    <button type="button" class="btn" style="background:#005898;">Save Draft</button>
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="button" class="btn btn-next">Next</button>
+                    <button type="button" class="btn" style="background:#e72026;"><i class="fa fa-save"></i> Save Draft</button>
+                    <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
                   </div>
                 </div>
     </fieldset>
@@ -1415,21 +1321,19 @@ li.keywordSearch-email {
 	                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%"> </div>
 	        </div>
                 <!-- Progress Bar -->
-           <div class="row" style="margin-bottom:15px;">
+             <div class="row" style="margin-bottom:15px;">
                      <div class="col-md-12">
                        <div class="col-md-12" style="background:#f5f5f5; padding-top:15px; padding-bottom:15px;">
                          <div class="col-md-12">
-                           <div class="col-md-11">
+                          
                              <div class="pull-left" style="width:4%;">
                                <img src="../assets/images/ques.png" alt="">
                              </div>
                              <div class="pull-left" style="width:96%;">
                                <p style="line-height:23px;">Your Event Highlights includes list of Invited Guest Speaker, Guest Artist, Special Activities etc </p>
                              </div>
-                           </div>
-                           <div class="col-md-1">
-                             <h4> <span>Step 5 - 8</span></h4>
-                           </div>
+
+                       
                          </div>
                        </div>
                      </div>
@@ -1450,8 +1354,8 @@ li.keywordSearch-email {
 		                         <input type="file" style="display:none;" name="event_highlight1" id="video_size1" class="file">
 
 			                     	<div id="video_show1" style="display: none;" >
-			                     		<div class="remove_video1" style="cursor: pointer;">
-		                          			<i class="fa fa-times-rectangle" style="font-size:25px; margin-left: 171px;"></i>
+			                     		<div class="remove_video1" style="cursor: pointer; position:absolute; top: 107px; left: 210px; z-index:9999;">
+		                          			<img src="<?php echo base_url('assets/images/wow-close.png'); ?>" />
 		                        		</div>
 			                        	<video width="200" height="110" controls>
 										 	 <source src="mov_bbb.mp4" id="video_here1">
@@ -1475,13 +1379,13 @@ li.keywordSearch-email {
 	                  </select>
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <input type="text" name="nameofspeaker1" id="textbox_1" class="form-control" placeholder="Enter Name Of Speaker/Artist/Event Clips">
+	                  <input type="text" name="nameofspeaker1" id="textbox_1" class="form-control" placeholder="Enter Name Of Speaker/Artist/Event Clips" autocomplete="off">
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <input type="text" name="guest_url1" id="textbox_2" class="form-control" placeholder="Event Guest Speaker/Artist URL-Links">
+	                  <input type="text" name="guest_url1" id="textbox_2" class="form-control" placeholder="Event Guest Speaker/Artist URL-Links" autocomplete="off">
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <textarea class="form-control" name="guest_speaker1" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;"></textarea>
+	                  <textarea class="form-control" name="guest_speaker1" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" autocomplete="off"></textarea>
 	                </div>
                 </div>
                 		<br><br>
@@ -1501,8 +1405,8 @@ li.keywordSearch-email {
 	                      	
 
 	                     	<div id="video_show2" style="display: none;" >
-	                     		<div class="remove_video2" style="cursor: pointer;">
-		                          	<i class="fa fa-times-rectangle" style="font-size:25px;margin-left: 171px;"></i>
+	                     		<div class="remove_video2" style="cursor: pointer; position:absolute; top: 67px; left: 210px; z-index:9999;">
+		                          	<img src="<?php echo base_url('assets/images/wow-close.png'); ?>" />
 		                        </div>
 	                        	<video width="200" height="110" controls>
 								 	 <source src="mov_bbb.mp4" id="video_here2">
@@ -1525,13 +1429,13 @@ li.keywordSearch-email {
 	                  </select>
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <input type="text" name="nameofspeaker2" id="textbox_1" class="form-control" placeholder="Enter Name Of Speaker/Artist/Event Clips">
+	                  <input type="text" name="nameofspeaker2" id="textbox_1" class="form-control" placeholder="Enter Name Of Speaker/Artist/Event Clips" autocomplete="off">
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <input type="text" name="guest_url2" id="textbox_2" class="form-control" placeholder="Event Guest Speaker/Artist URL-Links">
+	                  <input type="text" name="guest_url2" id="textbox_2" class="form-control" placeholder="Event Guest Speaker/Artist URL-Links" autocomplete="off"> 
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <textarea class="form-control" name="guest_speaker2" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;"></textarea>
+	                  <textarea class="form-control" name="guest_speaker2" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" autocomplete="off"></textarea>
 	                </div>
                 </div>
             </div>
@@ -1583,9 +1487,11 @@ li.keywordSearch-email {
                 
                 <div class='form-group col-sm-12' style="margin-top: 30px;">
                   <div class="form-wizard-buttons">
-                    <button type="button" class="btn" style="background:#005898;">Save Draft</button>
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="button" class="btn btn-next">Next</button>
+                   <div class="form-wizard-buttons">
+                    <button type="button" class="btn" style="background:#e72026;"><i class="fa fa-save"></i> Save Draft</button>
+                    <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
+                  </div>
                   </div>
                 </div>
     </fieldset>
@@ -1603,7 +1509,7 @@ li.keywordSearch-email {
                      <div class="col-md-12">
                        <div class="col-md-12" style="background:#f5f5f5; padding-top:15px; padding-bottom:15px;">
                          <div class="col-md-12">
-                           <div class="col-md-11">
+                         
                              <div class="pull-left" style="width:4%;">
                                <img src="../assets/images/ques.png" alt="">
                              </div>
@@ -1611,10 +1517,7 @@ li.keywordSearch-email {
                                <p style="line-height:23px;">Enter the event host details on this page  and also select how your event attendee can contact your organisation</p>
                              </div>
                            </div>
-                           <div class="col-md-1">
-                             <h4> <span>Step 6 - 8</span></h4>
-                           </div>
-                         </div>
+                           
                        </div>
                      </div>
                 </div>
@@ -1625,7 +1528,7 @@ li.keywordSearch-email {
                   <div class="form-group col-sm-12">
                   <div class="pull-left" style="width:80%;">
                     <label> Contact Person Name </label>
-                    <input type="text" class="form-control"  name="contact_persona_name" placeholder="" >
+                    <input type="text" class="form-control" name="contact_persona_name" autocomplete="off">
                     </div>
                     <div class="pull-left" style="width:17%; margin-left:3%; margin-top:15px;">
                   
@@ -1672,14 +1575,14 @@ li.keywordSearch-email {
                   </div>
                   <div class="form-group col-sm-12">
                     <label>Event Host Message</label>
-                    <textarea type="text" class="form-control"  name="eventcontactmsg" placeholder=""></textarea>
+                    <textarea type="text" class="form-control" name="eventcontactmsg" autocomplete="off"></textarea>
                   </div></div>
                   
                   <div class="col-md-6">
                   <div class="form-group col-sm-12">
                     <label> Enter Keyword Search </label>
-                   <input type="text" id="keyword_search" class="form-control" name="keyword[]" style="margin-bottom: 15px;" value="">                   
-                     <span style="color: #e91e63; font-size: 17px; text-transform: capitalize;"  id="keyword_show" value=""> </span>
+                   <input type="text" id="keyword_search" class="form-control" name="keyword[]" style="margin-bottom: 15px;" autocomplete="off" >                   
+                     <span style="color: #e91e63; font-size: 17px; text-transform: capitalize;"  id="keyword_show"> </span>
                   </div>
                  
                   
@@ -1728,12 +1631,23 @@ li.keywordSearch-email {
                 </div>
 
                 <br>
-
-                <div class='form-group col-sm-12' style="margin-top: 30px;">
+<div class="col-md-6" >
+                <div class="col-md-12" >
+                <div class="col-md-12" >
+			                      <div class="pull-left btn-next" style="margin-right:3px;">
+			                        <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+			                      </div>
+			                      <div  class="pull-left text-left">
+			                        <label>Plan for Event Tours on Multiple Cities</label>
+			                      </div>   
+                                  </div> 
+                                   </div>                   
+		        </div> 
+                <div class='form-group col-sm-6' style="margin-top: 30px;">
                   <div class="form-wizard-buttons">
-                  <button type="button" class="btn" style="background:#005898;">Save Draft</button>
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="button" class="btn btn-next">Next</button>
+                    <button type="button" class="btn" style="background:#e72026;"><i class="fa fa-save"></i> Save Draft</button>
+                    <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
                   </div>
                 </div>
     </fieldset> 
@@ -1748,34 +1662,30 @@ li.keywordSearch-email {
                 <!-- Progress Bar -->
                  <div class="row">
                   <div class="col-md-3">
-                    <div class='form-group col-sm-12'> <a class="btn-next" href="JavaScript:void(0);"><i class="fa fa-fast-forward"></i> Skip  Event Does not have Event Tours</a> </div>
+                    <div class='form-group col-sm-12'> <a class="btn-next" href="JavaScript:void(0);"><i class="fa fa-fast-forward"></i> Skip- Event doesn't have Event Tours</a> </div>
                   </div>
-                  <div class="col-md-8">
-                           <div class="col-md-11">
+                 <div class="col-md-9">
+               
                              <div class="pull-left" style="width:6%;">
                                <img src="../assets/images/ques.png" alt="">
                              </div>
                              <div class="pull-left" style="width:94%;">
                                <p style="line-height:23px;">For Event taking place in Multiple Cities Across The Globe We Got You Covered</p>
                              </div>
-                           </div>
+                         
                    </div>
-                  <div class="col-md-1">
-                    <div class="pull-right">
-                      <h4> <span>Step 7 - 8</span></h4>
-                    </div>
-                  </div>
+                 
                 </div>
 
                 <div class='col-sm-5'>
            					  <div class='col-sm-12' >
-           					  		<div class='col-sm-3'>
-           					  			<label>Evnt Tour City</label>
+           					  		<div class='col-sm-3' >
+           					  			<label>Event City</label>
            					  		</div>
            					  		<div class='col-sm-4'>
            					  			<label>Date</label>
            					  		</div>
-           					  		<div class='col-sm-4'>
+           					  		<div class='col-sm-5'>
            					  			<label>Ticket URL</label>
            					  		</div>
            					  	 <div id="show_tours">
@@ -1787,47 +1697,47 @@ li.keywordSearch-email {
 
 		                    <div class='form-group col-sm-12' style="margin-top:20px;">
 		                      <label>Enter Your Event Venue / location Name</label>		                      
-		                      <input type='text' id="event_tour_name_1" name="event_tour_name[]"  class="form-control textBox" />
+		                      <input type='text' id="event_tour_name_1" name="event_tour_name[]" class="form-control" autocomplete="off" />
 		                    </div>
 
 		                    <div class='form-group col-sm-6'>
 		                      <label>Event Start Date</label>
-		                      <input type='text' id="tour_startdate_1" name="eventtour_startdate[]"  class="event_startdate form-control" onblur="update_tour()" />
+		                      <input type='text' id="tour_startdate_1" name="eventtour_startdate[]" class="event_startdate form-control" onblur="update_tour()" autocomplete="off"/>
 		                    </div>
 
 		                    <div class='form-group col-sm-6'>
 		                      <label>Event Start Time</label>
-		                      <input type='text' id="tour_startime_1" name="eventtour_startime[]"  class="event_startime form-control "  />
+		                      <input type='text' id="tour_startime_1" name="eventtour_startime[]" class="event_startime form-control" autocomplete="off" />
 		                    </div>
 		                   
 		                    <div class='form-group col-sm-6' >
 		                      <label>Event End Date</label>
-		                      <input type='text' id="tour_enddate_1" name="eventtour_enddate[]"  class="event_enddate form-control " onblur="update_tour()"/>
+		                      <input type='text' id="tour_enddate_1" name="eventtour_enddate[]" class="event_enddate form-control" onblur="update_tour()" autocomplete="off"/>
 		                    </div>
 
 		                    <div class='form-group col-sm-6'>
 		                      <label>Event End Time</label>
-		                      <input type='text' id="tour_endtiming_1" name="eventtour_endtiming[]"  class="event_endtiming form-control "  />
+		                      <input type='text' id="tour_endtiming_1" name="eventtour_endtiming[]" class="event_endtiming form-control"  autocomplete="off" />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>Address 1</label>
-		                      <input type='text' id="tour_address1_1" name="tour_address1[]"  class="form-control"  />
+		                      <input type='text' id="tour_address1_1" name="tour_address1[]" class="form-control" autocomplete="off" />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>Address 2</label>
-		                      <input type='text' id="tour_address2_1" name="tour_address2[]"  class="form-control"  />
+		                      <input type='text' id="tour_address2_1" name="tour_address2[]" class="form-control" autocomplete="off" />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>City</label>
-		                      <input type='text' id="tour_city_1" name="tour_city[]" class="form-control" onblur="update_tour()"/>
+		                      <input type='text' id="tour_city_1" name="tour_city[]" class="form-control" onblur="update_tour()" autocomplete="off"/>
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>	
 		                    	 <label>Country</label>	                  
-		                          	<select id="tour_country_1" name="tour_country[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> 
+		                          	<select id="tour_country_1" name="tour_country[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;" autocomplete="off"> 
                                            <option value="">Country </option> 
                                             <option value="Afghanistan">Afghanistan </option>
                                             <option value="Albania">Albania </option>
@@ -1904,17 +1814,17 @@ li.keywordSearch-email {
 
 		                    <div class='form-group col-sm-6'>
 		                      <label>Ticket URL</label>
-		                      <input type='text' id="ticket_url_1" name="tour_ticket_url[]" class="form-control" onblur="update_tour()"/>
+		                      <input type='text' id="ticket_url_1" name="tour_ticket_url[]" class="form-control" onblur="update_tour()" autocomplete="off"/>
 		                    </div>
 
 		                    <div class='form-group col-sm-6'>
 		                      <label>Ticket Price</label>
-		                      <input type='text' id="ticket_price_1" name="tour_ticket_price[]" class="form-control" />
+		                      <input type='text' id="ticket_price_1" name="tour_ticket_price[]" class="form-control" autocomplete="off" />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>Zipcode/ Postal Code</label>
-		                      <input type='text' id="tour_zipcode_1" name="tour_zipcode[]"  class="form-control"  />
+		                      <input type='number' id="tour_zipcode_1" name="tour_zipcode[]"  class="form-control" autocomplete="off" />
 		                    </div>
                		</div>
             	</div> 
@@ -1923,13 +1833,13 @@ li.keywordSearch-email {
                    <div class='col-sm-12'> 
                     	<div class='col-sm-4'>
                     		<a href="JavaScript:void(0);" id="add_event_tour" data-nxt_event_tour="2"> <!-- id="add_event_tour" -->
-                    		<i class="fa fa-plus-circle"></i> Add multiple Tour </a>
+                    		<i class="fa fa-plus-circle"></i> Add Multiple Tour </a>
                     	</div>
                     	<div style="overflow:hidden;">
 						 	
 							    <div class="col-md-8">
-							      <a href="JavaScript:void(0);" id="prevButton" onclick="nextPreview(-1)">Previous</a>
-							      <a href="JavaScript:void(0);" id="nextButton" onclick="nextPreview(1)" style="margin-left: 35px;"> Next</a>
+							      <a href="JavaScript:void(0);" id="prevButton" onclick="nextPreview(-1)"><i class="fa fa-arrow-left"></i> Previous</a>
+							      <a href="JavaScript:void(0);" id="nextButton" onclick="nextPreview(1)" style="margin-left: 35px;"> Next <i class="fa fa-arrow-right"></i></a>
 							    </div>					
 						</div>                     
                    </div> 
@@ -1940,7 +1850,7 @@ li.keywordSearch-email {
                   	<div class='row'>
                   			<div class='form-group-1 col-sm-12'>	
                   			 		<label>Select Number of cities for your upcoming Events</label>
-				                    <select name="tour_noof_city" id="btn-add-tab" class="form-control " >
+				                    <select name="tour_noof_city" id="btn-add-tab" class="form-control" autocomplete="off" >
 				                      <option value="">Select Cities</option>				                     
 				                      <option value="2">2 Cities Event/Tours</option>
 				                      <option value="3">3 Cities Event/Tours</option>
@@ -2026,11 +1936,11 @@ li.keywordSearch-email {
                     </div>
                   </div>
                 </div>
-                <div class='col-sm-12'>
+              <div class='col-sm-12'>
                   <div class="form-wizard-buttons">
-                    <button type="button" class="btn" style="background:#005898;">Save Draft</button>
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="button" class="btn btn-next">Next</button>
+                    <button type="button" class="btn" style="background:#e72026;"><i class="fa fa-save"></i> Save Draft</button>
+                    <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
                   </div>
                 </div>
                 
@@ -2052,17 +1962,14 @@ li.keywordSearch-email {
                      <div class="col-md-12">
                        <div class="col-md-12" style="background:#f5f5f5; padding-top:15px; padding-bottom:15px;">
                          <div class="col-md-12">
-                           <div class="col-md-11">
+                           
                              <div class="pull-left" style="width:4%;">
                                <img src="../assets/images/ques.png" alt="">
                              </div>
                              <div class="pull-left" style="width:96%;">
                                <p style="line-height:23px;">Choose From The Tabs Below How Your Event Audience Will Engage With Your Event Post</p>
                              </div>
-                           </div>
-                           <div class="col-md-1">
-                             <h4> <span>Step 8 - 8</span></h4>
-                           </div>
+                         
                          </div>
                        </div>
                      </div>
@@ -2153,8 +2060,8 @@ li.keywordSearch-email {
 	                    </div>
                     <div class='form-group col-sm-7'>               
                    		<div class='form-group col-sm-12' style="background:#f5f5f5; padding:15px 10px; margin-top:5px;">
-                    		<div class="col-md-12" style="margin-bottom:15px;"><h5>What Information Will you like to ask for from you would be event attendees<br> <br>
-							<span style="color:#333;">Event Attendee Information</span></h5></div>
+                    		<div class="col-md-12" style="margin-bottom:15px;"><!--What Information Will you like to ask for from you would be event attendees-->
+							<span style="color:#e91e63; font-weight:bold; font-size:13px;">Event Attendee Information</span></div>
 		                    <div class="col-md-12" style="margin-top:15px;">
 			                      <div class="pull-left" style="width:5%;">
 			                        	<input type="checkbox" name="audience_full_name" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
@@ -2247,7 +2154,7 @@ li.keywordSearch-email {
                 	<div class='form-group col-sm-5'>
                      
                    		<div class='form-group col-sm-12' style="background:#f5f5f5; padding:15px 10px; margin-top:5px;">
-                    				<div class="col-md-12" style="margin-bottom:5px;"><h5>Select Your Event Promotion Options<br> <br>
+                    				<div class="col-md-12" style="margin-bottom:5px;"><h5>Select Your Event Promotion Options<br>
 									</h5></div>
                      		<div class="form-group col-md-12">
 				                        <div class="form-group col-md-12">
@@ -2322,7 +2229,7 @@ li.keywordSearch-email {
 			                      		</div>
 
 			                     	 	<div style="width:40%;" class="pull-left text-left">
-			                       		 	 <input type='text' name="url_ticketurl[]"  class="form-control textBox" placeholder="Ticket URLs">
+			                       		 	 <input type='text' name="url_ticketurl[]"  class="form-control" placeholder="Ticket URLs">
 			                      		</div>
 
 			                      		<div style="width:50%;" class="pull-right text-left">
@@ -2347,7 +2254,7 @@ li.keywordSearch-email {
 				                        <input type="checkbox" name="url_donation_url_check"  style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 				                      </div>
 				                      <div style="width:95%;" class="pull-left text-left">
-				                        <input type='text' name="url_donation_url"  class="form-control textBox" placeholder="Donation URLs">
+				                        <input type='text' name="url_donation_url"  class="form-control" placeholder="Donation URLs">
 				                      </div>
 			                    </div>
 			                    <div class="col-md-12" style="margin-top:15px;">
@@ -2355,7 +2262,7 @@ li.keywordSearch-email {
 				                        <input type="checkbox" name="url_website_url_check" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 				                      </div>
 				                      <div style="width:95%;" class="pull-left text-left">
-				                        <input type='text' name="url_website_url"  class="form-control textBox" placeholder="Website URLs">
+				                        <input type='text' name="url_website_url"  class="form-control" placeholder="Website URLs">
 				                      </div>		                      
 			                    </div>
 		                      	<div class="col-md-12" style="margin-top:15px;">
@@ -2363,7 +2270,7 @@ li.keywordSearch-email {
 				                        <input type="checkbox" name="url_donthave_link" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 				                      </div>
 				                      <div style="width:95%;" class="pull-left text-left">
-				                        <input type='text'   class="form-control textBox" placeholder="Event Don't Have URLs">
+				                        <input type='text' class="form-control" placeholder="Event Don't Have URLs">
 				                      </div>                      
 		                      	</div>                   
                 			</div>
@@ -2373,7 +2280,7 @@ li.keywordSearch-email {
                      
                    		<div class='form-group col-sm-12' style="background:#f5f5f5; padding:15px 10px; margin-top:5px;">
 
-                    		<div class="col-md-12" style="margin-bottom:5px;"><h5>Select Your Event Promotion Options<br> <br>
+                    		<div class="col-md-12" style="margin-bottom:5px;"><h5 style="color:#e91e63; font-size:13px; font-weight:bold;" >Select Your Event Promotion Options<br> 
 							</h5></div>
 
                     		<div class="form-group col-md-12">
@@ -2439,20 +2346,20 @@ li.keywordSearch-email {
                     			<div class="col-md-12" style="margin-bottom:15px;"><h5>Event Attendee Information<br> </h5></div>
 			                    <div class='form-group col-sm-12 text-left' >
 			                      	<label>Coupon Title/Code</label>
-			                      	<input type='text' name="coupon_code"  class="form-control textBox" />
+			                      	<input type='text' name="coupon_code"  class="form-control" />
 			                    </div>
 
 			                    <div class='form-group col-sm-12 text-left' >
 			                      <label>Coupon Expiry Date</label>
 			                      <div class="input-group">
 								      <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>						     
-			                     	  <input type='text' name="coupon_ex_date" id="coupon_ex_date" class="form-control textBox" />
+			                     	  <input type='text' name="coupon_ex_date" id="coupon_ex_date" class="form-control" />
 			                      </div>
 			                    </div>
 
 			                    <div class='form-group col-sm-12 text-left' >
 			                      <label>Coupon Terms &amp; Conditions</label>
-			                      <textarea  name="terms_condition"  class="form-control textBox" style="min-height:120px;"></textarea>
+			                      <textarea  name="terms_condition"  class="form-control" style="min-height:120px;"></textarea>
 			                    </div>
 			                    <div class="form-group col-sm-12 ">
 				                    <div class="col-sm-12" style="background-color:#f9f9f9; padding-top:15px;">
@@ -2507,9 +2414,10 @@ li.keywordSearch-email {
                 <br>
                 <div class='form-group col-sm-12' style="margin-top: 30px;">
                   <div class="form-wizard-buttons">
-                  <button type="button" class="btn" style="background:#005898;">Save Draft</button>
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="submit" class="btn btn-next">Publish</button>
+                  	<button type="button" class="btn" style="background:#e72026;"><i class="fa fa-save"></i> Save Draft</button>
+                    <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="submit" class="btn btn-next">Publish <i class="fa fa-thumbs-up"></i></button>
+                 	
                   </div>
                 </div>
     </fieldset>
@@ -2521,7 +2429,7 @@ li.keywordSearch-email {
 			                                    <div class="modal-content">
 			                                    
 			                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			                                        <h4 class="modal-title" style="text-align:center;">Select Group Name </h4>
+			                                         <h4 class="modal-title" style="text-align:center; font-size:18px; padding:10px; background-color:#FDF2F5; border-radius:7px; margin-bottom:10px;">Select Group Name </h4>
 			                                        <?php                            
 						                               foreach ($group_name as $groups)
 						                                {                     
@@ -2543,9 +2451,9 @@ li.keywordSearch-email {
 							                            </div>
 							                        <?php } ?>  				                        
 
-			                                      <div class="modal-footer">                                       
-			                                        <button type="button" class="btn cancel btn-primary" data-dismiss="modal">Submit</button>
-			                                      </div>
+			                                    <div class="modal-footer" style="border:none;">                                       
+                                        		<button type="button" class="btn cancel btn-primary" data-dismiss="modal" style="width:100%; border-radius:7px;"><i class="fa fa-paper-plane"></i> Submit</button>
+                                      			</div>
 			                                   
 			                                  </div>                                  
 			                                </div>
@@ -3116,9 +3024,9 @@ $(document).ready(function() {
           var file = e.target;
           $("<span class=\"pip\">" +
             "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
-            "<br/><span class=\"remove\">Remove image</span>" +
+            "<br/><span class=\"log_remove\">Remove image</span>" +
             "</span>").insertAfter("#logo");
-          $(".remove").click(function(){
+          $(".log_remove").click(function(){
             $(this).parent(".pip").remove();
             $('#logo').val("");
           });          
@@ -3165,7 +3073,7 @@ $(document).on("change", "#video_size1", function(evt)
 
 		                });   
 
-		              $(".pip").remove();
+		              $(".pip1").remove();
 		          			  
 				 	}
     	
@@ -3182,13 +3090,13 @@ $(document).on("change", "#video_size1", function(evt)
 		          var file = evt.target;
 		          $('#video_show1').hide();    
 
-		          $("<span class=\"pip\">" +
+		          $("<span class=\"pip1\">" +
 		            "<img class=\"imageThumb\" src=\"" + evt.target.result + "\" title=\"" + file.name + "\"/>" +
-		            "<br/><span class=\"remove1\">Remove image</span>" +
+		            "<br/><span class=\"hghlight1_remove\">Remove image</span>" +
 		            "</span>").insertAfter("#video_size1");
 
-		          $(".remove1").click(function(){
-		            $(this).parent(".pip").remove();
+		          $(".hghlight1_remove").click(function(){
+		            $(this).parent(".pip1").remove();
 		            $('#video_size1').val("");
 
 		          });          
@@ -3234,7 +3142,7 @@ $(document).on("change", "#video_size2", function(evt)
 
 		                });   
 
-		              $(".pip").remove();
+		              $(".pip2").remove();
 		          			  
 				 	}
     	
@@ -3251,13 +3159,13 @@ $(document).on("change", "#video_size2", function(evt)
 		          var file = evt.target;
 		          $('#video_show2').hide(); 
 
-		          $("<span class=\"pip\">" +
+		          $("<span class=\"pip2\">" +
 		            "<img class=\"imageThumb\" src=\"" + evt.target.result + "\" title=\"" + file.name + "\"/>" +
-		            "<br/><span class=\"remove1\">Remove image</span>" +
+		            "<br/><span class=\"hghlight2_remove\">Remove image</span>" +
 		            "</span>").insertAfter("#video_size2");
 
-		          $(".remove1").click(function(){
-		            $(this).parent(".pip").remove();
+		          $(".hghlight2_remove").click(function(){
+		            $(this).parent(".pip2").remove();
 		            $('#video_size2').val("");
 		          });          
 	                   
@@ -3330,7 +3238,7 @@ $(document).on('click', '.remove_faq', function(e)
 //dynamic add ticket url
 
 function generete_dynamic_ticket(count){
-	var ticket = '<div class="col-md-12" style="margin-top:15px;" id="dynamicticket_'+count+'"> <div class="pull-left" style="width:5%;"> <input type="hidden" name="ticket_url_check[]"  value="off" > <input type="checkbox" class="checkbox" value="on" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;"> </div> <div style="width:40%;" class="pull-left text-left"> <input type="text" name="url_ticketurl[]"  class="form-control textBox" placeholder="Ticket URLs"> </div> <div style="width:50%;" class="pull-right text-left"> <select name="url_country[]" id="days" class="form-control" style="background-color:#eff0f1;"> <option value="">Country</option> <option value="Afghanistan">Afghanistan</option> <option value="Albania">Albania</option> <option value="Algeria">Algeria</option> <option value="American Somoa">American Somoa</option> <option value="Angola">Angola</option> <option value="Antartica">Antartica</option> </select> </div> </div>'
+	var ticket = '<div class="col-md-12" style="margin-top:15px;" id="dynamicticket_'+count+'"> <div class="pull-left" style="width:5%;"> <input type="hidden" name="ticket_url_check[]"  value="off" > <input type="checkbox" class="checkbox" value="on" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;"> </div> <div style="width:40%;" class="pull-left text-left"> <input type="text" name="url_ticketurl[]"  class="form-control" placeholder="Ticket URLs"> </div> <div style="width:50%;" class="pull-right text-left"> <select name="url_country[]" id="days" class="form-control" style="background-color:#eff0f1;"> <option value="">Country</option> <option value="Afghanistan">Afghanistan</option> <option value="Albania">Albania</option> <option value="Algeria">Algeria</option> <option value="American Somoa">American Somoa</option> <option value="Angola">Angola</option> <option value="Antartica">Antartica</option> </select> </div> </div>'
 
 	return ticket;
 }
@@ -3539,14 +3447,19 @@ var base_url = '<?php echo base_url() ?>'; //form submited
                 {
                    if(response.status == 'success')
                    {
+                   		swal({
+		                        title: "Success!",
+		                        text: "Your Event Created Successfully...",
+		                        type: "success",
+		                        timer: 5000
+		                        }).then(() => {                     
+		                   						window.location.href = "<?php echo base_url('event/get_eventfeed'); ?>";
+		                   					});;  
                    
-                    window.location.href = "<?php echo base_url('event/get_eventfeed'); ?>";
-                   
-                    }else 
-                   {
+                    }else{ 
                     
-                    swal("Sorry!", "Oops!! Something Went Wrong! Please Try Again !", "error");
-                   }          
+                    	swal("Sorry!", "Oops!! Something Went Wrong! Please Try Again !", "error");
+                    }          
                 }
 
             });

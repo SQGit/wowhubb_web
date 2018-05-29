@@ -34,18 +34,32 @@
 <link rel="shortcut icon" type="image/png" href="<?php echo base_url ('assets/images/fav.png') ?>"/>
 <style type="text/css">
 
-.textBox {
-		background-image: url(./assets/images/designation-icon.png);
-		background-position: 0 5px;
-		background-size: 30px;
-		background-repeat: no-repeat;
-		padding-left: 17px;
-	}
+
+	.form-wizard .btn.btn-previous, .form-wizard .btn.btn-previous:focus, .form-wizard .btn.btn-previous:active:focus, .form-wizard .btn.btn-previous.active:focus {
+    background: #888888!important;
+}
 	/*popup close button  */
 	.large.tooltip-inner {
 		max-width: 350px;
 		width: 350px;
 	}
+	.form-wizard h3 {
+    font-size: 13px;
+    font-weight: bold;
+    color: #e91e63;
+    line-height: 20px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    text-transform: none;
+}
+.form-wizard h4 {
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+    color: #e91e63;
+    line-height: 26px;
+    width: 100%;
+}
 	#footer {
 		background: #fff;
 		position: relative;
@@ -61,8 +75,7 @@
 		background: #fff none repeat scroll 0 0;
 		border: 1px solid rgb(197, 194, 195);
 		border-radius: 4px;
-		font-family: 'Source Sans Pro', sans-serif;
-		font-size: 14px;
+		font-size: 13px;
 		font-weight: normal;
 		color: #333;
 		-moz-border-radius: none;
@@ -100,7 +113,7 @@
 		outline: none;
 	}
 	
-	#btnAdd10{
+	#btnAdd10, #btnremove,#remove_day{
 		background-image: url("<?php echo base_url('assets/images/close-outline-32.png')?>");
 		background-repeat: no-repeat;
 		border: none;
@@ -110,53 +123,10 @@
 		color: transparent;
 		background-color: transparent;
 		outline: none;
+		background-position:74px -2px;
 	}
-	#textAdd {
-		background-image: url("<?php echo base_url('assets/images/Plus.png')?>");
-		background-size: cover;
-		border: none;
-		width: 32px;
-		height: 32px;
-		cursor: pointer;
-		color: transparent;
-		background-color: transparent;
-		outline: none;
-	}
-	#imageUpload1 {
-		display: none;
-	}
-	#profileImage1 {
-		cursor: pointer;
-	}
-	#profile-container1 {
-		width: 150px;
-		height: 150px;
-	}
-	#imageUpload2 {
-		display: none;
-	}
-	#profileImage2 {
-		cursor: pointer;
-	}
-	#imageUpload3 {
-		display: none;
-	}
-	#profileImage3 {
-		cursor: pointer;
-	}
-	#imageUpload4 {
-		display: none;
-	}
-	#profile-container4 {
-		width: 150px;
-		height: 150px;
-	}
-	#imageUpload5 {
-		display: none;
-	}
-	#profileImage5 {
-		cursor: pointer;
-	}
+	
+	
 	.faq-cat-content {
 		margin-top: 25px;
 	}
@@ -314,7 +284,7 @@
 	    margin: 0;
 	    padding: 0 20px;
 	    border: none;
-	    font-family: 'Lato', sans-serif;
+	    
 	    font-size: 16px;
 	    font-weight: normal;
 	    line-height:30px;
@@ -407,6 +377,34 @@ img, #img_files4 {
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
 }
+.step-icn
+{
+	width: 48px;
+    height: 48px;
+    margin-top: 0;
+    background: #e91e63;
+    font-size: 22px;
+    line-height: 48px;
+	border-radius:50%;
+	color:#fff;
+	padding:0px 15px;
+}
+.form-wizard-steps {
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    margin-top: 9px;
+}
+.progress {
+    height: 10px;
+    margin-bottom: 11px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    margin-top: 0px;
+}
 </style>
 </head>
 
@@ -428,6 +426,7 @@ img, #img_files4 {
       </nav>
   </header>
 <!--Header End-->
+<!-- breadcrumb for page link -->
 
 <div class="google-maps"> </div>
 <!--Header End-->
@@ -444,9 +443,7 @@ img, #img_files4 {
           <div class="col-md-10 form-wizard form-body-classic form-header-classic" style="min-width:1200px;"> 
             
             
-            <h3>Create Your Event</h3>
-            <p>Please fill information to a create an event </p>
-            
+          
             
       <img src="../assets/images/buss-banner.jpg" class="img-thumbnail"  alt="banner-image"/>
       
@@ -459,35 +456,35 @@ img, #img_files4 {
               <!-- Step 1 -->
               <div class="form-wizard-step active">
                 <div class="form-wizard-step-icon"><i class="fa fa-child" aria-hidden="true"></i></div>
-                <p>Sales Event Details</p>
+                <p>1.Sales Event Details</p>
               </div>
               <!-- Step 1 --> 
               
               <!-- Step 2 -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-exclamation" aria-hidden="true"></i></div>
-                <p>!Wowtag</p>
+                <p>2.!Wowtag</p>
               </div>
               <!-- Step 2 --> 
               
               <!-- Step 3 -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
-                <p>Sales Event Links</p>
+                <p>3.Sales Event Links</p>
               </div>
               <!-- Step 3 --> 
               
               <!-- Step 4  -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-briefcase" aria-hidden="true"></i></div>
-                <p>Sales Event Offerings</p>
+                <p>4.Sales Event Offerings</p>
               </div>
               <!-- Step 4 --> 
               
               <!-- Step 5 -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-flash" aria-hidden="true"></i></div>
-                <p>Publish &amp; Promote</p>
+                <p>5.Publish &amp; Promote</p>
               </div>
               
             </div>
@@ -501,28 +498,25 @@ img, #img_files4 {
 		                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="14.28" aria-valuemin="0" aria-valuemax="100" style="width: 14.28%"> </div>
 		                </div>
 		                <!-- Progress Bar -->
-		                <h4> <span>Step 1 - 5</span></h4>
+
 		            <div class='col-sm-5'>
 
 		                <div class='row'>
-			                  <div class='form-group col-sm-12' style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63;">Sales Event Objective</div>
+			                  <div class='form-group col-sm-12' style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63; font-weight:bold;">Sales Event Objective</div>
 			                  	 
-			                  	 <div class='form-group col-sm-12' style="display: none;" >
-			                      <label>Event Type</label>
-			                      <input type='text' name="event_type"  class="form-control textBox" value="<?php echo $this->session->userdata('event_type'); ?>" />
-			                    </div>  
+			                  	 
 			                    <div class='form-group col-sm-12' >
 			                      <label>Event Category</label>
-			                      <input type='text' name="event_category"  class="form-control textBox" value="<?php echo $this->session->userdata('event_category'); ?>"  readonly/>
+			                      <input type='text' name="event_category"  class="form-control" value="<?php echo $this->session->userdata('event_category'); ?>"  readonly/>
 			                    </div>
 
 			                    <div class='form-group col-sm-12' >
 			                      <label>Sales Event Campaign Objective</label>
-			                      <input type='text' name="brand_awareness"  class="form-control textBox" value="<?php echo $this->session->userdata('campaign_objective'); ?>" readonly/>
+			                      <input type='text' name="brand_awareness"  class="form-control" value="<?php echo $this->session->userdata('campaign_objective'); ?>" readonly/>
 			                    </div>
 			                    <div class='form-group col-sm-12' >
 			                      <label>Event Name</label>
-			                      <input type='text' id="event_date" name="event_name"  class="form-control" />
+			                      <input type='text' id="event_date" name="event_name"  class="form-control required" autocomplete="off" />
 			                    </div>
 		                </div>
 
@@ -530,23 +524,23 @@ img, #img_files4 {
 	                    
 			                    <div class='form-group col-sm-6' style="width:45%;" >
 			                      <label>Sales Event Start Date</label>
-			                      <input type='text' id="event_startdate" name="event_startdate"  class="form-control "  />
+			                      <input type='text' id="event_startdate" name="event_startdate" class="form-control required" autocomplete="off" />
 			                    </div>
 
 			                    <div  class='form-group col-sm-6' style="width:45%; " >
 			                      <label>Sales Event Start Time</label>
-			                      <input type='text' id="event_startime" name="event_startime"  class="form-control "  />
+			                      <input type='text' id="event_startime" name="event_startime" class="form-control required" autocomplete="off" />
 			                    </div>
 
 			                   
 			                    <div class='form-group col-sm-6' style="width:45%;" >
 			                      <label>Sales Event End Date</label>
-			                      <input type='text' id="event_enddate" name="event_enddate"  class="form-control " />
+			                      <input type='text' id="event_enddate" name="event_enddate"  class="form-control required" autocomplete="off" />
 			                    </div>
 
 			                    <div class='form-group col-sm-6' style="width:45%;">
 			                      <label>Sales Event End Time</label>
-			                      <input type='text' id="event_endtiming" name="event_endtiming"  class="form-control "  />
+			                      <input type='text' id="event_endtiming" name="event_endtiming"  class="form-control required" autocomplete="off" />
 			                    </div>
 	                   
 	                  		</div>
@@ -557,7 +551,7 @@ img, #img_files4 {
 			                <div class='row'>
 			                    <div class='form-group col-sm-12'>
 			                      <label>Event Description</label>
-			                      <textarea type='text' id="description" name="event_description"  class="form-control" style="min-height:300px;" placeholder="Describe What Your Event Is All About " ></textarea>
+			                      <textarea type='text' id="description" name="event_description"  class="form-control required" style="min-height:300px;" placeholder="Describe What Your Event Is All About " autocomplete="off"></textarea>
 			                    </div>
 
 			                    <div class='form-group col-sm-12'>
@@ -567,7 +561,7 @@ img, #img_files4 {
 						                    <div class="form-group" style="margin-bottom: 10px;"> 
 							                    <div class="field" align="left">
 							                        <input type="button" class="btn btn-primary"  value="Browse..." onclick="document.getElementById('files').click();" />
-							                        <input type="file" style="display:none;" name="cover_img" id="files" class="file" accept="image/*" title="cover image">  
+							                        <input type="file" style="display:none;" name="cover_img" id="files" class="file required" accept="image/*" title="cover image">  
 							                    </div> 
 						                    </div>		                        
 						            </div>
@@ -595,7 +589,7 @@ img, #img_files4 {
 			                      <h5>Helpful Hints</h5>
 			                      <section class="ac-container">
 			                        <div>
-			                          <input id="ac-1" name="accordion-1" type="radio" checked />
+			                          <input id="ac-1" name="accordion-1" type="radio" />
 			                          <label for="ac-1">What is an Event Name?</label>
 			                          <article class="ac-small">
 			                            <p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.</p>
@@ -629,12 +623,12 @@ img, #img_files4 {
 			                  </div>
 			                </div>
 
-			                <div class='col-sm-12'>
-			                  <div class="form-wizard-buttons">
-			                    <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
-			                    <button type="button" class="btn btn-next">Next</button>
-			                  </div>
-			                </div>
+			               <div class='col-sm-12'>
+                  <div class="form-wizard-buttons">
+                    <button type="button" class="btn" style="background:#e72026;"> <i class="fa fa-save"></i> Save Draft</button>
+                    <button type="button" class="btn cancel btn-next">Next <i class="fa fa-arrow-right"></i></button>
+                  </div>
+                </div>
         </fieldset>
            
               
@@ -648,7 +642,7 @@ img, #img_files4 {
 		                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"> </div>
 		                </div>
                 <!-- Progress Bar -->
-			                <h4> <span>Step 2 - 5</span></h4>
+
 			                <div class='col-sm-9'>
 			                  <div class='col-sm-12'>
 			                    <div class='col-sm-12' style="padding: 10px 0;">
@@ -660,20 +654,18 @@ img, #img_files4 {
 			                      <div class='form-group-1 col-sm-12'>
 			                        <div class="text-center" >
 			                        	<img src="../assets/images/wow-pink.png"> 
-			                          <input type='text' id="wow_title" name="event_title" class="form-control" onkeydown="return alphaOnly(wow_title);" style="padding: 6px 30px;"  placeholder="Enter Your !Wowtag Title Here      Example:  Craigsbirthday2017" />
+			                          <input type='text' id="wow_title" name="event_title" class="form-control required" onkeydown="return alphaOnly(wow_title);" style="padding: 6px 30px;"  placeholder="Enter Your !Wowtag Title Here      Example:  Craigsbirthday2017" autocomplete="off"/>
 			                        </div>
 			                      </div>
 			                    </div>
 			                  </div>
 			                  <div class='form-group col-sm-12'>
-			                    <div class='col-sm-12' style="background-color:#f9f9f9; padding-top:15px;">
+			                    <div class='col-sm-6' style="background-color:#f9f9f9; padding-top:15px;">
 			                      <div class="text-center">
 			                        <label style="color:#333; font-weight: bold; font-size: 16px">Upload Your Event -!Wowtag Video </label>
 			                      </div>
 				                       <div class="form-group">
-					                      	<span class="btn btn-primary btn-file"> 
-					                       	 Browse...<input type="file" name="wowtag_video" id="video_size" class=" file" accept="video/*">
-					                       	</span>
+					                      	
 
 					                        <div id="video_show" style="display: none;" >
 					                        	<div class="remove_wowtag" style="cursor: pointer;">
@@ -686,18 +678,24 @@ img, #img_files4 {
 												<audio id="video_url"></audio>
 					                        </div>
 					                        
+                                            <span class="btn btn-primary btn-file"> 
+                       	 <i class="fa fa-play-circle"></i> Upload Video<input type="file" name="wowtag_video" id="video_size" class="file" accept="video/*">
+                       	</span>
 					                        <div class="input-group col-xs-12" style="margin-top:0px;">
 					                          <p>Choose a compelling 60-120 seconds event promotional ads video that will create a lasting impression in your viewers mind</p>
 					                        </div>                        
 				                      </div>
 			                    </div>
 			                    <div class='col-sm-6' style="margin-top: 10px;">
+                                <div class="text-left">
+                        <label style="color:#333; font-weight: bold; font-size: 14px">Event Promotional Video </label>
+                      </div>
 			                      <label>!Wowtag Runtime From: </label>
-			                      <input type='text'  id="runtime_from" name="runtime_from" class="form-control " placeholder="Event Date" />
+			                      <input type='text'  id="runtime_from" name="runtime_from" class="form-control required" placeholder="Event Date" autocomplete="off" />
 			                    </div>
 			                    <div class='col-sm-6' style="margin-top: 10px;" >
 			                      <label>!Wowtag Runtime To: </label>
-			                      <input type='text' id="totime_to" name="totime_to" class="form-control" placeholder="Event Date" />
+			                      <input type='text' id="totime_to" name="totime_to" class="form-control required" placeholder="Event Date" autocomplete="off"/>
 			                    </div>    
 			                  </div>
                 			</div>
@@ -743,13 +741,13 @@ img, #img_files4 {
 			                    </div>
 			                  </div>
 			                </div>
-			                <div class='form-group col-sm-12' style="margin-top:25px;">
-			                  <div class="form-wizard-buttons">
-			                    <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
-			                    <button type="button" class="btn btn-previous">Previous</button>
-			                    <button type="button" class="btn btn-next">Next</button>
-			                  </div>
-			                </div>
+			                 <div class='form-group col-sm-12' style="margin-top:25px;">
+                 <div class="form-wizard-buttons">
+                    <button type="button" class="btn" style="background:#e72026;"><i class="fa fa-save"></i> Save Draft</button>
+                    <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
+                  </div>
+                </div>
         </fieldset>
          
               <!-- end Step 2 --> 
@@ -761,13 +759,13 @@ img, #img_files4 {
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"> </div>
                 </div>
                 <!-- Progress Bar -->
-                <h4> <span>Step 3 - 5</span></h4>
+
                 
                 <div class="col-md-9"> 
     					<!-- Nav tabs category -->
 					    <ul class="nav nav-tabs faq-cat-tabs">
-					      <li class="active"><a href="#faq-cat-1" data-toggle="tab" class="text-center">Online Shopping/ Website</a></li>
-					      <li><a href="#faq-cat-2" data-toggle="tab" class="text-center">Physical Store Visit</a></li>					      
+					      <li class="active"><a href="#faq-cat-1" data-toggle="tab" class="text-center" style="font-weight:bold;">Online Shopping/ Website</a></li>
+					      <li><a href="#faq-cat-2" data-toggle="tab" class="text-center" style="font-weight:bold;">Physical Store Visit</a></li>					      
 					    </ul>
 
     				<div class="tab-content faq-cat-content">
@@ -776,7 +774,7 @@ img, #img_files4 {
 						        <div class="form-group col-sm-6">
 						        	<div class="col-sm-12">
 
-					                  <div class="form-group col-sm-12" style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63;">Objective</div>
+					                  <div class="form-group col-sm-12" style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63; font-weight:bold;">Objective</div>
 					                    <div class="form-group col-sm-12" style="margin-top:15px;">
 
 					                       <select name="online_sales_objective"  class="form-control" style="background-color:#eff0f1;">
@@ -793,7 +791,7 @@ img, #img_files4 {
 					               </div>
 
 					                     <div class="form-group col-sm-12" style="margin-top: 10px;">
-							                 	 <div class="form-group col-sm-12" style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63;">Sales Promotion Links</div>
+							                 	 <div class="form-group col-sm-12" style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63; font-weight:bold;">Sales Promotion Links</div>
 							                   
 							                    <div class="form-group col-sm-12">
 							                      <label>Enter Your Online URLS</label>
@@ -803,7 +801,7 @@ img, #img_files4 {
 					                   
 					            </div>
 					                    <div class="form-group col-sm-6">
-					                  <div class="form-group col-sm-12" style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63;">Select Sales Promotion Country</div>
+					                  <div class="form-group col-sm-12" style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63; font-weight:bold;">Select Sales Promotion Country</div>
 					                    <div class="form-group col-sm-12" style="margin-top:15px;">
 
 					                      <select name="online_country" onchange="print_state('state',this.selectedIndex);" id="country" class="form-control" style="background-color:#eff0f1;">
@@ -822,7 +820,7 @@ img, #img_files4 {
 					      	</div>
 
       					<div class="tab-pane fade" id="faq-cat-2">
-      						<div class="form-group col-sm-12" style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63;">Select Sales Promotion Country</div>
+      						<div class="form-group col-sm-12" style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63; font-weight:bold;">Select Sales Promotion Country</div>
 		      				<div class="form-group col-sm-9">
 		                  
 			                    <div class="form-group col-sm-12" style="margin-top:15px;">
@@ -909,7 +907,7 @@ img, #img_files4 {
 
 		                    <div id="dynamic_add_storeloc">
 		                    	<div class="form-group col-sm-12" id="store_location_1">
-		                  			<div class="form-group col-sm-12" style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63; margin-top:10px;">Store Location #1</div>
+		                  			<div class="form-group col-sm-12" style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63; margin-top:10px; font-weight:bold;">Store Location #1</div>
 
 				                    <div class="form-group col-sm-3" style="margin-top:15px;">
 				                      <input type="text" id="store_name_1" name="store_name[]" class="form-control" placeholder="Store Name">
@@ -978,10 +976,10 @@ img, #img_files4 {
                 </div>
 
                 <div class='col-sm-12'>
-                  <div class="form-wizard-buttons">
-                    <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="button" class="btn btn-next">Next</button>
+                 <div class="form-wizard-buttons">
+                    <button type="button" class="btn" style="background:#e72026;"><i class="fa fa-save"></i> Save Draft</button>
+                    <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
                   </div>
                 </div>
 
@@ -999,11 +997,11 @@ img, #img_files4 {
                 <div class='form-group col-sm-9' style="padding-top:10px; padding-bottom:10px; background-color:#f5f5f5;"> 
                   <div class='form-group col-sm-12' style="margin-bottom:30px!important;">
                   <div class="col-md-3">
-                  		<div class="text-center">
-                        		<label style="color:#333; font-weight: bold; font-size: 16px">Upload Coupon Image </label>
+                  		<div class="text-left">
+                        		<label style="color:#333; font-weight: bold; font-size: 13px">Upload Coupon Image </label>
                       	</div>
                      					<div class="form-group">                      		
-					                        <input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('img_files3').click();" />
+					                        <input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('img_files3').click();" style="margin-bottom:15px;"/>
 						                        <input type="file" style="display:none;" name="coupon_img1" id="img_files3"  accept="image/*">
 					                    </div>
                       <!-- <input type="file"  name="coupon_img1"  accept="image/*"> -->
@@ -1011,7 +1009,7 @@ img, #img_files4 {
                       
                       </div>
                   <div class="col-md-3">
-                  <div class="col-md-12 text-left"> Select Sales Discount Value</div>
+                  <div class="col-md-12 text-left" style="font-weight:bold; line-height:20px;"> Select Sales Discount Value</div>
 					<div class="row">
                       				<select name="discount_value1" id="days" class="form-control" style="background-color:#eff0f1;">
                       				  <option value="">Select</option>
@@ -1045,18 +1043,19 @@ img, #img_files4 {
                     </div>
                     <div class="row">
 
-                      <input type='text' id="ends_on1" name="begining_end1"  class="form-control"  placeholder="Ends On" />
+                      <input type='text' id="ends_on1" name="begining_end1"  class="form-control"  placeholder="Ends On" style="margin-bottom:10px;" />
+                       <input type='text' id="count_down"  class="form-control">
                     </div>
-                    <input type='text' id="count_down"  class="form-control">
+                   
                     </div>
                     <div class="col-md-3">
-	                  <div class="col-md-12 text-center"> Count Down</div>
+	                  <div class="col-md-12 text-center" style="font-weight:bold;"> Count Down</div>
 						<div class="row text-center">
 	                      <div class="col-md-12">
-	                        <div class="col-md-12" style="border:1px solid #ccc; border-radius:5px; font-size:17px;">23:29s Left</div>
+	                        <div class="col-md-12" style="border:1px solid #ccc; border-radius:5px; font-size:13px;">23:29s Left</div>
 	                      </div>
                                     </div>
-                                <div class="col-md-12" style="margin-top:15px; margin-bottom:15px;">
+                                <div class="col-md-12" style="margin-top:15px; margin-bottom:15px; line-height:20px; font-weight:bold;">
 															Select Your Audience Call To Action
                       				<select name="audience_callto_action"  class="form-control" style="background-color:#eff0f1;">
                       				  <option >Select</option>
@@ -1078,8 +1077,8 @@ img, #img_files4 {
                  <!-- second part for add more coupons -->
 
                  <div class='form-group col-sm-12' id="add_more_show" style="margin-bottom:15px; display: none;">
-                  <div class="col-md-3"><div class="text-center">
-                        <label style="color:#333; font-weight: bold; font-size: 16px">Upload Coupon Image </label>
+                  <div class="col-md-3"><div class="text-left">
+                        <label style="color:#333; font-weight: bold; font-size: 13px">Upload Coupon Image </label>
                       </div>
 
                        					
@@ -1092,7 +1091,7 @@ img, #img_files4 {
                     
                       </div>
                   		<div class="col-md-3">
-                 			 <div class="col-md-12 text-left"> Select Sales Discount Value</div>
+                 			 <div class="col-md-12 text-left" style="font-weight:bold; line-height:20px;"> Select Sales Discount Value</div>
 							<div class="row">
                       			<select name="discount_value2" id="days" class="form-control" style="background-color:#eff0f1;">
 				                      <option value="">Select</option>
@@ -1129,14 +1128,14 @@ img, #img_files4 {
                     	</div>
 
 		                    	<div class="col-md-3">
-		                  			<div class="col-md-12 text-center"> Count Down</div>
+		                  			<div class="col-md-12 text-center"  style="font-weight:bold;"> Count Down</div>
 											<div class="row text-center">
 							                      <div class="col-md-12">
-							                        <div class="col-md-12" style="border:1px solid #ccc; border-radius:5px; font-size:17px;">23:29s Left</div>
+							                        <div class="col-md-12" style="border:1px solid #ccc; border-radius:5px; font-size:13px;">23:29s Left</div>
 
 							                      </div>
 		                                    </div>
-		                                <div class="col-md-12" style="margin-top:15px; margin-bottom:15px;">
+		                                <div class="col-md-12" style="margin-top:15px; margin-bottom:15px; font-weight:bold; line-height:20px;">
 												Select Your Audience Call To Action
 		                     				<select name="audience_callto_action" class="form-control" style="background-color:#eff0f1;">
 			                     				  <option value="">Select</option>
@@ -1202,13 +1201,13 @@ img, #img_files4 {
 				                  </div>
 				                </div>
 
-				                <div class='form-group col-sm-12' style="margin-top: 30px;">
-				                  <div class="form-wizard-buttons">
-				                    <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
-				                    <button type="button" class="btn btn-previous">Previous</button>
-				                    <button type="button" class="btn btn-next">Next</button>
-				                  </div>
-				                </div>
+				                <div class='col-sm-12'>
+                 <div class="form-wizard-buttons">
+                    <button type="button" class="btn" style="background:#e72026;"><i class="fa fa-save"></i> Save Draft</button>
+                    <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
+                  </div>
+                </div>
         </fieldset>
         		 
               
@@ -1221,38 +1220,74 @@ img, #img_files4 {
 	                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"> </div>
 	                </div>
                				 <!-- Progress Bar -->
-                		<h4> <span>Step 5 - 5</span></h4>
+                		
                 
                 <div class="col-md-9">
 			                <div class="col-md-6">
 				                <div class='form-group col-sm-12'>
-				                  <label>Select Your Event Promotion Options</label>
+				                  <label><span style="color:#e91e63;">Select Your Event Promotion Options</span></label>
 				                </div>
 			                  	<div class="form-group col-md-12">
 
 			                  	  <div class="pull-left" style="width:5%;">
-			                        <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+			                        <input type="radio" name="promotion_options"  style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 			                      </div>
-			                      <div class="pull-right" style="width:90%; font-size:15px;">Publish &amp; Share on My !Wowhubb Network</div>
+			                      <div class="pull-right" style="width:90%; font-size:13px;">Publish &amp; Share on My !Wowhubb Network</div>
+			                    </div>
+			                    <div class="form-group col-md-12">
+			                      <div class="pull-left" style="width:5%;">
+			                        <input type="radio" name="promotion_options" id="promotion_options" value="1" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+			                      </div>
+			                      <div class="pull-right" style="width:90%; font-size:13px;">Publish to Specific Group
+			                      		<!-- Modal -->
+                               <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                     
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                       <h4 class="modal-title" style="text-align:center; font-size:18px; padding:10px; background-color:#FDF2F5; border-radius:7px; margin-bottom:10px;">Select Group Name </h4>
+                                        <?php                            
+			                               foreach ($group_name as $groups)
+			                                {                     
+			                            ?>
+                                      	<div class="col-md-12">                           
+
+				                            <div class="pull-left" style="width:5%;"> 
+				                              <input type="checkbox" name="group_name" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="<?php echo $groups->_id;?>">
+				                            </div>
+				                          
+				                            <div class="pull-left" style="width:95%;">
+				                               <?php echo $groups->groupname; ?> 
+				                            </div>
+
+				                        </div>
+				                          	<div class="col-md-12" >
+				                              <div class="col-md-12" style="border: 0.5px solid #d7d6d6; margin-top: 10px; margin-bottom: 10px; "> 
+				                              </div>
+				                          	</div>
+				                        <?php } ?>  				                        
+
+                                     <div class="modal-footer" style="border:none;">                                       
+                                        <button type="button" class="btn cancel btn-primary" data-dismiss="modal" style="width:100%; border-radius:7px;"><i class="fa fa-paper-plane"></i> Submit</button>
+                                      </div>
+                                   
+                                  	</div>                                  
+                                </div>
+		                      </div> <!-- here end model popup -->
+			                      </div>
 			                    </div>
 			                    <div class="form-group col-md-12">
 			                      <div class="pull-left" style="width:5%;">
 			                        <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 			                      </div>
-			                      <div class="pull-right" style="width:90%; font-size:15px;">Publish to Specific Group</div>
-			                    </div>
-			                    <div class="form-group col-md-12">
-			                      <div class="pull-left" style="width:5%;">
-			                        <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
-			                      </div>
-			                      <div class="pull-right" style="width:90%; font-size:15px;">Promote My Event On !Wowhubb Network</div>
+			                      <div class="pull-right" style="width:90%; font-size:13px;">Promote My Event On !Wowhubb Network</div>
 			                    </div>	                      
 			                  
 			                </div>
                   
 		                  	<div class="col-md-6">
 				                  <div class='form-group col-sm-12'>
-				                   <label>Sales Event Sponsors Details</label>
+				                   <label><span style="color:#e91e63;">Sales Event Sponsors Details</span></label>
 				                  </div>
 				                  <div class="form-group col-sm-12">
 				                    <label> Organisation Name  </label>
@@ -1315,12 +1350,12 @@ img, #img_files4 {
 		                </div>
                 
 		                <div class='form-group col-sm-12' style="margin-top: 30px;">
-		                  <div class="form-wizard-buttons">
-		                    <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
-		                    <button type="button" class="btn btn-previous">Previous</button>
-		                    <button type="submit" class="btn btn-next">Publish</button>
-		                  </div>
-		                </div>
+                  <div class="form-wizard-buttons">
+                    <button type="button" class="btn" style="background:#e72026;"><i class="fa fa-save"></i> Save Draft</button>
+                    <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="submit" class="btn btn-next"> <i class="fa fa-thumbs-up"></i>  Publish</button>
+                  </div>
+                </div>
         </fieldset>
     </form>
               <!-- end Step 5 --> 
@@ -1360,6 +1395,17 @@ function alphaOnly(wow_title) {
   var key = event.keyCode;`enter code here`
   return ((key >= 65 && key <= 90) || key == 8);
 };
+
+//checkbox  with model popup box last step
+$('input[type="radio"][name=promotion_options]').on('change', function(e)
+    {
+      	if ($(this).val() == "1" ) 
+			{
+		        if(e.target.checked){
+		        $('#myModal').modal();
+	        }
+	}
+});
 
 // event start date and end date time 
 

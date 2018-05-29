@@ -170,6 +170,27 @@ body {
 	padding-bottom: 15px;
 	border-radius: 5px;
 }
+.timeline-cover-event-details .timeline-nav-bar {
+    background: rgba(0,0,0, .7);
+    width: 100%;
+    position: absolute;
+    bottom: 25px;
+    height: 51px;
+}
+
+.timeline-cover-event-details .timeline-nav-bar .follow-me li {
+    padding: 11px 15px;
+    color: #fff;
+}
+.form-control {
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: none;
+    border-radius: 4px;
+    color: #080808;
+    width: 100% !important;
+    font-size: 13px;
+}
 </style>
 </head>
 <body>
@@ -188,14 +209,14 @@ body {
 <!--Header End-->
 
                                       <div class="container">
-                                              <div class="timeline-cover-event-details" style="position: relative; max-height:320px;">
-                                                 <img src="<?php echo $event->coverpageurl; ?>" style="background-size:cover; width:100%; max-height:300px;" />            
+                                              <div class="timeline-cover-event-details" style="position: relative; min-height:220px;">
+                                                 <img src="<?php echo $event->coverpageurl; ?>" style="background-size:cover; width:100%; max-height:220px;" />            
                                                 <div class="timeline-nav-bar hidden-sm hidden-xs">
                                                   <div class="row">
                                                     <div class="col-md-3">
                                                       <div class="profile-info" style="top:-5px!important;">
 
-                                                        <h3 style="color:#fff;">
+                                                        <h3 style="color:#fff; font-size:15px;">
                                                           <img src="../assets/images/wow-white-big.png"> 
                                                           <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                                         </h3>
@@ -203,7 +224,7 @@ body {
                                                     </div>
                                                     <div class="col-md-8">
                                                       <ul class="follow-me list-inline">
-                                                        <li><?php echo $event->wowsomecount.' '. 'wowsome'; ?> &nbsp;&nbsp; Comments </li>
+                                                        <li><?php echo $event->wowsomecount.' '. 'Wowsomes'; ?> &nbsp;&nbsp; Comments </li>
                                                        
                                                       </ul>
                                                     </div>
@@ -236,14 +257,12 @@ body {
 
                                     <!-- personal event info -->
                                     <div class="col-md-4">
-                                      <div class="col-md-4">
-                                        <h4>Event Info</h4>
-                                      </div>
+                                     
                                       <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tbody>                                         
                                           <tr>
                                             <td height="40" colspan="2" bgcolor="#f9f9f9">
-                                              <strong style="font-size:16px;">Description </strong>         
+                                              <strong style="font-size:13px; color:#e91e63;">Description </strong>         
                                             </td>
                                           </tr>
                                           <tr>
@@ -255,10 +274,10 @@ body {
                                                     if(isset($event->eventstartdate))
                                                         { ?>
                                                       <tr>
-                                                        <td width="24%" bgcolor="#f9f9f9"><strong>
+                                                        <td width="36%" bgcolor="#f9f9f9"><strong>
                                                             <i class="fa fa-calendar"></i> Date</strong>
                                                         </td>
-                                                        <td width="75%" height="40" bgcolor="#f9f9f9">
+                                                        <td width="64%" height="40" bgcolor="#f9f9f9">
                                                           <strong>                                                                 
                                                             <?php 
                                                                 $timestamp = strtotime($event->eventstartdate);                          
@@ -299,7 +318,7 @@ body {
                                                             { ?>                                                                   
                                                       
                                                         <tr>                                                          
-                                                          <td bgcolor="#f9f9f9"> 
+                                                          <td align="left" valign="top" bgcolor="#f9f9f9"> 
                                                             <strong>
                                                               <i class="fa fa-map-marker"></i> Venue <?php echo $eventvenues->eventvenuenumber ; ?>
                                                             </strong>
@@ -325,7 +344,7 @@ body {
                                                           <td bgcolor="#ffffff"><strong>Donation URL</strong></td>
                                                           <td height="40" bgcolor="#ffffff">
                                                             <span id="rtr-s-Text_206_1">
-                                                            <a href="#">
+                                                            <a href="#"  style="color:#000;">
                                                               <?php if(isset( $event->donationsurl)) { echo $event->donationsurl; } else { echo "" ; } ?>                                                              
                                                             </a>
                                                             </span>
@@ -338,7 +357,7 @@ body {
                                                           <td bgcolor="#ffffff"><strong>Giftregistry URL</strong></td>
                                                           <td height="40" bgcolor="#ffffff">
                                                             <span id="rtr-s-Text_206_1">
-                                                            <a href="#">
+                                                            <a href="#" style="color:#000;">
                                                               <?php if(isset( $event->giftregistryurl)) { echo $event->giftregistryurl; } else { echo "You don't have gift registry URL" ; } ?>                                                              
                                                             </a>
                                                             </span>
@@ -346,7 +365,7 @@ body {
                                                         </tr> 
                                                                                                              
                                                         <tr>
-                                                          <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:16px;">Event FAQs</strong></td>
+                                                          <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:13px; color:#e91e63;">Event FAQs</strong></td>
                                                         </tr>
 
                                                          <?php 
@@ -358,7 +377,7 @@ body {
                                                           <td height="40" colspan="2" bgcolor="#fff">
                                                              <?php if(isset( $event->faqquestion1) && ($event->faqanswer1) ) 
                                                                     {
-                                                                      echo "<p style='font-size:15px;'>".$event->faqquestion1."</p>".$event->faqanswer1;
+                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$event->faqquestion1."</p>".$event->faqanswer1;
                                                                     } else { echo "" ; }
                                                              ?>
                                                           </td>
@@ -368,7 +387,7 @@ body {
                                                           <td height="40" colspan="2" bgcolor="#fff">
                                                              <?php if(isset( $event->faqquestion2) && ($event->faqanswer2)) 
                                                                     {
-                                                                      echo "<p style='font-size:15px;'>".$event->faqquestion2."</p>".$event->faqanswer2;
+                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$event->faqquestion2."</p>".$event->faqanswer2;
                                                                     } else { echo "" ; }
                                                              ?>
                                                           </td>
@@ -378,7 +397,7 @@ body {
                                                           <td height="40" colspan="2" bgcolor="#fff">
                                                              <?php if(isset( $event->faqquestion3) && ($event->faqanswer3)) 
                                                                     {
-                                                                      echo "<p style='font-size:15px;'>".$event->faqquestion3."</p>".$event->faqanswer3;
+                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$event->faqquestion3."</p>".$event->faqanswer3;
                                                                     } else { echo "" ; }
                                                              ?>
                                                           </td>
@@ -388,7 +407,7 @@ body {
                                                           <td height="40" colspan="2" bgcolor="#fff">
                                                              <?php if(isset( $event->faqquestion4) && ($event->faqanswer4)) 
                                                                     {
-                                                                      echo "<p style='font-size:15px;'>".$event->faqquestion4."</p>".$event->faqanswer4;
+                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$event->faqquestion4."</p>".$event->faqanswer4;
                                                                     } else { echo "" ; }
                                                              ?>
                                                           </td>
@@ -404,7 +423,7 @@ body {
                                                         <?php } ?>
 
                                                          <tr>
-                                                          <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:16px;">Event Sponsors Details</strong></td>
+                                                          <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:13px; color:#e91e63;">Event Sponsors Details</strong></td>
                                                         </tr>
 
                                                         <?php 
@@ -424,7 +443,7 @@ body {
                                                         <?php } ?>
 
                                                         <tr>
-                                                          <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:16px;">Contact Event Organisers</strong></td>
+                                                          <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:13px; color:#e91e63;">Contact Event Organisers</strong></td>
                                                         </tr>
 
                                                         <tr>
@@ -472,9 +491,9 @@ body {
                       <div class="col-md-8"> 
                             <!-- Nav tabs category -->
                               <ul class="nav nav-tabs faq-cat-tabs">
-                                  <li class="active" style="width: 33.33%;"><a href="#personal_highlight" data-toggle="tab" class="text-center">Event Highlights</a></li>
-                                  <li style="width: 33.33%;"><a href="#personal_schedule" data-toggle="tab" class="text-center">Event Schedule</a></li>
-                                  <li style="width: 33.33%;"><a href="#personal_discussion" data-toggle="tab" class="text-center">Event Discussions</a></li>
+                                  <li class="active" style="width: 33.33%;"><a href="#personal_highlight" data-toggle="tab" class="text-center" style="font-size:13px; font-weight:bold;">Event Highlights</a></li>
+                                  <li style="width: 33.33%;"><a href="#personal_schedule" data-toggle="tab" class="text-center"  style="font-size:13px; font-weight:bold;">Event Schedule</a></li>
+                                  <li style="width: 33.33%;"><a href="#personal_discussion" data-toggle="tab" class="text-center"  style="font-size:13px; font-weight:bold;">Event Discussions</a></li>
                                  
                               </ul>
 
@@ -483,8 +502,8 @@ body {
                     <div class="tab-pane active in fade" id="personal_highlight">                                      
 
                             <div class="col-md-12 text-center clr" style="margin-top:10px;">
-                                  <h4 style="color:#fff; line-height:30px;">Event Highlights<br>
-                                    <span style="font-size:28px;">
+                                  <h4 style="color:#fff; line-height:30px; font-size:13px; font-weight:bold;">Event Highlights<br>
+                                    <span style="font-size:13px; font-weight:bold;">
                                     <img src="../assets/images/wow-white-big.png">
                                     <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                     </span></h4>
@@ -515,10 +534,10 @@ body {
                                       </a>                                          
                                     </div> 
                                   <?php } ?>   
-                                  <br>
-                                  <h5 style="color:#333; line-height:20px;">
-                                  <?php echo $event->eventspeakername1; ?><br>
-                                  <span style="font-size:12px;">
+                          
+                                  <h5 style="color:#333; line-height:20px; font-weight:bold; font-size:13px;">
+                                  <img src="http://localhost/wowhubb/assets/images/profile-icon.png" alt="user"><?php echo $event->eventspeakername1; ?><br>
+                                  <span style="font-size:12px; color:#969696;">
                                     <?php echo $event->eventguesttype1; ?>                                                  
                                   </span>
                                   </h5>
@@ -527,7 +546,7 @@ body {
 
                               <div class="col-md-7">                                           
                                 <p><?php echo $event->eventspeakeractivities1; ?></p>
-                                <a href="#"><?php echo $event->eventspeakerlink1; ?> </a>
+                                <img src="http://104.197.80.225:8080/wowhubb/assets/images/network-icon.png" alt="user"><a href="#"><?php echo $event->eventspeakerlink1; ?> </a>
                               </div>                    
 
                               </div>
@@ -561,10 +580,10 @@ body {
                                                    
                                               </div> 
                                       <?php } ?>   
-                                                <br>
-                                              <h5 style="color:#333; line-height:20px;">
-                                                  <?php echo $event->eventspeakername2; ?><br>
-                                                <span style="font-size:12px;">
+                                                
+                                              <h5 style="color:#333; line-height:20px;  font-weight:bold; font-size:13px;">
+                                                  <img src="http://localhost/wowhubb/assets/images/profile-icon.png" alt="user"><?php echo $event->eventspeakername2; ?><br>
+                                                <span style="font-size:12px;  color:#969696;">
                                                    <?php echo $event->eventguesttype2; ?>                                                  
                                                 </span>
                                               </h5>
@@ -575,7 +594,7 @@ body {
                                           <div class="col-md-7">
                                            
                                             <p><?php echo $event->eventspeakeractivities2; ?></p>
-                                            <a href="#"><?php echo $event->eventspeakerlink2; ?> </a>
+                                            <img src="http://104.197.80.225:8080/wowhubb/assets/images/network-icon.png" alt="user"><a href="#"><?php echo $event->eventspeakerlink2; ?> </a>
                                           </div>                                    
 
                                   </div> 
@@ -587,8 +606,8 @@ body {
                               
                               <div class="tab-pane fade" id="personal_schedule">
                                           <div class="col-md-12 text-center clr" style="margin-top:10px; margin-bottom:10px;">
-                                              <h4 style="color:#fff; line-height:30px;">Event Schedules<br>
-                                              <span style="font-size:28px;">
+                                              <h4 style="color:#fff; line-height:30px; font-size:15px; font-weight:bold;">Event Schedule <br>
+                                              <span style="font-size:13px; font-weight:bold;">
                                                  <img src="../assets/images/wow-white-big.png">
                                                 <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                               </span></h4>
@@ -614,11 +633,11 @@ body {
                                                     {
                                                       
 
-                                                      echo '<li class="active"><a data-toggle="tab" href="#tab-'.$day.'" style="line-height:16px; font-size:12px; color:#333;">Day- '.$events->day.'<br> '.$date.'</a></li>';
+                                                      echo '<li class="active"><a data-toggle="tab" href="#tab-'.$day.'" style="line-height:16px; font-size:12px; color:#333; font-weight:bold;">Day- '.$events->day.'<br> '.$date.'</a></li>';
 
                                                     }else{
 
-                                                        echo '<li><a data-toggle="tab" href="#tab-'.$day.'" style="line-height:16px; font-size:12px; color:#333;">Day- '.$events->day.'<br> '.$date.'</a></li>';
+                                                        echo '<li><a data-toggle="tab" href="#tab-'.$day.'" style="line-height:16px; font-size:12px; color:#333; font-weight:bold;">Day- '.$events->day.'<br> '.$date.'</a></li>';
                                                     }
 
                                                     $day++;
@@ -647,7 +666,7 @@ body {
                                             <tbody> 
                                                 <tr>
                                                   <td height="40" colspan="3" align="center" valign="middle" bgcolor="#f9f9f9">
-                                                    <strong style="font-size:16px;">Event Duration
+                                                    <strong style="font-size:13px;">Event Duration
                                                       <br>
                                             <?php
 
@@ -716,7 +735,7 @@ body {
 
                                                 <tr>
                                                   <td height="40" colspan="3" align="center" valign="middle" bgcolor="#f9f9f9">
-                                                    <strong style="font-size:16px;">Event Duration
+                                                    <strong style="font-size:13px;">Event Duration
                                                       <br>
                                             <?php
 
@@ -798,8 +817,8 @@ body {
 
                                         <div class="tab-pane fade" id="personal_discussion">
                                               <div class="col-md-12 text-center clr" style="margin-bottom:20px;">
-                                                <h4 style="color:#fff; line-height:30px;">Event Discussions<br>
-                                                  <span style="font-size:28px;"> 
+                                                <h4 style="color:#fff; line-height:30px; font-size:15px; font-weight:bold;">Event Discussions<br>
+                                                  <span style="font-size:13px; font-weight:bold;"> 
                                                      <img src="../assets/images/wow-white-big.png">
                                                     <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                                   </span></h4>
@@ -809,7 +828,7 @@ body {
                                                   <div class="col-md-1"><img src="http://104.197.80.225:8080/wowhubb/assets/images/users/user-1.jpg" alt="" class="profile-photo-sm"> </div>
                                                   <div class="col-md-11">
                                                     <div class="pull-left">
-                                                      <h3 style="margin-top:0; font-size:16px; color:#333;">
+                                                      <h3 style="margin-top:0; font-size:13px; color:#333;">
                                                        <img src="../assets/images/wow-black-small.png"> Dr.Segun</h3>
                                                       How was the event today? </div>
                                                     <div class="pull-right">Nov 27, 11:23 AM</div>
@@ -823,7 +842,7 @@ body {
                                               <div class="col-md-1"><img src="http://104.197.80.225:8080/wowhubb/assets/images/users/user-2.jpg" alt="" class="profile-photo-sm"> </div>
                                               <div class="col-md-11">
                                                 <div class="pull-left">
-                                                  <h3 style="margin-top:0; font-size:16px; color:#333;"><img src="../assets/images/wow-black-small.png"> Dr.John walkers</h3>
+                                                  <h3 style="margin-top:0; font-size:13px; color:#333;"><img src="../assets/images/wow-black-small.png"> Dr.John walkers</h3>
                                                   Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu </div>
                                                 <div class="pull-right">Nov 27, 12:23 PM</div>
                                               </div>
@@ -841,7 +860,7 @@ body {
                                                   </div>
                                                 </div>
                                                 <div class="col-md-2 text-center">
-                                                  <button class="btn-primary">Send</button>
+                                                  <button class="btn-primary" style="font-size:13px;">Send</button>
                                                 </div>
                                               </div>
                                             </div>
@@ -866,14 +885,12 @@ body {
                       ?>
                           <!-- professional event info -->
                        <div class="col-md-4">
-                                      <div class="col-md-4">
-                                        <h4>Event Info</h4>
-                                      </div>
+                                      
                                       <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tbody>                                         
                                           <tr>
                                             <td height="40" colspan="2" bgcolor="#f9f9f9">
-                                              <strong style="font-size:16px;">Description </strong>         
+                                              <strong style="font-size:13px; color:#e91e63;">Description </strong>         
                                             </td>
                                           </tr>
                                           <tr>
@@ -956,7 +973,7 @@ body {
                                                           <td bgcolor="#ffffff"><strong>Ticket URL</strong></td>
                                                           <td height="40" bgcolor="#ffffff">
                                                             <span id="rtr-s-Text_206_1">
-                                                            <a href="#">
+                                                            <a href="#"  style="color:#000;">
                                                               <?php
                                                                
                                                                   foreach ($event->eventvenue as $eventvenues) 
@@ -974,7 +991,7 @@ body {
                                                         </tr>                                                     
 
                                                        <tr>
-                                                          <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:16px;">Event FAQs</strong></td>
+                                                          <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:13px; color:#e91e63;">Event FAQs</strong></td>
                                                         </tr>
 
                                                          <?php 
@@ -986,7 +1003,7 @@ body {
                                                           <td height="40" colspan="2" bgcolor="#fff">
                                                              <?php if(isset( $event->faqquestion1) && ($event->faqanswer1) ) 
                                                                     {
-                                                                      echo "<p style='font-size:15px;'>".$event->faqquestion1."</p>".$event->faqanswer1;
+                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$event->faqquestion1."</p>".$event->faqanswer1;
                                                                     } else { echo "" ; }
                                                              ?>
                                                           </td>
@@ -996,7 +1013,7 @@ body {
                                                           <td height="40" colspan="2" bgcolor="#fff">
                                                              <?php if(isset( $event->faqquestion2) && ($event->faqanswer2)) 
                                                                     {
-                                                                      echo "<p style='font-size:15px;'>".$event->faqquestion2."</p>".$event->faqanswer2;
+                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$event->faqquestion2."</p>".$event->faqanswer2;
                                                                     } else { echo "" ; }
                                                              ?>
                                                           </td>
@@ -1006,7 +1023,7 @@ body {
                                                           <td height="40" colspan="2" bgcolor="#fff">
                                                              <?php if(isset( $event->faqquestion3) && ($event->faqanswer3)) 
                                                                     {
-                                                                      echo "<p style='font-size:15px;'>".$event->faqquestion3."</p>".$event->faqanswer3;
+                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$event->faqquestion3."</p>".$event->faqanswer3;
                                                                     } else { echo "" ; }
                                                              ?>
                                                           </td>
@@ -1016,7 +1033,7 @@ body {
                                                           <td height="40" colspan="2" bgcolor="#fff">
                                                              <?php if(isset( $event->faqquestion4) && ($event->faqanswer4)) 
                                                                     {
-                                                                      echo "<p style='font-size:15px;'>".$event->faqquestion4."</p>".$event->faqanswer4;
+                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$event->faqquestion4."</p>".$event->faqanswer4;
                                                                     } else { echo "" ; }
                                                              ?>
                                                           </td>
@@ -1031,7 +1048,7 @@ body {
                                                         <?php } ?>
 
                                                        <tr>
-                                                          <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:16px;">Event Sponsors Details</strong></td>
+                                                          <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:13px; color:#e91e63;">Event Sponsors Details</strong></td>
                                                         </tr>
 
                                                         <?php 
@@ -1052,7 +1069,7 @@ body {
 
                                                         <tr >
                                                           <td height="40" colspan="2" bgcolor="#f9f9f9">
-                                                            <strong style="font-size:16px;">
+                                                            <strong style="font-size:13px;  color:#e91e63;">
                                                                 
                                                                 Contact Event Organisers
                                                             </strong>
@@ -1104,10 +1121,10 @@ body {
                       <div class="col-md-8"> 
                             <!-- Nav tabs category -->
                               <ul class="nav nav-tabs faq-cat-tabs">
-                                  <li class="active" style="width: 25%;"><a href="#event_highlight" data-toggle="tab" class="text-center">Event Highlights</a></li>
-                                  <li style="width: 25%;"><a href="#professional_schedule" data-toggle="tab" class="text-center">Event Schedule</a></li>
-                                  <li style="width: 25%;"><a href="#faq-cat-3" data-toggle="tab" class="text-center">Event Discussions</a></li>
-                                  <li style="width: 25%;"><a href="#professional_tour" data-toggle="tab" class="text-center">Event Tours</a></li> 
+                                  <li class="active" style="width: 25%;"><a href="#event_highlight" data-toggle="tab" class="text-center"  style="font-size:13px; font-weight:bold;">Event Highlights</a></li>
+                                  <li style="width: 25%;"><a href="#professional_schedule" data-toggle="tab" class="text-center"  style="font-size:13px; font-weight:bold;">Event Schedule</a></li>
+                                  <li style="width: 25%;"><a href="#faq-cat-3" data-toggle="tab" class="text-center" style="font-size:13px; font-weight:bold;">Event Discussions</a></li>
+                                  <li style="width: 25%;"><a href="#professional_tour" data-toggle="tab" class="text-center"  style="font-size:13px; font-weight:bold;">Event Tours</a></li> 
                               </ul>
 
                           <div class="tab-content faq-cat-content">                                  
@@ -1115,8 +1132,8 @@ body {
                                     <div class="tab-pane active in fade" id="event_highlight">                                      
 
                                         <div class="col-md-12 text-center clr" style="margin-top:10px;">
-                                          <h4 style="color:#fff; line-height:30px;">Event Highlights<br>
-                                            <span style="font-size:28px;">
+                                          <h4 style="color:#fff; line-height:30px;  font-size:13px; font-weight:bold;">Event Highlights<br>
+                                            <span style="font-size:13px; font-weight:bold;">
                                                <img src="../assets/images/wow-white-big.png">
                                               <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                             </span></h4>
@@ -1146,10 +1163,10 @@ body {
                                                  </a>                                          
                                         </div> 
                                       <?php } ?>   
-                                                <br>
-                                              <h5 style="color:#333; line-height:20px;">
-                                                  <?php echo $event->eventspeakername1; ?><br>
-                                                <span style="font-size:12px;">
+                                         
+                                              <h5 style="color:#333; line-height:20px;  font-weight:bold; font-size:13px;">
+                                                  <img src="http://localhost/wowhubb/assets/images/profile-icon.png" alt="user"><?php echo $event->eventspeakername1; ?><br>
+                                                <span style="font-size:12px;  color:#969696;">
                                                    <?php echo $event->eventguesttype1; ?>                                                  
                                                 </span>
                                               </h5>
@@ -1160,7 +1177,7 @@ body {
                                           <div class="col-md-7">
                                            
                                             <p><?php echo $event->eventspeakeractivities1; ?></p>
-                                            <a href="#"><?php echo $event->eventspeakerlink1; ?> </a>
+                                            <img src="http://104.197.80.225:8080/wowhubb/assets/images/network-icon.png" alt="user"><a href="#"><?php echo $event->eventspeakerlink1; ?> </a>
                                           </div>                                           
 
                                         </div>
@@ -1193,10 +1210,10 @@ body {
                                                    
                                               </div> 
                                       <?php } ?>   
-                                                <br>
-                                              <h5 style="color:#333; line-height:20px;">
-                                                  <?php echo $event->eventspeakername2; ?><br>
-                                                <span style="font-size:12px;">
+                                             
+                                              <h5 style="color:#333; line-height:20px;  font-weight:bold; font-size:13px;">
+                                                  <img src="http://localhost/wowhubb/assets/images/profile-icon.png" alt="user"><?php echo $event->eventspeakername2; ?><br>
+                                                <span style="font-size:12px; color:#969696;">
                                                    <?php echo $event->eventguesttype2; ?>                                                  
                                                 </span>
                                               </h5>
@@ -1207,7 +1224,7 @@ body {
                                           <div class="col-md-7">
                                            
                                             <p><?php echo $event->eventspeakeractivities2; ?></p>
-                                            <a href="#"><?php echo $event->eventspeakerlink2; ?> </a>
+                                            <img src="http://104.197.80.225:8080/wowhubb/assets/images/network-icon.png" alt="user"><a href="#"><?php echo $event->eventspeakerlink2; ?> </a>
                                           </div>                                   
 
                                   </div>
@@ -1218,8 +1235,8 @@ body {
 
                                     <div class="tab-pane fade" id="professional_schedule">
                                           <div class="col-md-12 text-center clr" style="margin-top:10px; margin-bottom:10px;">
-                                              <h4 style="color:#fff; line-height:30px;">Event Schedules<br>
-                                              <span style="font-size:28px;">
+                                              <h4 style="color:#fff; line-height:30px;  font-size:15px; font-weight:bold;">Event Schedules<br>
+                                              <span style="font-size:13px; font-weight:bold;">
                                                  <img src="../assets/images/wow-white-big.png">
                                                 <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                               </span></h4>
@@ -1245,11 +1262,11 @@ body {
                                                     {
                                                       
 
-                                                      echo '<li class="active"><a data-toggle="tab" href="#tab-'.$day.'" style="line-height:16px; font-size:12px; color:#333;">Day- '.$events->day.'<br> '.$date.'</a></li>';
+                                                      echo '<li class="active"><a data-toggle="tab" href="#tab-'.$day.'" style="line-height:16px; font-size:12px; color:#333; font-weight:bold;">Day- '.$events->day.'<br> '.$date.'</a></li>';
 
                                                     }else{
 
-                                                        echo '<li><a data-toggle="tab" href="#tab-'.$day.'" style="line-height:16px; font-size:12px; color:#333;">Day- '.$events->day.'<br> '.$date.'</a></li>';
+                                                        echo '<li><a data-toggle="tab" href="#tab-'.$day.'" style="line-height:16px; font-size:12px; color:#333; font-weight:bold;">Day- '.$events->day.'<br> '.$date.'</a></li>';
                                                     }
 
                                                     $day++;
@@ -1278,7 +1295,7 @@ body {
                                             <tbody> 
                                                 <tr>
                                                   <td height="40" colspan="3" align="center" valign="middle" bgcolor="#f9f9f9">
-                                                    <strong style="font-size:16px;">Event Duration
+                                                    <strong style="font-size:13px;">Event Duration
                                                       <br>
                                             <?php
 
@@ -1347,7 +1364,7 @@ body {
 
                                                 <tr>
                                                   <td height="40" colspan="3" align="center" valign="middle" bgcolor="#f9f9f9">
-                                                    <strong style="font-size:16px;">Event Duration
+                                                    <strong style="font-size:13px;">Event Duration
                                                       <br>
                                             <?php
 
@@ -1429,8 +1446,8 @@ body {
 
                                         <div class="tab-pane fade" id="faq-cat-3">
                                               <div class="col-md-12 text-center clr" style="margin-bottom:20px;">
-                                                <h4 style="color:#fff; line-height:30px;">Event Discussions<br>
-                                                  <span style="font-size:28px;"> 
+                                                <h4 style="color:#fff; line-height:30px;  font-size:15px; font-weight:bold;">Event Discussions<br>
+                                                  <span style="font-size:13px; font-weight:bold;"> 
                                                      <img src="../assets/images/wow-white-big.png">
                                                     <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                                   </span></h4>
@@ -1440,7 +1457,7 @@ body {
                                                   <div class="col-md-1"><img src="http://104.197.80.225:8080/wowhubb/assets/images/users/user-1.jpg" alt="" class="profile-photo-sm"> </div>
                                                   <div class="col-md-11">
                                                     <div class="pull-left">
-                                                      <h3 style="margin-top:0; font-size:16px; color:#333;">
+                                                      <h3 style="margin-top:0; font-size:13px; color:#333;">
                                                        <img src="../assets/images/wow-black-small.png"> Dr.Segun</h3>
                                                       How was the event today? </div>
                                                     <div class="pull-right">Nov 27, 11:23 AM</div>
@@ -1454,7 +1471,7 @@ body {
                                               <div class="col-md-1"><img src="../assets/images/users/user-2.jpg" alt="" class="profile-photo-sm"> </div>
                                               <div class="col-md-11">
                                                 <div class="pull-left">
-                                                  <h3 style="margin-top:0; font-size:16px; color:#333;"><img src="../assets/images/wow-black-small.png"> Dr.John walkers</h3>
+                                                  <h3 style="margin-top:0; font-size:13px; color:#333;"><img src="../assets/images/wow-black-small.png"> Dr.John walkers</h3>
                                                   Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu </div>
                                                 <div class="pull-right">Nov 27, 12:23 PM</div>
                                               </div>
@@ -1472,7 +1489,7 @@ body {
                                                   </div>
                                                 </div>
                                                 <div class="col-md-2 text-center">
-                                                  <button class="btn-primary">Send</button>
+                                                  <button class="btn-primary"  style="font-size:13px;">Send</button>
                                                 </div>
                                               </div>
                                             </div>
@@ -1483,8 +1500,8 @@ body {
 
                                       <div class="tab-pane fade" id="professional_tour">
                                           <div class="col-md-12 text-center clr" style="margin-top:10px;">
-                                            <h4 style="color:#fff; line-height:30px;">Event Tours<br>
-                                              <span style="font-size:28px;">
+                                            <h4 style="color:#fff; line-height:30px; font-size:15px; font-weight:bold;">Event Tours<br>
+                                              <span style="font-size:13px; font-weight:bold;">
                                                 <img src="../assets/images/wow-white-big.png">
                                                 <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                               </span></h4>
@@ -1503,7 +1520,9 @@ body {
                                               ?>
 
                                             <div class="col-md-8">
-                                              <div style="width:35%;" class="pull-left"><img src="../assets/images/city-1.jpg" class="img-responsive"/></div>
+                                              <div style="width:35%;" class="pull-left">
+                                                <img src="<?php echo $event->coverpageurl; ?>" class="img-responsive"/>
+                                              </div>
                                               <div style="width:65%;" class="pull-left">
                                                 <div style="width:100%; padding:10px 5px; background-color:#333; color:#fff;" class="pull-left">
 
@@ -1537,11 +1556,11 @@ body {
                                                 </div>
 
                                                 <p style="padding:10px;">Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. <br>
-                                                  <a>
+                                                 <a style="color:#333; font-weight:bold;">
                                                     <?php if(isset($eventtours->eventtourname)) { echo $eventtours->eventtourname; } ?>
                                                       
                                                   </a><br>
-                                                  <a>
+                                                   <img src="../assets/images/map-icon-1.png" alt=""><a style="color:#333;">
                                                      <?php if(isset($eventtours->eventtouraddress1))
                                                       { 
                                                         echo $eventtours->eventtouraddress1." ".$eventtours->eventtourcity." ".$eventtours->eventtourzipcode ;
@@ -1553,7 +1572,7 @@ body {
                                             </div>
          
                                             <div class="col-md-4">
-                                              <div style="width:100%; padding:10px 25px; background-color:#333; color:#fff; font-size:16px;" class="pull-left">
+                                              <div style="width:100%; padding:10px 25px; background-color:#333; color:#fff; font-size:13px;" class="pull-left">
                                                 <div class="pull-left">
                                                     <img src="../assets/images/wow-white-big.png">
                                                    <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
@@ -1563,7 +1582,7 @@ body {
                                                 </span></div>
                                               </div>
                                               <div style="width:100%; margin-top:15px; color:#333;" class="pull-left text-center">
-                                                <p style="font-size:16px;">
+                                                <p style="font-size:12px; font-weight:bold;">
                                                   <?php
                                                           if(isset($eventtours->eventtourstartdate) ) 
                                                           {
@@ -1582,7 +1601,7 @@ body {
 
                                               <div style="width:100%; color:#333;" class="pull-left text-center">
                                                 <p>
-                                                  <button class="btn-primary" style="padding: 2px 25px;">Grab Your Tickets</button>
+                                                  <button class="btn btn-primary" style="font-size:13px;">Grab Your Tickets</button>
                                                 </p>
                                               </div>
                                             </div>
@@ -1607,14 +1626,12 @@ body {
                       ?>
                           <!-- social event info -->
                        <div class="col-md-4">
-                                      <div class="col-md-12">
-                                        <h4>Social Event Info</h4>
-                                      </div>
+                                      
                                       <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tbody>                                         
                                           <tr>
                                             <td height="40" colspan="2" bgcolor="#f9f9f9">
-                                              <strong style="font-size:16px;">Description </strong>         
+                                              <strong style="font-size:13px;  color:#e91e63;">Description </strong>         
                                             </td>
                                           </tr>
                                           <tr>
@@ -1701,7 +1718,7 @@ body {
                                                           <td bgcolor="#ffffff"><strong>Ticket Link</strong></td>
                                                           <td height="40" bgcolor="#ffffff">
                                                             <span id="rtr-s-Text_206_1">
-                                                            <a href="#">
+                                                            <a href="#" style="color:#000;">
                                                               <?php
                                                                
                                                                   foreach ($event->eventvenue as $eventvenues) 
@@ -1719,7 +1736,7 @@ body {
                                                         </tr>                                                     
 
                                                        <tr>
-                                                          <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:16px;">Event FAQs</strong></td>
+                                                          <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:13px; color:#e91e63;">Event FAQs</strong></td>
                                                         </tr>
 
                                                          <?php 
@@ -1731,7 +1748,7 @@ body {
                                                           <td height="40" colspan="2" bgcolor="#fff">
                                                              <?php if(isset( $event->faqquestion1) && ($event->faqanswer1) ) 
                                                                     {
-                                                                      echo "<p style='font-size:15px;'>".$event->faqquestion1."</p>".$event->faqanswer1;
+                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$event->faqquestion1."</p>".$event->faqanswer1;
                                                                     } else { echo "" ; }
                                                              ?>
                                                           </td>
@@ -1741,7 +1758,7 @@ body {
                                                           <td height="40" colspan="2" bgcolor="#fff">
                                                              <?php if(isset( $event->faqquestion2) && ($event->faqanswer2)) 
                                                                     {
-                                                                      echo "<p style='font-size:15px;'>".$event->faqquestion2."</p>".$event->faqanswer2;
+                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$event->faqquestion2."</p>".$event->faqanswer2;
                                                                     } else { echo "" ; }
                                                              ?>
                                                           </td>
@@ -1751,7 +1768,7 @@ body {
                                                           <td height="40" colspan="2" bgcolor="#fff">
                                                              <?php if(isset( $event->faqquestion3) && ($event->faqanswer3)) 
                                                                     {
-                                                                      echo "<p style='font-size:15px;'>".$event->faqquestion3."</p>".$event->faqanswer3;
+                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$event->faqquestion3."</p>".$event->faqanswer3;
                                                                     } else { echo "" ; }
                                                              ?>
                                                           </td>
@@ -1761,7 +1778,7 @@ body {
                                                           <td height="40" colspan="2" bgcolor="#fff">
                                                              <?php if(isset( $event->faqquestion4) && ($event->faqanswer4)) 
                                                                     {
-                                                                      echo "<p style='font-size:15px;'>".$event->faqquestion4."</p>".$event->faqanswer4;
+                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$event->faqquestion4."</p>".$event->faqanswer4;
                                                                     } else { echo "" ; }
                                                              ?>
                                                           </td>
@@ -1776,7 +1793,7 @@ body {
                                                         <?php } ?>
 
                                                         <tr>
-                                                          <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:16px;">Event Sponsors Details</strong></td>
+                                                          <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:13px; color:#e91e63;">Event Sponsors Details</strong></td>
                                                         </tr>
                                                          <?php 
                                                               if(isset($event->eventcontactmessage) || ($event->eventcontactemail) || ($event->eventcontactphone) || ($event->eventcontactname) ) 
@@ -1797,7 +1814,7 @@ body {
                                                        
                                                         <tr >
                                                           <td height="40" colspan="2" bgcolor="#f9f9f9">
-                                                            <strong style="font-size:16px;">
+                                                            <strong style="font-size:13px; color:#e91e63;">
                                                                 
                                                                 Contact Event Organisers
                                                             </strong>
@@ -1849,10 +1866,10 @@ body {
                       <div class="col-md-8"> 
                             <!-- Nav tabs category -->
                               <ul class="nav nav-tabs faq-cat-tabs">
-                                  <li class="active" style="width: 25%;"><a href="#event_highlight" data-toggle="tab" class="text-center">Event Highlights</a></li>
-                                  <li style="width: 25%;"><a href="#social_schedule" data-toggle="tab" class="text-center">Event Schedule</a></li>
-                                  <li style="width: 25%;"><a href="#faq-cat-3" data-toggle="tab" class="text-center">Event Discussions</a></li>
-                                  <li style="width: 25%;"><a href="#social_tour" data-toggle="tab" class="text-center">Event Tours</a></li> 
+                                  <li class="active" style="width: 25%;"><a href="#event_highlight" data-toggle="tab" class="text-center"  style="font-size:13px; font-weight:bold;">Event Highlights</a></li>
+                                  <li style="width: 25%;"><a href="#social_schedule" data-toggle="tab" class="text-center" style="font-size:13px; font-weight:bold;">Event Schedule</a></li>
+                                  <li style="width: 25%;"><a href="#faq-cat-3" data-toggle="tab" class="text-center"  style="font-size:13px; font-weight:bold;">Event Discussions</a></li>
+                                  <li style="width: 25%;"><a href="#social_tour" data-toggle="tab" class="text-center"  style="font-size:13px; font-weight:bold;">Event Tours</a></li> 
                               </ul>
 
                           <div class="tab-content faq-cat-content">                                  
@@ -1860,8 +1877,8 @@ body {
                                     <div class="tab-pane active in fade" id="event_highlight">                                      
 
                                         <div class="col-md-12 text-center clr" style="margin-top:10px;">
-                                          <h4 style="color:#fff; line-height:30px;">Event Highlights<br>
-                                            <span style="font-size:28px;">
+                                          <h4 style="color:#fff; line-height:30px;  font-size:13px; font-weight:bold;">Event Highlights<br>
+                                            <span style="font-size:13px; font-weight:bold;">
                                                <img src="../assets/images/wow-white-big.png">
                                               <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                             </span>
@@ -1892,10 +1909,10 @@ body {
                                               </a>                                          
                                         </div> 
                                       <?php } ?>   
-                                                <br>
-                                              <h5 style="color:#333; line-height:20px;">
-                                                  <?php echo $event->eventspeakername1; ?><br>
-                                                <span style="font-size:12px;">
+                                        
+                                              <h5 style="color:#333; line-height:20px;  font-weight:bold; font-size:13px;">
+                                                  <img src="http://localhost/wowhubb/assets/images/profile-icon.png" alt="user"><?php echo $event->eventspeakername1; ?><br>
+                                                <span style="font-size:12px; color:#969696;">
                                                    <?php echo $event->eventguesttype1; ?>                                                  
                                                 </span>
                                               </h5>
@@ -1906,7 +1923,7 @@ body {
                                           <div class="col-md-7">
                                            
                                             <p><?php echo $event->eventspeakeractivities1; ?></p>
-                                            <a href="#"><?php echo $event->eventspeakerlink1; ?> </a>
+                                            <img src="http://104.197.80.225:8080/wowhubb/assets/images/network-icon.png" alt="user"><a href="#"><?php echo $event->eventspeakerlink1; ?> </a>
                                           </div>                                         
                               </div>
                               <?php }  ?>
@@ -1937,10 +1954,10 @@ body {
                                                    
                                               </div> 
                                       <?php } ?>   
-                                                <br>
-                                              <h5 style="color:#333; line-height:20px;">
-                                                  <?php echo $event->eventspeakername2; ?><br>
-                                                <span style="font-size:12px;">
+                                         
+                                              <h5 style="color:#333; line-height:20px; font-weight:bold; font-size:13px;">
+                                                  <img src="http://localhost/wowhubb/assets/images/profile-icon.png" alt="user"><?php echo $event->eventspeakername2; ?><br>
+                                                <span style="font-size:12px; color:#969696;">
                                                    <?php echo $event->eventguesttype2; ?>                                                  
                                                 </span>
                                               </h5>
@@ -1950,7 +1967,7 @@ body {
 
                                           <div class="col-md-7">                                           
                                             <p><?php echo $event->eventspeakeractivities2; ?></p>
-                                            <a href="#"><?php echo $event->eventspeakerlink2; ?> </a>
+                                           <img src="http://104.197.80.225:8080/wowhubb/assets/images/network-icon.png" alt="user"><a href="#"><?php echo $event->eventspeakerlink2; ?> </a>
                                           </div>                                   
 
                                   </div> 
@@ -1962,8 +1979,8 @@ body {
 
                               <div class="tab-pane fade" id="social_schedule">
                                         <div class="col-md-12 text-center clr" style="margin-top:10px; margin-bottom:10px;">
-                                            <h4 style="color:#fff; line-height:30px;">Event Schedules<br>
-                                              <span style="font-size:28px;">
+                                            <h4 style="color:#fff; line-height:30px;  font-size:15px; font-weight:bold;">Event Schedules<br>
+                                              <span style="font-size:13px; font-weight:bold;">
                                                  <img src="../assets/images/wow-white-big.png">
                                                 <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                               </span>
@@ -1990,11 +2007,11 @@ body {
                                                     {
                                                       
 
-                                                      echo '<li class="active"><a data-toggle="tab" href="#tab-'.$day.'" style="line-height:16px; font-size:12px; color:#333;">Day- '.$events->day.'<br> '.$date.'</a></li>';
+                                                      echo '<li class="active"><a data-toggle="tab" href="#tab-'.$day.'" style="line-height:16px; font-size:12px; color:#333; font-weight:bold;">Day- '.$events->day.'<br> '.$date.'</a></li>';
 
                                                     }else{
 
-                                                        echo '<li><a data-toggle="tab" href="#tab-'.$day.'" style="line-height:16px; font-size:12px; color:#333;">Day- '.$events->day.'<br> '.$date.'</a></li>';
+                                                        echo '<li><a data-toggle="tab" href="#tab-'.$day.'" style="line-height:16px; font-size:12px; color:#333;  font-weight:bold;">Day- '.$events->day.'<br> '.$date.'</a></li>';
                                                     }
 
                                                     $day++;
@@ -2024,7 +2041,7 @@ body {
                                             <tbody> 
                                                 <tr>
                                                   <td height="40" colspan="3" align="center" valign="middle" bgcolor="#f9f9f9">
-                                                    <strong style="font-size:16px;">Event Duration
+                                                    <strong style="font-size:13px;">Event Duration
                                                       <br>
                                             <?php
 
@@ -2093,7 +2110,7 @@ body {
 
                                                 <tr>
                                                   <td height="40" colspan="3" align="center" valign="middle" bgcolor="#f9f9f9">
-                                                    <strong style="font-size:16px;">Event Duration
+                                                    <strong style="font-size:13px;">Event Duration
                                                       <br>
                                             <?php
 
@@ -2175,8 +2192,8 @@ body {
 
                                         <div class="tab-pane fade" id="faq-cat-3">
                                               <div class="col-md-12 text-center clr" style="margin-bottom:20px;">
-                                                <h4 style="color:#fff; line-height:30px;">Event Discussions<br>
-                                                  <span style="font-size:28px;"> 
+                                                <h4 style="color:#fff; line-height:30px;  font-size:15px; font-weight:bold;">Event Discussions<br>
+                                                  <span style="font-size:13px; font-weight:bold;"> 
                                                      <img src="../assets/images/wow-white-big.png">
                                                     <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                                   </span></h4>
@@ -2186,7 +2203,7 @@ body {
                                                   <div class="col-md-1"><img src="http://104.197.80.225:8080/wowhubb/assets/images/users/user-1.jpg" alt="" class="profile-photo-sm"> </div>
                                                   <div class="col-md-11">
                                                     <div class="pull-left">
-                                                      <h3 style="margin-top:0; font-size:16px; color:#333;">
+                                                      <h3 style="margin-top:0; font-size:13px; color:#333;">
                                                        <img src="../assets/images/wow-black-small.png"> Dr.Segun</h3>
                                                       How was the event today? </div>
                                                     <div class="pull-right">Nov 27, 11:23 AM</div>
@@ -2200,7 +2217,7 @@ body {
                                               <div class="col-md-1"><img src="../assets/images/users/user-2.jpg" alt="" class="profile-photo-sm"> </div>
                                               <div class="col-md-11">
                                                 <div class="pull-left">
-                                                  <h3 style="margin-top:0; font-size:16px; color:#333;"><img src="../assets/images/wow-black-small.png"> Dr.John walkers</h3>
+                                                  <h3 style="margin-top:0; font-size:13px; color:#333;"><img src="../assets/images/wow-black-small.png"> Dr.John walkers</h3>
                                                   Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu </div>
                                                 <div class="pull-right">Nov 27, 12:23 PM</div>
                                               </div>
@@ -2218,7 +2235,7 @@ body {
                                                   </div>
                                                 </div>
                                                 <div class="col-md-2 text-center">
-                                                  <button class="btn-primary">Send</button>
+                                                  <button class="btn-primary"  style="font-size:13px;">Send</button>
                                                 </div>
                                               </div>
                                             </div>
@@ -2229,8 +2246,8 @@ body {
 
                                       <div class="tab-pane fade" id="social_tour">
                                           <div class="col-md-12 text-center clr" style="margin-top:10px;">
-                                            <h4 style="color:#fff; line-height:30px;">Event Tours<br>
-                                              <span style="font-size:28px;">
+                                            <h4 style="color:#fff; line-height:30px;   font-size:15px; font-weight:bold;">Event Tours<br>
+                                              <span style="font-size:13px; font-weight:bold;">
                                                 <img src="../assets/images/wow-white-big.png">
                                                 <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                               </span></h4>
@@ -2249,7 +2266,7 @@ body {
                                               ?>
 
                                             <div class="col-md-8">
-                                              <div style="width:35%;" class="pull-left"><img src="../assets/images/city-1.jpg" class="img-responsive"/></div>
+                                              <div style="width:35%;" class="pull-left"><img src="<?php echo $event->coverpageurl; ?>" class="img-responsive"/></div>
                                               <div style="width:65%;" class="pull-left">
                                                 <div style="width:100%; padding:10px 5px; background-color:#333; color:#fff;" class="pull-left">
                                                   <div class="pull-left">
@@ -2282,11 +2299,11 @@ body {
 
                                                 </div>
                                                 <p style="padding:10px;">Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. <br>
-                                                  <a>
+                                                  <a style="color:#333; font-weight:bold;">
                                                     <?php if(isset($eventtours->eventtourname)) { echo $eventtours->eventtourname; } ?>
                                                       
                                                     </a><br>
-                                                  <a>
+                                                   <img src="../assets/images/map-icon-1.png" alt=""><a  style="color:#333;">
                                                      <?php if(isset($eventtours->eventtouraddress1))
                                                       { 
                                                         echo $eventtours->eventtouraddress1." ".$eventtours->eventtourcity." ".$eventtours->eventtourzipcode ;
@@ -2296,7 +2313,7 @@ body {
                                             </div>
          
                                             <div class="col-md-4">
-                                              <div style="width:100%; padding:10px 25px; background-color:#333; color:#fff; font-size:16px;" class="pull-left">
+                                              <div style="width:100%; padding:10px 25px; background-color:#333; color:#fff; font-size:13px;" class="pull-left">
                                                 <div class="pull-left">
                                                     <img src="../assets/images/wow-white-big.png">
                                                    <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
@@ -2306,7 +2323,7 @@ body {
                                                 </span></div>
                                               </div>
                                               <div style="width:100%; margin-top:15px; color:#333;" class="pull-left text-center">
-                                                <p style="font-size:16px;">
+                                                <p style="font-size:13px;">
                                                   <?php
                                                           if(isset($eventtours->eventtourstartdate) ) 
                                                           {                                                             
@@ -2322,7 +2339,7 @@ body {
                                               </div>
                                               <div style="width:100%; color:#333;" class="pull-left text-center">
                                                 <p>
-                                                  <button class="btn-primary" style="padding: 2px 25px;">Grab Your Tickets</button>
+                                                  <button class="btn-primary" style="font-size:13px;">Grab Your Tickets</button>
                                                 </p>
                                               </div>
                                             </div>
@@ -2351,14 +2368,12 @@ body {
 
                         <!-- sales event info -->
                        <div class="col-md-4">
-                                      <div class="col-md-12">
-                                        <h4>Sales Event Info</h4>
-                                      </div>
+                                     
                                       <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tbody>                                         
                                           <tr>
                                             <td height="40" colspan="2" bgcolor="#f9f9f9">
-                                              <strong style="font-size:16px;">Description </strong>         
+                                              <strong style="font-size:13px; color:#e91e63;">Description </strong>         
                                             </td>
                                           </tr>
                                           <tr>
@@ -2398,7 +2413,7 @@ body {
                                                         </tr> 
                                                        
                                                         <tr>
-                                                          <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:16px;">Sales Event FAQs</strong></td>
+                                                          <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:13px; color:#e91e63;">Sales Event FAQs</strong></td>
                                                         </tr>
 
                                                          <?php 
@@ -2410,7 +2425,7 @@ body {
                                                           <td height="40" colspan="2" bgcolor="#fff">
                                                              <?php if(isset( $event->faqquestion1) && ($event->faqanswer1) ) 
                                                                     {
-                                                                      echo "<p style='font-size:15px;'>".$event->faqquestion1."</p>".$event->faqanswer1;
+                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$event->faqquestion1."</p>".$event->faqanswer1;
                                                                     } else { echo "" ; }
                                                              ?>
                                                           </td>
@@ -2420,7 +2435,7 @@ body {
                                                           <td height="40" colspan="2" bgcolor="#fff">
                                                              <?php if(isset( $event->faqquestion2) && ($event->faqanswer2)) 
                                                                     {
-                                                                      echo "<p style='font-size:15px;'>".$event->faqquestion2."</p>".$event->faqanswer2;
+                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$event->faqquestion2."</p>".$event->faqanswer2;
                                                                     } else { echo "" ; }
                                                              ?>
                                                           </td>
@@ -2430,7 +2445,7 @@ body {
                                                           <td height="40" colspan="2" bgcolor="#fff">
                                                              <?php if(isset( $event->faqquestion3) && ($event->faqanswer3)) 
                                                                     {
-                                                                      echo "<p style='font-size:15px;'>".$event->faqquestion3."</p>".$event->faqanswer3;
+                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$event->faqquestion3."</p>".$event->faqanswer3;
                                                                     } else { echo "" ; }
                                                              ?>
                                                           </td>
@@ -2440,7 +2455,7 @@ body {
                                                           <td height="40" colspan="2" bgcolor="#fff">
                                                              <?php if(isset( $event->faqquestion4) && ($event->faqanswer4)) 
                                                                     {
-                                                                      echo "<p style='font-size:15px;'>".$event->faqquestion4."</p>".$event->faqanswer4;
+                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$event->faqquestion4."</p>".$event->faqanswer4;
                                                                     } else { echo "" ; }
                                                              ?>
                                                           </td>
@@ -2455,7 +2470,7 @@ body {
                                                         <?php } ?>
 
                                                         <tr>
-                                                          <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:16px;">Event Sponsors Details</strong></td>
+                                                          <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:13px; color:#e91e63;">Event Sponsors Details</strong></td>
                                                         </tr>
                                                          <?php 
                                                               if(isset($event->organisationname) || ($event->salesemail) || ($event->salesphonenumber) || ($event->saleshostmessage) ) 
@@ -2498,8 +2513,8 @@ body {
                                     <div class="tab-pane active in fade" id="faq-cat-1">                                    
 
                                         <div class="col-md-12 text-center clr" style="margin-top:10px;">
-                                          <h4 style="color:#fff; line-height:30px;">
-                                            <span style="font-size:28px;">
+                                          <h4 style="color:#fff; line-height:30px;  font-size:15px; font-weight:bold;">
+                                            <span style="font-size:15px; font-weight:bold; ">
                                                <img src="../assets/images/wow-white-big.png">
                                               <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                             </span> <br>
@@ -2532,7 +2547,7 @@ body {
 
                                                 </div>
                                                 <p style="padding:10px;">Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. <br>
-                                                  <a>
+                                                  <a style="color:#333; font-weight:bold;">
                                                       <?php  
                                                             if(isset($event->onlinesalespromotionurl))
                                                             {
@@ -2558,7 +2573,7 @@ body {
                                                    11:59s                                                </span></div>
                                               </div>
                                               <div style="width:100%; margin-top:15px; color:#333;" class="pull-left text-center">
-                                                <p style="font-size:16px;">
+                                                <p style="font-size:13px; font-weight:bold;">
                                                   7:00AM - 4:00PM
                                                 </p>
                                               </div>
@@ -2604,7 +2619,7 @@ body {
 
                                                 </div>
                                                 <p style="padding:10px;">Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. <br>
-                                                  <a>
+                                                  <a style="color:#333; font-weight:bold;">
                                                      <?php  
                                                             if(isset($event->onlinesalespromotionur2))
                                                             {
@@ -2629,7 +2644,7 @@ body {
                                                    11:59s                                                </span></div>
                                               </div>
                                               <div style="width:100%; margin-top:15px; color:#333;" class="pull-left text-center">
-                                                <p style="font-size:16px;">
+                                                <p style="font-size:13px;">
                                                   7:00AM - 4:00PM
                                                 </p>
                                               </div>

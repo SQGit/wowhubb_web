@@ -38,40 +38,27 @@
     animation-name: none;
 }
 	
-	label.error {
-    /*font-family: 'Roboto', sans-serif;*/
+label.error {
    	color:red; 
-	}
-
-	.textBox {
-		background-image: url(./assets/images/designation-icon.png);
-		background-position: 0 5px;
-		background-size: 30px;
-		background-repeat: no-repeat;
-		padding-left: 17px;
-	}
+}
+	
 	/*popup close button  */
-	.large.tooltip-inner {
+.large.tooltip-inner {
 		max-width: 350px;
 		width: 350px;
 	}
-	#footer {
-		background: #fff;
-		position: relative;
-		top: 0px;
-	}
-	.btn-file {
+	
+.btn-file {
 		position: relative;
 		overflow: hidden;
 	}
-	.form-body-classic .form-control {
+.form-body-classic .form-control {
 		margin: 0;
 		padding: 6px 12px;
 		background: #fff none repeat scroll 0 0;
 		border: 1px solid rgb(197, 194, 195);
-		border-radius: 4px;
-		/*font-family: 'Source Sans Pro', sans-serif;*/
-		font-size: 14px;
+		border-radius: 4px;		
+		font-size: 12px;
 		font-weight: normal;
 		color: #333;
 		-moz-border-radius: none;
@@ -80,25 +67,10 @@
 		-moz-box-shadow: none;
 		-webkit-box-shadow: none;
 		box-shadow: none;
-	}
-	.btn-file input[type=file] {
-		position: absolute;
-		top: 0;
-		right: 0;
-		min-width: 100%;
-		min-height: 100%;
-		font-size: 100px;
-		text-align: right;
-		filter: alpha(opacity=0);
-		opacity: 0;
-		outline: none;
-		background: white;
-		cursor: inherit;
-		display: block;
-	}
+}
 
 	/*https://stackoverflow.com/questions/14199788/how-do-i-use-an-image-as-a-submit-button */ 	 
-	#btnAdd10,#remove_day{
+#btnAdd10,#remove_day{
 		background-image: url("<?php echo base_url('assets/images/close-outline-32.png')?>");
 		background-repeat: no-repeat;
 		border: none;
@@ -108,7 +80,8 @@
 		color: transparent;
 		background-color: transparent;
 		outline: none;
-	}
+		background-position:74px -2px;
+}
 	
 	
 	.faq-cat-content {
@@ -155,120 +128,31 @@
 	.panel-title {
 		font-size: 14px;
 	}
-	.panel-title > a {
+.panel-title > a {
 		display: block;
 		padding: 15px;
 		text-decoration: none;
 	}
-	.more-less {
+.more-less {
 		float: right;
 		color: #212121;
 	}
 	.panel-default > .panel-heading + .panel-collapse > .panel-body {
 		border-top-color: #EEEEEE;
 	}
-	.ac-container {
-		width: 100%;
-		margin: 10px auto 30px auto;
-		text-align: left;
-	}
-	.ac-container label {
-		padding: 5px 10px;
-		position: relative;
-		z-index: 20;
-		display: block;
-		
-		cursor: pointer;
-		color: #777;
-		text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
-		line-height: 20px;
-		font-size: 12px;
-		background: #ffffff;
-		background: -moz-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #ffffff), color-stop(100%, #eaeaea));
-		background: -webkit-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-		background: -o-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-		background: -ms-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-		background: linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-	 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea', GradientType=0 );
-		box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3), 1px 0px 0px 0px rgba(255,255,255,0.9) inset, 0px 2px 2px rgba(0,0,0,0.1);
-	}
-	.ac-container label:hover {
-		background: #fff;
-	}
-	.ac-container input:checked + label, .ac-container input:checked + label:hover {
-		background: #c6e1ec;
-		color: #3d7489;
-		text-shadow: 0px 1px 1px rgba(255,255,255, 0.6);
-		box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3), 0px 2px 2px rgba(0,0,0,0.1);
-	}
-	.ac-container label:hover:after, .ac-container input:checked + label:hover:after {
-		content: '';
-		position: absolute;
-		width: 24px;
-		height: 24px;
-		right: 2px;
-		top: 2px;
-		background: transparent url(../assets/images/arrow_down.png) no-repeat center center;
-	}
-	.ac-container input:checked + label:hover:after {
-		background-image: url(../assets/images/arrow_up.png);
-	}
-	.ac-container input {
-		display: none;
-	}
-	.ac-container article {
-		background: rgba(255, 255, 255, 0.5);
-		margin-top: -1px;
-		overflow: hidden;
-		height: 0px;
-		position: relative;
-		z-index: 10;
-		-webkit-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-		-moz-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-		-o-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-		-ms-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-		transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-	}
-	.ac-container article p {
-		font-style: italic;
-		color: #777;
-		line-height: 23px;
-		font-size: 14px;
-		padding: 5px 20px;
-		text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
-	}
-	.ac-container input:checked ~ article {
-		-webkit-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		-moz-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		-o-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		-ms-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3);
-	}
-	.ac-container input:checked ~ article.ac-small {
-		height: 400px;
-	}
-	.ac-container input:checked ~ article.ac-medium {
-		height: 450px;
-	}
-	.ac-container input:checked ~ article.ac-large {
-		height: 500px;
-	}
-
-	.form-group {
+	
+.form-group {
 		margin-bottom: 5px!important;
 	}
-	.form-group-1 {
+.form-group-1 {
 		margin-bottom: 0px;
 	}
-	.form-body-classic.form-wizard .btn-1 {
+.form-body-classic.form-wizard .btn-1 {
 		min-width: 105px;
 		height: 30px;
 	    margin: 0;
 	    padding: 0 20px;
-	    border: none;
-	    /*font-family: 'Lato', sans-serif;*/
+	    border: none;	   
 	    font-size: 16px;
 	    font-weight: normal;
 	    line-height:30px;
@@ -278,29 +162,29 @@
 	    text-shadow: none;
 	    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
 	}
-	.btn-file input[type=file] {
-	  position: absolute;
-	  top: 0;
-	  right: 0;
-	  min-width: 100%;
-	  min-height: 100%;
-	  font-size: 100px;
-	  text-align: right;
-	  filter: alpha(opacity=0);
-	  opacity: 0;
-	  outline: none;
-	  background: white;
-	  cursor: inherit;
-	  display: block;
+.btn-file input[type=file] {
+		position: absolute;
+		top: 0;
+		right: 0;
+		min-width: 100%;
+		min-height: 100%;
+		font-size: 100px;
+		text-align: right;
+		filter: alpha(opacity=0);
+		opacity: 0;
+		outline: none;
+		background: white;
+		cursor: inherit;
+		display: block;
 	}
 
-	img {
+img {
     max-width: 200px;
     height: auto;
     display: inline-block;
 	}
 
-	.remove {
+.remove {
 	  display: block;
 	  background: #444;
 	  border: 1px solid black;
@@ -308,14 +192,14 @@
 	  text-align: center;
 	  cursor: pointer;
 	  width: 200px;
-      /*margin-left: 107px;*/
+      margin-left: 0px;
 	}
-	.remove:hover {
+.remove:hover {
 	  background: white;
 	  color: black;
 	}
 
-	.remove1 {
+.remove1 {
 	  display: block;
 	  background: #444;
 	  border: 1px solid black;
@@ -323,13 +207,28 @@
 	  text-align: center;
 	  cursor: pointer;
 	  width: 200px;
-      margin-left: 144px;
+      margin-left: 121px;
 	}
-	.remove1:hover {
+.remove1:hover {
 	  background: white;
 	  color: black;
 	}
-	.tab {
+	
+.remove2 {
+	  display: block;
+	  background: #444;
+	  border: 1px solid black;
+	  color: white;
+	  text-align: center;
+	  cursor: pointer;
+	  width: 200px;
+      margin-left: 0px;
+	}
+.remove2:hover {
+	  background: white;
+	  color: black;
+	}
+.tab {
 	  display: none;
 	}
 
@@ -342,6 +241,10 @@
   height: 120px;
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
+}
+
+.form-wizard .btn.btn-previous, .form-wizard .btn.btn-previous:focus, .form-wizard .btn.btn-previous:active:focus, .form-wizard .btn.btn-previous.active:focus {
+    background: #888888!important;
 }
 
 @-webkit-keyframes spin {
@@ -381,11 +284,23 @@ input[type=number]::-webkit-outer-spin-button {
     appearance: none;
     margin: 0; 
 }
-/*.swal2-contentwrapper
-{
-	margin: 0 auto;
-    height: 150px;
-}*/
+.form-wizard-steps {
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    margin-top: 9px;
+}
+.progress {
+    height: 10px;
+    margin-bottom: 11px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    margin-top: 0px;
+}
+
 </style>
 </head>
 
@@ -402,14 +317,15 @@ input[type=number]::-webkit-outer-spin-button {
     ================================================= -->
   <header id="header">
       <nav class="navbar navbar-default navbar-fixed-top menu" style="padding-top:3px!important; padding-bottom:3px!important;">
-        <div class="container"> 
-      
-          <?php  include('/../includes/header.php'); ?>
+        <div class="container">      
+           <?php  include('/../includes/header.php'); ?>
         </div>
         <!-- /.container --> 
       </nav>
   </header>
 <!--Header End-->
+
+
 
 <div class="google-maps"> </div>
 <!--Header End-->
@@ -423,60 +339,51 @@ input[type=number]::-webkit-outer-spin-button {
       <div class="row">
         <div class="col-md-12">
           <div class="col-md-10 form-wizard form-body-classic form-header-classic" style="min-width:1200px;"> 
-            <!-- 
-            Just change the class name for make it with different style of design.
-
-            Use anyone class "form-header-classic" or "form-header-modarn" or "form-header-stylist" for set your form header design.
             
-            Use anyone class "form-body-classic" or "form-body-material" or "form-body-stylist" for set your form element design.
-            -->
-            
-            <h3>Create Your Event</h3>
-            <p>Please fill information to a create an event </p>
              <img src="../assets/images/banner.jpg" class="img-thumbnail"  alt="banner-image"/>
             <!-- Form progress -->
-    <div class="form-wizard-steps form-wizard-tolal-steps-7">
+    <div class="form-wizard-steps form-wizard-tolal-steps-6">
               <div class="form-wizard-progress">
-                <div class="form-wizard-progress-line" data-now-value="12.25" data-number-of-steps="7" style="width: 12.25%;"></div>
+                <div class="form-wizard-progress-line" data-now-value="12.25" data-number-of-steps="6" style="width: 12.25%;"></div>
               </div>
               <!-- Step 1 -->
               <div class="form-wizard-step active">
                 <div class="form-wizard-step-icon"><i class="fa fa-child" aria-hidden="true"></i></div>
-                <p>Event Details</p>
+                <p>1.Event Details</p>
               </div>
               <!-- Step 1 --> 
               
               <!-- Step 2 -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-exclamation" aria-hidden="true"></i></div>
-                <p>!Wowtag</p>
+                <p>2.!Wowtag</p>
               </div>
               <!-- Step 2 --> 
               
               <!-- Step 3 -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
-                <p>Event Venue</p>
+                <p>3.Event Venue</p>
               </div>
               <!-- Step 3 --> 
               
               <!-- Step 4  -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-briefcase" aria-hidden="true"></i></div>
-                <p>Event Schedule</p>
+                <p>4Event Schedule</p>
               </div>
               <!-- Step 4 --> 
               
               <!-- Step 5 -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-flash" aria-hidden="true"></i></div>
-                <p>Event Highlights</p>
+                <p>5.Event Highlights</p>
               </div>
               <!-- Step 5 --> 
               <!-- Step 6 -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-user" aria-hidden="true"></i></div>
-                <p>Event Contact/ URL Links</p>
+                <p>6.Event Contact/ URL Links</p>
               </div>
               <!-- Step 6 --> 
               
@@ -485,23 +392,14 @@ input[type=number]::-webkit-outer-spin-button {
             <!-- Form Step 1 -->
     <form id="create_event" action="<?php echo base_url('event/personal_event'); ?>"  method="post" enctype="multipart/form-data" > 
     	
-    	  <fieldset>
+    	<fieldset>
                 <!-- Progress Bar -->
                 <div class="progress">
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="14.28" aria-valuemin="0" aria-valuemax="100" style="width: 14.28%"> </div>
                 </div>
-
-                <!-- Progress Bar -->
-
-                 <div class="col-md-10">
-                	<h4> <strong>Spice Up Your Upcoming Event By Uploading  A Promotional Ad Video {!Wowtag}</strong></h4>
-            	</div>
-                <div class="col-md-2">
-                	<h4> <span>Step 1 - 6</span></h4>
-            	</div>
-
-        <div class='col-sm-5'>
-                  <div class='row'>
+               
+        	<div class='col-sm-5'>
+                <div class='row'>
                   	<div class='form-group col-sm-12' style="display: none;" >
                       <label>Event type</label>
                       <input type='text' name="event_type"  class="form-control " value="<?php echo $this->session->userdata('event_type'); ?>"  readonly/>
@@ -512,19 +410,19 @@ input[type=number]::-webkit-outer-spin-button {
                     </div>
                     <div class='form-group col-sm-12' >
                       <label>Event Name</label>
-                      <input type='text'  name="event_name" class="form-control required"  style="text-transform: capitalize;" />
+                      <input type='text'  name="event_name" class="form-control required"  style="text-transform: capitalize;" autocomplete="off" />
                     </div>
-                  </div>
+                </div>
 
             		<div class='row'>
 		                    <div class='form-group col-sm-12' >
 		                      <label>Event City </label>
-		                      <input type='text' id="time_zone" name="time_zone"  class="form-control " />
+		                      <input type='text' id="time_zone" name="time_zone"  class="form-control" autocomplete="off"/>
 		                    </div>
 
 		                    <div class="form-group col-sm-12 " style="font-size: 15px;">
-				                      <label>Select Event Days</label>
-				                    <select name="eventdayscount" id="btn-add-tab" class="form-control " style="background-color:#eff0f1;">
+				                    <label>Select Event Days</label>
+				                    <select name="eventdayscount" id="btn-add-tab" class="form-control required" style="background-color:#eff0f1;">
 				                      <option value="" >Select Event Days</option>
 				                      <option value="1">1 Day Event</option>
 				                      <option value="2">2 Days Event</option>
@@ -540,34 +438,34 @@ input[type=number]::-webkit-outer-spin-button {
 
 		                    <div class='form-group col-sm-6' style="width:45%;" >
 		                      <label>Event Start Date</label>
-		                      <input type='text' id="event_startdate" name="event_startdate"  class="form-control "  />
+		                      <input type='text' id="event_startdate" name="event_startdate" class="form-control required" autocomplete="off" />
 		                    </div>
 
 		                    <div  class='form-group col-sm-6' style="width:45%; " >
 		                      <label>Event Start Time</label>
-		                      <input type='text' id="event_startime" name="event_startime"  class="form-control  "  />
+		                      <input type='text' id="event_startime" name="event_startime" class="form-control" autocomplete="off" />
 		                    </div>
 
 		                
 		                    <div class='form-group col-sm-6' style="width:45%;" >
 		                      <label>Event End Date</label>
-		                      <input type='text' id="event_enddate" name="event_enddate"  class="form-control" />
+		                      <input type='text' id="event_enddate" name="event_enddate" class="form-control" autocomplete="off" />
 		                    </div>
 
 		                    <div class='form-group col-sm-6' style="width:45%;">
 		                      <label>Event End Time</label>
-		                      <input type='text' id="event_endtiming" name="event_endtiming"  class="form-control "  />
+		                      <input type='text' id="event_endtiming" name="event_endtiming" class="form-control" autocomplete="off" />
 		                    </div>		                    
 		                </div>   
 		                   
             		</div>
-        </div>
+        	</div>
 
                 <div class='col-sm-4'>
 	                  <div class='row'>
 		                    <div class='form-group col-sm-12'>
 		                      <label>Event Description</label>
-		                      <textarea type='text' id="description" name="event_description"  class="form-control " style="min-height:300px;" placeholder="Describe What Your Event Is All About " ></textarea>
+		                      <textarea type='text' id="description" name="event_description"  class="form-control required" style="min-height:300px;" placeholder="Describe What Your Event Is All About" autocomplete="off" ></textarea>
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
@@ -578,7 +476,7 @@ input[type=number]::-webkit-outer-spin-button {
 				                        <div class="field" align="left">
 				                         		<input type="button" class="btn btn-primary re"  value="Browse Image..." onclick="document.getElementById('files').click();" />
 				                         		<div id="img_preview"></div>
-				                         		<input type="file" style="display:none;" name="cover_img" id="files" class="file " accept="image/*" title="cover image">  
+				                         		<input type="file" style="display:none;" name="cover_img" id="files" class="file required" accept="image/*" title="cover image">  
 				                        </div> 
 			                        </div>		                        
 			                      </div>
@@ -592,7 +490,7 @@ input[type=number]::-webkit-outer-spin-button {
                       <h5>Helpful Hints</h5>
                       <section class="ac-container">
                         <div>
-                          <input id="ac-1" name="accordion-1" type="radio" checked />
+                          <input id="ac-1" name="accordion-1" type="radio" />
                           <label for="ac-1">What is an Event Name?</label>
                           <article class="ac-small">
                             <p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.</p>
@@ -627,8 +525,8 @@ input[type=number]::-webkit-outer-spin-button {
                 </div>
                 <div class='col-sm-12'>
                   <div class="form-wizard-buttons">
-                    <button type="button" class="btn" style="background:#005898;">Save Draft</button>
-                    <button type="button" class="btn btn-next">Next</button>
+                    <button type="button" class="btn" style="background:#e72026;"> <i class="fa fa-save"></i> Save Draft</button>
+                    <button type="button" class="btn cancel btn-next">Next <i class="fa fa-arrow-right"></i></button>
                   </div>
                 </div>
 
@@ -643,14 +541,7 @@ input[type=number]::-webkit-outer-spin-button {
                 <!-- Progress Bar -->
                 <div class="progress">
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="28.56" aria-valuemin="0" aria-valuemax="100" style="width: 28.56%"> </div>
-                </div>
-                <!-- Progress Bar -->
-                 <div class="col-md-10">
-                	<h4> <strong>Spice Up Your Upcoming Event By Uploading  A Promotional Ad Video {!Wowtag}</strong></h4>
-            	</div>
-                <div class="col-md-2">
-                	<h4> <span>Step 2 - 6</span></h4>
-            	</div>
+                </div>                
 
                 <div class='col-sm-9'>
 
@@ -664,48 +555,52 @@ input[type=number]::-webkit-outer-spin-button {
                       <div class='form-group-1 col-sm-12'>
                         <div class="text-center" >
                         	<img src="../assets/images/wow-pink.png"> 
-                          <input type='text' name="event_title" class="form-control "  style="padding: 6px 30px;"   placeholder="Enter Your !Wowtag Title Here      Example:  Craigsbirthday2017" />
+                          <input type='text' name="event_title" class="form-control required"  style="padding: 6px 30px;"   placeholder="Enter Your !Wowtag Title Here      Example:  Craigsbirthday2017" autocomplete="off" />
                         </div>
                       </div>
                     </div>
                   </div>
 
                 <div class='form-group col-sm-12'>
-                    <div class='col-sm-12' style="background-color:#f9f9f9; padding-top:15px;">
-                      <div class="text-center">
-                        <label style="color:#333; font-weight: bold; font-size: 16px">Upload Your Event -!Wowtag Video </label>
+                    <div class='col-sm-6' style="background-color:#f9f9f9; padding-top:15px;">
+                      <div class="text-left">
+                        <label style="color:#333; font-weight: bold; font-size: 14px">Upload Your Event -!Wowtag Video </label>
                       </div>
                       <div class="form-group">
-                      	<span class="btn btn-primary btn-file"> 
-                       	 Browse...<input type="file" name="wowtag_video" id="video_size" class="file " accept="video/*">
-                       	</span>
+                      	
+                        <div id="video_show" style="display: none;" style="margin-top:20px;" >
+                        				<div class="remove_video" style="cursor: pointer; position:absolute; top: 55px; left: 210px; z-index:9999;">
+		                          	<img src="<?php echo base_url('assets/images/wow-close.png'); ?>" />
+		                        </div>
 
-                        <div id="video_show" style="display: none;" >
-                        				<div class="remove_video" style="cursor: pointer;">
-		                          			<i class="fa fa-window-close" style="font-size:25px; margin-left: 171px;"></i>
-		                        		</div>
-
-                        	<video width="200" height="110" controls>
+                        	<video width="200" height="180" controls>
 							 	 <source src="mov_bbb.mp4" id="video_here">
 							    Your browser does not support HTML5 video.
 							</video>
 							<audio id="video_url"></audio> <!-- here store video url and check duration -->
                         </div>
+                        <span class="btn btn-primary btn-file"> 
+                       	 <i class="fa fa-play-circle"></i> Upload Video<input type="file" name="wowtag_video" id="video_size" class="file required" accept="video/*">
+                       	</span>
+
                         <!-- alert msg show here -->
                         <div class="alert_msg" style="color: red; font-weight: bold; font-size: 16px;" ></div>
 
-                        <div class="input-group col-xs-12" style="margin-top:0px;">
+                        <div class="input-group col-xs-12"  style="margin-top:10px; line-height:20px;">
                           <p>Choose a compelling 60-120 seconds event promotional ads video that will create a lasting impression in your viewers mind</p>
                         </div>                        
                       </div>
                     </div>
                     <div class='col-sm-6' style="margin-top: 10px;">
+                    <div class="text-left">
+                        <label style="color:#333; font-weight: bold; font-size: 14px">Event Promotional Video </label>
+                      </div>
                       <label>!Wowtag Runtime From: </label>
-                      <input type='text'  id="runtime_from" name="runtime_from" class="form-control  " placeholder="Wowtag Runtime From" />
+                      <input type='text'  id="runtime_from" name="runtime_from" class="form-control required" placeholder="Wowtag Runtime From" autocomplete="off" />
                     </div>
                     <div class='col-sm-6' style="margin-top: 10px;" >
                       <label>!Wowtag Runtime To: </label>
-                      <input type='text' id="totime_to" name="totime_to" class="form-control " placeholder="Wowtag Runtime To" />
+                      <input type='text' id="totime_to" name="totime_to" class="form-control required" placeholder="Wowtag Runtime To" autocomplete="off"/>
                     </div>
                   </div>
 
@@ -755,9 +650,9 @@ input[type=number]::-webkit-outer-spin-button {
 
                 <div class='form-group col-sm-12' style="margin-top:25px;">
                   <div class="form-wizard-buttons">
-                    <button type="button" class="btn" style="background:#005898;">Save Draft</button>
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="button" class="btn btn-next">Next</button>
+                    <button type="button" class="btn" style="background:#e72026;"><i class="fa fa-save"></i> Save Draft</button>
+                    <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
                   </div>
                 </div>
     </fieldset>
@@ -773,18 +668,12 @@ input[type=number]::-webkit-outer-spin-button {
                 <div class="progress">
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="42.84" aria-valuemin="0" aria-valuemax="100" style="width: 42.84%"> </div>
                 </div>
-                <!-- Progress Bar -->
-                <div class="col-md-10">
-                	<h4> <strong>Spice Up Your Upcoming Event By Uploading  A Promotional Ad Video {!Wowtag} </strong></h4>
-            	</div>
-                <div class="col-md-2">
-                	<h4> <span>Step 3 - 6</span></h4>
-            	</div>
-        <div class='col-sm-5'>
+               
+        	<div class='col-sm-5'>
         	
-            <div class='col-sm-12' style="background-color:#f9f9f9;padding-top:10px; ">
-                  		<div id="show_vanue" style="background-color:#bfbebe;padding-top:10px; ">
-							<center> <label >CREATE AND ADD YOUR EVENT TOURS CITIES HERE</label></center>  
+            	<div class='col-sm-12' style="background-color:#f9f9f9;padding-top:10px; ">
+                  		<div id="show_vanue" style="background-color:#DDDDDD; padding-top:10px; border-radius:7px;">
+							<center style=" margin-bottom:5px; "> <label ><img src="../assets/images/map-icon.png" alt="map-icon">Create &amp; Add Your Event Tours Cities Here</label></center>  
 						</div> 
 
              	<div id="event_venues" >
@@ -792,27 +681,27 @@ input[type=number]::-webkit-outer-spin-button {
 
 		                    <div class='form-group col-sm-12' style="margin-top:20px;">
 		                      <label>Enter Your Event Venue / location Name</label>
-		                      <input type='text' id="event_venue_name_1" name="event_venue_name[]"  class="form-control" onblur="update_vanue()"/>
+		                      <input type='text' id="event_venue_name_1" name="event_venue_name[]"  class="form-control" onblur="update_vanue()" autocomplete="off"/>
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>Address 1</label>
-		                      <input type='text' id="address1_1" name="address1[]"  class="form-control" />
+		                      <input type='text' id="address1_1" name="address1[]" class="form-control" autocomplete="off"/>
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>Address 2</label>
-		                      <input type='text' id="address2_1" name="address2[]"  class="form-control"  />
+		                      <input type='text' id="address2_1" name="address2[]" class="form-control" autocomplete="off" />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>City</label>
-		                      <input type='text' id="city_1" name="venue_city[]" class="txtOnly form-control" maxlength="25" />
+		                      <input type='text' id="city_1" name="venue_city[]" class="txtOnly form-control" maxlength="25" autocomplete="off" />
 		                    </div>		                   
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>Zipcode/ Postal Code</label>
-		                      <input type='text' id="zipcode_1" name="zipcode[]"  class="form-control" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" maxlength="6"/>
+		                      <input type='text' id="zipcode_1" name="zipcode[]"  class="form-control" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" maxlength="6" autocomplete="off"/>
 		                    </div>
                		</div>
             	</div> 
@@ -821,17 +710,17 @@ input[type=number]::-webkit-outer-spin-button {
                    <div class='col-sm-12'> 
                     	<div class='col-sm-5'>
                     		<a href="JavaScript:void(0);" id="btnAdd7" data-nxt_event_address="2">
-                    		<i class="fa fa-plus-circle"></i> Add multiple venue </a>
+                    		<i class="fa fa-plus-circle"></i> Add Multiple Venue </a>
                     	</div>
                     	<div style="overflow:hidden;">
 						 	
-							    <div  class="col-md-7">
-							      <a href="JavaScript:void(0);" id="prevBtn" onclick="nextPrev(-1)">Previous</a>
-							      <a href="JavaScript:void(0);" id="nextBtn" onclick="nextPrev(1)" style="margin-left: 35px;"> Next</a>
+							    <div  class="col-md-8 text-right" style="margin-top:1px;">
+							      <a href="JavaScript:void(0);" id="prevBtn" onclick="nextPrev(-1)"><i class="fa fa-arrow-left"></i> Previous</a>
+							      <a href="JavaScript:void(0);" id="nextBtn" onclick="nextPrev(1)" style="margin-left: 35px;">Next <i class="fa fa-arrow-right"></i></a>
 							    </div>					
 						</div>                     
                    </div>  
-        </div>
+        	</div>
 
                 <div class='col-sm-4'>
                   	<div class='row'>
@@ -839,25 +728,25 @@ input[type=number]::-webkit-outer-spin-button {
 		                      <div class="pull-left" style="width:10%;">
 		                        <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:15px;">Address can only be viewed by invited guest</div>
+		                      <div class="pull-left" style="width:90%; font-size:13px;">Address can only be viewed by invited guest</div>
 		                    </div>
 		                    <div class='form-group-1 col-sm-12'>
 			                    <div class="pull-left" style="width:10%;">
 			                       <input type="checkbox" name="eventvenue_guestshare" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 			                    </div>
-			                    <div class="pull-left" style="width:90%; font-size:15px;">Invited guest can share event</div>
+			                    <div class="pull-left" style="width:90%; font-size:13px;">Invited guest can share event</div>
 		                    </div>
 		                    <div class='form-group-1 col-sm-12'>
 		                      <div class="pull-left" style="width:10%;">
 		                        <input type="checkbox" name="eventvenue_onlineevent" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:15px;">Online  Event</div>
+		                      <div class="pull-left" style="width:90%; font-size:13px;">Online  Event</div>
 		                    </div>
 		                    <div class='form-group-1 col-sm-12'>
 		                      <div class="pull-left" style="width:10%;">
 		                        <input type="checkbox" name="eventvenue_inviteonlyevent" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:15px;">Invite Only Event</div>
+		                      <div class="pull-left" style="width:90%; font-size:13px;">Invite Only Event</div>
 		                    </div>
 
 		                    <!-- event FAQ part here -->
@@ -870,19 +759,19 @@ input[type=number]::-webkit-outer-spin-button {
 			                       <div class="row">
 			                         	<div class="form-group-1 col-md-12">
 				                          <p>What is Event Age Requirement?</p>
-				                          <input type='text'  name="quesans1"  class="form-control" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" maxlength="2" />
+				                          <input type='text'  name="quesans1"  class="form-control" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" maxlength="2" autocomplete="off"/>
 				                        </div>
 				                        <div class="form-group-1 col-md-12">
 				                          <p>This is a kids friendly event?</p>
-				                          <input type='text' name="quesans2"  class="form-control"  />
+				                          <input type='text' name="quesans2"  class="form-control" autocomplete="off" />
 				                        </div>
 				                        <div class="form-group-1 col-md-12">
 				                          <p>What are event parking/Transportantion options to and from event location?</p>
-				                          <input type='text'  name="quesans3"  class="form-control"  />
+				                          <input type='text'  name="quesans3"  class="form-control" autocomplete="off" />
 				                        </div>
 				                        <div class="form-group-1 col-md-12">
 				                          <p> What are allowed into the event venue?</p>
-				                          <input type='text'  name="quesans4"  class="form-control"  />
+				                          <input type='text'  name="quesans4"  class="form-control" autocomplete="off" />
 				                        </div>
 				                    </div>
 
@@ -946,9 +835,9 @@ input[type=number]::-webkit-outer-spin-button {
                 </div>
                 <div class='col-sm-12'>
                   <div class="form-wizard-buttons">
-                    <button type="button" class="btn" style="background:#005898;">Save Draft</button>
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="button" class="btn btn-next">Next</button>
+                    <button type="button" class="btn" style="background:#e72026;"><i class="fa fa-save"></i> Save Draft</button>
+                    <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
                   </div>
                 </div>
     </fieldset>
@@ -967,17 +856,13 @@ input[type=number]::-webkit-outer-spin-button {
                 <div class="row">
                   <div class="col-md-9">
                     <div class='form-group col-sm-12'> <a href="JavaScript:void(0);" class="btn-next"><i class="fa fa-fast-forward"></i> Skip</a><br>
-                    	<strong style="font-size: 20px; color: #e91e63">Spice Up Your Upcoming Event By Uploading  A Promotional Ad Video {!Wowtag}  </strong>
+                    	<!--strong style="font-size: 20px; color: #e91e63">Spice Up Your Upcoming Event By Uploading  A Promotional Ad Video {!Wowtag}  </strong-->
                      </div>
                   </div>
-                  <div class="col-md-3">
-                    <div class="pull-right">
-                      <h4> <span>Step 4 - 6</span></h4>
-                    </div>
-                  </div>
+                  
                 </div>
 
-        		<div class='form-group col-sm-9' style="margin-top: 30px;"> 
+        		<div class='form-group col-sm-9' style="margin-top: 0px;"> 
                   
                   <!-- Nav tabs category -->
                   	<input type="hidden" name="no_of_days" id="no_of_days" value="">
@@ -1033,9 +918,9 @@ input[type=number]::-webkit-outer-spin-button {
                 </div>
                 <div class='form-group col-sm-12' style="margin-top: 30px;">
                   <div class="form-wizard-buttons">
-                    <button type="button" class="btn" style="background:#005898;">Save Draft</button>
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="button" class="btn btn-next">Next</button>
+                     <button type="button" class="btn" style="background:#e72026;"><i class="fa fa-save"></i> Save Draft</button>
+                    <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
                   </div>
                 </div>
     </fieldset>
@@ -1045,19 +930,10 @@ input[type=number]::-webkit-outer-spin-button {
     <fieldset>
           
                <!-- Progress Bar -->
-	        <div class="progress">
+	        	<div class="progress">
 	                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="71.37" aria-valuemin="0" aria-valuemax="100" style="width: 71.37%"> </div>
-	        </div>
-                <!-- Progress Bar -->
-             <div class="col-md-10">
-                	<h4> <strong>Your Event highlights includes list of Invited Guest Speaker, Guest Artist, Special Activities etc </strong></h4>
-            	</div>
-                <div class="col-md-2">
-                	<h4> <span>Step 5 - 6</span></h4>
-            	</div>
-                 <div class='form-group col-sm-12'>
-                  	  <label>Add Your Event Highlights </label>
-                </div>
+	        	</div>
+                             
                 <div class='col-sm-9' id="highlight2">
 	                <div class='form-group col-sm-7' style="margin-bottom: 0px;">
 	                  	
@@ -1066,19 +942,19 @@ input[type=number]::-webkit-outer-spin-button {
 		                        <div class="input-group col-xs-12" style="margin-top:0px;">
 		                          <p style="line-height:23px;">Choose a compelling 60-120 seconds event promotional ads video that will create a lasting impression in your viewers mind</p>
 		                        </div>
-
-		                        <input type="button" class="btn btn-primary"  value="Browse" onclick="document.getElementById('video_hightlight1').click();" />		                         
-		                        <input type="file" style="display:none;" name="highlight_img1" id="video_hightlight1" class="file">
-
-			                     	<div id="video_show1" style="display: none;" >
+								<div id="video_show1" style="display: none;" >
 			                     		<div class="remove_highlightvideo1" style="cursor: pointer;">
-		                          			<i class="fa fa-times-rectangle" style="font-size:25px; margin-left: 171px;"></i>
+		                          			<img src="<?php echo base_url('assets/images/wow-close.png'); ?>" />
 		                        		</div>
 			                        	<video width="200" height="110" controls>
 										 	 <source src="mov_bbb.mp4" id="video_here1">
 										    Your browser does not support HTML5 video.
 										</video>
 			                        </div> 
+		                        <input type="button" class="btn btn-primary"  value="Upload Video" onclick="document.getElementById('video_hightlight1').click();" />		                         
+		                        <input type="file" style="display:none;" name="highlight_img1" id="video_hightlight1" class="file">
+
+			                     	
 	                      	</div>
 	                    </div>	                    
 	                </div>
@@ -1102,13 +978,13 @@ input[type=number]::-webkit-outer-spin-button {
 	                  </select>
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <input type="text" name="nameofspeaker1" id="textbox_1" class="form-control" placeholder="Enter Name Of Speaker/Artist/Event Clips">
+	                  <input type="text" name="nameofspeaker1" id="textbox_1" class="form-control" placeholder="Enter Name Of Speaker/Artist/Event Clips" autocomplete="off">
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <input type="text" name="guest_url1" id="textbox_2" class="form-control" placeholder="Event Guest Speaker/Artist URL-Links">
+	                  <input type="text" name="guest_url1" id="textbox_2" class="form-control" placeholder="Event Guest Speaker/Artist URL-Links" autocomplete="off">
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <textarea class="form-control" name="guest_speaker1" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;"></textarea>
+	                  <textarea class="form-control" name="guest_speaker1" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" autocomplete="off"></textarea>
 	                </div>
                 </div>
                 		<br><br>
@@ -1122,19 +998,19 @@ input[type=number]::-webkit-outer-spin-button {
 		                        <div class="input-group col-xs-12" style="margin-top:0px;">
 		                          <p style="line-height:23px;">Choose a compelling 60-120 seconds event promotional ads video that will create a lasting impression in your viewers mind</p>
 		                        </div>
-
-		                         <input type="button" class="btn btn-primary"  value="Browse" onclick="document.getElementById('video_size2').click();" />
-		                         <input type="file" style="display:none;" name="highlight_img2" id="video_size2" class="file">
-
-			                     	<div id="video_show2" style="display: none;" >
+									<div id="video_show2" style="display: none;" >
 			                     		<div class="remove_highlightvideo2" style="cursor: pointer;">
-		                          			<i class="fa fa-times-rectangle" style="font-size:25px; margin-left: 171px;"></i>
+		                          			<img src="<?php echo base_url('assets/images/wow-close.png'); ?>" />
 		                        		</div>
 			                        	<video width="200" height="110" controls>
 										 	 <source src="mov_bbb.mp4" id="video_here2">
 										    Your browser does not support HTML5 video.
 										</video>
 			                        </div>
+		                         <input type="button" class="btn btn-primary"  value="Upload Video" onclick="document.getElementById('video_size2').click();" />
+		                         <input type="file" style="display:none;" name="highlight_img2" id="video_size2" class="file">
+
+			                     	
 	                      	</div>
 	                    </div>	                    
 	                </div>
@@ -1158,13 +1034,13 @@ input[type=number]::-webkit-outer-spin-button {
 	                  </select>
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <input type="text" name="nameofspeaker2" id="textbox_1" class="form-control" placeholder="Enter Name Of Speaker/Artist/Event Clips">
+	                  <input type="text" name="nameofspeaker2" id="textbox_1" class="form-control" placeholder="Enter Name Of Speaker/Artist/Event Clips" autocomplete="off">
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <input type="text" name="guest_url2" id="textbox_2" class="form-control" placeholder="Event Guest Speaker/Artist URL-Links">
+	                  <input type="text" name="guest_url2" id="textbox_2" class="form-control" placeholder="Event Guest Speaker/Artist URL-Links" autocomplete="off">
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <textarea class="form-control" name="guest_speaker2" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;"></textarea>
+	                  <textarea class="form-control" name="guest_speaker2" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" autocomplete="off"></textarea>
 	                </div>
                 </div>
             </div>
@@ -1216,9 +1092,9 @@ input[type=number]::-webkit-outer-spin-button {
                 
                 <div class='form-group col-sm-12' style="margin-top: 30px;">
                   <div class="form-wizard-buttons">
-                    <button type="button" class="btn" style="background:#005898;">Save Draft</button>
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="button" class="btn btn-next">Next</button>
+                     <button type="button" class="btn" style="background:#e72026;"><i class="fa fa-save"></i> Save Draft</button>
+                    <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
                   </div>
                 </div>
     </fieldset>
@@ -1232,22 +1108,21 @@ input[type=number]::-webkit-outer-spin-button {
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="85.62" aria-valuemin="0" aria-valuemax="100" style="width: 85.62%"> </div>
                 </div>
                 <!-- Progress Bar -->
-                 <div class="col-md-10">
+                 <!--div class="col-md-10">
                 	<h4> <strong>Spice Up Your Upcoming Event By Uploading  A Promotional Ad Video {!Wowtag}</strong></h4>
             	</div>
                 <div class="col-md-2">
                 	<h4> <span>Step 6 - 6</span></h4>
-            	</div>
+            	</div-->
                 <div style="clear:both;"></div>
                 <div class="col-md-9">
                 <div class="col-md-6">
                   <div class="form-group col-sm-12">
                   <div class="pull-left" style="width:80%;">
                     <label> Name </label>
-                    <input type="text" class="form-control required"  name="eventcontactname" placeholder="" >
+                    <input type="text" class="form-control required" name="eventcontactname" autocomplete="off">
                     </div>
-                    <div class="pull-left" style="width:17%; margin-left:3%; margin-top:15px;">
-                  
+                    <div class="pull-left" style="width:17%; margin-left:3%; margin-top:15px;">                  
                         <div class="toggle-switch">
                           <label class="switch">
                             <input type="checkbox" checked>
@@ -1291,53 +1166,53 @@ input[type=number]::-webkit-outer-spin-button {
                   </div>
                   <div class="form-group col-sm-12">
                     <label>Event Host Message</label>
-                    <textarea type="text" class="form-control"  name="message" placeholder=""></textarea>
+                    <textarea type="text" class="form-control"  name="message" autocomplete="off"></textarea>
                   </div></div>
                   
                   <div class="col-md-6">
                   		<div class="hide_link">
 		                  <div class="form-group col-sm-12">
 		                    <label> Donation URL </label>
-		                    <input type="text" class="form-control"  name="donation_url" placeholder="" >
+		                    <input type="text" class="form-control" name="donation_url" autocomplete="off" >
 		                  </div>
 		                  <div class="form-group col-sm-12">
 		                    <label>Gift Registry URL </label>
-		                    <input type="text" class="form-control"  name="gift_url" value=""  >
+		                    <input type="text" class="form-control" name="gift_url" autocomplete="off" >
 		                  </div>
 		                  <div class="form-group col-sm-12">
 		                    <label>Other URL </label>
-		                    <input type="text" class="form-control"  name="other_url" value=""  >
+		                    <input type="text" class="form-control" name="other_url" autocomplete="off" >
 		                  </div>
              			</div>
 
-		                  <div class="form-group col-sm-12">
-		                    <div class="pull-left" style="width:5%; margin-top:15px;">
+		                <div class="form-group col-sm-12">
+		                    <div class="pull-left" style="width:4%; margin-top:15px;">
 		                        <input type="checkbox" name="event_no_url" class="no_link" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;"  onchange="valueChanged()"> 
 		                      </div>
-		                      <div class="pull-left" style="width:90%; margin-left:15px; margin-top:15px; font-size:15px;">Event Don't Have URLs</div>
-		                  </div>
-
+		                      <div class="pull-left" style="width:90%; margin-left:15px; margin-top:15px; font-size:13px;">Event Don't Have URLs</div>
+		                </div>
                   </div>
+                  
                   <div class="col-md-12" style="border:0.5px solid #ccc; margin-top:15px; margin-bottom:15px;"></div>
                    <div class="form-group col-md-12">
                    <div class="form-group col-md-12">
-                   <div class="pull-left" style="width:5%;">
+                   <div class="pull-left" style="width:4%;">
                         <input type="radio" name="promotion_options" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
                       </div>
-                      <div class="pull-left" style="width:95%; font-size:15px;">Publish &amp; Share on My !Wowhubb Network</div>
+                      <div class="pull-left" style="width:95%; font-size:13px;">Publish &amp; Share on My !Wowhubb Network</div>
                       </div>
                       <div class="form-group col-md-12">
-                      <div class="pull-left" style="width:5%;">
+                      <div class="pull-left" style="width:4%;">
                         <input type="radio" name="promotion_options" id="promotion_options" value="1" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
                       </div>
-                      <div class="pull-left" style="width:95%; font-size:15px;">Publish to Specific Group
+                      <div class="pull-left" style="width:95%; font-size:13px;">Publish to Specific Group
                       	<!-- Modal -->
                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                     <div class="modal-content">
                                      
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" style="text-align:center;">Select Group Name </h4>
+                                       <h4 class="modal-title" style="text-align:center; font-size:18px; padding:10px; background-color:#FDF2F5; border-radius:7px; margin-bottom:10px;">Select Group Name </h4>
                                         <?php                            
 			                               foreach ($group_name as $groups)
 			                                {                     
@@ -1359,8 +1234,8 @@ input[type=number]::-webkit-outer-spin-button {
 				                          	</div>
 				                        <?php } ?>  				                        
 
-                                      <div class="modal-footer">                                       
-                                        <button type="button" class="btn cancel btn-primary" data-dismiss="modal">Submit</button>
+                                     <div class="modal-footer" style="border:none;">                                       
+                                        <button type="button" class="btn cancel btn-primary" data-dismiss="modal" style="width:100%; border-radius:7px;"><i class="fa fa-paper-plane"></i> Submit</button>
                                       </div>
                                    
                                   	</div>                                  
@@ -1370,18 +1245,19 @@ input[type=number]::-webkit-outer-spin-button {
                       </div>
                       </div>
                       <div class="form-group col-md-12">
-                      <div class="pull-left" style="width:5%;">
+                      <div class="pull-left" style="width:4%;">
                         <input type="radio" name="promotion_options" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
                       </div>
-                      <div class="pull-left" style="width:95%; font-size:15px;">This is a Private Event</div>
+                      <div class="pull-left" style="width:95%; font-size:13px;">This is a Private Event</div>
                       </div>
                       <div class="form-group col-md-12">
-                      <div class="pull-left" style="width:5%;">
+                      <div class="pull-left" style="width:4%;">
                         <input type="checkbox" name="reg_rsvp" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
                       </div>
-                      <div class="pull-left" style="width:95%; font-size:15px;">Guest Register with RSVP</div>
+                      <div class="pull-left" style="width:95%; font-size:13px;">Guest Register with RSVP</div>
                    </div>
                    </div>
+                   
                 </div>
                
                 <div class='col-sm-3'>
@@ -1425,9 +1301,9 @@ input[type=number]::-webkit-outer-spin-button {
                 <br>
                 <div class='form-group col-sm-12' style="margin-top: 30px;">
                   <div class="form-wizard-buttons">
-                  <button type="button" class="btn" style="background:#005898;">Save Draft</button>
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="submit" class="btn btn-next">Publish</button>
+                   <button type="button" class="btn" style="background:#e72026;"><i class="fa fa-save"></i> Save Draft</button>
+                    <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>                  
+                    <button type="submit" class="btn btn-next">Publish  <i class="fa fa-thumbs-up"></i></button>
                   </div>
                 </div>
     </fieldset>  
@@ -1648,10 +1524,10 @@ $(document).on("change", "#video_hightlight1", function(evt)
 
 		          $("<span class=\"pip1\">" +
 		            "<img class=\"imageThumb\" src=\"" + evt.target.result + "\" title=\"" + file.name + "\"/>" +
-		            "<br/><span class=\"remove\">Remove image</span>" +
+		            "<br/><span class=\"remove1\">X Remove Image</span>" +
 		            "</span>").insertAfter("#video_hightlight1");
 
-		          $(".remove").click(function(){
+		          $(".remove1").click(function(){
 		            $(this).parent(".pip1").remove();
 		             $('#video_hightlight1').val("");
 
@@ -1720,7 +1596,7 @@ $(document).on("change", "#video_size2", function(evt)
 
 		          $("<span class=\"pip2\">" +
 		            "<img class=\"imageThumb\" src=\"" + evt.target.result + "\" title=\"" + file.name + "\"/>" +
-		            "<br/><span class=\"remove1\">Remove image</span>" +
+		            "<br/><span class=\"remove1\">X Remove Image</span>" +
 		            "</span>").insertAfter("#video_size2");
 
 		          $(".remove1").click(function(){
@@ -1824,7 +1700,7 @@ function update_vanue() {
 
         if(venue != '' || address != '')
         {
-            var template = ' <div class="form-group col-sm-12" style="background-color:#9e9999; margin-top:10px; "> <div class="pull-left" style="width:40%;">Event Venue '+index+'</div>'+
+            var template = ' <div class="form-group col-sm-12" style="background-color:#f3dae2; margin-top:5px; margin-bottom:5px; line-height:36px; border-radius:5px; "> <div class="pull-left" style="width:40%;">Event Venue '+index+'</div>'+
                     '<div class="pull-left" style="width:45%;"> '+venue+' </div>'+
                     '<div class="pull-left" style="width:15%;"><img src="../assets/images/map-icon.png" alt="map-icon" /></div> </div>';
 
@@ -1925,9 +1801,9 @@ $(document).ready(function() {
       for(i=0;i<selectedValue;i++)
       {    
          
-        $('#tab-list').append($('<li><a style="text-align:center;" href="#tab' + tabID + '" role="tab" data-toggle="tab"> Day ' + tabID + ' <br> <span id="' + tabID + '"> </span></a></li>'));  //class name - in active hide  
+        $('#tab-list').append($('<li><a style="text-align:center; color:#000;" href="#tab' + tabID + '" role="tab" data-toggle="tab"> Day ' + tabID + ' <br> <span id="' + tabID + '"> </span></a></li>'));  //class name - in active hide  
 
-        $('#tab-content').append($('<div class=" tab-pane fade tab_' + tabID + '" id="tab' + tabID + '">  <div class="form-group col-sm-12 text-center"> <div class="form-group col-sm-12 text-center" style="background:#f5f5f5; padding:15px 10px;"> <div style="width:10%" class="pull-left"><span style="color:#e9e9e9;">width</span></div> <div style="width:17%" class="pull-left"> <label>Event Start Time</label> </div> <div style="width:12%" class="pull-left"> <input type="text" id="day1_start_time" name="day'+tabID+'_event_starttime"  class="form-control day_start_time" /> </div> <div style="width:17%; margin-left:35px;" class="pull-left"> <label>Event End Time</label> </div> <div style="width:12%" class="pull-left"> <input type="text" id="day1_end_time" name="day'+tabID+'_event_endtime"  class="form-control day_end_time" placeholder="8:14"  /> </div> </div> </div> <div id="day_' +tabID+' "> <div class="form-group col-sm-12" id="day1_dynamicadd_1"> <div class="col-md-12"> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label><span style="font-size:13px; color:#333;">Itinerary Start Time</span></label> </div> <div style="width:30%" class="pull-left"> <select  id="from_hour_1" name="day'+tabID+'_from_hour[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="1">1 </option> <option value="2">2 </option> <option value="3">3 </option> <option value="4">4 </option> <option value="5">5 </option> <option value="6">6 </option> <option value="7">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select> </div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="from_min_1" name="day'+tabID+'_from_min[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select> </div> <div style="width:30%" class="pull-left"> <select id="from_sec_1" name="day'+tabID+'_from_sec[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select> </div> </div> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label> <span style="font-size:13px; color:#333;">Itinerary End Time</span></label> </div> <div style="width:30%" class="pull-left"> <select id="to_hour_1" name="day'+tabID+'_to_hour[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="1">1 </option> <option value="2">2 </option> <option value="3">3 </option> <option value="4">4 </option> <option value="5">5 </option> <option value="6">6 </option> <option value="7">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select> </div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="to_min_1" name="day'+tabID+'_to_min[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select> </div> <div style="width:30%" class="pull-left"> <select id="to_sec_1" name="day'+tabID+'_to_sec[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select> </div> </div> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Event Agenda</span></label> <input type="text" id="agenta_1" name="day'+tabID+'_agenda[]"  class="form-control"  /> </div> </div> <div class="col-md-12"> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Facilitator</span></label> <input type="text" id="facilitator_name_1" name="day'+tabID+'_facilitator_name[]"  class="form-control"  /> </div> <div class="col-md-8"> <label><span style="font-size:13px; color:#333;">Event Location Venue</span></label> <select id="location_1" name="day'+tabID+'_location[]" class="form-group venueselectpicker" style="width:100%; padding: 7px 10px; border-radius: 5px;"> </select> </div> </div> </div> </div> <div class="form-group col-md-12" > <a href="JavaScript:void(0);" class="add_address_dynamic" data-day="' + tabID + '" data-nxt_event_venue="2" > <i class="fa fa-plus-circle"></i> Add more event program time slot</a> </div> </div>'));
+        $('#tab-content').append($('<div class=" tab-pane fade tab_' + tabID + '" id="tab' + tabID + '">  <div class="form-group col-sm-12 text-center"> <div class="form-group col-sm-12 text-center" style="background:#f5f5f5; padding:15px 10px;"> <div style="width:10%" class="pull-left"><span style="color:#e9e9e9;">width</span></div> <div style="width:17%" class="pull-left"> <label>Event Start Time</label> </div> <div style="width:12%" class="pull-left"> <input type="text" id="day1_start_time" name="day'+tabID+'_event_starttime"  class="form-control day_start_time" /> </div> <div style="width:17%; margin-left:35px;" class="pull-left"> <label>Event End Time</label> </div> <div style="width:12%" class="pull-left"> <input type="text" id="day1_end_time" name="day'+tabID+'_event_endtime"  class="form-control day_end_time" placeholder="8:14"  /> </div> </div> </div> <div id="day_' +tabID+' "> <div class="form-group col-sm-12" id="day1_dynamicadd_1"> <div class="col-md-12"> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label><span style="font-size:13px; color:#333;">Itinerary Start Time</span></label> </div> <div style="width:30%" class="pull-left"> <select  id="from_hour_1" name="day'+tabID+'_from_hour[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="1">1 </option> <option value="2">2 </option> <option value="3">3 </option> <option value="4">4 </option> <option value="5">5 </option> <option value="6">6 </option> <option value="7">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select> </div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="from_min_1" name="day'+tabID+'_from_min[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select> </div> <div style="width:30%" class="pull-left"> <select id="from_sec_1" name="day'+tabID+'_from_sec[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select> </div> </div> <div class="col-md-4"> <div style="width:100%" class="pull-left"> <label> <span style="font-size:13px; color:#333;">Itinerary End Time</span></label> </div> <div style="width:30%" class="pull-left"> <select id="to_hour_1" name="day'+tabID+'_to_hour[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="1">1 </option> <option value="2">2 </option> <option value="3">3 </option> <option value="4">4 </option> <option value="5">5 </option> <option value="6">6 </option> <option value="7">7 </option> <option value="8">8 </option> <option value="9">9 </option> <option value="10">10 </option> <option value="11">11 </option> <option value="12">12 </option> </select> </div> <div style="width:30%;margin:0 10px;" class="pull-left"> <select id="to_min_1" name="day'+tabID+'_to_min[]" class="form-group selectpicker" style="width:100%;   padding: 7px 5px; border-radius: 5px;"> <option value="00">:00 </option> <option value="05">:05 </option> <option value="10">:10 </option> <option value="15">:15 </option> <option value="20">:20 </option> <option value="25">:25 </option> <option value="30">:30 </option> <option value="35">:35 </option> <option value="40">:40 </option> <option value="45">:45 </option> <option value="50">:50 </option> <option value="55">:55 </option> </select> </div> <div style="width:30%" class="pull-left"> <select id="to_sec_1" name="day'+tabID+'_to_sec[]" class="form-group selectpicker" style="width:100%;  padding: 7px 5px; border-radius: 5px;"> <option value="am">AM </option> <option value="pm">PM </option> </select> </div> </div> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Event Agenda</span></label> <input type="text" id="agenta_1" name="day'+tabID+'_agenda[]"  class="form-control"  /> </div> </div> <div class="col-md-12"> <div class="col-md-4"> <label><span style="font-size:13px; color:#333;">Facilitator</span></label> <input type="text" id="facilitator_name_1" name="day'+tabID+'_facilitator_name[]"  class="form-control"  /> </div> <div class="col-md-8"> <label><span style="font-size:13px; color:#333;">Event Location Venue</span></label> <select id="location_1" name="day'+tabID+'_location[]" class="form-group venueselectpicker" style="width:100%; padding: 7px 10px; border-radius: 5px;"> </select> </div> </div> </div> </div> <div class="form-group col-md-12" > <a href="JavaScript:void(0);" class="add_address_dynamic" data-day="' + tabID + '" data-nxt_event_venue="2" > <i class="fa fa-plus-circle"></i> Add More Event Program Time Slot</a> </div> </div>'));
          
           tabID++;
       }
@@ -1986,7 +1862,7 @@ $(document).ready(function() {
           
           	$("#img_preview").html("<span class=\"pip\">" +
             "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
-            "<br/><span class=\"remove\">Remove image</span>" +
+            "<br/><span class=\"remove\">X Remove Image</span>" +
             "</span>");
 
           $(".remove").click(function(){
@@ -2005,66 +1881,6 @@ $(document).ready(function() {
   }
 });
 
-// //event highlight image preview and delete
-
-// $(document).ready(function() {
-//   if (window.File && window.FileList && window.FileReader) {
-//     $("#img_files").on("change", function(e) {
-//       var files = e.target.files,
-//         filesLength = files.length;
-//       for (var i = 0; i < filesLength; i++) {
-//         var f = files[i]
-//         var fileReader = new FileReader();
-//         fileReader.onload = (function(e) {
-//           var file = e.target;
-
-//           $("#img_preview1").html("<span class=\"pip\">" +
-//             "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
-//             "<br/><span class=\"remove1\">Remove image</span>" +
-//             "</span>").insertAfter("#img_files");
-          
-
-//           $(".remove1").click(function(){
-//             $(this).parent(".pip").remove();
-//           });          
-                   
-//         });
-//         fileReader.readAsDataURL(f);
-//       }
-//     });
-//   } else {
-//     alert("Your browser doesn't support to File API")
-//   }
-// });
-	
-//event highlight2 image preview and delete
-
-// $(document).ready(function() {
-//   if (window.File && window.FileList && window.FileReader) {
-//     $("#img_files2").on("change", function(e) {
-//       var files = e.target.files,
-//         filesLength = files.length;
-//       for (var i = 0; i < filesLength; i++) {
-//         var f = files[i]
-//         var fileReader = new FileReader();
-//         fileReader.onload = (function(e) {
-//           var file = e.target;
-//           $("<span class=\"pip\">" +
-//             "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
-//             "<br/><span class=\"remove1\">Remove image</span>" +
-//             "</span>").insertAfter("#img_files2");
-//           $(".remove1").click(function(){
-//             $(this).parent(".pip").remove();
-//           });          
-                   
-//         });
-//         fileReader.readAsDataURL(f);
-//       }
-//     });
-//   } else {
-//     alert("Your browser doesn't support to File API")
-//   }
-// });	
 
 
 //event highlight2  show and hide

@@ -182,6 +182,7 @@ public function login_auth()
 				 		$this->session->set_userdata('first_name', $result->user->firstname);
 				 		$this->session->set_userdata('last_name', $result->user->lastname);		 	
 				 		$this->session->set_userdata('wowtag', $result->user->wowtagid);
+				 		$this->session->set_userdata('birthday', $result->user->birthday);
 				 		$this->session->set_userdata('user_id', $result->user->_id);
 
 				 		if(isset($result->user->personalimage))	
@@ -263,6 +264,7 @@ public function login_auth()
 			 	 	$this->session->set_userdata('first_name', $result->user->firstname);
 				 	$this->session->set_userdata('last_name', $result->user->lastname);	
 				 	$this->session->set_userdata('wowtag', $result->user->wowtagid);
+				 	$this->session->set_userdata('birthday', $result->user->birthday);
 				 	$this->session->set_userdata('user_id', $result->user->_id);
 
 				 	if(isset($result->user->personalimage))	

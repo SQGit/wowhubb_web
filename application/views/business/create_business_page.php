@@ -180,7 +180,7 @@ table, td, tr {
   <!-- Timeline
       ================================================= -->
   <div class="timeline">
-    <div class="timeline-cover"> <img id="profileImage1" class="cover-pic" src="../assets/images/cb-banner.jpg" style="background-size:cover; width:100%; margin-top:20px;" > </div>
+    <div class="timeline-cover"> <img id="profileImage1" class="cover-pic" src="../assets/images/cb-banner.jpg" style="background-size:cover; width:100%; margin-top:15px;" > </div>
     <div id="page-contents" style="border:1px solid #e6e6e6; background-color: #fff; padding-top: 0px;">
       <div class="row">
         <div class="col-md-12 col-sm-12" style="margin-top:25px;">
@@ -190,13 +190,13 @@ table, td, tr {
             <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px; text-align:center;">
                     
               <div class=" text-center" style="color:#333; padding-bottom:10px;">
-              <strong style="font-size:17px;">ORGANISATIONS<br>
+              <strong style="font-size:14px;">ORGANISATIONS<br>
                 </strong> Create An Event  Business Page </div>
                 <div class="pull-left" style="color:#333; padding-bottom:10px;">
                 <p>Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu mauris eus, cum eros quis aliquam wisi. Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi, mi mattis pariatur aliquam pharetra eget.</p>
                 </div>
                 <div class="row text-center">
-                 <a href="<?php echo base_url('business/ohp_form'); ?>"> <button type="submit" class="btn btn-primary">Create Your Organisation Event Hosting Page</button></a>
+                 <a href="<?php echo base_url('business/ohp_form'); ?>" > <button type="submit" class="btn btn-primary" style="font-size:13px;">Create Your Organisation Event Hosting Page</button></a>
              </div>
             </div>
               
@@ -206,7 +206,7 @@ table, td, tr {
             <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px; text-align:center;">
                     
               <div class=" text-center" style="color:#333; padding-bottom:10px;">
-              <strong style="font-size:17px;">EVENT VENUE PROVIDERS<br>
+              <strong style="font-size:14px;">EVENT VENUE PROVIDERS<br>
                 </strong> List Your Event  Venue Space </div>
                 
                 <div class="pull-left" style="color:#333; padding-bottom:10px;">
@@ -214,7 +214,7 @@ table, td, tr {
                 </div>
                 <div class="row text-center">
                   <a href="<?php echo base_url('service/eventvenue_form'); ?>" >
-                    <button type="submit" class="btn btn-primary">Create Your Event Venue Page</button>
+                    <button type="submit" class="btn btn-primary" style="font-size:13px;">Create Your Event Venue Page</button>
                   </a>
              </div>
             </div>
@@ -226,14 +226,14 @@ table, td, tr {
             <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px; text-align:center;">
                     
               <div class=" text-center" style="color:#333; padding-bottom:10px;">
-              <strong style="font-size:17px;">EVENT PROFESSIONAL VENDORS<br>
+              <strong style="font-size:14px;">EVENT PROFESSIONAL VENDORS<br>
                 </strong>List Your Event Services</div>
                 <div class="pull-left" style="color:#333; padding-bottom:10px;">
                 <p>Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu mauris eus, cum eros quis aliquam wisi. Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi, mi mattis pariatur aliquam pharetra eget.</p>
                 </div>
                 <div class="row text-center">
                   <a href="<?php echo base_url('Eventserviceprovider/service_provider_form'); ?>" >
-                    <button type="submit" class="btn btn-primary">Create Your Event Service Page</button>
+                    <button type="submit" class="btn btn-primary" style="font-size:13px;">Create Your Event Service Page</button>
                   </a>
              </div>
             </div>
@@ -247,7 +247,7 @@ table, td, tr {
       <div class="col-md-12 col-sm-12" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px;">
         <div class="col-md-5">
         <div class=" text-left" style="color:#333; padding-bottom:10px;">
-              <strong style="font-size:17px;">ORGANISATIONS<br>
+              <strong style="font-size:14px;">ORGANISATIONS<br>
               </strong> Create An Event  Business Page </div>
         <img src="../assets/images/crb-image.jpg" class="img-responsive img-thumbnail" ></div> 
       <div class="col-md-7">
@@ -274,7 +274,7 @@ table, td, tr {
       </div>
           <div class="col-md-12" style="margin-top:5px;">
                   <div class="row text-center">
-                      <a class="btn-primary" href="<?php echo base_url('business/ohp_form'); ?>" >Create Your Organisation Event Hosting Page</a>
+                      <a class="btn-primary" href="<?php echo base_url('business/ohp_form'); ?>" style="font-size:13px;">Create Your Organisation Event Hosting Page</a>
                   </div>
           </div>
       </div>
@@ -288,7 +288,7 @@ table, td, tr {
       <div class="col-md-12 col-sm-12" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px;">
         <div class="col-md-5">
         <div class=" text-left" style="color:#333; padding-bottom:10px;">
-              <strong style="font-size:17px;">EVENT VENUE PROVIDERS<br>
+              <strong style="font-size:14px;">EVENT VENUE PROVIDERS<br>
               </strong> List Your Event Services To local Clients Around you</div>
         <img src="../assets/images/crb-image-2.jpg" class="img-responsive img-thumbnail" ></div> 
       <div class="col-md-7">
@@ -310,7 +310,7 @@ table, td, tr {
      
       <div class="col-md-12" style="margin-top:5px;">
         <div class="row text-center">
-                   <a href="<?php echo base_url('service/eventvenue_form'); ?>" ><button type="submit" class="btn btn-primary">
+                   <a href="<?php echo base_url('service/eventvenue_form'); ?>" ><button type="submit" class="btn btn-primary" style="font-size:13px;">
                    Create Your Event Venue Page
                   </button></a>
              </div>
@@ -326,7 +326,7 @@ table, td, tr {
       <div class="col-md-12 col-sm-12" style="border:1px solid #ccc; border-radius:8px; padding:15px 10px;">
         <div class="col-md-5">
         <div class=" text-left" style="color:#333; padding-bottom:10px;">
-              <strong style="font-size:17px;">EVENT PROFESSIONAL VENDORS <br>
+              <strong style="font-size:14px;">EVENT PROFESSIONAL VENDORS <br>
               </strong> List Your Event Venue Locally And Get Daily Business Leads</div>
         <img src="../assets/images/crb-image-3.jpg" class="img-responsive img-thumbnail" ></div> 
       <div class="col-md-7">
@@ -349,7 +349,7 @@ table, td, tr {
       <div class="col-md-12" style="margin-top:5px;">
         <div class="row text-center">
                  <a href="<?php echo base_url('Eventserviceprovider/service_provider_form'); ?>" > 
-                  <button type="submit" class="btn btn-primary">Create Your Event Service Page</button>
+                  <button type="submit" class="btn btn-primary" style="font-size:13px;">Create Your Event Service Page</button>
                 </a>
              </div>
       </div>

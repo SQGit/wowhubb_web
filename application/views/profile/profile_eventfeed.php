@@ -219,9 +219,9 @@ li.multipleInput-email {
   </header>
 <!--Header End-->
 <!-- breadcrumb for page link -->
-<div class="container" style="margin-top:20px; margin-bottom:-30px;">
+<div class="container" style="margin-top:20px;">
 
-<ol class="breadcrumb">
+<ol class="breadcrumb" style="margin-bottom:-10px!important;">
   <li class="breadcrumb-item"><a href="<?php echo base_url('event/get_eventfeed'); ?>"><strong>Home</strong></a></li>  
   <li class="breadcrumb-item active"><strong>My Feeds</strong></li>
 </ol>

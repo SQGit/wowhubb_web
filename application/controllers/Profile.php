@@ -97,16 +97,20 @@ public function personal_update_video() //personal self intro video
 	{
 		$response = array();
 		$this->rest->http_header('token', $this->session->userdata('token'));
-		$profile_update = array('aboutme' =>$this->input->post('about_me'),
-								'quote' =>$this->input->post('favorite_quote'),
-								'birthday' =>$this->input->post('birthday'),
-								'religion' =>$this->input->post('religion'),
-								'language' =>$this->input->post('language')					
+
+		$profile_update = array('aboutme' 	=>$this->input->post('about_me'),
+								'quote' 	=>$this->input->post('favorite_quote'),
+								'birthday' 	=>$this->input->post('birthday'),
+								'religion' 	=>$this->input->post('religion'),
+								'language' 	=>$this->input->post('language')					
 								);
+
 		$json_data = json_encode($profile_update); 
 
-		$result = $this->rest->post('http://104.197.80.225:3010/wow/user/profileaboutme',$json_data,'json');	
-		// print_r($result);	
+		$result = $this->rest->post('http://104.197.80.225:3010/wow/user/profileaboutme',$json_data,'json');
+
+		// print_r($json_data);	
+		
 		if($result->success == true)
 	 	{
 	 		$response['status'] = "success";	 		
@@ -171,7 +175,7 @@ public function personal_update_contactinfo() //personal contact info
 		$json_data = json_encode($profile_update); 
 
 		$result = $this->rest->post('http://104.197.80.225:3010/wow/user/profilecontact',$json_data,'json');	
-		// print_r($result);	
+		
 		if($result->success == true)
 	 	{
 	 		$response['status'] = "success";	 		
@@ -256,6 +260,22 @@ public function friends_count() //friends count
 				   	   return $data['frds_count'];  //here variable send to add_friends
 			   	   	} 
 }
+
+public function friends_connection()
+{
+	$this->rest->http_header('token', $this->session->userdata('token'));
+
+	$data =array();
+	$json_data = json_encode($data);
+	$result = $this->rest->post('http://104.197.80.225:3010/wow/network/myfriends',$json_data,'json');
+	$data['friend'] = $result->message;
+
+	$this->friends_count();	
+	$data['frds_count'] = $this->friends_count();
+
+	$this->load->view('profile/profile_friends',$data);
+}
+
 
 public function professional_update()
 	{

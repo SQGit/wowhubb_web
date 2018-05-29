@@ -252,7 +252,7 @@ table {
               
               <!--news-feed links ends-->
               <ul class="nav-news-feed">
-                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Events Hubb</h5>
+                <h5 style="font-weight:bold; font-size:13px; letter-spacing:-.5px; text-align:left;">Events Hubb</h5>
 
                 <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="<?php echo base_url('service/ohp_publish_event'); ?>">Published Events</a> </li>
 
@@ -264,17 +264,17 @@ table {
 
               </ul>
               <ul class="nav-news-feed">
-                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Post</h5>
+                <h5 style="font-weight:bold; font-size:13px; letter-spacing:-.5px; text-align:left;">Post</h5>
                 <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="<?php echo base_url('service/ohp_eventfeed'); ?>">Published Posts</a> </li>
                 <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
               </ul>
               <ul class="nav-news-feed">
-                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Admin</h5>
+                <h5 style="font-weight:bold; font-size:13px; letter-spacing:-.5px; text-align:left;">Admin</h5>
                 <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="<?php echo base_url('service/ohp_admin_members_admin'); ?>">Manage Members</a> </li>
                 <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
               </ul>
               <ul class="nav-news-feed">
-                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Manage ADs</h5>
+                <h5 style="font-weight:bold; font-size:13px; letter-spacing:-.5px; text-align:left;">Manage ADs</h5>
                 <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="#">Promote Your Events</a> </li>
               
               </ul>
@@ -287,7 +287,7 @@ table {
                 <div class="row">
                 <div class="col-md-12" style="background: #fff; box-shadow: 1px 1px 1px 2px #ECECEC; padding: 10px 7px; border-radius: 3px; margin-top:15px;">
                   <div class="col-md-10">
-                    <h3 style="font-size:17px; font-weight:bold;">About Us</h3>
+                    <h3 style="font-size:13px; font-weight:bold;">About Us</h3>
                     <p> <?php if(isset($business->description)) { echo $business->description; } ?></p>
                   </div>
                     <div class="col-md-2 text-right" style="margin-top:15px;">
@@ -303,7 +303,7 @@ table {
                 <div class="row">
                 <div class="col-md-12" style="background: #fff; box-shadow: 1px 1px 1px 2px #ECECEC; padding: 10px 7px; border-radius: 3px; margin-top:15px;">
                   <div class="col-md-6">
-                    <h3 style="font-size:17px; font-weight:bold;">Address</h3>
+                    <h3 style="font-size:13px; font-weight:bold;">Address</h3>
                     <p> <?php if(isset($business->venue)) { echo $business->venue; } ?> <br>
                        <?php if(isset($business->address1)) { echo $business->address1; } ?> <br>
                        <?php if(isset($business->country)) { echo $business->state." ".$business->country." ".$business->zipcode; } ?> <br>
@@ -319,7 +319,7 @@ table {
                 <div class="row">
                 <div class="col-md-12" style="background: #fff; box-shadow: 1px 1px 1px 2px #ECECEC; padding: 10px 7px; border-radius: 5px; margin-top:15px;">
                   <div class="col-md-10">
-                    <h3 style="font-size:17px; font-weight:bold;">Business Hours</h3>
+                    <h3 style="font-size:13px; font-weight:bold;">Business Hours</h3>
  <table class="table table-striped">
   <thead>
     <tr>
@@ -397,47 +397,47 @@ table {
               <div class="col-md-12">
   <div class="row">
     <div class="col-md-12">
-      <h3 style="font-size:16px; font-weight:bold;">Welcome To Your Event Hosting  Page</h3>
+      <h3 style="font-size:13px; font-weight:bold;">Welcome To Your Event Hosting </h3>
       <p>Welcome to your evvent hosting page on !wowhubb, you can create, host and advertise all your company, organisation and business event in one place 
         An amaazing platform to get all things event handled for you.</p>
       </div>
     <div class="col-md-12">
-      <h3 style="font-size:16px; font-weight:bold;">Invite Your Friends To Event Network Page</h3>
+      <h3 style="font-size:13px; font-weight:bold;">Invite Friends To Event Network</h3>
       <div class="col-md-6">
         <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
           <div class="col-md-12 text-center"><img src="<?php echo base_url('assets/images/em.png');?> " class="img-responsive img-circle img-thumbnail" alt="user"></div>
-          <span style="font-size:15px; font-weight:bold;">Tony Adams</span>
+          <span style="font-size:13px; font-weight:bold;">Tony Adams</span>
           
           <br>
-          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button">Invite</button></span>
+          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button" style="font-size:13px;">Invite</button></span>
           </div>
         </div>
       <div class="col-md-6">
         <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
           <div class="col-md-12 text-center"><img src="<?php echo base_url('assets/images/td.png');?>" class="img-responsive img-circle img-thumbnail" alt="user"></div>
-          <span style="font-size:15px; font-weight:bold;">TD Jakes</span>
+          <span style="font-size:13px; font-weight:bold;">TD Jakes</span>
           
           <br>
-          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button">Invite</button></span>
+          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button" style="font-size:13px;">Invite</button></span>
           </div>
         </div>
       <div class="col-md-12" style="margin-top:5px; margin-bottom:5px;"></div>
       <div class="col-md-6">
         <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
           <div class="col-md-12 text-center"><img src="<?php echo base_url('assets/images/em.png');?>" class="img-responsive img-circle img-thumbnail" alt="user"></div>
-          <span style="font-size:15px; font-weight:bold;">Tony Adams</span>
+          <span style="font-size:13px; font-weight:bold;">Tony Adams</span>
           
           <br>
-          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button">Invite</button></span>
+          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button" style="font-size:13px;">Invite</button></span>
           </div>
         </div>
       <div class="col-md-6">
         <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
           <div class="col-md-12 text-center"><img src="<?php echo base_url('assets/images/td.png');?>" class="img-responsive img-circle img-thumbnail" alt="user"></div>
-          <span style="font-size:15px; font-weight:bold;">TD Jakes</span>
+          <span style="font-size:13px; font-weight:bold;">TD Jakes</span>
           
           <br>
-          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button">Invite</button></span>
+          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button" style="font-size:13px;">Invite</button></span>
           </div>
         </div>
       

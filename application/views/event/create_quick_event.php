@@ -37,41 +37,39 @@
     background-color: rgba(255, 94, 58, 0.95);
     animation-name: none;
 }
-	
-	label.error {
+label.error {
     font-family: 'Roboto', sans-serif;
    	color:red; 
-	}
+}
 
-	.textBox {
-		background-image: url(./assets/images/designation-icon.png);
-		background-position: 0 5px;
-		background-size: 30px;
-		background-repeat: no-repeat;
-		padding-left: 17px;
-	}
 	/*popup close button  */
-	.large.tooltip-inner {
+.large.tooltip-inner {
 		max-width: 350px;
 		width: 350px;
+}
+
+@media (min-width: 768px)
+	{
+.modal-dialog {
+    width: 450px!important;
+    margin: 30px auto;
 	}
-	#footer {
-		background: #fff;
-		position: relative;
-		top: 0px;
-	}
+}
+	.modal-header {
+    padding: 15px;
+     border-bottom: none!important;
+}
 	.btn-file {
 		position: relative;
 		overflow: hidden;
 	}
-	.form-body-classic .form-control {
+.form-body-classic .form-control {
 		margin: 0;
 		padding: 6px 12px;
 		background: #fff none repeat scroll 0 0;
 		border: 1px solid rgb(197, 194, 195);
-		border-radius: 4px;
-		font-family: 'Source Sans Pro', sans-serif;
-		font-size: 14px;
+		border-radius: 4px;		
+		font-size: 12px;
 		font-weight: normal;
 		color: #333;
 		-moz-border-radius: none;
@@ -80,8 +78,8 @@
 		-moz-box-shadow: none;
 		-webkit-box-shadow: none;
 		box-shadow: none;
-	}
-	.btn-file input[type=file] {
+}
+.btn-file input[type=file] {
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -95,86 +93,14 @@
 		background: white;
 		cursor: inherit;
 		display: block;
-	}
-	/*https://stackoverflow.com/questions/14199788/how-do-i-use-an-image-as-a-submit-button */ 
-	  #btnAdd4, #btnAdd5, #btnAdd6 {
-		background-image: url("<?php echo base_url('assets/images/Plus.png')?>");
-		background-repeat: no-repeat;
-		border: none;
-		width: 32px;
-		height: 32px;
-		cursor: pointer;
-		color: transparent;
-		background-color: transparent;
-		outline: none;
-	}
+}
 	
-	#btnAdd10{
-		background-image: url("<?php echo base_url('assets/images/close-outline-32.png')?>");
-		background-repeat: no-repeat;
-		border: none;
-		width: 32px;
-		height: 32px;
-		cursor: pointer;
-		color: transparent;
-		background-color: transparent;
-		outline: none;
-	}
-	#textAdd {
-		background-image: url("<?php echo base_url('assets/images/Plus.png')?>");
-		background-size: cover;
-		border: none;
-		width: 32px;
-		height: 32px;
-		cursor: pointer;
-		color: transparent;
-		background-color: transparent;
-		outline: none;
-	}
-	#imageUpload1 {
-		display: none;
-	}
-	#profileImage1 {
-		cursor: pointer;
-	}
-	#profile-container1 {
-		width: 150px;
-		height: 150px;
-	}
-	#imageUpload2 {
-		display: none;
-	}
-	#profileImage2 {
-		cursor: pointer;
-	}
-	#imageUpload3 {
-		display: none;
-	}
-	#profileImage3 {
-		cursor: pointer;
-	}
-	#imageUpload4 {
-		display: none;
-	}
-	#profile-container4 {
-		width: 150px;
-		height: 150px;
-	}
-	#imageUpload5 {
-		display: none;
-	}
-	#profileImage5 {
-		cursor: pointer;
-	}
-	.faq-cat-content {
-		margin-top: 25px;
-	}
-	.faq-cat-tabs li a {
+.faq-cat-tabs li a {
 		padding: 15px 10px 15px 10px;
 		background-color: #ffffff;
 		border: 1px solid #dddddd;
 		color: #777777;
-	}
+}
 	.nav-tabs li a:focus, .panel-heading a:focus {
 		outline: none;
 	}
@@ -182,9 +108,7 @@
 		text-decoration: none;
 		color: #777777;
 	}
-	.faq-cat-content .panel-heading:hover {
-		background-color: #efefef;
-	}
+	
 	.active-faq {
 		border-left: 5px solid #888888;
 	}
@@ -193,7 +117,8 @@
 		font-weight: normal;
 	}
 	.form-wizard h4 span {
-		font-size: 14px;
+		font-size: 13px;
+		font-weight:bold;
 	}
 	.panel-group .panel {
 		border-radius: 0;
@@ -289,7 +214,7 @@
 		font-style: italic;
 		color: #777;
 		line-height: 23px;
-		font-size: 14px;
+		font-size: 12px;
 		padding: 5px 20px;
 		text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
 	}
@@ -412,7 +337,7 @@
  .form-group-1 img {    
     left: 24px;
     position: absolute;
-    top: 7px;
+    top: 9px;
 }
 
 /*remove faq input box*/
@@ -437,6 +362,34 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0; 
 }
 
+.step-icn
+{
+	    width: 48px;
+    height: 48px;
+    margin-top: 0;
+    background: #e91e63;
+    font-size: 22px;
+    line-height: 48px;
+	border-radius:50%;
+	color:#fff;
+	padding:0px 15px;
+}
+.form-wizard-steps {
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    margin-top: 9px;
+}
+.progress {
+    height: 10px;
+    margin-bottom: 11px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    margin-top: 0px;
+}
 </style>
 </head>
 
@@ -453,9 +406,9 @@ input[type=number]::-webkit-outer-spin-button {
     ================================================= -->
   <header id="header">
       <nav class="navbar navbar-default navbar-fixed-top menu" style="padding-top:3px!important; padding-bottom:3px!important;">
-        <div class="container"> 
-      
-          <?php  include('/../includes/header.php'); ?>
+        <div class="container">   
+         
+            <?php  include('/../includes/header.php'); ?>
         </div>
         <!-- /.container --> 
       </nav>
@@ -474,12 +427,12 @@ input[type=number]::-webkit-outer-spin-button {
     <div id="page-contents">
       <div class="row">
         <div class="col-md-12">
-          <div class="col-md-10 form-wizard form-body-classic form-header-classic" style="min-width:1200px;"> 
+          <div class="col-md-10 form-wizard form-body-classic form-header-classic" style="min-width:1200px; padding:5px 25px;"> 
+          
+         
             
-            
-            <h3>Create Your Event</h3>
-            <p>Please fill information to a create an event </p>
-             <img src="../assets/images/banner.jpg" class="img-thumbnail"  alt="banner-image"/>
+           
+    <img src="../assets/images/banner.jpg" class="img-thumbnail" style="margin-top:10px;" alt="banner-image"/>
             <!-- Form progress -->
     <div class="form-wizard-steps form-wizard-tolal-steps-3">
               <div class="form-wizard-progress">
@@ -488,21 +441,21 @@ input[type=number]::-webkit-outer-spin-button {
               <!-- Step 1 -->
               <div class="form-wizard-step active">
                 <div class="form-wizard-step-icon"><i class="fa fa-child" aria-hidden="true"></i></div>
-                <p>Event Details</p>
+                <p style="font-weight:bold;">1.Event Details</p>
               </div>
               <!-- Step 1 --> 
               
               <!-- Step 2 -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-exclamation" aria-hidden="true"></i></div>
-                <p>!Wowtag</p>
+                <p style="font-weight:bold;">2.!Wowtag</p>
               </div>
               <!-- Step 2 --> 
               
               <!-- Step 3 -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
-                <p>Event Venue</p>
+                <p style="font-weight:bold;">3.Event Venue</p>
               </div>
               <!-- Step 3 -->            
               
@@ -513,26 +466,21 @@ input[type=number]::-webkit-outer-spin-button {
     	
     	  	<fieldset>
                 <!-- Progress Bar -->
+               <!-- Progress Bar -->
                 <div class="progress">
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="33.33" aria-valuemin="0" aria-valuemax="100" style="width: 33.33%"> </div>
                 </div>
-
-                <!-- Progress Bar -->
-                
-                <div class="col-md-12">
-                	<h4> <span>Step 1 - 3</span></h4>
-            	</div>
 
         	<div class='col-sm-5'>
                 <div class='row'>
                     <div class='form-group col-sm-12' >
                       <label>Event Category</label>
-                      <input type='text' name="event_category"  class="form-control " value="<?php echo $event_category; ?>"  readonly/>
+                      <input type='text' name="event_category" class="form-control" value="<?php echo $event_category; ?>"  readonly/>
                     </div> 
 
                     <div class='form-group col-sm-12' >
                       <label>Event Name</label>
-                      <input type='text' name="event_name" class="form-control required" style="text-transform: capitalize;" />
+                      <input type='text' name="event_name" class="form-control required" style="text-transform: capitalize;" autocomplete="off" />
                     </div>
                     
                 </div>
@@ -540,39 +488,39 @@ input[type=number]::-webkit-outer-spin-button {
             			<div class='row'>
 		                    <div class='form-group col-sm-12' >
 		                      <label>Event City </label>
-		                      <input type='text' id="time_zone" name="time_zone"  class="form-control required" />
+		                      <input type='text' id="time_zone" name="time_zone" class="form-control required" autocomplete="off"/>
 		                    </div>
 
-		                    <div class='form-group col-sm-6' style="width:45%;" >
+		                    <div class='form-group col-sm-6' >
 		                      <label>Event Start Date</label>
-		                      <input type='text' id="event_startdate" name="event_startdate"  class="form-control required"  />
+		                      <input type='text' id="event_startdate" name="event_startdate" class="form-control required" autocomplete="off" />
 		                    </div>
 
-		                    <div  class='form-group col-sm-6' style="width:45%; " >
+		                    <div  class='form-group col-sm-6' >
 		                      <label>Event Start Time</label>
-		                      <input type='text' name="event_startime" id="event_startime" class="form-control" placeholder="time" />
+		                      <input type='text' name="event_startime" id="event_startime" class="form-control" autocomplete="off"/>
 		                    </div>
 		                
-		                    <div class='form-group col-sm-6' style="width:45%;" >
+		                    <div class='form-group col-sm-6' >
 		                      <label>Event End Date</label>
-		                      <input type='text' id="event_enddate" name="event_enddate"  class="form-control required" />
+		                      <input type='text' id="event_enddate" name="event_enddate" class="form-control required" autocomplete="off" />
 		                    </div>
 
-		                    <div class='form-group col-sm-6' style="width:45%;">
+		                    <div class='form-group col-sm-6'>
 		                      <label>Event End Time</label>
-		                      <input type='text' id="event_endtiming" name="event_endtiming" class="form-control "  />
+		                      <input type='text' id="event_endtiming" name="event_endtiming" class="form-control" autocomplete="off" />
 		                    </div>
-	                   
             			</div>
        		</div>
 
                 	<div class='col-sm-4'>
-	                  <div class='row'>
+	                  	<div class='row'>
 		                    <div class='form-group col-sm-12'>
 		                      <label>Event Description</label>
-		                      <textarea type='text' id="description" name="event_description"  class="form-control required" style="min-height:300px;" placeholder="Describe What Your Event Is All About " ></textarea>
+		                      <textarea type='text' id="description" name="event_description"  class="form-control required" style="min-height:300px;" placeholder="Describe What Your Event Is All About" autocomplete="off" >
+		                      </textarea>
 		                    </div>		                  
-	                  </div>
+	                  	</div>
                 	</div>
 
                 <div class='col-sm-3'>
@@ -581,7 +529,7 @@ input[type=number]::-webkit-outer-spin-button {
                       <h5>Helpful Hints</h5>
                       <section class="ac-container">
                         <div>
-                          <input id="ac-1" name="accordion-1" type="radio" checked />
+                          <input id="ac-1" name="accordion-1" type="radio" />
                           <label for="ac-1">What is an Event Name?</label>
                           <article class="ac-small">
                             <p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.</p>
@@ -612,11 +560,13 @@ input[type=number]::-webkit-outer-spin-button {
                       <!-- panel-group --> 
                       
                     </div>
+                    
                   </div>
                 </div>
-                <div class='col-sm-12'>
+                
+                <div class='col-sm-12' style="margin-bottom:20px;">
                   <div class="form-wizard-buttons">                 
-                    <button type="button" class="btn btn-next">Next</button>
+                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
                   </div>
                 </div>
 
@@ -629,46 +579,40 @@ input[type=number]::-webkit-outer-spin-button {
    	<fieldset>
                 
                 <!-- Progress Bar -->
-                <div class="progress">
+               <div class="progress">
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="66.66" aria-valuemin="0" aria-valuemax="100" style="width: 66.66%"> </div>
                 </div>
-                <!-- Progress Bar -->
                 
-                <div class="col-md-12">
-                	<h4> <span>Step 2 - 3</span></h4>
-            	</div>
-
                 <div class='col-sm-9'>
 
                   <div class='col-sm-12'>
                     <div class='col-sm-12' style="padding: 10px 0;">
                       <div class='col-sm-12' style="margin-bottom: 0px;">
                         <div class="text-center">
-                          <label style="color:#e91e63; font-weight: bold; font-size: 16px">Create Your Event -!Wowtag </label>
+                          <label style="color:#e91e63; font-weight: bold; font-size: 15px">Create Your Event -!Wowtag </label>
                         </div>
                       </div>
                       <div class='form-group-1 col-sm-12'>
                         <div class="text-center" >
-                        	<img src="../assets/images/wow-pink.png"> 
-                          <input type='text' name="event_title" class="noSpace form-control "  style="padding: 6px 30px;"   placeholder="Enter Your !Wowtag Title Here      Example:  Craigsbirthday2017" />
+                        	<img src="<?php echo base_url('assets/images/wow-pink.png'); ?>" />
+                          <input type='text' name="event_title" class="noSpace form-control"  style="padding: 6px 30px;"   placeholder="Enter Your !Wowtag Title Here      Example: Craigsbirthday2017" autocomplete="off" />
                         </div>
                       </div>
                     </div>
                   </div>
 
                   <div class='form-group col-sm-12'>
+                  <div class='col-sm-6'>
                     <div class='col-sm-12' style="background-color:#f9f9f9; padding-top:15px;">
-                      <div class="text-center">
-                        <label style="color:#333; font-weight: bold; font-size: 16px">Upload Your Event -!Wowtag Video </label>
+                      <div class="text-left">
+                        <label style="color:#333; font-weight: bold; font-size: 14px">Upload Your Event -!Wowtag Video </label>
                       </div>
                       <div class="form-group">
-                      	<span class="btn btn-primary btn-file"> 
-                       	 Browse...<input type="file" name="wowtag_video" id="video_size" class="file required" accept="video/*">
-                       	</span>
+                      
 
-                        <div id="video_show" style="display: none;" >
-                        		<div class="remove_video" style="cursor: pointer;">
-		                          	<i class="fa fa-window-close" style="font-size:25px; margin-left: 171px;"></i>
+                        <div id="video_show" style="display: none; margin-top:20px;" >
+                        		<div class="remove_video" style="cursor: pointer; position:absolute; top: 55px; left: 210px; z-index:9999;">
+		                          	<img src="<?php echo base_url('assets/images/wow-close.png'); ?>" />
 		                        </div>
                         	<video width="200" height="150" controls>
 							 	 <source src="mov_bbb.mp4" id="video_here">
@@ -677,20 +621,29 @@ input[type=number]::-webkit-outer-spin-button {
 							<audio id="video_url"></audio>
 
                         </div>
-                        <div class="alert_msg" style="color: red; font-weight: bold; font-size: 16px;" ></div>
+                        	<span class="btn btn-primary btn-file"> 
+                       	 <i class="fa fa-play-circle"></i> Upload Video<input type="file" name="wowtag_video" id="video_size" class="file required" accept="video/*">
+                       	</span>
+                        <div class="alert_msg" style="color: red; font-weight: bold; font-size: 13px; margin-top:15px;" ></div>
 
-                        <div class="input-group col-xs-12" style="margin-top:0px;">
-                          <p>Choose a compelling 60-120 seconds event promotional ads video that will create a lasting impression in your viewers mind</p>
+                        <div class="input-group col-xs-12" style="margin-top:10px; line-height:20px;">
+                          <p>Choose a compelling 60-120 seconds event promotional ads video that will create a lasting impression in your viewers mind.</p>
                         </div>                        
                       </div>
                     </div>
-                    <div class='col-sm-6' style="margin-top: 10px;">
-                      <label>!Wowtag Runtime From: </label>
-                      <input type='text'  id="runtime_from" name="runtime_from" class="form-control required " placeholder="Event Date" />
                     </div>
-                    <div class='col-sm-6' style="margin-top: 10px;" >
+                    <div class='col-sm-6'>
+                    <div class='col-sm-12' style="margin-top: 10px;">
+                    <div class="text-left">
+                        <label style="color:#333; font-weight: bold; font-size: 14px">Event Promotional Video </label>
+                      </div>
+                      <label>!Wowtag Runtime From: </label>
+                      <input type='text'  id="runtime_from" name="runtime_from" class="form-control required" autocomplete="off" />
+                    </div>
+                    <div class='col-sm-12' style="margin-top: 10px;" >
                       <label>!Wowtag Runtime To: </label>
-                      <input type='text' id="totime_to" name="totime_to" class="form-control required " placeholder="Event Date" />
+                      <input type='text' id="totime_to" name="totime_to" class="form-control required" autocomplete="off" />
+                    </div>
                     </div>
                   </div>
 
@@ -738,11 +691,11 @@ input[type=number]::-webkit-outer-spin-button {
                   </div>
                 </div>
 
-                <div class='form-group col-sm-12' style="margin-top:25px;">
+                <div class='form-group col-sm-12' style="margin-top:25px; margin-bottom:20px;">
                   <div class="form-wizard-buttons">
                    
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="button" class="btn btn-next">Next</button>
+                    <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
                   </div>
                 </div>
     </fieldset>
@@ -752,82 +705,75 @@ input[type=number]::-webkit-outer-spin-button {
 
              
     <fieldset>
-    	
-                <!-- Progress Bar -->
-                <div class="progress">
+    	 <div class="progress">
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"> </div>
                 </div>
-                <!-- Progress Bar -->
-                
-                <div class="col-md-12">
-                	<h4> <span>Step 3 - 3</span></h4>
-            	</div>
+               
         <div class='col-sm-5'>
+        	<div class='form-group col-sm-12' style="margin-top:15px;">
+		        <div class="pull-left" style="width:5%;">
+		            <input type="checkbox" name="online_event" id="online_event" style="width:15px; height:15px; background:white; border-radius:5px; border:2px solid #555;">
+		        </div>
+
+		        <div class="pull-left" style="width:95%; font-size:13px; font-weight:bold; margin-top:-3px;">This is an Online Event</div>
+		    </div>    
+
+		    <div class='form-group col-sm-12' id="show_eventtype" style="display: none;" >
+                <label>Select Event Type</label>
+                    <select name="event_type" id="online_event_type" class="form-control " style="background-color:#eff0f1;" autocomplete="off">
+                        <option value="">Select </option>	
+                        <option value="Webinar">Webinar </option>
+                        <option value="Teleconference">Teleconference</option>
+                        <option value="Podcast">Podcast</option>                                              
+				    </select>
+            </div>    
+
+            <div class='form-group col-sm-12' id="webinar_link" style="display: none;">		                    
+		        <input type='text' name="webinar_link"  class="form-control " placeholder="Webinar Link/URL" autocomplete="off"/>
+		    </div>	
+
+		    <div class='form-group col-sm-12' id="tele_phone" style="display: none;">		                     
+		      <input type='text'  name="tele_phone"  class="form-control" placeholder="Teleconference Phone" autocomplete="off" />
+		    </div>	
+
+		    <div class='form-group col-sm-12' id="tele_passcode" style="display: none;" >		                     
+		      <input type='text'  name="tele_passcode"  class="form-control" placeholder="Teleconference Passcode" autocomplete="off" />
+		    </div> 
         	
-            	<div class='col-sm-12' id="show_venue" style="background-color:#f9f9f9;padding-top:10px; ">                  		
+            <div class='col-sm-12' id="show_venue" style="background-color:#f9f9f9;padding-top:10px; ">                  		
 
-		                    <div class='form-group col-sm-12' style="margin-top:20px;">
-		                      <label>Enter Your Event Venue / location Name</label>
-		                      <input type='text'  name="event_venue_name"  class="form-control" style="text-transform: capitalize;" />
-		                    </div>
+		        <div class='form-group col-sm-12' style="margin-top:20px;">
+		          <label>Enter Your Event Venue / Location Name</label>
+		          <input type='text'  name="event_venue_name"  class="form-control" style="text-transform: capitalize;" autocomplete="off"/>
+		        </div>
 
-		                    <div class='form-group col-sm-12'>
-		                      <label>Address 1</label>
-		                      <input type='text'  name="address1"  class="form-control" />
-		                    </div>
+		        <div class='form-group col-sm-12'>
+		          <label>Address 1</label>
+		          <input type='text'  name="address1" class="form-control" autocomplete="off"/>
+		        </div>
 
-		                    <div class='form-group col-sm-12'>
-		                      <label>Address 2</label>
-		                      <input type='text'  name="address2"  class="form-control"  />
-		                    </div>
+		        <div class='form-group col-sm-12'>
+		          <label>Address 2</label>
+		          <input type='text'  name="address2" class="form-control" autocomplete="off" />
+		        </div>
 
-		                    <div class='form-group col-sm-12'>
-		                      <label>City</label>
-		                      <input type='text'  name="venue_city" class="form-control"   />
-		                    </div>	
+		        <div class='form-group col-sm-12'>
+		          <label>City</label>
+		          <input type='text'  name="venue_city" class="form-control" autocomplete="off" />
+		        </div>	
 
-		                    <div class='form-group col-sm-12'>
-		                      <label>State</label>
-		                      <input type='text'  name="venu_state" class="form-control"   />
-		                    </div>	                   
+		        <div class='form-group col-sm-12'>
+		          <label>State</label>
+		          <input type='text'  name="venu_state" class="form-control" autocomplete="off" />
+		        </div>	                   
 	                   
-		                    <div class='form-group col-sm-12'>
-		                      <label>Zipcode/ Postal Code</label>
-		                      <input type='text'  name="zipcode"  class="form-control"  />
-		                    </div>
-               		
-            	</div>
-
-            	<div class='form-group col-sm-12'>
-		                    <div class="pull-left" style="width:10%;">
-		                        <input type="checkbox" name="online_event" id="online_event" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
-		                    </div>
-
-		                    <div class="pull-left" style="width:90%; font-size:15px;">This is an Online Event</div>
-		                    </div>    
-
-		                    <div class='form-group col-sm-12' id="show_eventtype" style="display: none;">
-                    	 		<label>Select Event Type</label>
-                      			<select name="event_type" id="online_event_type" class="form-control " style="background-color:#eff0f1;">        <option value="">Select </option>	
-                                        <option value="Webinar">Webinar </option>
-                                        <option value="Teleconference">Teleconference</option>
-                                        <option value="Podcast">Podcast</option>                                              
-				            	</select>
-                    		</div>    
-
-                    		<div class='form-group col-sm-12' id="webinar_link" style="display: none;">		                    
-		                      <input type='text' name="webinar_link"  class="form-control " placeholder="Webinar Link/URL" />
-		                    </div>	
-
-		                    <div class='form-group col-sm-12' id="tele_phone" style="display: none;">		                     
-		                      <input type='text'  name="tele_phone"  class="form-control " placeholder="Teleconference Phone" />
-		                    </div>	
-
-		                    <div class='form-group col-sm-12' id="tele_passcode" style="display: none;" >		                     
-		                      <input type='text'  name="tele_passcode"  class="form-control " placeholder="Teleconference Passcode" />
-		                    </div>        
-        		</div>
-
+		        <div class='form-group col-sm-12'>
+		          <label>Zipcode/ Postal Code</label>
+		          <input type='text'  name="zipcode" class="form-control" autocomplete="off"  />
+		        </div>
+            </div>
+            	       
+        </div>
 
                 <div class='col-sm-4'>
 
@@ -841,66 +787,71 @@ input[type=number]::-webkit-outer-spin-button {
 			                       <div class="row">						                         	
 					                    <div class='form-group col-sm-12'>
 					                      <label>Enter Name</label>
-					                      <input type='text'  name="contact_name"  class="form-control required"  />
+					                      <input type='text' name="contact_name" class="form-control required" autocomplete="off" />
 					                    </div>
 
 				                         <div class='form-group col-sm-12'>
 					                      <label>Enter Email</label>
-					                      <input type='text'  name="contact_email"  class="form-control" value="<?php echo $this->session->userdata('email'); ?>" />
+					                      <input type='text'  name="contact_email" class="form-control" value="<?php echo $this->session->userdata('email'); ?>" autocomplete="off" />
 					                    </div>
 
 				                        <div class='form-group col-sm-12'>
 					                      <label>Enter Phone</label>
-					                      <input type='text'  name="contact_phone"  class="form-control" value="<?php echo $this->session->userdata('phone'); ?>" />
+					                      <input type='text'  name="contact_phone" class="form-control" value="<?php echo $this->session->userdata('phone'); ?>" autocomplete="off" />
 					                    </div>
 
 				                        <div class="form-group col-md-12">
 				                        	<label>Enter Message</label>
-				                            <textarea class="form-control" name="contact_msg" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;"></textarea>
+				                            <textarea class="form-control" name="contact_msg" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" autocomplete="off">
+				                            </textarea>
 				                        </div>
 				                    </div>			                       
 		                    </div>
 	                    </div>
-
-	            <div class='form-group col-sm-12'>        
+			<div class='form-group col-sm-12'>        
                   	<div class='row'>
-		                    <div class='form-group col-sm-12'>
+		                    <div class='form-group col-sm-12' style="margin-top:15px;">
 		                   <div class='form-group col-sm-12'>
-		                      <div class="pull-left" style="width:10%;">
-		                        <input type="radio" name="promotion_options" id="promotion_options" value="1" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+		                      <div class="pull-left" style="width:8%;">
+		                        <input type="radio" name="promotion_options" id="promotion_options" value="1" style="width:15px; height:15px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:15px;">Publish to Specific Group
+		                      <div class="pull-left" style="width:92%; font-size:13px; font-weight:bold; margin-top:-3px;">Publish To Specific Group
 		                      		<!-- Modal popup -->
                                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                     <div class="modal-content">
                                       <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" style="text-align:center;">Select Group Name </h4>
+                                        <h4 class="modal-title" style="text-align:center; font-size:18px; padding:10px; background-color:#FDF2F5; border-radius:7px; margin-bottom:10px;">Select Group Name </h4>
                                         <?php                            
 			                               foreach ($group_name as $groups)
 			                                {                     
 			                            ?>
                                       	<div class="col-md-12">                           
 
-				                            <div class="pull-left" style="width:5%;"> 
-				                              <input type="checkbox" name="group_name" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="<?php echo $groups->_id;?>">
+				                            <div class="pull-left" style="width:6%; margin-top:4px;"> 
+				                       <input type="checkbox" name="group_name" style="width:15px; height:15px; background:white; border-radius:5px; border:2px solid #555;" value="<?php echo $groups->_id;?>">
 				                            </div>
 				                          
-				                            <div class="pull-left" style="width:95%;">
+				                            <div class="pull-left" style="width:94%;">
 				                               <?php echo $groups->groupname; ?> 
 				                            </div>
 
 				                        </div>
-				                          <div class="col-md-12" >
-				                              <div class="col-md-12" style="border: 0.5px solid #d7d6d6; margin-top: 10px; margin-bottom: 10px; "> 
+				                          <div class="row" >
+                                          <div class="col-md-12">
+                                          
+                                          <div class="col-md-12">
+				                              <div class="col-md-12" style="border-bottom: 0.5px solid #E9E9E9; margin-top: 5px; margin-bottom: 5px; "> 
 				                              </div>
+                                              </div>
+                                              </div>
 				                          </div>
 				                        <?php } ?>  
 				                        
 
-                                      <div class="modal-footer">                                       
-                                        <button type="button" class="btn cancel btn-primary" data-dismiss="modal">Submit</button>
+                                      <div class="modal-footer" style="border:none;">                                       
+                                        <button type="button" class="btn cancel btn-primary" data-dismiss="modal" style="width:100%; border-radius:7px;"><i class="fa fa-paper-plane"></i> Submit</button>
                                       </div>
                                     </div>
                                   </div>                                  
@@ -910,28 +861,29 @@ input[type=number]::-webkit-outer-spin-button {
 		                    </div>
 		                </div>
 		                    <div class='form-group col-sm-12'>
-			                    <div class="pull-left" style="width:10%;">
-			                       <input type="radio" name="promotion_options" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+			                    <div class="pull-left" style="width:8%;">
+			                       <input type="radio" name="promotion_options" style="width:15px; height:15px; background:white; border-radius:5px; border:2px solid #555;">
 			                    </div>
-			                    <div class="pull-left" style="width:90%; font-size:15px;">Invited guest can share event</div>
+			                    <div class="pull-left" style="width:92%; font-size:13px; font-weight:bold; margin-top:-3px;">Invited Guest Can Share Event</div>
 		                    </div>
 		                    
 		                    <div class='form-group col-sm-12'>
-		                      <div class="pull-left" style="width:10%;">
-		                        <input type="radio" name="promotion_options" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+		                      <div class="pull-left" style="width:8%;">
+		                        <input type="radio" name="promotion_options" style="width:15px; height:15px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:15px;">Invite Only Event</div>
+		                      <div class="pull-left" style="width:92%; font-size:13px; font-weight:bold; margin-top:-3px;">Invite Only Event</div>
 		                    </div>        
 
 		                    <div class='form-group col-sm-12'>
-		                      <div class="pull-left" style="width:10%;">
-		                        <input type="checkbox" name="reg_rsvp" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+		                      <div class="pull-left" style="width:8%;">
+		                        <input type="checkbox" name="reg_rsvp" style="width:15px; height:15px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:15px;">Register RSVP</div>
+		                      <div class="pull-left" style="width:92%; font-size:13px; font-weight:bold; margin-top:-3px;">Register For RSVP</div>
 		                    </div>           
                   	</div>
                 </div>
                 </div>
+	            
             </div>
 
                 <div class='col-sm-3'>
@@ -975,9 +927,9 @@ input[type=number]::-webkit-outer-spin-button {
                 </div>
 
                 <div class='col-sm-12'>
-                  <div class="form-wizard-buttons">                   
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="submit" class="btn btn-next">Publish</button>
+                  <div class="form-wizard-buttons" style="margin-bottom:20px;">                   
+                    <button type="button" class="btn btn-previous"> <i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="submit" class="btn btn-next"> <i class="fa fa-thumbs-up"></i> Publish</button>
                   </div>
                 </div>
     </fieldset>    
@@ -1040,7 +992,7 @@ $(document).on("change", "#video_size", function(e)
     	if (duration >= 120 )
         	{
 		        $('#video_show').hide();	         
-		        $('.alert_msg').text("Pls upload 2 Min video");  
+		        $('.alert_msg').text("Pls Upload 2 Mins Video");  
 		        $('.alert_msg').show();  
 
          	}else
@@ -1214,16 +1166,16 @@ var base_url = '<?php echo base_url() ?>'; //form submited
                                       required: "Choose cover image", 
                                   }, 
                                   event_description: {
-                                      required: "Please fill Description", 
+                                      required: "Please Fill Description", 
                                   }, 
                                   event_title: {
-                                      required: "Please fill Description", 
+                                      required: "Please Enter Event Title", 
                                   }, 
                                   wowtag_video: {
-                                      required: "Choose", 
+                                      required: "Choose Wowtag_Video", 
                                   },
                                   eventcontactname: {
-                                      required: "required this field", 
+                                      required: "Required this Field", 
                                   },
                                                    
                              },
@@ -1280,7 +1232,7 @@ var base_url = '<?php echo base_url() ?>'; //form submited
 		                    }
 		                    else 
 		                   	{		                    
-		                    	swal("Sorry!", "somethink wrong try again !", "error");
+		                    	swal("Sorry!", "Something wrong try again !", "error");
 		                  	}          
 		                }
 

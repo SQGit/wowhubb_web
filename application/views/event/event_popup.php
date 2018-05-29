@@ -44,12 +44,11 @@
       background: #fff;
       position: relative;
       top: 0px;
-    }
+}
 
 input[type=radio] {
     border: 0px;
-    width: 5%;
-    height: 15px;
+	
 }
 
 .form-wizard {
@@ -88,12 +87,16 @@ input[type=radio] {
   </header>
 <!--Header End-->
 
+<!-- breadcrumb for page link -->
+
+
 <div class="google-maps">
       
 </div>
     <!--Header End-->
 
     <div class="container">
+ 
 
       <!-- Timeline
       ================================================= -->
@@ -101,14 +104,20 @@ input[type=radio] {
         
         <div id="page-contents">
           <div class="row"> 
-          
+        
             <div class="col-md-12">
 
               <div class="col-md-10 form-wizard form-body-classic form-header-classic col-md-offset-1">
            
-                   
-                    <h3><span style="text-transform:none; color:#e91e63;">Select Your Event Type</span></h3>
-                     <p style="font-weight:normal; color:#969696;">Please select any one of the category </p>
+                        <!--div class="col-md-12" style="margin-top:0px; margin-bottom:0px;">                        
+                        <ol class="breadcrumb" style="text-align:left!important;">
+                          <li class="breadcrumb-item" style="text-align:left;"><a href="<?php echo base_url('event/get_eventfeed'); ?>"><strong>Home</strong></a></li>  
+                          <li class="breadcrumb-item active" style="text-align:left;"><strong>Create Event Landing</strong></li>
+                        </ol>
+                        </div-->
+                        
+                    <h3><span style="text-transform:none; color:#e91e63; line-height:30px;">Select Your Event Type</span><p style="font-weight:normal; color:#969696; font-size:12px;">Please select any one of the category </p></h3>
+                     
               <!-- Form Step 1 -->
          <fieldset>
                                          
@@ -117,13 +126,14 @@ input[type=radio] {
                  <div class="row">
 
                    <div class="col-md-12">
-                     <div class="col-md-12" style="margin:20px 0 30px; border:0px solid #ccc; padding-top:15px; padding-bottom:15px; background-color:#FDF2F5; border-radius: 5px;">
+                     <div class="col-md-12" style="margin:4px 0 8px; border:0px solid #ccc; padding-top:15px; padding-bottom:15px; background-color:#FDF2F5; border-radius: 5px;">
                        <div class="col-md-9 col-md-offset-2">
                          <div style="width:30%; float:left;"><img src="<?php echo base_url('assets/images/quick.png'); ?>" alt="user" /> </div>
                          <div style="width:70%; float:left;">
                          
-                           <div class="col-md-12"> <input type="radio" name="event_type" id="event_type" value="0" style="padding-bottom:15px;" onClick="javascript:return yourfunction(0)" >
-                            <span style="font-size:18px; font-weight:500; color:#000;"> Create Quick Event</span>
+                           <div class="col-md-12"> 
+                            <input type="radio" name="event_type" id="event_type" value="0" style="padding-bottom:15px;" onClick="javascript:return yourfunction(0)" >
+                            <span style="font-size:13px; font-weight:bold; color:#000;"> Create Quick Event</span>
                            <div style="font-size:13px; color:#969696; font-weight:normal; margin-top:-7px;">Lets Create the Event with 3 Simple Steps to go!!</div></div>
                            
                            
@@ -154,15 +164,22 @@ input[type=radio] {
                    </div>
 
 
-                    <div class="col-md-6">
-                        <div class="col-md-12" style="border:1px solid #ccc; padding-top:15px; padding-bottom:15px; background-color: transparent; border-radius: 5px;">
+                                   
+                </div>
 
-                        <div class="col-md-4"><img src="<?php echo base_url('assets/images/create-personal-banner.jpg'); ?>" alt="user"  class="img-thumbnail" alt="user" style="margin-bottom:15px;" /></div>
-                        <div class="col-md-8" >
+                <div class="row" style="margin-top: 5px">
+                
+                <div class="col-md-3">
+
+
+			<div class="col-md-12" style="border:1px solid #ccc; padding:0; background-color: transparent; border-radius: 5px;">
+<img src="<?php echo base_url('assets/images/create-personal-banner.jpg'); ?>" alt="user"  alt="user" style="margin-bottom:15px;" />
+
+                  <div class="col-md-12" >
                          
                           <input type="radio" name="event_type" id="event_type" value="1" style="padding-bottom:15px;" onClick="javascript:return yourfunction(1)"  >
-                          <span style="font-size: 17px; font-weight: bold;">Private/ Personal Events</span>
-                           <p style="line-height: 25px;"> This includes following events Weddings, Birthday, Anniversaries Bridal Showers, Baby Showers, Graduations e.t.c 
+                          <span style="font-size: 13px; font-weight: bold; color:#000;">Private/ Personal</span>
+                           <p style="line-height: 25px;"> This includes following events Weddings, Birthday, Anniversaries, Bridal Showers, Baby Showers, Graduations e.t.c 
                            </p> 
                            </div>
                            <div id = "one" style = "display:none" >
@@ -190,14 +207,14 @@ input[type=radio] {
 
                     </div>
                    </div>              
-                     <div class="col-md-6">
-                        <div class="col-md-12" style="border:1px solid #ccc; padding-top:15px; padding-bottom:15px; background-color: transparent; border-radius: 5px;">
+                     <div class="col-md-3">
+                        <div class="col-md-12" style="border:1px solid #ccc; padding:0; background-color: transparent; border-radius: 5px;">
+<img src="<?php echo base_url('assets/images/create-proff-banner.jpg'); ?>" alt="user" alt="user" style="margin-bottom:15px;" />
 
-                         <div class="col-md-4"><img src="<?php echo base_url('assets/images/create-proff-banner.jpg'); ?>" alt="user"  class="img-thumbnail" alt="user" style="margin-bottom:15px;" /></div>
 
-                         <div class="col-md-8">
+                         <div class="col-md-12">
                           <input type="radio" name="event_type" id="event_type" value="2" onClick="javascript:return yourfunction(2)" >
-                         <span style="font-size: 17px; font-weight: bold;">Professional/Corporate Events</span>
+                         <span style="font-size: 13px; font-weight: bold; color:#000;">Professional/Corporate</span>
                            <p style="line-height: 25px;"> This includes following events Professional events, Corporate Event, Training, Workshops Webnairs  e.t.c 
                            </p> 
                          </div>
@@ -224,18 +241,15 @@ input[type=radio] {
                             </select> 
                       </div>      
                         </div>  
-                    </div>                 
-                </div>
+                    </div>                         
+                   <div class="col-md-3">
+                        <div class="col-md-12" style="border:1px solid #ccc; padding:0; background-color: transparent; border-radius: 5px;">
+<img src="<?php echo base_url('assets/images/create-open-banner.jpg'); ?>" alt="user"  alt="user" style="margin-bottom:15px;" />
 
-                <div class="row" style="margin-top: 25px">                       
-                   <div class="col-md-6">
-                        <div class="col-md-12" style="border:1px solid #ccc; padding-top:15px; padding-bottom:15px;background-color: transparent; border-radius: 5px;">
-
-                        <div class="col-md-4"><img src="<?php echo base_url('assets/images/create-open-banner.jpg'); ?>" alt="user"  class="img-thumbnail" alt="user" style="margin-bottom:15px;" /></div>
-                        <div class="col-md-8">
+                        <div class="col-md-12">
                          <input type="radio" name="event_type" value="3" id="event_type" onClick="javascript:return yourfunction(3)">
-                          <span style="font-size: 17px; font-weight: bold;"> Open Social Events</span>
-                           <p style="line-height: 25px;"> This includes following events Religious Meetings, Coventions,  Conferences, Comedy Shows, Music Concerts, Night Parties, Group Meetings e.t.c 
+                          <span style="font-size: 13px; font-weight: bold; color:#000;"> Open Social Event</span>
+                           <p style="line-height: 25px;"> This includes following events Religious Meetings, Conventions,  Conferences, Comedy Shows e.t.c 
                            </p>
                          </div>
                             <div id = "three" style = "display:none" >    
@@ -278,12 +292,13 @@ input[type=radio] {
                       </div>  
                     </div>
                   
-                    <div class="col-md-6">
-                        <div class="col-md-12" style="border:1px solid #ccc; padding-top:15px; padding-bottom:15px; background-color: transparent; border-radius: 5px;">
-                        <div class="col-md-4"><img src="<?php echo base_url('assets/images/create-business-banner.jpg'); ?>" class="img-thumbnail" alt="user" style="margin-bottom:15px;" /></div>
-                        <div class="col-md-8">
+                    <div class="col-md-3">
+                   
+                        <div class="col-md-12" style="border:1px solid #ccc; padding:0; background-color: transparent; border-radius: 5px;">
+ <img src="<?php echo base_url('assets/images/create-business-banner.jpg'); ?>" alt="user" style="margin-bottom:15px;" />
+                        <div class="col-md-12">
                           <input type="radio" name="event_type" value="4" id="event_type"  onClick="javascript:return yourfunction(4)" >
-                           <span style="font-size: 17px; font-weight: bold;">Sales/ Business Leads Events</span>
+                           <span style="font-size: 13px; font-weight: bold; color:#000;">Sales/ Business Leads</span>
                            <p style=" line-height: 25px;"> This includes following events Sales & Marketing Events, Business leads events, Business campaigns, branding e.t.c  
                            </p>
                         </div> 
@@ -321,7 +336,7 @@ input[type=radio] {
 
                      </div>
                         <div class="col-md-12 text-center" style="margin-top: 20px;">
-                           <button type="submit" class="btn-primary" id="btnSubmit"> Continue</button>
+                           <button type="submit" class="btn cancel btn-primary" id="btnSubmit" style="width:100%; border-radius:7px; font-size:13px;"> Continue</button>
                         </div>
            </form>  
                 </div>      

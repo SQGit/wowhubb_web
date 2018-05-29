@@ -5003,10 +5003,10 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:focus, a.list-g
 }
 button.close {
 	-webkit-appearance: none;
-	padding: 0;
+	/*padding: 0;*/
 	cursor: pointer;
-	background: 0 0;
-	border: 0
+	/*background: 0 0;*/
+	/*border: 0*/
 }
 .modal-open {
 	overflow: hidden

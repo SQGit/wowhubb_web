@@ -32,131 +32,7 @@
 <link rel="shortcut icon" type="image/png" href="<?php echo base_url ('assets/images/fav.png') ?>"/>
 <style type="text/css">
 
-.textBox {
-	background-image: url(./assets/images/designation-icon.png);
-	background-position: 0 5px;
-	background-size: 30px;
-	background-repeat: no-repeat;
-	padding-left: 17px;
-}
-.form-wizard img
-{
-	max-width:100%!important;
-	max-height:152px!important;
-}
-/*popup close button  */
-.large.tooltip-inner {
-	max-width: 350px;
-	width: 350px;
-}
-#footer {
-	background: #fff;
-	position: relative;
-	top: 0px;
-}
-.btn-file {
-	position: relative;
-	overflow: hidden;
-}
-.form-body-classic .form-control {
-	margin: 0;
-	padding: 6px 12px;
-	background: #fff none repeat scroll 0 0;
-	border: 1px solid rgb(197, 194, 195);
-	border-radius: 4px;
-	
-	font-size: 14px;
-	font-weight: normal;
-	color: #333;
-	-moz-border-radius: none;
-	-webkit-border-radius: none;
-	border-radius: none;
-	-moz-box-shadow: none;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-}
-.btn-file input[type=file] {
-	position: absolute;
-	top: 0;
-	right: 0;
-	min-width: 100%;
-	min-height: 100%;
-	font-size: 100px;
-	text-align: right;
-	filter: alpha(opacity=0);
-	opacity: 0;
-	outline: none;
-	background: white;
-	cursor: inherit;
-	display: block;
-}
-/*https://stackoverflow.com/questions/14199788/how-do-i-use-an-image-as-a-submit-button */ 
-#btnAdd, #btnAdd2, #btnAdd3, #btnAdd4, #btnAdd5, #btnAdd6, #btnAdd7 {
-	background-image: url("<?php echo base_url('assets/images/Plus.png')?>");
-	background-size: cover;
-	border: none;
-	width: 32px;
-	height: 32px;
-	cursor: pointer;
-	color: transparent;
-	background-color: transparent;
-	outline: none;
-}
-#textAdd {
-	background-image: url("<?php echo base_url('assets/images/Plus.png')?>");
-	background-size: cover;
-	border: none;
-	width: 32px;
-	height: 32px;
-	cursor: pointer;
-	color: transparent;
-	background-color: transparent;
-	outline: none;
-}
-#imageUpload1 {
-	display: none;
-}
-#profileImage1 {
-	cursor: pointer;
-}
-#profile-container1 {
-	width: 150px;
-	height: 150px;
-}
-#imageUpload2 {
-	display: none;
-}
-#profileImage2 {
-	cursor: pointer;
-}
-#imageUpload3 {
-	display: none;
-}
-#profileImage3 {
-	cursor: pointer;
-}
-#imageUpload4 {
-	display: none;
-}
-#profile-container4 {
-	width: 150px;
-	height: 150px;
-}
-#imageUpload5 {
-	display: none;
-}
-#profileImage5 {
-	cursor: pointer;
-}
-.faq-cat-content {
-	margin-top: 25px;
-}
-.faq-cat-tabs li a {
-	padding: 15px 10px 15px 10px;
-	background-color: #ffffff;
-	border: 1px solid #dddddd;
-	color: #777777;
-}
+
 .nav-tabs li a:focus, .panel-heading a:focus {
 	outline: none;
 }
@@ -545,9 +421,9 @@ li.keywordSearch-email {
                   <div class='row'>
                  <div class='form-group col-sm-12'> Business Contact Person Information <em>(To Be Used For Correspondence /Notification)</em></div>
                   
-                    <div class='form-group col-sm-6' >
+                    <div class='form-group col-sm-6'>
                       <label>First Name</label>
-                      <input type='text' name="first_name"  class="form-control textBox" />
+                      <input type='text' name="first_name"  class="form-control" />
                     </div>
                     <div class='form-group col-sm-6' >
                       <label>Last Name</label>
@@ -594,7 +470,7 @@ li.keywordSearch-email {
 		                    	</div>
                     <div class='form-group col-sm-12' >
                       <label>Company/Organization Name</label>
-                      <input type='text' name="organisation_name"  class="form-control textBox" />
+                      <input type='text' name="organisation_name"  class="form-control" />
                     </div>
                     <div class='form-group col-sm-12' >
                       <label>Venue</label>

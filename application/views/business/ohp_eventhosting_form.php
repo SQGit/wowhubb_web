@@ -65,7 +65,7 @@
 	border: 1px solid rgb(197, 194, 195);
 	border-radius: 4px;
 	
-	font-size: 14px;
+	font-size: 13px;
 	font-weight: normal;
 	color: #333;
 	-moz-border-radius: none;
@@ -90,83 +90,13 @@
 	cursor: inherit;
 	display: block;
 }
-/*https://stackoverflow.com/questions/14199788/how-do-i-use-an-image-as-a-submit-button */ 
-#btnAdd, #btnAdd2, #btnAdd3, #btnAdd4, #btnAdd5, #btnAdd6, #btnAdd7 {
-	background-image: url("<?php echo base_url('assets/images/Plus.png')?>");
-	background-size: cover;
-	border: none;
-	width: 32px;
-	height: 32px;
-	cursor: pointer;
-	color: transparent;
-	background-color: transparent;
-	outline: none;
-}
-#textAdd {
-	background-image: url("<?php echo base_url('assets/images/Plus.png')?>");
-	background-size: cover;
-	border: none;
-	width: 32px;
-	height: 32px;
-	cursor: pointer;
-	color: transparent;
-	background-color: transparent;
-	outline: none;
-}
-#imageUpload1 {
-	display: none;
-}
-#profileImage1 {
-	cursor: pointer;
-}
-#profile-container1 {
-	width: 150px;
-	height: 150px;
-}
-#imageUpload2 {
-	display: none;
-}
-#profileImage2 {
-	cursor: pointer;
-}
-#imageUpload3 {
-	display: none;
-}
-#profileImage3 {
-	cursor: pointer;
-}
-#imageUpload4 {
-	display: none;
-}
-#profile-container4 {
-	width: 150px;
-	height: 150px;
-}
-#imageUpload5 {
-	display: none;
-}
-#profileImage5 {
-	cursor: pointer;
-}
-.faq-cat-content {
-	margin-top: 25px;
-}
-.faq-cat-tabs li a {
-	padding: 15px 10px 15px 10px;
-	background-color: #ffffff;
-	border: 1px solid #dddddd;
-	color: #777777;
-}
-.nav-tabs li a:focus, .panel-heading a:focus {
-	outline: none;
-}
+
+
 .panel-heading a, .panel-heading a:hover, .panel-heading a:focus {
 	text-decoration: none;
 	color: #777777;
 }
-.faq-cat-content .panel-heading:hover {
-	background-color: #efefef;
-}
+
 .active-faq {
 	border-left: 5px solid #888888;
 }
@@ -393,7 +323,34 @@
 	}
 	.search_keyword 
 { cursor: pointer; }
-
+.step-icn
+{
+	    width: 48px;
+    height: 48px;
+    margin-top: 0;
+    background: #e91e63;
+    font-size: 22px;
+    line-height: 48px;
+	border-radius:50%;
+	color:#fff;
+	padding:0px 15px;
+}
+.form-wizard-steps {
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    margin-top: 9px;
+}
+.progress {
+    height: 10px;
+    margin-bottom: 11px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    margin-top: 0px;
+}
 </style>
 </head>
 
@@ -408,7 +365,7 @@
       <nav class="navbar navbar-default navbar-fixed-top menu" style="padding-top:3px!important; padding-bottom:3px!important;">
         <div class="container"> 
       
-          <?php  include('/../includes/header.php'); ?>
+        <?php  include('/../includes/header.php'); ?>
         </div>
         <!-- /.container --> 
       </nav>
@@ -436,11 +393,11 @@
             Use anyone class "form-body-classic" or "form-body-material" or "form-body-stylist" for set your form element design.
             -->
             
-            <h3>Organisation Hosting Page</h3>
-            <p>Please fill information to connect with us. </p>
+            <h3 style="font-size:15px; font-weight:bold;">Organisation Hosting Page</h3>
+
             
             
-      <img src="../assets/images/ohp_banner.jpg" class="img-thumbnail"  alt="banner-image"/>
+      <img src="../assets/images/ohp_banner.jpg" class="img-thumbnail"  alt="banner-image" style="margin-top:10px;"/>
       
       
             <!-- Form progress -->
@@ -451,21 +408,21 @@
               <!-- Step 1 -->
               <div class="form-wizard-step active">
                 <div class="form-wizard-step-icon"><i class="fa fa-child" aria-hidden="true"></i></div>
-                <p>Basic Info</p>
+                <p style="font-weight:bold;">1.Basic Info</p>
               </div>
               <!-- Step 1 -->        
               
               <!-- Step 2 -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-image" aria-hidden="true"></i></div>
-                <p>Product Gallery</p>
+                <p style="font-weight:bold;">2.Product Gallery</p>
               </div>
               <!-- Step 2 --> 
               
               <!-- Step 3  -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-search" aria-hidden="true"></i></div>
-                <p>Keyword Search</p>
+                <p style="font-weight:bold;">3.Keyword Search</p>
               </div>
               <!-- Step 3 --> 
               
@@ -481,10 +438,10 @@
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="33.33" aria-valuemin="0" aria-valuemax="100" style="width: 33.33%"> </div>
                 </div>
                 <!-- Progress Bar -->
-                <h4> <span>Step 1 - 3</span></h4>
+
                 <div class='col-sm-12'>
                   	<div class='row' style="margin-bottom: 25px;">
-		                	<div class='form-group col-sm-12' style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63;">Basic Info	
+		                	<div class='form-group col-sm-12' style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#000; font-weight:bold;">Basic Info	
 		                	</div>               
 				                <div class='form-group col-sm-8'>
 				                 	<div class='form-group col-sm-12'> Business Contact Person Information <em>(To Be Used For Correspondence /Notification)</em></div>
@@ -703,8 +660,7 @@
 				                          
 				                        </div>
 				                      </div>
-		                    		</div>
-				                    
+		                    		</div>				                    
 		                  		</div>
 		                	</div>
 
@@ -1060,13 +1016,12 @@
         	
         		</div>
                 
-                
-                <div class='col-sm-12'>
-                  <div class="form-wizard-buttons">
-
-                    <button type="button" class="btn btn-next">Next</button>
+                <div class='col-sm-12' style="margin-bottom:20px;">
+                  <div class="form-wizard-buttons">                 
+                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
                   </div>
                 </div>
+               
     </fieldset>
     
             
@@ -1081,11 +1036,11 @@
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="66.66" aria-valuemin="0" aria-valuemax="100" style="width: 66.66%"> </div>
                 </div>
                 <!-- Progress Bar -->
-                <h4> <span>Step 2 - 3</span></h4>
+
                 
             <div class='col-sm-12' style="margin-bottom:20px;">
                 <div class='row'>
-                  <div class='form-group col-sm-12' style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63;">Product/ Services Gallery (Photos/ Images)</div>
+                  <div class='form-group col-sm-12' style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#000; font-weight:bold;">Product/ Services Gallery (Photos/ Images)</div>
                     <div class='form-group col-sm-6' >
 		                <div class='row'>
 		                  	<div class='form-group col-sm-12' >
@@ -1103,7 +1058,7 @@
 				                        	</div>  
 				                    </div>
 			                        <div class='col-sm-12'>
-			                    		<a href="JavaScript:void(0);">
+			                    		<a href="JavaScript:void(0);" style="color:#000;">
 			                    		<i class="fa fa-plus-circle"></i> Add More Products/ Services Photos/Images up to 10 </a>
 			                    	</div>
 		                        </div>              
@@ -1131,7 +1086,7 @@
                 
             <div class='col-sm-12' style="margin-bottom:20px;">
                 <div class='row'>
-                  	<div class='form-group col-sm-12' style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63;">Product/ Services Gallery (Videos)</div>
+                  	<div class='form-group col-sm-12' style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#000; font-weight:bold;">Product/ Services Gallery (Videos)</div>
                   	<div class='form-group col-sm-6' >
 		                <div class='row'>
 		                  <div class='form-group col-sm-12' >
@@ -1157,7 +1112,7 @@
 		                        </div>
 
 		                        <div class='col-sm-12'>
-		                    		<a href="JavaScript:void(0);">
+		                    		<a href="JavaScript:void(0);" style="color:#000;">
 		                    		<i class="fa fa-plus-circle"></i> Add More Products/ Services Photos/Images up to 10 </a>
 		                    	</div>
 		                      </div>
@@ -1181,11 +1136,11 @@
                   
             </div>
                 
-                <div class='col-sm-12'>
+                <div class='form-group col-sm-12' style="margin-top:25px; margin-bottom:20px;">
                   <div class="form-wizard-buttons">
-
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="button" class="btn btn-next">Next</button>
+                   
+                    <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
                   </div>
                 </div>
     </fieldset>
@@ -1197,22 +1152,22 @@
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%"> </div>
                 </div>
                 <!-- Progress Bar -->
-                <h4> <span>Step 3 - 3</span></h4>
-                <div class='form-group col-sm-12' style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63; margin-bottom:15px!important;">
+
+                <div class='form-group col-sm-12' style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; font-weight:bold; color:#000; margin-bottom:15px!important;">
                   Create Your Business Search Coverage Areas &amp; Search Keywords
-                 </div> 
+                </div> 
                 <div class='form-group col-sm-12'>
 					<div class="form-group col-md-12">Create and Generate Keyword that your clients and customers can use to search for your products and services on the !WOWHUBB NETWORK</div>
 					<div class='form-group col-sm-12' style="padding-top:15px; padding-bottom:5px; background-color:#f7ebf0; border-radius:5px;  margin-top:25px;  color:#e91e63; margin-bottom:15px!important;">
 					    <div class="form-group-1 col-sm-12" style="margin-bottom:15px;">					                        
-					            <div class="pull-left" style="width:21%; font-size:14px; margin-right:5px; color:#333;">Enter Your Business Coverage Areas</div>
+					            <div class="pull-left" style="width:21%; font-size:13px; margin-right:5px; color:#333;">Enter Your Business Coverage Areas</div>
 
-					            <div class="pull-left" style="width:25%; font-size:14px; margin-right:15px;">
+					            <div class="pull-left" style="width:25%; font-size:13px; margin-right:15px;">
 					            	<input type='text' id="event_date" name="area_keyword"  class="area_keyword form-control" placeholder="Houston"  />
 					            </div>
-					            <div class="pull-left" style="width:11%; font-size:14px; margin-right:5px; color:#333;">Rank Client Base
+					            <div class="pull-left" style="width:11%; font-size:13px; margin-right:5px; color:#333;">Rank Client Base
 					            </div>
-					            <div class="pull-left" style="width:20%; font-size:14px; margin-right:10px;">
+					            <div class="pull-left" style="width:20%; font-size:13px; margin-right:10px;">
 					               			<select name="rank_city"  class="form-control" style="background-color:#eff0f1;">
 									                      <option class="1">1</option>
 					                 					  <option class="2">2</option>
@@ -1227,7 +1182,7 @@
                        
                 </div>
                  	<div class='form-group col-sm-12'>
-                 			<span style="color: #e91e63; font-size: 17px; text-transform: capitalize;"  id="areakeyword_show" value=""> </span>
+                 			<span style="color: #e91e63; font-size: 17px; text-transform: capitalize;"  id="areakeyword_show" > </span>
              		</div>
                
                 <div class='form-group col-sm-12'>
@@ -1235,8 +1190,8 @@
 					<div class='form-group col-sm-12' style="padding-top:15px; padding-bottom:5px; background-color:#f7ebf0; color:#e91e63; border-radius:5px; margin-top:25px; margin-bottom:15px!important;">
                      	<div class="form-group-1 col-sm-12" style="margin-bottom:15px;">
                         
-                        	<div class="pull-left" style="width:28%; font-size:14px; margin-right:5px; color:#333;"">Generate Your Business Search Keywords Here</div>
-                        	<div class="pull-left" style="width:36%; font-size:14px; margin-right:15px;">
+                        	<div class="pull-left" style="width:28%; font-size:13px; margin-right:5px; color:#333;"">Generate Your Business Search Keywords Here</div>
+                        	<div class="pull-left" style="width:36%; font-size:13px; margin-right:15px;">
                         		<input type='text' id="event_date" name="event_date"  class="search_keyword form-control" placeholder="Vanilla Cakes"  />
                         	</div>                       
                         	
@@ -1244,15 +1199,14 @@
                     </div>                      
                 </div>
                		<div class='form-group col-sm-12'>
-                 			<span style="color: #e91e63; font-size: 17px; text-transform: capitalize;"  id="search_keyword_show" value=""> </span>
+                 			<span style="color: #e91e63; font-size: 13px; text-transform: capitalize;"  id="search_keyword_show" > </span>
              		</div>
                 
                 
-                <div class='form-group col-sm-12' style="margin-top: 30px;">
-                  <div class="form-wizard-buttons">
-
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="submit" class="btn btn-next">Publish</button>
+               <div class='col-sm-12'>
+                  <div class="form-wizard-buttons" style="margin-bottom:20px;">                   
+                    <button type="button" class="btn btn-previous"> <i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="submit" class="btn btn-next"><i class="fa fa-thumbs-up"></i> Publish</button>
                   </div>
                 </div>
     </fieldset>
@@ -1336,6 +1290,7 @@ $(document).ready(function(){
     });
 
 });	
+
 //image preview and delete step1 logo
 
 $(document).ready(function() {

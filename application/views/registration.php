@@ -284,7 +284,7 @@ label.error {
                     </div>
 
                     <div class="form-group col-xs-8">                   
-                      <input id="wowtag" class="form-control input-group-lg" name="wowtagid" placeholder="Create Your Personalized ID" autocomplete="off"/>                                 
+                      <input id="wowtag" class="form-control input-group-lg" name="wowtagid" placeholder="Create Your Personalized ID" autocomplete="off" />                                 
                     </div>
 
                     <div class="form-group col-xs-1" style="margin-top: 15px;">   
@@ -597,6 +597,7 @@ label.error {
                                   }, 
                                   wowtagid: {
                                       required: "Please Enter your Wowtag ID",
+                                      minlength: "Your Password must be at least 5 characters long"
                                   }, 
                                    password: {
                                       required: "Please Provide a Password",
@@ -715,13 +716,9 @@ label.error {
                 {                   
                     if(response.status == 'success')
                      {
-                       // $("#result").html(info); 
+                      
                         $("#result").html('<div class="alert alert-success alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a> Your !Wowtag ID was Create Successfully. </div>');
-                       // swal(
-                       //      'Success!',
-                       //      'Your Wowtag id Created Successfully', //refer : https://www.sitepoint.com/community/t/return-php-error-using-sweet-alert/265444
-                       //      'success'
-                       //    );                     
+                                           
                      }
 
                      else 

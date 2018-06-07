@@ -167,24 +167,7 @@ table, td, tr {
   <nav class="navbar navbar-default navbar-fixed-top menu">
     <div class="container"> 
       
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header"> <a class="navbar-brand" href="<?php echo base_url('event/get_eventfeed'); ?>"> <img src="<?php echo base_url ('assets/images/logo.png') ?>" alt="logo" /></a> </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style="position:relative;">
-        <ul class="nav navbar-nav navbar-right main-menu" style="color:#fff; margin-top: 10px; margin-right:5px; font-size:25px;">
-          <a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none;"> <span style="font-size:14px;  background:#e91e63; padding:5px 10px; border-radius:13px; color:#fff;"><img src="<?php echo base_url('assets/images/home-icon.png'); ?>" alt="user" /> Home</span> </a> <a href="<?php echo base_url('event/event_popup'); ?>" style="text-decoration:none;"><span style="font-size:14px;  background:#757575; padding:5px 10px; border-radius:13px; color:#fff;"><img src="<?php echo base_url('assets/images/create-event-icon-3.png'); ?>" alt="user" /> Create Event</span> </a> <a href="<?php echo base_url('home/logout'); ?>" style="text-decoration:none;"><span style="font-size:14px;  padding:5px 10px; border-radius:5px; color:#fff;"><img src="<?php echo base_url('assets/images/logout-icon.png'); ?>" alt="user" />Logout</span> </a>
-        </ul>
-        <form class="navbar-form navbar-right hidden-sm" style="position:absolute; right:325px; top:0px;" >
-          <div class="form-group"> <i class="icon ion-android-search"></i>
-            <input type="text" class="search form-control live-search-box" id="searchbox" name="friends_search" placeholder="Search !Events, !Venues, !Wowtags, !People" style="height:30px; min-width:330px;" />
-            <br/>
-            <span id="display1"> </span> 
-            <!-- <input type="text" class="search form-control" id="searchbox" name="friends_search" placeholder="Search !Events, !Venues, !Wowtags, !People">                 
-                        --> 
-          </div>
-        </form>
-      </div>
-      <!-- Collect the nav links, forms, and other content for toggling --> 
-      <!-- /.navbar-collapse --> 
+      <?php  include('/../includes/header.php'); ?>
     </div>
     <!-- /.container --> 
   </nav>
@@ -202,7 +185,7 @@ table, td, tr {
         <div class="col-md-12" style="margin-top:15px; margin-bottom:10px;">
           <div class="col-md-12">
             <div class="pull-right">
-              <button type="submit" class="btn-primary" style="background-color:#fc6653!important;">Contact Us : 1-555-555-5555</button>
+              <button type="submit" class="btn-primary" style="background-color:#fc6653!important; font-size:13px;">Contact Us : 1-555-555-5555</button>
               
             </div>
           </div>
@@ -218,7 +201,7 @@ table, td, tr {
             
             <div id="chat-block" style="background:#fff; box-shadow:1px 1px 1px 2px #ECECEC; padding:2px; border-radius:5px;">
               <ul class="nav-news-feed">
-                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left; color:#333;">Sharaton Event Center</h5>
+                <h5 style="font-weight:bold;  font-size:13px; letter-spacing:-.5px; text-align:left; color:#333;">Sharaton Event Center</h5>
                 <li><strong style="font-weight:bold; color:#fc6653!important;">3 Event Centers Available</strong></li>
                 <li>his unique venue is the oldest hangar on Hobby Airport's grounds, a 1929 Great Silver Fleet Maintenance Hangar. The Hangar can be used for any function you can imagine, large or small.</li>
                 <li>
@@ -230,7 +213,7 @@ table, td, tr {
                 </li>
               </ul>
               <ul class="nav-news-feed">
-                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left; color:#333;">Location</h5>
+                <h5 style="font-weight:bold; font-size:13px; letter-spacing:-.5px; text-align:left; color:#333;">Location</h5>
                 
                 <li>1234 Delano Drive<br>
                   Houston Texas 77777</li>
@@ -241,13 +224,13 @@ table, td, tr {
               <!--news-feed links ends-->
               
               <ul class="nav-news-feed">
-                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left; color:#333;">Map Locations</h5>
+                <h5 style="font-weight:bold; font-size:13px; letter-spacing:-.5px; text-align:left; color:#333;">Map Locations</h5>
                 <li>
                   <div style="margin-left:0; text-align:left;"> <img src="../assets/images/houston-hotels.jpg" class="img-responsive"></div>
                 </li>
               </ul>
               <ul class="nav-news-feed">
-                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left; color:#333;">Avaliability</h5>
+                <h5 style="font-weight:bold; font-size:13px; letter-spacing:-.5px; text-align:left; color:#333;">Avaliability</h5>
                 <li>Monday: By Appt Only<br>
                   Tuesday: By Appt Only<br>
                   Wednesday: By Appt Only<br>
@@ -257,7 +240,7 @@ table, td, tr {
                   Sunday: By Appt Only </li>
               </ul>
               <ul class="nav-news-feed">
-                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left; color:#333;">Food &amp; Beverages</h5>
+                <h5 style="font-weight:bold; font-size:13px; letter-spacing:-.5px; text-align:left; color:#333;">Food &amp; Beverages</h5>
                 <li> 
                 <img src="../assets/images/event-venue-icons/ihc-icon.png" alt="image" width="32" height="32"/><strong>Food</strong> - In-House Catering Only</li> 
                 <li><img src="../assets/images/event-venue-icons/ihs-icon.png" alt="image" width="32" height="32"/><strong>Beverages</strong> - In-House Supplies Only
@@ -265,7 +248,7 @@ table, td, tr {
                 </li>
               </ul>
               <ul class="nav-news-feed">
-                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left; color:#333;">Reviews</h5>
+                <h5 style="font-weight:bold; font-size:13px; letter-spacing:-.5px; text-align:left; color:#333;">Reviews</h5>
                 <li><span style="margin-top:20px;"><i class="fa fa-star" style="color:#D0A903;"></i> <i class="fa fa-star" style="color:#D0A903;"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> 2.1</span></li> 
                 <li>Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer
 <br><em>Markus Houston</em></li>
@@ -296,22 +279,25 @@ table, td, tr {
                 <div class="row">
                 
                   <div class="col-md-4" style="margin-top:10px;">
-                  <span style="font-size:20px;">City Hall 1</span>
+                  <span style="font-size:14px; font-weight:bold;">City Hall 1</span>
                     <div class="gallery"> <img src="../assets/images/sharaton.jpg" alt="post-image" class="img-responsive img-thumbnail"></div>
                     <div class="col-md-12" style="margin-top:10px;">
                       <div class="row">
-                        <div class="pull-left" style="font-size:15px; font-weight:bold;">Capacity: <br><span style="color:#429A0B;">100 Standing  50 Seating</span></div>
+                        <div class="pull-left" style="font-size:13px; font-weight:bold;">Capacity: <br><span style="color:#429A0B;">100 Standing  50 Seating</span></div>
 
                       </div>
                     </div>
                     <div class="col-md-12" style="margin-top:10px;">
                       <div class="row">
-                        <div class="pull-left" style="font-size:15px; font-weight:bold;">Pricing</div>
-                        <div class="pull-left" style="font-size:13px; line-height:20px;">FRI - SAT: $500<br>
-                                FRI - SAT BUYOUT: $10,000<br>
-                                SUN - THURS: $2,000<br>
-                                SUN - THURS BUYOUT: $2,000<br>
-                                WEDDINGS: Quote Request For Info</div>
+                        <div class="pull-left" style="font-size:13px; font-weight:bold;">Pricing</div>
+                      
+                      </div>
+                      <div class="row">
+                        <div class="pull-left" style="font-size:12px; line-height:20px;">FRI - SAT: $500<br>
+                          FRI - SAT BUYOUT: $10,000<br>
+                          SUN - THURS: $2,000<br>
+                          SUN - THURS BUYOUT: $2,000<br>
+                          WEDDINGS: Quote Request For Info</div>
                       </div>
                     </div>
                   </div>
@@ -382,22 +368,25 @@ table, td, tr {
                 <div class="row">
                 
                   <div class="col-md-4" style="margin-top:10px;">
-                  <span style="font-size:20px;">City Hall 2</span>
+                  <span style="font-size:14px; font-weight:bold;">City Hall 2</span>
                     <div class="gallery"> <img src="../assets/images/sharaton.jpg" alt="post-image" class="img-responsive img-thumbnail"></div>
                     <div class="col-md-12" style="margin-top:10px;">
                       <div class="row">
-                        <div class="pull-left" style="font-size:15px; font-weight:bold;">Capacity: <br><span style="color:#429A0B;">100 Standing  50 Seating</span></div>
+                        <div class="pull-left" style="font-size:13px; font-weight:bold;">Capacity: <br><span style="color:#429A0B;">100 Standing  50 Seating</span></div>
 
                       </div>
                     </div>
                     <div class="col-md-12" style="margin-top:10px;">
                       <div class="row">
-                        <div class="pull-left" style="font-size:15px; font-weight:bold;">Pricing</div>
-                        <div class="pull-left" style="font-size:13px; line-height:20px;">FRI - SAT: $500<br>
-FRI - SAT BUYOUT: $10,000<br>
-SUN - THURS: $2,000<br>
-SUN - THURS BUYOUT: $2,000<br>
-WEDDINGS: Quote Request For Info</div>
+                        <div class="pull-left" style="font-size:13px; font-weight:bold;">Pricing</div>
+                        
+                      </div>
+                      <div class="row">
+  <div class="pull-left" style="font-size:12px; line-height:20px;">FRI - SAT: $500<br>
+    FRI - SAT BUYOUT: $10,000<br>
+    SUN - THURS: $2,000<br>
+    SUN - THURS BUYOUT: $2,000<br>
+    WEDDINGS: Quote Request For Info</div>
                       </div>
                     </div>
                   </div>

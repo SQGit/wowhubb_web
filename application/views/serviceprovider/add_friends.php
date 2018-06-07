@@ -17,7 +17,7 @@
 <!-- magnific-popup image-->
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/magnific-popup.css')?>" />
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/normalize.css')?>" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url ('assets/css/videopopup.css')?>" media="screen" />
+
 <!--Google Font-->
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
@@ -159,7 +159,7 @@ margin: 5px 0;
     padding: 0 20px;
     border: 1px solid #ccc;
     font-family: 'Lato', sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
     line-height: 30px;
     color: #333;
@@ -200,28 +200,23 @@ margin: 5px 0;
         <div class="container"> 
       
           <?php  include('/../includes/header.php'); ?>
+         
         </div>
         <!-- /.container --> 
       </nav>
   </header>
 <!--Header End-->
 <!-- breadcrumb for page link -->
-<div class="container" style="margin-top:20px; margin-bottom:-50px;">
 
-<ol class="breadcrumb">
-  <li class="breadcrumb-item"><a href="<?php echo base_url('event/get_eventfeed'); ?>"><strong>Home</strong></a></li>  
-  <li class="breadcrumb-item active"><strong>My Network</strong></li>
-</ol>
-</div>
 
-<div id="page-contents" style="padding:45px 0 50px;">
+<div id="page-contents" style="padding:18px 0 50px;">
   <div class="container">
     <div class="row"> 
       
       <!-- Newsfeed Common Side Bar Left
           ================================================= -->
       <div class="col-md-3">
-        <div class="profile-card">
+        <div class="profile-card" id="chat-block" style="margin-left:10px;">
 
           <div style="width:100%; float:left;">
             <?php 
@@ -232,23 +227,43 @@ margin: 5px 0;
              
                <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo" />
                <?php } ?>
-              <span class="text-white" style="margin-top:5px; font-size:18px;"><?php echo $this->session->userdata('first_name')." ".$this->session->userdata('last_name'); ?>          
+              <span class="text-white" style="margin-top:5px; font-size:13px; text-transform:capitalize;"><?php echo $this->session->userdata('first_name')." ".$this->session->userdata('last_name'); ?>          
             </span>
-            <p><?php echo $this->session->userdata('designation');  ?></p>
+            <p style="text-transform:capitalize;">
+                        <?php 
+                           if(!is_null($this->session->userdata('designation')))
+                           { echo $this->session->userdata('designation');  }
+                            else { echo " ";} 
+                        ?>  
+            </p>
            </div>
-          <div style="font-size:20px; color:#fff; margin-top:-20px; width:100%; float:right; text-align:right;"><a href="#"> &nbsp;&nbsp;<i class="icon ion-arrow-right-b" style="font-size:28px; color:#fff;"></i></a> </div>
+          <div style="font-size:15px; color:#fff; margin-top:-20px; width:100%; float:right; text-align:right;">
+                  <?php
+                      if($this->session->has_userdata('self_video') && ($this->session->userdata('self_video') != 'null'))               
+                      {  
+                  ?>
+                       
+                        <a href="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('self_video'); ?>" class="html5lightbox" data-width="480" data-height="320" > &nbsp;&nbsp;
+                          <i class="icon ion-arrow-right-b" style="font-size:28px; color:#fff;"></i>
+                        </a> 
+                        
+                  <?php } ?>
+           </div>
           <div class="row">
-            <div class="col-md-12 text-center" style="font-size:18px; margin-bottom:10px;">Your Network Connections</div>
-            <div class="col-md-12 text-center" style="font-size:22px; margin-bottom:120px;"><?php if(isset($frds_count)) { echo $frds_count; } ?></div>
+            <div class="col-md-12 text-center" style="font-size:15px; margin-bottom:10px;">Your Network Connections</div>
+            <div class="col-md-12 text-center" style="font-size:13px; margin-bottom:120px;"><?php if(isset($frds_count)) { echo $frds_count; } ?></div>
 
-            <div class="col-md-12 text-center" style="font-size:22px; margin-bottom:20px;">
+            <div class="col-md-12 text-center" style="font-size:13px; margin-bottom:20px;">
             
-            <a href="#" data-toggle="modal" data-target=".modal-1" >
-            <button class="browse btn-1 btn-primary input-lg" type="button"><i class="glyphicon glyphicon-refresh"></i> Invite</button></a>
+            <!-- <a href="#" data-toggle="modal" data-target=".modal-1" > -->
+            <button class="browse btn-1 btn-primary input-sm" type="button">
+              <i class="glyphicon glyphicon-refresh"></i> Invite
+            </button>
+            <!-- </a> -->
            
             </div>
 
-            <div class="col-md-12 text-center" style="font-size:22px; margin-bottom:10px;"><a href="#" style="font-size:15px; color:#fff;">Manage Your Connections</a></div>
+            <div class="col-md-12 text-center" style="font-size:13px; margin-bottom:10px;"><a href="#" style="font-size:13px; color:#fff;">Manage Your Connections</a></div>
           </div>
         </div>
         <!--profile card ends-->
@@ -261,7 +276,7 @@ margin: 5px 0;
       
      <div class="col-md-5" style="background-color:#fff; border: 1px solid #ECECEC; border-radius:5px; "> 
      <div class="row text-center" style="background-color:#f8f8f8; border:1px solid #f5f5f5; padding:5px; border-radius:0px; margin-bottom:15px;">
-              <a href="#" style="text-decoration:none; color:#333; font-size:14px;"><i class="fa fa-users"></i> Invitation To Network With  People You Know</a>
+              <a href="#" style="text-decoration:none; color:#333; font-size:13px; font-weight:bold;"><i class="fa fa-users"></i> Invitation To Network With  People You Know</a>
        </div>        
         <!-- Post Create Box =================================== -->    
 
@@ -284,15 +299,15 @@ margin: 5px 0;
                                   <?php } else { ?>
 
                                 <a href="<?php echo base_url('profile/profile_thirdparty_view/'.$friends->_id); ?>" >  
-                                <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo-md" />
+                                <img src="<?php echo base_url('assets/images/avatar/avatar_small_friends.png'); ?>" alt="user" class="profile-photo-md" />
                                 </a>
                                   <?php } ?>                                                       
                              </div>
                          </div>
 
                           <div class="col-md-4 col-sm-12">
-                                    <div class="pull-left" style="width:100%; text-transform: capitalize; font-size: 16px;"> 
-                                      <a href="<?php echo base_url('profile/profile_thirdparty_view/'.$friends->_id); ?>" >
+                                    <div class="pull-left" style="width:100%; text-transform: capitalize; font-size: 13px; color:#000;"> 
+                                      <a style="color:#000;" href="<?php echo base_url('profile/profile_thirdparty_view/'.$friends->_id); ?>" >
                                       <?php echo $friends->firstname.' '. $friends->lastname; ?> 
                                       </a>
                                       <i class="glyphicon glyphicon-play"></i><br>
@@ -312,7 +327,7 @@ margin: 5px 0;
 
                         <form action="<?php echo base_url('Searchfriends/send_request/'.$friends->_id); ?>" class="send_request" method="post" >   
                             <div class="tools pull-right">
-                                 <input type="submit" id="request" class="request btn btn-primary-1 pull-right" style="margin-top:3px; text-transform: capitalize; padding: 5px 15px 5px 29px; background-color: transparent; color: #333; border: 1px solid;" value="<?php echo $friends->status; ?>"> 
+                                 <input type="submit" id="request" class="request btn btn-primary-1 pull-right" style="margin-top:3px; font-size:13px; text-transform: capitalize; padding: 5px 15px 5px 29px; background-color: transparent; color: #333; border: 1px solid;" value="<?php echo $friends->status; ?>"> 
                             </div>                              
                        </form>  
 
@@ -320,14 +335,14 @@ margin: 5px 0;
                        <?php } elseif($friends->status == 'friend' ){  ?>
                          
                             <div class="tools pull-right">
-                                 <input type="submit"  class=" btn btn-primary-1 pull-right" style="margin-top:3px; text-transform: capitalize; padding: 5px 15px 5px 17px; background-color: transparent; color: #333; border: 1px solid;" value="<?php echo $friends->status; ?>"> 
+                                 <input type="submit"  class=" btn btn-primary-1 pull-right" style="margin-top:3px; text-transform: capitalize; font-size:13px; padding: 5px 15px 5px 17px; background-color: transparent; color: #333; border: 1px solid;" value="<?php echo $friends->status; ?>"> 
                             </div> 
 
                        <?php } elseif($friends->status == 'request sent' ){ ?>   
 
                         <form action="<?php echo base_url('Searchfriends/send_request/'.$friends->_id); ?>" class="send_request" method="post" >   
                             <div class="tools pull-right">
-                                  <input type="submit" id="request" class="request btn btn-primary pull-right" style="margin-top:3px; text-transform: capitalize; padding:5px 13px; background-color: #e91e63; background-position: -9999px -9999px!important;" value="<?php echo $friends->status; ?>"> 
+                                  <input type="submit" id="request" class="request btn btn-primary pull-right" style="margin-top:3px; font-size:13px; text-transform: capitalize; padding:5px 13px; background-color: #e91e63; background-position: -9999px -9999px!important;" value="<?php echo $friends->status; ?>"> 
                             </div>                              
                        </form> 
 
@@ -398,14 +413,14 @@ margin: 5px 0;
                               </a>
                                   <?php } else { ?>
                               <a href="<?php echo base_url('profile/profile_thirdparty_view/'.$friends->_id); ?>" >
-                               <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo-md" />
+                               <img src="<?php echo base_url('assets/images/avatar/avatar_small_friends.png'); ?>" alt="user" class="profile-photo-md" />
                               <a href="<?php echo base_url('profile/profile_thirdparty_view/'.$friends->_id); ?>" >
                                   <?php } ?>                                                       
                              </div>
                          </div>
                           <div class="col-md-4 col-sm-12">
-                                    <div class="pull-left" style="width:100%; text-transform: capitalize; font-size: 16px;"> 
-                                      <a href="<?php echo base_url('profile/profile_thirdparty_view/'.$friends->_id); ?>" >
+                                    <div class="pull-left" style="width:100%; text-transform: capitalize; font-size: 13px; color:#000;"> 
+                                      <a style="color:#000;" href="<?php echo base_url('profile/profile_thirdparty_view/'.$friends->_id); ?>" >
                                       <?php echo $friends->firstname.' '. $friends->lastname; ?> 
                                       </a>
                                       <i class="glyphicon glyphicon-play"></i><br>
@@ -425,21 +440,21 @@ margin: 5px 0;
 
                         <form action="<?php echo base_url('Searchfriends/send_request/'.$friends->_id); ?>" class="send_request" method="post" >   
                             <div class="tools pull-right">
-                                 <input type="submit" id="request" class="request btn btn-primary-1 pull-right" style="margin-top:3px; text-transform: capitalize; padding: 5px 15px 5px 29px; background-color: transparent; color: #333; border: 1px solid;" value="<?php echo $friends->status; ?>"> 
+                                 <input type="submit" id="request" class="request btn btn-primary-1 pull-right" style="margin-top:3px; font-size:13px; text-transform: capitalize; padding: 5px 15px 5px 29px; background-color: transparent; color: #333; border: 1px solid;" value="<?php echo $friends->status; ?>"> 
                             </div>                              
                        </form>  
 
                        <?php } elseif($friends->status == 'friend' ){  ?>
                          
                             <div class="tools pull-right">
-                                 <input type="submit"  class=" btn btn-primary-1 pull-right" style="margin-top:3px; text-transform: capitalize; padding: 5px 15px 5px 17px; background-color: transparent; color: #333; border: 1px solid;" value="<?php echo $friends->status; ?>"> 
+                                 <input type="submit"  class=" btn btn-primary-1 pull-right" style="margin-top:3px; text-transform: capitalize; font-size:13px; padding: 5px 15px 5px 17px; background-color: transparent; color: #333; border: 1px solid;" value="<?php echo $friends->status; ?>"> 
                             </div>                             
                    
                        <?php } elseif($friends->status == 'request sent' ){ ?>   
 
                         <form action="<?php echo base_url('Searchfriends/send_request/'.$friends->_id); ?>" class="send_request" method="post" >   
                             <div class="tools pull-right">
-                                  <input type="submit" id="request" class="request btn btn-primary pull-right" style="margin-top:3px; text-transform: capitalize; padding:5px 13px; background-color: #e91e63; background-position: -9999px -9999px!important;" value="<?php echo $friends->status; ?>"> 
+                                  <input type="submit" id="request" class="request btn btn-primary pull-right" style="margin-top:3px; font-size:13px; text-transform: capitalize; padding:5px 13px; background-color: #e91e63; background-position: -9999px -9999px!important;" value="<?php echo $friends->status; ?>"> 
                             </div>                              
                        </form> 
 
@@ -486,34 +501,31 @@ margin: 5px 0;
         </div> 
         <?php } ?>  
     </div>
-         <div class="flip col-md-12 text-center clr" style="font-size: 17px;" >View all</div>
+         <div class="flip col-md-12 text-center clr" style="font-size: 13px;" >View all</div>
           <div class="col-md-12 line-divider"></div>
 </div>
         
           <!-- end  friend list shows all name -->
 
 
-
-
-
           <!-- friend accept -->          
               <div class="row text-center" style="background-color:#f8f8f8; border:1px solid #f5f5f5; padding:5px; border-radius:0px; margin-top:15px; margin-bottom:15px;">
-                    <a href="#" style="text-decoration:none; color:#333; font-size:14px;"><i class="fa fa-users"></i> You Were In Same Event With These People</a>
+                    <a href="#" style="text-decoration:none; color:#333; font-size:13px;"><i class="fa fa-users"></i> You Were In Same Event With These People</a>
               </div>
               <div class="row">
                <div class="col-md-12" style="margin-top:0px; margin-bottom:15px;">
                <div class="col-md-3"><img src="../assets/images/net-1.jpg" class="img-responsive" alt="user" /></div>
-                 <div class="col-md-9" style="margin-top:10px;"><span style="font-size:17px; color:#e91e63;"><img src="../assets/images/wow-pink.png"/> StartupJump 2018</span></div>
+                 <div class="col-md-9" style="margin-top:10px;"><span style="font-size:13px; color:#e91e63; font-weight:bold;"><img src="../assets/images/wow-pink.png"/> StartupJump 2018</span></div>
                </div>
               </div>
              <div class="row" style="margin-bottom:15px;">
                <div class="col-md-12">
                  <div class="col-md-2"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                  <div class="col-md-6" style="text-transform: capitalize; font-size: 16px;">Emeka Adagbo <i class="glyphicon glyphicon-play"></i> <br>
+                  <div class="col-md-6" style="text-transform: capitalize; font-size: 13px;">Emeka Adagbo <i class="glyphicon glyphicon-play"></i> <br>
                   <span style="font-size:12px;">Software Developer At Vineture Inc</span><br>
                   <span style="font-size:12px;">Houston  Texas</span>
                   </div>
-                  <div class="col-md-4 text-center"><span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-lg" type="button"><i class="glyphicon glyphicon-refresh"></i> Connect</button></span><a href="#">Ignore</a>  </div>
+                  <div class="col-md-4 text-center"><span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-lg" type="button"><i class="glyphicon glyphicon-refresh"></i> Connect</button></span><br><a href="#">Ignore</a>  </div>
              </div>
              <div class="row" >
                <div class="col-md-12" style="margin-top:15px; margin-bottom:15px;">
@@ -526,11 +538,11 @@ margin: 5px 0;
              <div class="row" style="margin-bottom:15px;">
                <div class="col-md-12">
                  <div class="col-md-2"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                  <div class="col-md-6" style="text-transform: capitalize; font-size: 16px;">TD Jakes <i class="glyphicon glyphicon-play"></i> <br>
-                  <span style="font-size:12px;">CEO Lillyvalley Cakes</span><br>
+                  <div class="col-md-6" style="text-transform: capitalize; font-size: 13px;">TD Jakes <i class="glyphicon glyphicon-play"></i> <br>
+                  <span style="font-size:12px;">CEO Lillyvalley Cakes at Lillyvalley Cakes</span><br>
                   <span style="font-size:12px;">Houston  Texas</span>
                   </div>
-                  <div class="col-md-4 text-center"><span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-lg" type="button"><i class="glyphicon glyphicon-refresh"></i> Connect</button></span><a href="#">Ignore</a>  </div>
+                  <div class="col-md-4 text-center"><span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-lg" type="button"><i class="glyphicon glyphicon-refresh"></i> Connect</button></span><br><a href="#">Ignore</a>  </div>
                </div>
              </div>
            </div>
@@ -539,17 +551,17 @@ margin: 5px 0;
           <div class="row">
              <div class="col-md-12" style="margin-top:0px; margin-bottom:15px;">
              <div class="col-md-3"><img src="../assets/images/net-2.jpg" class="img-responsive" alt="user" /></div>
-               <div class="col-md-9" style="margin-top:10px;"><span style="font-size:17px; color:#e91e63;"><img src="../assets/images/wow-pink.png"/> Craigs Birthday</span></div>
+               <div class="col-md-9" style="margin-top:10px;"><span style="font-size:13px; color:#e91e63; font-weight:bold;"><img src="../assets/images/wow-pink.png"/> Craigs Birthday</span></div>
              </div>
           </div>
            <div class="row" style="margin-bottom:15px;">
              <div class="col-md-12">
                <div class="col-md-2"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                <div class="col-md-6" style="text-transform: capitalize; font-size: 16px;">Emeka Adagbo <i class="glyphicon glyphicon-play"></i> <br>
+                <div class="col-md-6" style="text-transform: capitalize; font-size: 13px;">Emeka Adagbo <i class="glyphicon glyphicon-play"></i> <br>
                 <span style="font-size:12px;">Software Developer At Vineture Inc</span><br>
                 <span style="font-size:12px;">Houston  Texas</span>
                 </div>
-                <div class="col-md-4 text-center"><span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-lg" type="button"><i class="glyphicon glyphicon-refresh"></i> Connect</button></span><a href="#">Ignore</a>  </div>
+                <div class="col-md-4 text-center"><span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-lg" type="button"><i class="glyphicon glyphicon-refresh"></i> Connect</button></span><br><a href="#">Ignore</a>  </div>
            </div>
            <div class="row" >
              <div class="col-md-12" style="margin-top:15px; margin-bottom:15px;">
@@ -562,11 +574,11 @@ margin: 5px 0;
            <div class="row" style="margin-bottom:15px;">
              <div class="col-md-12">
                <div class="col-md-2"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                <div class="col-md-6" style="text-transform: capitalize; font-size: 16px;">TD Jakes <i class="glyphicon glyphicon-play"></i> <br>
+                <div class="col-md-6" style="text-transform: capitalize; font-size: 13px;">TD Jakes <i class="glyphicon glyphicon-play"></i> <br>
                 <span style="font-size:12px;">CEO Lillyvalley Cakes</span><br>
                 <span style="font-size:12px;">Houston  Texas</span>
                 </div>
-                <div class="col-md-4 text-center"><span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-lg" type="button"><i class="glyphicon glyphicon-refresh"></i> Connect</button></span><a href="#">Ignore</a>  </div>
+                <div class="col-md-4 text-center"><span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-lg" type="button"><i class="glyphicon glyphicon-refresh"></i> Connect</button></span><br><a href="#">Ignore</a>  </div>
              </div>
            </div>
          </div>
@@ -578,19 +590,19 @@ margin: 5px 0;
              
       <!-- Newsfeed Common Side Bar Right
           ================================================= -->
-      <div class="col-md-4">
+      <div class="col-md-4 static">
 
        <div id="sticky-sidebar" style="background:#fff; box-shadow:1px 1px 1px 2px #ECECEC; padding:6px 0 0 0; border-radius:5px;">
           <ul class="nav-news-feed">
             <div class="row" style="margin:-7px 0 5px 0;">
               <div class="row text-center" style="background-color:#f8f8f8; border:1px solid #f5f5f5; padding:5px; border-radius:5px; margin-bottom:15px;">
-              <a href="#" style="text-decoration:none; color:#333; font-size:14px;"><i class="fa fa-users"></i> Invite With People You May Know</a>
+              <a href="#" style="text-decoration:none; color:#333; font-size:13px; font-weight:bold;"><i class="fa fa-users"></i> Invite With People You May Know</a>
               </div>
               <div class="row" style="margin-bottom:15px;">
                <div class="col-md-6">
                  <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                    <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                   <span style="font-size:15px; font-weight:bold;">Tony Adams</span>
+                   <span style="font-size:13px; font-weight:bold;">Tony Adams</span>
                    <span><a href="#">&nbsp;<i class="glyphicon glyphicon-play"></i></a></span>
                    <br>
   <span style="font-size:11px;">Account Manager Moni VCs<br>
@@ -601,7 +613,7 @@ margin: 5px 0;
                <div class="col-md-6">
                  <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                    <div class="col-md-12 text-center"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                   <span style="font-size:15px; font-weight:bold;">TD Jakes</span>
+                   <span style="font-size:13px; font-weight:bold;">TD Jakes</span>
                    <span><a href="#">&nbsp;<i class="glyphicon glyphicon-play"></i></a></span>
                    <br>
   <span style="font-size:11px;">Account Manager Moni VCs<br>
@@ -616,7 +628,7 @@ margin: 5px 0;
                <div class="col-md-6">
                  <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                    <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                   <span style="font-size:15px; font-weight:bold;">Tony Adams</span>
+                   <span style="font-size:13px; font-weight:bold;">Tony Adams</span>
                    <span><a href="#">&nbsp;<i class="glyphicon glyphicon-play"></i></a></span>
                    <br>
   <span style="font-size:11px;">Account Manager Moni VCs<br>
@@ -627,7 +639,7 @@ margin: 5px 0;
                <div class="col-md-6">
                  <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                    <div class="col-md-12 text-center"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                   <span style="font-size:15px; font-weight:bold;">TD Jakes</span>
+                   <span style="font-size:13px; font-weight:bold;">TD Jakes</span>
                    <span><a href="#">&nbsp;<i class="glyphicon glyphicon-play"></i></a></span>
                    <br>
   <span style="font-size:11px;">Account Manager Moni VCs<br>
@@ -642,7 +654,7 @@ margin: 5px 0;
                <div class="col-md-6">
                  <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                    <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                   <span style="font-size:15px; font-weight:bold;">Tony Adams</span>
+                   <span style="font-size:13px; font-weight:bold;">Tony Adams</span>
                    <span><a href="#">&nbsp;<i class="glyphicon glyphicon-play"></i></a></span>
                    <br>
   <span style="font-size:11px;">Account Manager Moni VCs<br>
@@ -653,7 +665,7 @@ margin: 5px 0;
                <div class="col-md-6">
                  <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                    <div class="col-md-12 text-center"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                   <span style="font-size:15px; font-weight:bold;">TD Jakes</span>
+                   <span style="font-size:13px; font-weight:bold;">TD Jakes</span>
                    <span><a href="#">&nbsp;<i class="glyphicon glyphicon-play"></i></a></span>
                    <br>
   <span style="font-size:11px;">Account Manager Moni VCs<br>
@@ -668,7 +680,7 @@ margin: 5px 0;
                <div class="col-md-6">
                  <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                    <div class="col-md-12 text-center"><img src="../assets/images/em.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                   <span style="font-size:15px; font-weight:bold;">Tony Adams</span>
+                   <span style="font-size:13px; font-weight:bold;">Tony Adams</span>
                    <span><a href="#">&nbsp;<i class="glyphicon glyphicon-play"></i></a></span>
                    <br>
   <span style="font-size:11px;">Account Manager Moni VCs<br>
@@ -679,7 +691,7 @@ margin: 5px 0;
                <div class="col-md-6">
                  <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
                    <div class="col-md-12 text-center"><img src="../assets/images/td.png" class="img-responsive img-circle img-thumbnail" alt="user" /></div>
-                   <span style="font-size:15px; font-weight:bold;">TD Jakes</span>
+                   <span style="font-size:13px; font-weight:bold;">TD Jakes</span>
                    <span><a href="#">&nbsp;<i class="glyphicon glyphicon-play"></i></a></span>
                    <br>
   <span style="font-size:11px;">Account Manager Moni VCs<br>
@@ -713,7 +725,7 @@ margin: 5px 0;
                               <div class="post-detail">
                                 <div class="user-info">
                                  <h3>Invite a Friend</h3>
-                                 <span style="color:#333; font-size: 15px">Please give the following information</span>
+                                 <span style="color:#333; font-size: 13px">Please give the following information</span>
                                 </div>                              
                                 <div class="line-divider"></div>
                                 <div class="user-info">
@@ -764,7 +776,7 @@ margin: 5px 0;
 <script src="<?php echo base_url('assets/js/jquery.appear.min.js')?>" ></script> 
 <script src="<?php echo base_url('assets/js/masonry.pkgd.min.js')?>" ></script>
 <script src="<?php echo base_url('assets/js/jquery.magnific-popup.min.js')?>" ></script>
-<script src="<?php echo base_url('assets/js/videopopup.js')?>" ></script>
+<script src="<?php echo base_url ('assets/html5lightbox/html5lightbox.js') ?>"></script>
 <!-- search suggestion box plugin -->
 
 <script>

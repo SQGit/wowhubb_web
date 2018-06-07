@@ -1138,7 +1138,7 @@
     ================================================= 
     <footer id="footer">
         <div class="container">
-          <?php  $this->load->view('includes/footer.php'); ?>
+          <?php // $this->load->view('includes/footer.php'); ?>
         </div>
     </footer>
     

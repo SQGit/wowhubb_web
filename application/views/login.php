@@ -37,6 +37,7 @@
      border-top: none;
     border-left: none;
     border-right: none;
+	font-size:13px!important;
    
     }
     .form-control:focus {
@@ -110,14 +111,14 @@
         <div class="col-md-12" style="margin-bottom:25px;">
           <div class="pull-left"><i class="fa fa-3x fa-calendar" style="color:#fff"></i> </div>
           <div class="pull-left">
-            <h1 class="text-white" style="font-size:20px; margin:0 15px; line-height:30px; font-weight: 300;">Your One Stop Events
+            <h1 class="text-white" style="font-size:18px; margin:0 15px; line-height:30px; font-weight: 300;">Your One Stop Events
               Networking <br>Platform</h1>
           </div>
         </div>
         <div class="col-md-12" style="margin-bottom:25px;">
           <div class="pull-left"><i class="fa fa-3x fa-share-square" style="color:#fff"></i> </div>
           <div class="pull-left">
-            <h1 class="text-white" style="font-size:20px; margin:0 15px;  line-height:30px; font-weight: 300;">Create, Share & Advertise 
+            <h1 class="text-white" style="font-size:18px; margin:0 15px;  line-height:30px; font-weight: 300;">Create, Share & Advertise 
               Your 
               Personal /<br> Professional Events</h1>
           </div>
@@ -125,19 +126,19 @@
         <div class="col-md-12" style="margin-bottom:25px;">
           <div class="pull-left"><i class="fa fa-3x fa-search" style="color:#fff"></i> </div>
           <div class="pull-left">
-            <h1 class="text-white" style="font-size:20px; margin:0 15px;  line-height:30px; font-weight: 300;">Search & Hire Your Professional <br>Local Events
+            <h1 class="text-white" style="font-size:18px; margin:0 15px;  line-height:30px; font-weight: 300;">Search & Hire Your Professional <br>Local Events
                Services Providers Near you</h1>
           </div>
         </div>
         <div class="col-md-12" style="margin-bottom:25px;">
           <div class="pull-left"><i class="fa fa-3x fa-tags" style="color:#fff"></i> </div>
           <div class="pull-left">
-            <h1 class="text-white" style="font-size:20px; margin:0 15px;  line-height:30px; font-weight: 300;">Search & Book Your Next Event Venue</h1>
+            <h1 class="text-white" style="font-size:18px; margin:0 15px;  line-height:30px; font-weight: 300;">Search & Book Your Next Event Venue</h1>
           </div>
         </div>
         <div class="col-md-12" style="margin-bottom:25px;">
         <p style="color:#fff; font-size: 15px;">Create, host  and share  your personal, professional and business leads and sales events. We are best event  networking platform anytime and anywhere.<br><br>
-           <span style="color: #FFE500; font-size: 17px; font-weight: bold;"><i class="fa fa-play"></i> Create Your Events - Personal, Professional & Business Events.
+           <span style="color: #FFE500; font-size: 15px; font-weight: bold;"><i class="fa fa-play"></i> Create Your Events - Personal, Professional & Business Events.
            </span></p></div> 
       </div>
     			<div class="col-md-6">
@@ -145,7 +146,7 @@
             	<div class="row">
             		<div class="col-md-12 col-sm-12">
                   <h2 class="black" >Wowhubb Login!!</h2>
-                  <span style="color:#333; font-size: 15px">Please type the Credentials </span></h2><hr>
+                  <span style="color:#333; font-size: 13px">Please type the Credentials </span></h2><hr>
             <form id="login_form" action="<?php echo base_url('Home/login_auth'); ?>"  class="contact-form" method="post">
                    
                     <div class="form-group">
@@ -160,7 +161,7 @@
                           <p><a href="<?php echo base_url('Home/forgot'); ?>">Forgot password?</a></p>
                    </div>
                    <div class="col-md-12 text-center">
-                       <button type="submit" class="btn-primary"> Submit </button>
+                       <button type="submit" class="btn-primary" style="font-size:13px;"> Submit </button>
                 </div>
            </form>
                 </div>

@@ -489,7 +489,7 @@ public function update_professional_eventdetails()
 		     $s_date = date('Y/m/d', strtotime($start_date)); 
 		     $e_date = date('Y/m/d', strtotime($end_date));   	
  			
-		   $header1 = array('token:'           .$token,
+		   $header1 = array('token:'            .$token,
 		   					'eventtype:'        .'professional_event', 
 		   					'eventid'           . $this->input->post('event_id'),	
 							'eventcategory:'    .$this->input->post('event_category'), 

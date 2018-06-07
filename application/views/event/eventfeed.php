@@ -29,12 +29,12 @@
 
 .timeline-nav-bar {
 	background: rgba(0,0,0, .7);
-	width: 96%;
+	width: 97%;
 	position: absolute;
 	bottom: 7px;
 	height: 45px;
 	right: 10px;
-  z-index: 999;
+  	z-index: 999;
 }
 .timeline-nav-bar1 {
   position: absolute;  
@@ -357,6 +357,7 @@ li.multipleInput-email {
       <nav class="navbar navbar-default navbar-fixed-top menu" style="padding-top:3px!important; padding-bottom:3px!important;">
         <div class="container"> 
       
+             
              <?php  include('/../includes/header.php'); ?>
            
         </div>
@@ -382,21 +383,26 @@ li.multipleInput-email {
                 <?php }  else { ?>
                 <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo" />
                 <?php } ?>
-                <div class="text-white" style="float:left; width:80%; font-size:13px; margin-top:-4px; line-height:18px; text-transform:capitalize; white-space:nowrap; overflow:hidden; text-overflow: ellipsis;"><?php echo $this->session->userdata('first_name')." ".$this->session->userdata('last_name'); ?> </div>
-                
+                <div class="text-white" style="float:left; width:80%; font-size:13px; margin-top:-4px; line-height:18px; text-transform:capitalize; white-space:nowrap; overflow:hidden; text-overflow: ellipsis;">
+                  <span class="name_bottom" title="<?php echo $this->session->userdata('first_name')." ".$this->session->userdata('last_name'); ?>" data-original-title="Tooltip on right" >
+                  <?php echo $this->session->userdata('first_name')." ".$this->session->userdata('last_name'); ?>
+                  </span>
+                </div>
               </div>
+
               <div style="float:right; width:82%;">
-                <p style="margin-top:-16px; font-size:13px; line-height:37px;  text-transform:capitalize;"><?php echo $this->session->userdata('designation');  ?></p>
+                <p style="margin-top:-16px; font-size:13px; line-height:37px;  text-transform:capitalize;">
+                  <?php echo $this->session->userdata('designation');  ?></p>
               </div>
 
               <div style="font-size:20px; color:#fff; margin-top:-30px; width:100%; float:right; text-align:right;">
 
                   <?php
-                       if($this->session->has_userdata('self_video') && ($this->session->userdata('self_video') != 'null') )                          
+                      if($this->session->has_userdata('self_video') && ($this->session->userdata('self_video') != 'null'))               
                       {  
                   ?>
-
-                        <a href="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('self_video'); ?>" > &nbsp;&nbsp;
+                       
+                        <a href="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('self_video'); ?>" class="html5lightbox" data-width="480" data-height="320" > &nbsp;&nbsp;
                           <i class="icon ion-arrow-right-b" style="font-size:28px; color:#fff;"></i>
                         </a> 
                         
@@ -415,20 +421,44 @@ li.multipleInput-email {
           <!--news-feed links ends-->
           <ul class="nav-news-feed" style="padding:0;">
            
-            <li><img src="<?php echo base_url('assets/images/event-feed-icon.png'); ?>" style="margin-left:5px;" alt="user" />
-              <a href="<?php echo base_url('Event/profile_get_eventfeed'); ?>"> &nbsp;My Feeds</a></li>
-            <li><img src="<?php echo base_url('assets/images/profile-icon.png'); ?>" style="margin-left:5px;" alt="user" />
-              <a href="<?php echo base_url('Profile/profile_get'); ?>"> &nbsp;My Profile</a></li>
-            <li><img src="<?php echo base_url('assets/images/network-icon.png'); ?>" style="margin-left:5px;" alt="user" />
-              <a href="<?php echo base_url('Searchfriends/add_friends'); ?>"> &nbsp;My Network</a></li>
-            <li><img src="<?php echo base_url('assets/images/album-icon.png'); ?>" style="margin-left:5px;" alt="user" /><a href="#"> &nbsp;My Album</a></li>
-            <li><img src="<?php echo base_url('assets/images/wow-tag-icon-1.png'); ?>" style="margin-left:5px;" alt="user" /><a href="#"> &nbsp;Wowtags</a></li>
             <li>
-              <div style="margin-left:0; text-align:left;"><a href="<?php echo base_url('eventhubb/get_future_eventhubb'); ?>"><img src="<?php echo base_url('assets/images/event-hubb-icon.png'); ?>" style="margin-left:5px;" alt="user" /> &nbsp;Event Hubb</a></div>
+              <img src="<?php echo base_url('assets/images/event-feed-icon.png'); ?>" style="margin-left:5px;" alt="user" />
+              <a href="<?php echo base_url('Event/profile_get_eventfeed'); ?>"> &nbsp;My Feeds</a>
             </li>
-            <li><img src="<?php echo base_url('assets/images/profile-icon.png'); ?>" style="margin-left:5px;" alt="user" /><a href="#"> &nbsp;Event Organizer</a></li>
-             <li><img src="<?php echo base_url('assets/images/album-icon.png'); ?>" style="margin-left:5px;" alt="user" /><a href="#">&nbsp; My Coupons</a></li>
-             <li><img src="<?php echo base_url('assets/images/network-icon.png'); ?>" style="margin-left:5px;" alt="user" /><a href="<?php echo base_url('searchfriends/get_group'); ?>"> &nbsp;Group Hubb</a></li>
+            <li>
+              <img src="<?php echo base_url('assets/images/profile-icon.png'); ?>" style="margin-left:5px;" alt="user" />
+              <a href="<?php echo base_url('Profile/profile_get'); ?>"> &nbsp;My Profile</a>
+            </li>
+            <li>
+              <img src="<?php echo base_url('assets/images/network-icon.png'); ?>" style="margin-left:5px;" alt="user" />
+              <a href="<?php echo base_url('Searchfriends/add_friends'); ?>"> &nbsp;My Network</a>
+            </li>
+            <li>
+              <img src="<?php echo base_url('assets/images/album-icon.png'); ?>" style="margin-left:5px;" alt="user" />
+              <a href="#"> &nbsp;My Album</a>
+            </li>
+            <li>
+              <img src="<?php echo base_url('assets/images/wow-tag-icon-1.png'); ?>" style="margin-left:5px;" alt="user" />
+              <a href="<?php echo base_url('Nearbyevents/get_wowtag_video'); ?>"> &nbsp;Wowtags</a>
+            </li>
+            <li>
+              <div style="margin-left:0; text-align:left;">
+                <a href="<?php echo base_url('eventhubb/get_future_eventhubb'); ?>">
+                <img src="<?php echo base_url('assets/images/event-hubb-icon.png'); ?>" style="margin-left:5px;" alt="user" /> &nbsp;Event Hubb</a>
+              </div>
+            </li>
+            <li>
+              <img src="<?php echo base_url('assets/images/profile-icon.png'); ?>" style="margin-left:5px;" alt="user" />
+              <a href="#"> &nbsp;Event Organizer</a>
+            </li>
+             <li>
+              <img src="<?php echo base_url('assets/images/album-icon.png'); ?>" style="margin-left:5px;" alt="user" />
+              <a href="#">&nbsp; My Coupons</a>
+            </li>
+             <li>
+              <img src="<?php echo base_url('assets/images/network-icon.png'); ?>" style="margin-left:5px;" alt="user" />
+              <a href="<?php echo base_url('searchfriends/get_group'); ?>"> &nbsp;Group Hubb</a>
+            </li>
 
             
           </ul>
@@ -545,27 +575,31 @@ li.multipleInput-email {
                               <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo-md" />
                             <?php } ?>             
 
-                               <textarea name="texts" id="exampleTextarea" cols="30" rows="1" class="form-control" placeholder="Share your thoughts.." style="margin-left:10px; font-size:13px!important; min-height: 70px; width:470px!important; border-bottom:1px solid #ccc; border-top:0; border-left:0; border-right:0px; box-shadow:none; border-radius:0;" required></textarea>
+                               <textarea name="texts" id="exampleTextarea" cols="30" rows="1" class="form-control" placeholder="Your Thoughts.." style="margin-left:10px; font-size:13px!important; min-height: 70px; width:470px!important; border-bottom:1px solid #ccc; border-top:0; border-left:0; border-right:0px; box-shadow:none; border-radius:0;" required></textarea>
                         </div>
                     </div>
                      <div class="col-md-12">
                         <div class="col-md-12 col-sm-12" style="margin:25px 0 0; border:0.5px solid #E5E5E5;"></div>
                     </div>
 
-                    <div class="col-md-12 col-sm-12" style="margin-top:0px;"> 
+              <div class="col-md-12 col-sm-12" style="margin-top:0px;"> 
                 
                 <!-- thoughts update here -->
                 
                 <div class="tools pull-left">
                   <ul class="publishing-tools list-inline">
-                    <li id="url_link" style="background:none; padding:5px 10px; border-radius:25px; border:1px solid #a5a5a5;cursor:pointer;"> <img src='<?php echo base_url('assets/images/link-icon.png'); ?>' alt="user"   />Type URL </li>
+                    <li id="url_link" style="background:none; padding:5px 10px; border-radius:25px; border:1px solid #a5a5a5;cursor:pointer;"> 
+                      <img src='<?php echo base_url('assets/images/link-icon.png'); ?>' alt="user" />Type URL
+                    </li>
 
-                    <li id="upfile1" style="background:none; padding:5px 10px; border-radius:25px; border:1px solid #a5a5a5;cursor:pointer;"> <img src='<?php echo base_url('assets/images/image-icon.png'); ?>' alt="user"  /> Post Image  </li>
+                    <li id="upfile1" style="background:none; padding:5px 10px; border-radius:25px; border:1px solid #a5a5a5;cursor:pointer;">
+                       <img src='<?php echo base_url('assets/images/image-icon.png'); ?>' alt="user"  /> Post Image  
+                    </li>
 
-                    <li style="background:none; padding:5px 10px; border-radius:25px; border:1px solid #a5a5a5;"> 
-                   
-                      <input type="file" name="thought_video" id="video_size" class=" file" accept="video/*" style="display:none" >
-                      <img src="<?php echo base_url('assets/images/vid-icon.png'); ?>" alt="user" id="upfile2" style="cursor:pointer"/> Post Video  </li>
+                    <li id="upfile2" style="background:none; padding:5px 10px; border-radius:25px; border:1px solid #a5a5a5; cursor:pointer">             
+                      <img src="<?php echo base_url('assets/images/vid-icon.png'); ?>" alt="user"  /> Post Video
+                    </li>
+
                   </ul>
                 </div>
                 <div class="tools pull-right">
@@ -573,17 +607,21 @@ li.multipleInput-email {
                 </div>
               </div>
                       <div class="col-md-12" style="margin-top: 0px; margin-bottom: 0px; display: none;" id="show_text" >
-                          <input type="text" class="form-control" name="thought_url_link" id="" style="font-size:13px!important;" placeholder="Enter URL Link">                         
+                          <input type="text" class="form-control" name="thought_url_link"  style="font-size:13px!important;" placeholder="Enter URL Link">                         
                       </div>                      
 
                       <div class="col-md-12" style="margin-top: 0px; margin-bottom: 0px;" > <!-- image upload here -->
-                          <div class="col-md-6">                             
-                             <input type="file" id="file1" name="thought_img" accept="image/*"  style="display:none"> 
+                          <div class="col-md-6">  
+                              <div id="img_preview"></div>                           
+                              <input type="file" id="file1" name="thought_img" accept="image/*"  style="display:none"> 
                           </div>
 
                           <div class="col-md-6"> 
+                            <input type="file" name="thought_video" id="video_size" class="file" accept="video/*" style="display:none" >
                                   <div id="video_show"  style="display: none;" >
-                                    <div class="remove_video" style="cursor: pointer;"><img src="<?php echo base_url('assets/images/wow-close.png'); ?>" /></div>
+                                    <div class="remove_video" style="cursor: pointer;">
+                                      <img src="<?php echo base_url('assets/images/wow-close.png'); ?>" />
+                                    </div>
                                       <video width="200" height="150" controls>
                                           <source src="mov_bbb.mp4" id="video_here" >
                                                 Your browser does not support HTML5 video.
@@ -658,7 +696,7 @@ li.multipleInput-email {
                    
                       <div class=" col-md-12">
                         <div class=" col-md-12" style="display: none;" id="today_txt">
-                            <h3 style="font-size:14px;; font-weight:bold; color: #333;">Today Events</h3>
+                            <h3 style="font-size:13px; font-weight:bold; color: #333;">Today Events</h3>
                         </div>
                    
                     <div class="panel1">
@@ -781,7 +819,7 @@ li.multipleInput-email {
                               </div>
 
                               <div class="user-info">
-                                <div class="profile-link" style="font-size:14px;; font-weight:bold; color:#555;">
+                                <div class="profile-link" style="font-size:13px; font-weight:bold; color:#555;">
                                  
                                   <a style="color: #333;" href="<?php echo base_url('profile/profile_thirdparty_view/'.$feeds->userid->_id); ?>" >
                                       <?php echo $feeds->userid->firstname ." ".$feeds->userid->lastname ; ?> 
@@ -806,7 +844,7 @@ li.multipleInput-email {
                         <p class="text-muted"><?php if(isset($feeds->thoughtstext)) { echo $feeds->thoughtstext; } ?></p>
                       </div>
                        <div class="col-md-12" style="margin-top:3px;">
-                        <p class="text-muted" style="font-size: 16px;"><a href=" <?php if(isset($feeds->urllink)) { echo $feeds->urllink; } ?>" style="color:#333;" target="_blank"> <?php if(isset($feeds->urllink)) { echo $feeds->urllink; } ?></p>
+                        <p class="text-muted" style="font-size: 13px;"><a href=" <?php if(isset($feeds->urllink)) { echo $feeds->urllink; } ?>" style="color:#333;" target="_blank"> <?php if(isset($feeds->urllink)) { echo $feeds->urllink; } ?></p>
                        
                         <?php if(isset($feeds->imageurl)){ ?>
                           <div class="gallery" > <img style="width:476; height: 249px;" src="<?php echo $feeds->imageurl; ?>" alt="post-image" class="img-responsive post-image" /></div>
@@ -903,7 +941,7 @@ li.multipleInput-email {
                             </div>
                             <div class="pull-left" style="width:90%;">
                               <div class="pull-left">
-                               <span style="font-size:14px;; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
+                               <span style="font-size:13px; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
                                   <?php                        
                                    echo $com->userid->firstname." ".$com->userid->lastname;                  
                                    ?>
@@ -946,7 +984,7 @@ li.multipleInput-email {
                           </div>
 
                           <div class="pull-left" style="width:90%;">
-                            <div class="pull-left"> <span style="font-size:14px;; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
+                            <div class="pull-left"> <span style="font-size:13px; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
                               <?php                        
                                    echo $com->userid->firstname." ".$com->userid->lastname;                  
                                 ?>
@@ -994,11 +1032,11 @@ li.multipleInput-email {
                             </div>
                       </div>
 
-                        <div class="row" style="margin-top:0px;">
+                        <div class="row" style="margin-top:0px; padding-bottom:15px;">
                               <div class="col-md-7">
                                   <form class="thought_wowsome" action="<?php echo base_url('event/thought_wowsome/'.$feeds->_id); ?>" method="post">
                                         <div class="col-md-5 text-center" style="position: relative; margin-top: 0px;">
-                                            <div style="position: absolute; left: 97px; top: 0px; ">
+                                            <div style="position: absolute; left: 107px; top: 0px; ">
                                                  <input type="text" style="border: none; background: transparent; color: #e91e63; font-size: 9px;" id="thoughtwow_increment" value="<?php $like = count($feeds->wowsome); echo $like; ?>">
                                             </div>
                                             <a class="btn text-pink" style="font-size:9px;">
@@ -1015,9 +1053,9 @@ li.multipleInput-email {
                                             <span class="caret"></span>
                                           </a>
                                           <ul class="dropdown-menu" style="top:-300%!important;">
-                                              <li><a href="#">Share post Now(friends)</a></li>
-                                              <li><a href="#">Share...</a></li>
-                                              <li><a href="#">Share to a page</a></li>
+                                              <li><a href="#" style="font-size:13px;">Share post Now(friends)</a></li>
+                                              <li><a href="#"  style="font-size:13px;">Share...</a></li>
+                                              <li><a href="#"  style="font-size:13px;">Share to a page</a></li>
                                           </ul>
                                       </div>
                                   </div>
@@ -1079,7 +1117,7 @@ li.multipleInput-email {
 
                           
                           <div class="col-md-12 user-info text-left" style="background-color:#f5f5f5; margin:0px 0px 15px 0px; border-radius:5px;">
-                            <p style="font-size:14px; font-weight:normal;  height:25px; padding-top:5px;"><a href="#" style="color:#e91e63; text-decoration:none; font-weight: bold;"><span style="font-size: 22px; font-weight: bold; text-transform:capitalize;"></span>
+                            <p style="font-size:13px; font-weight:normal;  height:25px; padding-top:5px;"><a href="#" style="color:#e91e63; text-decoration:none; font-weight: bold;"><span style="font-size: 22px; font-weight: bold; text-transform:capitalize;"></span>
 
                                <img src="../assets/images/wow-pink.png"> 
 
@@ -1119,7 +1157,7 @@ li.multipleInput-email {
                               </div>
 
                               <div class="user-info">
-                                <div class="profile-link" style="font-size:14px;; font-weight:bold; color:#555;">
+                                <div class="profile-link" style="font-size:13px; font-weight:bold; color:#555;">
                                  
                                   <a style="color: #333;" href="<?php echo base_url('profile/profile_thirdparty_view/'.$feeds->userid->_id); ?>" >
                                       <?php echo $feeds->userid->firstname ." ".$feeds->userid->lastname ; ?> 
@@ -1197,7 +1235,10 @@ li.multipleInput-email {
                 <div class="col-md-12" style="position: relative;">
 
                       <div class="col-md-12" style="position: relative;">
-                      <?php if($this->session->userdata('wowtag') != ($feeds->userid->wowtagid) ){ ?>
+                      <?php 
+                        if(($this->session->userdata('wowtag') != ($feeds->userid->wowtagid)) && ($feeds->registerrsvp == 'on') )
+                          { 
+                        ?>
                       <div class="timeline-nav-bar1 hidden-sm hidden-xs">
                               <a href="#modal-1" data-toggle="modal" data-id='<?php echo $feeds->_id; ?>'>
                                 <input type="hidden" name="userid" value="<?php echo $feeds->_id; ?>" >
@@ -1289,7 +1330,7 @@ li.multipleInput-email {
                             </div>
                             <div class="pull-left" style="width:90%;">
                               <div class="pull-left">
-                               <span style="font-size:14px;; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
+                               <span style="font-size:13px; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
                                   <?php                        
                                    echo $com->userid->firstname." ".$com->userid->lastname;                  
                                    ?>
@@ -1333,7 +1374,7 @@ li.multipleInput-email {
                           </div>
 
                           <div class="pull-left" style="width:90%;">
-                            <div class="pull-left"> <span style="font-size:14px;; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
+                            <div class="pull-left"> <span style="font-size:13px; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
                               <?php                        
                                    echo $com->userid->firstname." ".$com->userid->lastname;                  
                                 ?>
@@ -1381,11 +1422,11 @@ li.multipleInput-email {
                             </div>
                       </div>
 
-                        <div class="row" style="margin-top:0px;">
+                        <div class="row" style="margin-top:0px; padding-bottom:15px;">
                               <div class="col-md-7">
                                   <form class="wowsome_form" action="<?php echo base_url('event/wowsome/'.$feeds->_id); ?>" method="post">
                                         <div class="col-md-5 text-center" style="position: relative; margin-top: 0px;">
-                                            <div style="position: absolute; left: 97px; top: 0px; ">
+                                            <div style="position: absolute; left: 107px; top: 0px; ">
                                                  <input type="text" style="border: none; background: transparent; color: #e91e63; font-size: 9px;" id="wow_increment" value="<?php $like = count($feeds->wowsome); echo $like; ?>">
                                             </div>
                                             <a class="btn text-pink" style="font-size:9px;">
@@ -1402,9 +1443,9 @@ li.multipleInput-email {
                                             <span class="caret"></span>
                                           </a>
                                           <ul class="dropdown-menu" style="top:-300%!important;">
-                                              <li><a href="#">Share post Now(friends)</a></li>
-                                              <li><a href="#">Share...</a></li>
-                                              <li><a href="#">Share to a page</a></li>
+                                              <li><a href="#" style="font-size:13px;">Share post Now(friends)</a></li>
+                                              <li><a href="#" style="font-size:13px;">Share...</a></li>
+                                              <li><a href="#" style="font-size:13px;">Share to a page</a></li>
                                           </ul>
                                       </div>
                                   </div>
@@ -1459,8 +1500,7 @@ li.multipleInput-email {
                               </ul>
                             </div>
                           </div>
-
-                          <!--div class="col-md-12 line-divider"></div> -->
+                          
                           <div class="col-md-12 user-info text-left" style="background-color:#f5f5f5; margin:0px 0px 15px 0px; padding:5px 15px; border-radius:5px;">
                             
 
@@ -1509,7 +1549,7 @@ li.multipleInput-email {
                               </div>
 
                               <div class="user-info">
-                                <div class="profile-link" style="font-size:14px; font-weight:bold; color:#555;">
+                                <div class="profile-link" style="font-size:13px; font-weight:bold; color:#555;">
                                  
                                   <a style="color: #333;" href="<?php echo base_url('profile/profile_thirdparty_view/'.$feeds->userid->_id); ?>" >
                                       <?php echo $feeds->userid->firstname ." ".$feeds->userid->lastname ; ?> 
@@ -1587,20 +1627,26 @@ li.multipleInput-email {
                   <!-- here start with cover image -->
             
                     <div class="col-md-12" style="position: relative;">
-                      <?php if($this->session->userdata('wowtag') != ($feeds->userid->wowtagid) ){ ?>
+
+                      <?php if($this->session->userdata('wowtag') != ($feeds->userid->wowtagid) && ($feeds->registerrsvp == 'on') ){ ?>
+
                       <div class="timeline-nav-bar hidden-sm hidden-xs">
                         <div class="row">
                           <div class="col-md-12 text-right" >
                             <ul class="follow-me list-inline">
-                              <li><a href="#modal-1" data-toggle="modal" data-id='<?php echo $feeds->_id; ?>'>
+                              <li>
+                                <a href="#modal-1" data-toggle="modal" data-id='<?php echo $feeds->_id; ?>'>
                                 <input type="hidden" name="userid" value="<?php echo $feeds->_id; ?>" >
                                 <button class="btn-primary" style="padding: 2px 25px;  font-size:13px!important;">RSVP</button>
-                                </a> </li>
+                                </a> 
+                              </li>
                             </ul>
                           </div>
                         </div>
                       </div>
+
                       <?php  } ?>
+
                       <div class="gallery" style="margin-top:5px;" >
                         <a class="test-popup-link" href='<?php echo $feeds->coverpageurl; ?>' >
                          <img src="<?php echo $feeds->coverpageurl; ?>" alt="post-image" class="img-responsive post-image" /> 
@@ -1711,9 +1757,9 @@ li.multipleInput-email {
                                             <img  class="img-responsive post-image" style="width:160px; height:88px;" src="<?php echo $feeds->eventhighlights1thumb; ?>">
                                             </a> 
                                         </div>
-                                        <?php }   ?>              
+                                        <?php }  } ?>              
 
-                               <?php } ?>    
+                                 
                                         
                                         
                                       <!-- event hightlight2 start here  -->
@@ -1779,7 +1825,7 @@ li.multipleInput-email {
                             </div>
                             <div class="pull-left" style="width:90%;">
                               <div class="pull-left">
-                               <span style="font-size:14px;; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
+                               <span style="font-size:13px; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
                                   <?php                        
                                    echo $com->userid->firstname." ".$com->userid->lastname;                  
                                    ?>
@@ -1825,7 +1871,7 @@ li.multipleInput-email {
 
                           <div class="pull-left" style="width:90%;">
                             <div class="pull-left">
-                             <span style="font-size:14px;; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
+                             <span style="font-size:13px; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
                               <?php                        
                                    echo $com->userid->firstname." ".$com->userid->lastname;                  
                                 ?>
@@ -1873,11 +1919,11 @@ li.multipleInput-email {
                             </div>
                       </div>
 
-                        <div class="row" style="margin-top:0px;">
+                        <div class="row" style="margin-top:0px; padding-bottom:15px;">
                               <div class="col-md-7">
                                   <form class="wowsome_form" action="<?php echo base_url('event/wowsome/'.$feeds->_id); ?>" method="post">
                                         <div class="col-md-5 text-center" style="position: relative; margin-top: 0px;">
-                                            <div style="position: absolute; left: 97px; top: 0px; ">
+                                            <div style="position: absolute; left: 107px; top: 0px; ">
                                                  <input type="text" style="border: none; background: transparent; color: #e91e63; font-size: 9px;" id="wow_increment" value="<?php $like = count($feeds->wowsome); echo $like; ?>">
                                             </div>
                                             <a class="btn text-pink" style="font-size:9px;">
@@ -1894,9 +1940,9 @@ li.multipleInput-email {
                                             <span class="caret"></span>
                                           </a>
                                           <ul class="dropdown-menu" style="top:-300%!important;">
-                                              <li><a href="#">Share post Now(friends)</a></li>
-                                              <li><a href="#">Share...</a></li>
-                                              <li><a href="#">Share to a page</a></li>
+                                              <li><a href="#" style="font-size:13px;">Share post Now(friends)</a></li>
+                                              <li><a href="#" style="font-size:13px;">Share...</a></li>
+                                              <li><a href="#" style="font-size:13px;">Share to a page</a></li>
                                           </ul>
                                       </div>
                                   </div>
@@ -1979,7 +2025,7 @@ li.multipleInput-email {
                                   <textarea style= "display: none" id="testing" name="details"><?= json_encode($feeds); ?>
                                   </textarea>
                                   <img src="../assets/images/wow-pink.png">
-                                  <input type="submit" style="border: none; background: transparent; font-weight:bold; font-size:14px; color:#e91e63; padding:0;" value=" <?php if(isset($feeds->eventtitle)) { echo $feeds->eventtitle; } else { echo " " ;} ?>">
+                                  <input type="submit" style="border: none; background: transparent; font-weight:bold; font-size:13px; color:#e91e63; padding:0;" value=" <?php if(isset($feeds->eventtitle)) { echo $feeds->eventtitle; } else { echo " " ;} ?>">
                               </div>
                             </form>
 
@@ -2018,7 +2064,7 @@ li.multipleInput-email {
                               </div>
 
                               <div class="user-info">
-                                <div class="profile-link" style="font-size:14px;; font-weight:bold; color:#555;">
+                                <div class="profile-link" style="font-size:13px; font-weight:bold; color:#555;">
                                  
                                   <a style="color: #333;" href="<?php echo base_url('profile/profile_thirdparty_view/'.$feeds->userid->_id); ?>" >
                                       <?php echo $feeds->userid->firstname ." ".$feeds->userid->lastname ; ?> 
@@ -2110,48 +2156,16 @@ li.multipleInput-email {
                                    }  ?>
                                   IST </p>
                               </div>
+                              
 
-                              <?php
-
-                                       $i=0;
-
-                                        foreach ($feeds->eventtour as $eventtours)
-                                         {
-                                              if($i==0 && ($eventtours->eventtournumber == "1") && ($eventtours->eventtourname != '') )
-                                              {
-                                                if(isset($eventtours->eventtourname))
-                                                {
-                                                  echo '<div style="background-color: #fc6653; height: 25px; line-height: 25px; ">';
-                                                  echo '<form action='.base_url("event/get_eventdetails").' id="event_details" method="POST">';
-                                                  echo '<textarea style= "display: none" name="details">'.json_encode($feeds);
-                                                  echo ' </textarea>';
-                                                  echo '<input type="submit" style="border: none; background: transparent;font-size: 13px;  font-weight: bold; color:#fff;" value="Event Tours"> ';
-                                                  echo '</form>';
-                                                  echo '</div>';
-                                                }
-                                              } 
-
-                                              else
-                                              {
-
-                                                echo "no data";
-                                                // echo '<div style="background-color: #000; height: 25px; line-height: 25px; ">';
-                                                // echo '<input type="submit" style="border: none; background: transparent;font-size: 13px;  font-weight: bold; color:#fff;" value="Event Tours"> ';
-                                                // echo '</div>';
-                                              }
-
-                                              $i++;                             
-                                          }                                    
-                              ?>
-
-                              <!-- <div style="background-color: #fc6653; height: 25px; line-height: 25px; ">
+                               <div style="background-color: #fc6653; height: 25px; line-height: 25px; ">
                                 <form action="<?php echo base_url('event/get_eventdetails'); ?>" id="event_details" method="POST">
                              
                                   <textarea style= "display: none" name="details"><?= json_encode($feeds); ?>
                                   </textarea>
                                   <input type="submit" style="border: none; background: transparent;font-size: 13px;  font-weight: bold; color:#fff;" value="Event Tours">                              
                                 </form>                               
-                              </div> -->
+                              </div> 
                          
                           </div>
                       </div>
@@ -2388,7 +2402,7 @@ li.multipleInput-email {
                             </div>
                             <div class="pull-left" style="width:90%;">
                               <div class="pull-left">
-                               <span style="font-size:14px;; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
+                               <span style="font-size:13px; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
                                   <?php                        
                                    echo $com->userid->firstname." ".$com->userid->lastname;                  
                                    ?>
@@ -2434,7 +2448,7 @@ li.multipleInput-email {
                           </div>
 
                           <div class="pull-left" style="width:90%;">
-                            <div class="pull-left"> <span style="font-size:14px;; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
+                            <div class="pull-left"> <span style="font-size:13px; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
                               <?php                        
                                    echo $com->userid->firstname." ".$com->userid->lastname;                  
                                 ?>
@@ -2483,11 +2497,11 @@ li.multipleInput-email {
                             </div>
                       </div>
 
-                        <div class="row" style="margin-top:0px;">
+                        <div class="row" style="margin-top:0px; padding-bottom:15px;">
                               <div class="col-md-7">
                                   <form class="wowsome_form" action="<?php echo base_url('event/wowsome/'.$feeds->_id); ?>" method="post">
                                         <div class="col-md-5 text-center" style="position: relative; margin-top:0px;">
-                                            <div style="position: absolute; left: 97px; top: 0px; ">
+                                            <div style="position: absolute; left: 107px; top: 0px; ">
                                                  <input type="text" style="border: none; background: transparent; color: #e91e63; font-size: 9px;" id="wow_increment" value="<?php $like = count($feeds->wowsome); echo $like; ?>">
                                             </div>
                                             <a class="btn text-pink" style="font-size:9px;">
@@ -2504,9 +2518,9 @@ li.multipleInput-email {
                                             <span class="caret"></span>
                                           </a>
                                           <ul class="dropdown-menu" style="top:-300%!important;">
-                                              <li><a href="#">Share post Now(friends)</a></li>
-                                              <li><a href="#">Share...</a></li>
-                                              <li><a href="#">Share to a page</a></li>
+                                              <li><a href="#" style="font-size:13px;">Share post Now(friends)</a></li>
+                                              <li><a href="#" style="font-size:13px;">Share...</a></li>
+                                              <li><a href="#" style="font-size:13px;">Share to a page</a></li>
                                           </ul>
                                       </div>
                                   </div>
@@ -2587,7 +2601,7 @@ li.multipleInput-email {
                                   <textarea style= "display: none" id="testing" name="details"><?= json_encode($feeds); ?>
                                   </textarea>
                                   <img src="<?php echo base_url('assets/images/wow-pink.png');?>"> 
-                                  <input type="submit" style="border: none; background: transparent; font-weight:bold; font-size:14px; color:#e91e63; padding:0;" value="<?php if(isset($feeds->eventtitle)) { echo $feeds->eventtitle; } else { echo " " ;} ?>">
+                                  <input type="submit" style="border: none; background: transparent; font-weight:bold; font-size:13px; color:#e91e63; padding:0;" value="<?php if(isset($feeds->eventtitle)) { echo $feeds->eventtitle; } else { echo " " ;} ?>">
                               </div>
                             </form>
                               
@@ -2626,7 +2640,7 @@ li.multipleInput-email {
                               </div>
 
                               <div class="user-info">
-                                <div class="profile-link" style="font-size:14px; font-weight:bold; color:#555;">
+                                <div class="profile-link" style="font-size:13px; font-weight:bold; color:#555;">
                                  
                                   <a style="color: #333;" href="<?php echo base_url('profile/profile_thirdparty_view/'.$feeds->userid->_id); ?>" >
                                       <?php echo $feeds->userid->firstname ." ".$feeds->userid->lastname ; ?> 
@@ -2945,7 +2959,7 @@ li.multipleInput-email {
                             </div>
                             <div class="pull-left" style="width:90%;">
                               <div class="pull-left">
-                               <span style="font-size:14px;; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
+                               <span style="font-size:13px; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
                                   <?php                        
                                    echo $com->userid->firstname." ".$com->userid->lastname;                  
                                    ?>
@@ -2990,7 +3004,7 @@ li.multipleInput-email {
                           </div>
 
                           <div class="pull-left" style="width:90%;">
-                            <div class="pull-left"> <span style="font-size:14px;; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
+                            <div class="pull-left"> <span style="font-size:13px; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
                               <?php                        
                                    echo $com->userid->firstname." ".$com->userid->lastname;                  
                                 ?>
@@ -3038,11 +3052,11 @@ li.multipleInput-email {
                             </div>
                       </div>
 
-                        <div class="row" style="margin-top:0px;">
+                        <div class="row" style="margin-top:0px; padding-bottom:15px;">
                               <div class="col-md-7">
                                   <form class="wowsome_form" action="<?php echo base_url('event/wowsome/'.$feeds->_id); ?>" method="post">
                                         <div class="col-md-5 text-center" style="position: relative; margin-top: 1px;">
-                                            <div style="position: absolute; left: 97px; top: 0px; ">
+                                            <div style="position: absolute; left: 107px; top: 0px; ">
                                                  <input type="text" style="border: none; background: transparent; color: #e91e63; font-size: 9px;" id="wow_increment" value="<?php $like = count($feeds->wowsome); echo $like; ?>">
                                             </div>
                                             <a class="btn text-pink" style="font-size:9px;">
@@ -3059,9 +3073,9 @@ li.multipleInput-email {
                                             <span class="caret"></span>
                                           </a>
                                           <ul class="dropdown-menu" style="top:-300%!important;">
-                                              <li><a href="#">Share post Now(friends)</a></li>
-                                              <li><a href="#">Share...</a></li>
-                                              <li><a href="#">Share to a page</a></li>
+                                              <li><a href="#" style="font-size:13px;">Share post Now(friends)</a></li>
+                                              <li><a href="#" style="font-size:13px;">Share...</a></li>
+                                              <li><a href="#" style="font-size:13px;">Share to a page</a></li>
                                           </ul>
                                       </div>
                                   </div>
@@ -3399,7 +3413,7 @@ li.multipleInput-email {
                             </div>
                             <div class="pull-left" style="width:90%;">
                               <div class="pull-left">
-                               <span style="font-size:14px;; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
+                               <span style="font-size:13px; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
                                   <?php                        
                                    echo $com->userid->firstname." ".$com->userid->lastname;                  
                                    ?>
@@ -3444,7 +3458,7 @@ li.multipleInput-email {
                           </div>
 
                           <div class="pull-left" style="width:90%;">
-                            <div class="pull-left"> <span style="font-size:14px;; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
+                            <div class="pull-left"> <span style="font-size:13px; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
                               <?php                        
                                    echo $com->userid->firstname." ".$com->userid->lastname;                  
                                 ?>
@@ -3492,11 +3506,11 @@ li.multipleInput-email {
                             </div>
                       </div>
 
-                        <div class="row" style="margin-top:0px;">
+                        <div class="row" style="margin-top:0px; padding-bottom:15px;">
                               <div class="col-md-7">
                                   <form class="wowsome_form" action="<?php echo base_url('event/wowsome/'.$feeds->_id); ?>" method="post">
                                         <div class="col-md-5 text-center" style="position: relative; margin-top:0;">
-                                            <div style="position: absolute; left: 97px; top: 0px; ">
+                                            <div style="position: absolute; left: 107px; top: 0px; ">
                                                  <input type="text" style="border: none; background: transparent; color: #e91e63; font-size: 9px;" id="wow_increment" value="<?php $like = count($feeds->wowsome); echo $like; ?>">
                                             </div>
                                             <a class="btn text-pink" style="font-size:9px;">
@@ -3513,9 +3527,9 @@ li.multipleInput-email {
                                             <span class="caret"></span>
                                           </a>
                                           <ul class="dropdown-menu" style="top:-300%!important;">
-                                              <li><a href="#">Share post Now(friends)</a></li>
-                                              <li><a href="#">Share...</a></li>
-                                              <li><a href="#">Share to a page</a></li>
+                                              <li><a href="#" style="font-size:13px;">Share post Now(friends)</a></li>
+                                              <li><a href="#" style="font-size:13px;">Share...</a></li>
+                                              <li><a href="#" style="font-size:13px;">Share to a page</a></li>
                                           </ul>
                                       </div>
                                   </div>
@@ -3579,7 +3593,7 @@ li.multipleInput-email {
             <div class="row"><img src="<?php echo base_url('assets/images/post-images/14.jpg')?>" alt="post-image" class="img-responsive img-thumbnail post-image" /></div>
             <div class="row">Beautiful World Events<br>
               170,173 members</div>
-            <div class="row"><a href="#" class="text-pink"><span style="font-size:14px;;"><i class="fa fa-arrow-circle-o-right"></i> Join</span></a></div>
+            <div class="row"><a href="#" class="text-pink"><span style="font-size:13px;"><i class="fa fa-arrow-circle-o-right"></i> Join</span></a></div>
           </div>
           <div class="col-md-12" style="margin:0 0 15px 0;">
             <div class="row"><img src="<?php echo base_url ('assets/images/post-images/2.jpg')?>" alt="post-image" class="img-responsive img-thumbnail post-image" /></div>
@@ -3621,13 +3635,13 @@ li.multipleInput-email {
             <div class="row"><img src="<?php echo base_url('assets/images/post-images/15.jpg')?>" alt="post-image" class="img-responsive img-thumbnail post-image" /></div>
             <div class="row">Summer Party Celebration<br>
               170,173 members</div>
-            <div class="row"><a href="#" class="text-pink"><span style="font-size:14px;;"><i class="fa fa-arrow-circle-o-right"></i> Know more</span></a></div>
+            <div class="row"><a href="#" class="text-pink"><span style="font-size:13px;"><i class="fa fa-arrow-circle-o-right"></i> Know more</span></a></div>
           </div>
           <div class="col-md-12" style="margin:0 0 15px 0;">
             <div class="row"><img src="<?php echo base_url('assets/images/post-images/16.jpg')?>" alt="post-image" class="img-responsive img-thumbnail post-image" /></div>
             <div class="row">Fabulous Events<br>
               170,173 members</div>
-            <div class="row"><a href="#" class="text-pink"><span style="font-size:14px;;"><i class="fa fa-arrow-circle-o-right"></i> Know more</span></a></div>
+            <div class="row"><a href="#" class="text-pink"><span style="font-size:13px;"><i class="fa fa-arrow-circle-o-right"></i> Know more</span></a></div>
           </div>
         </ul>
         <!--news-feed links ends--> 
@@ -3650,16 +3664,16 @@ li.multipleInput-email {
 <div class="modal fade" id="modal-1" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" style="width:450px;">
                   <div class="modal-content">
-                    <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-
-                    </button>
+                    <div class="modal-header" style="border:none!important; padding:15px 10px 0!important;">
+                    <button type="button" class="close" data-dismiss="modal">
+                      <img src="<?php echo base_url('assets/images/wow-close.png'); ?>">
+                     </button>
                       <div class="post-container">
                         <div class="post-detail">
                                           <div class="user-info">
                                             <h4 class="modal-title" style="text-align:center; font-size:18px; padding:10px; background-color:#FDF2F5; border-radius:7px; margin-bottom:10px; color:#e91e63;">RSVP Register </h4>
                                              
-                                              <span style="color:#333; font-size: 15px">Please give the following information to edit</span> 
+                                              <span style="color:#333; font-size: 13px;">Please give the following information to edit</span> 
                                           </div>
                                           <div class="line-divider"></div>
                           <div class="user-info">
@@ -3668,13 +3682,13 @@ li.multipleInput-email {
                                                </div>
                                                 <!-- this form submit rsvp -->
                               <form action="<?php echo base_url('event/rsvp_update/'.$feeds->_id); ?>" method="post" class="form-inline register_rsvp">
-                                  <div class="row">
+                                  <div class="row" style="margin-bottom:10px;">
                                          <input type="hidden" name="event_id">
-                                     <div class="form-group col-sm-12 " style="font-size: 15px;">                                        
+                                     <div class="form-group col-sm-6 " style="font-size: 13px;">                                        
                                             <label for="date-to">Number of person attending: </label>
                                       </div>
 
-                                      <div class="form-group col-sm-12 " style="font-size: 15px;">             
+                                      <div class="form-group col-sm-6 " style="font-size: 13px;">             
                                             <select name="rsvp" class="form-group rsvp-1" style="width: 160px; padding-left: 15px; border-radius: 5px; margin-left: 5px;">
                                               <option value="">Select </option>
                                               <option value="1">1 </option>
@@ -3720,7 +3734,8 @@ li.multipleInput-email {
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <img src="<?php echo base_url('assets/images/wow-close.png'); ?>">
 
                 </button>
                  <h4 class="modal-title" id="myModalLabel">Send Invite</h4>
@@ -3842,6 +3857,10 @@ li.multipleInput-email {
 <script src="<?php echo base_url('assets/js/bootbox.js')?>"></script> <!-- conformation delete boot box -->
 <script src="<?php echo base_url ('assets/html5lightbox/html5lightbox.js') ?>"></script><!-- video popup library -->
 <script>  
+
+$(".name_bottom").tooltip({
+    placement: "bottom"
+});
 
 // here onclick function to show model popup
 function showAjaxModal(url)
@@ -4027,7 +4046,8 @@ $('.countdown').countdown('2018/04/02', function(event) {
             $("time.timeago").timeago();
         });
 
-$(document).ready(function(){               //show view more commends
+//show view more commends
+$(document).ready(function(){               
     $(".flip").click(function(){
         $(".panel").slideToggle("slow");
     });
@@ -4066,14 +4086,7 @@ $('#modal-1').on('show.bs.modal', function(e)
     $(e.currentTarget).find('input[name="event_id"]').val(event_id);
     });
 
-  //video controls hide and show mouse hover  
-    $('.myvideo').hover(function toggleControls() {  
-    if (this.hasAttribute("controls")) {
-        this.removeAttribute("controls")
-    } else {
-        this.setAttribute("controls", "controls")
-    }
-})
+  
 
 //search option form submit
 var base_url = '<?php echo base_url() ?>'; //form submited
@@ -4474,17 +4487,17 @@ $(document).ready(function () {
 
             fileReader.onload = (function (e) {
                var file = e.target;
-               $("<span class=\"pip\">" +
-                  "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
-                  "<br/><span class=\"remove\">Remove image</span>" +
-                  "</span>").insertAfter("#file1");
+               $("#img_preview").html("<span class=\"pip\">" +
+                "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
+                "<br/><span class=\"remove\">X Remove Image</span>" +
+                "</span>");
 
                 $(".remove").click(function () {
                 $(this).parent(".pip").remove();
                 $('#file1').val("");
 
                 });
-           });
+            });
        
       });
 
@@ -4494,31 +4507,30 @@ $(document).ready(function () {
 
 });
 
-//video size limitation highlight video1
+//video size limitation post video
 
 $(document).on("change", "#video_size", function(evt)
-        {
-            var file = this.files[0];
+{
+    var file = this.files[0];
 
-            if (file.size > 2621440)
-             {
-                 $('#video_show').hide();  
-                 alert('Filesize must 2.5MB or below');           
-             }else
-             {  
-          var $source = $('#video_here');         
-          $source[0].src = URL.createObjectURL(this.files[0]);
-          $source.parent()[0].load();
-          $('#video_show').show();  
+      if (file.size > 2621440)
+      {
+          $('#video_show').hide();  
+          alert('Filesize must 2.5MB or below');           
+      }else
+          {  
+            var $source = $('#video_here');         
+            $source[0].src = URL.createObjectURL(this.files[0]);
+            $source.parent()[0].load();
+            $('#video_show').show();  
 
-          $(".remove_video").click(function () { 
+            $(".remove_video").click(function () { 
                $('#video_show').hide();                 
                 $('#video_size').val("");
 
-                });       
-         }
-
-    });
+            });       
+          }
+});
 
 
 // show url link text box for thought

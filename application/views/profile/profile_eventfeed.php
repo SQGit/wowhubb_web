@@ -144,17 +144,21 @@ ul li {
   padding: 0px;
   display: none;
 }
+.panel1, .flip1 {
+  padding: 5px;  
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.panel1 {
+  padding: 0px;
+  display: none;
+}
 #calendar {
     width: 100%;
     margin: 0 auto;
   }
-video {
-    position: relative; 
-    top: 15%;
-    left: 0;
-    width: 100%;
-    opacity: 1 !important;
-}
+
 /*here start with multiple email  */
 .multipleInput-container {
      border:1px #999 solid;
@@ -238,7 +242,7 @@ li.multipleInput-email {
 
    <div class="col-md-3 static" style="width:20%;">
 
-        <div class="profile-card" style="margin-left:10px;">
+        <div class="profile-card" id="chat-block" style="margin-left:10px;">
         
 
             <div style="width:100%; float:left;">
@@ -250,7 +254,8 @@ li.multipleInput-email {
                
                  <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo" />
                  <?php } ?>
-                <span class="text-white" style="margin-top:5px; font-size:17px;"><?php echo $this->session->userdata('first_name')." ".$this->session->userdata('last_name'); ?>        
+                <span class="text-white" style="margin-top:5px; font-size:13px; text-transform:capitalize;">
+                  <?php echo $this->session->userdata('first_name')." ".$this->session->userdata('last_name'); ?>        
                 </span>
 
                     <div style="margin-left:65px;">
@@ -262,19 +267,28 @@ li.multipleInput-email {
                     </div>
              </div>
 
-          <div style="font-size:20px; color:#fff; margin-top:-20px; width:100%; float:right; text-align:right;"><a href="#"> &nbsp;&nbsp;
-            <i class="icon ion-arrow-right-b" style="font-size:28px; color:#fff;"></i></a> </div>
+          <div style="font-size:15px; color:#fff; margin-top:-20px; width:100%; float:right; text-align:right;">
+                  <?php
+                      if($this->session->has_userdata('self_video') && ($this->session->userdata('self_video') != 'null'))               
+                      {  
+                  ?>
+                       
+                        <a href="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('self_video'); ?>" class="html5lightbox" data-width="480" data-height="320" > &nbsp;&nbsp;
+                          <i class="icon ion-arrow-right-b" style="font-size:28px; color:#fff;"></i>
+                        </a> 
+                        
+                  <?php } ?>
+           </div>
+
           <div class="row">
-            <div class="col-md-12 text-center" style="font-size:17px; margin-bottom:10px; margin-top:15px;">Your Network Connections</div>
-            <div class="col-md-12 text-center" style="font-size:22px; margin-bottom:150px;">
+            <div class="col-md-12 text-center" style="font-size:15px; margin-bottom:10px; margin-top:15px;">Your Network Connections</div>
+            <div class="col-md-12 text-center" style="font-size:13px; margin-bottom:150px;">
               <?php if(isset($frds_count)) { echo $frds_count; } ?>
               
             </div>
             </div>
           </div>
-          <div id="chat-block">
-        </div>
-        
+         
         
       </div>
 
@@ -334,7 +348,7 @@ li.multipleInput-email {
                                         
                                   <div class="post-detail" style="margin:0;">                                       
 
-                                              <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-md pull-left" />                                    
+                                      <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-md pull-left" />                                    
 
                                   </div>
 
@@ -374,7 +388,11 @@ li.multipleInput-email {
             
                     <div class="col-md-12" style="position: relative;">
                       
-                      <div class="gallery" > <a class="test-popup-link" href='http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->thoughtsimage; ?>' > <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->thoughtsimage; ?>" alt="post-image" class="img-responsive post-image" /> </a> </div>
+                      <div class="gallery" > 
+                        <a class="test-popup-link" href='<?php echo $feeds->thoughtsimageurl; ?>' >
+                         <img src="<?php echo $feeds->thoughtsimageurl; ?>" alt="post-image" class="img-responsive post-image" />
+                        </a> 
+                      </div>
                     </div>
                       <!-- here end cover image --> 
                     <?php } 
@@ -384,15 +402,18 @@ li.multipleInput-email {
                       ?>
             
                     <div class="col-md-12" style="position: relative; margin-top: 20px;">
-                      
-                     <div class="video">
-                                          <div class="col-md-12"> <a href="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->thoughtsvideo; ?>" >
-                                                <video class="myvideo" controlsList="nodownload">
-                                               <source src="http://104.197.80.225:3010/wow/media/event/<?php echo $feeds->thoughtsvideo; ?>" type="video/mp4">
-                                               </video>
-                                            </a> 
-                                          </div>
-                                      </div>
+                          
+                                <div class="col-md-12">
+                                    <div style="position: absolute; left: 231px; top: 157px;">
+                                      <a href="<?php echo $feeds->thoughtsvideourl; ?>" class="html5lightbox" data-width="480" data-height="320" >
+                                      <img src="<?php echo base_url('assets/images/youtube.png'); ?>" alt="user" />
+                                      </a>
+                                    </div>
+                                    <a href="<?php echo $feeds->thoughtsvideourl; ?>" class="html5lightbox" data-width="480" data-height="320" >
+                                    <img class="img-responsive post-image"  src="<?php echo $feeds->thoughtsvideothumb; ?>" >
+                                    </a>
+                                </div>
+                            
                     </div>
 
                     <?php } else { echo " ";} ?>
@@ -430,10 +451,12 @@ li.multipleInput-email {
                               <div class="pull-left" style="width:90%;"> Like. Reply.
                                  <span style="color:#B8B8B8;">
                                   <?php 
-                                      $timestamp = strtotime($com->commentedAt);                                      
-                                       $comment_date = date('Y-m-d H:i:s', $timestamp);                                
+                                    if(isset($com->createddisplaytime)) {  
+                                        $timestamp = strtotime($com->createddisplaytime);                                        
+                                        $comment_date = date('Y-m-d H:i:s', $timestamp);
+                                    }
                                   ?>
-                                 <time class="timeago" datetime="<?php echo $comment_date; ?>"></time>
+                                 <time class="timeago" datetime="<?php if(isset($comment_date)) {  echo $comment_date; } ?>"></time>
                                  </span> 
                               </div>
                             </div>
@@ -470,13 +493,16 @@ li.multipleInput-email {
                               <?php   echo $com->comment;  ?>
 
                             </div>
-                            <div class="pull-left" style="width:90%;"> Like. Reply. <span style="color:#B8B8B8;">   <?php 
-                                        $timestamp = strtotime($com->commentedAt);                                        
+                            <div class="pull-left" style="width:90%;"> Like. Reply.
+                              <span style="color:#B8B8B8;"> 
+                               <?php 
+                                    if(isset($com->createddisplaytime)) {  
+                                        $timestamp = strtotime($com->createddisplaytime);                                        
                                         $comment_date = date('Y-m-d H:i:s', $timestamp);
-                                     
-                               ?>
-                                 <time class="timeago" datetime="<?php echo $comment_date; ?>"></time>
-                               </span>
+                                    }
+                                ?>
+                                 <time class="timeago" datetime="<?php if(isset($comment_date)) {  echo $comment_date; } ?>"></time>
+                              </span>
                             </div>
                  
                           </div>
@@ -492,7 +518,7 @@ li.multipleInput-email {
                                 <div class="col-md-1">
                                      <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="" class="profile-photo-sm" />
                                 </div>
-                                <form class="comments_form" action="<?php echo base_url('event/thought_comments/'.$feeds->_id); ?>" method="post">
+                                <form action="<?php echo base_url('event/myfeed_thought_comments/'.$feeds->_id); ?>" method="post">
                                   <div class="col-md-9">
                                       <div class="form-group">
                                            <i class="fa fa-arrow-circle-right"></i>
@@ -511,7 +537,7 @@ li.multipleInput-email {
                                   <form class="thought_wowsome" action="<?php echo base_url('event/thought_wowsome/'.$feeds->_id); ?>" method="post">
                                         <div class="col-md-5 text-center" style="position: relative; margin-top: -3px;">
                                             <div style="position: absolute; left: 97px; top: 3px; ">
-                                                 <input type="text" style="border: none; background: transparent; color: #e91e63; font-size: 11px;" id="thoughtwow_increment" value="<?php $like = count($feeds->wowsome); echo $like; ?>">
+                                                 <input type="text" style="border: none; background: transparent; color: #e91e63; font-size: 10px;" id="thoughtwow_increment" value="<?php $like = count($feeds->wowsome); echo $like; ?>">
                                             </div>
                                             <a class="btn text-pink" style="font-size:11px;">
                                                 <i class="icon ion-thumbsup"></i>
@@ -522,7 +548,7 @@ li.multipleInput-email {
 
                                   <div class="col-md-3 text-center">
                                       <div class="dropdown"> 
-                                          <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration:none; cursor:pointer; font-size:9px;">
+                                          <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration:none; cursor:pointer; font-size:8px;">
                                             <i class="fa fa-share"></i> Shares 
                                             <span class="caret"></span>
                                           </a>
@@ -554,8 +580,8 @@ li.multipleInput-email {
      <!-- quick evnt start here -->
                   <?php                            
                                                 
-                              if(isset($feeds->eventtype) && ($feeds->eventtype =='quick_event'))  
-                                {                              
+                      if(isset($feeds->eventtype) && ($feeds->eventtype =='quick_event'))  
+                      {                              
                      
                   ?>
 
@@ -588,8 +614,7 @@ li.multipleInput-email {
                               </ul>
                             </div>
                           </div>
-
-                          <!--div class="col-md-12 line-divider"></div> -->
+                          
                           <div class="col-md-12 user-info text-left" style="background-color:#f5f5f5; margin:0px 0px 15px 0px; border-radius:5px;">
                             <p style="font-size:18px; font-weight:normal;  height:25px; padding-top:5px;"><a href="#" style="color:#e91e63; text-decoration:none; font-weight: bold;"><span style="font-size: 22px; font-weight: bold; text-transform:capitalize;"></span>
 
@@ -614,9 +639,7 @@ li.multipleInput-email {
                                       ?>
                                         
                                   <div class="post-detail" style="margin:0;">                                       
-
-                                              <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-md pull-left" />                                    
-
+                                      <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-md pull-left" />                                    
                                   </div>
 
                                   <?php  } else  { ?>
@@ -627,9 +650,8 @@ li.multipleInput-email {
                               </div>
 
                               <div class="user-info">
-                                <div class="profile-link" style="font-size:19px; font-weight:bold; color:#555;">                                
-                                 
-                                     <?php echo $this->session->userdata('first_name')." " .$this->session->userdata('last_name'); ?> 
+                                <div class="profile-link" style="font-size:19px; font-weight:bold; color:#555;">
+                                    <?php echo $this->session->userdata('first_name')." " .$this->session->userdata('last_name'); ?> 
                                   
                                 </div>
 
@@ -695,21 +717,17 @@ li.multipleInput-email {
                     </div>
 
                   <!-- here start with cover image -->
-                <div class="col-md-12" style="position: relative;">
-
-                      <div class="col-md-12" style="position: relative;">
-                      
-                                      <div class="video">
-                                          <div class="col-md-12"> <a href="<?php echo $feeds->wowtagvideourl; ?>" >
-                                                <video class="myvideo" controlsList="nodownload">
-                                               <source src="<?php echo $feeds->wowtagvideourl; ?>" type="video/mp4">
-                                               </video>
-                                            </a> 
-                                          </div>
-                                      </div>
-                      </div>                      
+                    <div class="col-md-12" style="position: relative;">
+                                  <div style="position: absolute; left: 231px; top: 157px;">
+                                    <a href="<?php echo $feeds->wowtagvideourl; ?>" class="html5lightbox" data-width="480" data-height="320" >
+                                    <img src="<?php echo base_url('assets/images/youtube.png'); ?>" alt="user" />
+                                    </a>
+                                  </div>
+                                  <a href="<?php echo $feeds->wowtagvideourl; ?>" class="html5lightbox" data-width="480" data-height="320" >
+                                    <img src="<?php echo $feeds->wowtagvideothumb; ?>" class="img-responsive post-image">
+                                  </a>                
                                      
-                </div>
+                    </div>
 
 
                   <!-- here end cover image --> 
@@ -868,7 +886,7 @@ li.multipleInput-email {
                                   <form class="wowsome_form" action="<?php echo base_url('event/wowsome/'.$feeds->_id); ?>" method="post">
                                         <div class="col-md-5 text-center" style="position: relative; margin-top: -3px;">
                                             <div style="position: absolute; left: 100px; top: 3px; ">
-                                                 <input type="text" style="border: none; background: transparent; color: #e91e63; font-size: 11px;" id="wow_increment" value="<?php $like = count($feeds->wowsome); echo $like; ?>">
+                                                 <input type="text" style="border: none; background: transparent; color: #e91e63; font-size: 10px;" id="wow_increment" value="<?php $like = count($feeds->wowsome); echo $like; ?>">
                                             </div>
                                             <a class="btn text-pink" style="font-size:11px;">
                                                 <i class="icon ion-thumbsup"></i>
@@ -879,7 +897,7 @@ li.multipleInput-email {
 
                                   <div class="col-md-3 text-center">
                                       <div class="dropdown"> 
-                                          <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration:none; cursor:pointer; font-size:9px;">
+                                          <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration:none; cursor:pointer; font-size:8px;">
                                             <i class="fa fa-share"></i> Shares 
                                             <span class="caret"></span>
                                           </a>
@@ -919,8 +937,7 @@ li.multipleInput-email {
     <!-- personal evnt start here -->
                   <?php 
                         if(isset($feeds->eventtype) && ($feeds->eventtype == 'personal_event'))  
-
-                                {                              
+                        {                              
                                   
                   ?>
 
@@ -1119,11 +1136,11 @@ li.multipleInput-email {
                                       <div class="video">
                                           <div class="col-md-4"> 
                                              <div style="position: absolute; left: 80px; top: 36px;">
-                                                <a href="<?php echo $feeds->wowtagvideourl; ?>">
+                                                <a href="<?php echo $feeds->wowtagvideourl; ?>" class="html5lightbox" data-width="480" data-height="320">
                                                  <img src="<?php echo base_url('assets/images/youtube.png'); ?>" alt="user"  />
                                                 </a>
                                               </div>
-                                              <a href="<?php echo $feeds->wowtagvideourl; ?>" >
+                                              <a href="<?php echo $feeds->wowtagvideourl; ?>" class="html5lightbox" data-width="480" data-height="320">
                                               <img src="<?php echo $feeds->wowtagvideothumb; ?>" alt="user" class="img-responsive img-thumbnail" style="width:160px; height:88px;" />                                            
                                             </a> 
                                           </div>
@@ -1150,22 +1167,23 @@ li.multipleInput-email {
                                         <?php }  ?>      
                                   </div>  
 
-                                 <?php } else if (isset($feeds->eventhighlights1url) && (preg_match('/(\.mp4)$/i',$feeds->eventhighlights1url))){ ?>
+                                 <?php } else if (isset($feeds->eventhighlights1url) && (preg_match('/(\.mp4)$/i',$feeds->eventhighlights1url))){ ?>                                 
                                   
-                                  
-                                      <div class="video">
+                                      
                                         <?php  if(isset($feeds->eventhighlights1url ) && ($feeds->eventhighlights1url != 'null')) { ?>
                                         <div class="col-md-4"> 
-                                             <a href="<?php echo $feeds->eventhighlights1url; ?>" >
-                                              <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
-                                                   <source src="<?php echo $feeds->eventhighlights1url; ?>" type="video/mp4">
-                                              </video>
-                                               </a> 
-                                        </div>
-                                        <?php }   ?>              
-                                      </div> 
+                                            <div style="position: absolute; left: 80px; top: 36px;">
+                                               <a href="<?php echo $feeds->eventhighlights1url; ?>" class="html5lightbox" data-width="480" data-height="320" >
+                                                 <img src="<?php echo base_url('assets/images/youtube.png'); ?>" alt="user"  />
+                                                </a>
+                                            </div>
 
-                               <?php } ?>          
+                                            <a href="<?php echo $feeds->eventhighlights1url; ?>" class="html5lightbox" data-width="480" data-height="320">
+                                            <img  class="img-responsive post-image" style="width:160px; height:88px;" src="<?php echo $feeds->eventhighlights1thumb; ?>">
+                                            </a> 
+                                        </div>
+                                        <?php }  } ?>              
+                                      
 
                                    <!-- event hightlight2 start here  -->
                                 <?php 
@@ -1187,21 +1205,20 @@ li.multipleInput-email {
 
                                  <?php } else if (isset($feeds->eventhighlights2url) && (preg_match('/(\.mp4)$/i',$feeds->eventhighlights2url))){  ?>
                                                                    
-                                      <div class="video">
+                                      
                                       <?php  if(isset($feeds->eventhighlights2url ) && ($feeds->eventhighlights2url != 'null')) { ?>
                                         <div class="col-md-4"> 
-                                             <a href="<?php echo $feeds->eventhighlights2url; ?>" >
-                                              <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
-                                                   <source src="<?php echo $feeds->eventhighlights2url; ?>" type="video/mp4">
-                                              </video>
-                                               </a> 
+                                           <div style="position: absolute; left: 80px; top: 36px;">
+                                               <a href="<?php echo $feeds->eventhighlights2url; ?>" class="html5lightbox" data-width="480" data-height="320" >
+                                                 <img src="<?php echo base_url('assets/images/youtube.png'); ?>" alt="user"  />
+                                                </a>
+                                            </div>
+                                          <a href="<?php echo $feeds->eventhighlights2url; ?>" class="html5lightbox" data-width="480" data-height="320">
+                                            <img class="img-responsive post-image" style="width:160px; height:88px;" src="<?php echo $feeds->eventhighlights2thumb; ?>">
+                                          </a>
                                         </div>
-                                      <?php }   ?>              
-                                      </div> 
-                                
-                                <?php  } ?>            
-                                 
-                             
+                                      <?php }  } ?>              
+                                   
                           </div>                            
                       </div>
 
@@ -1328,7 +1345,7 @@ li.multipleInput-email {
                                   <form class="wowsome_form" action="<?php echo base_url('event/wowsome/'.$feeds->_id); ?>" method="post">
                                         <div class="col-md-5 text-center" style="position: relative; margin-top: -3px;">
                                             <div style="position: absolute; left: 97px; top: 3px; ">
-                                                 <input type="text" style="border: none; background: transparent; color: #e91e63; font-size: 11px;" id="wow_increment" value="<?php $like = count($feeds->wowsome); echo $like; ?>">
+                                                 <input type="text" style="border: none; background: transparent; color: #e91e63; font-size: 10px;" id="wow_increment" value="<?php $like = count($feeds->wowsome); echo $like; ?>">
                                             </div>
                                             <a class="btn text-pink" style="font-size:11px;">
                                                 <i class="icon ion-thumbsup"></i>
@@ -1339,7 +1356,7 @@ li.multipleInput-email {
 
                                   <div class="col-md-4 text-center">
                                       <div class="dropdown"> 
-                                          <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration:none; cursor:pointer; font-size:9px;">
+                                          <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration:none; cursor:pointer; font-size:8px;">
                                             <i class="fa fa-share"></i> Shares 
                                             <span class="caret"></span>
                                           </a>
@@ -1622,11 +1639,11 @@ li.multipleInput-email {
                             <!-- here start with  event highlight video -->
                           <div class="col-md-12">
                                   <?php if(isset($feeds->wowtagvideo) && ($feeds->wowtagvideo !='null')) { ?>
-                                      <div class="video">
+                                      
                                           <div class="col-md-4" style="position: relative;"> 
                                               <div style="position: absolute; left: 80px; top: 36px;">
-                                                <a href="<?php echo $feeds->wowtagvideourl; ?>">
-                                                 <img src="<?php echo base_url('assets/images/youtube.png'); ?>" alt="user"  />
+                                                <a href="<?php echo $feeds->wowtagvideourl; ?>" class="html5lightbox" data-width="480" data-height="320" >
+                                                <img src="<?php echo base_url('assets/images/youtube.png'); ?>" alt="user"  />
                                                 </a>
                                               </div>
                                             <a href="<?php echo $feeds->wowtagvideourl; ?>" >
@@ -1634,7 +1651,7 @@ li.multipleInput-email {
                                                 
                                             </a> 
                                           </div>
-                                      </div>
+                                      
                                   <?php } else { echo " "; } ?>
                               <!-- here end event highlight video --> 
                               <!-- here start event highlight image -->              
@@ -1659,20 +1676,21 @@ li.multipleInput-email {
                                  <?php } else if (isset($feeds->eventhighlights1url) && (preg_match('/(\.mp4)$/i',$feeds->eventhighlights1url))){ ?>
                                   
                                   
-                                      <div class="video">
+                                     
                                         <?php  if(isset($feeds->eventhighlights1url ) && ($feeds->eventhighlights1url != 'null')) { ?>
                                         <div class="col-md-4"> 
-                                             <a href="<?php echo $feeds->eventhighlights1url; ?>" >
-                                              <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
-                                                   <source src="<?php echo $feeds->eventhighlights1url; ?>" type="video/mp4">
-                                              </video>
-                                               </a> 
-                                        </div>
-                                        <?php }   ?>              
-                                      </div> 
+                                             <div style="position: absolute; left: 80px; top: 36px;">
+                                               <a href="<?php echo $feeds->eventhighlights1url; ?>" class="html5lightbox" data-width="480" data-height="320" >
+                                                 <img src="<?php echo base_url('assets/images/youtube.png'); ?>" alt="user"  />
+                                                </a>
+                                            </div>
 
-                               <?php } ?>    
-                                        
+                                            <a href="<?php echo $feeds->eventhighlights1url; ?>" class="html5lightbox" data-width="480" data-height="320" >
+                                            <img src="<?php echo $feeds->eventhighlights1thumb; ?>" alt="user" class="img-responsive img-thumbnail" style="width:160px; height:88px;" />  
+                                            </a> 
+                                        </div>
+                                        <?php }  } ?>              
+                                                                              
                                         
                                       <!-- event hightlight2 start here  -->
                                 <?php 
@@ -1694,19 +1712,23 @@ li.multipleInput-email {
 
                                  <?php } else if (isset($feeds->eventhighlights2url) && (preg_match('/(\.mp4)$/i',$feeds->eventhighlights2url))) {  ?>
                                                                    
-                                      <div class="video">
+                                      
                                       <?php  if(isset($feeds->eventhighlights2url ) && ($feeds->eventhighlights2url != 'null')) { ?>
                                         <div class="col-md-4"> 
-                                             <a href="<?php echo $feeds->eventhighlights2url; ?>" >
-                                              <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
-                                                   <source src="<?php echo $feeds->eventhighlights2url; ?>" type="video/mp4">
-                                              </video>
-                                               </a> 
+                                             <div style="position: absolute; left: 80px; top: 36px;">
+                                               <a href="<?php echo $feeds->eventhighlights2url; ?>" class="html5lightbox" data-width="480" data-height="320" >
+                                                 <img src="<?php echo base_url('assets/images/youtube.png'); ?>" alt="user"  />
+                                                </a>
+                                            </div>
+
+                                            <a href="<?php echo $feeds->eventhighlights2url; ?>" class="html5lightbox" data-width="480" data-height="320" >
+                                            <img src="<?php echo $feeds->eventhighlights2thumb; ?>" alt="user" class="img-responsive img-thumbnail" style="width:160px; height:88px;" />  
+                                            </a> 
                                         </div>
-                                      <?php }   ?>              
-                                      </div> 
+                                      <?php }  } ?>              
+                                     
                                 
-                                <?php  } ?>            
+                                          
                              
                           </div>                            
                       </div>
@@ -1832,7 +1854,7 @@ li.multipleInput-email {
                                   <form class="wowsome_form" action="<?php echo base_url('event/wowsome/'.$feeds->_id); ?>" method="post">
                                         <div class="col-md-5 text-center" style="position: relative; margin-top: -3px;">
                                             <div style="position: absolute; left: 97px; top: 3px; ">
-                                                 <input type="text" style="border: none; background: transparent; color: #e91e63; font-size: 11px;" id="wow_increment" value="<?php $like = count($feeds->wowsome); echo $like; ?>">
+                                                 <input type="text" style="border: none; background: transparent; color: #e91e63; font-size: 10px;" id="wow_increment" value="<?php $like = count($feeds->wowsome); echo $like; ?>">
                                             </div>
                                             <a class="btn text-pink" style="font-size:11px;">
                                                 <i class="icon ion-thumbsup"></i>
@@ -1843,7 +1865,7 @@ li.multipleInput-email {
 
                                   <div class="col-md-3 text-center">
                                       <div class="dropdown"> 
-                                          <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration:none; cursor:pointer; font-size:9px;">
+                                          <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration:none; cursor:pointer; font-size:8px;">
                                             <i class="fa fa-share"></i> Shares 
                                             <span class="caret"></span>
                                           </a>
@@ -2113,19 +2135,19 @@ li.multipleInput-email {
                             <!-- here start with  event highlight video -->
                           <div class="col-md-12">
                                   <?php if(isset($feeds->wowtagvideo) && ($feeds->wowtagvideo !='null')) { ?>
-                                      <div class="video">
+                                    
                                           <div class="col-md-4" style="position: relative;"> 
                                               <div style="position: absolute; left: 80px; top: 36px;">
-                                                <a href="<?php echo $feeds->wowtagvideourl; ?>">
+                                                <a href="<?php echo $feeds->wowtagvideourl; ?>" class="html5lightbox" data-width="480" data-height="320" >
                                                  <img src="<?php echo base_url('assets/images/youtube.png'); ?>" alt="user"  />
                                                 </a>
                                               </div>
-                                            <a href="<?php echo $feeds->wowtagvideourl; ?>" >
+                                            <a href="<?php echo $feeds->wowtagvideourl; ?>" class="html5lightbox" data-width="480" data-height="320" >
                                               <img src="<?php echo $feeds->wowtagvideothumb; ?>" alt="user" class="img-responsive img-thumbnail" style="width:160px; height:88px;"/>
                                                 
                                             </a> 
                                           </div>
-                                      </div>
+                                     
                                   <?php } else { echo " "; } ?>
                               <!-- here end event highlight video --> 
                               <!-- here start event highlight image -->              
@@ -2133,37 +2155,36 @@ li.multipleInput-email {
                                   <?php 
                                   if (isset($feeds->eventhighlights1url) && (preg_match('/(\.jpg|\.png|\.bmp)$/i',$feeds->eventhighlights1url))) {
                                   ?>
-                                     <div class="gallery">
-                                     <?php  if(isset($feeds->eventhighlights1url) && ($feeds->eventhighlights1url != 'null') ) { ?>
-                                      <div class="col-md-4"> 
+                                    <div class="gallery">
+                                        <?php  if(isset($feeds->eventhighlights1url) && ($feeds->eventhighlights1url != 'null') ) { ?>
+                                        <div class="col-md-4"> 
                                             <a class="test-popup-link" href='<?php echo $feeds->eventhighlights1url; ?>' > 
                                                <img src="<?php echo $feeds->eventhighlights1url; ?>" style="width:160px; height:88px;"  alt="user" class="img-responsive img-thumbnail"/>
-                                             </a> 
-                                      </div>
-                                      <?php } else {  ?>
+                                            </a> 
+                                        </div>
+                                        <?php } else {  ?>
                                             <div class="col-md-4"> 
                                              <img src="<?php echo base_url('assets/images/bg.png'); ?>" style="width:160px; height:88px;"  alt="user" class="img-responsive img-thumbnail"/>
                                             </div>
                                         <?php }  ?>      
-                                  </div>  
+                                    </div>  
 
                                  <?php } else if (isset($feeds->eventhighlights1url) && (preg_match('/(\.mp4)$/i',$feeds->eventhighlights1url))) { ?>
-                                  
-                                  
-                                      <div class="video">
+                                      
                                         <?php  if(isset($feeds->eventhighlights1url ) && ($feeds->eventhighlights1url != 'null')) { ?>
                                         <div class="col-md-4"> 
-                                             <a href="<?php echo $feeds->eventhighlights1url; ?>" >
-                                              <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
-                                                   <source src="<?php echo $feeds->eventhighlights1url; ?>" type="video/mp4">
-                                              </video>
-                                               </a> 
-                                        </div>
-                                        <?php }   ?>              
-                                      </div> 
+                                              <div style="position: absolute; left: 80px; top: 36px;">
+                                               <a href="<?php echo $feeds->eventhighlights1url; ?>" class="html5lightbox" data-width="480" data-height="320" >
+                                                 <img src="<?php echo base_url('assets/images/youtube.png'); ?>" alt="user"  />
+                                                </a>
+                                            </div>
 
-                               <?php } ?>    
-                                        
+                                            <a href="<?php echo $feeds->eventhighlights1url; ?>" class="html5lightbox" data-width="480" data-height="320">
+                                            <img  class="img-responsive post-image" style="width:160px; height:88px;" src="<?php echo $feeds->eventhighlights1thumb; ?>">
+                                            </a> 
+                                        </div>
+                                        <?php } }  ?>              
+                                      
                                         
                                       <!-- event hightlight2 start here  -->
                                 <?php 
@@ -2185,19 +2206,20 @@ li.multipleInput-email {
 
                                  <?php } else if (isset($feeds->eventhighlights2url) && (preg_match('/(\.mp4)$/i',$feeds->eventhighlights2url))) {  ?>
                                                                    
-                                      <div class="video">
+                                      
                                       <?php  if(isset($feeds->eventhighlights2url ) && ($feeds->eventhighlights2url != 'null')) { ?>
                                         <div class="col-md-4"> 
-                                             <a href="<?php echo $feeds->eventhighlights2url; ?>" >
-                                              <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
-                                                   <source src="<?php echo $feeds->eventhighlights2url; ?>" type="video/mp4">
-                                              </video>
-                                               </a> 
+                                             <div style="position: absolute; left: 80px; top: 36px;">
+                                               <a href="<?php echo $feeds->eventhighlights2url; ?>" class="html5lightbox" data-width="480" data-height="320" >
+                                                 <img src="<?php echo base_url('assets/images/youtube.png'); ?>" alt="user"  />
+                                                </a>
+                                            </div>
+                                          <a href="<?php echo $feeds->eventhighlights2url; ?>" class="html5lightbox" data-width="480" data-height="320">
+                                            <img class="img-responsive post-image" style="width:160px; height:88px;" src="<?php echo $feeds->eventhighlights2thumb; ?>">
+                                          </a>
                                         </div>
-                                      <?php }   ?>              
-                                      </div> 
-                                
-                                <?php  } ?>            
+                                      <?php }  } ?>              
+                                         
                              
                           </div>                            
                       </div>
@@ -2321,7 +2343,7 @@ li.multipleInput-email {
                                   <form class="wowsome_form" action="<?php echo base_url('event/wowsome/'.$feeds->_id); ?>" method="post">
                                         <div class="col-md-5 text-center" style="position: relative; margin-top: -3px;">
                                             <div style="position: absolute; left: 97px; top: 3px; ">
-                                                 <input type="text" style="border: none; background: transparent; color: #e91e63; font-size: 11px;" id="wow_increment" value="<?php $like = count($feeds->wowsome); echo $like; ?>">
+                                                 <input type="text" style="border: none; background: transparent; color: #e91e63; font-size: 10px;" id="wow_increment" value="<?php $like = count($feeds->wowsome); echo $like; ?>">
                                             </div>
                                             <a class="btn text-pink" style="font-size:11px;">
                                                 <i class="icon ion-thumbsup"></i>
@@ -2332,7 +2354,7 @@ li.multipleInput-email {
 
                                   <div class="col-md-3 text-center">
                                       <div class="dropdown"> 
-                                          <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration:none; cursor:pointer; font-size:9px;">
+                                          <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration:none; cursor:pointer; font-size:8px;">
                                             <i class="fa fa-share"></i> Shares 
                                             <span class="caret"></span>
                                           </a>
@@ -2584,11 +2606,11 @@ li.multipleInput-email {
                                       <div class="video">
                                           <div class="col-md-4" style="position: relative;"> 
                                               <div style="position: absolute; left: 80px; top: 36px;">
-                                                <a href="<?php echo $feeds->wowtagvideourl; ?>">
+                                                <a href="<?php echo $feeds->wowtagvideourl; ?>" class="html5lightbox" data-width="480" data-height="320" >
                                                  <img src="<?php echo base_url('assets/images/youtube.png'); ?>" alt="user"  />
                                                 </a>
                                               </div>
-                                            <a href="<?php echo $feeds->wowtagvideourl; ?>" >
+                                            <a href="<?php echo $feeds->wowtagvideourl; ?>" class="html5lightbox" data-width="480" data-height="320" >
                                               <img src="<?php echo $feeds->wowtagvideothumb; ?>" alt="user" class="img-responsive img-thumbnail" style="width:160px; height:88px;"/>
                                                 
                                             </a> 
@@ -2750,7 +2772,7 @@ li.multipleInput-email {
                                   <form class="wowsome_form" action="<?php echo base_url('event/wowsome/'.$feeds->_id); ?>" method="post">
                                         <div class="col-md-5 text-center" style="position: relative; margin-top: -3px;">
                                             <div style="position: absolute; left: 97px; top: 3px; ">
-                                                 <input type="text" style="border: none; background: transparent; color: #e91e63; font-size: 11px;" id="wow_increment" value="<?php $like = count($feeds->wowsome); echo $like; ?>">
+                                                 <input type="text" style="border: none; background: transparent; color: #e91e63; font-size: 10px;" id="wow_increment" value="<?php $like = count($feeds->wowsome); echo $like; ?>">
                                             </div>
                                             <a class="btn text-pink" style="font-size:11px;">
                                                 <i class="icon ion-thumbsup"></i>
@@ -2761,7 +2783,7 @@ li.multipleInput-email {
 
                                   <div class="col-md-3 text-center">
                                       <div class="dropdown"> 
-                                          <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration:none; cursor:pointer; font-size:9px;">
+                                          <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration:none; cursor:pointer; font-size:8px;">
                                             <i class="fa fa-share"></i> Shares 
                                             <span class="caret"></span>
                                           </a>
@@ -2923,7 +2945,7 @@ li.multipleInput-email {
 <script src="<?php echo base_url('assets/js/jquery.appear.min.js')?>" ></script> 
 <script src="<?php echo base_url('assets/js/masonry.pkgd.min.js')?>" ></script> 
 <script src="<?php echo base_url('assets/js/jquery.magnific-popup.min.js')?>" ></script> 
-<script src="<?php echo base_url('assets/js/videopopup.js')?>" ></script> 
+
 <script src="<?php echo base_url('assets/js/jquery.timeago.js')?>" ></script> <!--timeago library -->
 <script src="<?php echo base_url('assets/js/bootbox.js')?>"></script> <!-- conformation delete boot box -->
     <!-- this under three file calendar shows -->
@@ -2932,6 +2954,7 @@ li.multipleInput-email {
 <script src="<?php echo base_url ('assets/js/fullcalendar.min.js') ?>"></script>
 
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script> 
+<script src="<?php echo base_url ('assets/html5lightbox/html5lightbox.js') ?>"></script><!-- video popup library -->
     
 <script>
  
@@ -3194,6 +3217,38 @@ $(document).ready(function(){
             });
         });
 });
+
+//show view more commends
+$(document).ready(function(){               
+    $(".flip").click(function(){
+        $(".panel").slideToggle("slow");
+    });
+});  
+
+ //commend show and hide
+
+$(document).ready(function(){
+    $(".flip").click(function(){
+      $(".commend_show").hide();
+  });
+}); 
+
+ //show view more today event
+
+$(document).ready(function(){              
+    $(".flip1").click(function(){
+        $(".panel1").slideToggle("slow");
+    });
+});  
+
+ //today event  show and hide
+
+$(document).ready(function(){
+    $(".flip1").click(function(){
+      $(".todayevent_show").hide();
+      $("#today_txt").show();
+  });
+}); 
 
 
  //calendar shows col-md-3

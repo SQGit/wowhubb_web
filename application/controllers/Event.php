@@ -486,6 +486,11 @@ public function quick_event()
 		    
 		     $s_time = str_replace(' ', '',$this->input->post('event_startime'));
 		     $e_time = str_replace(' ', '',$this->input->post('event_endtiming'));
+
+		     $runtime = $this->input->post('runtime_from');
+		     $totime  = $this->input->post('totime_to');
+		     $runtime_from = date('Y/m/d', strtotime($runtime)); 
+		     $totime_to = date('Y/m/d', strtotime($totime));  
 		     
 
  			$token =  $this->session->userdata('token');		
@@ -500,8 +505,8 @@ public function quick_event()
 							'eventenddate:'   	.$e_date.' '.$e_time,
 							'eventdescription:' .$this->input->post('event_description'),							
 							'eventtitle:' 		.$this->input->post('event_title'),
-							'runtimefrom:' 		.$this->input->post('runtime_from'),
-							'runtimeto:' 		.$this->input->post('totime_to'),
+							'runtimefrom:' 		.$runtime_from,
+							'runtimeto:' 		.$totime_to,
 
 							);		   			   	
 
@@ -617,14 +622,13 @@ public function professional_event()
 							'eventname:'        .$this->input->post('event_name'),	
 							'tickettype:'       .$this->input->post('ticket_type'),	
 							'eventstartdate:'	.$s_date.' '.$s_time,
-							'eventenddate:'   	.$e_date.' '.$e_time,
-							'ticketprice:'      .$this->input->post('ticket_price'),
+							'eventenddate:'   	.$e_date.' '.$e_time,							
 							'eventticketurl:'   .$this->input->post('ticket_url'),
 							'eventdescription:' .$this->input->post('event_description'),
 							'organisationname:' .$this->input->post('organisation_name')	
 							);
 		   	 
-	       	$ch1 = curl_init();
+	       		$ch1 = curl_init();
        		      				    	
 			    	if(!empty($_FILES['cover_img']['name']))
 			       		{
@@ -655,7 +659,7 @@ public function professional_event()
 		        $test =  $data1->success;
 		        $this->session->set_userdata('success', $test);	
 		    	$this->session->set_userdata('id', $id);	
-		     	curl_close($ch1);
+		     	curl_close($ch1);		     	
 		     
 		    	
 		    	$token2  =  $this->session->userdata('token');
@@ -851,19 +855,18 @@ public function professional_event()
 
 	    	  		// $keyword = array($this->input->post('keyword[]'));
 
-	    	  	$event_contact = array( 'eventid' 		       => $this->session->userdata('id'),
-	    	  							
+	    	  	$event_contact = array( 'eventid' 		       => $this->session->userdata('id'),	    	  							
 	    	  							 'eventcontactname'    => $this->input->post('contact_persona_name'),
 	    								 'eventcontactphone'   => $this->input->post('eventcontactphone'),
 	    								 'eventcontactemail'   => $this->input->post('eventcontactemail'),
-	    								 'eventcontactmessage'  => $this->input->post('eventcontactmsg'),
-	    								 'keywordsearch' 	   =>  $this->input->post('keyword[]')
-	    								 								 
+	    								 'eventcontactmessage' => $this->input->post('eventcontactmsg'),
+	    								 'keywordsearch' 	   =>  $this->input->post('keyword[]'),
+	    								 'ticketprice'		   => $this->input->post('ticket_price')						 
 	    								 );		
 
 	    	  	$json_data = json_encode($event_contact); 
 				$result2 = $this->rest->post('http://104.197.80.225:3010/wow/event/proeventcontact',$json_data,'json');
-				// print_r($result2);
+				
 
 
 	  // seven  step 7 event tour
@@ -1036,8 +1039,7 @@ public function social_multicity_event()
 							'eventname:'        .$this->input->post('event_name'),	
 							'tickettype:'       .$this->input->post('ticket_type'),	
 							'eventstartdate:'	.$s_date.' '.$s_time,
-							'eventenddate:'   	.$e_date.' '.$e_time,
-							'ticketprice:'      .$this->input->post('ticket_price'),
+							'eventenddate:'   	.$e_date.' '.$e_time,							
 							'eventticketurl:'   .$this->input->post('ticket_url'),
 							'eventdescription:' .$this->input->post('event_description'),
 							'organisationname:' .$this->input->post('organisation_name')
@@ -1052,7 +1054,6 @@ public function social_multicity_event()
 					    	{
 					    		$cover_page = ""; 
 					    	}
-
 					
 	    		$wowtag_img = array('coverpage'  => @$cover_page);		    	 				
 	    	
@@ -1264,8 +1265,8 @@ public function social_multicity_event()
 	    								'eventcontactphone'   => $this->input->post('eventcontactphone'),
 	    								'eventcontactemail'   => $this->input->post('eventcontactemail'),
 	    								'eventcontactmessage' => $this->input->post('eventcontactmsg'),
-	    								'keywordsearch' 	  => $this->input->post('keyword')
-	    								 								 
+	    								'keywordsearch' 	  => $this->input->post('keyword'),
+	    								'ticketprice'      	  => $this->input->post('ticket_price')								 
 	    								 );		
 
 	    	  	$json_data = json_encode($event_contact); 
@@ -1570,14 +1571,14 @@ public function create_business_event()
 		     				'eventid:' 	   .$this->session->userdata('id'),		     				
 							'eventsalesservicename1:'  .$this->input->post('service_name1'), 
 							'eventsalesdiscount1:'     .$this->input->post('discount_value1'),
-							'eventsalescouponfrom1:'   .$this->input->post('begining_from1'),
-							'eventsalescouponto1:'     .$this->input->post('begining_end1'),
+							'eventsalescouponfrom1:'   .$this->input->post('begining_fromdate1')." ".$this->input->post('begining_fromtime1'),
+							'eventsalescouponto1:'     .$this->input->post('begining_enddate1')." ".$this->input->post('begining_endtime1'),
 							'eventsalesaction1:'       .$this->input->post('audience_callto_action'),
 							'eventsalesterms1:'        .$this->input->post('sales_terams1'),
 							'eventsalesservicename2:'  .$this->input->post('service_name2'),
 							'eventsalesdiscount2:'     .$this->input->post('discount_value2'),
-							'eventsalescouponfrom2:'   .$this->input->post('begining_from2'),
-							'eventsalescouponto2:'     .$this->input->post('begining_end2'),
+							'eventsalescouponfrom2:'   .$this->input->post('begining_fromdate2')." ".$this->input->post('begining_fromtime2'),
+							'eventsalescouponto2:'     .$this->input->post('begining_enddate2')." ".$this->input->post('begining_endtime2'),
 							'eventsalesaction2:'       .$this->input->post('audience_callto_actio2'),
 							'eventsalesterms2:'        .$this->input->post('sales_terams2')
 										
@@ -1654,7 +1655,6 @@ public function get_eventfeed()
 	   			  $this->rest->http_header('token', $this->session->userdata('token'));
 			   	  $data = array();
 			   	  $json_data = json_encode($data); 
-
 			   	  
 			   	  $result = $this->rest->post('http://104.197.80.225:3010/wow/event/newfeed',$json_data,'json');	
 			   	 
@@ -2063,11 +2063,24 @@ public function thought_comments($thought_com_id)
 		   	 $json_data = json_encode($data); 
 		   	 $result = $this->rest->post('http://104.197.80.225:3010/wow/event/postthoughtscomment',$json_data,'json');
 
-		   	 // print_r($result);
-
 		   	 redirect('event/get_eventfeed'); //page redirect 
 	}
 
+// thought commands
+public function myfeed_thought_comments($thought_com_id)
+	{
+	   		$comment_date = date('Y-m-d H:i:s');
+
+	   		$this->rest->http_header('token', $this->session->userdata('token'));		   		   	
+		  	$data = array('thoughtid' 		 	 =>  $thought_com_id,
+		  					'comment' 			 => $this->input->post('comments'),
+		  					'createddisplaytime' => $comment_date
+		  					);
+		   	 $json_data = json_encode($data); 
+		   	 $result = $this->rest->post('http://104.197.80.225:3010/wow/event/postthoughtscomment',$json_data,'json');
+
+		   	redirect('event/profile_get_eventfeed'); //page redirect  
+	}
 
 //thought wowsome 
 public function thought_wowsome($thought_wow_id)
@@ -2133,7 +2146,7 @@ public function engagementformaction($_id)
 		  					'city' 		=> $this->input->post('city'),
 		  					'zipcode' 	=> $this->input->post('zipcode'),
 		  					'country' 	=> $this->input->post('country'),
-		  					'gender' 	=> $this->input->post('gender'),
+		  					'gender' 	=> $this->input->post('gender')
 
 		  				);
 

@@ -26,7 +26,8 @@
 body {
 	background-color: #e7e5e6;
 }
-label.error {    
+label.error {
+    /*font-family: 'Roboto', sans-serif;*/
    color:red; 
 }
 #footer {
@@ -146,7 +147,7 @@ table, td, tr
     max-height: calc(100vh - 250px);
     overflow-y: auto;
 }
-.calendar {
+#calendar {
     max-width: 900px;
     margin: 0 auto;
   }
@@ -195,8 +196,8 @@ table, td, tr
 .fc-toolbar h2 {
     margin-top: 15px;
     margin-bottom: 0;
-  font-size:15px!important;
-  font-weight:bold;
+	font-size:15px!important;
+	font-weight:bold;
 }
 .timeline-cover {
     position: relative;
@@ -208,10 +209,6 @@ table, td, tr
      width: 108px!important; 
     border-radius: 50%;
     border: 3px solid #f5f5f5;
-}
-.tooltip-inner {
-  max-width: 350px;
-  width: 350px;
 }
 
 </style>
@@ -239,14 +236,14 @@ table, td, tr
   </header>
 <!--Header End-->
 
-<!-- breadcrumb for page link -->
-<!-- <div class="container" style="margin-top:20px; margin-bottom:-10px;">
+<!-- breadcrumb for page link
+<div class="container" style="margin-top:20px; margin-bottom:-10px;">
 
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="<?php echo base_url('event/get_eventfeed'); ?>"><strong>Home</strong></a></li>  
       <li class="breadcrumb-item active"><strong>Profile</strong></li>
     </ol>
-</div> -->
+</div-->
 
 <div class="google-maps"> </div>
 <div class="container"> 
@@ -275,11 +272,10 @@ table, td, tr
       <!--Timeline Menu for Large Screens-->
       <div class="timeline-nav-bar hidden-sm hidden-xs">
         <div class="row">
-
           <div class="col-md-4">
             <div class="profile-info">
-              <div class="col-md-12" style="background-color:#333; border-radius:8px 8px 0 0; padding-top:42px; padding-bottom:15px; border:1px solid #c9c1c1;">
-                <div class="col-md-6 text-left">
+              <div class="col-md-12" style="background-color:#333; border-radius:8px 8px 0 0; padding-top:25px; padding-bottom:15px; border:1px solid #c9c1c1;">
+              	<div class="col-md-6 text-left">
 
               <div style="width:100%;">
 
@@ -297,6 +293,8 @@ table, td, tr
                   <input class="file-upload" id="imageUpload" type="file" name="profile_img" capture>
                 </form>
 
+                  <!-- <img src="../assets/images/4.jpg" class="img-responsive img-circle" alt=""/> -->
+
               </div>
 
                 <div style="font-size:12px; font-weight:normal; line-height:18px; color:#fff; margin-top:5px;">
@@ -305,61 +303,60 @@ table, td, tr
 
                 <div style="font-size:12px; font-weight:bold;  color:#fff; margin-top:0px;">
                     <?php
-                      if(!is_null($this->session->userdata('designation') )) {
+                     if(!is_null($this->session->userdata('designation') )) {
                         echo $this->session->userdata('designation'); 
                       } else {
-                              echo " "; 
-                        } 
+                      echo " "; 
+                      } 
                     ?>
                    
                 </div>
                 
                 </div>
-                        <div class="col-md-6">                                 
-                            <?php 
-                              if(isset($profile->personalself)){
-                            ?>
-                            <div style="position: absolute; left: 65px; top: 50px;">
-                              <a href="http://104.197.80.225:3010/wow/media/personal/<?php echo $profile->personalself; ?>" class="html5lightbox" data-width="480" data-height="320">
-                              <img src="<?php echo base_url('assets/images/youtube.png'); ?>" alt="user" />
-                              </a>
-                            </div>
-                            <a href="http://104.197.80.225:3010/wow/media/personal/<?php echo $profile->personalself; ?>" class="html5lightbox" data-width="480" data-height="320">
-                            <video style="width:125px; height:125px; background-color:#e9e9e9; border-radius:5px;" id="myvideo" controlsList="nodownload" >
-                              <source src="http://104.197.80.225:3010/wow/media/personal/<?php echo $profile->personalself; ?>" type="video/mp4">
-                            </video>
-                            </a>
-                            <?php } else {  ?>
-                              <video style="width:125px; height:125px;" id="myvideo">
-                                <source src="" type="video/mp4">
-                              </video>
-                            <?php } ?>
-                        </div>
+              <div class="col-md-6">
+                <div style="position: absolute; left: 65px; top: 50px;">
+                                    
+                  <a href="http://res.cloudinary.com/www-wowhubb-com/video/upload/v1527234225/eventmedia/qswpjnygfsypfbuzbmbc.mp4" class="html5lightbox" data-width="480" data-height="320">
+                    <img src="../assets/images/youtube.png" alt="user">
+                  </a>
+                </div>
+				              <?php 
+                        if(isset($profile->personalself))
+                      { ?>
+                          <video style="width:125px; height:125px; background-color:#e9e9e9; border-radius:5px;" id="myvideo" controlsList="nodownload" >
+                            <source src="http://104.197.80.225:3010/wow/media/personal/<?php echo $profile->personalself; ?>" type="video/mp4">
+                          </video><?php } else {  ?>
+                          <video style="width:125px; height:125px;" id="myvideo" >
+                            <source src="" type="video/mp4">
+                          </video>
+                      <?php } ?>
+              </div>
                
               </div>
-              <div class="col-md-12" style="background-color:#f3f3f3; padding-top:3px; padding-bottom:3px;">
+              <div class="col-md-12" style="background-color:#f3f3f3; padding-top:12px; padding-bottom:12px;">
                  <div class="row">
                    <div class="col-md-9"><img src="../assets/images/wow-pink-1.png" alt=""/> <span style="color:#000; font-size:18px;"><?php echo $this->session->userdata('wowtag'); ?></span></div>
-                    <div class="col-md-3">
-                      <a href="#" data-toggle="modal" data-target=".modal-video" >
-                      <img src="../assets/images/edit_icon.png" alt="">
-                      </a>
-                    </div>
+                   <div class="col-md-3"><img src="../assets/images/edit_icon.png" alt=""></div>
                  </div>
               </div>
             </div>
           </div>
 
-          <div class="col-md-8" >
-            
+          <div class="col-md-8">
+            <div class="profile-info-1">
+              <h3 style="color:#fff;"></h3>
+              <p style="color:#fff;" class="text-muted"></p>
+            </div>
             <ul class="list-inline profile-menu">
               
               <li><a href="<?php echo base_url('Profile/profile_get'); ?>" class="active">Profile</a></li>
-              <!-- <li><a href="<?php echo base_url ('event/profile_get_eventfeed') ?>" >Event Feed</a></li> -->
+              <li><a href="<?php echo base_url ('event/profile_get_eventfeed') ?>" >Event Feed</a></li>
               <li><a href="<?php echo base_url ('home/interest_get') ?>" >Interests</a></li>
-              <li><a href="<?php echo base_url ('Profile/friends_connection') ?>">Friend Connections</a></li>
-              
+              <!--li><a href="<?php echo base_url ('Profile/friends_connection') ?>">Friend Connections</a></li-->
+              <li><a href="#">Eventhubb</a></li>
+              <li><a href="#">My Post</a></li>
               <li><a href="#">Photos</a></li>
+              <li><a href="<?php echo base_url ('Profile/friends_connection') ?>">Network</a></li>
             </ul>
             <ul class="follow-me list-inline">
               <li><?php if(isset($frds_count)) { echo $frds_count; } ?> Connections</li>
@@ -375,18 +372,14 @@ table, td, tr
     <div id="page-contents" style="border:1px solid #e6e6e6; background-color: #fff; padding-top: 0px;">
       <div class="row">
         <div class="col-md-12">
-          <div id="exTab2">
+          <div id="exTab2" >
             <ul class="nav nav-tabs">
-              <li class="active"> 
-                <a  href="#Personal_Profile" data-toggle="tab">Personal Profile</a>
-              </li>
-              <li>
-                <a href="#professiona_profile" data-toggle="tab">Professional Profile</a>
-              </li>
+              <li class="active"> <a  href="#1" data-toggle="tab" style="font-weight:bold; font-size:13px;">Personal Profile</a> </li>
+              <li><a href="#2" data-toggle="tab"  style="font-weight:bold; font-size:13px;">Professional Profile</a> </li>
             </ul>
             <div class="tab-content ">            
 
-              <div class="tab-pane active" id="Personal_Profile" style="margin-top: 20px;">
+              <div class="tab-pane active" id="1" style="margin-top: 20px;">
                 <div class="row">
                   <div class="col-md-8">
                     <div class="form-wizard col-md-12">                       
@@ -399,49 +392,130 @@ table, td, tr
                               <div class="tabbable tabs-left">
                                 <ul class="nav nav-tabs">
                                   <li style="width:100%;" class="active">
-                                    <a href="#Intro" data-toggle="tab" style="background-color:transparent; color:#333; text-align:left; font-size:13px;">Intro
-                                    </a>
+                                    <a href="#b1" data-toggle="tab" style="background-color:transparent; color:#333; text-align:left; font-size:13px; font-weight:bold;">Intro</a>
                                   </li>
                                   <li style="width:100%;">
-                                    <a href="#livecity" data-toggle="tab" style="background-color:transparent; color:#333; text-align:left; font-size:13px;">Cities You've Lived In
-                                    </a>
+                                    <a href="#b" data-toggle="tab" style="background-color:transparent; color:#333; text-align:left; font-size:13px; font-weight:bold;">Cities You've Lived In</a>
                                   </li>
                                   <li style="width:100%;">
-                                    <a href="#Contact_info" data-toggle="tab" style="background-color:transparent; color:#333; text-align:left; font-size:13px;">Contact Info
-                                    </a>
+                                    <a href="#d" data-toggle="tab" style="background-color:transparent; color:#333; text-align:left; font-size:13px; font-weight:bold;">Relationships</a>
                                   </li>
                                   <li style="width:100%;">
-                                    <a href="#Relationships" data-toggle="tab" style="background-color:transparent; color:#333; text-align:left; font-size:13px;">Relationships
-                                    </a>
+                                    <a href="#c" data-toggle="tab" style="background-color:transparent; color:#333; text-align:left; font-size:13px; font-weight:bold;">Contact Info</a>
                                   </li>
                                   <li style="width:100%;">
-                                    <a href="#Your_Life" data-toggle="tab" style="background-color:transparent; color:#333; text-align:left; font-size:13px;">Your Life Views
-                                    </a>
+                                    <a href="#e" data-toggle="tab" style="background-color:transparent; color:#333; text-align:left; font-size:13px; font-weight:bold;">Your Life Views</a>
                                   </li>
                                 </ul>
 
                           <!-- overview tab for personal  -->
 
                <div class="tab-content">
-                      <div class="tab-pane active" id="Intro">
+                   <div class="tab-pane active" id="b1">
                           <div class="col-md-9">
-                                <div class="form-group" style="margin-top: 15px;">  
-                                  <div class="col-md-12"><p style="font-size:13px;"> This is your  event identification name tag, You can use your "WOWtag ID" to share your personal and professional information and attend at any event. You can create your own WOWtag ID to add some form of personality to yourself.</p>
-                                </div>
-                                </div>
+                                
                              <div class="col-md-12" style="margin-top:15px;">
                                     <div class="pull-left" style="width:7%;"><img src="../assets/images/wow-tag-icon.png" alt=""/></div>
                                   <div class="pull-left" style="width:78%;">
-                                      <a href="#" style="font-size:14px; color:#333;"> 
-                                       <?php echo $this->session->userdata('wowtag'); ?> 
+                                      <a href="#" style="font-size:13px; color:#666; font-weight:bold;"> 
+                                       Wowtag
                                       </a><br>
-                                       <span style="color:#fff; font-size:13px; background-color:#e91e63; padding:3px 5px; border-radius:5px;">Your Wowtag ID</span>
+                                       <span style="color:#fff; font-size:15px; background-color:#e91e63; padding:5px 8px; border-radius:5px;">
+                                        <img src="../assets/images/wow-white-1.png" alt=""/>
+                                                                               
+                                        <?php echo $this->session->userdata('wowtag'); ?>
+                                       </span>
+                                       
+                                         <span class="name_bottom" title='This is your  event identification name tag, You can use your "WOWtag ID" to share your personal and professional information and attend at any event. You can create your own WOWtag ID to add some form of personality to yourself.'  >
+
+                                          <i class="fa fa-question-circle" ></i>
+                                         </span>
+                                       
                                   </div>
                               </div>
-                              <!-- <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;">
-                              </div>  -->                             
-                          </div>
-                      </div>
+                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;">                                        
+                                      </div>
+                               <div class="col-md-12">
+                                        <div class="pull-left" style="width:7%;">
+                                          <img src="../assets/images/map-icon.png" alt=""/>
+                                        </div>
+                                        <div class="pull-left" style="width:78%; text-transform: capitalize; font-size:13px; color:#666; font-weight:bold;">Current City<br>
+                                          <span style="color:#333; font-size:13px;"><div style="width:100px; float:left;">City</div> <?php if(isset($profile->place)){echo $profile->place;} else{echo "";} ?></span><br>
+                                          <span style="color:#333; font-size:13px;"><div style="width:100px; float:left;">Country</div> <?php if(isset($profile->country)){echo $profile->country; } else{echo "";} ?></span>
+                                          </div>                                       
+                                        <div class="pull-left text-right" style="width:10%; margin-top:10px;">
+                                          <a href="#" data-toggle="modal" data-target=".modal-1" >
+                                          <img src="../assets/images/edit_icon.png" alt=""/></a>
+                                        </div>
+                                </div>
+                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
+                                       <div class="col-md-12">
+                                        <div class="pull-left" style="width:7%;">
+                                          <img src="../assets/images/email-icon.png" alt=""/>
+                                        </div>
+                                        <div class="pull-left" style="width:78%; text-transform: capitalize; font-size:13px; color:#666; font-weight:bold;">Contact Info<br>
+                                          <span style="color:#333; font-size:13px; text-transform:none;"><div style="width:100px; float:left;">Email</div> <?php echo $this->session->userdata('email'); ?></span><br>
+                                          <span style="color:#333; font-size:13px;"><div style="width:100px; float:left;">Phone#</div> <?php echo $this->session->userdata('phone'); ?></span>
+                                          </div>                                       
+                                        <div class="pull-left text-right" style="width:10%; margin-top:10px;">
+                                          <a href="#" data-toggle="modal" data-target=".modal-1" >
+                                          <img src="../assets/images/edit_icon.png" alt=""/></a>
+                                        </div>
+                                </div>
+                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
+                                      <div class="col-md-12">
+                                        <div class="pull-left" style="width:7%;"><img src="../assets/images/marr-icon.png" alt=""/></div>
+                                        <div class="pull-left" style="width:20%; text-transform: capitalize; font-size:13px; color:#666; font-weight:bold;">Relationship <br>
+                                          <span style="color:#333; font-size:13px;"> 
+                                            <?php if(isset($profile->maritalstatus)){echo $profile->maritalstatus; } else{echo "";} ?></span></div>
+                                          <div class="pull-left" style="width:45%;">
+                                          <div style="float:left; margin-right:15px;"><img src="../assets/images/prof-pic.png" alt=""/></div>
+                                          <div class="pull-left" style="text-transform: capitalize; font-size:13px; color:#666; font-weight:bold;">Married To<br>
+                                          <span style="color:#333;">Mary Johnson</span>
+                                          </div>
+                                          </div>  
+                                            
+                                      </div>
+                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
+                                       <div class="col-md-12">
+                                        <div class="pull-left" style="width:7%;">
+                                          <img src="../assets/images/birthday-icon.png" alt=""/>
+                                        </div>
+                                        <div class="pull-left" style="width:78%; text-transform: capitalize; font-size:13px; color:#666; font-weight:bold;">Basic Info<br>
+                                          <span style="color:#333; font-size:13px; text-transform:none;"><div style="width:100px; float:left;">Birthday</div> <?php if(!empty($this->session->userdata('birthday'))) {
+
+                                                echo $this->session->userdata('birthday');
+                                              } else { 
+                                                echo $profile->birthday;
+                                            } ?></span><br>
+                                          <span style="color:#333; font-size:13px;"><div style="width:100px; float:left;">Gender</div> Male</span>
+                                          </div>                                       
+                                        <div class="pull-left text-right" style="width:10%; margin-top:10px;">
+                                          <a href="#" data-toggle="modal" data-target=".modal-1" >
+                                          <img src="../assets/images/edit_icon.png" alt=""/></a>
+                                        </div>
+                                </div>
+                           <!--div class="col-md-12">
+                                    <div class="pull-left" style="width:7%;"><img src="../assets/images/video-icon.png" alt=""/></div>
+                                    <div class="pull-left" style="width:78%; font-size:13px; font-weight:bold;">Personal Self Intro Video<br>
+                                            <?php 
+                                          if(isset($profile->personalself))
+                                          { ?>
+                                           <video style="width:160px; height:88px;" id="myvideo" controlsList="nodownload" >
+                                               <source src="http://104.197.80.225:3010/wow/media/personal/<?php echo $profile->personalself; ?>" type="video/mp4">
+                                           </video><?php } else {  ?>
+                                            <video style="width:160px; height:88px;" id="myvideo" >
+                                               <source src="" type="video/mp4">
+                                            </video>
+                                             <?php } ?>
+                                     </div>  
+                                        <div class="pull-left text-right" style="width:10%; margin-top:10px;">
+                                          <a href="#" data-toggle="modal" data-target=".modal-video" >
+                                          <img src="../assets/images/edit_icon.png" alt=""/></a>
+                                        </div>
+                           </div-->                                     
+                   </div>
+              </div>
                                   <!-- personal overview model popup -->
 
             <div class="modal fade modal-1" tabindex="-1" role="dialog" aria-hidden="true">
@@ -538,55 +612,134 @@ table, td, tr
 
                               <!-- about me tab for personal  -->
 
-                                  <div class="tab-pane" id="livecity">
-                                    <div class="col-md-9">  
-
+                                  <div class="tab-pane" id="b">
+                                    <div class="col-md-9">
                                       <div class="col-md-12">
-                                        <div class="pull-left" style="width:7%;"><img src="../assets/images/state-icon.png" alt=""/></div>
-                                        <div class="pull-left" style="width:78%; text-transform: capitalize; font-size:14px;">State<br>
-                                          <span style="color:#333; font-size:13px;">
-                                            <?php if(isset($profile->state)){echo $profile->state; } else{echo "";} ?>
-                                              
-                                          </span>
-                                        </div>
-                                        <div class="pull-left text-right" style="width:10%; margin-top:10px;">
-                                           <a href="#" data-toggle="modal" data-target=".citylive" >
-                                          <img src="../assets/images/edit_icon.png" alt=""/></a>
-                                        </div>  
-                                                                                
-                                      </div> 
-
-                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
-                                     <div class="col-md-12">
-                                        <div class="pull-left" style="width:7%;">
-                                          <img src="../assets/images/country-icon.png" alt=""/>
-                                        </div>
-                                        <div class="pull-left" style="width:78%; text-transform: capitalize; font-size:14px;">Country <br>
-                                          <span style="color:#333; font-size:13px;">
-                                            <?php if(isset($profile->country)){echo $profile->country; } else{echo "";} ?>
+                                        <div class="pull-left" style="width:7%;"><img src="../assets/images/intro-icon.png" alt=""/></div>
+                                        <div class="pull-left" style="width:78%; font-size:14px;">Introduction about Yourself<br>
+                                          <span style="color:#333; font-size:13px; text-transform: capitalize;">
+                                            <?php if(isset($profile->aboutme)){echo $profile->aboutme; } else{echo "";} ?>
                                               
                                             </span>
-                                        </div>                                                                        
-                                      </div>                                                             
-                                                                           
+                                          </div>
+                                        <div class="pull-left" style="width:5%; margin-top:10px;"><a href="#">Hide</a></div>
+                                        <div class="pull-left text-right" style="width:10%; margin-top:10px;">
+                                          <a href="#" data-toggle="modal" data-target=".modal-2" >
+                                          <img src="../assets/images/edit_icon.png" alt=""/>
+                                        </a></div>
+                                      </div>
+                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
+                                      <div class="col-md-12">
+                                        <div class="pull-left" style="width:7%;"><img src="../assets/images/favorite-icon.png" alt=""/></div>
+                                        <div class="pull-left" style="width:78%; font-size:14px;">What Your Favorite Quotes<br>
+                                          <span style="color:#333; font-size:13px;text-transform: capitalize;"><?php if(isset($profile->quote)){echo $profile->quote; } else{echo "";} ?>                                            
+                                          </span></div>
+                                        
+                                      </div>
+                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
+                                      <div class="col-md-12">
+                                        <div class="pull-left" style="width:7%;"><img src="../assets/images/birthday-icon.png" alt=""/>
+                                        </div>
+                                        <div class="pull-left" style="width:78%; font-size:14px;">Birth date<br>
+                                          <span style="color:#333; font-size:13px;">
+                                            <?php if(!empty($this->session->userdata('birthday'))) {
+
+                                                echo $this->session->userdata('birthday');
+                                              } else { 
+                                                echo $profile->birthday;
+                                            } ?>
+                                          </span>
+                                        </div>                                      
+                                        
+                                      </div>                                      
+                                     
+                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
+                                      <div class="col-md-12">
+                                        <div class="pull-left" style="width:7%;"><img src="../assets/images/religion-icon.png" alt=""/></div>
+                                        <div class="pull-left" style="width:78%; text-transform: capitalize; font-size:14px;">Religion<br>
+                                          <span style="color:#333; font-size:13px;"><?php if(isset($profile->religion)){echo $profile->religion; } else{echo "";} ?></span></div>
+                                      
+                                       
+                                      </div>
+                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
+                                      <div class="col-md-12">
+                                        <div class="pull-left" style="width:7%;"><img src="../assets/images/language-icon.png" alt=""/></div>
+                                        <div class="pull-left" style="width:78%; text-transform: capitalize; font-size:14px;">Languages<br>
+                                          <span style="color:#333; font-size:13px;"><?php if(isset($profile->language)){echo $profile->language; } else{echo "";} ?></span><br>
+                                         </div>
+                                                                               
+                                      </div>
                                     </div>
                                   </div>
 
-                                 
+                                   <!-- personal aboutme model popup -->
+
+          <div class="modal fade modal-2" tabindex="-1" role="dialog" aria-hidden="true">
+                      <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                          <div class="post-content">                            
+                            <div class="post-container" style="padding-bottom:20px;">   
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                              </button>              
+                              <div class="post-detail">
+                                <div class="user-info">
+                                 <h3>Edit Personal Profile</h3>
+                                 <span style="color:#333; font-size: 14px">Please give the following information </span>
+                                </div>                              
+                                <div class="line-divider"></div>
+                                <div class="user-info">
+                                 <div class="row" style="padding:10px;">                           
+                    <form action="<?php echo base_url('profile/personal_update_aboutme'); ?>" method="post"  id="personal_update_aboutme">                            
+                           
+                            <div class="row" >                              
+                              <div class="form-group col-xs-12">
+                                <label for="date-to" class="">About Yourself</label>
+                                <input  type="text" class="form-control input-group-lg"  name="about_me"  value="<?php if(isset($profile->aboutme)) {echo $profile->aboutme; } else{echo "";} ?>" />
+                              </div>
+                            </div>
+                             <div class="row">   
+                              <div class="form-group col-xs-12">
+                                <label for="date-to" class="">What Your Favorite Quotes</label>
+                                <input  type="text" class="form-control" name="favorite_quote" value="<?php if(isset($profile->quote)) {echo $profile->quote; } else{echo "";} ?>" />
+                              </div>
+                            </div>
+                             <div class="row">   
+                              <div class="form-group col-xs-6">
+                                <label for="date-to" class="">Birth date</label>
+                                <input id="birthday" type="text" class="form-control input-group-lg" name="birthday"  value="<?php if(isset($profile->birthday)) {echo $profile->birthday; } else{echo "";} ?>" />
+                              </div>                          
+                              <div class="form-group col-xs-6">
+                                <label for="date-to" class="">Religion</label>
+                                <input  type="text" class="form-control input-group-lg" name="religion"  value="<?php if(isset($profile->religion)) {echo $profile->religion; } else{echo "";} ?>" />
+                              </div>
+                            </div>
+                             <div class="row">   
+                              <div class="form-group col-xs-12">
+                                <label for="date-to" class="">Languages</label>
+                                <input  type="text" class="form-control input-group-lg" name="language"  value="<?php if(isset($profile->language)) {echo $profile->language; } else{echo "";} ?>" />
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div style="width:100%;" class="text-center">
+                                <input type="submit" value="Save Changes" class="btn btn-primary" style="width:140px;">
+                              </div>
+                            </div>
+                          </form>
+                               </div>
+                                </div>
+                                  </div>                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+          </div>
+                   <!-- end about me personal model popup -->
 
                             <!-- relationship tab for personal  -->
 
-                                  <div class="tab-pane" id="Relationships">
-                                   <div class="col-md-9">
-                                    <div class="pull-right text-right" style="width:20%; margin-top:10px;"> 
-                                         <div style="font-weight: bold; font-size: 13px; color: #333;">Edit
-                                          <a href="#" data-toggle="modal" data-target=".modal-relation" >
-                                             <img src="../assets/images/edit_icon.png" alt=""/></a>
-                                         </div>                                           
-                                    </div>
-                                  </div>
+                                  <div class="tab-pane" id="c">
                                     <div class="col-md-9">
-                                      
+
                                       <?php 
                                             if(!empty($profile->relationship)) 
                                             {
@@ -602,8 +755,12 @@ table, td, tr
                                             <span style="color:#333; font-size:13px;"> <?php if(isset($relationships->relation)) { echo $relationships->relation; } else {  echo ""; } ?>                                             
                                             </span>
                                             <br>
-                                          </div>                                  
-                                        
+                                          </div>
+                                  
+                                        <div class="pull-left text-right" style="width:10%; margin-top:10px;"> 
+                                          <a href="#" data-toggle="modal" data-target=".modal-relation" >
+                                            <img src="../assets/images/edit_icon.png" alt=""/></a>
+                                        </div>
                                       </div>
 
                                      
@@ -617,7 +774,11 @@ table, td, tr
                                            Add your relationships <br>
                                             
                                             <br>
-                                          </div>                                
+                                          </div>
+                                   <!--      <div class="pull-left" style="width:5%; margin-top:10px;"><a href="#">Hide</a></div> -->
+                                        <div class="pull-left text-right" style="width:10%; margin-top:10px;"> 
+                                          <a href="#" data-toggle="modal" data-target=".modal-relation" >
+                                            <img src="../assets/images/edit_icon.png" alt=""/></a></div>
                                       </div>
 
                                       <?php } ?>
@@ -632,8 +793,8 @@ table, td, tr
                         <div class="modal-content">
                           <div class="post-content">                            
                             <div class="post-container" style="padding-bottom:20px;"> 
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <img src="<?php echo base_url('assets/images/wow-close.png'); ?>">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;
+                            </span>
                               </button>                
                               <div class="post-detail">
                                 <div class="user-info">
@@ -753,7 +914,7 @@ table, td, tr
 
                           <!-- contact info tab for personal  -->         
 
-                                  <div class="tab-pane" id="Contact_info">
+                                  <div class="tab-pane" id="d">
                                     <div class="col-md-9">
                                       <div class="col-md-12">
                                         <div class="pull-left" style="width:7%;"><img src="../assets/images/email-icon.png" alt=""/></div>
@@ -765,15 +926,56 @@ table, td, tr
                                       <div class="col-md-12">
                                         <div class="pull-left" style="width:7%;"><img src="../assets/images/phone-icon.png" alt=""/></div>
                                         <div class="pull-left" style="width:78%; font-size:14px;">Phone No <br>
-                                          <span style="color:#333; font-size:13px;"><?php echo $this->session->userdata('phone'); ?></span></div>                                       
+                                          <span style="color:#333; font-size:13px;"><?php echo $this->session->userdata('phone'); ?></span></div>
+                                       
                                       </div>
-                                     
+                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
+                                      <div class="col-md-12">
+                                        <div class="pull-left" style="width:7%;"><img src="../assets/images/country-icon.png" alt=""/></div>
+                                        <div class="pull-left" style="width:78%; text-transform: capitalize; font-size:14px;">Country <br>
+                                          <span style="color:#333; font-size:13px;"><?php if(isset($profile->country)){echo $profile->country; } else{echo "";} ?></span></div>
+                                             <div class="pull-left text-right" style="width:10%; margin-top:10px;">
+                                           <a href="#" data-toggle="modal" data-target=".modal-3" >
+                                          <img src="../assets/images/edit_icon.png" alt=""/></a></div>                                  
+                                      </div>
+                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
+                                      <div class="col-md-12">
+                                        <div class="pull-left" style="width:7%;"><img src="../assets/images/state-icon.png" alt=""/></div>
+                                        <div class="pull-left" style="width:78%; text-transform: capitalize; font-size:14px;">State<br>
+                                          <span style="color:#333; font-size:13px;"><?php if(isset($profile->state)){echo $profile->state; } else{echo "";} ?></span></div>
+                                                                                
+                                      </div>
+                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
+                                      <div class="col-md-12">
+                                        <div class="pull-left" style="width:7%;"><img src="../assets/images/social-icon.png" alt=""/></div>
+                                        <div class="pull-left" style="width:78%; font-size:14px;">Social Links<br>
+
+                                          <span style="color:#333; font-size:13px;">
+
+                                          <?php 
+                                              if(!empty($profile->sociallinks)) 
+                                                {          
+                                                  foreach( $profile->sociallinks as $sociallink )
+                                                    {     
+                                                      if(isset($sociallink)) {
+
+                                                        echo $sociallink;
+                                                        echo "<br>";
+                                                      } else { echo " "; }
+                                                    }
+                                                }
+                                          ?>                                            
+                                              
+                                          </span>
+                                        </div>
+                                      
+                                      </div>
                                     </div>
                                   </div>
 
-                                   <!-- City you live  personal model popup -->
+                                   <!-- contact info personal model popup -->
 
-                <div class="modal fade citylive" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal fade modal-3" tabindex="-1" role="dialog" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                           <div class="post-content">                            
@@ -791,22 +993,61 @@ table, td, tr
                     <form action="<?php echo base_url('profile/personal_update_contactinfo'); ?>" method="post" 
                       id="personal_update_contactinfo" class="form-inline">                     
 
-                            <div class="row" >   
+                             <div class="row" >   
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class="">Country</label>
-                                <input  type="text" class="form-control" name="country" value="<?php if(isset($profile->country)){echo $profile->country; } else{echo "";} ?>" style="text-transform: capitalize;" />
+                                <input  type="text" class="form-control" name="country" value="<?php if(isset($profile->country)){echo $profile->country; } else{echo "";} ?>" />
                                 
                               </div>
                             </div>
                              <div class="row">   
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class="">State</label>
-                                <input  type="text" class="form-control input-group-lg" name="state" value="<?php if(isset($profile->state)){echo $profile->state; } else{echo "";} ?>" style="text-transform: capitalize;" />
+                                <input id="birthday" type="text" class="form-control input-group-lg" name="state" value="<?php if(isset($profile->state)){echo $profile->state; } else{echo "";} ?>" />
                               </div>  
-                              </div>                         
+                              </div>
+
+                            <?php 
+                              if(!empty($profile->sociallinks)) 
+                                        {          
+                                    foreach( $profile->sociallinks as $sociallink )
+                                          {     
+                            ?>     
+                      <div id="dynamic_add_sociallink">           
+                        <div class="row" id="add_sociallink_1">                    
+                              <div class="form-group col-xs-12">
+                                <label for="date-to" >Social Links</label>
+                                <input  type="text" class="form-control input-group-lg" name="social_link[]" id="social_link_1" value="<?php if(isset($sociallink)) { echo $sociallink; } else { echo " "; } ?>" />
+                              </div>  
+                           
+                             <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_social btn btn-info btn-sm"> Remove</a> </div>
+                            
+                        </div>
+                       </div>
+                      <?php } } else { ?>
+                        <div id="dynamic_add_sociallink">            
+                          <div class="row" id="add_sociallink_1">                         
+                           
+                              <div class="form-group col-xs-12">
+                                <label for="date-to" >Social Links</label>
+                                <input  type="text" class="form-control input-group-lg" name="social_link[]" id="social_link_1" value="" />
+                              </div>                            
+
+                          </div>
+                         </div>
+
+                      <?php } ?>
+
+                     
+
+                            <div class="col-md-12">
+                              <a href="JavaScript:void(0);" id="sociallinks" data-nxt_social_link="2">
+                                <i class="fa fa-plus-circle"></i> Add more Social Link
+                              </a>                                
+                            </div>
                                                       
                             <div class="row">
-                              <div style="width:100%;" class="text-center">
+                              <div  style="width:100%;" class="text-center">
                                 <input type="submit" value="Save Changes" class="btn btn-primary" style="width:140px;">
                               </div>
                             </div>
@@ -822,47 +1063,56 @@ table, td, tr
                 </div>
                    <!-- end contact info personal model popup -->
 
-                                   <!-- Life views for personal  -->
+                                   <!-- event info tab for personal  -->
 
-                                  <div class="tab-pane" id="Your_Life">
+                                  <div class="tab-pane" id="e">
                                     <div class="col-md-9">
                                       <div class="col-md-12">
                                         <div class="pull-left" style="width:7%;"><img src="../assets/images/birthday-icon.png" alt=""/></div>
                                         <div class="pull-left" style="width:78%; font-size:14px;">Birthday<br>
-                                          <span style="color:#333; font-size:13px;">
-                                            <?php
-                                              if(!empty($this->session->userdata('birthday'))) {
-
-                                                echo $this->session->userdata('birthday');
-                                              } else { 
-                                                echo $profile->birthday;
-                                              } 
-                                            ?>
-                                          </span> <br>
-                                        </div>
+                                          <span style="color:#333; font-size:13px;"></span> <br>
+                                           </div>
                                        
-                                        <div class="pull-left text-right" style="width:10%; margin-top:10px;"> <a href="#" data-toggle="modal" data-target=".lifeview" ><img src="../assets/images/edit_icon.png" alt=""/></a></div>
+                                        <div class="pull-left text-right" style="width:10%; margin-top:10px;"> <a href="#" data-toggle="modal" data-target=".modal-4" ><img src="../assets/images/edit_icon.png" alt=""/></a></div>
                                       </div>
                                       <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
                                       <div class="col-md-12">
-                                        <div class="pull-left" style="width:7%;">
-                                          <img src="../assets/images/wedding-icon.png" alt=""/>
-                                        </div>
-                                        <div class="pull-left" style="width:78%; font-size:14px;">Gender<br>
-                                          <span style="color:#333; font-size:13px;">
-                                            Female
-                                              
-                                          </span> <br>
+                                        <div class="pull-left" style="width:7%;"><img src="../assets/images/wedding-icon.png" alt=""/></div>
+                                        <div class="pull-left" style="width:78%; font-size:14px;">Wedding<br>
+                                          <span style="color:#333; font-size:13px;"><?php if(isset($profile->wedding)){echo $profile->wedding; } else{echo "";} ?></span> <br>
                                         </div>
                                        
+                                        <div class="pull-left text-right" style="width:10%; margin-top:10px;"><a href="#"><i class="fa fa-bell" ></i></a></div>
                                       </div>                                  
                                       
+                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
+                                      <div class="col-md-12">
+                                        <div class="pull-left" style="width:7%;"><img src="../assets/images/social-1-icon.png" alt=""/></div>
+                                        <div class="pull-left" style="width:78%; font-size:14px;">Social Functions<br>
+                                          <span style="color:#333; font-size:13px;"><?php if(isset($profile->socialfunction)){echo $profile->socialfunction; } else{echo "";} ?></span> <br>
+                                           </div>
+                                        
+                                        <div class="pull-left text-right" style="width:10%; margin-top:10px;"><a href="#"><i class="fa fa-bell" ></i></a></div>
+                                      </div>
+                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
+                                      <div class="col-md-12">
+                                        <div class="pull-left" style="width:7%;"><img src="../assets/images/parties-icon.png" alt=""/></div>
+                                        <div class="pull-left" style="width:78%; font-size:14px;">Parties<br>
+                                          <span style="color:#333; font-size:13px;"><?php if(isset($profile->parties)){echo $profile->parties; } else{echo "";} ?></span> <br>
+                                           </div>
+                                        
+                                        <div class="pull-left text-right" style="width:10%; margin-top:10px;"><a href="#"><i class="fa fa-bell" ></i></a></div>
+                                      </div>
+                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
+                                      <div class="col-md-12 text-center">
+                                        <div class="pull-left" style="width:100%;"> <span style="color:#e91e63; font-size:13px;"><a href="#">+ Add Event Functions</a></span> </div>
+                                      </div>
                                     </div>
                                   </div>
 
-                                      <!-- Your life views personal model popup -->
+                                      <!-- event info personal model popup -->
 
-              <div class="modal fade lifeview" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal fade modal-4" tabindex="-1" role="dialog" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                           <div class="post-content">                            
@@ -876,25 +1126,27 @@ table, td, tr
                                 </div>                              
                                 <div class="line-divider"></div>
                                 <div class="user-info">
-                                 <div class="row" style="padding:10px;"> 
-
-                  <form action="<?php echo base_url('profile/your_life_view'); ?>" method="post" id="personal_update_eventinfo"
+                                 <div class="row" style="padding:10px;">                              
+                  <form action="<?php echo base_url('profile/personal_update_eventinfo'); ?>" method="post"  id="personal_update_eventinfo"
                    class="form-inline">                            
-                            <div class="row">   
+                             <div class="row">   
                               <div class="form-group col-xs-12">
-                                <label for="date-to">Birthday</label>
-                                <input id="birthday" type="text" class="form-control input-group-lg" name="birthday" value="<?php if(isset($profile->birthday)) {echo $profile->birthday; } else{echo "";} ?>" autocomplete="off" />
+                                <label for="date-to" class="">Wedding</label>
+                                <input  type="text" id="wedding" class="form-control" name="wedding" value="<?php if(isset($profile->wedding)){echo $profile->wedding; } else{echo "";} ?>" />
                               </div>
                             </div>                                                  
-                            <div class="row">  
+                            <div class="row ">  
                               <div class="form-group col-xs-12">
-                                <label for="date-to">Gender</label>
-                                <select name="gender" class="form-control" id="types">    
-                                  <option value="Male" <?php if(isset($profile->maritalstatus) && ($profile->maritalstatus == "Male" )){ echo "selected"; } else { echo ""; } ?> >Male </option>
-                                  <option value="Female" <?php if(isset($profile->maritalstatus) && ($profile->maritalstatus == "Female" )){ echo "selected"; } else { echo ""; } ?>>Female </option>
-                                </select>
+                                <label for="date-to" class="">Social Functions</label>
+                                <input  type="text" id="socialfunction" class="form-control input-group-lg" name="social_function" value="<?php if(isset($profile->socialfunction)){echo $profile->socialfunction; } else{echo "";} ?>" />
                               </div>  
-                            </div>                             
+                            </div>
+                              <div class="row ">  
+                              <div class="form-group col-xs-12">
+                                <label for="date-to" class=""> Parties</label>
+                                <input  type="text" id="party" class="form-control input-group-lg" name="party" value="<?php if(isset($profile->parties)){echo $profile->parties; } else{echo "";} ?>" />
+                              </div>  
+                            </div>
                                                       
                             <div class="row">
                               <div  style="width:100%;" class="text-center">
@@ -925,18 +1177,19 @@ table, td, tr
                   </div>
 
 
-              <div class="col-md-4 static"> 
-                 <div class="calendar"></div>
+                  <div class="col-md-4 static"> 
+                    
+                 <div id="calendar"></div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-              <!-- here end personal profile -->
+              <!-- Day 2 -->
 
               <!-- professional tab start here  -->
 
-              <div class="tab-pane" id="professiona_profile" style="margin-top: 20px;">
+              <div class="tab-pane" id="2" style="margin-top: 20px;">
                 <div class="row">
-                  <div class="col-md-8">
+                  <div class="col-md-9">
                     <div class="form-wizard col-md-12">                    
                       <div class="edit-profile-container">
                         <div class="block-title">                         
@@ -947,241 +1200,305 @@ table, td, tr
                             <div class="col-md-12" style="font-size:15px;">
                               <div class="tabbable tabs-left">
                                 <ul class="nav nav-tabs">
-                                  <li style="width:100%;" class="active">
-                                    <a href="#professional_intro" data-toggle="tab" style="background-color:transparent; color:#333; text-align:left; font-size:13px;">Intro</a>
-                                  </li>
-                                  <li style="width:100%;">
-                                    <a href="#Colleges" data-toggle="tab" style="background-color:transparent; color:#333; text-align:left; font-size:13px;">Colleges</a>
-                                  </li>
+                                  <li style="width:100%;" class="active"><a href="#11" data-toggle="tab" style="background-color:transparent; color:#333; text-align:left; font-size:13px; font-weight:bold;">Intro</a></li>
+                                  <li style="width:100%;"><a href="#12" data-toggle="tab" style="background-color:transparent; color:#333; text-align:left; font-size:13px; font-weight:bold;">Colleges</a></li>
                                 
-                                  <li style="width:100%;">
-                                    <a href="#Work_Experience" data-toggle="tab" style="background-color:transparent; color:#333; text-align:left; font-size:13px;">Work Experience</a>
-                                  </li>
-                                  <li style="width:100%;">
-                                    <a href="#Professional_Skills" data-toggle="tab" style="background-color:transparent; color:#333; text-align:left; font-size:13px;">Professional Skills</a>
-                                  </li>
-                                  <li style="width:100%;">
-                                    <a href="#Certifications" data-toggle="tab" style="background-color:transparent; color:#333; text-align:left; font-size:13px;">Certifications</a>
-                                  </li>                                  
+                                  <li style="width:100%;"><a href="#14" data-toggle="tab" style="background-color:transparent; color:#333; text-align:left; font-size:13px; font-weight:bold;">Work Experience</a></li>
+                                  <li style="width:100%;"><a href="#15" data-toggle="tab" style="background-color:transparent; color:#333; text-align:left; font-size:13px; font-weight:bold;">Professional Skills</a></li>
+                                  <li style="width:100%;"><a href="#15" data-toggle="tab" style="background-color:transparent; color:#333; text-align:left; font-size:13px; font-weight:bold;">Certifications</a></li>
                                 </ul>
+                                <div class="tab-content">
+                                  <div class="tab-pane active" id="11">
+                                    <div class="col-md-8">
+                                      <div class="col-md-12">
+                                       <p style="font-size:13px;">This is your  event identification name tag, You can use your "WOWtag ID" to share your personal and professional information and attend at any event. You can create your own WOWtag ID to add some form of personality to yourself.</p>
+                                      </div>
+                                      <div class="col-md-12" style="margin-top:15px;">
+                                    <div class="pull-left" style="width:7%;"><img src="../assets/images/wow-tag-icon.png" alt=""/></div>
+                                  <div class="pull-left" style="width:78%;">
+                                      <a href="#" style="font-size:13px; color:#666; font-weight:bold;"> 
+                                       Wowtag
+                                      </a><br>
+                                       <span style="color:#fff; font-size:15px; background-color:#e91e63; padding:5px 8px; border-radius:5px;"><img src="../assets/images/wow-white-1.png" alt=""/>  <?php echo $this->session->userdata('wowtag'); ?></span>
+                                  </div>
+                              </div>
+                              
+                                <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;">                                        
+                                      </div>
+                               <div class="col-md-12">
+                                        <div class="pull-left" style="width:7%;">
+                                          <img src="../assets/images/map-icon.png" alt=""/>
+                                        </div>
+                                        <div class="pull-left" style="width:78%; text-transform: capitalize; font-size:13px; color:#666; font-weight:bold;">College<br>
+                                          <span style="color:#333; font-size:13px;"><div style="width:250px; float:left;">University of Texas</div> <span style="color:#8e8e8e;">2014-2016</span></span><br>
+                                          <span style="color:#333; font-size:13px;"><div style="width:250px; float:left;">Unity Secondary School</div> <span style="color:#8e8e8e;">2005-2012</span></span>
+                                          </div>                                       
+                                        <div class="pull-left text-right" style="width:10%; margin-top:10px;">
+                                          <a href="#" data-toggle="modal" data-target=".modal-1" >
+                                          <img src="../assets/images/edit_icon.png" alt=""/></a>
+                                        </div>
+                                </div>
+                                <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;">                                        
+                                      </div>
+                               <div class="col-md-12">
+                                        <div class="row">
+  <div class="pull-left" style="width:7%;">
+    <img src="../assets/images/intro-icon.png" alt=""/>
+  </div>
+                                          <div class="pull-left" style="width:78%; text-transform: capitalize; font-size:13px; color:#666; font-weight:bold;">Work Experience<br>
+                                            <span style="color:#333; font-size:13px;"><div style="width:250px; float:left;">Financial Manager <br>
+                                              <span style="font-size:12px; color:#000; font-weight:normal; background-color:#EBEBEB; padding:5px 7px;">Bank Of America Houston Texas</span>
+                                            </div> <span style="color:#8e8e8e;">2017-2018</span></span><br><br>
+                                            <p style="font-size:13px; color:#000; font-weight:normal; margin-top:10px;">
+                                              <i class="fa fa-caret-right"></i> Managed project budgets and prepare contract order and agreement with subcontractor.<br>
+  <i class="fa fa-caret-right"></i> Managed multiple project teams across different time zones.<br>
+  <i class="fa fa-caret-right"></i> Managed development team and software reviews for quality assurances to achieve<br>
+  <i class="fa fa-caret-right"></i> optimal final product delivery to clients.
+                                            </p>
+                                            </div> 
+                                          
+                                          <div class="pull-left text-right" style="width:10%; margin-top:10px;">
+                                            <a href="#" data-toggle="modal" data-target=".modal-1" >
+                                            <img src="../assets/images/edit_icon.png" alt=""/></a>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+  <div class="pull-left" style="width:7%;">
+    <img src="../assets/images/intro-icon-1.png" alt=""/>
+  </div>
+                                          <div class="pull-left" style="width:78%; text-transform: capitalize; font-size:13px; color:#666; font-weight:bold;">
+                                            <span style="color:#333; font-size:13px;"><div style="width:250px; float:left;">Project Manager <br>
+                                              <span style="font-size:12px; color:#000; font-weight:normal; background-color:#EBEBEB; padding:5px 7px;">Vineture Inc, San Antonio Texas</span>
+                                            </div> <span style="color:#8e8e8e;">2017-2018</span></span><br><br>
+                                            <p style="font-size:13px; color:#000; font-weight:normal; margin-top:10px;">
+                                              <i class="fa fa-caret-right"></i> Managed project budgets and prepare contract order and agreement with subcontractor.<br>
+  <i class="fa fa-caret-right"></i> Managed multiple project teams across different time zones.<br>
+  <i class="fa fa-caret-right"></i> Managed development team and software reviews for quality assurances to achieve
+                                              optimal final product delivery to clients.<br>
+  <i class="fa fa-caret-right"></i> Developed project weekly status reports , resource plans and project deliverables.<br>
+  <i class="fa fa-caret-right"></i> Trained new team members on development processes and phases.<br>
+  <i class="fa fa-caret-right"></i> Worked with project team to iterate and adjust project milestones and clients expectations.
+                                            </p>
+                                          </div> 
+                                          
+                                          <div class="pull-left text-right" style="width:10%; margin-top:10px;">
+                                            <a href="#" data-toggle="modal" data-target=".modal-1" >
+                                            <img src="../assets/images/edit_icon.png" alt=""/></a>
+                                          </div>
+                                        </div>
+                                </div>
+                                <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;">                                        
+                                      </div>
+                               <div class="col-md-12">
+                                        <div class="pull-left" style="width:7%;">
+                                          <img src="../assets/images/designation-icon.png" alt=""/>
+                                        </div>
+                                        <div class="pull-left" style="width:78%; text-transform: capitalize; font-size:13px; color:#666; font-weight:bold;">Professional Skills<br>
+                                          <span style="color:#333; font-size:13px;"><div style="width:250px; float:left;">Project Manager</div></span><br>
+                                          <span style="color:#333; font-size:13px;"><div style="width:250px; float:left;">Programmer</div> </span><br>
+                                          <span style="color:#333; font-size:13px;"><div style="width:250px; float:left;">Scrum Master</div></span>
+                                          </div>                                       
+                                        <div class="pull-left text-right" style="width:10%; margin-top:10px;">
+                                          <a href="#" data-toggle="modal" data-target=".modal-1" >
+                                          <img src="../assets/images/edit_icon.png" alt=""/></a>
+                                        </div>
+                                </div>
+                                <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;">                                        
+                                      </div>
+                               <div class="col-md-12">
+                                        <div class="pull-left" style="width:7%;">
+                                          <img src="../assets/images/certi-icon.png" alt=""/>
+                                        </div>
+                                        <div class="pull-left" style="width:78%; text-transform: capitalize; font-size:13px; color:#666; font-weight:bold;">Certifications<br>
+                                         <span style="color:#333; font-size:13px;"><div style="width:250px; float:left;">PMP -PMI</div> <span style="color:#8e8e8e;">2017</span></span><br>
+                                          <span style="color:#333; font-size:13px;"><div style="width:250px; float:left;">CPA</div> <span style="color:#8e8e8e;">2018</span></span><br>
 
-              <div class="tab-content">
+                                          </div>                                       
+                                        <div class="pull-left text-right" style="width:10%; margin-top:10px;">
+                                          <a href="#" data-toggle="modal" data-target=".modal-1" >
+                                          <img src="../assets/images/edit_icon.png" alt=""/></a>
+                                        </div>
+                                </div>
+                                                                       
+                                    </div>
+                                  </div>
 
-                <!-- professional intro start here -->
-
-                  <div class="tab-pane active" id="professional_intro">
-                      <div class="col-md-8">
-                        <div class="col-md-12">
-                          <p style="font-size:13px;">This is your  event identification name tag, You can use your "WOWtag ID" to share your personal and professional information and attend at any event. You can create your own WOWtag ID to add some form of personality to yourself.</p>
-                        </div>
-                        <div class="col-md-12" style="margin-top:15px;">
-                          <div class="pull-left" style="width:7%;"><img src="../assets/images/wow-tag-icon.png" alt=""/></div>
-                          <div class="pull-left" style="width:78%;"><a href="#" style="font-size:16px; color:#333;"> <?php echo $this->session->userdata('wowtag'); ?> </a><br>
-                          <span style="color:#fff; font-size:13px; background-color:#e91e63; padding:3px 5px; border-radius:5px;">Your Wowtag ID</span>
-                          </div>
-                          <div class="pull-left" style="width:5%; margin-top:10px;"><a href="#"></div>
-                        </div>                                                                       
-                      </div>
-                  </div>
-
-                  <div class="tab-pane" id="Colleges">
+                 <div class="tab-pane" id="12">
                       <div class="col-md-8">                                     
-                        <div class="col-md-12">
-                          <div class="pull-left" style="width:7%;"><img src="../assets/images/college-icon.png" alt=""/> </div>
-                          <div class="pull-left" style="width:75%; color:#333; font-size:14px;">College<br>
-                            <span style="color:#333; font-size:13px;">
-                              <?php
-                                foreach ($profile->education as $profiles) 
-                                  {
-                                    echo $profiles;
-                                  } 
-                              ?><br>                                        
-                            </span>
-                          </div>
+                           <div class="col-md-12">
+                                <div class="pull-left" style="width:7%;"><img src="../assets/images/college-icon.png" alt=""/> </div>
+                                 <div class="pull-left" style="width:75%; color:#333; font-size:14px;">College<br>
+                                 <span style="color:#333; font-size:13px;">
+                                  <?php
+                                       foreach ($profile->education as $profiles) 
+                                        {
+                                          echo $profiles;
+                                         } 
+                                  ?><br>                                        
+                                </span></div>
                                        
-                          <div class="pull-right text-right" style="width:10%; margin-top:10px;">
-                            <a href="#" data-toggle="modal" data-target=".modal-college" >
-                              <img src="../assets/images/edit_icon.png" alt=""/>
-                            </a>
-                          </div>
+                                <div class="pull-right text-right" style="width:10%; margin-top:10px;"> <a href="#" data-toggle="modal" data-target=".modal-professional" ><img src="../assets/images/edit_icon.png" alt=""/></a></div>
+                            </div>
+                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
+                                     
+                                      <div class="col-md-12">
+                                            <div class="pull-left" style="width:7%;"><img src="../assets/images/workplace-icon.png" alt=""/></div>
+                                            <div class="pull-left" style="width:75%; font-size:14px;">Current Work Place<br>
+                                                <span style="color:#333; font-size:13px;"> 
+                                                  <?php if(isset($profile->workplace)){echo $profile->workplace; } else{echo "";} ?>
+                                                 <br>
+                                                </span>
+                                            </div>
+                                      </div>
+
+                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
+                                     
+                                      <div class="col-md-12">
+                                            <div class="pull-left" style="width:7%;"><img src="../assets/images/intro-icon.png" alt=""/></div>
+                                            <div class="pull-left" style="width:65%; text-transform: capitalize; font-size:14px;">Work Experience<br>
+                                               <span style="color:#333; font-size:13px;"> 
+
+                                                  <?php 
+                                                        foreach($profile->workexperience as $workexperiences)
+                                                        {
+                                                           if(isset($workexperiences->title)||($workexperiences->company)||($workexperiences->location)||($workexperiences->frommonth)||($workexperiences->fromyear)||($workexperiences->tomonth)||($workexperiences->toyear)|| ($workexperiences->link)||($workexperiences->description))
+                                                           {
+                                                              echo $workexperiences->title." ".'<br>'; 
+                                                              echo $workexperiences->company." ".'<br>'; 
+                                                              echo $workexperiences->location." ".'<br>'; 
+                                                              echo $workexperiences->frommonth." ".$workexperiences->fromyear."-".$workexperiences->tomonth." ".$workexperiences->toyear."".'<br>'; 
+                                                              echo $workexperiences->link." ".'<br>'; 
+                                                              echo $workexperiences->description." ".'<br> <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>';
+                                                            }
+                                                   
+                                                          else
+                                                          {
+                                                            echo "Please update Your experience";
+                                                          }
+                                                        }
+                                                  ?>                                                 
+
+                                              </span>
+
+                                            </div>
+
+                                               <div class="pull-right text-right" style="width:20%; margin-top:10px;"> <a href="#" data-toggle="modal" data-target=".modal-ex_professional" ><img src="../assets/images/edit_icon.png" alt=""/></a>                                               
+                                               </div>
+
+                                            
+                                      </div>
+
+                                             <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
+                                       <div class="col-md-12">
+                                            <div class="pull-left" style="width:7%;"><img src="../assets/images/designation-icon.png" alt=""/></div>
+                                                <div class="pull-left" style="width:75%; font-size:14px;">Designation<br>
+                                               <span style="color:#333; font-size:13px;">
+                                                     <?php if(isset($profile->designation)){echo $profile->designation; } else{echo "";} ?>
+                                                     <br>
+                                              </span></div>
+                                      </div>
+                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
+                                      <div class="col-md-12">
+                                                <div class="pull-left" style="width:7%;"><img src="../assets/images/certi-icon.png" alt=""/></div>
+                                                 <div class="pull-left" style="width:75%;"> Certifications<br>
+                                                    <span style="color:#333; font-size:13px;">
+                                                     <?php                                  
+                                                        foreach ($profile->certification as $profiles) {
+                                                              echo $profiles;
+                                                            } ?><br> 
+                                                    </span>                                       
+                                                 </div>                                        
+                                      </div>
+                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
+                                   
+                                      <div class="col-md-12">
+                                              <div class="pull-left" style="width:7%;"><img src="../assets/images/awards-icon.png" alt=""/></div>
+                                                  <div class="pull-left" style="width:75%; font-size:14px;">About Awards<br>
+                                                    <span style="color:#333; font-size:13px;">
+                                                     <?php                                  
+                                                         foreach ($profile->volunteer as $profiles) {
+                                                              echo $profiles;
+                                                              } ?><br>
+                                                    </span>
+                                                 </div>
+                                      </div>
                         </div>
+                    </div>
 
-                        <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
-                      </div>
-                  </div>
+                                       <!--  professional model popup -->
 
-           <!--start professional college model popup -->
-
-          <div class="modal fade modal-college" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal fade modal-professional" tabindex="-1" role="dialog" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
                            <div class="modal-content">
                                <div class="post-content">                            
                                    <div class="post-container" style="padding-bottom:20px;">
                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                                       </button>   
-                                <div class="post-detail">
-                                    <div class="user-info">
-                                        <h3>Edit Professional Profile</h3>
-                                          <span style="color:#333; font-size: 14px">Please give the following information </span>
-                                    </div>                              
-                                    <div class="line-divider"></div>
-                                    <div class="user-info">
-                    <div class="row" style="padding:10px;">
-
-                      <form action="<?php echo base_url('profile/professional_college'); ?>" method="post" id="professional_college"
-                       class="form-inline">
-
-                          <div id="dynamic_add_college">  
-                            <div class="row" id="add_college_1"> 
-
-                              <div class="form-group col-xs-12">
-                                <label for="date-to"> College</label>
-                                <input type="text" id="college_1" class="form-control input-group-lg" name="college[]" style="text-transform: capitalize;" >
-                              </div> 
-                            
-                              <div class="form-group col-xs-6">                                
-                                <label for="date-to"> From</label>
-                                <select name="from_year[]" id="fromyear_1" class="form-control">
-                                     <option value="<?php if(isset($workexperiences->fromyear)){echo $workexperiences->fromyear; } else{echo "Year";} ?>"><?php if(isset($workexperiences->fromyear)){echo $workexperiences->fromyear; } else{echo "Year";} ?>  </option>
-                                      <option value="2018"> 2018</option>
-                                      <option value="2017"> 2017</option>
-                                      <option value="2016"> 2016</option>
-                                      <option value="2015"> 2015</option>
-                                      <option value="2014"> 2014</option>
-                                      <option value="2013"> 2013</option>
-                                      <option value="2012"> 2012</option>
-                                      <option value="2011"> 2011</option>
-                                      <option value="2010"> 2010</option>
-                                      <option value="2009"> 2009</option>
-                                      <option value="2008"> 2008</option>
-                                      <option value="2007"> 2007</option>
-                                      <option value="2006"> 2006</option>
-                                      <option value="2005"> 2005</option>
-                                      <option value="2004"> 2004</option>
-                                      <option value="2003"> 2003</option>
-                                      <option value="2002"> 2002</option>
-                                      <option value="2001"> 2001</option>
-                                      <option value="2000"> 2000</option>
-                                </select>                                
-                              </div>
-                                                          
-                              <div class="form-group col-xs-6">                                
-                                <label for="date-to"> To</label>
-                                <select name="to_year[]" id="toyear_1" class="form-control">
-                                     <option value="<?php if(isset($workexperiences->fromyear)){echo $workexperiences->fromyear; } else{echo "Year";} ?>"><?php if(isset($workexperiences->fromyear)){echo $workexperiences->fromyear; } else{echo "Year";} ?>  </option>
-                                      <option value="2017"> 2017</option>
-                                      <option value="2016"> 2016</option>
-                                      <option value="2015"> 2015</option>
-                                      <option value="2014"> 2014</option>
-                                      <option value="2013"> 2013 </option>
-                                      <option value="2012"> 2012</option>
-                                      <option value="2011"> 2011</option>
-                                      <option value="2010"> 2010</option>
-                                      <option value="2009"> 2009</option>
-                                      <option value="2008"> 2008</option>
-                                      <option value="2007"> 2007</option>
-                                      <option value="2006"> 2006</option>
-                                      <option value="2005"> 2005</option>
-                                      <option value="2004"> 2004</option>
-                                      <option value="2003"> 2003</option>
-                                      <option value="2002"> 2002</option>
-                                      <option value="2001"> 2001</option>
-                                      <option value="2000"> 2000</option>
-                                  </select>                                
-                              </div>
-
-                            </div> 
-                                <div class="col-sm-12 text-right"> 
-                                 <a href="JavaScript:void(0);" class="animated bounceInLeft remove_college btn btn-info btn-sm">
-                                  Remove </a> 
-                                </div>
-
-                          </div>
-
-                            <div class="col-md-12">
-                              <div class="pull-left" style="width:100%;"> 
-                                <span style="color:#e91e63; font-size:13px;">
-                                <a href="JavaScript:void(0);" id="add_college" data-nxt_college_name="2">
-                                  <i class="fa fa-plus-circle"></i>
-                                  Add more College Details
-                                </a>
-                                </span>
-                              </div>
-                            </div>                          
-                                                      
-                            <div class="row">
-                              <div style="width:100%;" class="text-center">
-                                <input type="submit" value="Save Changes" class="btn btn-primary" style="width:140px;">
-                              </div>
-                            </div>
-                      </form>
-                </div>
-                </div>
-                </div>                                
-                </div>
-                </div>
-                </div>
-                </div>
-          </div>
-
-      <!-- end professional college model popup -->
-
-      <!--  professional skill model popup -->
-        <div class="modal fade modal-professional_skill" tabindex="-1" role="dialog" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="post-content">                            
-              <div class="post-container" style="padding-bottom:20px;">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>   
-                <div class="post-detail">
-                    <div class="user-info">
-                      <h3>Edit Professional Profile</h3>
-                      <span style="color:#333; font-size: 14px">Please give the following information </span>
-                    </div>                              
-                    <div class="line-divider"></div>
-                  <div class="user-info">
-                    <div class="row" style="padding:10px;">
+                                         <div class="post-detail">
+                                              <div class="user-info">
+                                                    <h3>Edit Professional Profile</h3>
+                                                     <span style="color:#333; font-size: 14px">Please give the following information </span>
+                                               </div>                              
+                                               <div class="line-divider"></div>
+                                               <div class="user-info">
+                                 <div class="row" style="padding:10px;">
                       <form action="<?php echo base_url('profile/professional_update'); ?>" method="post"  id="professional_update"
                        class="form-inline">
-
-                        <div id="dynamic_add_professional"> 
-
-                            <div class="row" id="add_professional_1">  
+                                <div class="row">   
                               <div class="form-group col-xs-12">
-                                <label for="date-to"> Professional Skills</label>
-                                <input type="text" id="professional_1" class="form-control input-group-lg" name="professional_skills[]" style="text-transform: capitalize;" >
+                                <label for="date-to" class="">College</label>
+                                <input  type="text"  class="form-control" name="college[]" value="<?php
+                                          foreach ($profile->education as $profiles) {
+                                      echo $profiles;
+                                   } ?>" />
                               </div>
-                               <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_profession btn btn-info btn-sm"> Remove</a> </div>  
+                            </div>                                                  
+                            <div class="row ">  
+                              <div class="form-group col-xs-12">
+                                <label for="date-to" class=""> Current Work Place</label>
+                                <input  type="text"  class="form-control input-group-lg" name="work_place" value="<?php if(isset($profile->workplace)){echo $profile->workplace; } else{echo "";} ?>" />
+                              </div>  
                             </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <div class="pull-left" style="width:100%;"> 
-                              <span style="color:#e91e63; font-size:13px;">
-                              <a href="JavaScript:void(0);" id="add_professional" data-nxt_professional="2">
-                                <i class="fa fa-plus-circle"></i>
-                                Add more Profession</a>
-                              </span>
+                             <div class="row ">  
+                              <div class="form-group col-xs-12">
+                                <label for="date-to" class=""> Designation</label>
+                                <input  type="text" class="form-control input-group-lg" name="designation" value="<?php if(isset($profile->designation)){echo $profile->designation; } else{echo "";} ?>" />
+                              </div>  
                             </div>
-                        </div>                           
+                              <div class="row ">  
+                              <div class="form-group col-xs-12">
+                                <label for="date-to" class=""> Certificates</label>
+                                <input  type="text"  class="form-control input-group-lg" name="certificates[]" value="<?php
+                                   foreach ($profile->certification as $profiles) {
+                                      echo $profiles;
+                                   } ?>" />
+                              </div>  
+                            </div>
+                            <div class="row ">  
+                              <div class="form-group col-xs-12">
+                                <label for="date-to" class=""> Awards</label>
+                                <input  type="text"  class="form-control input-group-lg" name="awards[]"  value="<?php
+                                   foreach ($profile->volunteer as $profiles) {
+                                      echo $profiles;
+                                   } ?>" />
+                              </div>  
+                            </div>
                                                       
                             <div class="row">
-                              <div style="width:100%;" class="text-center">
-                                <input type="submit" value="Save Changes" class="btn btn-primary" style="width:140px;">
+                              <div  style="width:100%;" class="text-center">
+                                <input type="submit" value="Save Changes" class="btn btn-primary" style="width:140px;">                                
                               </div>
                             </div>
                       </form>
-                    </div>
-                  </div>
-                </div>                                
-              </div>
-            </div>
+                               </div>
+                                </div>
+                                  </div>                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
           </div>
-          </div>
-        </div>
-      <!--  professional background model popup -->
+                   <!--  professional background model popup -->
 
                      <!--  professional work experience  model popup -->
    <div class="modal fade modal-ex_professional" tabindex="-1" role="dialog" aria-hidden="true">
@@ -1335,8 +1652,9 @@ table, td, tr
                                           { 
                                             echo ""; 
                                           } 
-                                    ?></textarea> 
-                                  
+                                    ?>
+                                  </textarea> 
+                                 
                                 </div>  
                             </div>
 
@@ -1480,7 +1798,9 @@ table, td, tr
                             <div class="row">  
                                 <div class="form-group col-xs-12">
                                   <label for="date-to"> Description</label>
-                                 <textarea name="description[]" id="description_1" class="form-control" style="min-height:100px;"></textarea> 
+                                 <textarea name="description[]" id="description_1" class="form-control" style="min-height:100px;" > 
+                                  
+                                  </textarea> 
                                  
                                 </div>  
                             </div>
@@ -1534,278 +1854,137 @@ table, td, tr
 
 
                       
-                  
+                   <!--  professional work experience model popup -->
 
-                            <!-- professional work experience -->
-
-                                  <div class="tab-pane" id="Work_Experience">
+                                  <div class="tab-pane" id="13">
                                     <div class="col-md-8">
-                                      <div class="col-md-12">
-                                            <div class="pull-left" style="width:7%;"><img src="../assets/images/intro-icon.png" alt=""/></div>
-                                            <div class="pull-left" style="width:65%; text-transform: capitalize; font-size:14px;">Work Experience<br>
-                                               <span style="color:#333; font-size:13px;"> 
-
-                                                  <?php 
-                                                        foreach($profile->workexperience as $workexperiences)
-                                                        {
-                                                           if(isset($workexperiences->title)||($workexperiences->company)||($workexperiences->location)||($workexperiences->frommonth)||($workexperiences->fromyear)||($workexperiences->tomonth)||($workexperiences->toyear)|| ($workexperiences->link)||($workexperiences->description))
-                                                           {
-                                                              echo $workexperiences->title." ".'<br>'; 
-                                                              echo $workexperiences->company." ".'<br>'; 
-                                                              echo $workexperiences->location." ".'<br>'; 
-                                                              echo $workexperiences->frommonth." ".$workexperiences->fromyear."-".$workexperiences->tomonth." ".$workexperiences->toyear."".'<br>'; 
-                                                              echo $workexperiences->link." ".'<br>'; 
-                                                              echo $workexperiences->description." ".'<br> <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>';
-                                                            }
-                                                   
-                                                          else
-                                                          {
-                                                            echo "Please update Your experience";
-                                                          }
-                                                        }
-                                                  ?>                                                 
-
-                                              </span>
-
-                                            </div>
-
-                                               <div class="pull-right text-right" style="width:20%; margin-top:10px;"> <a href="#" data-toggle="modal" data-target=".modal-ex_professional" ><img src="../assets/images/edit_icon.png" alt=""/></a>                                               
-                                               </div>                                           
-                                      </div>                                    
-                                    </div>
-                                  </div>
-
-                                  <!-- professional skills start here -->
-                          <div class="tab-pane" id="Professional_Skills">
-                            <div class="col-md-8">
-                              <div class="col-md-12">
-                              <div class="pull-left" style="width:7%;">
-                               <img src="<?php echo base_url('assets/images/designation-icon.png'); ?>" alt=""/>
-                              </div>
-                              <div class="pull-left" style="width:75%; color:#333; font-size:14px;">
-                                project manager<br>
-                                Programmer
-                                <!-- <span style="color:#333; font-size:13px;">
-                                  <?php
-                                    foreach ($profile->education as $profiles) 
-                                      {
-                                        echo $profiles;
-                                      } 
-                                  ?><br>                                        
-                                </span> -->
-                              </div>
-                                       
-                              <div class="pull-right text-right" style="width:10%; margin-top:10px;">
-                                <a href="#" data-toggle="modal" data-target=".modal-professional_skill" >
-                                <img src="../assets/images/edit_icon.png" alt=""/>
-                                </a>
-                              </div>
-                              </div>
-                              <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;">
-                              </div>
-                            </div>
-                          </div>
-                          <!-- professional skills end here -->
-
-                           <!--  professional Certificate start here  -->
-
-                                  <div class="tab-pane" id="Certifications">
-                                    <div class="col-md-9">
-                                    <div class="pull-right text-right" style="width:20%; margin-top:10px;"> 
-                                         <div style="font-weight: bold; font-size: 13px; color: #333;">Edit
-                                          <a href="#" data-toggle="modal" data-target=".modal-certificate" >
-                                             <img src="../assets/images/edit_icon.png" alt=""/>
-                                          </a>
-                                         </div>                                           
-                                    </div>
-                                  </div>
-                                    <div class="col-md-9">
                                       
-                                      <?php 
-                                            if(!empty($profile->certification)) 
-                                            {
-                                            foreach ($profile->certification as $certifications) { 
-                                      ?>
-                                      <div class="col-md-12">
-                                        <div class="pull-left" style="width:10%;">
-                                          <img src="../assets/images/certi-icon.png" alt=""/>
-                                        </div>
-                                          <div class="pull-left" style="width:80%; text-transform: capitalize; font-size: 15px;">
-                                            <?php if(isset($certifications->certification)) { echo $certifications->certification; } else { echo " "; } ?> - <?php if(isset($certifications->year)) { echo $certifications->year; } else { echo " "; } ?>
-                                            <br>
-                                           
-                                            <span style="color:#333; font-size:13px;">                                             
-                                            </span>
-                                            <br>
-                                          </div>                              
-                                      </div>
-                                       <?php } }  else { ?>
-                                     
-                                      <div class="col-md-12">
-                                        <div class="pull-left" style="width:10%;">
-                                          <img src="../assets/images/certi-icon.png" alt=""/>
-                                        </div>
-                                          <div class="pull-left" style="width:80%; text-transform: capitalize; font-size: 15px;">
-                                            Add Your Certificates
-                                            <br>
-                                           
-                                            <span style="color:#333; font-size:13px;">                                             
-                                            </span>
-                                            <br>
-                                          </div> 
-                                                               
-                                      </div>
-                                      <?php } ?>
-
                                       <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
-                                                                           
+                                      <div class="col-md-12">
+                                        <div class="pull-left" style="width:100%;"> <span style="color:#e91e63; font-size:13px;"><a href="#">+ Add work/ Job</a></span> </div>
+                                      </div>
                                     </div>
                                   </div>
-                            <!--  professional Certificate end here  -->
-
-                             <!-- certificate professional start model popup -->
-
-                <div class="modal fade modal-certificate" tabindex="-1" role="dialog" aria-hidden="true">
-                      <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                          <div class="post-content">                            
-                            <div class="post-container" style="padding-bottom:20px;">    
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                              </button>                 
-                              <div class="post-detail">
-                                <div class="user-info">
-                                 <h3>Edit Professional Profile</h3>
-                                 <span style="color:#333; font-size: 14px">Please give the following information</span>
-                                </div>                              
-                                <div class="line-divider"></div>
-                                <div class="user-info">
-                                 <div class="row" style="padding:10px;">                              
-                    <form action="<?php echo base_url('profile/professional_certificate'); ?>" method="post" 
-                      id="professional_certificate" class="form-inline">                     
-                           
-                          <div id="dynamic_add_certificate">
-                              <?php 
-                                  if(!empty($profile->certification)) 
-                                    {
-                                      foreach ($profile->certification as $certifications) { 
-                              ?>
-
-                           <div class="form-group col-xs-12" id="add_certificate_1">                               
-                              <div class="form-group col-xs-6">
-                                <label for="date-to" >Certificate</label>
-                                <input type="text" id="certificate_1" class="form-control" name="Certificate[]" value="<?php if(isset($certifications->certification)) { echo $certifications->certification; } else { echo " "; } ?> " />
-                              </div>
-                                                          
-                              <div class="form-group col-xs-6">
-                                <label for="date-to">Year</label>
-                                <select name="year[]" id="year_1" class="form-control">
-                                      <option value="<?php if(isset($certifications->year)) { echo $certifications->year; } else { echo " "; } ?>"> <?php if(isset($certifications->year)) { echo $certifications->year; } else { echo "Year"; } ?></option>
-                                      <option value="2018"> 2018</option>
-                                      <option value="2017"> 2017</option>
-                                      <option value="2016"> 2016</option>
-                                      <option value="2015"> 2015</option>
-                                      <option value="2014"> 2014</option>
-                                      <option value="2013"> 2013</option>
-                                      <option value="2012"> 2012</option>
-                                      <option value="2011"> 2011</option>
-                                      <option value="2010"> 2010</option>
-                                      <option value="2009"> 2009</option>
-                                      <option value="2008"> 2008</option>
-                                      <option value="2007"> 2007</option>
-                                      <option value="2006"> 2006</option>
-                                      <option value="2005"> 2005</option>
-                                      <option value="2004"> 2004</option>
-                                      <option value="2003"> 2003</option>
-                                      <option value="2002"> 2002</option>
-                                      <option value="2001"> 2001</option>
-                                      <option value="2000"> 2000</option>
-                                </select> 
-                              </div> 
-                              <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" class="animated bounceInLeft remove_certificate btn btn-info btn-sm"> Remove</a> </div>                            
-                            </div> 
-
-                            <?php } } else {  ?>
-
-                            <div class="form-group col-xs-12" id="add_certificate_1">                               
-                              <div class="form-group col-xs-6">
-                                <label for="date-to" >Certificate</label>
-                                <input type="text" id="certificate_1" class="form-control" name="Certificate[]" />
-                              </div>
-                                                          
-                              <div class="form-group col-xs-6">
-                                <label for="date-to">Year</label>
-                                <select name="year[]" id="year_1" class="form-control">
-                                      <option value=""> Year </option>
-                                      <option value="2018"> 2018</option>
-                                      <option value="2017"> 2017</option>
-                                      <option value="2016"> 2016</option>
-                                      <option value="2015"> 2015</option>
-                                      <option value="2014"> 2014</option>
-                                      <option value="2013"> 2013</option>
-                                      <option value="2012"> 2012</option>
-                                      <option value="2011"> 2011</option>
-                                      <option value="2010"> 2010</option>
-                                      <option value="2009"> 2009</option>
-                                      <option value="2008"> 2008</option>
-                                      <option value="2007"> 2007</option>
-                                      <option value="2006"> 2006</option>
-                                      <option value="2005"> 2005</option>
-                                      <option value="2004"> 2004</option>
-                                      <option value="2003"> 2003</option>
-                                      <option value="2002"> 2002</option>
-                                      <option value="2001"> 2001</option>
-                                      <option value="2000"> 2000</option>
-                                </select> 
-                              </div> 
-                              <div class="col-sm-12 text-right"> <a href="JavaScript:void(0);" class="animated bounceInLeft remove_certificate btn btn-info btn-sm"> Remove</a> </div>                            
-                            </div> 
-                            <?php } ?>
-
-                          </div>
-
-                            <div class="col-md-12">
-                                <div class="pull-left" style="width:100%;"> 
-                                  <span style="color:#e91e63; font-size:13px;">
-                                  <a href="JavaScript:void(0);" id="add_certificate" data-nxt_certificate="2">
-                                    <i class="fa fa-plus-circle"></i>
-                                  Add more Certificates</a>
-                                  </span>
+                                  <div class="tab-pane" id="14">
+                                    <div class="col-md-8">
+                                     <div class="col-md-10 text-center" style="margin:5px 0 25px;"><span style="font-size:16px; color:#fff; background:#706666; padding:5px 10px; border-radius:5px;">Seminar/ Conferences</span> </div>
+                                     <div class="col-md-2 text-right" style="margin:5px 0 25px;"><a href="#"><img src="../assets/images/edit_icon.png" alt=""/></a></div>
+                                      <div class="col-md-12">
+                                        <div class="edit-block" style="margin-bottom:0;">
+                                          <ul class="list-inline interests">
+                                            <li><a href="#">Business</a></li>
+                                            <li><a href="#">Startup</a></li>
+                                            <li><a href="#">Computer IT</a></li>
+                                            <li><a href="#">Consulting</a></li>
+                                            <li><a href="#">Fashion</a></li>
+                                          </ul>
+                                        </div>
+                                       
+                                      </div>
+                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0 5px;"></div>
+                                      <div class="col-md-10 text-center" style="margin:25px 0 25px;"><span style="font-size:16px; color:#fff; background:#706666; padding:5px 10px; border-radius:5px;">Training/ Classes</span> </div>
+                                     <div class="col-md-2 text-right" style="margin:25px 0 25px;"><a href="#"><img src="../assets/images/edit_icon.png" alt=""/></a></div>
+                                      <div class="col-md-12">
+                                        <div class="edit-block" style="margin-bottom:0;">
+                                          <ul class="list-inline interests">
+                                            <li><a href="#">Design</a></li>
+                                            <li><a href="#">Blogging</a></li>
+                                            <li><a href="#">Cooking</a></li>
+                                            <li><a href="#">Fitness</a></li>
+                                            <li><a href="#">Coding</a></li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0 5px;"></div>
+                                      <div class="col-md-10 text-center" style="margin:25px 0 25px;"><span style="font-size:16px; color:#fff; background:#706666; padding:5px 10px; border-radius:5px;">Networking Events</span> </div>
+                                     <div class="col-md-2 text-right" style="margin:25px 0 25px;"><a href="#"><img src="../assets/images/edit_icon.png" alt=""/></a></div>
+                                      <div class="col-md-12">
+                                        <div class="edit-block" style="margin-bottom:0;">
+                                          <ul class="list-inline interests">
+                                            <li><a href="#">Enterpreneurs</a></li>
+                                            <li><a href="#">Writers</a></li>
+                                            <li><a href="#">Fundraising</a></li>
+                                            <li><a href="#">Founders</a></li>
+                                            <li><a href="#">Rallies</a></li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0 5px;"></div>
+                                      <div class="col-md-10 text-center" style="margin:25px 0 25px;"><span style="font-size:16px; color:#fff; background:#706666; padding:5px 10px; border-radius:5px;">Online Events</span> </div>
+                                     <div class="col-md-2 text-right" style="margin:25px 0 25px;"><a href="#"><img src="../assets/images/edit_icon.png" alt=""/></a></div>
+                                      <div class="col-md-12">
+                                        <div class="edit-block" style="margin-bottom:0;">
+                                          <ul class="list-inline interests">
+                                            <li><a href="#">Webinars</a></li>
+                                            <li><a href="#">Teleconf</a></li>
+                                            <li><a href="#">Podcast</a></li>
+                                            <li><a href="#">Campaigns</a></li>
+                                            <li><a href="#">Following</a></li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                      
+                                    </div>
+                                  </div>
+                                  <div class="tab-pane" id="15">
+                                    <div class="col-md-8">
+                                      <div class="col-md-10 text-center" style="margin:5px 0 25px;"><span style="font-size:16px; color:#fff; background:#706666; padding:5px 10px; border-radius:5px;">My Professional Group</span> </div>
+                                     <div class="col-md-2 text-right" style="margin:5px 0 25px;"><a href="#"><img src="../assets/images/edit_icon.png" alt=""/></a></div>
+                                      <div class="col-md-12">
+                                        <div class="edit-block" style="margin-bottom:0;">
+                                          <ul class="list-inline interests">
+                                            <li><a href="#">Texas Businessmen</a></li>
+                                            <li><a href="#">Fitness Connection</a></li>
+                                            <li><a href="#">YC Coders</a></li>
+                                            <li><a href="#">Founders Club</a></li>
+                                            <li><a href="#">Fashion Guru</a></li>
+                                          </ul>
+                                        </div>
+                                       
+                                      </div>
+                                      <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
+                                      
+                                    </div>
+                                  </div>
                                 </div>
-                            </div>
-                                                      
-                            <div class="row">
-                              <div style="width:100%;" class="text-center">
-                                <input type="submit" value="Save Changes" class="btn btn-primary" style="width:140px;">
                               </div>
-                            </div>
-                      
-                    </form>
-                               </div>
-                                </div>
-                                  </div>                                
-                              </div>
-                            </div>
+                            </div>                            
+                            
                           </div>
-                  </div>
-                </div>
-                   <!-- end certificate professional model popup -->
-
-
-
+                          </div>                          
+                                                  
+                        </form>
                       </div>
-                </div>
-              </div>                            
-            </div>
-          </div>                       
-      </div>
-      </div>
-    </div>
+                    </div>
+                  </div>
 
-          <div class="col-md-4 static"> 
-            <div class="calendar"></div>
-          </div>
-
-                  
+                  <div class="col-md-3 static"> 
+                    
+                    <!--Sticky Timeline Activity Sidebar-->
+                    <div id="sticky-sidebar">
+                      <h4 class="grey"><i class="fa fa-search"></i> Search for Event</h4>
+                      <div class="feed-item">
+                        <div class="live-activity"> <span><a href="#" style="font-size:16px;">Event Venues</a></span>
+                          <p class="text-muted">All Event Venues</p>
+                        </div>
+                      </div>
+                      <div class="feed-item">
+                        <div class="live-activity"> <span><a href="#" style="font-size:16px;">Event Service Providers</a></span>
+                          <p class="text-muted">Service Providers</p>
+                        </div>
+                      </div>
+                      <div class="feed-item">
+                        <div class="live-activity"> <span><a href="#" style="font-size:16px;">Event Tickets</a></span>
+                          <p class="text-muted">Browse all</p>
+                        </div>
+                      </div>
+                      <div class="feed-item">
+                        <div class="live-activity"> <span><a href="#" style="font-size:16px;">!WOW</a></span>
+                          <p class="text-muted">Upcoming Events</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1825,7 +2004,7 @@ table, td, tr
 <!-- Scripts
     ================================================= --> 
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
 <script src="<?php echo base_url ('assets/js/jquery-3.1.1.min.js') ?>"></script>
 <script src="<?php echo base_url ('assets/js/bootstrap.min.js') ?>"></script> 
 <script src="<?php echo base_url ('assets/js/jquery.validate.js') ?>"></script>
@@ -1840,16 +2019,10 @@ table, td, tr
 <script src="<?php echo base_url ('assets/js/moment.min.js') ?>"></script>
 <script src="<?php echo base_url ('assets/js/fullcalendar.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script> 
-<script src="<?php echo base_url ('assets/html5lightbox/html5lightbox.js') ?>"></script><!-- video popup library -->
+
 <script>
 
-
-// tooltip for wowtag id
-    $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();   
-    });  
-
-  
+ 
   $('#link_show').click(function() //professional work experience
   {
       $('#link_url').show();
@@ -1873,6 +2046,7 @@ table, td, tr
 }
 
 
+
 $(document).ready(function(){
         $("#sociallinks").click(function()
           { 
@@ -1894,15 +2068,15 @@ $(document).on('click', '.remove_link', function(e)
 
 
 
-$("#profileImage1").click(function(e) { //this two value is cover image  id name 
-    $("#imageUpload1").click();
-});      
+      $("#profileImage1").click(function(e) { //this two value is cover image  id name 
+             $("#imageUpload1").click();
+              });      
 
-$("#profileImage").click(function(e) { //this two value is profile image  id name 
-    $("#imageUpload").click();  
-}); 
+             $("#profileImage").click(function(e) { //this two value is profile image  id name 
+            $("#imageUpload").click();  
+            }); 
 
-// calender for event info
+
             $("#birthday").datetimepicker({
             timepicker:false,
             format:"M-d-Y",           
@@ -1952,89 +2126,6 @@ $(document).on('click', '.remove_relation', function(e)
          
           $(this).parents('[id^=add_relation_]').remove();
          
-    });
-
-// dynamic add certificate
-  function generete_dynamic_certificate(count){
-
-  var certificate = ' <div class="form-group col-xs-12" id="add_certificate_'+count+'"> <div class="form-group col-xs-6"> <label for="date-to" >Certificate</label> <input  type="text" id="certificate_'+count+'" class="form-control" name="Certificate[]"  style="text-transform: capitalize;" /> </div> <div class="form-group col-xs-6"> <label for="date-to" class="">Year</label> <select name="year[]" id="year_'+count+'" class="form-control"> <option value=""> Year</option> <option value="2018"> 2018</option> <option value="2017"> 2017</option> <option value="2016"> 2016</option> <option value="2015"> 2015</option> <option value="2014"> 2014</option> <option value="2013"> 2013 </option> <option value="2012"> 2012</option> <option value="2011"> 2011</option> <option value="2010"> 2010</option> <option value="2009"> 2009</option> <option value="2008"> 2008</option> <option value="2007"> 2007</option> <option value="2006"> 2006</option> <option value="2005"> 2005</option> <option value="2004"> 2004</option> <option value="2003"> 2003</option> <option value="2002"> 2002</option> <option value="2001"> 2001</option> <option value="2000"> 2000</option> </select> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_certificate btn btn-info btn-sm"> Remove</a> </div> </div>';
-
-    return certificate;
-}
-
-
-
-$(document).ready(function(){
-        $("#add_certificate").click(function()
-          {       
-            var next_certificate = $(this).data("nxt_certificate"); 
-            var nxtvenueHTML = generete_dynamic_certificate(next_certificate);
-            $("#dynamic_add_certificate").append(nxtvenueHTML);        
-              next_certificate++;
-           $(this).data('nxt_certificate', next_certificate); //update data nxtportion   
-        });   
-});
-
-// remove div
-$(document).on('click', '.remove_certificate', function(e)
-    {
-         
-          $(this).parents('[id^=add_certificate_]').remove();
-         
-    });
-
-// dynamic add college
-  function generete_dynamic_college(count){
-
-  var college = ' <div class="row" id="add_college_'+count+'"> <div class="form-group col-xs-12"> <label for="date-to"> College</label> <input type="text" id="college_'+count+'" class="form-control input-group-lg" name="college[]" > </div> <div class="form-group col-xs-6"> <label for="date-to"> From</label> <select name="from_year[]" id="fromyear_'+count+'" class="form-control"> <option value=""> Year </option> <option value="2017"> 2017</option> <option value="2016"> 2016</option> <option value="2015"> 2015</option> <option value="2014"> 2014</option> <option value="2013"> 2013 </option> <option value="2012"> 2012</option> <option value="2011"> 2011</option> <option value="2010"> 2010</option> <option value="2009"> 2009</option> <option value="2008"> 2008</option> <option value="2007"> 2007</option> <option value="2006"> 2006</option> <option value="2005"> 2005</option> <option value="2004"> 2004</option> <option value="2003"> 2003</option> <option value="2002"> 2002</option> <option value="2001"> 2001</option> <option value="2000"> 2000</option> </select> </div> <div class="form-group col-xs-6"> <label for="date-to"> To</label> <select name="to_year[]" id="toyear_'+count+'" class="form-control"> <option value=""> Year </option> <option value="2017"> 2017</option> <option value="2016"> 2016</option> <option value="2015"> 2015</option> <option value="2014"> 2014</option> <option value="2013"> 2013 </option> <option value="2012"> 2012</option> <option value="2011"> 2011</option> <option value="2010"> 2010</option> <option value="2009"> 2009</option> <option value="2008"> 2008</option> <option value="2007"> 2007</option> <option value="2006"> 2006</option> <option value="2005"> 2005</option> <option value="2004"> 2004</option> <option value="2003"> 2003</option> <option value="2002"> 2002</option> <option value="2001"> 2001</option> <option value="2000"> 2000</option> </select> </div> <div class="col-sm-12 text-right"> <a href="JavaScript:void(0);" class="animated bounceInLeft remove_college btn btn-info btn-sm"> Remove </a> </div> </div>';
-
-    return college;
-}
-
-
-
-$(document).ready(function(){
-        $("#add_college").click(function()
-          {       
-            var next_certificate = $(this).data("nxt_college_name"); 
-            var nxtvenueHTML = generete_dynamic_college(next_certificate);
-            $("#dynamic_add_college").append(nxtvenueHTML);        
-              next_certificate++;
-           $(this).data('nxt_college_name', next_certificate); //update data nxtportion   
-        });   
-});
-
-// remove div
-$(document).on('click', '.remove_college', function(e)
-    {
-       $(this).parents('[id^=add_college_]').remove();
-    });
-
-// dynamic add professional
-  function generete_dynamic_professional(count){
-
-  var professional = ' <div class="row" id="add_professional_'+count+'"> <div class="form-group col-xs-12"> <label for="date-to"> Professional Skills</label> <input type="text" id="professional_'+count+'" class="form-control input-group-lg" name="professional_skills[]" style="text-transform: capitalize;" > </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_profession btn btn-info btn-sm"> Remove</a> </div> </div>';
-
-    return professional;
-}
-
-
-
-$(document).ready(function(){
-        $("#add_professional").click(function()
-          {       
-            var next_professional = $(this).data("nxt_professional"); 
-            var nxtvenueHTML = generete_dynamic_professional(next_professional);
-            $("#dynamic_add_professional").append(nxtvenueHTML);        
-              next_professional++;
-           $(this).data('nxt_professional', next_professional); //update data nxtportion   
-        });   
-});
-
-// remove div
-$(document).on('click', '.remove_profession', function(e)
-    {
-       $(this).parents('[id^=add_professional_]').remove();
     });
 
  //personal profile relationship and updated profile page
@@ -2318,87 +2409,12 @@ var base_url = '<?php echo base_url() ?>'; //form submited
       });
    });
 
- //professional profile certifcate submit and updated profile page
-
-var base_url = '<?php echo base_url() ?>'; //form submited
-
- $(document).ready(function(){
-
-    $(document).on("submit", "#professional_certificate", function(e){
-         e.preventDefault();
-        var url = $(this).attr('action');
-        var formdata = new FormData(this);
-      
-        $.ajax({
-                url : url,
-                method: 'POST',
-                data: formdata,
-                processData: false,
-                contentType: false,
-                dataType:'json',
-                error: function(xhr,status,error)
-                {   
-                    alert(xhr.responseText);
-                },
-                success: function(response)
-                {
-                   if(response.status == 'success')
-                   {
-                    swal("Good job!", "Your profile successfully updated!", "success");
-                    window.location.href = base_url + 'profile/profile_get';
-                    }else if(response.status == 'Failed')
-                   {
-                    
-                    swal("Sorry!", "somethink wrong !", "error");
-                   }          
-                }
-            });
-      });
-   });
-
-
  //professional profile full page submit and updated profile page
 
      var base_url = '<?php echo base_url() ?>'; //form submited
     $(document).ready(function(){
 
     $(document).on("submit", "#professional_update", function(e){
-         e.preventDefault();
-        var url = $(this).attr('action');
-        var formdata = new FormData(this);
-      
-        $.ajax({
-                url : url,
-                method: 'POST',
-                data: formdata,
-                processData: false,
-                contentType: false,
-                dataType:'json',
-                error: function(xhr,status,error)
-                {   
-                    alert(xhr.responseText);
-                },
-                success: function(response)
-                {
-                   if(response.status == 'success')
-                   {
-                    swal("Good job!", "Your profile successfully updated!", "success");
-                    window.location.href = base_url + 'profile/profile_get';
-                    }else if(response.status == 'Failed')
-                   {
-                      swal("Sorry!", "somethink wrong !", "error");
-                   }          
-                }
-            });
-      });
-    });
-
-//professional college  updated profile page
-
-     var base_url = '<?php echo base_url() ?>'; //form submited
-    $(document).ready(function(){
-
-    $(document).on("submit", "#professional_college", function(e){
          e.preventDefault();
         var url = $(this).attr('action');
         var formdata = new FormData(this);
@@ -2625,7 +2641,7 @@ $(document).ready(function() {
 
   $(document).ready(function() {
 
-    $('.calendar').fullCalendar({
+    $('#calendar').fullCalendar({
       header: {
         left: 'prev,next today',
         center: 'title',

@@ -1,5 +1,23 @@
-                      
-<!-- here showing event hubb rsvp model popup  -->
+
+
+    <style type="text/css">
+     .tooltip{
+    width:350px;
+    padding:3px 8px;
+    color:#FFF;
+    text-align:center;
+    background: #5CB85C; 
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    border: 1px solid #314A5B;
+}
+.tooltip-inner {
+  max-width: 350px;
+  width: 350px;
+}
+    </style>                  
+<!-- here showing event hubb audience engagement submission model popup  -->
 
         <div class="modal-body">
          <div class="post-detail">
@@ -34,7 +52,7 @@
 
                                   </div>
                                   <div style="font-size:15px; font-weight:bold; line-height: 15px;">
-                                    <?php if(isset($events->fullname)) { echo $events->fullname." ".$events->userid->lastname;}  ?>
+                                    <?php if(isset($events->fullname)) { echo $events->fullname;}  ?>
                                   </div>        
                                   <div style="font-size:11px;"><?php if(isset($events->userid->designation)){ echo $events->userid->designation; } ?></div> 
                                   <div style="font-size:12px; color: #e91e63;">
@@ -42,15 +60,49 @@
                                     <?php echo $events->userid->wowtagid;?>
                                   </div>
                                  
-                                  <div style="color: #0e8e18; font-weight: bold;"> Attending 
+                                  <div style="color: #0e8e18; font-weight: bold;"> <a  href="#" data-toggle="tooltip" title="test">Attending </a>
                                     <i class="glyphicon glyphicon-ok"> </i>
                                   </div>   
                                 
                                   <span class="form-body-classic">
-                                    <a class="btn" href="#show_info" style="cursor: pointer;"  data-toggle="modal">
-                                      <i class="glyphicon glyphicon-eye-open"></i>  Registration Info
+                                    <!-- <a class="btn" href="#show_info" style="cursor: pointer;"  data-toggle="modal">
+                                    </a> -->
+                                  <a  href="#" data-toggle="tooltip" title="<?php 
+                                      if(isset($events->email) && ($events->email != null) && ($events->email != " ") )
+                                      {
+                                        echo "Email: ".$events->email."\n";                                    
+                                      }
+                                      if(isset($events->phone) && ($events->phone != null) && ($events->phone != " "))
+                                      {
+                                        echo "Phone No: ".$events->phone."\n";
+                                      }
+                                      if(isset($events->address1) && ($events->address1 != null) && ($events->address1 != " "))  
+                                      {
+                                        echo "Address1: ".$events->address1."\n";
+                                      }
+                                      if(isset($events->address2) && ($events->address2 != null) && ($events->address2 != " "))
+                                      {
+                                        echo "Address2: ".$events->address2."\n";
+                                      }
+                                      if(isset($events->city) && ($events->city != null) && ($events->city != " ") )
+                                      {
+                                        echo "City: ".$events->city."\n";
+                                      }
+                                      if(isset($events->country) && ($events->country != null) && ($events->country != " ") )
+                                      {
+                                        echo "Country: ".$events->country."\n";
+                                      }
+                                      if(isset($events->zipcode) && ($events->zipcode != null) && ($events->zipcode != " "))
+                                      {
+                                        echo "Zipcode: ".$events->zipcode."\n";
+                                      }
+                                    ?>" >
+
+                                    <i class="glyphicon glyphicon-eye-open"></i>  Registration Info
+                                    
                                     </a>
-                                  </span>                                  
+                                  
+                                  </span>                                 
 
                               </div>
 
@@ -121,3 +173,7 @@
           </div>
         </div>
 
+
+<script>
+
+</script>

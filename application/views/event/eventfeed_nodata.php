@@ -27,18 +27,25 @@
 <style type="text/css">
 
 .timeline-nav-bar {
-	background: rgba(0,0,0, .7);
-	width: 96%;
-	position: absolute;
-	bottom: 7px;
-	height: 45px;
-	right: 10px;
+  background: rgba(0,0,0, .7);
+  width: 97%;
+  position: absolute;
+  bottom: 7px;
+  height: 45px;
+  right: 10px;
+    z-index: 999;
+}
+.timeline-nav-bar1 {
+  position: absolute;  
+  bottom: 7px; 
+  right: 25px;
+  z-index: 99;
 }
 .timeline-nav-bar ul.follow-me {
-	margin: 0;
-	position: absolute;
-	right: 15px;
-	top: 7px;
+  margin: 0;
+  position: absolute;
+  right: 15px;
+  top: 7px;
 }
 .timeline-nav-bar ul.follow-me1 {
   margin: 0;
@@ -47,113 +54,121 @@
   top: 7px;
 }
 ul li {
-	list-style-image: none;
+  list-style-image: none;
 }
 .post-content img.post-image, video.post-video, .google-maps {
-	width: 100%;
-	height: 350px;
+  width: 100%;
+  height: 350px;
 }
-#page-contents {
-	padding: 30px 0 50px;/*background-color:#e7e5e6;*/
-}
+
 #footer {
-	background: #fff;
-	position: relative;
-	top: 0px;
+  background: #fff;
+  position: relative;
+  top: 0px;
 }
 .upload-button {
-	padding: 4px;
-	border: 1px solid black;
-	border-radius: 5px;
-	display: block;
-	float: left;
-	margin-top: -40px;
+  padding: 4px;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: block;
+  float: left;
+  margin-top: -40px;
 }
 .profile-pic {
-	max-width: 200px;
-	max-height: 200px;
-	display: block;
-	border-radius: 50px;
+  max-width: 200px;
+  max-height: 200px;
+  display: block;
+  border-radius: 50px;
 }
 .file-upload {
-	display: none;
+  display: none;
+}
+ul.nav-news-feed li {
+    list-style: none;
+    display: block;
+    padding: 2px 0;
+    text-align: left;
+}
+
+ul.nav-news-feed {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 0 0px 0;
 }
 .dropdown-menu {
-	position: absolute;
-	top: 100%;
-	left: -35px;
-	z-index: 999999;
-	display: none;
-	float: left;
-	min-width: 160px;
-	padding: 5px 0;
-	margin: 2px 0 0;
-	font-size: 14px;
-	text-align: left;
-	list-style: none;
-	background-color: #fff;
-	-webkit-background-clip: padding-box;
-	background-clip: padding-box;
-	border: 1px solid #ccc;
-	border: 1px solid rgba(0,0,0,.15);
-	border-radius: 4px;
-	-webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
-	box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  position: absolute;
+  top: 100%;
+  left: -35px;
+  z-index: 999999;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
 }
 #page-contents .form-group i {
-	color: #9E9E9E;
-	font-size: 16px;
-	right: 15px;
-	position: absolute;
-	top: 15px;
+  color: #9E9E9E;
+  font-size: 16px;
+  right: 15px;
+  position: absolute;
+  top: 15px;
 }
 /*search box style*/
 .live-search-list {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	padding: 1em;
-	background-color: #2c3e50;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-	font-family: 'Lato', sans-serif;
-	color: #fff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 1em;
+  background-color: #2c3e50;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-family: 'Lato', sans-serif;
+  color: #fff;
 }
 .live-search-box {
-	width: 100%;
-	display: block;
-	padding: 1em;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	border: 1px solid #3498db;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
+  width: 100%;
+  display: block;
+  padding: 1em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #3498db;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 .live-search-list li {
-	color: fff;
-	list-style: none;
-	padding: 0;
-	margin: 5px 0;
+  color: fff;
+  list-style: none;
+  padding: 0;
+  margin: 5px 0;
 }
 .panel, .flip {
-	padding: 5px;
-	margin-top:10px;
-	text-align: left;
-	background-color: transparent;
-	border: 0;
-	cursor: pointer;
+  padding: 5px;
+  margin-top:4px;
+  text-align: left;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
 }
 .panel {
-	padding: 0px;
-	display: none;
+  padding: 0px;
+  display: none;
 }
 .panel1, .flip1 {
-  padding: 5px;
-  /*margin-top:10px;*/
-  /*text-align: left;*/
+  padding: 5px;  
   background-color: transparent;
   border: 0;
   cursor: pointer;
@@ -161,6 +176,15 @@ ul li {
 .panel1 {
   padding: 0px;
   display: none;
+}
+.post-content {
+    background: #fff;
+    border-radius: 4px;
+    width: 100%;
+    border: 1px solid #E1E0E0;
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
 }
 
 img.profile-photo1 {
@@ -176,12 +200,18 @@ img.profile-photo1 {
   line-height: 1.1em;
   margin: 0px 0 0px;
 }
-video {
-    position: relative; 
-    top: 15%;
-    left: 0;
-    width: 100%;
-    opacity: 1 !important;
+
+.btn-primary-1 {
+    background: #e91e63;
+    padding: 7px 15px!important;
+    border: none;
+    font-size: 14px;
+    border-radius: 4px;
+    color: #fff;
+    position: relative;
+    font-weight: 600;
+    outline: none;
+    border-radius: 30px;
 }
 
 img {
@@ -189,20 +219,131 @@ img {
     height: auto;
     display: inline-block;
   }
-.remove {
+
+  .remove {
     display: block;
     background: #444;
     border: 1px solid black;
     color: white;
     text-align: center;
     cursor: pointer;
-    width: 200px;
-      /*margin-left: 107px;*/
+    width: 200px;     
   }
   .remove:hover {
     background: white;
     color: black;
   }
+  
+@media (min-width: 1024px)
+  {
+    .menu form .form-group input.form-control{
+      width:250px;
+    }
+    textarea.form-control
+    {
+      width:100%;
+    }
+  }
+  .profile-card{
+  
+  width: 100%;
+  height: 80px!important;
+  
+}
+/*here start with multiple email  */
+.multipleInput-container {
+     border:1px #999 solid;
+     padding:1px;
+     padding-bottom:0;
+     cursor:text;
+     font-size:14px;;
+     width:100%;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+ 
+.multipleInput-container input {  
+    outline: none;
+    font-size:14px;;
+    clear:both;
+    height:40px;
+    border:0;
+    margin-bottom:1px;
+}
+ 
+.multipleInput-container ul {
+    list-style-type:none;
+}
+ 
+li.multipleInput-email {
+    float:left;
+    padding:6px ;
+    color: #fff;
+  background: #FD9160;
+  margin-top: 0;
+  border-radius: 6px;
+  margin: 6px 2px 6px 6px;
+}
+ 
+.multipleInput-close {
+    width:16px;
+    height:16px;
+    display:block;
+    float:right;
+    margin: -2px 0px 0px 8px;
+  color: #fff;
+  font-size: 16px;
+} 
+.profile-card {
+    background: linear-gradient(to bottom, rgba(63,62,63,.8), rgba(41,41,41,.8)), url(../../images/covers/5.jpg) no-repeat;
+    box-shadow: 1px 1px 1px 2px #ECECEC;
+    background-size: cover;
+    width: 100%;
+    min-height: 71px;
+    border-radius: 4px;
+    padding: 10px 8px 0;
+    color: #fff;
+    border: 1px solid #f9f9f9;
+    margin-bottom: 20px;
+}
+
+.profile-card img.profile-photo {
+    border: 0px solid #fff;
+    float: left;
+    margin-right: 20px;
+    position: relative;
+    top: -4px;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    left: 0;
+}
+
+.create-post {
+    width: 100%;
+    min-height: 90px;
+    padding: 20px;
+    margin-bottom: 7px;
+    border-bottom: 1px solid #ccc;
+}
+
+.rsvp-1{
+    margin: 0;
+    padding: 6px 12px;
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid rgb(197, 194, 195);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: normal;
+    color: #333;
+    -moz-border-radius: none;
+    -webkit-border-radius: none;
+    border-radius: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
 </style>
 
 </head>
@@ -229,28 +370,36 @@ img {
       <!-- Newsfeed Common Side Bar Left
           ================================================= -->
    
-    <div class="col-md-3 static">
-        <div class="profile-card">
+    <div class="col-md-2 static">
+        <div class="profile-card" style="margin-bottom:3px;">
               <div style="width:100%; float:left;">
                 <?php 
                 if(!is_null($this->session->userdata('personal_image')))
                 { ?>
-                <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo" />
+                <div style="float:left; width:18%;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo" /></div>
                 <?php }  else { ?>
                 <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo" />
                 <?php } ?>
-                <span class="text-white" style="margin-top:5px; font-size:18px;"><?php echo $this->session->userdata('first_name')." ".$this->session->userdata('last_name'); ?> </span>
-                <p><?php echo $this->session->userdata('designation');  ?></p>
+                <div class="text-white" style="float:left; width:80%; font-size:13px; margin-top:-4px; line-height:18px; text-transform:capitalize; white-space:nowrap; overflow:hidden; text-overflow: ellipsis;">
+                  <span class="name_bottom" title="<?php echo $this->session->userdata('first_name')." ".$this->session->userdata('last_name'); ?>" data-original-title="Tooltip on right" >
+                  <?php echo $this->session->userdata('first_name')." ".$this->session->userdata('last_name'); ?>
+                  </span>
+                </div>
               </div>
 
-              <div style="font-size:20px; color:#fff; margin-top:-20px; width:100%; float:right; text-align:right;">
+              <div style="float:right; width:82%;">
+                <p style="margin-top:-16px; font-size:13px; line-height:37px;  text-transform:capitalize;">
+                  <?php echo $this->session->userdata('designation');  ?></p>
+              </div>
+
+              <div style="font-size:20px; color:#fff; margin-top:-30px; width:100%; float:right; text-align:right;">
 
                   <?php
-                       if($this->session->has_userdata('self_video') && ($this->session->userdata('self_video') != 'null') )                          
+                      if($this->session->has_userdata('self_video') && ($this->session->userdata('self_video') != 'null'))               
                       {  
                   ?>
-
-                        <a href="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('self_video'); ?>" >  &nbsp;&nbsp;
+                       
+                        <a href="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('self_video'); ?>" class="html5lightbox" data-width="480" data-height="320" > &nbsp;&nbsp;
                           <i class="icon ion-arrow-right-b" style="font-size:28px; color:#fff;"></i>
                         </a> 
                         
@@ -261,99 +410,130 @@ img {
 
         <!--profile card ends-->
         
-        <div id="chat-block" style="background:#fff; box-shadow:1px 1px 1px 2px #ECECEC; padding:2px; border-radius:5px;">
-          <ul class="nav-news-feed" style="margin-bottom:10px;">
+        <div id="chat-block" >
+          <ul class="nav-news-feed" style="margin-bottom:3px; padding:0;">
             
-            <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <img src="<?php echo base_url('assets/images/create-event-icon.png'); ?>" alt="user" /><a style="font-weight: bold;" href="<?php echo base_url('event/event_popup'); ?>">Create Event</a> </li>
+            <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <img src="<?php echo base_url('assets/images/create-event-icon.png'); ?>" alt="user" /><a style="font-weight: bold;" href="<?php echo base_url('event/event_popup'); ?>">&nbsp;Create Event</a> </li>
           </ul>
           <!--news-feed links ends-->
-          <ul class="nav-news-feed">
-            <!--  <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Our Links</h5>
-            <li><img src="<?php echo base_url('assets/images/event-feed-icon.png'); ?>" alt="user" /><a href="#">Event Feed</a></li>-->
-            <li><img src="<?php echo base_url('assets/images/profile-icon.png'); ?>" alt="user" />
-              <a href="<?php echo base_url('Event/profile_get_eventfeed'); ?>">My Profile</a></li>
-            <li><img src="<?php echo base_url('assets/images/network-icon.png'); ?>" alt="user" />
-              <a href="<?php echo base_url('Searchfriends/add_friends'); ?>">My Network</a></li>
-            <li><img src="<?php echo base_url('assets/images/album-icon.png'); ?>" alt="user" /><a href="#">My Album</a></li>
-            <li><img src="<?php echo base_url('assets/images/wow-tag-icon-1.png'); ?>" alt="user" /><a href="#">Wowtags</a></li>
+          <ul class="nav-news-feed" style="padding:0;">
+           
+            <li><img src="<?php echo base_url('assets/images/event-feed-icon.png'); ?>" style="margin-left:5px;" alt="user" />
+              <a href="<?php echo base_url('Event/profile_get_eventfeed'); ?>"> &nbsp;My Feeds</a></li>
+            <li><img src="<?php echo base_url('assets/images/profile-icon.png'); ?>" style="margin-left:5px;" alt="user" />
+              <a href="<?php echo base_url('Profile/profile_get'); ?>"> &nbsp;My Profile</a></li>
+            <li><img src="<?php echo base_url('assets/images/network-icon.png'); ?>" style="margin-left:5px;" alt="user" />
+              <a href="<?php echo base_url('Searchfriends/add_friends'); ?>"> &nbsp;My Network</a></li>
+            <li><img src="<?php echo base_url('assets/images/album-icon.png'); ?>" style="margin-left:5px;" alt="user" /><a href="#"> &nbsp;My Album</a></li>
+            <li><img src="<?php echo base_url('assets/images/wow-tag-icon-1.png'); ?>" style="margin-left:5px;" alt="user" /><a href="#"> &nbsp;Wowtags</a></li>
             <li>
-              <div style="margin-left:0; text-align:left;"><a href="<?php echo base_url('eventhubb/get_eventhubb'); ?>"><img src="<?php echo base_url('assets/images/event-hubb-icon.png'); ?>" alt="user" />Event Hubb</a></div>
+              <div style="margin-left:0; text-align:left;"><a href="<?php echo base_url('eventhubb/get_future_eventhubb'); ?>"><img src="<?php echo base_url('assets/images/event-hubb-icon.png'); ?>" style="margin-left:5px;" alt="user" /> &nbsp;Event Hubb</a></div>
             </li>
-            <li><img src="<?php echo base_url('assets/images/profile-icon.png'); ?>" alt="user" /><a href="#">Event Organizer</a></li>
-             <li><img src="<?php echo base_url('assets/images/album-icon.png'); ?>" alt="user" /><a href="#">My Coupons</a></li>
+            <li><img src="<?php echo base_url('assets/images/profile-icon.png'); ?>" style="margin-left:5px;" alt="user" /><a href="#"> &nbsp;Event Organizer</a></li>
+             <li><img src="<?php echo base_url('assets/images/album-icon.png'); ?>" style="margin-left:5px;" alt="user" /><a href="#">&nbsp; My Coupons</a></li>
+             <li><img src="<?php echo base_url('assets/images/network-icon.png'); ?>" style="margin-left:5px;" alt="user" /><a href="<?php echo base_url('searchfriends/get_group'); ?>"> &nbsp;Group Hubb</a></li>
 
-            <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
+            
           </ul>
           
           <!--news-feed links ends-->
-          <ul class="nav-news-feed">
-            <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Event Pages</h5>
+          <ul class="nav-news-feed" style="padding:10px 0 1px;">
+            <h5 style="font-weight:bold; font-size:13px; letter-spacing:-.5px; text-align:left; padding:0; margin:0; padding-left:5px; color:#616770;">Event Pages</h5>
              
+                
+          </ul>
+          <!--news-feed links ends-->
+          <ul class="nav-news-feed" style="padding:10px 0;">
+            <h5 style="font-weight:bold; font-size:13px; letter-spacing:-.5px; text-align:left; padding-left:5px; color:#616770;">Business Pages</h5>
+            <li style="color:#e91e63; padding-left:5px;"><strong>Organisations</strong></li>
+           
+
+            <!-- company name show here from login page -->
+             <?php
+             
+                  $business =  $this->session->userdata('business');
+                  
+                    foreach ($business as $business_name) { 
+                        if(isset($business_name->companyname)) 
+                          {            
+                  
+              ?>
+            <li>             
+              <div style="margin-left:0; text-align:left; padding-left:5px;">
+                <a href="<?php echo base_url('business/business_pageshow/'.$business_name->_id); ?>">
+                    
+                    <?php  echo $business_name->companyname; ?>
+                </a>
+              </div>
+            </li>
+
+            <?php } }  ?>
+            <!-- company name show end here  -->
+
+            <li  style="color:#e91e63; padding-left:5px;"><strong>Event Service Providers</strong></li>
+            
+             <!-- event service provider name show here from login page -->
+              <?php
+             
+                  $event_service =  $this->session->userdata('eventservice');
+                  
+                  foreach ($event_service as $event_service_name) { 
+                      if(isset($event_service_name->companyname)) 
+                        {            
+                  
+              ?>
+            <li> 
+
+              <div style="margin-left:0; text-align:left; padding-left:5px;">
+                    <a href="<?php echo base_url('business/my_eventserviceprovider_pageshow/'.$event_service_name->_id); ?>">
+                      
+                      <?php  echo $event_service_name->companyname; ?>
+                      
+                    </a>
+              </div>
+
+            </li>
+
+            <?php } }  ?>
+            <!-- event service provider name show end here  -->
+
+            <li  style="color:#e91e63; padding-left:5px;"><strong>Event Venues</strong></li>
+            <li>
+              <div style="margin-left:0; text-align:left; padding-left:5px;"><a href="#">Sharaton Event Center</a></div>
+            </li>
+          
+            
+          </ul>
+          <!--news-feed links ends-->
+          <ul class="nav-news-feed"  style="padding:0;">
+            <h5 style="font-weight:bold; font-size:13px;  color:#616770; letter-spacing:-.5px; text-align:left;  padding-left:5px; margin-bottom:0;">Create</h5>
              <li>
-              <div style="margin-left:0; text-align:left;">
-                <a href="<?php echo base_url('Service/eventvenue_form'); ?>">
-                <i class="fa fa-caret-right" style="margin-top:4px;"></i>Event Venue Form</a></div>
+              <div style="margin-left:0; text-align:left; padding-left:5px;" >
+              <a href="<?php echo base_url('Searchfriends/create_group_page'); ?>" style=" color:#da275a;">Group.</a>
+              <a href="#" style=" color:#da275a;">Adv.</a> 
+              <a href="#" style=" color:#da275a;">Business Ad.</a>
+              <a href="<?php echo base_url('business/business_page_landing'); ?>" style=" color:#da275a;">Page</a></div>
             </li>
+            
+          
 
-            <li>
-              <div style="margin-left:0; text-align:left;">
-                <a href="<?php echo base_url('Service/eventvenue_admin'); ?>">
-                <i class="fa fa-caret-right" style="margin-top:4px;"></i>Event Venue Admin </a></div>
-            </li>
-
-            <li>
-              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Craig Birthday</a></div>
-            </li>
-            <li>
-              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Gina Catering</a></div>
-            </li>
-            <li>
-              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Elevation 2017</a></div>
-            </li>
-            <li>
-              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Startup 2017</a></div>
-            </li>
-            <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
-          </ul>
-          <!--news-feed links ends-->
-          <ul class="nav-news-feed">
-            <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Business Pages</h5>
-            <li>
-              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Hebronplus</a></div>
-            </li>
-            <li>
-              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Gina Catering</a></div>
-            </li>
-            <li>
-              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Living Word Church</a></div>
-            </li>
-            <li>
-              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Sharaton Event Center</a></div>
-            </li>
-            <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
-          </ul>
-          <!--news-feed links ends-->
-          <ul class="nav-news-feed">
-            <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Create</h5>
-            <li>
-              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Create Ad</a></div>
-            </li>
-            <li>
-              <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Create Business Ad</a></div>
-            </li>
           </ul>
           <!--news-feed links ends--> 
           
         </div>
         <!--chat block ends--> 
       </div>
-
         <!-- center part for event feed -->
 
-      <div class="col-md-6"> 
+      <div class="col-md-7"> 
         
             <div class="create-post" style="background-color: #fff; padding:10px; border-radius:5px;">
+
+              <div class="row" style="background-color:#f6f7f9; border-bottom:1px solid #ccc; margin-bottom:10px;">
+              <div class="col-md-12" style="font-size:13px; font-weight:bold; margin-top:10px; margin-bottom:3px;"> <img src="<?php echo base_url('assets/images/sh-th.png'); ?>" alt="share thoughts" /> Share Your Thoughts</div>
+              </div>
                 <div class="row">
+
 
                    <!-- thought form submit here -->
                    <form id="thougths" action="<?php echo base_url('event/update_thoughts'); ?>" method="POST" enctype="multipart/form-data">
@@ -392,8 +572,8 @@ img {
                       <img src="<?php echo base_url('assets/images/vid-icon.png'); ?>" alt="user" id="upfile2" style="cursor:pointer"/> Post Video  </li>
                   </ul>
                 </div>
-                <div class="tools pull-right">
-                  <input type="submit" name="thoughts" class="btn btn-primary-1 pull-right" style="margin-top:7px; padding-left:25px!important; padding-right:25px!important;" value="Publish" >
+               <div class="tools pull-right">
+                  <input type="submit" name="thoughts" class="btn btn-primary-1 pull-right" style="margin-top:7px; padding-left:25px!important; font-size:13px; padding-right:25px!important;" value="Publish" >
                 </div>
               </div>
                       <div class="col-md-12" style="margin-top: 20px; margin-bottom: 20px; display: none;" id="show_text" >
@@ -525,9 +705,7 @@ img {
                                 </div>
                               </div>                                                        
 
-                               <?php } } ?>             
-
-
+                               <?php } } ?>            
 
                     </div>
                       <div class="flip1 col-md-12 col-sm-12 text-center">View all</div>

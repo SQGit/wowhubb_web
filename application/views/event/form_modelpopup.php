@@ -54,7 +54,6 @@
 
                             if(isset($event->audienceengagementform->address1) && ($event->audienceengagementform->address1 != 'null') )
                               {
-
                                 echo "<div class='form-group col-sm-12' >";
                                 echo "<label>Address1</label>";
                                 echo "<input type='text' name='address1' class='form-control' >";
@@ -84,7 +83,7 @@
 
                                 echo "<div class='form-group col-sm-12' >";
                                 echo "<label>Zipcode</label>";
-                                echo "<input type='text' name='zipcode'  class='form-control' >";
+                                echo "<input type='text' name='zipcode' class='form-control' >";
                                 echo "</div>";
                               }
 
@@ -102,7 +101,7 @@
 
                                 echo "<div class='form-group col-sm-12' >";
                                 echo "<label>Gender</label>";
-                                echo "<input type='text' name='gender' class='form-control' >";
+                                echo "<input type='text' name='gender' class='form-control' value=".$this->session->userdata('gender')." >";
                                 echo "</div>";
                               }
 

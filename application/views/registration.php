@@ -50,6 +50,7 @@ label.error {
     border-left: none;
     border-right: none;
     border-radius:0px;
+	font-size:13px!important;
 }
 .intl-tel-input.allow-dropdown input, .intl-tel-input.allow-dropdown input[type=text], .intl-tel-input.allow-dropdown input[type=tel], .intl-tel-input.separate-dial-code input, .intl-tel-input.separate-dial-code input[type=text], .intl-tel-input.separate-dial-code input[type=tel] {
     padding-right: 6px;
@@ -174,27 +175,27 @@ label.error {
         <div class="col-md-12" style="margin-bottom:25px;">
           <div class="pull-left"><i class="fa fa-3x fa-calendar" style="color:#fff"></i> </div>
           <div class="pull-left">
-            <h1 class="text-white" style="font-size:20px; margin:0 15px; line-height:30px; font-weight: 300;">Your One Stop Events
+            <h1 class="text-white" style="font-size:18px; margin:0 15px; line-height:30px; font-weight: 300;">Your One Stop Events
               Networking <br>Platform</h1>
           </div>
         </div>
         <div class="col-md-12" style="margin-bottom:25px;">
           <div class="pull-left"><i class="fa fa-3x fa-share-square" style="color:#fff"></i> </div>
           <div class="pull-left">
-            <h1 class="text-white" style="font-size:20px; margin:0 15px;  line-height:30px; font-weight: 300;">Create, Share & Advertise Your Personal, <br> Social Corporate and  Professional Events</h1>
+            <h1 class="text-white" style="font-size:18px; margin:0 15px;  line-height:30px; font-weight: 300;">Create, Share & Advertise Your Personal, <br> Social Corporate and  Professional Events</h1>
           </div>
         </div>
         <div class="col-md-12" style="margin-bottom:25px;">
           <div class="pull-left"><i class="fa fa-3x fa-search" style="color:#fff"></i> </div>
           <div class="pull-left">
-            <h1 class="text-white" style="font-size:20px; margin:0 15px;  line-height:30px; font-weight: 300;">Search & Hire Your Professional <br>Local Events
+            <h1 class="text-white" style="font-size:18px; margin:0 15px;  line-height:30px; font-weight: 300;">Search & Hire Your Professional <br>Local Events
                Services Providers Near you</h1>
           </div>
         </div>
         <div class="col-md-12" style="margin-bottom:10px;">
           <div class="pull-left"><i class="fa fa-3x fa-tags" style="color:#fff"></i> </div>
           <div class="pull-left">
-            <h1 class="text-white" style="font-size:20px; margin:0 15px;  line-height:30px; font-weight: 300;">Search & Book Your Next Event Venue</h1>
+            <h1 class="text-white" style="font-size:18px; margin:0 15px;  line-height:30px; font-weight: 300;">Search & Book Your Next Event Venue</h1>
           </div>
         </div>
         <div class="col-md-12" style="margin-bottom:10px;">
@@ -203,7 +204,7 @@ label.error {
            </span-->
             <div class="col-sm-12  text-left" style="margin-bottom:10px;">
         <p>
-        <a href="#modal-1" data-toggle="modal"  style="color:#FFE500; font-size:17px;"> <!-- this is register model popup -->       
+        <a href="#modal-1" data-toggle="modal"  style="color:#FFE500; font-size:13px;"> <!-- this is register model popup -->       
         <div class="pull-left" style="width:5%;"><img src="<?php echo base_url('assets/images/cb.png'); ?>"></div>
         <div class="pull-left" style="width:95%; margin-top:4px;">
               <span style="color:#ff0; font-size:17px;"> Create an Event Business Hosting Page </span>
@@ -247,7 +248,7 @@ label.error {
 
               <h2 style="text-align: center;">Create An Account</h2>
 
-              <h4 class="text-muted" style="font-weight: bold;text-align: center;">Join !Wowhubb Exciting Network </h4><p style="text-align: center;"> and Enjoy Your Next Event Hosting Experience</p>
+              <h4 class="text-muted" style="font-weight: bold;text-align: center;">Join !Wowhubb Exciting Network </h4><p style="text-align: center;"> &amp; Enjoy Your Next Event Hosting Experience</p>
               
               <!--Register Form-->
               <form id="registration_form" action ="<?php echo base_url('Home/reg_load'); ?>" method="post">
@@ -273,7 +274,7 @@ label.error {
                 <div class="row">               
                   <div class="form-group col-xs-12">
                     <label for="phone" class="sr-only">Phone Number</label>
-                    <input id="phone" pattern="^\+?\d{0,13}" class="frm-con input-group-lg" type="text" name="pho_no" style="font-size: 14px;" title="Enter phone number" placeholder="Your Phone Number" autocomplete="off" />      
+                    <input id="phone" pattern="^\+?\d{0,13}" class="frm-con input-group-lg" type="text" name="pho_no" style="font-size: 13px;" title="Enter phone number" placeholder="Your Phone Number" autocomplete="off" />      
                   </div>
                 </div>
 
@@ -480,14 +481,14 @@ label.error {
                 </div>
 
                 <label>Gender</label>
-                <div class="form-group gender col-xs-12" style="font-size: 14px;">
+                <div class="form-group gender col-xs-12" style="font-size: 13px;">
                
                      <p class='container_test'>
                     <label for="gender" class="radio-inline">
-                       <input type="radio" id="gender"  name="gender"  class="" value="male" style="width:18px; height:18px;" >&nbsp;Male
+                       <input type="radio" id="gender"  name="gender" value="Male" style="width:18px; height:18px;" >&nbsp;Male
                     </label>                      
                     <label for="gender" class="radio-inline">
-                      <input type="radio" id=""  name="gender"  class="" value="female" style="width:18px; height:18px;" >&nbsp;Female                      
+                      <input type="radio"  name="gender"  value="Female" style="width:18px; height:18px;" >&nbsp;Female                      
                     </label>   
                     </p>                 
                 </div>
@@ -498,7 +499,7 @@ label.error {
               
               
               <div class="row text-center">
-                  <button type="submit"  class="btn btn-primary" style="padding:7px 25px!important;">Join Now</button>
+                  <button type="submit"  class="btn btn-primary" style="padding:7px 25px!important; font-size:13px;">Join Now</button>
              </div>
             </div>
             </form>
@@ -546,15 +547,17 @@ label.error {
 <script src="<?php echo base_url ('assets/js/intlTelInput.js')?>"></script>
 <script src="<?php echo base_url ('assets/js/utils.js')?>"></script>
  
-  <script>
+<script>
 
+// tooltip for wowtag id
     $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
-    });    
+    });  
 
-    $("#phone").intlTelInput(); //country code
+//country code
+    $("#phone").intlTelInput(); 
 
-     //datepicker id and date format
+//datepicker id and date format
        $("#datepicker").datetimepicker({
         timepicker:false,
         format:"m-d-Y",

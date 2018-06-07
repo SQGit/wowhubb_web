@@ -83,7 +83,7 @@
               <div class="row">
                 <div class="col-md-12 col-sm-12">
                   <h2 class="black" >Forgot Password </h2>
-                  <span style="color:#333; font-size: 15px">Please type the Email or Phone Number </span></h2><hr>
+                  <span style="color:#333; font-size: 13px;">Please Type OTP Number </span></h2><hr>
             <form id = "forget_newpass" action ="<?php echo base_url('Home/forget_new_pass'); ?>" method="post" class="contact-form">
                    
                     <div class="form-group" >                                   
@@ -99,7 +99,7 @@
                         <input  type="password" name="new_pass" class="form-control" placeholder="new password"  data-error="Phone is required." style="padding-left: 30px;">                      
                     </div>
                   
-                      <button type="submit" class="btn-primary" style="margin-left: 200px;"> Submit </button>
+                      <button type="submit" class="btn-primary" style="margin-left: 200px; font-size:13px;"> Submit </button>
                 
            </form>
                 </div>
@@ -115,13 +115,13 @@
 <!-- Landing Page Contents
     ================================================= -->
 
-<footer id="footer">
+<!-- <footer id="footer">
   <div class="container">
-    <?php  include('includes/footer.php'); ?>
+    <?php  //include('includes/footer.php'); ?>
   </div>
     
 </footer>
-
+ -->
 
 <!-- Scripts
     ================================================= --> 

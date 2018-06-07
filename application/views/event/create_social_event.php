@@ -100,7 +100,7 @@
     line-height: 26px;
     width: 100%;
 }
-	#btnAdd10, #btnremove,#remove_day{
+#btnAdd10, #btnremove,#remove_day{
 		background-image: url("<?php echo base_url('assets/images/close-outline-32.png')?>");
 		background-repeat: no-repeat;
 		border: none;
@@ -113,71 +113,70 @@
 	}
 	
 	
-	.faq-cat-content {
+.faq-cat-content {
 		margin-top: 25px;
 	}
-	.faq-cat-tabs li a {
+.faq-cat-tabs li a {
 		padding: 15px 10px 15px 10px;
 		background-color: #ffffff;
 		border: 1px solid #dddddd;
 		color: #777777;
 	}
-	.nav-tabs li a:focus, .panel-heading a:focus {
+.nav-tabs li a:focus, .panel-heading a:focus {
 		outline: none;
 	}
-	.panel-heading a, .panel-heading a:hover, .panel-heading a:focus {
+.panel-heading a, .panel-heading a:hover, .panel-heading a:focus {
 		text-decoration: none;
 		color: #777777;
 	}
-	.faq-cat-content .panel-heading:hover {
+.faq-cat-content .panel-heading:hover {
 		background-color: #efefef;
 	}
-	.active-faq {
+.active-faq {
 		border-left: 5px solid #888888;
 	}
-	.panel-faq .panel-heading .panel-title span {
+.panel-faq .panel-heading .panel-title span {
 		font-size: 13px;
 		font-weight: normal;
 	}
-	.form-wizard h4 span {
+.form-wizard h4 span {
 		font-size: 14px;
 	}
-	.panel-group .panel {
+.panel-group .panel {
 		border-radius: 0;
 		box-shadow: none;
 		border-color: #EEEEEE;
 	}
-	.panel-default > .panel-heading {
+.panel-default > .panel-heading {
 		padding: 0;
 		border-radius: 0;
 		color: #212121;
 		background-color: #FAFAFA;
 		border-color: #EEEEEE;
 	}
-	.panel-title {
+.panel-title {
 		font-size: 14px;
 	}
-	.panel-title > a {
+.panel-title > a {
 		display: block;
 		padding: 15px;
 		text-decoration: none;
 	}
-	.more-less {
+.more-less {
 		float: right;
 		color: #212121;
 	}
-	.panel-default > .panel-heading + .panel-collapse > .panel-body {
+.panel-default > .panel-heading + .panel-collapse > .panel-body {
 		border-top-color: #EEEEEE;
 	}
 	
-
-	.form-group {
+.form-group {
 		margin-bottom: 5px!important;
 	}
-	.form-group-1 {
+.form-group-1 {
 		margin-bottom: 0px;
 	}
-	.form-body-classic.form-wizard .btn-1 {
+.form-body-classic.form-wizard .btn-1 {
 		min-width: 105px;
 		height: 30px;
 	    margin: 0;
@@ -250,16 +249,16 @@
       margin-left: 109px;
 	}
 
-	/*dynamic add event venue address*/
-	.tab {
+/*dynamic add event venue address*/
+.tab {
 	  display: none; 
 	}
 
-	.tab1 {
+.tab1 {
 	  display: none; 
 	}
 
-	.form-group-1 img {    
+.form-group-1 img {    
     left: 24px;
     position: absolute;
     top: 7px;
@@ -290,7 +289,7 @@ img {
     height:40px;
     border:0;
     margin-bottom:1px;
-    
+  
 }
  
 .keywordSearch-container ul {
@@ -298,9 +297,9 @@ img {
 }
  
 li.keywordSearch-email {
-    float:left;
-    padding:6px ;
-    color: #fff;
+  float:left;
+  padding:6px ;
+  color: #fff;
   background: #FD9160;
   margin-top: 0;
   border-radius: 6px;
@@ -308,17 +307,17 @@ li.keywordSearch-email {
 }
  
 .keywordSearch-close {
-    width:16px;
-    height:16px;
-    display:block;
-    float:right;
-    margin: -2px 0px 0px 8px;
+  width:16px;
+  height:16px;
+  display:block;
+  float:right;
+  margin: -2px 0px 0px 8px;
   color: #fff;
   font-size: 16px;
 }  
 .step-icn
 {
-	    width: 48px;
+	width: 48px;
     height: 48px;
     margin-top: 0;
     background: #e91e63;
@@ -344,7 +343,12 @@ li.keywordSearch-email {
     box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
     margin-top: 0px;
 }
-
+.alert {
+     padding: 0px; 
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
 </style>
 </head>
 
@@ -445,7 +449,7 @@ li.keywordSearch-email {
      </div>
             <!-- Form progress --> 
             <!-- Form Step 1 -->
-  		<form id="create_social_multicity_event" action="<?php echo base_url('event/social_multicity_event'); ?>"  method="post" enctype="multipart/form-data" >  
+  		<form id="create_social_multicity_event" action="<?php echo base_url('event/social_multicity_event'); ?>"  method="post" enctype="multipart/form-data" autocomplete="off">  
     	  
     	  <fieldset>
                 <!-- Progress Bar -->
@@ -470,17 +474,15 @@ li.keywordSearch-email {
                      </div>
                 </div>
        				<div class='col-sm-5'>
-                 		<div class='row'>                 			
+                 		<div class='row'>                			
 		                  	
-		                    
-
 		                    <div class='form-group col-sm-12' >
 		                      <label>Event Category</label>
 		                      <input type='text' name="event_category"  class="form-control" value="<?php echo $this->session->userdata('event_category'); ?>"  readonly/>
 		                    </div>
 		                    <div class='form-group col-sm-12' >
 		                      <label>Event Name</label>
-		                      <input type='text'  name="event_name" class="form-control required" autocomplete="off" />
+		                      <input type='text' name="event_name" class="form-control required" onchange = "cleanspecial_char(this)" />
 		                    </div>	                    
 
 		                    <div class="form-group col-sm-12" style="font-size: 15px;">
@@ -506,18 +508,18 @@ li.keywordSearch-email {
 
 			                    <div  class='form-group col-sm-6' style="width:45%; " >
 			                      <label>Current Event Start Time</label>
-			                      <input type='text' id="event_startime" name="event_startime" class="form-control" autocomplete="off" />
+			                      <input type='text' id="event_startime" name="event_startime" class="form-control" />
 			                    </div>
 
 			                
 			                    <div class='form-group col-sm-6' style="width:45%;" >
 			                      <label>Current Event End Date</label>
-			                      <input type='text' id="event_enddate" name="event_enddate" class="form-control" readonly autocomplete="off"/>
+			                      <input type='text' id="event_enddate" name="event_enddate" class="form-control" readonly />
 			                    </div>
 
 			                    <div class='form-group col-sm-6' style="width:45%;">
 			                      <label>Current Event End Time</label>
-			                      <input type='text' id="event_endtiming" name="event_endtiming" class="form-control" autocomplete="off" />
+			                      <input type='text' id="event_endtiming" name="event_endtiming" class="form-control"/>
 			                    </div>		                    
 		                	</div>   
 
@@ -789,10 +791,10 @@ li.keywordSearch-email {
 
 			                    <div class='form-group col-sm-6' style="display: none;" id="ticket_price">
 			                      <label>Enter Ticket Price</label>
-			                      <input type='text'  name="ticket_price" id="curr" class="form-control" autocomplete="off" />
+			                      <input type='text'  name="ticket_price" id="curr" class="form-control" />
 			                    </div> 
 
-			                    <div class='form-group col-sm-12' style="display: none;" id="ticker_url_show" autocomplete="off">
+			                    <div class='form-group col-sm-12' style="display: none;" id="ticker_url_show">
 		                     		<label>Ticket URL</label>
 		                      		<input type='text' name="ticket_url" class="form-control" >
 		                    	</div>
@@ -803,12 +805,14 @@ li.keywordSearch-email {
 			                <div class='row'>
 				                    <div class='form-group col-sm-12'>
 				                      <label>Event Description</label>
-				                      <textarea type='text' id="description" name="event_description" class="form-control required" style="min-height:150px;" placeholder="Describe What Your Event Is All About" autocomplete="off"></textarea>
+				                      <textarea type='text' id="description" name="event_description" class="txtOnly form-control required" style="min-height:150px;" placeholder="Describe What Your Event Is All About" onchange = "cleanspecial_char(this)"></textarea>
 				                    </div>
 				                    <div class='form-group col-sm-12'>
 					                    <div class='col-sm-12' style="background-color:#f9f9f9;">
 					                        <label>Event Cover Photo <strong style="color: red; font-size: 20px;"> * </strong></label>
 					                        <label>Please browse to upload cover photo</label>
+					                        <div class="alert alert-danger" id="img_req" role="alert" style="display:none;" >Cover Image is Required
+                                			</div>
 					                        <div class="form-group" style="margin-bottom: 10px;"> 
 						                        <div class="field" align="left">
 						                         		<input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('files').click();" />
@@ -925,34 +929,34 @@ li.keywordSearch-email {
 		                   
 		                    <div class='form-group col-sm-12'>
 		                      <label>Address 1</label>
-		                      <input type='text' id="address1_1" name="address1[]" class="form-control" autocomplete="off"  />
+		                      <input type='text' id="address1_1" name="address1[]" class="form-control" />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>Address 2</label>
-		                      <input type='text' id="address2_1" name="address2[]" class="form-control" autocomplete="off" />
+		                      <input type='text' id="address2_1" name="address2[]" class="form-control" />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>City</label>
-		                      <input type='text' id="city_1" name="venue_city[]" class="form-control" onblur="update_vanue()"/ style="text-transform: capitalize;" autocomplete="off">
+		                      <input type='text' id="city_1" name="venue_city[]" class="txtOnly form-control" onblur="update_vanue()"/ style="text-transform: capitalize;" maxlength="25">
 		                    </div>
 		                    <div class='form-group col-sm-12'>
 		                      <label>Zipcode/ Postal Code</label>
-		                      <input type='text' id="zipcode_1" name="zipcode[]" class="form-control" onblur="update_vanue()" autocomplete="off"/>
+		                      <input type='text' id="zipcode_1" name="zipcode[]" class="form-control" onblur="update_vanue()" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" maxlength="6"/>
 		                    </div>
                		</div>
             	</div> 
             </div>
 
                    <div class='col-sm-12'> 
-                    	<div class='col-sm-4'>
+                    	<div class='col-sm-5'>
                     		<a href="JavaScript:void(0);" id="btnAdd7" data-nxt_event_address="2">
                     		<i class="fa fa-plus-circle"></i> Add Multiple Venue </a>
                     	</div>
                     	<div style="overflow:hidden;">
 						 	
-							   <div  class="col-md-8 text-right" style="margin-top:1px;">
+							   <div  class="col-md-7 text-right" style="margin-top:1px;">
 							      <a href="JavaScript:void(0);" id="prevBtn" onclick="nextPrev(-1)"><i class="fa fa-arrow-left"></i> Previous</a>
 							      <a href="JavaScript:void(0);" id="nextBtn" onclick="nextPrev(1)" style="margin-left: 35px;">Next <i class="fa fa-arrow-right"></i></a>
 							    </div>					
@@ -996,19 +1000,19 @@ li.keywordSearch-email {
 			                        <div class="row">
 			                         	<div class="form-group-1 col-md-12">
 				                          <p>What is Event Age Requirement?</p>
-				                          <input type='text' name="quesans1" class="form-control" autocomplete="off" />
+				                          <input type='text' name="quesans1" class="form-control" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" maxlength="2" />
 				                        </div>
 				                        <div class="form-group-1 col-md-12">
 				                          <p>This is a kids friendly event?</p>
-				                          <input type='text' name="quesans2" class="form-control" autocomplete="off" />
+				                          <input type='text' name="quesans2" class="form-control" />
 				                        </div>
 				                        <div class="form-group-1 col-md-12">
 				                          <p>What are event parking/Transportantion options to and from event location?</p>
-				                          <input type='text' name="quesans3" class="form-control" autocomplete="off" />
+				                          <input type='text' name="quesans3" class="form-control" />
 				                        </div>
 				                        <div class="form-group-1 col-md-12">
 				                          <p> What are allowed into the event venue?</p>
-				                          <input type='text' name="quesans4" class="form-control" autocomplete="off" />
+				                          <input type='text' name="quesans4" class="form-control" />
 				                        </div>
 				                    </div>
 
@@ -1119,7 +1123,7 @@ li.keywordSearch-email {
                       <div class='form-group-1 col-sm-12'>
                         <div class="text-center" >
                         	<img src="../assets/images/wow-pink.png"> 
-                          <input type='text' name="event_title" class="form-control required" style="padding: 6px 30px;" placeholder="Enter Your !Wowtag Title Here      Example:  Craigsbirthday2017" autocomplete="off"/>
+                          <input type='text' name="event_title" class="noSpace form-control required" style="padding: 6px 30px;" placeholder="Enter Your !Wowtag Title Here      Example:  Craigsbirthday2017" onchange = "cleanspecial_char(this)" autocomplete="off"/>
                         </div>
                       </div>
                     </div>
@@ -1155,11 +1159,11 @@ li.keywordSearch-email {
                         <label style="color:#333; font-weight: bold; font-size: 14px">Event Promotional Video </label>
                       </div>
                       <label>!Wowtag Runtime From: </label>
-                      <input type='text'  id="runtime_from" name="runtime_from" class="form-control required" placeholder="Wowtag Runtime From" autocomplete="off" />
+                      <input type='text'  id="runtime_from" name="runtime_from" class="form-control required" placeholder="Wowtag Runtime From" />
                     </div>
                     <div class='col-sm-6' style="margin-top: 10px;" >
                       <label>!Wowtag Runtime To: </label>
-                      <input type='text' id="totime_to" name="totime_to" class="form-control required" placeholder="Wowtag Runtime To"  autocomplete="off"/>
+                      <input type='text' id="totime_to" name="totime_to" class="form-control required" placeholder="Wowtag Runtime To"/>
                     </div>                   
                   </div>
                 </div>
@@ -1251,7 +1255,7 @@ li.keywordSearch-email {
 
         		<div class='form-group col-sm-9' style="margin-top: 30px;"> 
                   
-                 	<input type="hidden" name="no_of_days" id="no_of_days" value="">
+                 	<input type="hidden" name="no_of_days" id="no_of_days">
                 	<ul id="tab-list" class="nav nav-tabs" role="tablist">
             
           			</ul>
@@ -1379,13 +1383,13 @@ li.keywordSearch-email {
 	                  </select>
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <input type="text" name="nameofspeaker1" id="textbox_1" class="form-control" placeholder="Enter Name Of Speaker/Artist/Event Clips" autocomplete="off">
+	                  <input type="text" name="nameofspeaker1" id="textbox_1" class="form-control" placeholder="Enter Name Of Speaker/Artist/Event Clips" autocomplete="off" onchange = "cleanspecial_char(this)">
 	                </div>
 	                <div class='form-group col-sm-12'>
 	                  <input type="text" name="guest_url1" id="textbox_2" class="form-control" placeholder="Event Guest Speaker/Artist URL-Links" autocomplete="off">
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <textarea class="form-control" name="guest_speaker1" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" autocomplete="off"></textarea>
+	                  <textarea class="form-control" name="guest_speaker1" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" autocomplete="off" onchange = "cleanspecial_char(this)"></textarea>
 	                </div>
                 </div>
                 		<br><br>
@@ -1428,19 +1432,24 @@ li.keywordSearch-email {
 	                    <option value="Others">Others</option>
 	                  </select>
 	                </div>
+	                
 	                <div class='form-group col-sm-12'>
-	                  <input type="text" name="nameofspeaker2" id="textbox_1" class="form-control" placeholder="Enter Name Of Speaker/Artist/Event Clips" autocomplete="off">
+	                  <input type="text" name="nameofspeaker2" id="textbox_1" class="form-control" placeholder="Enter Name Of Speaker/Artist/Event Clips" autocomplete="off" onchange = "cleanspecial_char(this)">
 	                </div>
 	                <div class='form-group col-sm-12'>
 	                  <input type="text" name="guest_url2" id="textbox_2" class="form-control" placeholder="Event Guest Speaker/Artist URL-Links" autocomplete="off"> 
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <textarea class="form-control" name="guest_speaker2" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" autocomplete="off"></textarea>
+	                  <textarea class="form-control" name="guest_speaker2" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" autocomplete="off" onchange = "cleanspecial_char(this)"></textarea>
 	                </div>
                 </div>
             </div>
 
-                 <div class='form-group col-sm-12'> <a href="JavaScript:void(0);" id="add_highlight"><i class="fa fa-plus-circle"></i> Add More Event Highlights Clips</a> </div>
+                <div class='form-group col-sm-12'>
+                 	<a href="JavaScript:void(0);" id="add_highlight">
+                 		<i class="fa fa-plus-circle"></i> Add More Event Highlights Clips
+                 	</a>
+                </div>
 
             </div>
 
@@ -1697,47 +1706,47 @@ li.keywordSearch-email {
 
 		                    <div class='form-group col-sm-12' style="margin-top:20px;">
 		                      <label>Enter Your Event Venue / location Name</label>		                      
-		                      <input type='text' id="event_tour_name_1" name="event_tour_name[]" class="form-control" autocomplete="off" />
+		                      <input type='text' id="event_tour_name_1" name="event_tour_name[]" class="form-control" />
 		                    </div>
 
 		                    <div class='form-group col-sm-6'>
 		                      <label>Event Start Date</label>
-		                      <input type='text' id="tour_startdate_1" name="eventtour_startdate[]" class="event_startdate form-control" onblur="update_tour()" autocomplete="off"/>
+		                      <input type='text' id="tour_startdate_1" name="eventtour_startdate[]" class="event_startdate form-control" onblur="update_tour()" />
 		                    </div>
 
 		                    <div class='form-group col-sm-6'>
 		                      <label>Event Start Time</label>
-		                      <input type='text' id="tour_startime_1" name="eventtour_startime[]" class="event_startime form-control" autocomplete="off" />
+		                      <input type='text' id="tour_startime_1" name="eventtour_startime[]" class="event_startime form-control" />
 		                    </div>
 		                   
 		                    <div class='form-group col-sm-6' >
 		                      <label>Event End Date</label>
-		                      <input type='text' id="tour_enddate_1" name="eventtour_enddate[]" class="event_enddate form-control" onblur="update_tour()" autocomplete="off"/>
+		                      <input type='text' id="tour_enddate_1" name="eventtour_enddate[]" class="event_enddate form-control" onblur="update_tour()" />
 		                    </div>
 
 		                    <div class='form-group col-sm-6'>
 		                      <label>Event End Time</label>
-		                      <input type='text' id="tour_endtiming_1" name="eventtour_endtiming[]" class="event_endtiming form-control"  autocomplete="off" />
+		                      <input type='text' id="tour_endtiming_1" name="eventtour_endtiming[]" class="event_endtiming form-control" />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>Address 1</label>
-		                      <input type='text' id="tour_address1_1" name="tour_address1[]" class="form-control" autocomplete="off" />
+		                      <input type='text' id="tour_address1_1" name="tour_address1[]" class="form-control" />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>Address 2</label>
-		                      <input type='text' id="tour_address2_1" name="tour_address2[]" class="form-control" autocomplete="off" />
+		                      <input type='text' id="tour_address2_1" name="tour_address2[]" class="form-control"  />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>City</label>
-		                      <input type='text' id="tour_city_1" name="tour_city[]" class="form-control" onblur="update_tour()" autocomplete="off"/>
+		                      <input type='text' id="tour_city_1" name="tour_city[]" class="txtOnly form-control" onblur="update_tour()" style="text-transform: capitalize;" maxlength="25"/>
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>	
 		                    	 <label>Country</label>	                  
-		                          	<select id="tour_country_1" name="tour_country[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;" autocomplete="off"> 
+		                          	<select id="tour_country_1" name="tour_country[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;" > 
                                            <option value="">Country </option> 
                                             <option value="Afghanistan">Afghanistan </option>
                                             <option value="Albania">Albania </option>
@@ -1814,17 +1823,17 @@ li.keywordSearch-email {
 
 		                    <div class='form-group col-sm-6'>
 		                      <label>Ticket URL</label>
-		                      <input type='text' id="ticket_url_1" name="tour_ticket_url[]" class="form-control" onblur="update_tour()" autocomplete="off"/>
+		                      <input type='text' id="ticket_url_1" name="tour_ticket_url[]" class="form-control" onblur="update_tour()" />
 		                    </div>
 
 		                    <div class='form-group col-sm-6'>
 		                      <label>Ticket Price</label>
-		                      <input type='text' id="ticket_price_1" name="tour_ticket_price[]" class="form-control" autocomplete="off" />
+		                      <input type='text' id="ticket_price_1" name="tour_ticket_price[]" class="form-control" />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>Zipcode/ Postal Code</label>
-		                      <input type='number' id="tour_zipcode_1" name="tour_zipcode[]"  class="form-control" autocomplete="off" />
+		                      <input type='text' id="tour_zipcode_1" name="tour_zipcode[]"  class="form-control" onblur="update_vanue()" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" maxlength="6"/>
 		                    </div>
                		</div>
             	</div> 
@@ -1850,7 +1859,7 @@ li.keywordSearch-email {
                   	<div class='row'>
                   			<div class='form-group-1 col-sm-12'>	
                   			 		<label>Select Number of cities for your upcoming Events</label>
-				                    <select name="tour_noof_city" id="btn-add-tab" class="form-control" autocomplete="off" >
+				                    <select name="tour_noof_city" id="btn-add-tab" class="form-control" >
 				                      <option value="">Select Cities</option>				                     
 				                      <option value="2">2 Cities Event/Tours</option>
 				                      <option value="3">3 Cities Event/Tours</option>
@@ -2518,6 +2527,23 @@ $(document).ready(function(){
 
 });	
 
+// without space for event title
+$('.noSpace').keyup(function() {
+ this.value = this.value.replace(/\s/g,'');
+});
+
+// validation for image
+$(document).on("click", ".cancel", function(e){
+
+if( document.getElementById("files").files.length == 0 ){
+    $('#img_req').show();
+}
+else
+{
+	$('#img_req').hide();
+}
+});
+
 // event start time and end time picker
   $("#event_startime").wickedpicker();		
  
@@ -2653,13 +2679,40 @@ $(document).on("change", "#video_size", function(e)
 
 });
 
+// keyboard accept numbers olny
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}
 
+// accept only text for city
+$('.txtOnly').keypress(function (e) {
+			var regex = new RegExp("^[a-zA-Z]+$");
+			var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+			if (regex.test(str)) {
+				return true;
+			}
+			else
+			{
+			e.preventDefault();
+			$('.error').show();
+			$('.error').text('Please Enter Alphabate');
+			return false;
+			}
+		});
 
+// not allow special character
+function cleanspecial_char(t) {
+            t.value = t.value.toString().replace(/[^a-zA-Z 0-9\n\r]+/g, '');
+        }
+        
 //dynamically add event venue address
 
 function generate_address_fields(count)
  {	
-	var address  = '<div id="event_address_'+count+'" class="animated bounceInRight tab"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_venue_name_'+count+'" name="event_venue_name[]"  class="form-control" onblur="update_vanue()" /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="address1_'+count+'" name="address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="address2_'+count+'" name="address2[]"  class="form-control" /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="city_'+count+'" name="venue_city[]" class="form-control" onblur="update_vanue()"/ style="text-transform: capitalize;"> </div>  <div class="form-group col-sm-12"> <label>Zipcode/ Postal Code</label> <input type="text" id="zipcode_'+count+'" name="zipcode[]" class="form-control" onblur="update_vanue()" /> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnAdd10" class="remove_address btn btn-info btn-sm"> </a> </div> </div>';
+	var address  = '<div id="event_address_'+count+'" class="animated bounceInRight tab"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_venue_name_'+count+'" name="event_venue_name[]"  class="form-control" onblur="update_vanue()" /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="address1_'+count+'" name="address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="address2_'+count+'" name="address2[]"  class="form-control" /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="city_'+count+'" name="venue_city[]" class="txtOnly form-control" onblur="update_vanue()"/ style="text-transform: capitalize;" maxlength="25"> </div>  <div class="form-group col-sm-12"> <label>Zipcode/ Postal Code</label> <input type="text" id="zipcode_'+count+'" name="zipcode[]" class="form-control" onblur="update_vanue()" maxlength="6" onkeypress="return isNumberKey(event)"/> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnAdd10" class="remove_address btn btn-info btn-sm"> </a> </div> </div>';
 
         return address;
 }
@@ -2768,7 +2821,7 @@ function update_vanue() {
 
 function generate_tour_fields(count)
  {	
-	var tour_address  = '<div id="event_tour_'+count+'" class="animated bounceInRight tab1"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_tour_name_'+count+'" name="event_tour_name[]"  class="form-control"  /> </div> <div class="form-group col-sm-6"> <label>Event Start Date</label> <input type="text" id="tour_startdate_'+count+'" name="eventtour_startdate[]"  class="event_startdate form-control " onblur="update_tour()"  /> </div> <div class="form-group col-sm-6"> <label>Event Start Time</label> <input type="text" id="tour_startime_'+count+'" name="eventtour_startime[]"  class="event_startime form-control "  /> </div> <div class="form-group col-sm-6" > <label>Event End Date</label> <input type="text" id="tour_enddate_'+count+'" name="eventtour_enddate[]"  class="event_enddate form-control " onblur="update_tour()" /> </div> <div class="form-group col-sm-6"> <label>Event End Time</label> <input type="text" id="tour_endtiming_'+count+'" name="eventtour_endtiming[]"  class="event_endtiming form-control "  /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="tour_address1_'+count+'" name="tour_address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="tour_address2_'+count+'" name="tour_address2[]"  class="form-control" /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="tour_city_'+count+'" name="tour_city[]" class="form-control" onblur="update_tour()" /> </div> <div class="form-group col-sm-12"> <label>Country</label> <select id="tour_country_'+count+'" name="tour_country[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="">Country </option> <option value="Afghanistan">Afghanistan </option> <option value="Albania">Albania </option> <option value="Algeria">Algeria </option> <option value="American Samoa">American Samoa </option> <option value="Andorra">Andorra </option> <option value="Angola">Angola </option> <option value="Australia">Australia </option> <option value="Bahamas">Bahamas </option> <option value="Bahrain">Bahrain </option> <option value="Bangladesh">Bangladesh </option> <option value="Barbodos">Barbodos </option> <option value="Canada">Canada </option> <option value="Cape Verde">Cape Verde </option> <option value="Chile">Chile </option> <option value="China">China </option> <option value="Colombia">Colombia </option> <option value="Denmark">Denmark </option> <option value="Dominica">Dominica </option> <option value="Dominican Republic">Dominican Republic </option> <option value="Finland">Finland </option> <option value="France">France </option> <option value="French Guiana">French Guiana </option> <option value="Gabon">Gabon </option> <option value="Gambia">Gambia </option> <option value="Greece">Greece </option> <option value="Greenland">Greenland </option> <option value="Hong Kong">Hong Kong </option> <option value="Hungary">Hungary </option> <option value="Iceland">Iceland </option> <option value="India">India </option> <option value="Iraq">Iraq </option> <option value="Ireland">Ireland </option> <option value="Italy">Italy </option> <option value="Jamaica">Jamaica </option> <option value="Japan">Japan </option> <option value="Kenya">Kenya </option> <option value="Kuwait">Kuwait </option> <option value="Latvia">Latvia </option> <option value="Lebanon">Lebanon </option> <option value="Liberia">Liberia </option> <option value="Macao">Macao </option> <option value="Madagaskar">Madagaskar </option> <option value="Malawi">Malawi </option> <option value="Malaysia">Malaysia </option> <option value="Mali">Mali </option> <option value="Malta">Malta </option> <option value="Mexico">Mexico </option> <option value="Monaco">Monaco </option> <option value="Myanmar">Myanmar </option> <option value="Nepal">Nepal </option> <option value="Netherlands">Netherlands </option> <option value="Niger">Niger </option> <option value="Norway">Norway </option> <option value="Oman">Oman </option> <option value="Pakistan">Pakistan </option> <option value="Palau">Palau </option> <option value="Panama">Panama </option> <option value="Peru">Peru </option> <option value="Philippines">Philippines </option> <option value="Poland">Poland </option> <option value="Qatar">Qatar </option> <option value="Romania">Romania </option> <option value="Russian Federation">Russian Federation </option> <option value="Samoa">Samoa </option> <option value="Senegal">Senegal </option> <option value="Spain">Spain </option> <option value="Srilanka">Srilanka </option> <option value="Switzerland">Switzerland </option> <option value="Thailand">Thailand </option> </select> </div><div class="form-group col-sm-6"> <label>Ticket URL</label> <input type="text" id="ticket_url_'+count+'" name="tour_ticket_url[]" class="form-control" /> </div> <div class="form-group col-sm-6"> <label>Ticket Price</label> <input type="text" id="ticket_price_'+count+'" name="tour_ticket_price[]" class="form-control" onblur="update_tour()" /> </div> <div class="form-group col-sm-12"> <label>Zipcode/ Postal Code</label> <input type="number" id="tour_zipcode_'+count+'" name="tour_zipcode[]"  class="form-control"  /> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnremove" class="remove_tour btn btn-info btn-sm"> </a> </div> </div>';
+	var tour_address  = '<div id="event_tour_'+count+'" class="animated bounceInRight tab1"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_tour_name_'+count+'" name="event_tour_name[]"  class="form-control"  /> </div> <div class="form-group col-sm-6"> <label>Event Start Date</label> <input type="text" id="tour_startdate_'+count+'" name="eventtour_startdate[]"  class="event_startdate form-control " onblur="update_tour()"  /> </div> <div class="form-group col-sm-6"> <label>Event Start Time</label> <input type="text" id="tour_startime_'+count+'" name="eventtour_startime[]"  class="event_startime form-control "  /> </div> <div class="form-group col-sm-6" > <label>Event End Date</label> <input type="text" id="tour_enddate_'+count+'" name="eventtour_enddate[]"  class="event_enddate form-control " onblur="update_tour()" /> </div> <div class="form-group col-sm-6"> <label>Event End Time</label> <input type="text" id="tour_endtiming_'+count+'" name="eventtour_endtiming[]"  class="event_endtiming form-control "  /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="tour_address1_'+count+'" name="tour_address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="tour_address2_'+count+'" name="tour_address2[]"  class="form-control" /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="tour_city_'+count+'" name="tour_city[]" class="txtOnly form-control" onblur="update_tour()" /> </div> <div class="form-group col-sm-12"> <label>Country</label> <select id="tour_country_'+count+'" name="tour_country[]" class="form-group selectpicker" style="width:100%; padding: 7px 5px; border-radius: 5px;"> <option value="">Country </option> <option value="Afghanistan">Afghanistan </option> <option value="Albania">Albania </option> <option value="Algeria">Algeria </option> <option value="American Samoa">American Samoa </option> <option value="Andorra">Andorra </option> <option value="Angola">Angola </option> <option value="Australia">Australia </option> <option value="Bahamas">Bahamas </option> <option value="Bahrain">Bahrain </option> <option value="Bangladesh">Bangladesh </option> <option value="Barbodos">Barbodos </option> <option value="Canada">Canada </option> <option value="Cape Verde">Cape Verde </option> <option value="Chile">Chile </option> <option value="China">China </option> <option value="Colombia">Colombia </option> <option value="Denmark">Denmark </option> <option value="Dominica">Dominica </option> <option value="Dominican Republic">Dominican Republic </option> <option value="Finland">Finland </option> <option value="France">France </option> <option value="French Guiana">French Guiana </option> <option value="Gabon">Gabon </option> <option value="Gambia">Gambia </option> <option value="Greece">Greece </option> <option value="Greenland">Greenland </option> <option value="Hong Kong">Hong Kong </option> <option value="Hungary">Hungary </option> <option value="Iceland">Iceland </option> <option value="India">India </option> <option value="Iraq">Iraq </option> <option value="Ireland">Ireland </option> <option value="Italy">Italy </option> <option value="Jamaica">Jamaica </option> <option value="Japan">Japan </option> <option value="Kenya">Kenya </option> <option value="Kuwait">Kuwait </option> <option value="Latvia">Latvia </option> <option value="Lebanon">Lebanon </option> <option value="Liberia">Liberia </option> <option value="Macao">Macao </option> <option value="Madagaskar">Madagaskar </option> <option value="Malawi">Malawi </option> <option value="Malaysia">Malaysia </option> <option value="Mali">Mali </option> <option value="Malta">Malta </option> <option value="Mexico">Mexico </option> <option value="Monaco">Monaco </option> <option value="Myanmar">Myanmar </option> <option value="Nepal">Nepal </option> <option value="Netherlands">Netherlands </option> <option value="Niger">Niger </option> <option value="Norway">Norway </option> <option value="Oman">Oman </option> <option value="Pakistan">Pakistan </option> <option value="Palau">Palau </option> <option value="Panama">Panama </option> <option value="Peru">Peru </option> <option value="Philippines">Philippines </option> <option value="Poland">Poland </option> <option value="Qatar">Qatar </option> <option value="Romania">Romania </option> <option value="Russian Federation">Russian Federation </option> <option value="Samoa">Samoa </option> <option value="Senegal">Senegal </option> <option value="Spain">Spain </option> <option value="Srilanka">Srilanka </option> <option value="Switzerland">Switzerland </option> <option value="Thailand">Thailand </option> </select> </div><div class="form-group col-sm-6"> <label>Ticket URL</label> <input type="text" id="ticket_url_'+count+'" name="tour_ticket_url[]" class="form-control" /> </div> <div class="form-group col-sm-6"> <label>Ticket Price</label> <input type="text" id="ticket_price_'+count+'" name="tour_ticket_price[]" class="form-control" onblur="update_tour()" /> </div> <div class="form-group col-sm-12"> <label>Zipcode/ Postal Code</label> <input type="text" id="tour_zipcode_'+count+'" name="tour_zipcode[]"  class="form-control" maxlength="6" onkeypress="return isNumberKey(event)" /> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnremove" class="remove_tour btn btn-info btn-sm"> </a> </div> </div>';
 
         return tour_address;
 }
@@ -2910,14 +2963,16 @@ $(function(){
 });
 });
 
-
-
 // pass value with in same form
 $('#event_startime').change(function() {
     $('#day1_start_time').val($(this).val());
 });
 
+// pass value with in same form
+$('#event_endtiming').change(function() {
+    $('#day1_end_time').val($(this).val());
 
+});
 
 //dynamic add tab view for event days
 

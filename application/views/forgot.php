@@ -110,13 +110,13 @@
 <!-- Landing Page Contents
     ================================================= -->
 
-<footer id="footer">
+<!-- <footer id="footer">
   <div class="container">
-    <?php  include('includes/footer.php'); ?>
+    <?php  //include('includes/footer.php'); ?>
   </div>
     
 </footer>
-
+ -->
 
 <!-- Scripts
     ================================================= --> 

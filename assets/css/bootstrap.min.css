@@ -4990,9 +4990,9 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:focus, a.list-g
 	font-weight: 700;
 	line-height: 1;
 	color: #000;
-	text-shadow: 0 1px 0 #fff;
-	filter: alpha(opacity=20);
-	opacity: .2
+	/*text-shadow: 0 1px 0 #fff;*/
+	/*filter: alpha(opacity=20);*/
+	/*opacity: .2*/
 }
 .close:focus, .close:hover {
 	color: #000;
@@ -5005,8 +5005,9 @@ button.close {
 	-webkit-appearance: none;
 	/*padding: 0;*/
 	cursor: pointer;
-	/*background: 0 0;*/
-	/*border: 0*/
+	background: 0 0;
+	border: 0;
+	margin-top: 5px;
 }
 .modal-open {
 	overflow: hidden

@@ -95,7 +95,7 @@ public function personal_update_video() //personal self intro video
 
 	public function personal_update_aboutme() //personal about me
 	{
-		$response = array();
+		// $response = array();
 		$this->rest->http_header('token', $this->session->userdata('token'));
 
 		$profile_update = array('aboutme' 	=>$this->input->post('about_me'),
@@ -109,17 +109,17 @@ public function personal_update_video() //personal self intro video
 
 		$result = $this->rest->post('http://104.197.80.225:3010/wow/user/profileaboutme',$json_data,'json');
 
-		// print_r($json_data);	
-		
 		if($result->success == true)
 	 	{
-	 		$response['status'] = "success";	 		
+	 			
+	 		$this->session->set_userdata('birthday', $result->message->birthday); 
+	 		redirect('profile/profile_get');		
 	 	}
 	 	else
 	 	{
-	 		$response['status'] = "failed";			
+	 		echo "Something Went Wrong";		
 	 	}
-	 	echo json_encode($response);
+	 // 	echo json_encode($response);
 
 	}
 
@@ -169,13 +169,14 @@ public function personal_update_contactinfo() //personal contact info
 
 		$profile_update = array('country' 	  => $this->input->post('country'),
 								'state' 	  => $this->input->post('state'),
-								'sociallinks' => $this->input->post('social_link[]')	
+								
 								);
 
 		$json_data = json_encode($profile_update); 
 
 		$result = $this->rest->post('http://104.197.80.225:3010/wow/user/profilecontact',$json_data,'json');	
-		
+
+
 		if($result->success == true)
 	 	{
 	 		$response['status'] = "success";	 		
@@ -188,18 +189,17 @@ public function personal_update_contactinfo() //personal contact info
 
 	}
 
-public function personal_update_eventinfo() //personal event info
+public function your_life_view() //personal event info
 	{
 		$response = array();
 		$this->rest->http_header('token', $this->session->userdata('token'));
-		$profile_update = array('wedding' =>$this->input->post('wedding'),
-								'socialfunction' =>$this->input->post('social_function'),
-								'parties' =>$this->input->post('party')	
-								);
+		$profile_update = array('birthday' 	=> $this->input->post('birthday'),
+								'gender'	=> $this->input->post('gender'));								
+								
 		$json_data = json_encode($profile_update); 
 
 		$result = $this->rest->post('http://104.197.80.225:3010/wow/user/profileinfo',$json_data,'json');	
-		// print_r($result);	
+			
 		if($result->success == true)
 	 	{
 	 		$response['status'] = "success";	 		
@@ -230,14 +230,14 @@ public function profile_get()  //all update personal profile data get here
 
 		if(isset($result->message->personalimage))
 		{
-		 $data['img'] = $result->message->personalimage;
-		 $this->session->set_userdata('image', $data['img']);
+		 	$data['img'] = $result->message->personalimage;
+		 	$this->session->set_userdata('personal_image', $result->message->personalimage);
 		}
 
 		if(isset($result->message->personalcover))
 		{
-		 $data['cover'] = $result->message->personalcover;
-		 $this->session->set_userdata('cover_img', $data['cover']);
+		 	$data['cover'] = $result->message->personalcover;
+		 	$this->session->set_userdata('cover_img', $data['cover']);
 		}
 
 		$this->friends_count();	
@@ -277,20 +277,64 @@ public function friends_connection()
 }
 
 
-public function professional_update()
+public function professional_certificate()
 	{
 		$response = array();
 		$this->rest->http_header('token', $this->session->userdata('token'));
-		$professional_update = array('designation' => $this->input->post('designation'),
-								'education' =>$this->input->post('college[]'),
-								'workplace' =>$this->input->post('work_place'),
-								'certification' =>$this->input->post('certificates[]'),
-								'volunteer' =>$this->input->post('awards[]')						
-								);
-		$json_data = json_encode($professional_update); 
+		$cer_count = count($this->input->post('Certificate')); 
+		$certification = array();
+
+		   	for($i=0; $i<$cer_count; $i++)
+		   			{	   				
+		   				array_push($certification, array
+		   								(	   								
+		   			 						'certification'    	 =>  $this->input->post('Certificate')[$i],
+		   			 						'year'   =>  $this->input->post('year')[$i] 			 						
+		   			 					));	   				 
+		   			}
+
+		   	$professional_update = array('certification' => $certification); 
+				
+			$json_data = json_encode($professional_update); 
 
 		$result = $this->rest->post('http://104.197.80.225:3010/wow/user/updateprofessionalprofile',$json_data,'json');
-		// print_r($result);
+		
+		// $res =$this->rest->debug();
+		if($result->success == true)
+	 	{
+	 		$response['status'] = "success";	 		
+	 	}
+	 	else
+	 	{
+	 		$response['status'] = "failed";			
+	 	}
+	 	echo json_encode($response);
+
+	}	
+
+public function professional_college()
+	{
+		$response = array();
+		$this->rest->http_header('token', $this->session->userdata('token'));
+		$college_count = count($this->input->post('college')); 
+		$college = array();
+
+		   	for($i=0; $i<$college_count; $i++)
+		   			{	   				
+		   				array_push($certification, array
+		   					(	   								
+		   			 			'college' => $this->input->post('college')[$i],
+		   			 			'from'    => $this->input->post('from_year')[$i], 
+		   			 			'to'      => $this->input->post('to_year')[$i]			 						
+		   			 		));	   				 
+		   			}
+
+		   	$professional_college = array('college' => $college); 
+				
+			$json_data = json_encode($professional_update); 
+
+		$result = $this->rest->post('http://104.197.80.225:3010/wow/user/updateprofessionalprofile',$json_data,'json');
+		
 		// $res =$this->rest->debug();
 		if($result->success == true)
 	 	{
@@ -317,17 +361,17 @@ public function professional_work_exp()
 		   	for($i=0; $i<$exp_count; $i++)
 		   			{	   				
 		   				array_push($profesional_exp, array
-		   								(	   								
-		   			 						'title' 	   => $this->input->post('title')[$i],
-											'company' 	   => $this->input->post('company')[$i],
-											'location'     => $this->input->post('location')[$i],
-											'frommonth'    => $this->input->post('from_month')[$i],
-											'fromyear'     => $this->input->post('from_year')[$i],
-											'tomonth'      => $this->input->post('to_month')[$i],
-											'toyear'       => $this->input->post('to_year')[$i],
-											'description'  => $this->input->post('description')[$i],
-											'link'         => $this->input->post('link')[$i]			 						
-		   			 					));	   				 
+		   					(	   								
+		   			 			'title' 	   => $this->input->post('title')[$i],
+								'company' 	   => $this->input->post('company')[$i],
+								'location'     => $this->input->post('location')[$i],
+								'frommonth'    => $this->input->post('from_month')[$i],
+								'fromyear'     => $this->input->post('from_year')[$i],
+								'tomonth'      => $this->input->post('to_month')[$i],
+								'toyear'       => $this->input->post('to_year')[$i],
+								'description'  => $this->input->post('description')[$i],
+								'link'         => $this->input->post('link')[$i]			 						
+		   			 		));	   				 
 		   			}	
 		$work_exp = array('workexperience' => $profesional_exp); 	   
 		
@@ -366,24 +410,25 @@ function profile_img_upload() //working for image upload
 	    	  echo curl_error($ch);
 	} 
 
-function cover_img_upload() //working for image upload
-   	 {
-		     $token =  $this->session->userdata('token');
-		   	 $header = array('token:'.$token);
-	       	 $ch = curl_init();
+//upload  for cover image
+function cover_img_upload() 
+{
+		$token =  $this->session->userdata('token');
+		$header = array('token:'.$token);
+	    $ch = curl_init();
        	
-	    	 $cfile = curl_file_create($_FILES['cover_img']['tmp_name'],$_FILES['cover_img']['type']);
+	    $cfile = curl_file_create($_FILES['cover_img']['tmp_name'],$_FILES['cover_img']['type']);
 	    	 
-	    	 $data = array('personalcover' => @$cfile);
-	    	 curl_setopt($ch, CURLOPT_URL,'http://104.197.80.225:3010/wow/user/personalcover');
+	    $data = array('personalcover' => @$cfile);
+	    curl_setopt($ch, CURLOPT_URL,'http://104.197.80.225:3010/wow/user/personalcover');
 	    	 
-	    	 curl_setopt($ch, CURLOPT_HTTPHEADER,$header);
-	    	  curl_setopt($ch, CURLOPT_POST, true);
-	    	  curl_setopt($ch, CURLOPT_POSTFIELDS, $data); 
+	    curl_setopt($ch, CURLOPT_HTTPHEADER,$header);
+	    curl_setopt($ch, CURLOPT_POST, true);
+	    curl_setopt($ch, CURLOPT_POSTFIELDS, $data); 
 	    	  
-	    	  $response = curl_exec($ch);  
-	    	  echo curl_error($ch);
-	   } 
+	    $response = curl_exec($ch);  
+	    echo curl_error($ch);
+} 
 			
 function video_upload() //working for image upload
    	{

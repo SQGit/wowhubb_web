@@ -3,9 +3,12 @@
 
         <div class="modal-body">
          <div class="post-detail">
-                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                     <button type="button" class="close" data-dismiss="modal">
+                      <img src="<?php echo base_url('assets/images/wow-close.png'); ?>">
+                     </button>
                     <div class="user-info">
-                        <h3>RSVP - Invites List</h3>
+                       
+                        <h4 class="modal-title" style="text-align:center; font-size:18px; padding:10px; background-color:#FDF2F5; border-radius:7px; margin-bottom:10px; color:#e91e63;">RSVP - Invites List </h4>
                         
                     </div>                              
                     <div class="line-divider"></div>
@@ -33,7 +36,7 @@
                                     <?php } ?>
 
                                   </div>
-                                  <div style="font-size:15px; font-weight:bold; line-height: 15px;">
+                                  <div style="font-size:13px; font-weight:bold; line-height: 15px;">
                                     <?php if(isset($events->userid->firstname)) { echo $events->userid->firstname." ".$events->userid->lastname;}  ?>
                                   </div>        
                                   <div style="font-size:11px;"><?php if(isset($events->userid->designation)){ echo $events->userid->designation; } ?></div> 

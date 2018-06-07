@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/jquery.datetimepicker.css')?>" />
 <link rel="stylesheet" href="<?php echo base_url ('assets/js/sweetalert.css')?>" />
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/select2.min.css')?>" />
-<link rel="stylesheet" href="<?php echo base_url ('assets/css/intlTelInput.css')?>">
+
 <!--Google Font-->
 <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet">
 
@@ -24,18 +24,8 @@
 <link rel="shortcut icon" type="image/png" href="<?php echo base_url ('assets/images/fav.png') ?>"/>
 <style type="text/css">
 
-.iti-flag {background-image: url("<?php echo base_url ('assets/css/flags.png')?>");}
-#footer {
-	background: #fff;
-	position: relative;
-	top: 0px;
-}
-#imageUpload {
-	display: none;
-}
-#profileImage {
-	cursor: pointer;
-}
+
+
 .form-wizard {
 	padding: 25px;
 	background: #fff;
@@ -281,6 +271,9 @@ hr {
     top: 125px;
     height: 50px;
 }
+
+
+
 </style>
 
 <link href="<?php echo base_url ('assets/css/fullcalendar.min.css') ?>" rel='stylesheet' />
@@ -377,7 +370,7 @@ hr {
                     
                     <tr>
                       <td width="14%" height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
-                        <div><img src="<?php echo $feeds->coverpageurl; ?>" class="img-responsive img-thumbnail" alt="">
+                        <div><img style="width:200px; height:100px;" src="<?php echo $feeds->coverpageurl; ?>" class="img-responsive img-thumbnail" alt="">
                         </div>
                         <strong style="font-size:16px; color:#fc6653;">
                           <?php if(isset($feeds->eventtitle)) { echo $feeds->eventtitle; } else{ echo "";} ?>
@@ -564,9 +557,9 @@ hr {
                       
                     </tr>
                     
-                    <tr>
-                      <td align="left" valign="top" bgcolor="#fff">&nbsp;</td>
-                    </tr>                               
+                    <tr></tr>
+                    <tr></tr>
+                    <tr><td colspan="7"><hr></td></tr>                            
                     
                     <?php } } ?>              
                     
@@ -633,7 +626,13 @@ hr {
                             <td height="30"><strong>Registered</strong></td>
                             </tr>
                           <tr>
-                            <td height="30"><img src="../assets/images/profile-icon.png" alt=""><strong style="font-size:22px; color:#FF7600;">1500</strong></td>
+                            <td height="30">
+                              <img src="../assets/images/profile-icon.png" alt="">
+                              <strong style="font-size:22px; color:#FF7600;">
+                                <?php $user = count($feeds->audienceengagementsubmission); echo $user; ?>
+                              </strong>
+                             
+                            </td>
                             </tr>
                           <tr>
                             <td height="30">
@@ -658,7 +657,7 @@ hr {
                             <td height="20">
                               <strong>
                                 <a href="#" style="color: #000;">
-                                  <form action="<?php echo base_url('eventhubb/get_eventwowtag'); ?>" id="event_details" method="POST">
+                                  <form action="<?php //echo base_url('eventhubb/get_eventwowtag'); ?>" id="event_details" method="POST">
                                     <textarea style= "display: none;"  name="details"><?= json_encode($feeds); ?>
                                     </textarea>
                                     <input type="submit" style="border: none; background: transparent;" value="Event Wowtag">
@@ -673,7 +672,7 @@ hr {
                             <td height="20">
                               <strong>
                                 <a href="#" style="color: #000;">
-                                  <form action="<?php echo base_url('eventhubb/get_eventwowtag'); ?>" id="event_details" method="POST">
+                                  <form action="<?php //echo base_url('eventhubb/get_eventwowtag'); ?>" id="event_details" method="POST">
                                     <textarea style= "display: none;"  name="details"><?= json_encode($feeds); ?>
                                      </textarea>
                                     <input type="submit" style="border: none; background: transparent;" value="Event Venue">
@@ -689,7 +688,7 @@ hr {
                             <td height="20">
                               <strong>
                                 <a href="#" style="color: #000;">
-                                  <form action="<?php echo base_url('eventhubb/get_eventwowtag'); ?>" id="event_details" method="POST">
+                                  <form action="<?php //echo base_url('eventhubb/get_eventwowtag'); ?>" id="event_details" method="POST">
                                     <textarea style= "display: none;"  name="details"><?= json_encode($feeds); ?>
                                      </textarea>
                                     <input type="submit" style="border: none; background: transparent;" value="Event Schedule">
@@ -705,7 +704,7 @@ hr {
                             <td height="20">
                               <strong>
                                 <a href="#" style="color: #000;">
-                                  <form action="<?php echo base_url('eventhubb/get_eventwowtag'); ?>" id="event_details" method="POST">
+                                  <form action="<?php //echo base_url('eventhubb/get_eventwowtag'); ?>" id="event_details" method="POST">
                                     <textarea style= "display: none;"  name="details"><?= json_encode($feeds); ?>
                                      </textarea>
                                     <input type="submit" style="border: none; background: transparent;" value="Event Highlights">
@@ -721,7 +720,7 @@ hr {
                             <td height="20">
                               <strong>
                                 <a href="#" style="color: #000;">
-                                  <form action="<?php echo base_url('eventhubb/get_eventwowtag'); ?>" id="event_details" method="POST">
+                                  <form action="<?php //echo base_url('eventhubb/get_eventwowtag'); ?>" id="event_details" method="POST">
                                     <textarea style= "display: none;"  name="details"><?= json_encode($feeds); ?>
                                      </textarea>
                                     <input type="submit" style="border: none; background: transparent;" value="Event Contacts">
@@ -737,7 +736,7 @@ hr {
                             <td height="20">
                               <strong>
                                 <a href="#" style="color: #000;">
-                                  <form action="<?php echo base_url('eventhubb/get_eventwowtag'); ?>" id="event_details" method="POST">
+                                  <form action="<?php //echo base_url('eventhubb/get_eventwowtag'); ?>" id="event_details" method="POST">
                                     <textarea style= "display: none;"  name="details"><?= json_encode($feeds); ?>
                                      </textarea>
                                     <input type="submit" style="border: none; background: transparent;" value="Event Tour">
@@ -760,7 +759,7 @@ hr {
                                 <input type="hidden" name="event_id" value="<?php echo $feeds->_id; ?>">
                                 <input type="submit" class="btn-primary" id="delete_btn_pro" value="Delete Event">
                                 </form>
-                              </td>
+                            </td>
                             </tr>
                           <tr>
                             <td height="20"></td>
@@ -828,9 +827,10 @@ hr {
                         <input type="submit" class="btn-primary" style="background-color:#535353; font-size:13px;" value="Create Your Event Ads">
                         </td>
                     </tr>
-                    <tr>
-                      <td align="left" valign="top" bgcolor="#fff">&nbsp;</td>
-                    </tr> 
+
+                    <tr></tr>
+                    <tr></tr>
+                    <tr><td colspan="7"><hr></td></tr>  
                     
                     <?php } } ?>                   
                     
@@ -899,12 +899,19 @@ hr {
                         <tbody>
                           <tr>
                             <td height="30"><strong>Registered</strong></td>
-                            </tr>
+                          </tr>
                           <tr>
-                            <td height="30"><img src="../assets/images/profile-icon.png" alt=""><strong style="font-size:22px; color:#FF7600;">1500</strong></td>
-                            </tr>
+                            <td height="30">
+                              <img src="../assets/images/profile-icon.png" alt="">
+                              <strong style="font-size:22px; color:#FF7600;">
+                                <?php $user = count($feeds->audienceengagementsubmission); echo $user; ?>
+                              </strong>
+                            </td>
+                          </tr>
                           <tr>
-                            <td height="30"><a href="#" data-toggle="modal" data-target=".modal-2" >Invites List</a></td>
+                            <td height="30">
+                              <a onclick="showAjaxModal('<?php echo base_url('eventhubb/engagementform_members/'.$feeds->_id); ?>');" style="cursor: pointer;" > Invites List</a>
+                            </td>
                             </tr>
                           </tbody>
                         </table></td>
@@ -992,9 +999,11 @@ hr {
                         <input type="submit" class="btn-primary" style="background-color:#535353; font-size:13px;" value="Create Your Event Ads">
                         </td>
                     </tr>
-                    <tr>
-                      <td align="left" valign="top" bgcolor="#fff">&nbsp;</td>
-                    </tr>
+
+                    <tr></tr>
+                    <tr></tr>
+                    <tr><td colspan="7"><hr></td></tr>  
+                    
                     <?php } } ?>     
                     
                   </tbody>
@@ -1028,7 +1037,7 @@ hr {
                           
                     ?>
                     
-                    <tr style="font-size:16px;">
+                    <tr style="font-size:13px;">
                       <td height="40" colspan="2" bgcolor="#f9f9f9"><strong>
                         <?php if(isset($feeds->eventtitle)) { echo $feeds->eventtitle; } else{ echo "";} ?>
                       </strong></td>
@@ -1046,7 +1055,7 @@ hr {
                           
                           <?php } ?>
                         </div>
-                        <strong style="font-size:16px; color:#fc6653;">
+                        <strong style="font-size:13px; color:#fc6653;">
                           <?php if(isset($feeds->organisationname)) { echo $feeds->organisationname; } else{ echo "";} ?>
                           
                         </strong>
@@ -1514,7 +1523,8 @@ hr {
                               <td height="30" align="center" valign="middle"><strong style="font-size:16px;">RSVP</strong></td>
                             </tr>
                             <tr>
-                              <td height="30"><img src="../assets/images/profile-icon.png" alt="">
+                              <td height="30">
+                                <img src="../assets/images/profile-icon.png" alt="">
                                 <strong style="font-size:22px; color:#FF7600;">
                                   <?php                                      
                                          $sum = 0;
@@ -1626,7 +1636,8 @@ hr {
                               <img src="../assets/images/profile-icon.png" alt="">
                               <strong style="font-size:22px; color:#FF7600;">
                                 <?php $user = count($feeds->audienceengagementsubmission); echo $user; ?>
-                                </strong></td>
+                              </strong>
+                            </td>
                             </tr>
                           <tr>
                             <td height="30">
@@ -1712,7 +1723,7 @@ hr {
                       <td width="16%" height="40" rowspan="2" align="left" valign="top" bgcolor="#fff">
                         <div><img src="<?php echo $feeds->coverpageurl; ?>" class="img-responsive img-thumbnail" alt="">
                           </div>
-                        <strong style="font-size:16px; color:#fc6653;">
+                        <strong style="font-size:13px; color:#fc6653;">
                           <?php if(isset($feeds->eventtitle)) { echo $feeds->eventtitle; } else{ echo "";} ?>
                           
                         </strong>
@@ -1744,10 +1755,17 @@ hr {
                             <td height="30"><strong>Registered</strong></td>
                             </tr>
                           <tr>
-                            <td height="30"><img src="../assets/images/profile-icon.png" alt=""><strong style="font-size:22px; color:#FF7600;">1500</strong></td>
+                            <td height="30">
+                              <img src="../assets/images/profile-icon.png" alt="">
+                              <strong style="font-size:22px; color:#FF7600;">
+                                <?php $user = count($feeds->audienceengagementsubmission); echo $user; ?>
+                              </strong>
+                            </td>
                             </tr>
                           <tr>
-                            <td height="30"><a href="#" data-toggle="modal" data-target=".modal-2" >Invites List</a></td>
+                            <td height="30">
+                              <a onclick="showAjaxModal('<?php echo base_url('eventhubb/engagementform_members/'.$feeds->_id); ?>');" style="cursor: pointer;" > Invites List</a>
+                            </td>
                             </tr>
                           </tbody>
                         </table></td>
@@ -1825,7 +1843,7 @@ hr {
                           
                     ?>
                     
-                    <tr style="font-size:16px;">
+                    <tr style="font-size:13px;">
                       <td height="40" colspan="2" bgcolor="#f9f9f9"><strong>
                         <?php if(isset($feeds->eventtitle)) { echo $feeds->eventtitle; } else{ echo "";} ?>
                       </strong></td>
@@ -1843,7 +1861,7 @@ hr {
                           
                           <?php } ?>
                         </div>
-                        <strong style="font-size:16px; color:#fc6653;">
+                        <strong style="font-size:13px; color:#fc6653;">
                           <?php if(isset($feeds->organisationname)) { echo $feeds->organisationname; } else{ echo "";} ?>
                           
                         </strong>
@@ -2318,7 +2336,7 @@ hr {
 
 <script src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script> 
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
-<script src="<?php echo base_url('assets/js/videopopup.js')?>" ></script> 
+
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script>   
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.js')?>"></script> 
 <script src="<?php echo base_url ('assets/js/moment.min.js') ?>"></script>  

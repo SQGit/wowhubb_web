@@ -390,6 +390,12 @@ input[type=number]::-webkit-outer-spin-button {
     box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
     margin-top: 0px;
 }
+.alert {
+     padding: 0px; 
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
 </style>
 </head>
 
@@ -462,7 +468,7 @@ input[type=number]::-webkit-outer-spin-button {
      </div>
             <!-- Form progress --> 
             <!-- Form Step 1 -->
-    <form id="create_quick_event" action="<?php echo base_url('event/quick_event'); ?>"  method="post" enctype="multipart/form-data" > 
+    <form id="create_quick_event" action="<?php echo base_url('event/quick_event'); ?>" method="post" enctype="multipart/form-data" autocomplete="off"> 
     	
     	  	<fieldset>
                 <!-- Progress Bar -->
@@ -480,35 +486,34 @@ input[type=number]::-webkit-outer-spin-button {
 
                     <div class='form-group col-sm-12' >
                       <label>Event Name</label>
-                      <input type='text' name="event_name" class="form-control required" style="text-transform: capitalize;" autocomplete="off" />
+                      <input type='text' name="event_name" class="form-control required" style="text-transform: capitalize;" onchange = "cleanspecial_char(this)" />
                     </div>
                     
                 </div>
-
             			<div class='row'>
 		                    <div class='form-group col-sm-12' >
 		                      <label>Event City </label>
-		                      <input type='text' id="time_zone" name="time_zone" class="form-control required" autocomplete="off"/>
+		                      <input type='text' name="time_zone" class="form-control required" />
 		                    </div>
 
 		                    <div class='form-group col-sm-6' >
 		                      <label>Event Start Date</label>
-		                      <input type='text' id="event_startdate" name="event_startdate" class="form-control required" autocomplete="off" />
+		                      <input type='text' id="event_startdate" name="event_startdate" class="form-control required"  />
 		                    </div>
 
 		                    <div  class='form-group col-sm-6' >
 		                      <label>Event Start Time</label>
-		                      <input type='text' name="event_startime" id="event_startime" class="form-control" autocomplete="off"/>
+		                      <input type='text' name="event_startime" id="event_startime" class="form-control" />
 		                    </div>
 		                
 		                    <div class='form-group col-sm-6' >
 		                      <label>Event End Date</label>
-		                      <input type='text' id="event_enddate" name="event_enddate" class="form-control required" autocomplete="off" />
+		                      <input type='text' id="event_enddate" name="event_enddate" class="form-control required" />
 		                    </div>
 
 		                    <div class='form-group col-sm-6'>
 		                      <label>Event End Time</label>
-		                      <input type='text' id="event_endtiming" name="event_endtiming" class="form-control" autocomplete="off" />
+		                      <input type='text' id="event_endtiming" name="event_endtiming" class="form-control"  />
 		                    </div>
             			</div>
        		</div>
@@ -517,8 +522,8 @@ input[type=number]::-webkit-outer-spin-button {
 	                  	<div class='row'>
 		                    <div class='form-group col-sm-12'>
 		                      <label>Event Description</label>
-		                      <textarea type='text' id="description" name="event_description"  class="form-control required" style="min-height:300px;" placeholder="Describe What Your Event Is All About" autocomplete="off" >
-		                      </textarea>
+		                      <textarea id="description" name="event_description"  class="form-control required" style="min-height:300px;" placeholder="Describe What Your Event Is All About" onchange = "cleanspecial_char(this)" ></textarea>
+		                      
 		                    </div>		                  
 	                  	</div>
                 	</div>
@@ -595,7 +600,7 @@ input[type=number]::-webkit-outer-spin-button {
                       <div class='form-group-1 col-sm-12'>
                         <div class="text-center" >
                         	<img src="<?php echo base_url('assets/images/wow-pink.png'); ?>" />
-                          <input type='text' name="event_title" class="noSpace form-control"  style="padding: 6px 30px;"   placeholder="Enter Your !Wowtag Title Here      Example: Craigsbirthday2017" autocomplete="off" />
+                          <input type='text' name="event_title" class="noSpace form-control required"  style="padding: 6px 30px;"   placeholder="Enter Your !Wowtag Title Here      Example: Craigsbirthday2017" onchange = "cleanspecial_char(this)" />
                         </div>
                       </div>
                     </div>
@@ -608,12 +613,13 @@ input[type=number]::-webkit-outer-spin-button {
                         <label style="color:#333; font-weight: bold; font-size: 14px">Upload Your Event -!Wowtag Video </label>
                       </div>
                       <div class="form-group">
-                      
+                      	<div class="alert alert-danger" id="video_req" role="alert" style="display:none;" >Wowtag Video is Required
+                        </div>
 
                         <div id="video_show" style="display: none; margin-top:20px;" >
-                        		<div class="remove_video" style="cursor: pointer; position:absolute; top: 55px; left: 210px; z-index:9999;">
-		                          	<img src="<?php echo base_url('assets/images/wow-close.png'); ?>" />
-		                        </div>
+                        	<div class="remove_video" style="cursor: pointer; position:absolute; top: 55px; left: 210px; z-index:9999;">
+		                        <img src="<?php echo base_url('assets/images/wow-close.png'); ?>" />
+		                    </div>
                         	<video width="200" height="150" controls>
 							 	 <source src="mov_bbb.mp4" id="video_here">
 							    Your browser does not support HTML5 video.
@@ -622,14 +628,16 @@ input[type=number]::-webkit-outer-spin-button {
 
                         </div>
                         	<span class="btn btn-primary btn-file"> 
-                       	 <i class="fa fa-play-circle"></i> Upload Video<input type="file" name="wowtag_video" id="video_size" class="file required" accept="video/*">
+                       	 <i class="fa fa-play-circle"></i> Upload Video
+                       	 <input type="file" name="wowtag_video" id="video_size" class="file required" accept="video/*">
                        	</span>
                         <div class="alert_msg" style="color: red; font-weight: bold; font-size: 13px; margin-top:15px;" ></div>
 
                         <div class="input-group col-xs-12" style="margin-top:10px; line-height:20px;">
                           <p>Choose a compelling 60-120 seconds event promotional ads video that will create a lasting impression in your viewers mind.</p>
-                        </div>                        
+                        </div>              	          
                       </div>
+
                     </div>
                     </div>
                     <div class='col-sm-6'>
@@ -638,11 +646,11 @@ input[type=number]::-webkit-outer-spin-button {
                         <label style="color:#333; font-weight: bold; font-size: 14px">Event Promotional Video </label>
                       </div>
                       <label>!Wowtag Runtime From: </label>
-                      <input type='text'  id="runtime_from" name="runtime_from" class="form-control required" autocomplete="off" />
+                      <input type='text'  id="runtime_from" name="runtime_from" class="form-control required"  />
                     </div>
                     <div class='col-sm-12' style="margin-top: 10px;" >
                       <label>!Wowtag Runtime To: </label>
-                      <input type='text' id="totime_to" name="totime_to" class="form-control required" autocomplete="off" />
+                      <input type='text' id="totime_to" name="totime_to" class="form-control required" />
                     </div>
                     </div>
                   </div>
@@ -695,7 +703,7 @@ input[type=number]::-webkit-outer-spin-button {
                   <div class="form-wizard-buttons">
                    
                     <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
-                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
+                    <button type="button" class="btn cancel btn-next">Next <i class="fa fa-arrow-right"></i></button>
                   </div>
                 </div>
     </fieldset>
@@ -720,7 +728,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 		    <div class='form-group col-sm-12' id="show_eventtype" style="display: none;" >
                 <label>Select Event Type</label>
-                    <select name="event_type" id="online_event_type" class="form-control " style="background-color:#eff0f1;" autocomplete="off">
+                    <select name="event_type" id="online_event_type" class="form-control " style="background-color:#eff0f1;">
                         <option value="">Select </option>	
                         <option value="Webinar">Webinar </option>
                         <option value="Teleconference">Teleconference</option>
@@ -729,47 +737,47 @@ input[type=number]::-webkit-outer-spin-button {
             </div>    
 
             <div class='form-group col-sm-12' id="webinar_link" style="display: none;">		                    
-		        <input type='text' name="webinar_link"  class="form-control " placeholder="Webinar Link/URL" autocomplete="off"/>
+		        <input type='text' name="webinar_link"  class="form-control " placeholder="Webinar Link/URL" />
 		    </div>	
 
 		    <div class='form-group col-sm-12' id="tele_phone" style="display: none;">		                     
-		      <input type='text'  name="tele_phone"  class="form-control" placeholder="Teleconference Phone" autocomplete="off" />
+		      <input type='text'  name="tele_phone"  class="form-control" placeholder="Teleconference Phone"  />
 		    </div>	
 
 		    <div class='form-group col-sm-12' id="tele_passcode" style="display: none;" >		                     
-		      <input type='text'  name="tele_passcode"  class="form-control" placeholder="Teleconference Passcode" autocomplete="off" />
+		      <input type='text'  name="tele_passcode"  class="form-control" placeholder="Teleconference Passcode" />
 		    </div> 
         	
             <div class='col-sm-12' id="show_venue" style="background-color:#f9f9f9;padding-top:10px; ">                  		
 
 		        <div class='form-group col-sm-12' style="margin-top:20px;">
 		          <label>Enter Your Event Venue / Location Name</label>
-		          <input type='text'  name="event_venue_name"  class="form-control" style="text-transform: capitalize;" autocomplete="off"/>
+		          <input type='text'  name="event_venue_name"  class="form-control" style="text-transform: capitalize;" />
 		        </div>
 
 		        <div class='form-group col-sm-12'>
 		          <label>Address 1</label>
-		          <input type='text'  name="address1" class="form-control" autocomplete="off"/>
+		          <input type='text'  name="address1" class="form-control" />
 		        </div>
 
 		        <div class='form-group col-sm-12'>
 		          <label>Address 2</label>
-		          <input type='text'  name="address2" class="form-control" autocomplete="off" />
+		          <input type='text'  name="address2" class="form-control" />
 		        </div>
 
 		        <div class='form-group col-sm-12'>
 		          <label>City</label>
-		          <input type='text'  name="venue_city" class="form-control" autocomplete="off" />
+		          <input type='text'  name="venue_city" class="form-control" style="text-transform: capitalize;"  />
 		        </div>	
 
 		        <div class='form-group col-sm-12'>
 		          <label>State</label>
-		          <input type='text'  name="venu_state" class="form-control" autocomplete="off" />
+		          <input type='text'  name="venu_state" class="form-control"  />
 		        </div>	                   
 	                   
 		        <div class='form-group col-sm-12'>
 		          <label>Zipcode/ Postal Code</label>
-		          <input type='text'  name="zipcode" class="form-control" autocomplete="off"  />
+		          <input type='text'  name="zipcode" class="form-control" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" maxlength="6"   />
 		        </div>
             </div>
             	       
@@ -787,22 +795,22 @@ input[type=number]::-webkit-outer-spin-button {
 			                       <div class="row">						                         	
 					                    <div class='form-group col-sm-12'>
 					                      <label>Enter Name</label>
-					                      <input type='text' name="contact_name" class="form-control required" autocomplete="off" />
+					                      <input type='text' name="contact_name" class="form-control required" />
 					                    </div>
 
 				                         <div class='form-group col-sm-12'>
 					                      <label>Enter Email</label>
-					                      <input type='text'  name="contact_email" class="form-control" value="<?php echo $this->session->userdata('email'); ?>" autocomplete="off" />
+					                      <input type='text'  name="contact_email" class="form-control" value="<?php echo $this->session->userdata('email'); ?>"  />
 					                    </div>
 
 				                        <div class='form-group col-sm-12'>
 					                      <label>Enter Phone</label>
-					                      <input type='text'  name="contact_phone" class="form-control" value="<?php echo $this->session->userdata('phone'); ?>" autocomplete="off" />
+					                      <input type='text'  name="contact_phone" class="form-control" value="<?php echo $this->session->userdata('phone'); ?>"  />
 					                    </div>
 
 				                        <div class="form-group col-md-12">
 				                        	<label>Enter Message</label>
-				                            <textarea class="form-control" name="contact_msg" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" autocomplete="off">
+				                            <textarea class="form-control" name="contact_msg" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" >
 				                            </textarea>
 				                        </div>
 				                    </div>			                       
@@ -1024,10 +1032,28 @@ $('#create_quick_event').on('keyup keypress', function(e) {
   }
 });	
 });		
-
+	
 // without space for event title
 $('.noSpace').keyup(function() {
  this.value = this.value.replace(/\s/g,'');
+});
+
+
+// not allow special character
+function cleanspecial_char(t) {
+            t.value = t.value.toString().replace(/[^a-zA-Z 0-9\n\r]+/g, '');
+        }
+
+// validation for image
+$(document).on("click", ".cancel", function(e){
+
+	if( document.getElementById("video_size").files.length == 0 ){
+	    $('#video_req').show();
+	}
+	else
+	{
+		$('#video_req').hide();
+	}
 });
 
 //checkbox  with model popup box last step

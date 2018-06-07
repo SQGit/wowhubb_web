@@ -101,9 +101,9 @@ input[type=checkbox] {
         <div class="row">
           <div class="col-md-3">
             <div class="profile-info">
-              <form id="profile_img" action="<?php echo base_url('profile/profile_img_upload'); ?>" method="post" enctype="multipart/form-data">
+              
                 <?php 
-                $img= $this->session->userdata('image');
+                $img= $this->session->userdata('personal_image');
                    if(isset($img))
                    {
                       ?>
@@ -118,7 +118,7 @@ input[type=checkbox] {
                        } 
                 ?>
                
-              </form>
+              
             </div>
           </div>
           <div class="col-md-9" >

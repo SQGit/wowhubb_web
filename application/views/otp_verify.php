@@ -85,7 +85,7 @@
             	<div class="row">
             		<div class="col-md-12 col-sm-12">
                   <h2 class="black" >Verification Code</h2>
-                  <span style="color:#333; font-size: 15px">You Will recieve a verication code via your registered Mail or Phone please enter code to continue </span></h2><hr>
+                  <span style="color:#333; font-size: 13px;">You Will recieve a verication code via your registered Mail or Phone please enter code to continue </span></h2><hr>
             <form id = "login_form" action ="<?php echo base_url('Home/otp_validation'); ?>" method="post" class="contact-form">
                    
                     <div class="form-group" >
@@ -99,7 +99,7 @@
                       <input id="contact-phone" type="password" name="otp" class="form-control" placeholder="One time password *" required="required" data-error="Phone is required." style="padding-left: 30px;">
                     </div>
                   
-                      <button type="submit" class="btn-primary" style="margin-left: 200px;"> Submit </button>
+                      <button type="submit" class="btn-primary" style="margin-left: 200px; font-size: 13px;"> Submit </button>
                 
             </form>
                 </div>

@@ -41,7 +41,7 @@
 label.error {
    	color:red; 
 }
-	
+
 	/*popup close button  */
 .large.tooltip-inner {
 		max-width: 350px;
@@ -276,14 +276,6 @@ img {
     outline: none;
 }
 
-/*hide input type number arrows*/
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0; 
-}
 .form-wizard-steps {
     margin: auto;
     overflow: hidden;
@@ -299,6 +291,13 @@ input[type=number]::-webkit-outer-spin-button {
     -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
     box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
     margin-top: 0px;
+}
+
+.alert {
+     padding: 0px; 
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
 }
 
 </style>
@@ -390,7 +389,7 @@ input[type=number]::-webkit-outer-spin-button {
      </div>
             <!-- Form progress --> 
             <!-- Form Step 1 -->
-    <form id="create_event" action="<?php echo base_url('event/personal_event'); ?>"  method="post" enctype="multipart/form-data" > 
+    <form id="create_event" action="<?php echo base_url('event/personal_event'); ?>"  method="post" enctype="multipart/form-data" autocomplete="off"> 
     	
     	<fieldset>
                 <!-- Progress Bar -->
@@ -402,22 +401,22 @@ input[type=number]::-webkit-outer-spin-button {
                 <div class='row'>
                   	<div class='form-group col-sm-12' style="display: none;" >
                       <label>Event type</label>
-                      <input type='text' name="event_type"  class="form-control " value="<?php echo $this->session->userdata('event_type'); ?>"  readonly/>
+                      <input type='text' name="event_type"  class="form-control " value="<?php echo $this->session->userdata('event_type'); ?>" readonly/>
                     </div>
                     <div class='form-group col-sm-12' >
                       <label>Event Category</label>
-                      <input type='text' name="event_category"  class="form-control " value="<?php echo $event_category; ?>"  readonly/>
+                      <input type='text' name="event_category"  class="form-control " value="<?php echo $event_category; ?>" readonly/>
                     </div>
                     <div class='form-group col-sm-12' >
                       <label>Event Name</label>
-                      <input type='text'  name="event_name" class="form-control required"  style="text-transform: capitalize;" autocomplete="off" />
+                      <input type='text' name="event_name" class="form-control required"  style="text-transform: capitalize;" onchange = "cleanspecial_char(this)" />
                     </div>
                 </div>
 
             		<div class='row'>
 		                    <div class='form-group col-sm-12' >
 		                      <label>Event City </label>
-		                      <input type='text' id="time_zone" name="time_zone"  class="form-control" autocomplete="off"/>
+		                      <input type='text' name="time_zone" class="txtOnly form-control required"  onchange = "cleanspecial_char(this)"/>
 		                    </div>
 
 		                    <div class="form-group col-sm-12 " style="font-size: 15px;">
@@ -438,23 +437,23 @@ input[type=number]::-webkit-outer-spin-button {
 
 		                    <div class='form-group col-sm-6' style="width:45%;" >
 		                      <label>Event Start Date</label>
-		                      <input type='text' id="event_startdate" name="event_startdate" class="form-control required" autocomplete="off" />
+		                      <input type='text' id="event_startdate" name="event_startdate" class="form-control required" />
 		                    </div>
 
 		                    <div  class='form-group col-sm-6' style="width:45%; " >
 		                      <label>Event Start Time</label>
-		                      <input type='text' id="event_startime" name="event_startime" class="form-control" autocomplete="off" />
+		                      <input type='text' id="event_startime" name="event_startime" class="form-control" />
 		                    </div>
 
 		                
 		                    <div class='form-group col-sm-6' style="width:45%;" >
 		                      <label>Event End Date</label>
-		                      <input type='text' id="event_enddate" name="event_enddate" class="form-control" autocomplete="off" />
+		                      <input type='text' id="event_enddate" name="event_enddate" class="form-control" readonly />
 		                    </div>
 
 		                    <div class='form-group col-sm-6' style="width:45%;">
 		                      <label>Event End Time</label>
-		                      <input type='text' id="event_endtiming" name="event_endtiming" class="form-control" autocomplete="off" />
+		                      <input type='text' id="event_endtiming" name="event_endtiming" class="form-control" />
 		                    </div>		                    
 		                </div>   
 		                   
@@ -465,13 +464,17 @@ input[type=number]::-webkit-outer-spin-button {
 	                  <div class='row'>
 		                    <div class='form-group col-sm-12'>
 		                      <label>Event Description</label>
-		                      <textarea type='text' id="description" name="event_description"  class="form-control required" style="min-height:300px;" placeholder="Describe What Your Event Is All About" autocomplete="off" ></textarea>
+		                      <textarea type='text' id="description" name="event_description" class="txtOnly form-control required" style="min-height:300px;" placeholder="Describe What Your Event Is All About" onchange = "cleanspecial_char(this)" ></textarea>
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
+		                    	
 			                      <div class='col-sm-12' style="background-color:#f9f9f9;">
 			                        <label>Event Cover Photo <strong style="color: red; font-size: 20px;"> * </strong></label>
+			                        
 			                        <label>Please browse to upload cover photo</label>
+			                        <div class="alert alert-danger" id="img_req" role="alert" style="display:none;" >Cover Image is Required
+                                	</div>
 			                        <div class="form-group" style="margin-bottom: 10px;"> 
 				                        <div class="field" align="left">
 				                         		<input type="button" class="btn btn-primary re"  value="Browse Image..." onclick="document.getElementById('files').click();" />
@@ -555,7 +558,7 @@ input[type=number]::-webkit-outer-spin-button {
                       <div class='form-group-1 col-sm-12'>
                         <div class="text-center" >
                         	<img src="../assets/images/wow-pink.png"> 
-                          <input type='text' name="event_title" class="form-control required"  style="padding: 6px 30px;"   placeholder="Enter Your !Wowtag Title Here      Example:  Craigsbirthday2017" autocomplete="off" />
+                          <input type='text' name="event_title" class="noSpace form-control required"  style="padding: 6px 30px;"   placeholder="Enter Your !Wowtag Title Here      Example:  Craigsbirthday2017" onchange = "cleanspecial_char(this)"/>
                         </div>
                       </div>
                     </div>
@@ -580,7 +583,7 @@ input[type=number]::-webkit-outer-spin-button {
 							<audio id="video_url"></audio> <!-- here store video url and check duration -->
                         </div>
                         <span class="btn btn-primary btn-file"> 
-                       	 <i class="fa fa-play-circle"></i> Upload Video<input type="file" name="wowtag_video" id="video_size" class="file required" accept="video/*">
+                       	 <i class="fa fa-play-circle"></i> Upload Video<input type="file" name="wowtag_video" id="video_size" class="file" accept="video/*">
                        	</span>
 
                         <!-- alert msg show here -->
@@ -686,22 +689,22 @@ input[type=number]::-webkit-outer-spin-button {
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>Address 1</label>
-		                      <input type='text' id="address1_1" name="address1[]" class="form-control" autocomplete="off"/>
+		                      <input type='text' id="address1_1" name="address1[]" class="form-control" />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>Address 2</label>
-		                      <input type='text' id="address2_1" name="address2[]" class="form-control" autocomplete="off" />
+		                      <input type='text' id="address2_1" name="address2[]" class="form-control" />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>City</label>
-		                      <input type='text' id="city_1" name="venue_city[]" class="txtOnly form-control" maxlength="25" autocomplete="off" />
+		                      <input type='text' id="city_1" name="venue_city[]" class="txtOnly form-control" maxlength="25" />
 		                    </div>		                   
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>Zipcode/ Postal Code</label>
-		                      <input type='text' id="zipcode_1" name="zipcode[]"  class="form-control" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" maxlength="6" autocomplete="off"/>
+		                      <input type='text' id="zipcode_1" name="zipcode[]"  class="form-control" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" maxlength="6"/>
 		                    </div>
                		</div>
             	</div> 
@@ -759,19 +762,19 @@ input[type=number]::-webkit-outer-spin-button {
 			                       <div class="row">
 			                         	<div class="form-group-1 col-md-12">
 				                          <p>What is Event Age Requirement?</p>
-				                          <input type='text'  name="quesans1"  class="form-control" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" maxlength="2" autocomplete="off"/>
+				                          <input type='text'  name="quesans1"  class="form-control" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" maxlength="2" />
 				                        </div>
 				                        <div class="form-group-1 col-md-12">
 				                          <p>This is a kids friendly event?</p>
-				                          <input type='text' name="quesans2"  class="form-control" autocomplete="off" />
+				                          <input type='text' name="quesans2"  class="form-control" />
 				                        </div>
 				                        <div class="form-group-1 col-md-12">
 				                          <p>What are event parking/Transportantion options to and from event location?</p>
-				                          <input type='text'  name="quesans3"  class="form-control" autocomplete="off" />
+				                          <input type='text'  name="quesans3"  class="form-control"/>
 				                        </div>
 				                        <div class="form-group-1 col-md-12">
 				                          <p> What are allowed into the event venue?</p>
-				                          <input type='text'  name="quesans4"  class="form-control" autocomplete="off" />
+				                          <input type='text'  name="quesans4"  class="form-control" />
 				                        </div>
 				                    </div>
 
@@ -978,13 +981,13 @@ input[type=number]::-webkit-outer-spin-button {
 	                  </select>
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <input type="text" name="nameofspeaker1" id="textbox_1" class="form-control" placeholder="Enter Name Of Speaker/Artist/Event Clips" autocomplete="off">
+	                  <input type="text" name="nameofspeaker1" id="textbox_1" class="form-control" placeholder="Enter Name Of Speaker/Artist/Event Clips" >
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <input type="text" name="guest_url1" id="textbox_2" class="form-control" placeholder="Event Guest Speaker/Artist URL-Links" autocomplete="off">
+	                  <input type="text" name="guest_url1" id="textbox_2" class="form-control" placeholder="Event Guest Speaker/Artist URL-Links">
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <textarea class="form-control" name="guest_speaker1" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" autocomplete="off"></textarea>
+	                  <textarea class="form-control" name="guest_speaker1" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" ></textarea>
 	                </div>
                 </div>
                 		<br><br>
@@ -1034,13 +1037,13 @@ input[type=number]::-webkit-outer-spin-button {
 	                  </select>
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <input type="text" name="nameofspeaker2" id="textbox_1" class="form-control" placeholder="Enter Name Of Speaker/Artist/Event Clips" autocomplete="off">
+	                  <input type="text" name="nameofspeaker2" id="textbox_1" class="form-control" placeholder="Enter Name Of Speaker/Artist/Event Clips" >
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <input type="text" name="guest_url2" id="textbox_2" class="form-control" placeholder="Event Guest Speaker/Artist URL-Links" autocomplete="off">
+	                  <input type="text" name="guest_url2" id="textbox_2" class="form-control" placeholder="Event Guest Speaker/Artist URL-Links" >
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <textarea class="form-control" name="guest_speaker2" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" autocomplete="off"></textarea>
+	                  <textarea class="form-control" name="guest_speaker2" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" ></textarea>
 	                </div>
                 </div>
             </div>
@@ -1166,22 +1169,22 @@ input[type=number]::-webkit-outer-spin-button {
                   </div>
                   <div class="form-group col-sm-12">
                     <label>Event Host Message</label>
-                    <textarea type="text" class="form-control"  name="message" autocomplete="off"></textarea>
+                    <textarea type="text" class="form-control"  name="message" ></textarea>
                   </div></div>
                   
                   <div class="col-md-6">
                   		<div class="hide_link">
 		                  <div class="form-group col-sm-12">
 		                    <label> Donation URL </label>
-		                    <input type="text" class="form-control" name="donation_url" autocomplete="off" >
+		                    <input type="text" class="form-control" name="donation_url" >
 		                  </div>
 		                  <div class="form-group col-sm-12">
 		                    <label>Gift Registry URL </label>
-		                    <input type="text" class="form-control" name="gift_url" autocomplete="off" >
+		                    <input type="text" class="form-control" name="gift_url" >
 		                  </div>
 		                  <div class="form-group col-sm-12">
 		                    <label>Other URL </label>
-		                    <input type="text" class="form-control" name="other_url" autocomplete="off" >
+		                    <input type="text" class="form-control" name="other_url" >
 		                  </div>
              			</div>
 
@@ -1342,7 +1345,8 @@ input[type=number]::-webkit-outer-spin-button {
 <script src="<?php echo base_url('assets/js/bootstrap3.3.4.min.js')?>"></script> 
 
 <script>
-	
+
+
 
 var option_template = ''; //golabal variable for dynamic add address step 3
 
@@ -1365,6 +1369,11 @@ function valueChanged()
         $(".hide_link").show();
 	}
 
+// without space for event title
+$('.noSpace').keyup(function() {
+ this.value = this.value.replace(/\s/g,'');
+});
+
 // hide and show date depend on select days  step1
 
 $(document).ready(function(){
@@ -1372,6 +1381,18 @@ $(document).ready(function(){
             $("#date_hide").show();
 		});
 });	
+
+// validation for image
+$(document).on("click", ".cancel", function(e){
+
+if( document.getElementById("files").files.length == 0 ){
+    $('#img_req').show();
+}
+else
+{
+	$('#img_req').hide();
+}
+});
 
 // event start time and end time picker
   $("#event_startime").wickedpicker();		
@@ -1615,11 +1636,19 @@ $(document).on("change", "#video_size2", function(evt)
     
 });
 
+// keyboard accept numbers olny
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}
+
 //dynamically add event venue address
 
 function generate_address_fields(count)
  {	
-	var address  = '<div id="event_address_'+count+'" class="animated bounceInRight tab"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_venue_name_'+count+'" name="event_venue_name[]"  class="form-control" onblur="update_vanue()" /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="address1_'+count+'" name="address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="address2_'+count+'" name="address2[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="city_'+count+'" name="venue_city[]" class="txtOnly form-control" maxlength="25" /> </div> <div class="form-group col-sm-12">  <label>Zipcode/ Postal Code</label> <input type="text" id="zipcode_'+count+'" name="zipcode[]"  class="form-control" maxlength="6"/> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnAdd10" class="remove_address btn btn-info btn-sm"> </a> </div> </div>';
+	var address  = '<div id="event_address_'+count+'" class="animated bounceInRight tab"> <div class="form-group col-sm-12" style="margin-top:20px;"> <label>Enter Your Event Venue / location Name</label> <input type="text" id="event_venue_name_'+count+'" name="event_venue_name[]"  class="form-control" onblur="update_vanue()" /> </div> <div class="form-group col-sm-12"> <label>Address 1</label> <input type="text" id="address1_'+count+'" name="address1[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>Address 2</label> <input type="text" id="address2_'+count+'" name="address2[]"  class="form-control"  /> </div> <div class="form-group col-sm-12"> <label>City</label> <input type="text" id="city_'+count+'" name="venue_city[]" class="txtOnly form-control" maxlength="25" /> </div> <div class="form-group col-sm-12">  <label>Zipcode/ Postal Code</label> <input type="text"  id="zipcode_'+count+'" name="zipcode[]"  class="form-control"  maxlength="6" onkeypress="return isNumberKey(event)"/> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);" id="btnAdd10" class="remove_address btn btn-info btn-sm"> </a> </div> </div>';
 
         return address;
 }
@@ -1765,7 +1794,7 @@ $(function(){
 
 // accept only text for city
 $('.txtOnly').keypress(function (e) {
-			var regex = new RegExp("^[a-zA-Z]+$");
+			var regex = new RegExp("^[0-9a-zA-Z]+$");
 			var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
 			if (regex.test(str)) {
 				return true;
@@ -1778,6 +1807,12 @@ $('.txtOnly').keypress(function (e) {
 			return false;
 			}
 		});
+
+// not allow special character
+function cleanspecial_char(t) {
+            t.value = t.value.toString().replace(/[^a-zA-Z 0-9\n\r]+/g, '');
+        }
+        
 
 // pass value with in same form
 $('#event_startime').change(function() {

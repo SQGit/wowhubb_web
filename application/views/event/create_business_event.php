@@ -294,22 +294,7 @@
 	    text-shadow: none;
 	    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
 	}
-	.btn-file input[type=file] {
-	  position: absolute;
-	  top: 0;
-	  right: 0;
-	  min-width: 100%;
-	  min-height: 100%;
-	  font-size: 100px;
-	  text-align: right;
-	  filter: alpha(opacity=0);
-	  opacity: 0;
-	  outline: none;
-	  background: white;
-	  cursor: inherit;
-	  display: block;
-	}
-
+	
 	.remove {
 	  display: block;
 	  background: #444;
@@ -405,6 +390,13 @@ img, #img_files4 {
     box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
     margin-top: 0px;
 }
+.alert {
+     padding: 0px; 
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
 </style>
 </head>
 
@@ -490,7 +482,7 @@ img, #img_files4 {
             </div>
             <!-- Form progress --> 
             <!-- Form Step 1 -->
-    <form id="create_business_event" action="<?php echo base_url('Event/create_business_event'); ?>"  method="post" enctype="multipart/form-data" >
+    <form id="create_business_event" action="<?php echo base_url('Event/create_business_event'); ?>"  method="post" enctype="multipart/form-data" autocomplete="off" >
        
         <fieldset>
                 <!-- Progress Bar -->
@@ -507,7 +499,7 @@ img, #img_files4 {
 			                  	 
 			                    <div class='form-group col-sm-12' >
 			                      <label>Event Category</label>
-			                      <input type='text' name="event_category"  class="form-control" value="<?php echo $this->session->userdata('event_category'); ?>"  readonly/>
+			                      <input type='text' name="event_category"  class="form-control" value="<?php echo $this->session->userdata('event_category'); ?>"  readonly />
 			                    </div>
 
 			                    <div class='form-group col-sm-12' >
@@ -516,7 +508,7 @@ img, #img_files4 {
 			                    </div>
 			                    <div class='form-group col-sm-12' >
 			                      <label>Event Name</label>
-			                      <input type='text' id="event_date" name="event_name"  class="form-control required" autocomplete="off" />
+			                      <input type='text' id="event_date" name="event_name" class="form-control required" autocomplete="off" onchange = "cleanspecial_char(this)"/>
 			                    </div>
 		                </div>
 
@@ -527,20 +519,19 @@ img, #img_files4 {
 			                      <input type='text' id="event_startdate" name="event_startdate" class="form-control required" autocomplete="off" />
 			                    </div>
 
-			                    <div  class='form-group col-sm-6' style="width:45%; " >
+			                    <div  class='form-group col-sm-6' style="width:45%;" >
 			                      <label>Sales Event Start Time</label>
 			                      <input type='text' id="event_startime" name="event_startime" class="form-control required" autocomplete="off" />
 			                    </div>
-
 			                   
 			                    <div class='form-group col-sm-6' style="width:45%;" >
 			                      <label>Sales Event End Date</label>
-			                      <input type='text' id="event_enddate" name="event_enddate"  class="form-control required" autocomplete="off" />
+			                      <input type='text' id="event_enddate" name="event_enddate" class="form-control required" autocomplete="off" />
 			                    </div>
 
 			                    <div class='form-group col-sm-6' style="width:45%;">
 			                      <label>Sales Event End Time</label>
-			                      <input type='text' id="event_endtiming" name="event_endtiming"  class="form-control required" autocomplete="off" />
+			                      <input type='text' id="event_endtiming" name="event_endtiming" class="form-control required" autocomplete="off" />
 			                    </div>
 	                   
 	                  		</div>
@@ -551,13 +542,15 @@ img, #img_files4 {
 			                <div class='row'>
 			                    <div class='form-group col-sm-12'>
 			                      <label>Event Description</label>
-			                      <textarea type='text' id="description" name="event_description"  class="form-control required" style="min-height:300px;" placeholder="Describe What Your Event Is All About " autocomplete="off"></textarea>
+			                      <textarea type='text' id="description" name="event_description"  class="form-control required" style="min-height:300px;" placeholder="Describe What Your Event Is All About" onkeypress="return blockSpecialChar(event)" autocomplete="off" onchange = "cleanspecial_char(this)"></textarea>
 			                    </div>
 
 			                    <div class='form-group col-sm-12'>
 						            <div class='col-sm-12' style="background-color:#f9f9f9;">
 						                <label>Event Cover Photo <strong style="color: red; font-size: 20px;"> * </strong></label>
 						                <label>Please browse to upload cover photo</label>
+						                <div class="alert alert-danger" id="img_req" role="alert" style="display:none;" >Cover Image is Required
+                                		</div>
 						                    <div class="form-group" style="margin-bottom: 10px;"> 
 							                    <div class="field" align="left">
 							                        <input type="button" class="btn btn-primary"  value="Browse..." onclick="document.getElementById('files').click();" />
@@ -995,81 +988,91 @@ img, #img_files4 {
                 <!-- Progress Bar -->
                 <h4> <span>Step 4 - 5</span></h4>
                 <div class='form-group col-sm-9' style="padding-top:10px; padding-bottom:10px; background-color:#f5f5f5;"> 
-                  <div class='form-group col-sm-12' style="margin-bottom:30px!important;">
-                  <div class="col-md-3">
+                <div class='form-group col-sm-12' style="margin-bottom:30px!important;">
+                    <div class="col-md-3">
                   		<div class="text-left">
-                        		<label style="color:#333; font-weight: bold; font-size: 13px">Upload Coupon Image </label>
+                        	<label style="color:#333; font-weight: bold; font-size: 13px">Upload Coupon Image </label>
                       	</div>
-                     					<div class="form-group">                      		
-					                        <input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('img_files3').click();" style="margin-bottom:15px;"/>
-						                        <input type="file" style="display:none;" name="coupon_img1" id="img_files3"  accept="image/*">
-					                    </div>
-                      <!-- <input type="file"  name="coupon_img1"  accept="image/*"> -->
-                      <input type='text' name="service_name1"  class="form-control" placeholder="Product/Services Name" />
+                     	<div class="form-group">                      		
+					        <input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('img_files3').click();" style="margin-bottom:15px;"/>
+						    <input type="file" style="display:none;" name="coupon_img1" id="img_files3"  accept="image/*">
+					    </div>
                       
-                      </div>
+                      <input type='text' name="service_name1"  class="form-control" placeholder="Product/Services Name" />
+                	</div>
+
                   <div class="col-md-3">
                   <div class="col-md-12 text-left" style="font-weight:bold; line-height:20px;"> Select Sales Discount Value</div>
-					<div class="row">
-                      				<select name="discount_value1" id="days" class="form-control" style="background-color:#eff0f1;">
-                      				  <option value="">Select</option>
-				                      <option value="05%">05% Discount</option>
-				                      <option value="10%">10% Discount</option>
-				                      <option value="15%">15% Discount</option>
-				                      <option value="20%">20% Discount</option>
-                                      <option value="25%">25% Discount</option>
-				                      <option value="30%">30% Discount</option>
-				                      <option value="35%">35% Discount</option>
-                                      <option value="40%">40% Discount</option>
-				                      <option value="45%">45% Discount</option>
-				                      <option value="50%">50% Discount</option>
-                                      <option value="55%">55% Discount</option>
-				                      <option value="55%">55% Discount</option>
-				                      <option value="60%">60% Discount</option>
-                                      <option value="65%">65% Discount</option>
-				                      <option value="70%">70% Discount</option>
-				                      <option value="75%">75% Discount</option>
-                                      <option value="80%">80% Discount</option>
-				                      <option value="85%">85% Discount</option>
-				                      <option value="90%">90% Discount</option>
-                                      <option value="95%">95% Discount</option>
-				                      <option value="Free">Free</option>                                     
-				                     
-				                  	</select>
-                                    </div>
-                                    <div class="row" style="margin-top:23px; margin-bottom:15px;">
+						<div class="row">
+                      		<select name="discount_value1" id="days" class="form-control" style="background-color:#eff0f1;">
+                      			<option value="">Select</option>
+				                <option value="05%">05% Discount</option>
+				                <option value="10%">10% Discount</option>
+				                <option value="15%">15% Discount</option>
+				                <option value="20%">20% Discount</option>
+                                <option value="25%">25% Discount</option>
+				                <option value="30%">30% Discount</option>
+				                <option value="35%">35% Discount</option>
+                                <option value="40%">40% Discount</option>
+				                <option value="45%">45% Discount</option>
+				                <option value="50%">50% Discount</option>
+                                <option value="55%">55% Discount</option>
+				                <option value="55%">55% Discount</option>
+				                <option value="60%">60% Discount</option>
+                                <option value="65%">65% Discount</option>
+				                <option value="70%">70% Discount</option>
+				                <option value="75%">75% Discount</option>
+                                <option value="80%">80% Discount</option>
+				                <option value="85%">85% Discount</option>
+				                <option value="90%">90% Discount</option>
+                                <option value="95%">95% Discount</option>
+				                <option value="Free">Free</option>                                  
+				            </select>
+                    	</div>
 
-                      <input type='text' id="begine_from1" name="begining_from1"  class="form-control" placeholder="Beginning From" />
-                    </div>
-                    <div class="row">
-
-                      <input type='text' id="ends_on1" name="begining_end1"  class="form-control"  placeholder="Ends On" style="margin-bottom:10px;" />
-                       <input type='text' id="count_down"  class="form-control">
-                    </div>
                    
+	                <div class="row">
+	                    <div class="col-md-6" style="margin-top:20px; ">
+	                      <input type='text' id="begine_from1" name="begining_fromdate1" class="form-control" placeholder="Begin Date" />
+	                    </div>
+	                    <div class="col-md-6" style="margin-top:20px; ">
+	                      <input type='text' id="begine_fromtime1" name="begining_fromtime1" class="form-control" placeholder="Begine Time" />
+	                    </div>
+	                </div>
+
+	                <div class="row">
+	                    <div class="col-md-6" style="margin-top:20px; ">
+	                      <input type='text' id="ends_on1" name="begining_enddate1" class="form-control"  placeholder="Ends Date" />
+	                    </div>  
+	                    <div class="col-md-6" style="margin-top:20px; ">
+	                      <input type='text' id="ends_ontime1" name="begining_endtime1" class="form-control"  placeholder="Ends Time" />
+	                    </div>
+	                </div>
+                	
+
                     </div>
+
                     <div class="col-md-3">
 	                  <div class="col-md-12 text-center" style="font-weight:bold;"> Count Down</div>
 						<div class="row text-center">
 	                      <div class="col-md-12">
 	                        <div class="col-md-12" style="border:1px solid #ccc; border-radius:5px; font-size:13px;">23:29s Left</div>
 	                      </div>
-                                    </div>
-                                <div class="col-md-12" style="margin-top:15px; margin-bottom:15px; line-height:20px; font-weight:bold;">
-															Select Your Audience Call To Action
-                      				<select name="audience_callto_action"  class="form-control" style="background-color:#eff0f1;">
-                      				  <option >Select</option>
-				                      <option value="Book_Now">Book Now</option>
-				                      <option value="Grab_Your_Coupon">Grab Your Coupon</option>			                      
+                        </div>
+                        <div class="col-md-12" style="margin-top:15px; margin-bottom:15px; line-height:20px; font-weight:bold;">
+							Select Your Audience Call To Action
+                      		<select name="audience_callto_action"  class="form-control" style="background-color:#eff0f1;">
+                      			<option >Select</option>
+				                <option value="Book_Now">Book Now</option>
+				                <option value="Grab_Your_Coupon">Grab Your Coupon</option>			                      
 				                     
-				                  	</select>
-                    			</div>                    
-                    
+				            </select>
+                   		</div>                  
                     </div>
 
 		                <div class="col-md-3">
 		                  	<div class="form-group col-sm-12">
-		                  			<textarea class="form-control" name="sales_terams1" placeholder="Coupon Terms & Conditions" style="min-height:170px;"></textarea>
+		                  		<textarea class="form-control" name="sales_terams1" placeholder="Coupon Terms & Conditions" style="min-height:170px;"></textarea>
 		                	</div>
 		                </div>
                  </div> 
@@ -1077,54 +1080,69 @@ img, #img_files4 {
                  <!-- second part for add more coupons -->
 
                  <div class='form-group col-sm-12' id="add_more_show" style="margin-bottom:15px; display: none;">
-                  <div class="col-md-3"><div class="text-left">
+                  <div class="col-md-3">
+                  	<div class="text-left">
                         <label style="color:#333; font-weight: bold; font-size: 13px">Upload Coupon Image </label>
-                      </div>
-
-                       					
-                       					<div class="form-group">                      		
-					                        <input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('img_files4').click();" />
-						                        <input type="file" style="display:none;" name="coupon_img2" id="img_files4" class="file" accept="image/*">
-					                     </div>
-                        <!-- <input type="file"  name="coupon_img2"  accept="image/*"> -->
+                    </div>
+	
+                    <div class="form-group">                      		
+					    <input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('img_files4').click();" />
+						<input type="file" style="display:none;" name="coupon_img2" id="img_files4" class="file" accept="image/*">
+					</div>
+                      
                       <input type='text' name="service_name2"  class="form-control" placeholder="Product/Services Name" />
                     
                       </div>
-                  		<div class="col-md-3">
-                 			 <div class="col-md-12 text-left" style="font-weight:bold; line-height:20px;"> Select Sales Discount Value</div>
-							<div class="row">
-                      			<select name="discount_value2" id="days" class="form-control" style="background-color:#eff0f1;">
-				                      <option value="">Select</option>
-				                      <option value="05%">05% Discount</option>
-				                      <option value="10%">10% Discount</option>
-				                      <option value="15%">15% Discount</option>
-				                      <option value="20%">20% Discount</option>
-                                      <option value="25%">25% Discount</option>
-				                      <option value="30%">30% Discount</option>
-				                      <option value="35%">35% Discount</option>
-                                      <option value="40%">40% Discount</option>
-				                      <option value="45%">45% Discount</option>
-				                      <option value="50%">50% Discount</option>
-                                      <option value="55%">55% Discount</option>
-				                      <option value="55%">55% Discount</option>
-				                      <option value="60%">60% Discount</option>
-                                      <option value="65%">65% Discount</option>
-				                      <option value="70%">70% Discount</option>
-				                      <option value="75%">75% Discount</option>
-                                      <option value="80%">80% Discount</option>
-				                      <option value="85%">85% Discount</option>
-				                      <option value="90%">90% Discount</option>
-                                      <option value="95%">95% Discount</option>
-				                      <option value="Free">Free</option>                                     
-				                     
-				                </select>
-                            </div>
-                                    <div class="row" style="margin-top:23px; margin-bottom:15px;">
-                      					<input type='text' id="begine_from2" name="begining_from2"  class="form-control" placeholder="Beginning From" />
-                    				</div>
-				                    <div class="row">
-				                      	<input type='text'   id="ends_on2" name="begining_end2"  class="form-control"  placeholder="Ends On" />
-				                    </div>
+                  	<div class="col-md-3">
+                 			<div class="col-md-12 text-left" style="font-weight:bold; line-height:20px;">
+                 			  Select Sales Discount Value
+                 			</div>
+						<div class="row">
+                      		<select name="discount_value2" id="days" class="form-control" style="background-color:#eff0f1;">
+				                <option value="">Select</option>
+				                <option value="05%">05% Discount</option>
+				                <option value="10%">10% Discount</option>
+				                <option value="15%">15% Discount</option>
+				                <option value="20%">20% Discount</option>
+                                <option value="25%">25% Discount</option>
+				                <option value="30%">30% Discount</option>
+				                <option value="35%">35% Discount</option>
+                                <option value="40%">40% Discount</option>
+				                <option value="45%">45% Discount</option>
+				                <option value="50%">50% Discount</option>
+                                <option value="55%">55% Discount</option>
+				                <option value="55%">55% Discount</option>
+				                <option value="60%">60% Discount</option>
+                                <option value="65%">65% Discount</option>
+				                <option value="70%">70% Discount</option>
+				                <option value="75%">75% Discount</option>
+                                <option value="80%">80% Discount</option>
+				                <option value="85%">85% Discount</option>
+				                <option value="90%">90% Discount</option>
+                                <option value="95%">95% Discount</option>
+				                <option value="Free">Free</option>                                    
+				            </select>
+                        </div>
+                                    
+
+				            <div class="row">
+			                    <div class="col-md-6" style="margin-top:20px; ">
+			                      <input type='text' id="begine_from2" name="begining_fromdate2" class="form-control" placeholder="Begin Date" />
+			                    </div>
+			                    <div class="col-md-6" style="margin-top:20px; ">
+			                      <input type='text' id="begine_fromtime2" name="begining_fromtime2" class="form-control" placeholder="Begine Time" />
+			                    </div>
+			                </div>
+
+			                <div class="row">
+			                    <div class="col-md-6" style="margin-top:20px; ">
+			                      <input type='text' id="ends_on2" name="begining_enddate2" class="form-control"  placeholder="Ends Date" />
+			                    </div>  
+			                    <div class="col-md-6" style="margin-top:20px; ">
+			                      <input type='text' id="ends_ontime2" name="begining_endtime2" class="form-control"  placeholder="Ends Time" />
+			                    </div>
+			                </div>
+
                     	</div>
 
 		                    	<div class="col-md-3">
@@ -1389,12 +1407,35 @@ img, #img_files4 {
 
 <script>
 
+
 // keyboard accept only alphabets
 
 function alphaOnly(wow_title) {
   var key = event.keyCode;`enter code here`
   return ((key >= 65 && key <= 90) || key == 8);
 };
+
+// accept only text for city
+$('.txtOnly').keypress(function (e) {
+	var regex = new RegExp("^[0-9a-zA-Z]+$");
+	var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+	if (regex.test(str)) {
+		return true;
+	}
+	else
+	{
+		e.preventDefault();
+		$('.error').show();
+		$('.error').text('Please Enter Alphabate');
+		return false;
+	}	
+});
+
+// not allow special character
+function cleanspecial_char(t) {
+  	t.value = t.value.toString().replace(/[^a-zA-Z 0-9\n\r]+/g, '');
+}
+        
 
 //checkbox  with model popup box last step
 $('input[type="radio"][name=promotion_options]').on('change', function(e)
@@ -1404,6 +1445,20 @@ $('input[type="radio"][name=promotion_options]').on('change', function(e)
 		        if(e.target.checked){
 		        $('#myModal').modal();
 	        }
+	}
+});
+
+// validation for image
+$(document).on("click", ".cancel", function(e){
+
+	
+
+	if( document.getElementById("files").files.length == 0 ){
+	    $('#img_req').show();
+	}
+	else
+	{
+		$('#img_req').hide();
 	}
 });
 
@@ -1422,7 +1477,7 @@ $("#event_enddate").datetimepicker({
             onShow:function( ct )  //hide max and min date using picker
 	            {
 				  	this.setOptions({			  	 				   		
-				    	maxDate:jQuery('#event_enddate').val()?jQuery('#event_enddate').val():false,
+				    	// maxDate:jQuery('#event_enddate').val()?jQuery('#event_enddate').val():false,
 				    	minDate:jQuery('#event_startdate').val()?jQuery('#event_startdate').val():false
 				 	})
 				},
@@ -1462,17 +1517,15 @@ $("#totime_to").datetimepicker({
 // begine from  event offering step4
 
 $("#begine_from1").datetimepicker({        
-                format:'M-d-Y G:i a',  
-                formatTime:'g:i a',                    
-                minDate: 0, 
-                step :5,          
+                format:'M-d-Y', 
+                timepicker:false,                                
+                minDate: 0,                       
             });
 
 $("#ends_on1").datetimepicker({      
-    format:'M-d-Y G:i a',  
-    formatTime:'g:i a',                    
-    minDate: 0, 
-    step :5,    
+    format:'M-d-Y', 
+    timepicker:false,                    
+    minDate: 0,   
    
     onShow:function( ct )  //hide max and min date using picker
 	{
@@ -1481,6 +1534,15 @@ $("#ends_on1").datetimepicker({
 		})
 	},
 }); 
+
+//  Discount  start time and end time picker
+  	$("#begine_fromtime1").wickedpicker();		
+ 
+  	$("#ends_ontime1").wickedpicker();
+
+	$("#begine_fromtime2").wickedpicker();		
+ 
+  	$("#ends_ontime2").wickedpicker();
 
  
 

@@ -162,6 +162,8 @@ table {
 </style>
 </head>
 <body class="landing-page">
+  <div class="swal"></div>
+
 <div class="content-bg-wrap">
   <div class="content-bg"></div>
 </div>
@@ -251,17 +253,19 @@ table {
                                       {
                                  ?> 
 
-                                      <div class="video">
+                                      <a href="<?php echo $wowtagvideos->wowtagvideourl; ?>" class="html5lightbox" data-width="480" data-height="320" >
                                           <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
-                                               <source src="http://104.197.80.225:3010/wow/media/event/<?php echo $wowtagvideos->wowtagvideo; ?>" type="video/mp4">
+                                               <source src="<?php echo $wowtagvideos->wowtagvideourl; ?>" type="video/mp4">
                                           </video>
-                                      </div>
+                                      </a>
+                                     
 
                                 <?php  } ?>
                             </div>
-                            <strong style="font-size:16px; color:#fc6653;">!<span id="rtr-s-Text_58_1">
-                               <?php if(isset($wowtagvideos->eventtitle)) { echo $wowtagvideos->eventtitle; } else{ echo "";} ?>
-                            </span>
+                            <strong style="font-size:13px; color:#fc6653;">
+                              <span id="rtr-s-Text_58_1">
+                               <?php if(isset($wowtagvideos->eventtitle)) { echo "!".$wowtagvideos->eventtitle; } else{ echo "";} ?>
+                              </span>
                             </strong><br>
                           </td>
                           <td align="left" valign="top" bgcolor="#fff">
@@ -271,10 +275,10 @@ table {
                                                     {
                                                       foreach ($wowtagvideos->eventvenue as $eventvenues)
                                                         {
-                                                          // echo $eventvenues->eventvenuecity;
+                                                          
                                                           if(($eventvenues->eventvenuenumber == 1))
                                                              {
-                                                                echo   $eventvenues->eventvenuename.", ".$eventvenues->eventvenueaddress1.", ".$eventvenues->eventvenuecity.", ".$eventvenues->eventvenuezipcode."<br>";
+                                                                echo   $eventvenues->eventvenuename." ".$eventvenues->eventvenueaddress1." ".$eventvenues->eventvenuecity." ".$eventvenues->eventvenuezipcode."<br>";
                                                               }
                                                         }         
                                                     }
@@ -286,7 +290,10 @@ table {
                             <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                             <tbody>
                               <tr>
-                                <td height="30"><img src="../assets/images/profile-icon.png" alt=""><strong style="font-size:22px; color:#FF7600;">2000</strong></td>
+                                <td height="30">
+                                  <img src="../assets/images/profile-icon.png" alt="">
+                                  <strong style="font-size:13px; color:#FF7600;">2000</strong>
+                                </td>
                               </tr>
                             </tbody>
                             </table>
@@ -350,7 +357,7 @@ table {
                             <td height="40" colspan="6" align="center" valign="middle" bgcolor="#F9F9F9">
                               <strong style="color:#F00;">Wowtag Runtime From
                                   <?php
-                                        if(isset($wowtagvideos->runtimefrom) ) 
+                                        if(isset($wowtagvideos->runtimefrom)) 
                                         {                       
                                           echo date('M-d-Y', strtotime($wowtagvideos->runtimefrom))." To ";
                                           echo date('M-d-Y', strtotime($wowtagvideos->runtimeto));
@@ -418,9 +425,14 @@ table {
 <div class="modal fade" id="modal-1" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
+
                     <div class="post-content">
+                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
                       <div class="post-container" style="padding-bottom:20px;">
                         <div class="post-detail">
+
                                           <div class="user-info">
                                               <h3>Edit Wowtag Video</h3>
                                                
@@ -428,7 +440,7 @@ table {
                                           <div class="line-divider"></div>
                           <div class="user-info">
                             <div class="row" style="padding:10px;">
-                                               <div class="alert alert-success" id="rsvp_success" role="alert" style="display:none;" >Successfully Register
+                                               <div class="alert alert-success" id="wowtag_video" role="alert" style="display:none;" >Successfully Updated
                                                </div>
                                                 <!-- this form submit rsvp -->
                               <form action="<?php echo base_url('nearbyevents/update_wowtagvideo/'.$wowtagvideos->_id); ?>" method="post" class="wowtag" class="form-inline" enctype="multipart/form-data">
@@ -470,11 +482,12 @@ table {
 <script src="<?php echo base_url ('assets/js/script.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/sweetalert.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/sweetalert.min.js') ?>"></script> 
+<script src="<?php echo base_url('assets/js/sweetalert2.all.js') ?>"></script>
 <script src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script> 
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script> 
 <script src="<?php echo base_url('assets/js/bootbox.js')?>"></script> <!-- conformation delete boot box -->
-
+<script src="<?php echo base_url ('assets/html5lightbox/html5lightbox.js') ?>"></script><!-- video popup library -->
 
 <script>
 
@@ -548,6 +561,34 @@ $(document).ready(function(){
 
     $(document).on("submit", ".wowtag", function(e){
          e.preventDefault();
+
+         $.validator.addMethod('filesize', function(value, element, param) {
+         return this.optional(element) || (element.files[0].size <= param) 
+          });   
+          
+            $(this).validate({ 
+
+                              rules: {                             
+                                      wowtag_video:{
+
+                                        required:true,
+                                        filesize: 2621440,   //max size 200 kb
+                                      },               
+                                     
+                                     },
+
+                              messages: {                           
+                                      wowtag_video: {                                         
+                                         
+                                          required:"Please Choose file.",
+                                          filesize:" file size must be less than 2.5 MB.",
+                                      }, 
+                                     
+                                      },                                                   
+                            
+                           }); 
+        if($(this).valid())
+        {    
         var url = $(this).attr('action');
         var formdata = new FormData(this);
       
@@ -563,13 +604,29 @@ $(document).ready(function(){
                 error: function(xhr,status,error)
                 {   
                     alert(xhr.responseText);
-                },              
+                },
+
+                beforeSend: function()
+                        {
+
+                          swal({
+                              title: 'Please Wait...',
+                              text: 'Uploading...',
+                              toast: true,
+                              target: '.swal',              
+                             
+                              onOpen: () => {
+                                swal.showLoading()
+                             }
+                          }); 
+              
+                        },              
                 
                 success: function(response)
                 {
                    if(response.status == 'success')
                    {
-                     $('#rsvp_success').show(); //success notification id
+                     $('#wowtag_video').show(); //success notification id
                      window.location.href = base_url + 'nearbyevents/get_wowtag_video';
                                                          
                     }else 
@@ -579,6 +636,7 @@ $(document).ready(function(){
                 }
 
             });
+        }
         });
  });
 </script>

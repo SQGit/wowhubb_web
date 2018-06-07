@@ -16,7 +16,8 @@
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/jquery.datetimepicker.css')?>" />
 <link rel="stylesheet" href="<?php echo base_url ('assets/js/sweetalert.css')?>" />
 <link rel="stylesheet" href="<?php echo base_url ('assets/js/videopopup.css')?>" />
-
+<!-- image popup library -->
+<link rel="stylesheet" href="<?php echo base_url ('assets/css/magnific-popup.css')?>" />
 <!--Google Font-->
 <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet">
 
@@ -527,7 +528,7 @@ body {
 
                                   <?php } else if (preg_match('/(\.mp4)$/i',$event->eventhighlights1url)){ ?>
                                     <div class="video">                                    
-                                      <a href="<?php echo $event->eventhighlights1url; ?>" >
+                                      <a href="<?php echo $event->eventhighlights1url; ?>" class="html5lightbox" data-width="480" data-height="320">
                                         <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
                                           <source src="<?php echo $event->eventhighlights1url; ?>" type="video/mp4">
                                         </video>
@@ -572,7 +573,7 @@ body {
                                       <?php } else if (preg_match('/(\.mp4)$/i',$event->eventhighlights2url)){ ?>
                                               <div class="video">                                       
                                           
-                                               <a href="<?php echo $event->eventhighlights2url; ?>" >
+                                               <a href="<?php echo $event->eventhighlights2url; ?>" class="html5lightbox" data-width="480" data-height="320">
                                                 <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
                                                      <source src="<?php echo $event->eventhighlights2url; ?>" type="video/mp4">
                                                 </video>
@@ -1145,7 +1146,7 @@ body {
                                           <div class="col-md-5">
                                             <div style="width:100%;" class="pull-left">
                                       <?php 
-                                          if (preg_match('/(\.jpg|\.png|\.bmp)$/i',$event->eventhighlights1url)) {
+                                          if(preg_match('/(\.jpg|\.png|\.bmp)$/i',$event->eventhighlights1url)) {
                                       ?>
                                             <div class="gallery">
                                               <a class="test-popup-link" href='<?php echo $event->eventhighlights1url; ?>' > 
@@ -1156,16 +1157,17 @@ body {
                                       <?php } else if (preg_match('/(\.mp4)$/i',$event->eventhighlights1url)){ ?>
                                         <div class="video">                                       
                                           
-                                               <a href="<?php echo $event->eventhighlights1url; ?>" >
+                                              <a href="<?php echo $event->eventhighlights1url; ?>" class="html5lightbox" data-width="480" data-height="320">
                                                 <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
                                                      <source src="<?php echo $event->eventhighlights1url; ?>" type="video/mp4">
                                                 </video>
-                                                 </a>                                          
+                                              </a>                                          
                                         </div> 
                                       <?php } ?>   
                                          
                                               <h5 style="color:#333; line-height:20px;  font-weight:bold; font-size:13px;">
-                                                  <img src="http://localhost/wowhubb/assets/images/profile-icon.png" alt="user"><?php echo $event->eventspeakername1; ?><br>
+                                                  <img src="<?php echo base_url('assets/images/profile-icon.png');?>" alt="user">
+                                                    <?php echo $event->eventspeakername1; ?><br>
                                                 <span style="font-size:12px;  color:#969696;">
                                                    <?php echo $event->eventguesttype1; ?>                                                  
                                                 </span>
@@ -1177,7 +1179,8 @@ body {
                                           <div class="col-md-7">
                                            
                                             <p><?php echo $event->eventspeakeractivities1; ?></p>
-                                            <img src="http://104.197.80.225:8080/wowhubb/assets/images/network-icon.png" alt="user"><a href="#"><?php echo $event->eventspeakerlink1; ?> </a>
+                                            <img src="<?php echo base_url('assets/images/network-icon.png'); ?>" alt="user">
+                                            <a href="#"> <?php echo $event->eventspeakerlink1; ?> </a>
                                           </div>                                           
 
                                         </div>
@@ -1202,7 +1205,7 @@ body {
                                       <?php } else if (preg_match('/(\.mp4)$/i',$event->eventhighlights2url)){ ?>
                                               <div class="video">                                       
                                           
-                                               <a href="<?php echo $event->eventhighlights2url; ?>" >
+                                               <a href="<?php echo $event->eventhighlights2url; ?>" class="html5lightbox" data-width="480" data-height="320">
                                                 <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
                                                      <source src="<?php echo $event->eventhighlights2url; ?>" type="video/mp4">
                                                 </video>
@@ -1212,7 +1215,8 @@ body {
                                       <?php } ?>   
                                              
                                               <h5 style="color:#333; line-height:20px;  font-weight:bold; font-size:13px;">
-                                                  <img src="http://localhost/wowhubb/assets/images/profile-icon.png" alt="user"><?php echo $event->eventspeakername2; ?><br>
+                                                  <img src="<?php echo base_url('assets/images/profile-icon.png'); ?>" alt="user">
+                                                    <?php echo $event->eventspeakername2; ?><br>
                                                 <span style="font-size:12px; color:#969696;">
                                                    <?php echo $event->eventguesttype2; ?>                                                  
                                                 </span>
@@ -1224,7 +1228,8 @@ body {
                                           <div class="col-md-7">
                                            
                                             <p><?php echo $event->eventspeakeractivities2; ?></p>
-                                            <img src="http://104.197.80.225:8080/wowhubb/assets/images/network-icon.png" alt="user"><a href="#"><?php echo $event->eventspeakerlink2; ?> </a>
+                                            <img src="<?php echo base_url('assets/images/network-icon.png'); ?>" alt="user">
+                                            <a href="#"> <?php echo $event->eventspeakerlink2; ?> </a>
                                           </div>                                   
 
                                   </div>
@@ -1902,7 +1907,7 @@ body {
                                       <?php } else if (preg_match('/(\.mp4)$/i',$event->eventhighlights1url)){ ?>
                                         <div class="video">                                       
                                           
-                                              <a href="<?php echo $event->eventhighlights1url; ?>" >
+                                              <a href="<?php echo $event->eventhighlights1url; ?>" class="html5lightbox" data-width="480" data-height="320">
                                                 <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
                                                      <source src="<?php echo $event->eventhighlights1url; ?>" type="video/mp4">
                                                 </video>
@@ -1911,7 +1916,8 @@ body {
                                       <?php } ?>   
                                         
                                               <h5 style="color:#333; line-height:20px;  font-weight:bold; font-size:13px;">
-                                                  <img src="http://localhost/wowhubb/assets/images/profile-icon.png" alt="user"><?php echo $event->eventspeakername1; ?><br>
+                                                  <img src="<?php echo base_url('assets/images/profile-icon.png'); ?>" alt="user">
+                                                    <?php echo $event->eventspeakername1; ?><br>
                                                 <span style="font-size:12px; color:#969696;">
                                                    <?php echo $event->eventguesttype1; ?>                                                  
                                                 </span>
@@ -1923,7 +1929,8 @@ body {
                                           <div class="col-md-7">
                                            
                                             <p><?php echo $event->eventspeakeractivities1; ?></p>
-                                            <img src="http://104.197.80.225:8080/wowhubb/assets/images/network-icon.png" alt="user"><a href="#"><?php echo $event->eventspeakerlink1; ?> </a>
+                                            <img src="<?php echo base_url('assets/images/network-icon.png'); ?>" alt="user">
+                                            <a href="#"> <?php echo $event->eventspeakerlink1; ?> </a>
                                           </div>                                         
                               </div>
                               <?php }  ?>
@@ -1946,7 +1953,7 @@ body {
                                       <?php } else if (preg_match('/(\.mp4)$/i',$event->eventhighlights2url)){ ?>
                                               <div class="video">                                       
                                           
-                                               <a href="<?php echo $event->eventhighlights2url; ?>" >
+                                               <a href="<?php echo $event->eventhighlights2url; ?>" class="html5lightbox" data-width="480" data-height="320">
                                                 <video style="width:160px; height:88px;" class="myvideo" controlsList="nodownload">
                                                      <source src="<?php echo $event->eventhighlights2url; ?>" type="video/mp4">
                                                 </video>
@@ -1956,7 +1963,8 @@ body {
                                       <?php } ?>   
                                          
                                               <h5 style="color:#333; line-height:20px; font-weight:bold; font-size:13px;">
-                                                  <img src="http://localhost/wowhubb/assets/images/profile-icon.png" alt="user"><?php echo $event->eventspeakername2; ?><br>
+                                                  <img src="<?php echo base_url('assets/images/profile-icon.png');?>" alt="user">
+                                                  <?php echo $event->eventspeakername2; ?><br>
                                                 <span style="font-size:12px; color:#969696;">
                                                    <?php echo $event->eventguesttype2; ?>                                                  
                                                 </span>
@@ -1967,7 +1975,8 @@ body {
 
                                           <div class="col-md-7">                                           
                                             <p><?php echo $event->eventspeakeractivities2; ?></p>
-                                           <img src="http://104.197.80.225:8080/wowhubb/assets/images/network-icon.png" alt="user"><a href="#"><?php echo $event->eventspeakerlink2; ?> </a>
+                                           <img src="<?php echo base_url('assets/images/network-icon.png');?>" alt="user">
+                                           <a href="#"> <?php echo $event->eventspeakerlink2; ?> </a>
                                           </div>                                   
 
                                   </div> 
@@ -2569,14 +2578,19 @@ body {
                                                         }                                          
                                                    ?>                                      
                                                  </div>
-                                                <div class="pull-right"><span style="color:#fc6653; font-size:15px;">
-                                                   11:59s                                                </span></div>
+                                                <div class="pull-right">
+                                                  <span style="color:#fc6653; font-size:15px;">
+                                                   11:59s                                                
+                                                  </span>
+                                                </div>
                                               </div>
+
                                               <div style="width:100%; margin-top:15px; color:#333;" class="pull-left text-center">
                                                 <p style="font-size:13px; font-weight:bold;">
                                                   7:00AM - 4:00PM
                                                 </p>
                                               </div>
+
                                               <div style="width:100%; color:#333;" class="pull-left text-center">
                                                 <p>                                                  
                                                     <?php
@@ -2605,16 +2619,16 @@ body {
                                             <div class="col-md-8">
                                               <div style="width:35%;" class="pull-left">
                                                  <?php  if(isset($event->eventsalescoupon2 ) && ($event->eventsalescoupon2 != 'null') ) { ?>
-                                                  <img src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventsalescoupon2; ?>" style="width:160px; height:88px;"  alt="user" class="img-responsive img-thumbnail"/>
+                                                  <img src="<?php echo $event->eventsalescoupon2url; ?>" style="width:160px; height:88px;"  alt="user" class="img-responsive img-thumbnail"/>
                                                    <?php } else {  ?>
-                                                <img src="../assets/images/sales-1.png" class="img-responsive">
+                                                <img src="<?php echo base_url('assets/images/sales-1.png'); ?>" class="img-responsive">
                                                 <?php }  ?>  
                                               </div>
                                               <div style="width:65%;" class="pull-left">
                                                 <div style="width:100%; padding:10px 5px; background-color:#333; color:#fff;" class="pull-left">
                                                   <div class="pull-left">
-
-                                                    Teen Back To School Wears                                                     
+                                                    <?php if(isset($event->eventsalesservicename2) ) { echo $event->eventsalesservicename2; } else {echo " "; } ?>  
+                                                                                                         
                                                   </div>
 
                                                 </div>
@@ -2654,7 +2668,7 @@ body {
                                                         if(isset($event->eventsalesdiscount2) && ($event->eventsalesdiscount2 != 'null')) 
                                                         { 
                                                             echo '<button class="btn-primary" style="padding: 2px 25px;">';
-                                                            echo $event->eventsalesdiscount2;
+                                                            echo $event->eventsalesaction2;
                                                             echo '</button>';
                                                         }                                          
                                                     ?>   
@@ -2699,17 +2713,11 @@ body {
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script>
 <script src="<?php echo base_url('assets/js/videopopup.js')?>"></script> 
+<script src="<?php echo base_url('assets/js/jquery.magnific-popup.min.js')?>" ></script> 
 <script src="<?php echo base_url('assets/js/html5gallery.js')?>" ></script>
+<script src="<?php echo base_url('assets/html5lightbox/html5lightbox.js') ?>"></script><!-- video popup library -->
 
 <script>
-
-
-//   $(function () {
-//  $('#vidBox').VideoPopUp({
-//   opener: "video-trigger"
-//   // idvideo: "demo"
-//   });
-// });
 
 
 //video controls hide and show mouse hover  
@@ -2720,6 +2728,17 @@ body {
         this.setAttribute("controls", "controls")
     }
 })
+//magnific-popup image shows
+
+$('.gallery').each(function() { // the containers for all your galleries
+    $(this).magnificPopup({
+        delegate: 'a', // the selector for gallery item
+        type: 'image',
+        gallery: {
+          enabled:true
+        }
+    });
+});
 
 </script>
 

@@ -339,7 +339,7 @@ img {
         <div class="col-md-12">
           <div class="col-md-10 form-wizard form-body-classic form-header-classic" style="min-width:1200px;"> 
             
-             <img src="../assets/images/banner.jpg" class="img-thumbnail"  alt="banner-image"/>
+             <img src="<?php echo base_url('assets/images/banner.jpg');?>" class="img-thumbnail"  alt="banner-image"/>
             <!-- Form progress -->
     <div class="form-wizard-steps form-wizard-tolal-steps-6">
               <div class="form-wizard-progress">
@@ -369,7 +369,7 @@ img {
               <!-- Step 4  -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-briefcase" aria-hidden="true"></i></div>
-                <p>4Event Schedule</p>
+                <p>4.Event Schedule</p>
               </div>
               <!-- Step 4 --> 
               
@@ -464,7 +464,7 @@ img {
 	                  <div class='row'>
 		                    <div class='form-group col-sm-12'>
 		                      <label>Event Description</label>
-		                      <textarea type='text' id="description" name="event_description" class="txtOnly form-control required" style="min-height:300px;" placeholder="Describe What Your Event Is All About" onchange = "cleanspecial_char(this)" ></textarea>
+		                      <textarea type='text' id="description" name="event_description" class=" form-control required" style="min-height:300px;" maxlength="160" placeholder="Describe What Your Event Is All About" onchange = "cleanspecial_char(this)" ></textarea>
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
@@ -572,9 +572,9 @@ img {
                       <div class="form-group">
                       	
                         <div id="video_show" style="display: none;" style="margin-top:20px;" >
-                        				<div class="remove_video" style="cursor: pointer; position:absolute; top: 55px; left: 210px; z-index:9999;">
+                        	<div class="remove_video" style="cursor: pointer; position:absolute; top: 55px; left: 210px; z-index:9999;">
 		                          	<img src="<?php echo base_url('assets/images/wow-close.png'); ?>" />
-		                        </div>
+		                    </div>
 
                         	<video width="200" height="180" controls>
 							 	 <source src="mov_bbb.mp4" id="video_here">
@@ -583,7 +583,8 @@ img {
 							<audio id="video_url"></audio> <!-- here store video url and check duration -->
                         </div>
                         <span class="btn btn-primary btn-file"> 
-                       	 <i class="fa fa-play-circle"></i> Upload Video<input type="file" name="wowtag_video" id="video_size" class="file" accept="video/*">
+                       	 <i class="fa fa-play-circle"></i> Upload Video
+                       	 <input type="file" name="wowtag_video" id="video_size" class="file" accept="video/*">
                        	</span>
 
                         <!-- alert msg show here -->
@@ -987,7 +988,7 @@ img {
 	                  <input type="text" name="guest_url1" id="textbox_2" class="form-control" placeholder="Event Guest Speaker/Artist URL-Links">
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <textarea class="form-control" name="guest_speaker1" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" ></textarea>
+	                  <textarea class="form-control" name="guest_speaker1" maxlength="160" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" autocomplete="off" onchange = "cleanspecial_char(this)" ></textarea>
 	                </div>
                 </div>
                 		<br><br>
@@ -1043,7 +1044,7 @@ img {
 	                  <input type="text" name="guest_url2" id="textbox_2" class="form-control" placeholder="Event Guest Speaker/Artist URL-Links" >
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <textarea class="form-control" name="guest_speaker2" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" ></textarea>
+	                  <textarea class="form-control" name="guest_speaker2" maxlength="160" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" autocomplete="off" onchange = "cleanspecial_char(this)"></textarea>
 	                </div>
                 </div>
             </div>
@@ -1154,7 +1155,7 @@ img {
                   <div class="form-group col-sm-12">
                    <div class="pull-left" style="width:80%;">
                     <label>Phone </label>
-                    <input type="text" class="form-control"  name="eventcontactphone" value="<?php echo $this->session->userdata('phone'); ?>"  >
+                    <input type="text" class="form-control"  name="eventcontactphone" value="<?php echo $this->session->userdata('phone'); ?>" maxlength="12" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')"  >
                     </div>
                     <div class="pull-left" style="width:17%; margin-left:3%; margin-top:15px;">
                   
@@ -1964,8 +1965,8 @@ var base_url = '<?php echo base_url() ?>'; //form submited
 
         e.preventDefault();
 
-         $(this).validate({ 
-                          rules: {                             
+        $(this).validate({ 
+                         rules: {                             
                                     event_name:"required",                  
                                  	event_startdate: "required",
                                  	event_enddate: "required",
@@ -1974,7 +1975,7 @@ var base_url = '<?php echo base_url() ?>'; //form submited
                                  	event_title: "required",
                                  	wowtag_video: "required",
                                  	eventcontactname: "required",
-                                 },
+                                },
 
                           messages: {                           
                                   event_name: {
@@ -2004,7 +2005,7 @@ var base_url = '<?php echo base_url() ?>'; //form submited
                                                    
                              },
 
-                           }); 
+                        }); 
 
     if($(this).valid())
         {     

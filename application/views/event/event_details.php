@@ -175,7 +175,7 @@ body {
     background: rgba(0,0,0, .7);
     width: 100%;
     position: absolute;
-    bottom: 25px;
+    top: 167px;
     height: 51px;
 }
 
@@ -415,7 +415,26 @@ body {
                                                         </tr>                                                        
 
 
-                                                        <?php } else { ?>
+                                                        <?php } 
+
+                                                        if(!empty($event->eventfaqs))
+                                                        {
+                                                          $i=5;
+                                                          foreach ($event->eventfaqs as $eventfaq) {
+                                                          
+                                                          ?>
+
+                                                        <tr>
+                                                          <td height="40" colspan="2" bgcolor="#fff">
+                                                             <?php if(isset($eventfaq->faqquestion)) 
+                                                                    {
+                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$i.".".$eventfaq->faqquestion."</p>".$eventfaq->faqanswer;
+                                                                    } else { echo "" ; }
+                                                             ?>
+                                                          </td> 
+                                                        </tr>
+
+                                                       <?php $i++; } } else { ?>
 
                                                         <tr>
                                                           <td height="40" colspan="2" bgcolor="#fff"> You miss to add your Event FAQ's </td>
@@ -437,7 +456,6 @@ body {
                                                                   echo $event->eventcontactname." <br>".$event->eventcontactphone." <br>".$event->eventcontactemail."<br>".$event->eventcontactmessage;
 
                                                             ?>
-
                                                           </td>
                                                         </tr>   
 
@@ -446,48 +464,56 @@ body {
                                                         <tr>
                                                           <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:13px; color:#e91e63;">Contact Event Organisers</strong></td>
                                                         </tr>
+                              <tr>
+                                <td height="40" colspan="2">
+                               <div class="alert alert-success" id="email_success" role="alert" style="display: none;" >Successfully Sended
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                                </div>
+                              </td>
+                              </tr>
+                              <form class="Email_send" action="<?php echo base_url('Event/contactreason_sendMail'); ?>" method="post" enctype="multipart/form-data">
 
-                                                        <tr>
-                                                          <td height="40" colspan="2" bgcolor="#fff">
-                                                            <div class="form-group" >
-                                                              <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1; font-size: 13px;">
-                                                                  <option value="day1">Reason for Contact</option>
-                                                                  <option value="day2">Question About Event</option>
-                                                                  <option value="day3">Question About Event Tours</option>
-                                                                  <option value="day4">Question About Event Tickets</option>
-                                                                  <option value="day5">Question About Event Logistics</option>
-                                                              </select>
-                                                            </div>
-                                                            <div class='form-group' >
-                                                              <input type='text' name="event_topic"  class="form-control textBox" placeholder="Your Name" />
-                                                            </div>
-                                                            <div class='form-group' >
-                                                              <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="Phone No (Optional)" />
-                                                            </div>
-                                                            <div class='form-group' >
-                                                              <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="Email" />
-                                                            </div>
-                                                            <div class='form-group' >
-                                                              <textarea class="form-control" placeholder="Your Message" style="min-height:150px;"> </textarea>
-                                                               <em style="color: #2980b9;"> Information Provided Here is only seen by Event organizers</em> 
-                                                            </div>
+                                  <tr>
+                                    <td height="40" colspan="2" bgcolor="#fff">
+                                      <div class="form-group" >
+                                        <select name="reason_for_contact" id="days" class="form-control" style="background-color:#eff0f1; font-size: 13px;">
+                                            <option value="">Reason for Contact</option>
+                                            <option value="Question About Event">Question About Event</option>
+                                            <option value="Question About Event Tours">Question About Event Tours</option>
+                                            <option value="dQuestion About Event Ticket">Question About Event Tickets</option>
+                                            <option value="Question About Event Logistics">Question About Event Logistics</option>
+                                        </select>
+                                      </div>
+                                      <div class='form-group' >
+                                        <input type='text' name="name" class="form-control textBox" placeholder="Your Name" />
+                                      </div>
+                                      <div class='form-group' >
+                                        <input type=' text'  name="phone" class="form-control" placeholder="Phone No (Optional)" />
+                                      </div>
+                                      <div class='form-group'>
+                                        <input type='text' name="email" class="form-control" placeholder="Email" />
+                                      </div>
+                                      <div class='form-group' >
+                                        <textarea class="form-control" name="message" placeholder="Your Message" style="min-height:150px;"> </textarea>
+                                          <em style="color: #2980b9;"> Information Provided Here is only seen by Event organizers</em> 
+                                      </div>
 
-                                                              <div class='form-group'>
-                                                                <button type="button" class="btn btn-primary">Cancel</button>
-                                                                <button type="button" class="btn btn-primary">Submit</button>
-                                                              </div>
-                                                            </td>
-                                                        </tr>
+                                      <div class='form-group'>
+                                        <button type="button" class="btn btn-primary">Cancel</button>
+                                        <button type="Submit" class="btn btn-primary">Submit</button>
+                                      </div>
+                                    </td>
+                                  </tr>
 
-                                                    </tbody>
-                                                  </table>
-                                              </div>
+                              </form>  
 
-                                         <!-- end with personal event info-->
+                          </tbody>
+                        </table>
+                      </div>
 
-
+      <!-- end with personal event info-->
                         
-     <!-- personal event details -->
+      <!-- personal event details -->
 
                       <div class="col-md-8"> 
                             <!-- Nav tabs category -->
@@ -511,7 +537,7 @@ body {
                             </div>
                                           
                                         <!-- event highlight 1 -->
-                            <?php if(isset($event->eventspeakername1)) { ?>             
+                            <?php if(isset($event->eventhighlights1url)) { ?>             
                             <div class="col-md-12 pnl-brdr-clr">                              
 
                               <div class="col-md-5">
@@ -536,26 +562,41 @@ body {
                                     </div> 
                                   <?php } ?>   
                           
+                                  
+                                    <?php 
+                                      if(isset($event->eventspeakername1))
+                                      {
+                                    ?>
                                   <h5 style="color:#333; line-height:20px; font-weight:bold; font-size:13px;">
-                                  <img src="http://localhost/wowhubb/assets/images/profile-icon.png" alt="user"><?php echo $event->eventspeakername1; ?><br>
+                                  <img src="<?php echo base_url('assets/images/profile-icon.png'); ?>" alt="user">
+                                  <?php echo $event->eventspeakername1; ?><br>
                                   <span style="font-size:12px; color:#969696;">
                                     <?php echo $event->eventguesttype1; ?>                                                  
                                   </span>
                                   </h5>
+                                  <?php } ?>
                                 </div>
                               </div>
 
+                              <?php 
+                                if(isset($event->eventspeakeractivities1))
+                                 {
+                              ?>
                               <div class="col-md-7">                                           
                                 <p><?php echo $event->eventspeakeractivities1; ?></p>
-                                <img src="http://104.197.80.225:8080/wowhubb/assets/images/network-icon.png" alt="user"><a href="#"><?php echo $event->eventspeakerlink1; ?> </a>
-                              </div>                    
+                                <img src="<?php echo base_url('assets/images/network-icon.png'); ?>" alt="user">
+                                <a href="#">
+                                  <?php echo $event->eventspeakerlink1; ?> 
+                                </a>
+                              </div> 
+                              <?php }?>                   
 
                               </div>
                               <?php } ?>
 
                                         <!-- event highlight 2 -->
 
-                              <?php if(isset($event->eventspeakername2)) { ?>
+                              <?php if(isset($event->eventhighlights2url)) { ?>
 
                               <div class="col-md-12 pnl-brdr-clr">
                                   <div class="col-md-5">
@@ -582,21 +623,35 @@ body {
                                               </div> 
                                       <?php } ?>   
                                                 
+                                      <?php 
+                                          if(isset($event->eventspeakername2))
+                                            {
+                                      ?>
+
                                               <h5 style="color:#333; line-height:20px;  font-weight:bold; font-size:13px;">
-                                                  <img src="http://localhost/wowhubb/assets/images/profile-icon.png" alt="user"><?php echo $event->eventspeakername2; ?><br>
-                                                <span style="font-size:12px;  color:#969696;">
-                                                   <?php echo $event->eventguesttype2; ?>                                                  
+                                                  <img src="<?php echo base_url('assets/images/profile-icon.png'); ?>" alt="user">
+                                                  <?php echo $event->eventspeakername2; ?><br>
+                                                  <span style="font-size:12px;  color:#969696;">
+                                                  <?php echo $event->eventguesttype2; ?>                                                  
                                                 </span>
                                               </h5>
+                                        <?php } ?>
                                             </div>
 
                                           </div>
 
-                                          <div class="col-md-7">
-                                           
+                                        <?php 
+                                            if(isset($event->eventspeakeractivities2))
+                                                {
+                                        ?>
+                                          <div class="col-md-7">                                           
                                             <p><?php echo $event->eventspeakeractivities2; ?></p>
-                                            <img src="http://104.197.80.225:8080/wowhubb/assets/images/network-icon.png" alt="user"><a href="#"><?php echo $event->eventspeakerlink2; ?> </a>
-                                          </div>                                    
+                                            <img src="<?php echo base_url('assets/images/network-icon.png'); ?>" alt="user">
+                                            <a href="#">
+                                              <?php echo $event->eventspeakerlink2; ?>
+                                            </a>
+                                          </div>
+                                        <?php } ?>                                    
 
                                   </div> 
                                   <?php }  ?>      
@@ -628,16 +683,11 @@ body {
 
                                                   if($events->eventnumber == "1")
                                                   {
-                                                        
-
                                                     if($day == 1)
                                                     {
-                                                      
-
                                                       echo '<li class="active"><a data-toggle="tab" href="#tab-'.$day.'" style="line-height:16px; font-size:12px; color:#333; font-weight:bold;">Day- '.$events->day.'<br> '.$date.'</a></li>';
 
                                                     }else{
-
                                                         echo '<li><a data-toggle="tab" href="#tab-'.$day.'" style="line-height:16px; font-size:12px; color:#333; font-weight:bold;">Day- '.$events->day.'<br> '.$date.'</a></li>';
                                                     }
 
@@ -659,39 +709,34 @@ body {
                                         {
 
                                         ?>
-                                            <?php if($eventday == 1){ ?>
+                                        <?php if($eventday == 1){ ?>
 
-                                            <div class="tab-pane fade " id="tab-<?php echo $eventday; ?>">
+                                          <div class="tab-pane fade in active" id="tab-<?php echo $eventday; ?>">
 
                                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                             <tbody> 
-                                                <tr>
-                                                  <td height="40" colspan="3" align="center" valign="middle" bgcolor="#f9f9f9">
-                                                    <strong style="font-size:13px;">Event Duration
-                                                      <br>
+                                              <tr>
+                                                <td height="40" colspan="3" align="center" valign="middle" bgcolor="#f9f9f9">
+                                                <strong style="font-size:13px;">Event Duration
+                                                <br>
                                             <?php
 
                                             foreach ($event->programschedule as $events) {
-                                            
-                                                if($events->day == $eventday )
-                                                {
-                                                    if( $events->eventnumber == "1" )
-                                                            {  
-                                                                echo $events->starttime."-". $events->endtime ; 
-                                                            } 
-                                                    
+                                              if($events->day == $eventday )
+                                              {
+                                                if( $events->eventnumber == "1" )
+                                                  {  
+                                                    echo $events->starttime."-". $events->endtime ; 
+                                                  } 
                                                 }
-                                                
-                                            }
-
-                                            ?>
-
+                                            } ?>
+                                            
                                              <br>
-                                                    </strong>
+                                                  </strong>
                                                   </td>
-                                                </tr>
+                                                  </tr>
 
-                                                 <tr>
+                                                <tr>
                                                   <td width="30%" height="40" bgcolor="#fff"><strong>Event Itinerary Time</strong></td>
                                                   <td width="51%" bgcolor="#fff"><strong>Event Topic/Agenda</strong></td>
                                                   <td width="19%" height="40" bgcolor="#fff"><strong>Event Location</strong></td>
@@ -1040,7 +1085,27 @@ body {
                                                           </td>
                                                         </tr>
 
-                                                        <?php } else { ?>
+                                                         <?php } 
+
+                                                        if(!empty($event->eventfaqs))
+                                                        {
+                                                          $i=5;
+                                                          foreach ($event->eventfaqs as $eventfaq) {
+                                                          
+                                                          ?>
+
+                                                        <tr>
+                                                          <td height="40" colspan="2" bgcolor="#fff">
+                                                             <?php if(isset($eventfaq->faqquestion)) 
+                                                                    {
+                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$i.".".$eventfaq->faqquestion."</p>".$eventfaq->faqanswer;
+                                                                    } else { echo "" ; }
+                                                             ?>
+                                                          </td> 
+                                                        </tr>
+
+                                                       <?php $i++; } } else { ?>
+                                                       
 
                                                         <tr>
                                                           <td height="40" colspan="2" bgcolor="#fff"> You miss to add your Event FAQ's </td>
@@ -1789,7 +1854,26 @@ body {
                                                           </td>
                                                         </tr>
 
-                                                        <?php } else { ?>
+                                                        <?php } 
+
+                                                        if(!empty($event->eventfaqs))
+                                                        {
+                                                          $i=5;
+                                                          foreach ($event->eventfaqs as $eventfaq) {
+                                                          
+                                                          ?>
+
+                                                        <tr>
+                                                          <td height="40" colspan="2" bgcolor="#fff">
+                                                             <?php if(isset($eventfaq->faqquestion)) 
+                                                                    {
+                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$i.".".$eventfaq->faqquestion."</p>".$eventfaq->faqanswer;
+                                                                    } else { echo "" ; }
+                                                             ?>
+                                                          </td> 
+                                                        </tr>
+
+                                                       <?php $i++; } } else { ?>
 
                                                         <tr>
                                                           <td height="40" colspan="2" bgcolor="#fff"> You miss to add your Event FAQ's </td>
@@ -2470,7 +2554,26 @@ body {
                                                           </td>
                                                         </tr>
 
-                                                        <?php } else { ?>
+                                                        <?php } 
+
+                                                        if(!empty($event->eventfaqs))
+                                                        {
+                                                          $i=5;
+                                                          foreach ($event->eventfaqs as $eventfaq) {
+                                                          
+                                                          ?>
+
+                                                        <tr>
+                                                          <td height="40" colspan="2" bgcolor="#fff">
+                                                             <?php if(isset($eventfaq->faqquestion)) 
+                                                                    {
+                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$i.".".$eventfaq->faqquestion."</p>".$eventfaq->faqanswer;
+                                                                    } else { echo "" ; }
+                                                             ?>
+                                                          </td> 
+                                                        </tr>
+
+                                                       <?php $i++; } } else { ?>
 
                                                         <tr>
                                                           <td height="40" colspan="2" bgcolor="#fff"> You miss to add your Event FAQ's </td>
@@ -2739,6 +2842,47 @@ $('.gallery').each(function() { // the containers for all your galleries
         }
     });
 });
+
+//email form submit
+
+var base_url = '<?php echo base_url() ?>'; //form submited
+$(document).ready(function(){
+
+    $(document).on("submit", ".Email_send", function(e){
+         e.preventDefault();
+        var url = $(this).attr('action');
+        var formdata = new FormData(this);
+      
+        $.ajax({
+                url : url,
+                context:this,
+                method: 'POST',
+                data: formdata,
+                processData: false,
+                contentType: false,
+                dataType:'json',
+                context:this,   //here we use this function so declare here
+                error: function(xhr,status,error)
+                {   
+                    alert(xhr.responseText);
+                },              
+                
+                success: function(response)
+                {
+                   if(response.status == 'success')
+                   {
+                     $('#email_success').show(); //success notification id
+                                                        
+                    }else 
+                     {                    
+                        swal("Sorry!", "Something wrong try again !", "error");
+                     }
+                }
+
+            });
+        });
+ });
+
 
 </script>
 

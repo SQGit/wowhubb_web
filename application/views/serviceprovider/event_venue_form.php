@@ -28,7 +28,34 @@
 <!--Favicon-->
 <link rel="shortcut icon" type="image/png" href="<?php echo base_url ('assets/images/fav.png') ?>"/>
 <style type="text/css">
-
+.step-icn
+{
+	    width: 48px;
+    height: 48px;
+    margin-top: 0;
+    background: #e91e63;
+    font-size: 22px;
+    line-height: 48px;
+	border-radius:50%;
+	color:#fff;
+	padding:0px 15px;
+}
+.form-wizard-steps {
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    margin-top: 9px;
+}
+.progress {
+    height: 10px;
+    margin-bottom: 11px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    margin-top: 0px;
+}
 .textBox {
 	background-image: url(./assets/images/designation-icon.png);
 	background-position: 0 5px;
@@ -62,7 +89,7 @@
 	border: 1px solid rgb(197, 194, 195);
 	border-radius: 4px;
 	
-	font-size: 14px;
+	font-size: 13px;
 	font-weight: normal;
 	color: #333;
 	-moz-border-radius: none;
@@ -172,7 +199,7 @@
 	font-weight: normal;
 }
 .form-wizard h4 span {
-	font-size: 14px;
+	font-size: 13px;
 }
 .panel-group .panel {
 	border-radius: 0;
@@ -187,7 +214,7 @@
 	border-color: #EEEEEE;
 }
 .panel-title {
-	font-size: 14px;
+	font-size: 13px;
 }
 .panel-title > a {
 	display: block;
@@ -268,7 +295,7 @@
 	font-style: italic;
 	color: #777;
 	line-height: 23px;
-	font-size: 14px;
+	font-size: 13px;
 	padding: 5px 20px;
 	text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
 }
@@ -306,7 +333,7 @@
     padding: 0 20px;
     border: none;
     font-family: 'Lato', sans-serif;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: normal;
     line-height:30px;
     color: #fff;
@@ -330,20 +357,7 @@
   <nav class="navbar navbar-default navbar-fixed-top menu">
     <div class="container"> 
       
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header"> <a class="navbar-brand" href="#" alt="logo" /></a> </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right main-menu" style="color:#fff; margin-top: 10px; margin-right:5px; font-size:25px;">
-          <a href="<?php echo base_url('event/get_eventfeed'); ?>" style="text-decoration:none;"> <span style="font-size:14px;  background:#e91e63; padding:5px 10px; border-radius:13px; color:#fff;"><img src="<?php echo base_url('assets/images/home-icon.png'); ?>" alt="user" /> Home</span> </a> <a href="<?php echo base_url('event/event_popup'); ?>" style="text-decoration:none;"><span style="font-size:14px;  background:#757575; padding:5px 10px; border-radius:13px; color:#fff;"><img src="<?php echo base_url('assets/images/create-event-icon-3.png'); ?>" alt="user" /> Create Event</span> </a> <a href="<?php echo base_url('home/logout'); ?>" style="text-decoration:none;"><span style="font-size:14px;  padding:5px 10px; border-radius:5px; color:#fff;"><img src="<?php echo base_url('assets/images/logout-icon.png'); ?>" alt="user" />Logout</span> </a>
-        </ul>
-        <form class="navbar-form navbar-right hidden-sm">
-          <div class="form-group"> <i class="icon ion-android-search"></i>
-            <input type="text" class="form-control" placeholder="Search !Events, !Venues, !Wowtags, !People">
-          </div>
-        </form>
-      </div>
-      <!-- Collect the nav links, forms, and other content for toggling --> 
-      <!-- /.navbar-collapse --> 
+      <?php  include('/../includes/header.php'); ?>
     </div>
     <!-- /.container --> 
   </nav>
@@ -368,10 +382,7 @@
             
             Use anyone class "form-body-classic" or "form-body-material" or "form-body-stylist" for set your form element design.
             -->
-            
-            <h3>Event Venue</h3>
-            <p>Please fill information to a create an event venues </p>
-            
+           
             
       <img src="../assets/images/event-venue.jpg" class="img-thumbnail"  alt="banner-image"/>
       
@@ -384,35 +395,35 @@
               <!-- Step 1 -->
               <div class="form-wizard-step active">
                 <div class="form-wizard-step-icon"><i class="fa fa-child" aria-hidden="true"></i></div>
-                <p>Basic Info</p>
+                <p>1.Basic Info</p>
               </div>
               <!-- Step 1 --> 
               
               <!-- Step 2 -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-glass" aria-hidden="true"></i></div>
-                <p>Amenities-Food Beverages</p>
+                <p>2.Amenities-Food Beverages</p>
               </div>
               <!-- Step 2 --> 
               
               <!-- Step 3 -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-building" aria-hidden="true"></i></div>
-                <p>Halls</p>
+                <p>3.Halls</p>
               </div>
               <!-- Step 3 --> 
               
               <!-- Step 4  -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-dollar" aria-hidden="true"></i></div>
-                <p>Availiabilty &amp; Pricing</p>
+                <p>4.Availiabilty &amp; Pricing</p>
               </div>
               <!-- Step 4 --> 
               
               <!-- Step 5 -->
               <div class="form-wizard-step">
                 <div class="form-wizard-step-icon"><i class="fa fa-question" aria-hidden="true"></i></div>
-                <p>Event Venue FAQ's</p>
+                <p>5.Event Venue FAQ's</p>
               </div>
               
             </div>
@@ -425,7 +436,7 @@
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="14.28" aria-valuemin="0" aria-valuemax="100" style="width: 14.28%"> </div>
                 </div>
                 <!-- Progress Bar -->
-                <h4> <span>Step 1 - 5</span></h4>
+               
                 <div class='col-sm-12'>
                   <div class='row'>
                   <div class='form-group col-sm-12' style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63;">Basic Info</div>
@@ -457,7 +468,7 @@
                   <div class='form-group col-sm-12' style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63; margin-top:10px;">Business Information</div>
                   <div class='col-sm-5'>
                    <div class='row'>
-                  <div class="form-group col-sm-12" style="font-size: 15px;">
+                  <div class="form-group col-sm-12" style="font-size: 13px;">
 				                      <label>Venue Type</label>
 				                    <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
 				                      <option class="option">Conference Center</option>
@@ -535,7 +546,7 @@
                             <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
                           </div>
                           <div class="input-group col-xs-12" style="margin-top:15px;"> <span class="input-group-btn">
-                            <button class="browse btn-1 btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
+                            <button class="browse btn btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
                             </span> </div>
                         </div>
                       </div>
@@ -549,7 +560,7 @@
                             <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
                           </div>
                           <div class="input-group col-xs-12" style="margin-top:15px;"> <span class="input-group-btn">
-                            <button class="browse btn-1 btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
+                            <button class="browse btn btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
                             </span> </div>
                         </div>
                       </div>
@@ -563,7 +574,7 @@
                 <div class='col-sm-12'>
                   <div class="form-wizard-buttons">
 
-                    <button type="button" class="btn btn-next">Next</button>
+                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
                   </div>
                 </div>
               </fieldset>
@@ -579,7 +590,7 @@
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"> </div>
                 </div>
                 <!-- Progress Bar -->
-                <h4> <span>Step 2 - 5</span></h4>
+                
                 <div class='row'>
                   <div class='form-group col-sm-12' style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63;">Amenities</div>
                   <div class='form-group col-sm-12' >
@@ -591,25 +602,25 @@
 		                      <div class="pull-left" style="width:10%;">
 		                        <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:14px;"><img src="../assets/images/event-venue-icons/av-icon.png" alt="image" width="32" height="32"/>A/V Equipments</div>
+		                      <div class="pull-left" style="width:90%; font-size:13px;"><img src="../assets/images/event-venue-icons/av-icon.png" alt="image" width="32" height="32"/>A/V Equipments</div>
 		                    </div>
                      <div class="form-group-1 col-sm-3">
 		                      <div class="pull-left" style="width:10%;">
 		                        <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:14px;"><img src="../assets/images/event-venue-icons/wifi-icon.png" alt="image" width="32" height="32"/>WiFi</div>
+		                      <div class="pull-left" style="width:90%; font-size:13px;"><img src="../assets/images/event-venue-icons/wifi-icon.png" alt="image" width="32" height="32"/>WiFi</div>
 		                    </div>
                      <div class="form-group-1 col-sm-3">
 		                      <div class="pull-left" style="width:10%;">
 		                        <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:14px;"><img src="../assets/images/event-venue-icons/car-icon.png" alt="image" width="32" height="32"/>Street Parking</div>
+		                      <div class="pull-left" style="width:90%; font-size:13px;"><img src="../assets/images/event-venue-icons/car-icon.png" alt="image" width="32" height="32"/>Street Parking</div>
 		                    </div>       
                    <div class="form-group-1 col-sm-3">
 		                      <div class="pull-left" style="width:10%;">
 		                        <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:14px;"><img src="../assets/images/event-venue-icons/handi-icon.png" alt="image" width="32" height="32"/>Handicap Accessible</div>
+		                      <div class="pull-left" style="width:90%; font-size:13px;"><img src="../assets/images/event-venue-icons/handi-icon.png" alt="image" width="32" height="32"/>Handicap Accessible</div>
 		                    </div>
                             </div>
                             <div class='row' style="margin-bottom:15px;">
@@ -617,25 +628,25 @@
 		                      <div class="pull-left" style="width:10%;">
 		                        <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:14px;"><img src="../assets/images/event-venue-icons/rt-icon.png" alt="image" width="32" height="32"/>Rooftop</div>
+		                      <div class="pull-left" style="width:90%; font-size:13px;"><img src="../assets/images/event-venue-icons/rt-icon.png" alt="image" width="32" height="32"/>Rooftop</div>
 		                    </div>
                     <div class="form-group-1 col-sm-3">
 		                      <div class="pull-left" style="width:10%;">
 		                        <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:14px;"><img src="../assets/images/event-venue-icons/pet-icon.png" alt="image" width="32" height="32"/>Pet Friendly</div>
+		                      <div class="pull-left" style="width:90%; font-size:13px;"><img src="../assets/images/event-venue-icons/pet-icon.png" alt="image" width="32" height="32"/>Pet Friendly</div>
 		                    </div>
                       <div class="form-group-1 col-sm-3">
 		                      <div class="pull-left" style="width:10%;">
 		                        <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:14px;"><img src="../assets/images/event-venue-icons/valet-icon.png" alt="image" width="32" height="32"/>Valet Parking</div>
+		                      <div class="pull-left" style="width:90%; font-size:13px;"><img src="../assets/images/event-venue-icons/valet-icon.png" alt="image" width="32" height="32"/>Valet Parking</div>
 		                    </div> 
                       <div class="form-group-1 col-sm-3">
 		                      <div class="pull-left" style="width:10%;">
 		                        <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:14px;"><img src="../assets/images/event-venue-icons/outdoor-icon.png" alt="image" width="32" height="32"/>Outdoor Space</div>
+		                      <div class="pull-left" style="width:90%; font-size:13px;"><img src="../assets/images/event-venue-icons/outdoor-icon.png" alt="image" width="32" height="32"/>Outdoor Space</div>
 		                    </div>  
                       </div> 
                       </div>  
@@ -654,25 +665,25 @@
                         <div class="pull-left" style="width:10%;">
                           <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
                           </div>
-                        <div class="pull-left" style="width:90%; font-size:14px;"><img src="../assets/images/event-venue-icons/ihc-icon.png" alt="image" width="32" height="32"/>In-House Catering Only</div>
+                        <div class="pull-left" style="width:90%; font-size:13px;"><img src="../assets/images/event-venue-icons/ihc-icon.png" alt="image" width="32" height="32"/>In-House Catering Only</div>
                         </div>
                       <div class="form-group-1 col-sm-6">
                         <div class="pull-left" style="width:10%;">
                           <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
                           </div>
-                        <div class="pull-left" style="width:90%; font-size:14px;"><img src="../assets/images/event-venue-icons/ihs-icon.png" alt="image" width="32" height="32"/>In-House Supplies Only</div>
+                        <div class="pull-left" style="width:90%; font-size:13px;"><img src="../assets/images/event-venue-icons/ihs-icon.png" alt="image" width="32" height="32"/>In-House Supplies Only</div>
                         </div>
                       <div class="form-group-1 col-sm-6" style="margin-top:15px;">
                         <div class="pull-left" style="width:10%;">
                           <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
                           </div>
-                        <div class="pull-left" style="width:90%; font-size:14px;"><img src="../assets/images/event-venue-icons/ihc-icon.png" alt="image" width="32" height="32"/>Out-Door Catering Allowed</div>
+                        <div class="pull-left" style="width:90%; font-size:13px;"><img src="../assets/images/event-venue-icons/ihc-icon.png" alt="image" width="32" height="32"/>Out-Door Catering Allowed</div>
                         </div>
                       <div class="form-group-1 col-sm-6" style="margin-top:15px;">
                         <div class="pull-left" style="width:10%;">
                           <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
                           </div>
-                        <div class="pull-left" style="width:90%; font-size:14px;"><img src="../assets/images/event-venue-icons/ihs-icon.png" alt="image" width="32" height="32"/>Out-Door Supplies Allowed</div>
+                        <div class="pull-left" style="width:90%; font-size:13px;"><img src="../assets/images/event-venue-icons/ihs-icon.png" alt="image" width="32" height="32"/>Out-Door Supplies Allowed</div>
                         </div>
                       
                       
@@ -687,8 +698,8 @@
                 <div class='form-group col-sm-12' style="margin-top:25px;">
                   <div class="form-wizard-buttons">
 
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="button" class="btn btn-next">Next</button>
+                    <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
                   </div>
                 </div>
               </fieldset>
@@ -701,7 +712,7 @@
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"> </div>
                 </div>
                 <!-- Progress Bar -->
-                <h4> <span>Step 3 - 5</span></h4>
+                 
                 
                 <div class='col-sm-12'>
                   <div class='row'>
@@ -797,9 +808,8 @@
                 
                 <div class='col-sm-12'>
                   <div class="form-wizard-buttons">
-
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="button" class="btn btn-next">Next</button>
+ 					<button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
                   </div>
                 </div>
               </fieldset>
@@ -811,7 +821,7 @@
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%"> </div>
                 </div>
                 <!-- Progress Bar -->
-                <h4> <span>Step 4 - 5</span></h4>
+                
                  <div class='form-group col-sm-12' style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63; margin-bottom:15px!important;">
                   Pricing  And Availability Info
                  </div> 
@@ -823,13 +833,13 @@
                         <div class="pull-left" style="width:5%;">
                           &nbsp;
                           </div>
-                        <div class="pull-left" style="width:10%; font-size:14px; margin-right:5px;">&nbsp;</div>
-                        <div class="pull-left" style="width:20%; font-size:14px; margin-right:10px;"><strong style="font-weight:bold;">Availability</strong>
+                        <div class="pull-left" style="width:10%; font-size:13px; margin-right:5px;">&nbsp;</div>
+                        <div class="pull-left" style="width:20%; font-size:13px; margin-right:10px;"><strong style="font-weight:bold;">Availability</strong>
                         </div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <strong style="font-weight:bold;">Daily Rate</strong>
                         </div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                        <strong style="font-weight:bold;">Hourly Rate</strong>
                         </div>
                         </div>
@@ -837,16 +847,16 @@
                         <div class="pull-left" style="width:5%;">
                           <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
                           </div>
-                        <div class="pull-left" style="width:10%; font-size:14px; margin-right:5px;">Monday</div>
-                        <div class="pull-left" style="width:20%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:10%; font-size:13px; margin-right:5px;">Monday</div>
+                        <div class="pull-left" style="width:20%; font-size:13px; margin-right:10px;">
                         <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
 				                      <option class="option">Available</option>
                  <option class="option">Not Available</option>
                  </select></div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$2000"  />
                         </div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$200"  />
                         </div>
                         </div>
@@ -854,16 +864,16 @@
                         <div class="pull-left" style="width:5%;">
                           <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
                           </div>
-                        <div class="pull-left" style="width:10%; font-size:14px; margin-right:5px;">Tuesday</div>
-                        <div class="pull-left" style="width:20%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:10%; font-size:13px; margin-right:5px;">Tuesday</div>
+                        <div class="pull-left" style="width:20%; font-size:13px; margin-right:10px;">
                         <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
 				                      <option class="option">Available</option>
                  <option class="option">Not Available</option>
                  </select></div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$2000"  />
                         </div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$200"  />
                         </div>
                         </div>
@@ -871,16 +881,16 @@
                         <div class="pull-left" style="width:5%;">
                           <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
                           </div>
-                        <div class="pull-left" style="width:10%; font-size:14px; margin-right:5px;">Wednesday</div>
-                        <div class="pull-left" style="width:20%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:10%; font-size:13px; margin-right:5px;">Wednesday</div>
+                        <div class="pull-left" style="width:20%; font-size:13px; margin-right:10px;">
                         <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
 				                      <option class="option">Available</option>
                  <option class="option">Not Available</option>
                  </select></div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$2000"  />
                         </div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$200"  />
                         </div>
                         </div>
@@ -888,16 +898,16 @@
                         <div class="pull-left" style="width:5%;">
                           <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
                           </div>
-                        <div class="pull-left" style="width:10%; font-size:14px; margin-right:5px;">Thursday</div>
-                        <div class="pull-left" style="width:20%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:10%; font-size:13px; margin-right:5px;">Thursday</div>
+                        <div class="pull-left" style="width:20%; font-size:13px; margin-right:10px;">
                         <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
 				                      <option class="option">Available</option>
                  <option class="option">Not Available</option>
                  </select></div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$2000"  />
                         </div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$200"  />
                         </div>
                         </div>
@@ -905,16 +915,16 @@
                         <div class="pull-left" style="width:5%;">
                           <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
                           </div>
-                        <div class="pull-left" style="width:10%; font-size:14px; margin-right:5px;">Friday</div>
-                        <div class="pull-left" style="width:20%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:10%; font-size:13px; margin-right:5px;">Friday</div>
+                        <div class="pull-left" style="width:20%; font-size:13px; margin-right:10px;">
                         <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
 				                      <option class="option">Available</option>
                  <option class="option">Not Available</option>
                  </select></div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$2000"  />
                         </div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$200"  />
                         </div>
                         </div>
@@ -922,16 +932,16 @@
                         <div class="pull-left" style="width:5%;">
                           <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
                           </div>
-                        <div class="pull-left" style="width:10%; font-size:14px; margin-right:5px;">Saturday</div>
-                        <div class="pull-left" style="width:20%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:10%; font-size:13px; margin-right:5px;">Saturday</div>
+                        <div class="pull-left" style="width:20%; font-size:13px; margin-right:10px;">
                         <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
 				                      <option class="option">Available</option>
                  <option class="option">Not Available</option>
                  </select></div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$2000"  />
                         </div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$200"  />
                         </div>
                         </div>
@@ -947,13 +957,13 @@
                         <div class="pull-left" style="width:5%;">
                           &nbsp;
                           </div>
-                        <div class="pull-left" style="width:10%; font-size:14px; margin-right:5px;">&nbsp;</div>
-                        <div class="pull-left" style="width:20%; font-size:14px; margin-right:10px;"><strong style="font-weight:bold;">Availability</strong>
+                        <div class="pull-left" style="width:10%; font-size:13px; margin-right:5px;">&nbsp;</div>
+                        <div class="pull-left" style="width:20%; font-size:13px; margin-right:10px;"><strong style="font-weight:bold;">Availability</strong>
                         </div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <strong style="font-weight:bold;">Daily Rate</strong>
                         </div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                        <strong style="font-weight:bold;">Hourly Rate</strong>
                         </div>
                         </div>
@@ -961,16 +971,16 @@
                         <div class="pull-left" style="width:5%;">
                           <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
                           </div>
-                        <div class="pull-left" style="width:10%; font-size:14px; margin-right:5px;">Monday</div>
-                        <div class="pull-left" style="width:20%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:10%; font-size:13px; margin-right:5px;">Monday</div>
+                        <div class="pull-left" style="width:20%; font-size:13px; margin-right:10px;">
                         <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
 				                      <option class="option">Available</option>
                  <option class="option">Not Available</option>
                  </select></div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$2000"  />
                         </div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$200"  />
                         </div>
                         </div>
@@ -978,16 +988,16 @@
                         <div class="pull-left" style="width:5%;">
                           <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
                           </div>
-                        <div class="pull-left" style="width:10%; font-size:14px; margin-right:5px;">Tuesday</div>
-                        <div class="pull-left" style="width:20%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:10%; font-size:13px; margin-right:5px;">Tuesday</div>
+                        <div class="pull-left" style="width:20%; font-size:13px; margin-right:10px;">
                         <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
 				                      <option class="option">Available</option>
                  <option class="option">Not Available</option>
                  </select></div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$2000"  />
                         </div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$200"  />
                         </div>
                         </div>
@@ -995,16 +1005,16 @@
                         <div class="pull-left" style="width:5%;">
                           <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
                           </div>
-                        <div class="pull-left" style="width:10%; font-size:14px; margin-right:5px;">Wednesday</div>
-                        <div class="pull-left" style="width:20%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:10%; font-size:13px; margin-right:5px;">Wednesday</div>
+                        <div class="pull-left" style="width:20%; font-size:13px; margin-right:10px;">
                         <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
 				                      <option class="option">Available</option>
                  <option class="option">Not Available</option>
                  </select></div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$2000"  />
                         </div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$200"  />
                         </div>
                         </div>
@@ -1012,16 +1022,16 @@
                         <div class="pull-left" style="width:5%;">
                           <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
                           </div>
-                        <div class="pull-left" style="width:10%; font-size:14px; margin-right:5px;">Thursday</div>
-                        <div class="pull-left" style="width:20%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:10%; font-size:13px; margin-right:5px;">Thursday</div>
+                        <div class="pull-left" style="width:20%; font-size:13px; margin-right:10px;">
                         <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
 				                      <option class="option">Available</option>
                  <option class="option">Not Available</option>
                  </select></div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$2000"  />
                         </div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$200"  />
                         </div>
                         </div>
@@ -1029,16 +1039,16 @@
                         <div class="pull-left" style="width:5%;">
                           <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
                           </div>
-                        <div class="pull-left" style="width:10%; font-size:14px; margin-right:5px;">Friday</div>
-                        <div class="pull-left" style="width:20%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:10%; font-size:13px; margin-right:5px;">Friday</div>
+                        <div class="pull-left" style="width:20%; font-size:13px; margin-right:10px;">
                         <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
 				                      <option class="option">Available</option>
                  <option class="option">Not Available</option>
                  </select></div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$2000"  />
                         </div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$200"  />
                         </div>
                         </div>
@@ -1046,16 +1056,16 @@
                         <div class="pull-left" style="width:5%;">
                           <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
                           </div>
-                        <div class="pull-left" style="width:10%; font-size:14px; margin-right:5px;">Saturday</div>
-                        <div class="pull-left" style="width:20%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:10%; font-size:13px; margin-right:5px;">Saturday</div>
+                        <div class="pull-left" style="width:20%; font-size:13px; margin-right:10px;">
                         <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
 				                      <option class="option">Available</option>
                  <option class="option">Not Available</option>
                  </select></div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$2000"  />
                         </div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                        <div class="pull-left" style="width:25%; font-size:13px; margin-right:10px;">
                         <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$200"  />
                         </div>
                         </div>
@@ -1079,8 +1089,8 @@
                 <div class='form-group col-sm-12' style="margin-top: 30px;">
                   <div class="form-wizard-buttons">
 
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="button" class="btn btn-next">Next</button>
+                     <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
                   </div>
                 </div>
               </fieldset>
@@ -1093,7 +1103,7 @@
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"> </div>
                 </div>
                 <!-- Progress Bar -->
-                <h4> <span>Step 5 - 5</span></h4>
+                
                 
                 <div class="col-md-12">
                
@@ -1114,8 +1124,8 @@
                 <div class='form-group col-sm-12' style="margin-top: 30px;">
                   <div class="form-wizard-buttons">
                    
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="button" class="btn btn-next">Finish</button>
+                     <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn btn-next"><i class="fa fa-thumbs-up"></i> Finish </button>
                   </div>
                 </div>
               </fieldset>

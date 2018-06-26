@@ -190,14 +190,14 @@ public function login_auth()
 				 			$this->session->set_userdata('gender', $result->user->gender);
 				 		}
 
-				 		if(isset($result->user->personalimage))	
+				 		if(isset($result->user->personalimageurl))	
 				 		{
-			 				$this->session->set_userdata('personal_image', $result->user->personalimage);
+			 				$this->session->set_userdata('personal_image', $result->user->personalimageurl);
 			 			}
 
-			 			if(isset($result->user->personalself))	
+			 			if(isset($result->user->personalselfurl))	
 				 		{
-			 				$this->session->set_userdata('self_video', $result->user->personalself);
+			 				$this->session->set_userdata('self_video', $result->user->personalselfurl);
 			 			}
 
 			 			if(isset($result->user->designation))	
@@ -213,6 +213,11 @@ public function login_auth()
 			 			if(isset($result->user->eventservice))	
 				 		{
 			 				$this->session->set_userdata('eventservice', $result->user->eventservice);
+			 			}
+
+			 			if(isset($result->user->eventvenue))	
+				 		{
+			 				$this->session->set_userdata('eventvenue', $result->user->eventvenue);
 			 			}
 
 				 		$response['status'] = "success";
@@ -278,15 +283,16 @@ public function login_auth()
 			 			$this->session->set_userdata('gender', $result->user->gender);
 			 		}
 
-				 	if(isset($result->user->personalimage))	
-				 	{
-			 			$this->session->set_userdata('personal_image', $result->user->personalimage);
-			 		}
-
-			 		if(isset($result->user->personalself))	
+				 	if(isset($result->user->personalimageurl))	
 				 		{
-			 				$this->session->set_userdata('self_video', $result->user->personalself);
+			 				$this->session->set_userdata('personal_image', $result->user->personalimageurl);
 			 			}
+
+			 			if(isset($result->user->personalselfurl))	
+				 		{
+			 				$this->session->set_userdata('self_video', $result->user->personalselfurl);
+			 			}
+
 
 			 		if(isset($result->user->designation))	
 				 		{
@@ -301,6 +307,11 @@ public function login_auth()
 			 		if(isset($result->user->eventservice))	
 				 		{
 			 				$this->session->set_userdata('eventservice', $result->user->eventservice);
+			 			}
+
+			 		if(isset($result->user->eventvenue))	
+				 		{
+			 				$this->session->set_userdata('eventvenue', $result->user->eventvenue);
 			 			}
 
 			 			$response['status'] = "success";

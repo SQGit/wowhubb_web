@@ -542,7 +542,7 @@ img, #img_files4 {
 			                <div class='row'>
 			                    <div class='form-group col-sm-12'>
 			                      <label>Event Description</label>
-			                      <textarea type='text' id="description" name="event_description"  class="form-control required" style="min-height:300px;" placeholder="Describe What Your Event Is All About" onkeypress="return blockSpecialChar(event)" autocomplete="off" onchange = "cleanspecial_char(this)"></textarea>
+			                      <textarea type='text' id="description" name="event_description"  class="form-control required" style="min-height:300px;" maxlength="160" placeholder="Describe What Your Event Is All About" onkeypress="return blockSpecialChar(event)" autocomplete="off" onchange = "cleanspecial_char(this)"></textarea>
 			                    </div>
 
 			                    <div class='form-group col-sm-12'>
@@ -1308,7 +1308,7 @@ img, #img_files4 {
 				                   <label><span style="color:#e91e63;">Sales Event Sponsors Details</span></label>
 				                  </div>
 				                  <div class="form-group col-sm-12">
-				                    <label> Organisation Name  </label>
+				                    <label> Organization Name  </label>
 				                    <input type="text" class="form-control"  name="sales_organization_name" placeholder="" >
 				                  </div>
 				                  <div class="form-group col-sm-12">

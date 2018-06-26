@@ -30,95 +30,10 @@
 <link rel="shortcut icon" type="image/png" href="<?php echo base_url ('assets/images/fav.png') ?>"/>
 <style type="text/css">
 
-
-
-.ac-container {
-	width: 100%;
-	margin: 10px auto 30px auto;
-	text-align: left;
-}
-.ac-container label {
-	padding: 5px 10px;
-	position: relative;
-	z-index: 20;
-	display: block;
-	
-	cursor: pointer;
-	color: #777;
-	text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
-	line-height: 20px;
-	font-size: 12px;
-	background: #ffffff;
-	background: -moz-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #ffffff), color-stop(100%, #eaeaea));
-	background: -webkit-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-	background: -o-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-	background: -ms-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-	background: linear-gradient(top, #ffffff 1%, #eaeaea 100%);
- filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea', GradientType=0 );
-	box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3), 1px 0px 0px 0px rgba(255,255,255,0.9) inset, 0px 2px 2px rgba(0,0,0,0.1);
-}
-.ac-container label:hover {
-	background: #fff;
-}
-.ac-container input:checked + label, .ac-container input:checked + label:hover {
-	background: #c6e1ec;
-	color: #3d7489;
-	text-shadow: 0px 1px 1px rgba(255,255,255, 0.6);
-	box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3), 0px 2px 2px rgba(0,0,0,0.1);
-}
-.ac-container label:hover:after, .ac-container input:checked + label:hover:after {
-	content: '';
-	position: absolute;
-	width: 24px;
-	height: 24px;
-	right: 2px;
-	top: 2px;
-	background: transparent url(../assets/images/arrow_down.png) no-repeat center center;
-}
-.ac-container input:checked + label:hover:after {
-	background-image: url(../assets/images/arrow_up.png);
-}
-.ac-container input {
-	display: none;
-}
-.ac-container article {
-	background: rgba(255, 255, 255, 0.5);
-	margin-top: -1px;
-	overflow: hidden;
-	height: 0px;
-	position: relative;
-	z-index: 10;
-	-webkit-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-	-moz-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-	-o-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-	-ms-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-	transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-}
-.ac-container article p {
-	font-style: italic;
-	color: #777;
-	line-height: 23px;
-	font-size: 14px;
-	padding: 5px 20px;
-	text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
-}
-.ac-container input:checked ~ article {
-	-webkit-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-	-moz-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-	-o-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-	-ms-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-	transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-	box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3);
-}
-.ac-container input:checked ~ article.ac-small {
-	height: 400px;
-}
-.ac-container input:checked ~ article.ac-medium {
-	height: 450px;
-}
-.ac-container input:checked ~ article.ac-large {
-	height: 500px;
+/*animation stop*/
+.landing-page .content-bg {
+    background-color: rgba(255, 94, 58, 0.95);
+    animation-name: none;
 }
 .file {
 	visibility: hidden;
@@ -154,7 +69,7 @@
 	  text-align: center;
 	  cursor: pointer;
 	  width: 200px;
-      margin-left: 149px;
+      margin-left: 137px;
 	}
 .remove:hover {
 	  background: white;
@@ -168,7 +83,7 @@
 	  text-align: center;
 	  cursor: pointer;
 	  width: 200px;
-      margin-left: 149px;
+      /*margin-left: 137px;*/
 	}
 .remove1:hover {
 	  background: white;
@@ -225,11 +140,26 @@ li.multipleInput-email {
   color: #fff;
   font-size: 16px;
 }  
+
+.form-control{
+  text-transform: capitalize;
+}
+.alert {
+     padding: 4px; 
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    width: 160px;
+}
+
 </style>
 
 </head>
 
 <body class="landing-page">
+
+  <div class="swal"></div>
+
 <div class="content-bg-wrap">
   <div class="content-bg"></div>
 </div>
@@ -260,12 +190,7 @@ li.multipleInput-email {
         <div class="col-md-12">
           <div class="col-md-10 form-wizard form-body-classic form-header-classic" style="min-width:1200px;"> 
             
-            
-            <h3>Event Venue</h3>
-            <p>Please fill information to a create an event venues </p>
-            
-            
-      <img src="../assets/images/event-venue.jpg" class="img-thumbnail"  alt="banner-image"/>
+            <img src="../assets/images/event-venue.jpg" class="img-thumbnail"  alt="banner-image"/>
       
       
             <!-- Form progress -->
@@ -310,8 +235,9 @@ li.multipleInput-email {
             </div>
             <!-- Form progress --> 
             <!-- Form Step 1 -->
-            <form id="create_event" action="#"  method="post" enctype="multipart/form-data" >
-              <fieldset>
+  <form id="create_eventvenue" action="<?php echo base_url('Eventserviceprovider/create_event_venue_form'); ?>" method="post" enctype="multipart/form-data">
+
+    <fieldset>
                 <!-- Progress Bar -->
                 <div class="progress">
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="14.28" aria-valuemin="0" aria-valuemax="100" style="width: 14.28%"> </div>
@@ -327,19 +253,19 @@ li.multipleInput-email {
                   
                     <div class='form-group col-sm-6' >
                       <label>First Name</label>
-                      <input type='text' name="first_name"  class="form-control" />
+                      <input type='text' name="first_name" class="required form-control" />
                     </div>
                     <div class='form-group col-sm-6' >
                       <label>Last Name</label>
-                      <input type='text'  name="last_name"  class="form-control" />
+                      <input type='text'  name="last_name" class="required form-control" />
                     </div>                    
                     <div class='form-group col-sm-6' >
                       <label>Email</label>
-                      <input type='text' name="email"  class="form-control"  />
+                      <input type='text' name="business_email" class="required form-control" style="text-transform: none;" />
                     </div>
                     <div class='form-group col-sm-6' >
                       <label>Phone</label>
-                      <input type='text' name="phone_no"  class="form-control"  />
+                      <input type='text' name="phone_no" class="required form-control" maxlength="15" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')"  />
                     </div>
                     </div>
                     </div>
@@ -351,7 +277,7 @@ li.multipleInput-email {
                     <div class='row'>
                   			<div class="form-group col-sm-12" style="font-size: 15px;">
 				                    <label>Venue Type</label>
-				                    <select name="venue_type" id="days" class="form-control" style="background-color:#eff0f1;">
+				                    <select name="venue_type"  class="form-control" style="background-color:#eff0f1;">
 				                     	<option value="Conference Center">Conference Center</option>
 						                <option value="Party Hall">Party Hall</option>
 						                <option value="Private Dinning">Private Dinning</option>
@@ -374,41 +300,45 @@ li.multipleInput-email {
 
 		                    <div class='form-group col-sm-12' >
 		                      <label>Company/Organization Name</label>
-		                      <input type='text' name="organisation_name"  class="form-control" />
+		                      <input type='text' name="organisation_name"  class="required form-control" />
 		                    </div>
 		                    <div class='form-group col-sm-12' >
 		                      <label>Venue</label>
-		                      <input type='text' name="venue"  class="form-control" />
+		                      <input type='text' name="venue" class="form-control" />
 		                    </div>
 		                    <div class='form-group col-sm-12' >
 		                      <label>Address1</label>
-		                      <input type='text' name="address1"  class="form-control" />
+		                      <input type='text' name="address1" class="required form-control" />
 		                    </div>
 		                    <div class='form-group col-sm-12' >
 		                      <label>Address2</label>
-		                      <input type='text' name="address2"  class="form-control" />
+		                      <input type='text' name="address2" class="form-control" />
 		                    </div>
 		                    <div class='form-group col-sm-12' >
 		                      <label>Zipcode/Postal Code</label>
-		                      <input type='text' name="zipcode"  class="form-control" />
+		                      <input type='text' name="zipcode" class="form-control" maxlength="6" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')"/>
 		                    </div>
 		                    
 		                    <div class='form-group col-sm-12' >
 		                      <label>Country</label>
 		                      	<select name="country" onchange="print_state('state',this.selectedIndex);" id="country" class="form-control" style="background-color:#eff0f1;">
-									                     
-								</select>
+								            </select>
 		                    </div>
 
 		                    <div class='form-group col-sm-12' >
 		                      <label>State</label>
-		                      	<select name="state" id ="state" class="form-control"></select>
-					 			<script language="javascript">print_country("country");</script>
+		                      	 <select name="state" id ="state" class="form-control"></select>
+					 			             <script language="javascript">print_country("country");</script>
 		                    </div>
+
+                        <div class='form-group col-sm-12' >
+                          <label>City</label>
+                          <input type='text' name="city" class="form-control" />  
+                        </div>
 
 		                    <div class='form-group col-sm-12' >
 		                      <label>Website Links</label>
-		                      <input type='text' name="web_link"  class="form-control" />
+		                      <input type='text' name="web_link" class="form-control" style="text-transform: none;"/>
 		                    </div>
 
                     </div>
@@ -418,16 +348,19 @@ li.multipleInput-email {
 		                  		<div class='row'>
 				                    <div class='form-group-1up col-sm-12'>
 
-				                      <textarea type='text'  name="description"  class="form-control" style="min-height:300px;" placeholder="Give A Brief Description of Yourself/ Organisation" ></textarea>
+				                      <textarea type='text' name="description"  class="form-control" style="min-height:300px;" placeholder="Give A Brief Description of Yourself/ Organisation" maxlength="120" onchange = "cleanspecial_char(this)" ></textarea>
 				                    </div>
 
 				                    <div class='form-group col-sm-12'>
 				                      <div class='col-sm-12' style="background-color:#f9f9f9;">
 				                        <label>Add Cover Page Image</label>
+                                <div class="alert alert-danger" id="img_req" role="alert" style="display:none;" >Cover Image is Required
+                                </div>
 				                        <div class="form-group">
 				                          	<div class="field" align="left">
 				                         		<input type="button" class="btn btn-primary"  value="Browse Image..." onclick="document.getElementById('cover_img').click();" />
-				                         		<input type="file" style="display:none;" name="cover_img" id="cover_img" class="file" accept="image/*" title="cover image">  
+                                    <div id="img_preview1"></div>
+				                         		<input type="file" style="display:none;" name="cover_img" id="cover_img" class="required file" accept="image/*" title="cover image">  
 				                        	</div>  
 				                        </div>
 				                      </div>
@@ -455,11 +388,11 @@ li.multipleInput-email {
                 <div class='col-sm-12'>
                   <div class="form-wizard-buttons">
 
-                    <button type="button" class="btn btn-next">Next</button>
+                    <button type="button" class="cancel btn btn-next">Next</button>
                   </div>
                 </div>
-              </fieldset>
-              
+    </fieldset>
+        
               
               <!-- Form Step 1 --> 
               
@@ -481,7 +414,7 @@ li.multipleInput-email {
                   	<div class='row' style="margin-top:15px; margin-bottom:15px;">
                     	<div class="form-group-1 col-sm-3">
 		                    <div class="pull-left" style="width:10%;">
-		                        <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+		                        <input type="checkbox" name="amenities[]" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="AV Equipments">
 		                    </div>
 		                    <div class="pull-left" style="width:90%; font-size:14px;">
 		                    	<img src="../assets/images/event-venue-icons/av-icon.png" alt="image" width="32" height="32"/>A/V Equipments
@@ -490,7 +423,7 @@ li.multipleInput-email {
 
                      	<div class="form-group-1 col-sm-3">
 		                    <div class="pull-left" style="width:10%;">
-		                        <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+		                        <input type="checkbox" name="amenities[]" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="WiFi">
 		                    </div>
 		                    <div class="pull-left" style="width:90%; font-size:14px;">
 		                    	<img src="../assets/images/event-venue-icons/wifi-icon.png" alt="image" width="32" height="32"/>WiFi
@@ -499,7 +432,7 @@ li.multipleInput-email {
 
                      	<div class="form-group-1 col-sm-3">
 		                    <div class="pull-left" style="width:10%;">
-		                        <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+		                        <input type="checkbox" name="amenities[]" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="Street Parking">
 		                    </div>
 		                    <div class="pull-left" style="width:90%; font-size:14px;">
 		                    	<img src="../assets/images/event-venue-icons/car-icon.png" alt="image" width="32" height="32"/>Street Parking
@@ -508,7 +441,7 @@ li.multipleInput-email {
 
                    		<div class="form-group-1 col-sm-3">
 		                    <div class="pull-left" style="width:10%;">
-		                        <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+		                        <input type="checkbox" name="amenities[]" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="Handicap Accessible">
 		                    </div>
 		                    <div class="pull-left" style="width:90%; font-size:14px;">
 		                    	<img src="../assets/images/event-venue-icons/handi-icon.png" alt="image" width="32" height="32"/>Handicap Accessible
@@ -520,7 +453,7 @@ li.multipleInput-email {
                     <div class='row' style="margin-bottom:15px;">
                     	<div class="form-group-1 col-sm-3">
 		                    <div class="pull-left" style="width:10%;">
-		                        <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+		                        <input type="checkbox" name="amenities[]" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="Rooftop">
 		                    </div>
 		                    <div class="pull-left" style="width:90%; font-size:14px;">
 		                    	<img src="../assets/images/event-venue-icons/rt-icon.png" alt="image" width="32" height="32"/>Rooftop
@@ -529,7 +462,7 @@ li.multipleInput-email {
 
                     	<div class="form-group-1 col-sm-3">
 		                    <div class="pull-left" style="width:10%;">
-		                        <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+		                        <input type="checkbox" name="amenities[]" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="Pet Friendly">
 		                    </div>
 		                    <div class="pull-left" style="width:90%; font-size:14px;">
 		                    	<img src="../assets/images/event-venue-icons/pet-icon.png" alt="image" width="32" height="32"/>Pet Friendly
@@ -538,7 +471,7 @@ li.multipleInput-email {
 
                       	<div class="form-group-1 col-sm-3">
 		                    <div class="pull-left" style="width:10%;">
-		                        <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+		                        <input type="checkbox" name="amenities[]" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="Valet Parking">
 		                    </div>
 		                    <div class="pull-left" style="width:90%; font-size:14px;">
 		                    	<img src="../assets/images/event-venue-icons/valet-icon.png" alt="image" width="32" height="32"/>Valet Parking
@@ -547,7 +480,7 @@ li.multipleInput-email {
 
                         <div class="form-group-1 col-sm-3">
 		                    <div class="pull-left" style="width:10%;">
-		                        <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+		                        <input type="checkbox" name="amenities[]" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="Outdoor Space">
 		                    </div>
 		                    <div class="pull-left" style="width:90%; font-size:14px;">
 		                      	<img src="../assets/images/event-venue-icons/outdoor-icon.png" alt="image" width="32" height="32"/>Outdoor Space
@@ -571,7 +504,7 @@ li.multipleInput-email {
                       
                       		<div class="form-group-1 col-sm-6">
                         		<div class="pull-left" style="width:10%;">
-                          		<input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+                          		<input type="checkbox" name="foodsandbeverages[]" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="In-House Catering Only">
                           		</div>
                         		<div class="pull-left" style="width:90%; font-size:14px;">
                         			<img src="../assets/images/event-venue-icons/ihc-icon.png" alt="image" width="32" height="32"/>In-House Catering Only
@@ -580,21 +513,21 @@ li.multipleInput-email {
 
                       		<div class="form-group-1 col-sm-6">
                         		<div class="pull-left" style="width:10%;">
-                          		<input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+                          		<input type="checkbox" name="foodsandbeverages[]" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="In-House Supplies Only">
                           		</div>
                         		<div class="pull-left" style="width:90%; font-size:14px;"><img src="../assets/images/event-venue-icons/ihs-icon.png" alt="image" width="32" height="32"/>In-House Supplies Only</div>
                         	</div>
 
                       		<div class="form-group-1 col-sm-6" style="margin-top:15px;">
                         		<div class="pull-left" style="width:10%;">
-                          		<input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+                          		<input type="checkbox" name="foodsandbeverages[]" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="Out-Door Catering Allowed">
                           		</div>
                         		<div class="pull-left" style="width:90%; font-size:14px;"><img src="../assets/images/event-venue-icons/ihc-icon.png" alt="image" width="32" height="32"/>Out-Door Catering Allowed</div>
                         	</div>
 
                       		<div class="form-group-1 col-sm-6" style="margin-top:15px;">
                         		<div class="pull-left" style="width:10%;">
-                          		<input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
+                          		<input type="checkbox" name="foodsandbeverages[]" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="Out-Door Supplies Allowed">
                           		</div>
                         		<div class="pull-left" style="width:90%; font-size:14px;"><img src="../assets/images/event-venue-icons/ihs-icon.png" alt="image" width="32" height="32"/>Out-Door Supplies Allowed</div>
                         	</div>
@@ -631,40 +564,39 @@ li.multipleInput-email {
                   <div class='form-group col-sm-12' style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63;">Venue Halls Info</div>
                   	<div class='form-group col-sm-7' >
                   		<div class='row'>                
-                  
-		                    <div class='form-group col-sm-6' >
-		                      	<label>How Many Event Venue Halls Do You Have ?</label>
-		                      	<select name="venue_hall_count" class="form-control" style="background-color:#eff0f1;">
-			                      	<option value="1">1 Event Venues Hall</option>
-							        <option value="2">2 Event Venues Halls</option>
-			                 		<option value="3">3 Event Venues Halls</option>
-			                 		<option value="4">4 Event Venues Halls</option>
-			                 		<option value="5">5 Event Venue Halls</option>
-			                 		<option value="6">6 Event Venue Halls</option>
-			                 	</select>
-		                    </div>
+		                        <div class='form-group col-sm-6' >
+		                      	  <label>How Many Event Venue Halls Do You Have ?</label>
+		                      	  <select name="venue_hall_count" class="form-control" style="background-color:#eff0f1;">
+			                      	  <option value="1">1 Event Venues Hall</option>
+							                  <option value="2">2 Event Venues Halls</option>
+			                 		      <option value="3">3 Event Venues Halls</option>
+			                 		      <option value="4">4 Event Venues Halls</option>
+			                 		      <option value="5">5 Event Venue Halls</option>
+			                 		      <option value="6">6 Event Venue Halls</option>
+			                 	      </select>
+		                        </div>
 
                     		<div class='form-group col-sm-6' >
                       			<label>Select Venue 1 Hall Type</label>
 			                    <select name="venue_hall_type" class="form-control" style="background-color:#eff0f1;">
-							        <option value="Conference Center">Conference Center</option>
-					                <option value="Party Hall">Party Hall</option>
-					                <option value="Private Dinning">Private Dinning</option>
-					                <option value="WorkShop/Expos">WorkShop/Expos</option>
-					                <option value="Concert Hall">Concert Hall</option>
-					                <option value="Studio">Studio</option>
-					                <option value="Theatre">Theatre</option>
-					                <option value="Warehouse">Warehouse</option>
-					                <option value="Winery">Winery</option>
-					                <option value="Gallery">Gallery</option>
-					                <option value="Bar">Bar</option>
-					                <option value="Country Club">Country Club</option>
-					                <option value="Hotel">Hotel</option>
-					                <option value="Cafe">Cafe</option>
-					                <option value="Resturant">Resturant</option>
-					                <option value="Meeting Space">Meeting Space</option>
-					                <option value="Beach Side">Beach Side</option>
-					            </select>
+    							            <option value="Conference Center">Conference Center</option>
+    					                <option value="Party Hall">Party Hall</option>
+    					                <option value="Private Dinning">Private Dinning</option>
+    					                <option value="WorkShop/Expos">WorkShop/Expos</option>
+    					                <option value="Concert Hall">Concert Hall</option>
+    					                <option value="Studio">Studio</option>
+    					                <option value="Theatre">Theatre</option>
+    					                <option value="Warehouse">Warehouse</option>
+    					                <option value="Winery">Winery</option>
+    					                <option value="Gallery">Gallery</option>
+    					                <option value="Bar">Bar</option>
+    					                <option value="Country Club">Country Club</option>
+    					                <option value="Hotel">Hotel</option>
+    					                <option value="Cafe">Cafe</option>
+    					                <option value="Resturant">Resturant</option>
+    					                <option value="Meeting Space">Meeting Space</option>
+    					                <option value="Beach Side">Beach Side</option>
+					                </select>
                     		</div> 
 
 		                    <div class='form-group col-sm-12' >
@@ -686,8 +618,44 @@ li.multipleInput-email {
                     <div class="col-md-5">
 	                    <div class='form-group col-sm-12'>
 	                      <label>Hall Description</label>
-	                      <textarea type='text' name="event_description"  class="form-control" style="min-height:180px;" placeholder="Describe What Your Hall Information is" ></textarea>
+	                      <textarea type='text' name="event_description" maxlength="160" class="form-control" style="min-height:105px;" placeholder="Describe What Your Hall Information is" ></textarea>
 	                    </div>
+
+                      <div class='form-group col-sm-6'>
+                        <label>Discount Value</label>
+                        <select name="discount_value1"  class="form-control" style="background-color:#eff0f1;">
+                            <option value="">Select</option>
+                            <option value="05%">05% Discount</option>
+                            <option value="10%">10% Discount</option>
+                            <option value="15%">15% Discount</option>
+                            <option value="20%">20% Discount</option>
+                            <option value="25%">25% Discount</option>
+                            <option value="30%">30% Discount</option>
+                            <option value="35%">35% Discount</option>
+                            <option value="40%">40% Discount</option>
+                            <option value="45%">45% Discount</option>
+                            <option value="50%">50% Discount</option>
+                            <option value="55%">55% Discount</option>
+                            <option value="55%">55% Discount</option>
+                            <option value="60%">60% Discount</option>
+                            <option value="65%">65% Discount</option>
+                            <option value="70%">70% Discount</option>
+                            <option value="75%">75% Discount</option>
+                            <option value="80%">80% Discount</option>
+                            <option value="85%">85% Discount</option>
+                            <option value="90%">90% Discount</option>
+                            <option value="95%">95% Discount</option>
+                            <option value="Free">Free</option>                                  
+                        </select>
+                        
+                      </div>
+
+                      <div class='form-group col-sm-6'>
+                        <label>Begin Date</label>
+                        <input type='text' id="begine_from1" name="begining_fromdate1" class="form-control" placeholder="Begin Date" />
+                        
+                      </div>
+
                     </div>
 
                     <div class='form-group col-sm-12'>
@@ -696,7 +664,7 @@ li.multipleInput-email {
 	                        <div class="form-group">
 					            <div class="field" align="left">
 					                <input type="button" class="btn btn-primary"  value="Browse Image..." onclick="document.getElementById('product_img1').click();" />
-					                <input type="file" style="display:none;" name="product_img1" id="product_img1" class="file" accept="image/*" title="cover image">  
+					                <input type="file" style="display:none;" name="hall_img1" id="product_img1" class="file" accept="image/*" title="cover image">  
 					            </div>  
 					        </div>
                       	</div>               
@@ -733,7 +701,8 @@ li.multipleInput-email {
                  <div class='form-group col-sm-1'><img src="../assets/images/event-venue-icons/hall-1.jpg" alt="image"/> </div>
                  	<div class='form-group col-sm-11'>
                     <div class="form-group col-md-12">Hall 1 (  Grace Banquet Center 1)</div>
-                     <div class="form-group-1 col-sm-12" style="margin-bottom:15px;">
+                    
+                    <div class="form-group-1 col-sm-12" style="margin-bottom:15px;">
                         <div class="pull-left" style="width:5%;">
                           &nbsp;
                           </div>
@@ -746,128 +715,160 @@ li.multipleInput-email {
                         <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
                        <strong style="font-weight:bold;">Hourly Rate</strong>
                         </div>
-                        </div>
+                    </div>
+
                     <div class="form-group-1 col-sm-12" style="margin-bottom:15px;">
                         <div class="pull-left" style="width:5%;">
-                          <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
-                          </div>
+                            <input type="checkbox" name="days[]" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="Monday">
+                        </div>
                         <div class="pull-left" style="width:10%; font-size:14px; margin-right:5px;">Monday</div>
                         <div class="pull-left" style="width:20%; font-size:14px; margin-right:10px;">
-                        <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
-				                      <option class="option">Available</option>
-                 <option class="option">Not Available</option>
-                 </select></div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
-                        <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$2000"  />
+                          <select name="Availability[]" class="form-control" style="background-color:#eff0f1;">
+    				                  <option class="Available">Available</option>
+                              <option class="Not Available">Not Available</option>
+                          </select>
                         </div>
                         <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
-                        <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$200"  />
+                            <input type='text' name="daily_rate[]"  class="form-control" placeholder="$2000"  />
                         </div>
+                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                            <input type='text' name="hourly_rate[]"  class="form-control" placeholder="$200"  />
                         </div>
-                        <div class="form-group-1 col-sm-12" style="margin-bottom:15px;">
+                    </div>
+
+                    <div class="form-group-1 col-sm-12" style="margin-bottom:15px;">
                         <div class="pull-left" style="width:5%;">
-                          <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
-                          </div>
+                          <input type="checkbox" name="days[]" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="Tuesday">
+                        </div>
                         <div class="pull-left" style="width:10%; font-size:14px; margin-right:5px;">Tuesday</div>
                         <div class="pull-left" style="width:20%; font-size:14px; margin-right:10px;">
-                        <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
-				                      <option class="option">Available</option>
-                 <option class="option">Not Available</option>
-                 </select></div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
-                        <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$2000"  />
+                          <select name="Availability[]" class="form-control" style="background-color:#eff0f1;">
+                              <option class="Available">Available</option>
+                              <option class="Not Available">Not Available</option>
+                          </select>
                         </div>
                         <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
-                        <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$200"  />
+                          <input type='text' name="daily_rate[]"  class="form-control" placeholder="$2000"  />
                         </div>
+                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                          <input type='text' name="hourly_rate[]"  class="form-control" placeholder="$200"  />
                         </div>
-                        <div class="form-group-1 col-sm-12" style="margin-bottom:15px;">
+                    </div>
+
+                    <div class="form-group-1 col-sm-12" style="margin-bottom:15px;">
                         <div class="pull-left" style="width:5%;">
-                          <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
-                          </div>
+                          <input type="checkbox" name="days[]" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="Wednesday">
+                        </div>
                         <div class="pull-left" style="width:10%; font-size:14px; margin-right:5px;">Wednesday</div>
                         <div class="pull-left" style="width:20%; font-size:14px; margin-right:10px;">
-                        <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
-				                      <option class="option">Available</option>
-                 <option class="option">Not Available</option>
-                 </select></div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
-                        <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$2000"  />
+                            <select name="Availability[]" class="form-control" style="background-color:#eff0f1;">
+                              <option class="Available">Available</option>
+                              <option class="Not Available">Not Available</option>
+                            </select>
                         </div>
                         <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
-                        <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$200"  />
+                            <input type='text' name="daily_rate[]"  class="form-control" placeholder="$2000"  />
                         </div>
+                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                            <input type='text' name="hourly_rate[]"  class="form-control" placeholder="$200"  />
                         </div>
-                        <div class="form-group-1 col-sm-12" style="margin-bottom:15px;">
+                    </div>
+
+                    <div class="form-group-1 col-sm-12" style="margin-bottom:15px;">
                         <div class="pull-left" style="width:5%;">
-                          <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
-                          </div>
+                          <input type="checkbox" name="days[]" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="Thursday">
+                        </div>
                         <div class="pull-left" style="width:10%; font-size:14px; margin-right:5px;">Thursday</div>
                         <div class="pull-left" style="width:20%; font-size:14px; margin-right:10px;">
-                        <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
-				                      <option class="option">Available</option>
-                 <option class="option">Not Available</option>
-                 </select></div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
-                        <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$2000"  />
+                            <select name="Availability[]" class="form-control" style="background-color:#eff0f1;">
+                              <option class="Available">Available</option>
+                              <option class="Not Available">Not Available</option>
+                            </select>
                         </div>
                         <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
-                        <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$200"  />
+                            <input type='text' name="daily_rate[]"  class="form-control" placeholder="$2000"  />
                         </div>
+                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                            <input type='text' name="hourly_rate[]"  class="form-control" placeholder="$200"  />
                         </div>
-                        <div class="form-group-1 col-sm-12" style="margin-bottom:15px;">
+                    </div>
+
+                    <div class="form-group-1 col-sm-12" style="margin-bottom:15px;">
                         <div class="pull-left" style="width:5%;">
-                          <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
-                          </div>
+                          <input type="checkbox" name="days[]" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="Friday">
+                        </div>
                         <div class="pull-left" style="width:10%; font-size:14px; margin-right:5px;">Friday</div>
                         <div class="pull-left" style="width:20%; font-size:14px; margin-right:10px;">
-                        <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
-				                      <option class="option">Available</option>
-                 <option class="option">Not Available</option>
-                 </select></div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
-                        <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$2000"  />
+                            <select name="Availability[]" class="form-control" style="background-color:#eff0f1;">
+                              <option class="Available">Available</option>
+                              <option class="Not Available">Not Available</option>
+                            </select>
                         </div>
                         <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
-                        <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$200"  />
+                            <input type='text' name="daily_rate[]"  class="form-control" placeholder="$2000"  />
                         </div>
+                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                            <input type='text' name="hourly_rate[]"  class="form-control" placeholder="$200"  />
                         </div>
-                        <div class="form-group-1 col-sm-12" style="margin-bottom:15px;">
+                    </div>
+
+                    <div class="form-group-1 col-sm-12" style="margin-bottom:15px;">
                         <div class="pull-left" style="width:5%;">
-                          <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
-                          </div>
+                          <input type="checkbox" name="days[]" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="Saturday">
+                        </div>
                         <div class="pull-left" style="width:10%; font-size:14px; margin-right:5px;">Saturday</div>
                         <div class="pull-left" style="width:20%; font-size:14px; margin-right:10px;">
-                        <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
-				                      <option class="option">Available</option>
-                 <option class="option">Not Available</option>
-                 </select></div>
-                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
-                        <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$2000"  />
+                            <select name="Availability[]" class="form-control" style="background-color:#eff0f1;">
+                              <option class="Available">Available</option>
+                              <option class="Not Available">Not Available</option>
+                            </select>
                         </div>
                         <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
-                        <input type='text' id="event_date" name="event_date"  class="form-control" placeholder="$200"  />
+                            <input type='text' name="daily_rate[]"  class="form-control" placeholder="$2000"  />
                         </div>
+                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                            <input type='text' name="hourly_rate[]"  class="form-control" placeholder="$200"  />
                         </div>
-                        
-                    </div>
+                    </div> 
+
+                    <div class="form-group-1 col-sm-12" style="margin-bottom:15px;">
+                        <div class="pull-left" style="width:5%;">
+                          <input type="checkbox" name="days[]" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;" value="Sunday">
+                        </div>
+                        <div class="pull-left" style="width:10%; font-size:14px; margin-right:5px;">Sunday</div>
+                        <div class="pull-left" style="width:20%; font-size:14px; margin-right:10px;">
+                            <select name="Availability[]" class="form-control" style="background-color:#eff0f1;">
+                              <option class="Available">Available</option>
+                              <option class="Not Available">Not Available</option>
+                            </select>
+                        </div>
+                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                            <input type='text' name="daily_rate[]"  class="form-control" placeholder="$2000"  />
+                        </div>
+                        <div class="pull-left" style="width:25%; font-size:14px; margin-right:10px;">
+                            <input type='text' name="hourly_rate[]"  class="form-control" placeholder="$200"  />
+                        </div>
+                    </div>      
+
+                  </div>
                 </div>
                 
                 <div class='form-group col-sm-12'>                 
-                 	
-					<div class='form-group col-sm-12' style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63;">Coverage Areas & Neigbourhood</div>
+        					<div class='form-group col-sm-12' style="padding-top:5px; padding-bottom:5px; background-color:#f5f5f5; color:#e91e63;">Coverage Areas & Neigbourhood
+                  </div>
                   <div class='form-group col-sm-12' >
-                  <div class='row'>
-                 <div class='form-group col-sm-12'> Add Location /Neigbourhoods Covered by Your Event Hosting Venues</div></div>
-                 <div class='row'>
-                 <div class='form-group col-sm-12'>
-					<div class="col-md-9">
-  						<input type='text' id="coverage_area" name="coverage_area[]"  class="form-control" placeholder="Houston"  /> 
-					</div>
-					<!-- <div class="col-md-3"><a href="#">Add</a></div> -->
-                 </div>
-                 </div>
-                 </div>                    
+                      <div class='row'>
+                          <div class='form-group col-sm-12'> Add Location /Neigbourhoods Covered by Your Event Hosting Venues
+                          </div>
+                      </div>
+                      <div class='row'>
+                        <div class='form-group col-sm-12'>
+              					<div class="col-md-9">
+                						<input type='text' id="coverage_area" name="coverage_area[]"  class="form-control" placeholder="Houston"  /> 
+              					</div>        					
+                        </div>
+                      </div>
+                  </div>                    
                 </div>
                 
                 <div class='form-group col-sm-12' style="margin-top: 30px;">
@@ -882,10 +883,10 @@ li.multipleInput-email {
               <!--  Step 5 -->
     <fieldset>
                 
-                <!-- Progress Bar -->
-                <div class="progress">
-                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"> </div>
-                </div>
+          <!-- Progress Bar -->
+          <div class="progress">
+              <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"> </div>
+          </div>
                 <!-- Progress Bar -->
                 <h4> <span>Step 5 - 5</span></h4>
                 
@@ -899,10 +900,10 @@ li.multipleInput-email {
                         <div class="row" id="event_faq_1">
                             <div class="col-md-6">
                                 <div class="col-md-12" style="margin: 10px 0px;">
-                                 	<input type="text" id="faq_ques_1" name="faq_ques[]" class="form-control" placeholder="Enter question"> 
+                                 	<input type="text" id="faq_ques_1" name="faq_ques[]" class="form-control" placeholder="Enter question" style="text-transform: none;"> 
                                 </div> 
                                 <div class="col-md-12" style="margin: 10px 0px;">
-                                 	<input type="text" id="faq_ans_1" name="faq_ans[]" class="form-control" placeholder="Enter Answer"> 
+                                 	<input type="text" id="faq_ans_1" name="faq_ans[]" class="form-control" placeholder="Enter Answer" style="text-transform: none;"> 
                                 </div>
                                 <div class="col-sm-12 text-right">
                                  	<a href="JavaScript:void(0);"  class="remove_faq btn btn-info btn-sm"> Remove</a>
@@ -923,8 +924,8 @@ li.multipleInput-email {
                 <div class='form-group col-sm-12' style="margin-top: 30px;">
                   <div class="form-wizard-buttons">
                    
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="button" class="btn btn-next">Finish</button>
+                    <button type="button" class="btn btn-previous"><i class="fa fa-arrow-left"></i>Previous</button>
+                    <button type="submit" class="btn btn-next"><i class="fa fa-thumbs-up"></i>Publish</button>
                   </div>
                 </div>
     </fieldset>
@@ -932,7 +933,6 @@ li.multipleInput-email {
               <!-- end Step 5 --> 
              
 </form>
-            <!-- end Step 7 --> 
             
           </div>
         </div>
@@ -952,6 +952,7 @@ li.multipleInput-email {
 <script src="<?php echo base_url ('assets/js/script.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/sweetalert.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/sweetalert.min.js') ?>"></script> 
+<script src="<?php echo base_url('assets/js/sweetalert2.all.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/jquery-1.12.4.js')?>"></script> 
 <script src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script> 
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
@@ -960,7 +961,58 @@ li.multipleInput-email {
 <script src="<?php echo base_url('assets/js/bootstrap3.3.4.min.js')?>"></script>
 
 <script type="text/javascript">
-	
+
+// hide enter button to submit the form
+$(document).ready(function(){
+$('#create_eventvenue').on('keyup keypress', function(e) {
+  var keyCode = e.keyCode || e.which;
+  if (keyCode === 13) { 
+    e.preventDefault();
+    return false;
+  }
+}); 
+});   
+
+$('.txtOnly').keypress(function (e) {
+      var regex = new RegExp("^[a-zA-Z]+$");
+      var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+      if (regex.test(str)) {
+        return true;
+      }
+      else
+      {
+      e.preventDefault();
+      $('.error').show();
+      $('.error').text('Please Enter Alphabate');
+      return false;
+      }
+    });
+
+// not allow special character
+function cleanspecial_char(t) {
+            t.value = t.value.toString().replace(/[^a-zA-Z 0-9\n\r]+/g, '');
+        }
+
+// validation for image
+$(document).on("click", ".cancel", function(e){
+
+if( document.getElementById("cover_img").files.length == 0 ){
+    $('#img_req').show();
+}
+else
+{
+  $('#img_req').hide();
+}
+});
+
+// begine from  event offering step3
+
+$("#begine_from1").datetimepicker({        
+                format:'M-d-Y', 
+                timepicker:false,                                
+                minDate: 0,                       
+            });
+
 //image preview and delete step1 cover image
 
 $(document).ready(function() {
@@ -968,28 +1020,31 @@ $(document).ready(function() {
     $("#cover_img").on("change", function(e) {
       var files = e.target.files,
         filesLength = files.length;
-      for (var i = 0; i < filesLength; i++) {
-        var f = files[i]
+      
+        var f = files[0]
         var fileReader = new FileReader();
         fileReader.onload = (function(e) {
           var file = e.target;
-          $("<span class=\"pip\">" +
+
+                  
+          $("#img_preview1").html("<span class=\"pip\">" +
             "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
             "<br/><span class=\"remove1\">Remove image</span>" +
-            "</span>").insertAfter("#cover_img");
+            "</span>").insertAfter("#img_files");
+
           $(".remove1").click(function(){
             $(this).parent(".pip").remove();
+            $('#cover_img').val("");
           });          
                    
         });
         fileReader.readAsDataURL(f);
-      }
+      
     });
   } else {
     alert("Your browser doesn't support to File API")
   }
-});	
-
+});
 
 //image preview and delete step1 logo
 
@@ -1034,9 +1089,9 @@ $(document).ready(function() {
           var file = e.target;
           $("<span class=\"pip\">" +
             "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
-            "<br/><span class=\"remove1\">Remove image</span>" +
+            "<br/><span class=\"remove\">Remove image</span>" +
             "</span>").insertAfter("#product_img1");
-          $(".remove1").click(function(){
+          $(".remove").click(function(){
             $(this).parent(".pip").remove();
           });          
                    
@@ -1117,7 +1172,7 @@ $('#coverage_area').multipleInput();
 // dynamic event FAQ here
 
 function generete_dynamic_faq(count){
-	var faq = ' <div class="row animated pulse" id="event_faq_'+count+'"><div class="col-md-6"> <div class="col-md-12" style="margin: 10px 0px;"> <input type="text" id="faq_ques_'+count+'" name="faq_ques[]" class="form-control" placeholder="Enter question"> </div> <div class="col-md-12" style="margin: 10px 0px;"> <input type="text" id="faq_ans_'+count+'" name="faq_ans[]" class="form-control" placeholder="Enter Answer"> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_faq btn btn-info btn-sm"> Remove</a></div> </div> </div>';
+	var faq = ' <div class="row animated pulse" id="event_faq_'+count+'"><div class="col-md-6"> <div class="col-md-12" style="margin: 10px 0px;"> <input type="text" id="faq_ques_'+count+'" name="faq_ques[]" class="form-control" placeholder="Enter question" style="text-transform: none;"> </div> <div class="col-md-12" style="margin: 10px 0px;"> <input type="text" id="faq_ans_'+count+'" name="faq_ans[]" class="form-control" placeholder="Enter Answer" style="text-transform: none;"> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_faq btn btn-info btn-sm"> Remove</a></div> </div> </div>';
 
 		return faq;
 }
@@ -1140,7 +1195,114 @@ $(document).on('click', '.remove_faq', function(e)
 	       
     });
 
+//create event venue form submit
 
+var base_url = '<?php echo base_url() ?>'; //form submited
+
+    $(document).on("submit", "#create_eventvenue", function(e){
+
+        e.preventDefault();
+
+    //      $(this).validate({ 
+    //                       rules: {                             
+    //                                 event_name:"required",                  
+    //                                event_startdate: "required",
+    //                                event_enddate: "required",
+    //                                cover_img: "required",
+    //                                event_description: "required",
+    //                                event_title: "required",
+    //                                wowtag_video: "required",
+    //                                eventcontactname: "required",
+    //                              },
+
+    //                       messages: {                           
+    //                               event_name: {
+    //                                   required: "Please fill Event Name", 
+    //                               }, 
+    //                               event_startdate: {
+    //                                   required: "Required ", 
+    //                               }, 
+    //                               event_enddate: {
+    //                                   required: "Required", 
+    //                               }, 
+    //                               cover_img: {
+    //                                   required: "Choose cover image", 
+    //                               }, 
+    //                               event_description: {
+    //                                   required: "Please fill Description", 
+    //                               }, 
+    //                               event_title: {
+    //                                   required: "Please fill Description", 
+    //                               }, 
+    //                               wowtag_video: {
+    //                                   required: "Choose", 
+    //                               },
+    //                               eventcontactname: {
+    //                                   required: "required this field", 
+    //                               },
+                                                   
+    //                          },
+
+    //                        }); 
+
+    // if($(this).valid())
+    //     {     
+            var url = $(this).attr('action');
+            var formdata = new FormData(this);
+          
+            $.ajax({
+                    url : url,
+                    method: 'POST',
+                    data: formdata,
+                    processData: false,
+                    contentType: false,
+                    dataType:'json',
+                    error: function(xhr,status,error)
+                    {   
+                        alert(xhr.responseText);
+                    },
+                    beforeSend: function()
+                    {
+
+                      swal({
+                          title: 'Please Wait...',
+                          text: 'Submitting...',
+                          toast: true,
+                          target: '.swal',              
+                         
+                          onOpen: () => {
+                            swal.showLoading()
+                         }
+                      }); 
+          
+                    },
+                    
+                    success: function(response)
+                    {
+                       if(response.status == 'success')
+                       {
+                       
+                            swal({
+                                        title: "Success!",
+                                        text: "Event Service Provider Has Created Successfully..",
+                                        type: "success",
+                                        timer: 3000
+                                        }).then(() => {                     
+                              window.location.href = "<?php echo base_url('event/get_eventfeed'); ?>";
+                            });;  
+                       
+                        }
+                        else 
+                        {
+                          swal("Sorry!", "Something Wrong Try Again!", "error");
+                        }          
+                    }
+
+           });
+    // }
+     
+
+ });
 </script>
 </body>
 </html>

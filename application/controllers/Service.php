@@ -14,10 +14,7 @@ class Service extends CI_Controller
 		$this->load->view('mytest/search');
 	}
 
-	public function service_provider()
-	{
-		$this->load->view('serviceprovider/event_serviceprov_landing');
-	}
+	
 
 	public function service_provider_landing()
 	{
@@ -30,10 +27,10 @@ class Service extends CI_Controller
 	}
 
 	
-	public function event_hubb()
-	{
-		$this->load->view('serviceprovider/event_hubb');
-	}
+	// public function event_hubb()
+	// {
+	// 	$this->load->view('serviceprovider/event_hubb');
+	// }
 	
 	public function eventvenue_landing()
 	{

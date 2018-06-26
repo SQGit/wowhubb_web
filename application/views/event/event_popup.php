@@ -64,6 +64,15 @@ input[type=radio] {
     line-height: 30px;
     text-align: center;
   }
+.sweet-alert h2{
+  font-size: 14px; 
+  font-weight: bold;
+}
+.btn-primary.focus, .btn-primary:focus {
+    color: #fff;
+    background-color: #e91e63;
+    border-color: #122b40;
+}
 
 </style>
 
@@ -108,15 +117,10 @@ input[type=radio] {
             <div class="col-md-12">
 
               <div class="col-md-10 form-wizard form-body-classic form-header-classic col-md-offset-1">
-           
-                        <!--div class="col-md-12" style="margin-top:0px; margin-bottom:0px;">                        
-                        <ol class="breadcrumb" style="text-align:left!important;">
-                          <li class="breadcrumb-item" style="text-align:left;"><a href="<?php echo base_url('event/get_eventfeed'); ?>"><strong>Home</strong></a></li>  
-                          <li class="breadcrumb-item active" style="text-align:left;"><strong>Create Event Landing</strong></li>
-                        </ol>
-                        </div-->
+            
                         
-                    <h3><span style="text-transform:none; color:#e91e63; line-height:30px;">Select Your Event Type</span><p style="font-weight:normal; color:#969696; font-size:12px;">Please select any one of the category </p></h3>
+                    <h3><span style="text-transform:none; color:#e91e63; line-height:30px;">Select Your Event Type</span>
+                      <p style="font-weight:normal; color:#969696; font-size:12px;">Please select any one of the category </p></h3>
                      
               <!-- Form Step 1 -->
          <fieldset>
@@ -404,7 +408,7 @@ input[type=radio] {
         {
           if ($('input[id="event_type"]:checked').length== 0)
             {
-                swal('Please select any one event type...');
+                swal('Please Select Any Event Type...');
                 return false;
             }
             var radio_val = $('input[id="event_type"]:checked').val();
@@ -412,7 +416,7 @@ input[type=radio] {
              
             if($("select[id="+cat+"] option:selected").val()=="")
             {
-                swal('Please select event category');
+                swal('Please Select Event Category');
                 return false;   
             }
              $('#btnSubmit').click(function() 

@@ -213,7 +213,7 @@ table, td, tr {
                 <p>Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu mauris eus, cum eros quis aliquam wisi. Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi, mi mattis pariatur aliquam pharetra eget.</p>
                 </div>
                 <div class="row text-center">
-                  <a href="<?php echo base_url('service/eventvenue_form'); ?>" >
+                  <a href="<?php echo base_url('eventserviceprovider/create_event_venue'); ?>" >
                     <button type="submit" class="btn btn-primary" style="font-size:13px;">Create Your Event Venue Page</button>
                   </a>
              </div>
@@ -310,7 +310,8 @@ table, td, tr {
      
       <div class="col-md-12" style="margin-top:5px;">
         <div class="row text-center">
-                   <a href="<?php echo base_url('service/eventvenue_form'); ?>" ><button type="submit" class="btn btn-primary" style="font-size:13px;">
+                   <a href="<?php echo base_url('eventserviceprovider/create_event_venue'); ?>" >
+                    <button type="submit" class="btn btn-primary" style="font-size:13px;">
                    Create Your Event Venue Page
                   </button></a>
              </div>

@@ -276,7 +276,7 @@ img {
      padding:1px;
      padding-bottom:0;
      cursor:text;
-     font-size:15px;
+     font-size:13px;
      width:100%;
     border-radius: 6px;
     margin-top: 20px;
@@ -284,7 +284,7 @@ img {
  
 .keywordSearch-container input {  
     outline: none;
-    font-size:15px;
+    font-size:13px;
     clear:both;
     height:40px;
     border:0;
@@ -527,7 +527,7 @@ li.keywordSearch-email {
 
 		            <div class='row'>    
 		                <div class='form-group col-sm-12' >
-                    		<label> Organisation Name </label>
+                    		<label> Organization Name </label>
                      			<!-- company name show here from login page -->
 			            	
 			              	<select name="tour_noof_city"  class="form-control " >
@@ -805,7 +805,7 @@ li.keywordSearch-email {
 			                <div class='row'>
 				                    <div class='form-group col-sm-12'>
 				                      <label>Event Description</label>
-				                      <textarea type='text' id="description" name="event_description" class="txtOnly form-control required" style="min-height:150px;" placeholder="Describe What Your Event Is All About" onchange = "cleanspecial_char(this)"></textarea>
+				                      <textarea type='text' id="description" name="event_description" class="txtOnly form-control required" style="min-height:150px;" maxlength="160" placeholder="Describe What Your Event Is All About" onchange = "cleanspecial_char(this)"></textarea>
 				                    </div>
 				                    <div class='form-group col-sm-12'>
 					                    <div class='col-sm-12' style="background-color:#f9f9f9;">
@@ -825,8 +825,8 @@ li.keywordSearch-email {
 
 				                     <div class='form-group col-sm-12' style="margin-top: 10px;">
 					                      <div class='col-sm-12' style="background-color:#f9f9f9;">
-					                        <label>Organisation Logo</label>
-					                        <label>Please browse to upload Organisation Logo</label>
+					                        <label>Organization Logo</label>
+					                        <label>Please browse to upload Organization Logo</label>
 					                        <div class="form-group" style="margin-bottom: 10px;"> 
 						                        <div class="field" align="left">
 						                         		<input type="button" class="btn btn-primary"  value="Browse.." onclick="document.getElementById('logo').click();" />
@@ -916,7 +916,7 @@ li.keywordSearch-email {
                 </div>
         <div class='col-sm-5'>
             <div class='col-sm-12' style="background-color:#f9f9f9;padding-top:10px; ">
-                  		<div id="show_vanue" style="background-color:#bfbebe;padding-top:10px; ">
+                  		<div id="show_vanue" style="background-color:#DDDDDD; padding-top:10px; border-radius:7px;">
 							<center style=" margin-bottom:5px; "> <label ><img src="../assets/images/map-icon.png" alt="map-icon">Create &amp; Add Your Event Tours Cities Here</label></center> 
 						</div>               
              	<div id="event_venues">
@@ -970,25 +970,25 @@ li.keywordSearch-email {
 		                      <div class="pull-left" style="width:10%;">
 		                        <input type="checkbox" name="eventvenue_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:15px;">Address can only be viewed by invited guest</div>
+		                      <div class="pull-left" style="width:90%; font-size:13px;">Address can only be viewed by invited guest</div>
 		                    </div>
 		                    <div class='form-group-1 col-sm-12'>
 			                    <div class="pull-left" style="width:10%;">
 			                       <input type="checkbox" name="eventvenue_guestshare" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 			                    </div>
-			                    <div class="pull-left" style="width:90%; font-size:15px;">Invited guest can share event</div>
+			                    <div class="pull-left" style="width:90%; font-size:13px;">Invited guest can share event</div>
 		                    </div>
 		                    <div class='form-group-1 col-sm-12'>
 		                      <div class="pull-left" style="width:10%;">
 		                        <input type="checkbox" name="eventvenue_onlineevent" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:15px;">Online  Event</div>
+		                      <div class="pull-left" style="width:90%; font-size:13px;">Online  Event</div>
 		                    </div>
 		                    <div class='form-group-1 col-sm-12'>
 		                      <div class="pull-left" style="width:10%;">
 		                        <input type="checkbox" name="eventvenue_inviteonlyevent" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:15px;">Invite Only Event</div>
+		                      <div class="pull-left" style="width:90%; font-size:13px;">Invite Only Event</div>
 		                    </div>
 
 		                    <!-- event FAQ part here -->
@@ -1389,7 +1389,8 @@ li.keywordSearch-email {
 	                  <input type="text" name="guest_url1" id="textbox_2" class="form-control" placeholder="Event Guest Speaker/Artist URL-Links" autocomplete="off">
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <textarea class="form-control" name="guest_speaker1" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" autocomplete="off" onchange = "cleanspecial_char(this)"></textarea>
+	                  <textarea class="form-control" name="guest_speaker1" maxlength="160" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" autocomplete="off" onchange ="cleanspecial_char(this)"></textarea>
+	                  
 	                </div>
                 </div>
                 		<br><br>
@@ -1422,7 +1423,7 @@ li.keywordSearch-email {
 	                </div>
                 <div class='col-sm-5'>
 	                <div class='form-group col-sm-12'>
-	                  <select name="guest_type2" class="form-control" id="types" >
+	                  <select name="guest_type2" class="form-control" id="types">
 	                    <option value="">Select Event Guest Type </option>
 	                    <option value="Guest Speaker">Guest Speaker </option>
 	                    <option value="Guest Artist">Guest Artist </option>
@@ -1440,7 +1441,8 @@ li.keywordSearch-email {
 	                  <input type="text" name="guest_url2" id="textbox_2" class="form-control" placeholder="Event Guest Speaker/Artist URL-Links" autocomplete="off"> 
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <textarea class="form-control" name="guest_speaker2" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" autocomplete="off" onchange = "cleanspecial_char(this)"></textarea>
+	                  <textarea class="form-control" name="guest_speaker2" maxlength="160" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" autocomplete="off" onchange ="cleanspecial_char(this)"></textarea>
+	                  
 	                </div>
                 </div>
             </div>
@@ -1523,7 +1525,7 @@ li.keywordSearch-email {
                                <img src="../assets/images/ques.png" alt="">
                              </div>
                              <div class="pull-left" style="width:96%;">
-                               <p style="line-height:23px;">Enter the event host details on this page  and also select how your event attendee can contact your organisation</p>
+                               <p style="line-height:23px;">Enter the event host details on this page  and also select how your event attendee can contact your organization</p>
                              </div>
                            </div>
                            
@@ -1880,25 +1882,25 @@ li.keywordSearch-email {
 		                      <div class="pull-left" style="width:10%;">
 		                        <input type="checkbox" name="eventtour_addressvisible" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:15px;">Address can only be viewed by invited guest</div>
+		                      <div class="pull-left" style="width:90%; font-size:13px;">Address can only be viewed by invited guest</div>
 		                    </div>
 		                    <div class='form-group-1 col-sm-12'>
 			                    <div class="pull-left" style="width:10%;">
 			                       <input type="checkbox" name="eventtour_guestshare" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 			                    </div>
-			                    <div class="pull-left" style="width:90%; font-size:15px;">Invited guest can share event</div>
+			                    <div class="pull-left" style="width:90%; font-size:13px;">Invited guest can share event</div>
 		                    </div>
 		                    <div class='form-group-1 col-sm-12'>
 		                      <div class="pull-left" style="width:10%;">
 		                        <input type="checkbox" name="eventtour_onlineevent" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:15px;">Online  Event</div>
+		                      <div class="pull-left" style="width:90%; font-size:13px;">Online  Event</div>
 		                    </div>
 		                    <div class='form-group-1 col-sm-12'>
 		                      <div class="pull-left" style="width:10%;">
 		                        <input type="checkbox" name="eventtour_inviteonlyevent" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 		                      </div>
-		                      <div class="pull-left" style="width:90%; font-size:15px;">Invite Only Event</div>
+		                      <div class="pull-left" style="width:90%; font-size:13px;">Invite Only Event</div>
 		                    </div>		                  
 
                   	</div>
@@ -2170,13 +2172,13 @@ li.keywordSearch-email {
 						                    <div class="pull-left" style="width:8%;">
 						                        <input type="radio" name="promotion_options" value="1" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 						                    </div>
-				                      		<div class="pull-left text-left" style="width:92%; font-size:15px;">Publish & Share On My !Wowhubb Network</div>
+				                      		<div class="pull-left text-left" style="width:92%; font-size:13px;">Publish & Share On My !Wowhubb Network</div>
 				                        </div>
 					                    <div class="form-group col-md-12">
 					                      <div class="pull-left" style="width:8%;">
 					                        <input type="radio" name="promotion_options" value="2" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 					                      </div>
-					                      <div class="pull-left text-left" style="width:92%; font-size:15px;">Publish to Specific Group
+					                      <div class="pull-left text-left" style="width:92%; font-size:13px;">Publish to Specific Group
 					                      		<!-- Modal -->
                               
 					                      </div>
@@ -2185,13 +2187,13 @@ li.keywordSearch-email {
 						                      <div class="pull-left" style="width:8%;">
 						                        <input type="radio" name="promotion_options" value="3" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 						                      </div>
-					                      	  <div class="pull-left text-left" style="width:92%; font-size:15px;">This a Private Event</div>
+					                      	  <div class="pull-left text-left" style="width:92%; font-size:13px;">This a Private Event</div>
 					                    </div>
 					                    <div class="form-group col-md-12">
 						                      <div class="pull-left" style="width:8%;">
 						                        <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 						                      </div>
-					                     	  <div class="pull-left text-left" style="width:92%; font-size:15px;">Promote My Event On !Wowhubb Network</div>
+					                     	  <div class="pull-left text-left" style="width:92%; font-size:13px;">Promote My Event On !Wowhubb Network</div>
 					                    </div>
                      		</div>
                                         
@@ -2297,26 +2299,26 @@ li.keywordSearch-email {
 			                   <div class="pull-left" style="width:8%;">
 			                        <input type="radio" name="promotion_options" value="1" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 			                      </div>
-			                      <div class="pull-left text-left" style="width:92%; font-size:15px;">Publish & Share On My !Wowhubb Network
+			                      <div class="pull-left text-left" style="width:92%; font-size:13px;">Publish & Share On My !Wowhubb Network
 			                      </div>
 			                      </div>
 			                      <div class="form-group col-md-12">
 			                      <div class="pull-left" style="width:8%;">
 			                        <input type="radio" name="promotion_options" id="promotion_options" value="2" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 			                      </div>
-			                      <div class="pull-left text-left" style="width:92%; font-size:15px;">Publish to Specific Group</div>
+			                      <div class="pull-left text-left" style="width:92%; font-size:13px;">Publish to Specific Group</div>
 			                      </div>
 			                      <div class="form-group col-md-12">
 			                      <div class="pull-left" style="width:8%;">
 			                        <input type="radio" name="promotion_options" value="3" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 			                      </div>
-			                      <div class="pull-left text-left" style="width:92%; font-size:15px;">This a Private Event</div>
+			                      <div class="pull-left text-left" style="width:92%; font-size:13px;">This a Private Event</div>
 			                      </div>
 			                      <div class="form-group col-md-12">
 			                      <div class="pull-left" style="width:8%;">
 			                        <input type="checkbox" name="promotion_options" value="4" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 			                      </div>
-			                      <div class="pull-left text-left" style="width:92%; font-size:15px;">Promote My Event On !Wowhubb Network</div>
+			                      <div class="pull-left text-left" style="width:92%; font-size:13px;">Promote My Event On !Wowhubb Network</div>
 			                   </div>
                    			</div>
                                          
@@ -2393,25 +2395,25 @@ li.keywordSearch-email {
 					                         <div class="pull-left" style="width:8%;">
 					                         	<input type="radio" name="promotion_options" value="1" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 					                         </div>
-					                      	 <div class="pull-left text-left" style="width:92%; font-size:15px;">Publish & Share On My !Wowhubb Network</div>
+					                      	 <div class="pull-left text-left" style="width:92%; font-size:13px;">Publish & Share On My !Wowhubb Network</div>
 					                    </div>
 					                    <div class="form-group col-md-12">
 					                      	<div class="pull-left" style="width:8%;">
 					                        	<input type="radio" name="promotion_options" value="2" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 					                      	</div>
-					                      	<div class="pull-left text-left" style="width:92%; font-size:15px;">Publish to Specific Group</div>
+					                      	<div class="pull-left text-left" style="width:92%; font-size:13px;">Publish to Specific Group</div>
 					                    </div>
 					                    <div class="form-group col-md-12">
 						                      <div class="pull-left" style="width:8%;">
 						                        	<input type="radio" name="promotion_options" value="3" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 						                      </div>
-					                      	  <div class="pull-left text-left" style="width:92%; font-size:15px;">This a Private Event</div>
+					                      	  <div class="pull-left text-left" style="width:92%; font-size:13px;">This a Private Event</div>
 					                    </div>
 					                    <div class="form-group col-md-12">
 						                      <div class="pull-left" style="width:8%;">
 						                        <input type="checkbox" style="width:20px; height:20px; background:white; border-radius:5px; border:2px solid #555;">
 						                      </div>
-					                      	  <div class="pull-left text-left" style="width:92%; font-size:15px;">Promote My Event On !Wowhubb Network</div>
+					                      	  <div class="pull-left text-left" style="width:92%; font-size:13px;">Promote My Event On !Wowhubb Network</div>
 					                    </div>
                   					</div>
                      			</div>
@@ -2796,18 +2798,17 @@ function update_vanue() {
 
         if(venue != '' || city != '' || zipcode != '')
         {
-            var template = ' <div class="form-group col-sm-12" style="background-color:#9e9999; margin-top:10px; "> <div class="pull-left" style="width:40%;">Event Venue '+index+'</div>'+
-                    '<div class="pull-left" style="width:45%;">'+venue+'</div>'+
-                    '<div class="pull-left" style="width:15%;"><img src="../assets/images/map-icon.png" alt="map-icon" /></div> </div>';
+            var template = ' <div class="form-group col-sm-12" style="background-color:#f3dae2; margin-top:5px; margin-bottom:5px; line-height:36px; border-radius:5px;word-wrap: break-word;"> <div class="pull-left" style="width:40%;word-wrap: break-word;">Event Venue '+index+'</div>'+
+                    '<div class="pull-left" style="width:45%;word-wrap: break-word;">'+venue+'</div>'+
+                    '<div class="pull-left" style="width:15%;word-wrap: break-word;"><img src="../assets/images/map-icon.png" alt="map-icon" /></div> </div>';
 
-            step_to_venue += ' <div class="form-group col-sm-12" style="background-color:#e8e3e3;"> <div class="pull-left" style="width:40%;">'+venue+'</div>'+
-                    '<div class="pull-left" style="width:30%;">'+city+' </div>'+
-                    '<div class="pull-left" style="width:30%;">'+zipcode+'</div> </div>';
+            step_to_venue += ' <div class="form-group col-sm-12" style="background-color:#e8e3e3;"> <div class="pull-left" style="width:40%;word-wrap: break-word;">'+venue+'</div>'+
+                    '<div class="pull-left" style="width:30%;word-wrap: break-word;">'+city+' </div>'+
+                    '<div class="pull-left" style="width:30%;word-wrap: break-word;">'+zipcode+'</div> </div>';
 
             option_template += '<option value="'+venue+' ">'+venue+' </option>';
         }
         
-
         $('#show_vanue').append(template);          
       
     }); 
@@ -2910,14 +2911,14 @@ function update_tour() {
         if(city != '' || ticket_url != '' || start_date != '' || end_date != '' )
         {
             
-            var event_tour = ' <div class="form-group col-sm-12" style="background-color:#9e9999; margin-top:10px; "> <div class="pull-left" style="width:20%;">'+city+'</div>'+
-                    '<div class="pull-left" style="width:60%;">'+start_date+','+end_date+'</div>'+                    
-                    '<div class="pull-left" style="width:20%;">'+ticket_url+'</div></div>'; 
+            var event_tour = ' <div class="form-group col-sm-12" style="background-color:#9e9999; margin-top:10px; "> <div class="pull-left" style="width:20%; word-wrap: break-word;">'+city+'</div>'+
+                    '<div class="pull-left" style="width:60%; word-wrap: break-word;">'+start_date+','+end_date+'</div>'+                    
+                    '<div class="pull-left" style="width:20%; word-wrap: break-word;">'+ticket_url+'</div></div>'; 
 
-            step_to_tour  += '<div class="form-group col-sm-12" style="background-color:#e8e3e3; "> <div class="pull-left" style="width:20%;">'+city+'</div>'+
-                    '<div class="pull-left" style="width:30%;">'+start_date+','+end_date+'</div>'+                    
-                    '<div class="pull-left" style="width:35%;"> '+ticket_url+'</div>'+
-                    '<div class="pull-left" style="width:15%;"> '+ticket_price+'</div></div>';           
+            step_to_tour  += '<div class="form-group col-sm-12" style="background-color:#e8e3e3; "> <div class="pull-left" style="width:20%; word-wrap: break-word;">'+city+'</div>'+
+                    '<div class="pull-left" style="width:30%; word-wrap: break-word;">'+start_date+','+end_date+'</div>'+                    
+                    '<div class="pull-left" style="width:35%; word-wrap: break-word;"> '+ticket_url+'</div>'+
+                    '<div class="pull-left" style="width:15%; word-wrap: break-word;"> '+ticket_price+'</div></div>';           
         }        
 
         $('#show_tours').append(event_tour);    

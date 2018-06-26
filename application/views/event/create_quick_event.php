@@ -522,7 +522,7 @@ input[type=number]::-webkit-outer-spin-button {
 	                  	<div class='row'>
 		                    <div class='form-group col-sm-12'>
 		                      <label>Event Description</label>
-		                      <textarea id="description" name="event_description"  class="form-control required" style="min-height:300px;" placeholder="Describe What Your Event Is All About" onchange = "cleanspecial_char(this)" ></textarea>
+		                      <textarea id="description" name="event_description"  class="form-control required" style="min-height:300px;" maxlength="160" placeholder="Describe What Your Event Is All About" onchange = "cleanspecial_char(this)" ></textarea>
 		                      
 		                    </div>		                  
 	                  	</div>

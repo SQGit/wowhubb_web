@@ -35,6 +35,7 @@ h3
 }
 
 
+
 .nav>li>a:focus, .nav>li>a:hover {
 	text-decoration: none;
 	background-color: #e91e63;
@@ -151,10 +152,11 @@ table {
   <div class="timeline">
     <div class="timeline-cover" style="position: relative; max-height:320px;"> 
       <?php
-         if(isset($business->coverpageurl))
+          // print_r($detail);
+         if(isset($eventvenues->coverpageurl))
           {
        ?>
-      <img class="cover-pic" src="<?php echo $business->coverpageurl;?>"  style="background-size:cover; width:100%; max-height:300px;" > 
+      <img class="cover-pic" src="<?php echo $eventvenues->coverpageurl;?>"  style="background-size:cover; width:100%; max-height:300px;" > 
       <br>
       <?php } else { ?>
                 <img class="cover-pic" src='<?php echo base_url("assets/images/mf-1.jpg");?>' style="background-size:cover; width:100%; margin-top:20px;" > 
@@ -166,22 +168,21 @@ table {
 
             <div class="profile-info">
                   <?php
-                     if(isset($business->businesslogourl) && ($business->businesslogourl != 'null'))
+                     if(isset($eventvenues->businesslogourl) && ($eventvenues->businesslogourl != 'null') )
                       {
                    ?>
-             <img  src="<?php echo $business->businesslogourl;?>" class="profile-pic img-responsive profile-photo" /> 
+             <img  src="<?php echo $eventvenues->businesslogourl;?>" class="profile-pic img-responsive profile-photo" /> 
               <?php } else{ ?>
               <img  src="<?php echo base_url("assets/images/org-logo.png");?>" class="profile-pic img-responsive profile-photo" /> 
               <?php } ?>
            </div>
           </div>
-          
           <div class="col-md-9" >
             <div class="profile-info-1"> </div>
             <ul class="list-inline profile-menu">
               <li><a href="<?php echo base_url('service/ohp_admin_home'); ?>" class="active">Home</a></li>
-              <li><a href="<?php echo base_url('service/ohp_eventfeed'); ?>">Event Feed</a></li>
-              <li><a href="<?php echo base_url('service/ohp_network_members'); ?>">Network Members</a></li>
+              <li><a href="#">Event Feed</a></li>
+              <li><a href="#">Network Members</a></li>
               <li><a href="#">Reviews</a></li>
               <li><a href="#">Settings</a></li>
               <li><a href="#">Album</a></li>
@@ -223,38 +224,38 @@ table {
               
               <!--news-feed links ends-->
               <ul class="nav-news-feed">
-                <h5 style="font-weight:bold; font-size:13px; letter-spacing:-.5px; text-align:left;">Events Hubb</h5>
+                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Events Hubb</h5>
 
-                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="<?php echo base_url('service/ohp_publish_event'); ?>">Published Events</a> </li>
+                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="#">Published Events</a> </li>
 
-                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="<?php echo base_url('service/ohp_notification_page'); ?>">Invites-Notifications</a> </li>
+                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="#">Invites-Notifications</a> </li>
 
-                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"><a style="font-weight: bold;" href="<?php echo base_url('service/ohp_wowtag'); ?>">Wowtag</a> </li>
+                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"><a style="font-weight: bold;" href="#">Wowtag</a> </li>
 
                 <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
 
               </ul>
               <ul class="nav-news-feed">
-                <h5 style="font-weight:bold; font-size:13px; letter-spacing:-.5px; text-align:left;">Post</h5>
-                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="<?php echo base_url('service/ohp_eventfeed'); ?>">Published Posts</a> </li>
+                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Post</h5>
+                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="#">Published Posts</a> </li>
                 <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
               </ul>
               <ul class="nav-news-feed">
-                <h5 style="font-weight:bold; font-size:13px; letter-spacing:-.5px; text-align:left;">Admin</h5>
-                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="<?php echo base_url('service/ohp_admin_members_admin'); ?>">Manage Members</a> </li>
+                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Admin</h5>
+                <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="#">Manage Members</a> </li>
                 <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
               </ul>
               <ul class="nav-news-feed">
-                <h5 style="font-weight:bold; font-size:13px; letter-spacing:-.5px; text-align:left;">Manage ADs</h5>
+                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Manage ADs</h5>
                 <li style="background-color:#f1f1f1; padding:2px 5px; border-radius:5px; margin-top: 10px;"> <a style="font-weight: bold;" href="#">Promote Your Events</a> </li>
               
               </ul>
             </div>
           </div>
 
-           <!-- here google map location fetch -->
+            <!-- here google map location fetch -->
             <?php
-                  $address = $business->address1." ".$business->state." ".$business->country;
+                  $address = $eventvenues->address1." ".$eventvenues->state." ".$eventvenues->country;
                   $prepAddr = str_replace(' ','+',$address);
 
                   $geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
@@ -265,6 +266,7 @@ table {
             ?>
             <input type="hidden" id="latitude" value="<?php echo $latitude; ?>">
             <input type="hidden" id="longitude" value="<?php echo $longitude; ?>">
+            
 
           <div class="col-md-7">
             <div class="col-md-12">
@@ -272,8 +274,8 @@ table {
                 <div class="row">
                 <div class="col-md-12" style="background: #fff; box-shadow: 1px 1px 1px 2px #ECECEC; padding: 10px 7px; border-radius: 3px; margin-top:15px;">
                   <div class="col-md-10">
-                    <h3 style="font-size:13px; font-weight:bold;">About Us</h3>
-                    <p> <?php if(isset($business->description)) { echo $business->description; } ?></p>
+                    <h3 style="font-size:17px; font-weight:bold;">About Us</h3>
+                    <p> <?php if(isset($eventvenues->venuedescription)) { echo $eventvenues->venuedescription; } ?></p>
                   </div>
                     <div class="col-md-2 text-right" style="margin-top:15px;">
                       <a href="#">
@@ -288,17 +290,21 @@ table {
                 <div class="row">
                 <div class="col-md-12" style="background: #fff; box-shadow: 1px 1px 1px 2px #ECECEC; padding: 10px 7px; border-radius: 3px; margin-top:15px;">
                   <div class="col-md-5">
-                    <h3 style="font-size:13px; font-weight:bold;">Address</h3>
-                    <p> <?php if(isset($business->venue)) { echo $business->venue; } ?> <br>
-                       <?php if(isset($business->address1)) { echo $business->address1; } ?> <br>
-                       <?php if(isset($business->country)) { echo $business->state." ".$business->country." ".$business->zipcode; } ?> <br>
-                      <strong>Call Us - </strong> <?php if(isset($business->phone)) { echo $business->phone; } ?> <br>
-                      <strong>Web - </strong>  <?php if(isset($business->websitelink)) { echo $business->websitelink; } ?> </p>
+                    <h3 style="font-size:17px; font-weight:bold;">Address</h3>
+                    <p> <?php if(isset($eventvenues->venue)) { echo $eventvenues->venue; } ?> <br>
+                       <?php if(isset($eventvenues->address1)) { echo $eventvenues->address1; } ?> <br>
+                       <?php if(isset($eventvenues->country)) { echo $eventvenues->state." ".$eventvenues->country." ".$eventvenues->zipcode; } ?> <br>
+                      <strong>Call Us - </strong> <?php if(isset($eventvenues->phone)) { echo $eventvenues->phone; } ?> <br>
+                      <strong>Web - </strong>  <?php if(isset($eventvenues->websitelink)) { echo $eventvenues->websitelink; } ?> </p>
                   </div>
+                 
                   <div class="col-md-7" style="padding:15px;"> 
+                                         
                      <div id="map" style="width:350px;height:200px; margin:0;"> 
-                     </div> 
+                     </div>
+
                   </div>
+
                   </div>
                 </div>
               </div>
@@ -307,62 +313,36 @@ table {
                 <div class="row">
                 <div class="col-md-12" style="background: #fff; box-shadow: 1px 1px 1px 2px #ECECEC; padding: 10px 7px; border-radius: 5px; margin-top:15px;">
                   <div class="col-md-10">
-                    <h3 style="font-size:13px; font-weight:bold;">Business Hours</h3>
-                                     <table class="table table-striped">
-                                      <thead>
-                                        <tr>
-                                          <th>#</th>
-                                          <th>Days</th>
-                                          <th>Working Hours</th>
-                                          <th>Closed</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        <tr>
-                                          <th scope="row">1</th>
-                                          <td>Monday</td>
-                                          <td>9:00am-5:00pm</td>
-                                          <td>-</td>
-                                        </tr>
-                                        <tr>
-                                          <th scope="row">2</th>
-                                          <td>Tuesday</td>
-                                          <td>9:00am-5:00pm</td>
-                                          <td>-</td>
-                                        </tr>
-                                        <tr>
-                                          <th scope="row">3</th>
-                                          <td>Wednesday</td>
-                                          <td>9:00am-5:00pm</td>
-                                          <td>-</td>
-                                        </tr>
-                                         <tr>
-                                          <th scope="row">4</th>
-                                          <td>Thursday</td>
-                                          <td>9:00am-5:00pm</td>
-                                          <td>-</td>
-                                        </tr>
-                                         <tr>
-                                          <th scope="row">5</th>
-                                          <td>Friday</td>
-                                          <td>9:00am-5:00pm</td>
-                                          <td>-</td>
-                                        </tr>
-                                         <tr>
-                                          <th scope="row">6</th>
-                                          <td>Saturday</td>
-                                          <td>-</td>
-                                          <td>Closed</td>
-                                        </tr>
-                                         <tr>
-                                          <th scope="row">7</th>
-                                          <td>Sunday</td>
-                                          <td>-</td>
-                                          <td>Closed</td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
+                    <h3 style="font-size:17px; font-weight:bold;">Business Pricing</h3>
+                       <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Days</th>
+                            <th>Availability</th>
+                            <th>Daily Rate</th>
+                            <th>Hourly Rate</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php 
+                          $i=1;
+                          foreach ($eventvenues->pricingandavailability as  $eventvenues) {
+                         
+                          ?>
+                          <tr>
+                            <th scope="row"><?php echo $i; ?></th>
+                            <td><?php echo $eventvenues->day; ?></td>
+                            <td><?php echo $eventvenues->availability; ?></td>
+                            <td><?php echo $eventvenues->dailyrate; ?></td>
+                            <td><?php echo $eventvenues->hourlyrate; ?></td>
+                            
+                          </tr>
 
+                          <?php $i++; } ?>
+                           
+                        </tbody>
+                      </table>
                    
                   </div>
 
@@ -385,47 +365,47 @@ table {
               <div class="col-md-12">
   <div class="row">
     <div class="col-md-12">
-      <h3 style="font-size:13px; font-weight:bold;">Welcome To Your Event Hosting </h3>
+      <h3 style="font-size:16px; font-weight:bold;">Welcome To Your Event Hosting  Page</h3>
       <p>Welcome to your evvent hosting page on !wowhubb, you can create, host and advertise all your company, organisation and business event in one place 
         An amaazing platform to get all things event handled for you.</p>
       </div>
     <div class="col-md-12">
-      <h3 style="font-size:13px; font-weight:bold;">Invite Friends To Event Network</h3>
+      <h3 style="font-size:16px; font-weight:bold;">Invite Your Friends To Event Network Page</h3>
       <div class="col-md-6">
         <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
           <div class="col-md-12 text-center"><img src="<?php echo base_url('assets/images/em.png');?> " class="img-responsive img-circle img-thumbnail" alt="user"></div>
-          <span style="font-size:13px; font-weight:bold;">Tony Adams</span>
+          <span style="font-size:15px; font-weight:bold;">Tony Adams</span>
           
           <br>
-          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button" style="font-size:13px;">Invite</button></span>
+          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button">Invite</button></span>
           </div>
         </div>
       <div class="col-md-6">
         <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
           <div class="col-md-12 text-center"><img src="<?php echo base_url('assets/images/td.png');?>" class="img-responsive img-circle img-thumbnail" alt="user"></div>
-          <span style="font-size:13px; font-weight:bold;">TD Jakes</span>
+          <span style="font-size:15px; font-weight:bold;">TD Jakes</span>
           
           <br>
-          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button" style="font-size:13px;">Invite</button></span>
+          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button">Invite</button></span>
           </div>
         </div>
       <div class="col-md-12" style="margin-top:5px; margin-bottom:5px;"></div>
       <div class="col-md-6">
         <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
           <div class="col-md-12 text-center"><img src="<?php echo base_url('assets/images/em.png');?>" class="img-responsive img-circle img-thumbnail" alt="user"></div>
-          <span style="font-size:13px; font-weight:bold;">Tony Adams</span>
+          <span style="font-size:15px; font-weight:bold;">Tony Adams</span>
           
           <br>
-          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button" style="font-size:13px;">Invite</button></span>
+          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button">Invite</button></span>
           </div>
         </div>
       <div class="col-md-6">
         <div class="col-md-12 text-center" style="background-color:#fff; border:1px solid #f1f1f1; padding:5px; border-radius:5px;">
           <div class="col-md-12 text-center"><img src="<?php echo base_url('assets/images/td.png');?>" class="img-responsive img-circle img-thumbnail" alt="user"></div>
-          <span style="font-size:13px; font-weight:bold;">TD Jakes</span>
+          <span style="font-size:15px; font-weight:bold;">TD Jakes</span>
           
           <br>
-          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button" style="font-size:13px;">Invite</button></span>
+          <span class="form-body-classic form-wizard"><button class="browse btn-1 btn-primary input-sm" type="button">Invite</button></span>
           </div>
         </div>
       
@@ -457,10 +437,9 @@ table {
 <script src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script> 
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script> 
-
 <script>
 
-function myMap() {
+ function myMap() {
 
   var lan = document.getElementById("latitude").value;
   var lon = document.getElementById("longitude").value;
@@ -480,8 +459,6 @@ function myMap() {
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiegWT2wCL6Ek8vujvqgtXe1NjcKKNE9k&libraries=places&callback=myMap"></script>
 
-  
- 
-  
+
 </body>
 </html>

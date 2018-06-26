@@ -34,39 +34,8 @@ h3
 	color:#333!important;
 }
 
-label.error {
-	/*font-family: 'Roboto', sans-serif;*/
-	color: red;
-}
 
-#footer {
-	background: #fff;
-	position: relative;
-	top: 0px;
-}
 
-#imageUpload {
-	display: none;
-}
-
-#profileImage {
-	cursor: pointer;
-}
-#imageUpload1 {
-	display: none;
-}
-#profileImage1 {
-	cursor: pointer;
-}
-.form-wizard {
-	padding: 5px;
-	background: #fff;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;
- //box-shadow: 0px 0px 10px 0px #ccc;
-	text-align: left;
-}
 .nav>li>a:focus, .nav>li>a:hover {
 	text-decoration: none;
 	background-color: #e91e63;
@@ -184,10 +153,10 @@ table {
     <div class="timeline-cover" style="position: relative; max-height:320px;"> 
       <?php
           // print_r($detail);
-         if(isset($event_service_provider->coverpage))
+         if(isset($event_service_provider->coverpageurl))
           {
        ?>
-      <img class="cover-pic" src="http://104.197.80.225:3010/wow/media/eventservice/<?php echo $event_service_provider->coverpage;?>"  style="background-size:cover; width:100%; max-height:300px;" > 
+      <img class="cover-pic" src="<?php echo $event_service_provider->coverpageurl;?>"  style="background-size:cover; width:100%; max-height:300px;" > 
       <br>
       <?php } else { ?>
                 <img class="cover-pic" src='<?php echo base_url("assets/images/mf-1.jpg");?>' style="background-size:cover; width:100%; margin-top:20px;" > 
@@ -199,10 +168,12 @@ table {
 
             <div class="profile-info">
                   <?php
-                     if(isset($event_service_provider->businesslogo))
+                     if(isset($event_service_provider->businesslogourl) && ($event_service_provider->businesslogourl != 'null') )
                       {
                    ?>
-             <img  src="http://104.197.80.225:3010/wow/media/eventservice/<?php echo $event_service_provider->businesslogo;?>" class="profile-pic img-responsive profile-photo" /> 
+             <img  src="<?php echo $event_service_provider->businesslogourl;?>" class="profile-pic img-responsive profile-photo" /> 
+              <?php } else{ ?>
+              <img  src="<?php echo base_url("assets/images/org-logo.png");?>" class="profile-pic img-responsive profile-photo" /> 
               <?php } ?>
            </div>
           </div>
@@ -282,6 +253,20 @@ table {
             </div>
           </div>
 
+            <!-- here google map location fetch -->
+            <?php
+                  $address = $event_service_provider->address1." ".$event_service_provider->state." ".$event_service_provider->country;
+                  $prepAddr = str_replace(' ','+',$address);
+
+                  $geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
+                  $output= json_decode($geocode);
+                  $latitude = $output->results[0]->geometry->location->lat;
+                  $longitude = $output->results[0]->geometry->location->lng;
+
+            ?>
+            <input type="hidden" id="latitude" value="<?php echo $latitude; ?>">
+            <input type="hidden" id="longitude" value="<?php echo $longitude; ?>">
+
           <div class="col-md-7">
             <div class="col-md-12">
               <div class="row">
@@ -303,7 +288,7 @@ table {
               <div class="row">
                 <div class="row">
                 <div class="col-md-12" style="background: #fff; box-shadow: 1px 1px 1px 2px #ECECEC; padding: 10px 7px; border-radius: 3px; margin-top:15px;">
-                  <div class="col-md-6">
+                  <div class="col-md-5">
                     <h3 style="font-size:17px; font-weight:bold;">Address</h3>
                     <p> <?php if(isset($event_service_provider->venue)) { echo $event_service_provider->venue; } ?> <br>
                        <?php if(isset($event_service_provider->address1)) { echo $event_service_provider->address1; } ?> <br>
@@ -311,7 +296,12 @@ table {
                       <strong>Call Us - </strong> <?php if(isset($event_service_provider->phone)) { echo $event_service_provider->phone; } ?> <br>
                       <strong>Web - </strong>  <?php if(isset($event_service_provider->websitelink)) { echo $event_service_provider->websitelink; } ?> </p>
                   </div>
-                  <div class="col-md-6" style="padding:15px;"> <img src="<?php echo base_url('assets/images/ohp-hotels.jpg');?>" alt="" class="img-responsive img-thumbnail" /> </div>
+
+                  <div class="col-md-7" style="padding:15px;"> 
+                      <div id="map" style="width:350px;height:200px; margin:0;"> 
+                      </div>
+                  </div>
+
                   </div>
                 </div>
               </div>
@@ -321,62 +311,32 @@ table {
                 <div class="col-md-12" style="background: #fff; box-shadow: 1px 1px 1px 2px #ECECEC; padding: 10px 7px; border-radius: 5px; margin-top:15px;">
                   <div class="col-md-10">
                     <h3 style="font-size:17px; font-weight:bold;">Business Hours</h3>
- <table class="table table-striped">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Days</th>
-      <th>Working Hours</th>
-      <th>Closed</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Monday</td>
-      <td>9:00am-5:00pm</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Tuesday</td>
-      <td>9:00am-5:00pm</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Wednesday</td>
-      <td>9:00am-5:00pm</td>
-      <td>-</td>
-    </tr>
-     <tr>
-      <th scope="row">4</th>
-      <td>Thursday</td>
-      <td>9:00am-5:00pm</td>
-      <td>-</td>
-    </tr>
-     <tr>
-      <th scope="row">5</th>
-      <td>Friday</td>
-      <td>9:00am-5:00pm</td>
-      <td>-</td>
-    </tr>
-     <tr>
-      <th scope="row">6</th>
-      <td>Saturday</td>
-      <td>-</td>
-      <td>Closed</td>
-    </tr>
-     <tr>
-      <th scope="row">7</th>
-      <td>Sunday</td>
-      <td>-</td>
-      <td>Closed</td>
-    </tr>
-  </tbody>
-</table>
+                         <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Days</th>
+                              <th>Working Hours</th>
+                              <th>Availability</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          <?php 
+                              $i=1;
+                              foreach ($event_service_provider->businesshours as  $hours) {
+                         
+                          ?>
+                            <tr>
+                              <th scope="row"><?php echo $i; ?></th>
+                              <td><?php echo $hours->weekday; ?></td>
+                              <td><?php echo $hours->opensfrom." ".$hours->closedat; ?></td>
+                              <td><?php echo $hours->availability; ?></td>
+                            </tr> 
+                           <?php $i++; } ?>                           
+                             
+                          </tbody>
+                        </table>
 
-                   
                   </div>
 
                   <div class="col-md-2 text-right" style="margin-top:15px;">
@@ -470,12 +430,32 @@ table {
 <script src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script> 
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script> 
-<script>
 
+<script>
   
- 
- 
+  function myMap() {
+
+  var lan = document.getElementById("latitude").value;
+  var lon = document.getElementById("longitude").value;
+  
+  var mapCanvas = document.getElementById("map");
+  var myCenter = new google.maps.LatLng(lan,lon); 
+  var mapOptions = {center: myCenter, zoom: 10};
+  var map = new google.maps.Map(mapCanvas,mapOptions);
+  var marker = new google.maps.Marker({
+    position: myCenter,
+    animation: google.maps.Animation.BOUNCE
+  });
+  marker.setMap(map);
+} 
 
 </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiegWT2wCL6Ek8vujvqgtXe1NjcKKNE9k&libraries=places&callback=myMap">
+  
+</script>
+
+ 
+
 </body>
 </html>

@@ -223,15 +223,15 @@ li.multipleInput-email {
   </header>
 <!--Header End-->
 <!-- breadcrumb for page link -->
-<div class="container" style="margin-top:20px;">
+<!-- <div class="container" style="margin-top:20px;">
 
 <ol class="breadcrumb" style="margin-bottom:-10px!important;">
   <li class="breadcrumb-item"><a href="<?php echo base_url('event/get_eventfeed'); ?>"><strong>Home</strong></a></li>  
   <li class="breadcrumb-item active"><strong>My Feeds</strong></li>
 </ol>
-</div>
+</div> -->
 
-    <div class="container">
+    <div class="container" style="margin-top: 5px;">
 
       <!-- Timeline
       ================================================= -->
@@ -249,7 +249,7 @@ li.multipleInput-email {
               <?php 
                     if(!is_null($this->session->userdata('personal_image')))
               { ?>                      
-              <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo" />
+              <img src="<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo" />
               <?php }  else { ?> 
                
                  <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo" />
@@ -273,7 +273,7 @@ li.multipleInput-email {
                       {  
                   ?>
                        
-                        <a href="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('self_video'); ?>" class="html5lightbox" data-width="480" data-height="320" > &nbsp;&nbsp;
+                        <a href="<?php echo $this->session->userdata('self_video'); ?>" class="html5lightbox" data-width="480" data-height="320" > &nbsp;&nbsp;
                           <i class="icon ion-arrow-right-b" style="font-size:28px; color:#fff;"></i>
                         </a> 
                         
@@ -302,7 +302,6 @@ li.multipleInput-email {
                   <?php                            
                         foreach ($eventfeed as $feeds)
                           {                     
-                           
                               if(isset($feeds->eventtype) && ($feeds->eventtype == 'thought'))  
                                 {                              
                                   
@@ -348,7 +347,7 @@ li.multipleInput-email {
                                         
                                   <div class="post-detail" style="margin:0;">                                       
 
-                                      <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-md pull-left" />                                    
+                                      <img src="<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-md pull-left" />                                    
 
                                   </div>
 
@@ -433,8 +432,8 @@ li.multipleInput-email {
                                     {   
                              ?>
                             <div class="pull-left" style="width:10%; margin-top:6px;">
-                              <?php if(isset($com->userid->personalimage)){  ?>
-                              <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $com->userid->personalimage; ?>" alt="" class="profile-photo-sm" />
+                              <?php if(isset($com->userid->personalimageurl)){  ?>
+                              <img src="<?php echo $com->userid->personalimageurl; ?>" alt="" class="profile-photo-sm" />
                               <?php } else { ?>
                               <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo-md" />
                               <?php } ?>
@@ -476,8 +475,8 @@ li.multipleInput-email {
                       <div class="commend_show col-md-12" style="margin-top:5px;" >
             
                           <div class="pull-left" style="width:10%; margin-top:6px;">
-                            <?php if(isset($com->userid->personalimage)) {  ?>
-                            <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $com->userid->personalimage; ?>" alt="" class="profile-photo-sm" />
+                            <?php if(isset($com->userid->personalimageurl)) {  ?>
+                            <img src="<?php echo $com->userid->personalimageurl; ?>" alt="" class="profile-photo-sm" />
                             <?php } else { ?>
                             <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo-md" />
                             <?php } ?>
@@ -516,7 +515,7 @@ li.multipleInput-email {
 
                            <div class="col-md-12">
                                 <div class="col-md-1">
-                                     <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="" class="profile-photo-sm" />
+                                     <img src="<?php echo $this->session->userdata('personal_image'); ?>" alt="" class="profile-photo-sm" />
                                 </div>
                                 <form action="<?php echo base_url('event/myfeed_thought_comments/'.$feeds->_id); ?>" method="post">
                                   <div class="col-md-9">
@@ -639,7 +638,7 @@ li.multipleInput-email {
                                       ?>
                                         
                                   <div class="post-detail" style="margin:0;">                                       
-                                      <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-md pull-left" />                                    
+                                      <img src="<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-md pull-left" />                                    
                                   </div>
 
                                   <?php  } else  { ?>
@@ -865,7 +864,7 @@ li.multipleInput-email {
 
                            <div class="col-md-12">
                                 <div class="col-md-1">
-                                     <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="" class="profile-photo-sm" />
+                                     <img src="<?php echo $this->session->userdata('personal_image'); ?>" alt="" class="profile-photo-sm" />
                                 </div>
                                 <form class="comments_form" action="<?php echo base_url('event/myfeeds_comments/'.$feeds->_id); ?>" method="post">
                                   <div class="col-md-9">
@@ -989,7 +988,7 @@ li.multipleInput-email {
                                         
                                   <div class="post-detail" style="margin:0;">                                       
 
-                                              <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-md pull-left" />                                    
+                                              <img src="<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-md pull-left" />                                    
 
                                   </div>
 
@@ -1324,7 +1323,7 @@ li.multipleInput-email {
 
                            <div class="col-md-12">
                                 <div class="col-md-1">
-                                     <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="" class="profile-photo-sm" />
+                                     <img src="<?php echo $this->session->userdata('personal_image'); ?>" alt="" class="profile-photo-sm" />
                                 </div>
                                 <form class="comments_form" action="<?php echo base_url('event/myfeeds_comments/'.$feeds->_id); ?>" method="post">
                                   <div class="col-md-9">
@@ -1458,7 +1457,7 @@ li.multipleInput-email {
 
                                        
 
-                                             <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-md pull-left" />  
+                                             <img src="<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-md pull-left" />  
                                         
 
                                   </div>
@@ -1833,7 +1832,7 @@ li.multipleInput-email {
 
                            <div class="col-md-12">
                                 <div class="col-md-1">
-                                     <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="" class="profile-photo-sm" />
+                                     <img src="<?php echo $this->session->userdata('personal_image'); ?>" alt="" class="profile-photo-sm" />
                                 </div>
                                 <form class="comments_form" action="<?php echo base_url('event/myfeeds_comments/'.$feeds->_id); ?>" method="post">
                                   <div class="col-md-9">
@@ -1969,7 +1968,7 @@ li.multipleInput-email {
                                         
                                   <div class="post-detail" style="margin:0;">                                         
 
-                                               <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-md pull-left" />                                          
+                                               <img src="<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-md pull-left" />                                          
 
                                   </div>
 
@@ -2322,7 +2321,7 @@ li.multipleInput-email {
 
                            <div class="col-md-12">
                                 <div class="col-md-1">
-                                     <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="" class="profile-photo-sm" />
+                                     <img src="<?php echo $this->session->userdata('personal_image'); ?>" alt="" class="profile-photo-sm" />
                                 </div>
                                 <form class="comments_form" action="<?php echo base_url('event/myfeeds_comments/'.$feeds->_id); ?>" method="post">
                                   <div class="col-md-9">
@@ -2751,7 +2750,7 @@ li.multipleInput-email {
 
                            <div class="col-md-12">
                                 <div class="col-md-1">
-                                     <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="" class="profile-photo-sm" />
+                                     <img src="<?php echo $this->session->userdata('personal_image'); ?>" alt="" class="profile-photo-sm" />
                                 </div>
                                 <form class="comments_form" action="<?php echo base_url('event/myfeeds_comments/'.$feeds->_id); ?>" method="post">
                                   <div class="col-md-9">

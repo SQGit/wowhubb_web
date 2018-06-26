@@ -29,28 +29,7 @@
 <!--Favicon-->
 <link rel="shortcut icon" type="image/png" href="<?php echo base_url ('assets/images/fav.png') ?>"/><style type="text/css">
 	
-	label.error {
-    font-family: 'Roboto', sans-serif;
-   color:red; 
-	}
-
-	.textBox {
-		background-image: url(./assets/images/designation-icon.png);
-		background-position: 0 5px;
-		background-size: 30px;
-		background-repeat: no-repeat;
-		padding-left: 17px;
-	}
-	/*popup close button  */
-	.large.tooltip-inner {
-		max-width: 350px;
-		width: 350px;
-	}
-	#footer {
-		background: #fff;
-		position: relative;
-		top: 0px;
-	}
+	
 	.btn-file {
 		position: relative;
 		overflow: hidden;
@@ -100,63 +79,9 @@
 		outline: none;
 	}
 	
-	#btnAdd10{
-		background-image: url("<?php echo base_url('assets/images/close-outline-32.png')?>");
-		background-repeat: no-repeat;
-		border: none;
-		width: 32px;
-		height: 32px;
-		cursor: pointer;
-		color: transparent;
-		background-color: transparent;
-		outline: none;
-	}
-	#textAdd {
-		background-image: url("<?php echo base_url('assets/images/Plus.png')?>");
-		background-size: cover;
-		border: none;
-		width: 32px;
-		height: 32px;
-		cursor: pointer;
-		color: transparent;
-		background-color: transparent;
-		outline: none;
-	}
-	#imageUpload1 {
-		display: none;
-	}
-	#profileImage1 {
-		cursor: pointer;
-	}
-	#profile-container1 {
-		width: 150px;
-		height: 150px;
-	}
-	#imageUpload2 {
-		display: none;
-	}
-	#profileImage2 {
-		cursor: pointer;
-	}
-	#imageUpload3 {
-		display: none;
-	}
-	#profileImage3 {
-		cursor: pointer;
-	}
-	#imageUpload4 {
-		display: none;
-	}
-	#profile-container4 {
-		width: 150px;
-		height: 150px;
-	}
-	#imageUpload5 {
-		display: none;
-	}
-	#profileImage5 {
-		cursor: pointer;
-	}
+	
+	
+	
 	.faq-cat-content {
 		margin-top: 25px;
 	}
@@ -369,26 +294,13 @@
 	  text-align: center;
 	  cursor: pointer;
 	  width: 200px;
-      margin-left: 144px;
+      margin-left: 133px;
 	}
 	.remove1:hover {
 	  background: white;
 	  color: black;
 	}
-	.tab {
-	  display: none;
-	}
-
-.loader {
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid blue;
-  border-bottom: 16px solid blue;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
-}
+	
 
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
@@ -406,32 +318,7 @@
     top: 7px;
 }
 
-/*remove faq input box*/
-#remove_faq {
-    background-image: url(../assets/images/close-outline-32.png);
-    background-repeat: no-repeat;
-    border: none;
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
-    color: transparent;
-    background-color: transparent;
-    outline: none;
-}
 
-/*hide input type number arrows*/
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0; 
-}
-/*.swal2-contentwrapper
-{
-	margin: 0 auto;
-    height: 150px;
-}*/
 </style>
 </head>
 
@@ -477,23 +364,10 @@ input[type=number]::-webkit-outer-spin-button {
             Use anyone class "form-body-classic" or "form-body-material" or "form-body-stylist" for set your form element design.
             -->
             
-            <h3>Create Your Event</h3>
-            <p>Please fill information to a create an event </p>
+           
              <img src="../assets/images/banner.jpg" class="img-thumbnail"  alt="banner-image"/>
             <!-- Form progress -->
-    <div class="form-wizard-steps form-wizard-tolal-steps-7">
-              <div class="form-wizard-progress">
-                <div class="form-wizard-progress-line" data-now-value="12.25" data-number-of-steps="7" style="width: 100%;"></div>
-              </div>
-            
-              <!-- Step 5 -->
-              <div class="form-wizard-step">
-                <div class="form-wizard-step-icon"><i class="fa fa-flash" aria-hidden="true"></i></div>
-                <p>Event Highlights</p>
-              </div>
-            
-              
-     </div>
+    
           
     <form id="create_eventhighlight" action="<?php echo base_url('eventhubb/update_eventhighlight'); ?>"  method="POST" enctype="multipart/form-data" > 
     	 
@@ -501,9 +375,7 @@ input[type=number]::-webkit-outer-spin-button {
     <fieldset>
             <!--<form id="create_event" action="" method="post" enctype="multipart/form-data" > --> 
                <!-- Progress Bar -->
-	        <div class="progress">
-	                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="71.37" aria-valuemin="0" aria-valuemax="100" style="width: 71.37%"> </div>
-	        </div>
+	       
                 <!-- Progress Bar -->
             
                 <div class="col-md-12">
@@ -521,13 +393,17 @@ input[type=number]::-webkit-outer-spin-button {
 			                        <input type="button" class="btn btn-primary"  value="Browse Image.." onclick="document.getElementById('img_files').click();" >
 			                        <input type="file" style="display:none;" name="highlight_img1" id="img_files" class="file" accept="image/*">
 			                       </div>
-	                       			<div class="remove_img">
+	                       			<div class="remove_img1">
 	                       				<?php 
 		                       				if(isset($event->eventhighlights1)&& ($event->eventhighlights1 != 'null'))
 		                       				{
 	                       				?>
-			                        	<img src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlights1; ?>" style="width:160px; height:88px;" name="exit_img1" alt="user" class="img-responsive img-thumbnail">	
-			                        	 <a href="#" class="delete"><i class="glyphicon glyphicon-remove"></i></a>
+			                        	<img src="<?php echo $event->eventhighlights1url; ?>" style="width:160px; height:88px;" name="exit_img1" alt="user" class="img-responsive img-thumbnail">	
+			                        	 <div style="position:absolute; left:161px; top:37px;">
+			                        	 <a href="#" class="delete1">
+			                        	 	<img src="<?php echo base_url('assets/images/wow-close.png'); ?>" />
+			                        	 </a>
+			                        	</div>
 			                        	<?php } ?>
 			                        </div>  
 	                    	</div>
@@ -551,7 +427,7 @@ input[type=number]::-webkit-outer-spin-button {
 		                       				{
 	                       				?>
 	                        <video width="200" height="150" controls>
-								 	 <source src="http://104.197.80.225:3010/wow/media/event/<?php echo $event->eventhighlightsvideo1; ?>" id="video_here1" type="video/mp4">
+								 	 <source src="<?php echo $event->eventhighlightsvideo1; ?>" id="video_here1" type="video/mp4">
 								    
 							</video>
 										<?php } ?>
@@ -591,6 +467,7 @@ input[type=number]::-webkit-outer-spin-button {
                 </div>
                 		<br><br>
 
+                	<div class="col-md-12 line-divider"></div>
                 <!-- second set -->
 
                 <div id="event_high" style="display: none;">
@@ -600,6 +477,19 @@ input[type=number]::-webkit-outer-spin-button {
 	                        <input type="button" class="btn btn-primary"  value="Browse Image.." onclick="document.getElementById('img_files2').click();" />
 	                        <input type="file" style="display:none;" name="highlight_img2" id="img_files2" class="file" accept="image/*">
 	                      </div>
+	                        <div class="remove_img">
+	                       				<?php 
+		                       				if(isset($event->eventhighlights2)&& ($event->eventhighlights2 != 'null'))
+		                       				{
+	                       				?>
+			                        	<img src="<?php echo $event->eventhighlights2url; ?>" style="width:160px; height:88px;" name="exit_img1" alt="user" class="img-responsive img-thumbnail">	
+			                        	 <div style="position:absolute; left:161px; top:37px;">
+			                        	 <a href="#" class="delete">
+			                        	 	<img src="<?php echo base_url('assets/images/wow-close.png'); ?>" />
+			                        	 </a>
+			                        	</div>
+			                        	<?php } ?>
+			                </div>  
 	                    </div>
 	                    <div class='col-md-12' style="background-color:#f9f9f9; padding-top:15px;">
 	                      <div class="form-group">                       
@@ -649,7 +539,9 @@ input[type=number]::-webkit-outer-spin-button {
                 </div>
             </div>
 
-                 <div class='form-group col-sm-12'> <a href="JavaScript:void(0);" id="add_highlight"><i class="fa fa-plus-circle"></i> Add More Event Highlights Clips</a> </div>
+                 <div class='form-group col-sm-6'> <a href="JavaScript:void(0);" id="add_highlight"><i class="fa fa-plus-circle"></i> Add More Event Highlights Clips</a> </div>
+
+                 <div class='form-group col-sm-6 text-right'> <a href="JavaScript:void(0);" class="remove_highlight"><i class="fa fa-minus-circle"></i> Remove Event Highlights</a> </div>
 
             </div>
 
@@ -724,15 +616,12 @@ input[type=number]::-webkit-outer-spin-button {
 <script src="<?php echo base_url('assets/js/sweetalert.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/sweetalert.min.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/sweetalert2.all.js') ?>"></script> 
-<!--<script src="<?php echo base_url('assets/js/jquery-1.12.4.js')?>"></script> -->
 <script src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script> 
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script>   
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.js')?>"></script>   
 <script src="<?php echo base_url('assets/js/moment.js')?>"></script> 
  
-<!-- model popup bootstrap --> 
-<!-- <script src="<?php echo base_url('assets/js/bootstrap3.3.4.min.js')?>"></script> -->
 
 <script>
 	
@@ -740,6 +629,21 @@ input[type=number]::-webkit-outer-spin-button {
 $(".delete").click(function(){
     $(".remove_img").remove();
 });
+
+//delete highlight2 image from db shows
+$(".delete1").click(function(){
+    $(".remove_img1").remove();
+});
+
+// remove div
+$(document).on('click', '.remove_highlight', function(e)
+    {
+	   var elem = document.getElementById("event_high");
+	   elem.remove();
+	   
+	       
+    });
+
 
  //video size limitation highlight video1
 
@@ -892,11 +796,11 @@ var base_url = '<?php echo base_url() ?>'; //form submited
 							                   {		                  
 		                   							swal({
 		                                                 title: "Success!",
-		                                                 text: "Your Event Created Successfully...",
+		                                                 text: "Your Updates Done Successfully...",
 		                                                 type: "success",
 		                                                 timer: 3000
 		                                                 }).then(() => {                     
-		                   									window.location.href = "<?php echo base_url('eventhubb/get_eventhubb'); ?>";
+		                   									window.location.href = "<?php echo base_url('eventhubb/get_future_eventhubb'); ?>";
 		                   								});;  
 		                   
 							                    }

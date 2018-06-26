@@ -222,7 +222,7 @@ margin: 5px 0;
             <?php 
             if(!is_null($this->session->userdata('personal_image')))
             { ?>                      
-            <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo$this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo" />
+            <img src="<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo" />
             <?php }  else { ?> 
              
                <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo" />
@@ -243,7 +243,7 @@ margin: 5px 0;
                       {  
                   ?>
                        
-                        <a href="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('self_video'); ?>" class="html5lightbox" data-width="480" data-height="320" > &nbsp;&nbsp;
+                        <a href="<?php echo $this->session->userdata('self_video'); ?>" class="html5lightbox" data-width="480" data-height="320" > &nbsp;&nbsp;
                           <i class="icon ion-arrow-right-b" style="font-size:28px; color:#fff;"></i>
                         </a> 
                         
@@ -291,10 +291,10 @@ margin: 5px 0;
                          <div class="col-md-2 col-sm-12">
 
                              <div class="form-group" style="display:-webkit-inline-box; width:90%;"> 
-                                  <?php if(isset($friends->personalimage))
+                                  <?php if(isset($friends->personalimageurl))
                                   { ?>
                                 <a href="<?php echo base_url('profile/profile_thirdparty_view/'.$friends->_id); ?>" > 
-                                <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $friends->personalimage; ?>" alt="user" class="profile-photo" />
+                                <img src="<?php echo $friends->personalimageurl; ?>" alt="user" class="profile-photo" />
                                 </a>
                                   <?php } else { ?>
 
@@ -406,10 +406,10 @@ margin: 5px 0;
              <div class="row">
                          <div class="col-md-2 col-sm-12">
                              <div class="form-group" style="display:-webkit-inline-box; width:90%;"> 
-                                  <?php if(isset($friends->personalimage))
+                                  <?php if(isset($friends->personalimageurl))
                                   { ?>
                               <a href="<?php echo base_url('profile/profile_thirdparty_view/'.$friends->_id); ?>" >
-                               <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $friends->personalimage; ?>" alt="user" class="profile-photo" />
+                               <img src="<?php echo $friends->personalimageurl; ?>" alt="user" class="profile-photo" />
                               </a>
                                   <?php } else { ?>
                               <a href="<?php echo base_url('profile/profile_thirdparty_view/'.$friends->_id); ?>" >

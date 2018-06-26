@@ -292,7 +292,7 @@ img {
      padding:1px;
      padding-bottom:0;
      cursor:text;
-     font-size:15px;
+     font-size:13px;
      width:100%;
     border-radius: 6px;
     margin-top: 0px;
@@ -300,7 +300,7 @@ img {
  
 .keywordSearch-container input {  
     outline: none;
-    font-size:15px;
+    font-size:13px;
     clear:both;
     height:40px;
     border:0;
@@ -551,7 +551,7 @@ li.keywordSearch-email {
 
 		            <div class='row'>   
 		                <div class='form-group col-sm-12' >
-                    				<label> Organisation Name </label>
+                    				<label> Organization Name </label>
                      			<!-- company name show here from login page -->
 			            	
 			              		<select name="organisation_name"  class="form-control" >
@@ -843,7 +843,7 @@ li.keywordSearch-email {
 			                <div class='row'>
 				                    <div class='form-group col-sm-12'>
 				                      <label>Event Description</label>
-				                      <textarea type='text' id="description" name="event_description" class="form-control required" style="min-height:150px;" placeholder="Describe What Your Event Is All About" onchange = "cleanspecial_char(this)" ></textarea>
+				                      <textarea type='text' id="description" name="event_description" class="form-control required" style="min-height:150px;" maxlength="160" placeholder="Describe What Your Event Is All About" onchange = "cleanspecial_char(this)" ></textarea>
 				                    </div>
 				                    <div class='form-group col-sm-12'>
 					                      <div class='col-sm-12' style="background-color:#f9f9f9;">
@@ -864,8 +864,8 @@ li.keywordSearch-email {
 
 				                    <div class='form-group col-sm-12' style="margin-top: 10px;">
 					                    <div class='col-sm-12' style="background-color:#f9f9f9;">
-					                        <label>Organisation Logo</label>
-					                        <label>Please browse to Upload Organisation Logo</label>
+					                        <label>Organization Logo</label>
+					                        <label>Please browse to Upload Organization Logo</label>
 					                        <div class="form-group" style="margin-bottom: 10px;"> 
 						                        <div class="field" align="left">
 						                         	<input type="button" class="btn btn-primary"  value="Browse" onclick="document.getElementById('logo').click();" />
@@ -1397,7 +1397,7 @@ li.keywordSearch-email {
 		                          <p style="line-height:23px;">Choose a compelling 60-120 seconds event promotional ads video that will create a lasting impression in your viewers mind</p>
 		                        </div>
 
-		                         <input type="button" class="btn btn-primary"  value="Browse" onclick="document.getElementById('video_size1').click();" />
+		                         <input type="button" class="btn btn-primary" value="Browse" onclick="document.getElementById('video_size1').click();" />
 		                         <input type="file" style="display:none;" name="highlight_img1" id="video_size1" class="file">
 
 			                     	<div id="video_show1" style="display: none;" >
@@ -1432,7 +1432,7 @@ li.keywordSearch-email {
 	                  <input type="text" name="guest_url1" id="textbox_2" class="form-control" placeholder="Event Guest Speaker/Artist URL-Links" autocomplete="off">
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <textarea class="form-control" name="guest_speaker1" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" autocomplete="off" onchange = "cleanspecial_char(this)"></textarea>
+	                  <textarea class="form-control" name="guest_speaker1" maxlength="160" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" autocomplete="off" onchange = "cleanspecial_char(this)"></textarea>
 	                </div>
                 </div>
                 		<br><br>
@@ -1484,7 +1484,7 @@ li.keywordSearch-email {
 	                  <input type="text" name="guest_url2" id="textbox_2" class="form-control" placeholder="Event Guest Speaker/Artist URL-Links" autocomplete="off"> 
 	                </div>
 	                <div class='form-group col-sm-12'>
-	                  <textarea class="form-control" name="guest_speaker2" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" autocomplete="off" onchange = "cleanspecial_char(this)"></textarea>
+	                  <textarea class="form-control" name="guest_speaker2" maxlength="160" placeholder="Event Guest Speaker/ Artist Introduction/ Pre-Events Activities Clips" style="min-height:150px;" autocomplete="off" onchange = "cleanspecial_char(this)"></textarea>
 	                </div>
                 </div>
             </div>
@@ -1563,7 +1563,7 @@ li.keywordSearch-email {
                                <img src="../assets/images/ques.png" alt="">
                              </div>
                              <div class="pull-left" style="width:96%;">
-                               <p style="line-height:23px;">Enter the event host details on this page  and also select how your event attendee can contact your organisation</p>
+                               <p style="line-height:23px;">Enter the event host details on this page  and also select how your event attendee can contact your organization</p>
                              </div>
                            </div>
                          
@@ -2726,13 +2726,13 @@ function update_vanue() {
 
         if(venue != '' || city != '' || zipcode != '')
         {
-            var template = ' <div class="form-group col-sm-12" style="background-color:#f3dae2; margin-top:5px; margin-bottom:5px; line-height:36px; border-radius:5px; "> <div class="pull-left" style="width:40%;">Event Venue '+index+'</div>'+
+            var template = ' <div class="form-group col-sm-12" style="background-color:#f3dae2; margin-top:5px; margin-bottom:5px; line-height:36px; border-radius:5px;word-wrap: break-word; "> <div class="pull-left" style="width:40%;word-wrap: break-word;">Event Venue '+index+'</div>'+
                     '<div class="pull-left" style="width:45%;">'+venue+'</div>'+
                     '<div class="pull-left" style="width:15%;"><img src="../assets/images/map-icon.png" alt="map-icon" /></div> </div>';
 
-            step_to_venue += ' <div class="form-group col-sm-12" style="background-color:#e8e3e3;"> <div class="pull-left" style="width:40%;">'+venue+'</div>'+
-                    '<div class="pull-left" style="width:30%;">'+city+' </div>'+
-                    '<div class="pull-left" style="width:30%;">'+zipcode+'</div> </div>';
+            step_to_venue += ' <div class="form-group col-sm-12" style="background-color:#e8e3e3;"> <div class="pull-left" style="width:40%;word-wrap: break-word;">'+venue+'</div>'+
+                    '<div class="pull-left" style="width:30%;word-wrap: break-word;">'+city+' </div>'+
+                    '<div class="pull-left" style="width:30%;word-wrap: break-word;">'+zipcode+'</div> </div>';
            
             option_template += '<option value="'+venue+' ">'+venue+'</option>';
         }        

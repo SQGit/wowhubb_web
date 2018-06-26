@@ -175,8 +175,8 @@ table, td, tr
   color: white;
   font-size: 13px;
   position: absolute;
-  top: 60px;
-  left: 60px;
+  top: 73px;
+  left: 67px;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   text-align: center;
@@ -202,7 +202,7 @@ table, td, tr
     position: absolute;
     text-align: center;
     padding: 0 20px;
-    top: -188px!important;
+    top: -168px!important;
     z-index: 999;
 }
 .fc-toolbar h2 {
@@ -217,8 +217,8 @@ table, td, tr
 }
 
 .profile-info img.profile-photo {
-    height: 110px!important; 
-     width: 110px!important; 
+    height: 100px!important; 
+     width: 108px!important; 
     border-radius: 50%;
     border: 3px solid #f5f5f5;
 }
@@ -241,7 +241,7 @@ table, td, tr
   <div class="content-bg"></div>
 </div>
 
-<!-- Header   
+<!-- Header
     ================================================= -->
   <header id="header">
       <nav class="navbar navbar-default navbar-fixed-top menu" style="padding-top:3px!important; padding-bottom:3px!important;">
@@ -264,7 +264,7 @@ table, td, tr
 </div> -->
 
 <div class="google-maps"> </div>
-<div class="container"  style="position:relative;"> 
+<div class="container"> 
   
   <!-- Timeline
       ================================================= -->
@@ -277,14 +277,14 @@ table, td, tr
                    {
                       ?>
 
-           <img id="profileImage1" class="cover-pic image" src="<?php echo $cover; ?>" style="background-size:cover; width:100%; max-height:300px;" alt=""/> 
+           <img id="profileImage1" class="cover-pic image" src="http://104.197.80.225:3010/wow/media/personal/<?php echo $cover; ?>" style="background-size:cover; width:100%; max-height:300px;" alt=""/> 
             <?php } else{ ?>
               <img id="profileImage1" class="cover-pic image" src="<?php echo base_url('assets/images/covers/1.jpg')?>" style="background-size:cover; width:100%; max-height:300px;" >
                 <?php }  ?>       
               
                 <input class="cover-upload" id="imageUpload1" type="file" name="cover_img" accept="image/*" capture>
               
-             <div class="text" id="editcover_img" style="position:absolute; top:40px; left:1062px; width:135px; background:RGBA(0,0,0,.7);"> Add Cover Photo 
+              <div class="text" id="editcover_img"> Add Cover Photo 
               </div>
                 
                              
@@ -294,23 +294,23 @@ table, td, tr
       <div class="timeline-nav-bar hidden-sm hidden-xs">
         <div class="row">
 
-          <div class="col-md-4" style="position:relative;">
+          <div class="col-md-4">
             <div class="profile-info">
 
-              <div class="col-md-9" style="background:RGBA(0,0,0,.7); border-radius:8px 8px 0 0; padding-top:25px; padding-bottom:0px; border:0px solid #c9c1c1; margin-top:39px; height:149px;">
+              <div class="col-md-12" style="background-color:#333; border-radius:8px 8px 0 0; padding-top:36px; padding-bottom:15px; border:1px solid #c9c1c1;">
                 <div class="col-md-6 text-left">
 
-              <div style="width:100%; text-align:center;" id="img_hover">
+              <div style="width:100%;" id="img_hover">
 
                 <form id="profile_img" action="<?php echo base_url('profile/profile_img_upload'); ?>" method="post" enctype="multipart/form-data">
                   <?php 
                      if(isset($img))
                      {
                   ?>
-                    <img  id="profileImage" src="<?php echo $img; ?>" class="profile-pic" style="border:3px solid #ccc; border-radius:7px; width:86px; height:86px;" />
+                    <img  id="profileImage" src="http://104.197.80.225:3010/wow/media/personal/<?php echo $img; ?>" class="profile-pic img-responsive profile-photo" />
                   <?php } else{  ?>                 
                       
-                    <img class="img-responsive img-thumbnail"  id="profileImage" src="<?php echo base_url('assets/images/album/avatar_male.png')?>">
+                    <img class="img-responsive img-circle"  id="profileImage" src="<?php echo base_url('assets/images/album/avatar_male.png')?>">
                   <?php  }  ?>
                
                   <input class="file-upload" id="imageUpload" type="file" name="profile_img" capture>
@@ -319,66 +319,60 @@ table, td, tr
 
               </div>
                   <div class="update_profile_pic" id="update_hover"> Update
-                  </div>               
+                  </div>
+
+                <div style="font-size:12px; font-weight:normal; line-height:18px; color:#fff; margin-top:5px;">
+                 <?php echo $this->session->userdata('first_name')." " .$this->session->userdata('last_name'); ?>
+                </div>
+                
                 
                 </div>
-                        <div class="col-md-6" style="position:relative;">                                 
+                        <div class="col-md-6">                                 
                             <?php 
-                              if(isset($profile->personalselfurl)){
+                              if(isset($profile->personalself)){
                             ?>
-                            <div style="position: absolute; left: 40px; top: 30px;">
-                              <a href="<?php echo $profile->personalselfurl; ?>" class="html5lightbox" data-width="480" data-height="320">
+                            <div style="position: absolute; left: 65px; top: 50px;">
+                              <a href="http://104.197.80.225:3010/wow/media/personal/<?php echo $profile->personalself; ?>" class="html5lightbox" data-width="480" data-height="320">
                               <img src="<?php echo base_url('assets/images/youtube.png'); ?>" alt="user" />
                               </a>
                             </div>
-                            <a href="<?php echo $profile->personalselfurl; ?>" class="html5lightbox" data-width="480" data-height="320">
-                            <video style="width:86px; height:86px; background-color:#e9e9e9; border-radius:5px;" id="myvideo" controlsList="nodownload" class="img-responsive" >
-                              <source src="<?php echo $profile->personalselfurl; ?>" type="video/mp4">
+                            <a href="http://104.197.80.225:3010/wow/media/personal/<?php echo $profile->personalself; ?>" class="html5lightbox" data-width="480" data-height="320">
+                            <video style="width:125px; height:125px; background-color:#e9e9e9; border-radius:5px;" id="myvideo" controlsList="nodownload" >
+                              <source src="http://104.197.80.225:3010/wow/media/personal/<?php echo $profile->personalself; ?>" type="video/mp4">
                             </video>
                             </a>
                             <?php } else {  ?>
-                              <video style="width:86px; height:86px; border-radius:5px;" id="myvideo">
+                              <video style="width:125px; height:125px;" id="myvideo">
                                 <source src="" type="video/mp4">
                               </video>
                             <?php } ?>
-                            
-                            <div style="position:absolute; right:0; top:-10px;"><a href="#" data-toggle="modal" data-target=".modal-video" >
-                            <img src="../assets/images/edit_icon.png" alt="">
-                            </a></div>
                         </div>
                
               </div>
 
 
-              <div class="col-md-11" style="background:none; padding-top:0px; padding-bottom:0px;">
-              
+              <div class="col-md-12" style="background-color:#f3f3f3; padding-top:3px; padding-bottom:3px;">
                  <div class="row">
-                 <div class="col-md-12 text-left" style="margin-top:-20px;" >
-                 <div style="font-size:16px; font-weight:normal; line-height:18px; color:#fff; margin-top:0px; margin-left:10px; margin-bottom:0px;">
-                 <?php echo $this->session->userdata('first_name')." " .$this->session->userdata('last_name'); ?>
-                </div>
-                
-                    <div style="color:#fff; font-size:14px;">  
-                    <img src="../assets/images/wow-pink-1.png" alt=""/>                   
-                      <?php echo substr($this->session->userdata('wowtag'), 1); ?>
-                     <br> 
-                     
-                    </div>
-                    <div style="margin-top:-3px;" ><span style="color:#fff; font-size:10px; background-color:#e91e63; padding:3px 5px; border-radius:5px; margin-left:12px;">Wowtag ID</span></div> 
-                 </div>
-                   <div class="col-md-4 text-center" >
-                    
+                   <div class="col-md-9">
+                    <img src="../assets/images/wow-pink-1.png" alt=""/> 
 
+                    <span style="color:#000; font-size:18px;">                      
+                      <?php echo substr($this->session->userdata('wowtag'), 1); ?>
                       
+                    </span>
                   </div>
-                   
+                    <div class="col-md-3">
+                      <a href="#" data-toggle="modal" data-target=".modal-video" >
+                      <img src="../assets/images/edit_icon.png" alt="">
+                      </a>
+                    </div>
                  </div>
               </div>
             </div>
           </div>
 
           <div class="col-md-8" >
-             
+            
             <ul class="list-inline profile-menu">
               
               <li><a href="<?php echo base_url('Profile/profile_get'); ?>" class="active">Profile</a></li>
@@ -393,7 +387,6 @@ table, td, tr
             </ul>
           </div>
         </div>
-        
       </div>
       <!--Timeline Menu for Large Screens End--> 
       
@@ -423,7 +416,7 @@ table, td, tr
                         </div>
                         <div class="edit-block" style="margin-bottom: 0px;">                       
                           <div class="row">
-                            <div class="col-md-12" >
+                            <div class="col-md-12" style="font-size:15px;">
                               <div class="tabbable tabs-left">
                                 <ul class="nav nav-tabs">
                                   <li style="width:100%;" class="active">
@@ -454,13 +447,13 @@ table, td, tr
                       <div class="tab-pane active" id="Intro">
                           <div class="col-md-9">
                                 <div class="form-group" style="margin-top: 15px;">  
-                                  <div class="col-md-12"><p style="font-size:12px;"> This is your  event identification name tag, You can use your "WOWtag ID" to share your personal and professional information and attend at any event. You can create your own WOWtag ID to add some form of personality to yourself.</p>
+                                  <div class="col-md-12"><p style="font-size:13px;"> This is your  event identification name tag, You can use your "WOWtag ID" to share your personal and professional information and attend at any event. You can create your own WOWtag ID to add some form of personality to yourself.</p>
                                 </div>
                                 </div>
                              <div class="col-md-12" style="margin-top:15px;">
                                     <div class="pull-left" style="width:7%;"><img src="../assets/images/wow-tag-icon.png" alt=""/></div>
                                   <div class="pull-left" style="width:78%;">
-                                      <a href="#" style="font-size:12px; color:#333;"> 
+                                      <a href="#" style="font-size:14px; color:#333;"> 
                                        <?php echo substr($this->session->userdata('wowtag'), 1); ?>
                                       </a><br>
                                        <span style="color:#fff; font-size:13px; background-color:#e91e63; padding:3px 5px; border-radius:5px;">Your Wowtag ID</span>
@@ -482,7 +475,8 @@ table, td, tr
                             </button>                
                               <div class="post-detail">
                                 <div class="user-info">
-                                 <h3 style="font-size: 13px!important;">Edit Personal Profile</h3>                               
+                                 <h3 style="font-size: 13px!important;">Edit Personal Profile</h3>
+                                 <span style="color:#333; font-size: 13px">Please give the following information </span>
                                 </div>                              
                                 <div class="line-divider"></div>
                                 <div class="user-info">
@@ -532,8 +526,9 @@ table, td, tr
                             </button>                  
                               <div class="post-detail">
                                 <div class="user-info">
-                                 <h3 style="color:#333; font-size: 13px; font-weight:bold;">Self Intro Video</h3>                              
-                                </div>                            
+                                 <h3 style="color:#333; font-size: 13px">Edit Personal Profile</h3>
+                                 <span style="color:#333; font-size: 13px">Please give the following information</span>
+                                </div>                              
                                 <div class="line-divider"></div>
                                 <div class="user-info">
                                  <div class="row" style="padding:10px;">                              
@@ -541,7 +536,7 @@ table, td, tr
                            
                             <div class="row" >                              
                               <div class="form-group col-xs-12">
-                                 
+                                  <label for="date-to" class="">Self Intro Video</label>
                                   <input  type="file" id="self_video" class="form-control input-group-lg"  name="self_video" value="<?php if(isset($profile->place)) {echo $profile->place; } else{echo "";} ?>" accept="video/*" />
                               </div>
                             </div>
@@ -569,8 +564,8 @@ table, td, tr
 
                                       <div class="col-md-12">
                                         <div class="pull-left" style="width:7%;"><img src="../assets/images/state-icon.png" alt=""/></div>
-                                        <div class="pull-left" style="width:78%; text-transform: capitalize; font-size:13px;">State<br>
-                                          <span style="color:#333; font-size:12px;">
+                                        <div class="pull-left" style="width:78%; text-transform: capitalize; font-size:14px;">State<br>
+                                          <span style="color:#333; font-size:13px;">
                                             <?php if(isset($profile->state)){echo $profile->state; } else{echo "";} ?>
                                               
                                           </span>
@@ -587,8 +582,8 @@ table, td, tr
                                         <div class="pull-left" style="width:7%;">
                                           <img src="../assets/images/country-icon.png" alt=""/>
                                         </div>
-                                        <div class="pull-left" style="width:78%; text-transform: capitalize; font-size:13px;">Country <br>
-                                          <span style="color:#333; font-size:12px;">
+                                        <div class="pull-left" style="width:78%; text-transform: capitalize; font-size:14px;">Country <br>
+                                          <span style="color:#333; font-size:13px;">
                                             <?php if(isset($profile->country)){echo $profile->country; } else{echo "";} ?>
                                               
                                             </span>
@@ -605,7 +600,7 @@ table, td, tr
                                   <div class="tab-pane" id="Relationships">
                                    <div class="col-md-9">
                                     <div class="pull-right text-right" style="width:20%; margin-top:10px;"> 
-                                         <div style="font-weight: bold; font-size: 12px; color: #333;">Edit
+                                         <div style="font-weight: bold; font-size: 13px; color: #333;">Edit
                                           <a href="#" data-toggle="modal" data-target=".modal-relation" >
                                              <img src="<?php echo base_url('assets/images/edit_icon.png'); ?>" alt=""/>
                                           </a>
@@ -622,9 +617,9 @@ table, td, tr
                                       <div class="col-md-12">
                                         <div class="pull-left" style="width:10%;">
                                           <img src="../assets/images/album/avatar_relationship.png" alt=""/></div>
-                                          <div class="pull-left" style="width:80%; text-transform: capitalize; font-size: 12px;">
+                                          <div class="pull-left" style="width:80%; text-transform: capitalize; font-size: 15px;">
                                             <?php if(isset($profile->relationshipstatus)) { echo $profile->relationshipstatus; } else { echo " "; } ?> <br>
-                                            <span style="color:#333; font-size:12px;"> 
+                                            <span style="color:#333; font-size:13px;"> 
                                               <?php 
                                                   if(isset($profile->relationshipwith)) {
                                                    echo $profile->relationshipwith; 
@@ -645,7 +640,7 @@ table, td, tr
                                         <div class="pull-left" style="width:10%;">
                                           <img src="../assets/images/album/avatar_relationship.png" alt=""/>
                                         </div>
-                                          <div class="pull-left" style="width:80%; text-transform: capitalize; font-size: 13px;">
+                                          <div class="pull-left" style="width:80%; text-transform: capitalize; font-size: 15px;">
                                            Add your relationships  Status<br>
                                                                                      
                                           </div>                                
@@ -668,12 +663,12 @@ table, td, tr
                               </button>                
                               <div class="post-detail">
                                 <div class="user-info">
-                                 <h3 style="font-size: 13px; font-weight: bold;">Add Relationship</h3>
-                                 
+                                 <h3>Edit Personal Profile</h3>
+                                 <span style="color:#333; font-size: 14px">Please give the following information</span>
                                 </div>                              
                                 <div class="line-divider"></div>
                                 <div class="user-info">
-                                 <div class="row">      
+                                 <div class="row" style="padding:10px;">      
 
                     <form action="<?php echo base_url('profile/personal_update_relationship'); ?>" method="post"  id="personal_update_relation" class="form-inline">                            
                          
@@ -684,9 +679,9 @@ table, td, tr
                              ?>
                                                            
 
-                              <div class="form-group col-sm-12" style="font-size: 13px;">
+                              <div class="form-group col-sm-12" style="font-size: 15px;">
                                 <label>Relationship Status</label>
-                                <select name="relation_type" id="relation_type" class="form-control" style="background-color:#eff0f1;font-size: 12px;">
+                                <select name="relation_type" id="relation_type" class="form-control" style="background-color:#eff0f1;">
                                   <option value="<?php if(isset( $profile->relationshipstatus)){echo $profile->relationshipstatus; } else{echo "Single";} ?> "> <?php if(isset( $profile->relationshipstatus)){echo $profile->relationshipstatus; } else{echo "Single";} ?> </option>                                   
                                   <option value="<?php if(isset( $profile->relationshipstatus)){echo "In a Relationship"; } else{echo "In a Relationship";} ?> "> <?php if(isset( $profile->relationshipstatus)){echo "In a Relationship"; } else{echo "In a Relationship";} ?> </option> 
 
@@ -707,7 +702,7 @@ table, td, tr
                              
                              <?php  } else {  ?>
 
-                              <div class="form-group col-sm-12" style="font-size: 12px;">
+                              <div class="form-group col-sm-12" style="font-size: 15px;">
                                 <label>Relationship Status</label>
                                 <select name="relation_type" id="relation_type" class="form-control" style="background-color:#eff0f1;">
                                   
@@ -754,8 +749,8 @@ table, td, tr
                                     <div class="col-md-9">
                                       <div class="col-md-12">
                                         <div class="pull-left" style="width:7%;"><img src="../assets/images/email-icon.png" alt=""/></div>
-                                        <div class="pull-left" style="width:78%; font-size:13px;">Email <br>
-                                          <span style="color:#333; font-size:12px;">
+                                        <div class="pull-left" style="width:78%; font-size:14px;">Email <br>
+                                          <span style="color:#333; font-size:13px;">
                                             <?php echo $this->session->userdata('email'); ?>
                                           </span>
                                         </div>
@@ -789,8 +784,8 @@ table, td, tr
                                         <div class="pull-left" style="width:7%;">
                                           <img src="<?php echo base_url('assets/images/phone-icon.png'); ?>" alt=""/>
                                         </div>
-                                        <div class="pull-left" style="width:78%; font-size:13px;">Phone No <br>
-                                          <span style="color:#333; font-size:12px;">
+                                        <div class="pull-left" style="width:78%; font-size:14px;">Phone No <br>
+                                          <span style="color:#333; font-size:13px;">
                                             <?php echo $this->session->userdata('phone'); ?>
                                           </span>
                                         </div>   
@@ -833,26 +828,32 @@ table, td, tr
                             </button>                 
                               <div class="post-detail">
                                 <div class="user-info">
-                                 <h3 style="font-size: 13px; font-weight: bold;">Add Live City</h3>                                 
+                                 <h3>Edit Personal Profile</h3>
+                                 <span style="color:#333; font-size: 14px">Please give the following information</span>
                                 </div>                              
                                 <div class="line-divider"></div>
                                 <div class="user-info">
-                                 <div class="row">                              
+                                 <div class="row" style="padding:10px;">                              
                     <form action="<?php echo base_url('profile/personal_update_contactinfo'); ?>" method="post" 
                       id="personal_update_contactinfo" class="form-inline">                     
 
-                           
+                            <div class="row">   
                               <div class="form-group col-xs-12">
                                 <label for="date-to" >Country</label>
+                               
                                 <select name="country" onchange="print_state('state',this.selectedIndex);" id="country" class="form-control" style="background-color:#eff0f1;">                                       
                                 </select>
-                              </div>                       
-                             
+                               
+                              </div>
+                            </div>
+
+                             <div class="row">   
                               <div class="form-group col-xs-12">
                                 <label for="date-to" class="">State</label>
                                 <select name="state" id ="state" class="form-control"></select>
                                  <script language="javascript">print_country("country");</script> 
                               </div>  
+                              </div>                         
                                                       
                             <div class="row">
                               <div style="width:100%;" class="text-center">
@@ -869,17 +870,15 @@ table, td, tr
                           </div>
                   </div>
                 </div>
-                   <!-- end City you live  personal model popup -->
+                   <!-- end contact info personal model popup -->
 
                                    <!-- Life views for personal  -->
 
                                   <div class="tab-pane" id="Your_Life">
                                     <div class="col-md-9">
                                       <div class="col-md-12">
-                                        <div class="pull-left" style="width:7%;">
-                                          <img src="<?php echo base_url('assets/images/birthday-icon.png');?>" alt=""/>
-                                        </div>
-                                        <div class="pull-left" style="width:78%; font-size:12px;">Birthday<br>
+                                        <div class="pull-left" style="width:7%;"><img src="../assets/images/birthday-icon.png" alt=""/></div>
+                                        <div class="pull-left" style="width:78%; font-size:14px;">Birthday<br>
                                           <span style="color:#333; font-size:13px;">
                                             <?php
                                               if(!empty($this->session->userdata('birthday'))) {
@@ -892,18 +891,14 @@ table, td, tr
                                           </span> <br>
                                         </div>
                                        
-                                        <div class="pull-left text-right" style="width:10%; margin-top:10px;"> 
-                                          <a href="#" data-toggle="modal" data-target=".lifeview" >
-                                          <img src="<?php echo base_url('assets/images/edit_icon.png');?>" alt=""/></a>
-                                        </div>
+                                        <div class="pull-left text-right" style="width:10%; margin-top:10px;"> <a href="#" data-toggle="modal" data-target=".lifeview" ><img src="../assets/images/edit_icon.png" alt=""/></a></div>
                                       </div>
-
                                       <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
                                       <div class="col-md-12">
                                         <div class="pull-left" style="width:7%;">
-                                          <img src="<?php echo base_url('assets/images/intro-icon.png');?>" alt=""/>
+                                          <img src="../assets/images/intro-icon.png" alt=""/>
                                         </div>
-                                        <div class="pull-left" style="width:78%; font-size:12px;">Gender<br>
+                                        <div class="pull-left" style="width:78%; font-size:14px;">Gender<br>
                                           <span style="color:#333; font-size:13px;">
                                             <?php echo $this->session->userdata('gender'); ?>
                                               
@@ -926,22 +921,22 @@ table, td, tr
                               </button>                   
                               <div class="post-detail">
                                 <div class="user-info">
-                                 <h3 style="font-size: 13px; font-weight: bold;">Add Your Life Views</h3>
-                                
+                                 <h3>Edit Personal Profile</h3>
+                                 <span style="color:#333; font-size: 14px">Please give the following information</span>
                                 </div>                              
                                 <div class="line-divider"></div>
                                 <div class="user-info">
-                                 <div class="row"> 
+                                 <div class="row" style="padding:10px;"> 
 
                   <form action="<?php echo base_url('profile/your_life_view'); ?>" method="post" id="personal_update_eventinfo"
                    class="form-inline">                            
-                            
+                            <div class="row">   
                               <div class="form-group col-xs-12">
                                 <label for="date-to">Birthday</label>
                                 <input id="birthday" type="text" class="form-control input-group-lg" name="birthday" value="<?php if(isset($profile->birthday)) {echo $profile->birthday; } else{echo "";} ?>" autocomplete="off" />
                               </div>
-                                                                            
-                            
+                            </div>                                                  
+                            <div class="row">  
                               <div class="form-group col-xs-12">
                                 <label for="date-to">Gender</label>
                                 <select name="gender" class="form-control" id="types">    
@@ -949,7 +944,7 @@ table, td, tr
                                   <option value="Female" <?php if(isset($profile->maritalstatus) && ($profile->maritalstatus == "Female" )){ echo "selected"; } else { echo ""; } ?>>Female </option>
                                 </select>
                               </div>  
-                                                        
+                            </div>                             
                                                       
                             <div class="row">
                               <div  style="width:100%;" class="text-center">
@@ -999,7 +994,7 @@ table, td, tr
                       <div class="edit-block" style="margin-bottom: 0px;">
                      
                           <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12" style="font-size:15px;">
                               <div class="tabbable tabs-left">
                                 <ul class="nav nav-tabs">
                                   <li style="width:100%;" class="active">
@@ -1027,11 +1022,11 @@ table, td, tr
                   <div class="tab-pane active" id="professional_intro">
                       <div class="col-md-8">
                         <div class="col-md-12">
-                          <p style="font-size:12px;">This is your  event identification name tag, You can use your "WOWtag ID" to share your personal and professional information and attend at any event. You can create your own WOWtag ID to add some form of personality to yourself.</p>
+                          <p style="font-size:13px;">This is your  event identification name tag, You can use your "WOWtag ID" to share your personal and professional information and attend at any event. You can create your own WOWtag ID to add some form of personality to yourself.</p>
                         </div>
                         <div class="col-md-12" style="margin-top:15px;">
                           <div class="pull-left" style="width:7%;"><img src="../assets/images/wow-tag-icon.png" alt=""/></div>
-                          <div class="pull-left" style="width:78%;"><a href="#" style="font-size:12px; color:#333;">
+                          <div class="pull-left" style="width:78%;"><a href="#" style="font-size:16px; color:#333;">
                            <?php echo substr($this->session->userdata('wowtag'), 1); ?> </a><br>
                           <span style="color:#fff; font-size:13px; background-color:#e91e63; padding:3px 5px; border-radius:5px;">Your Wowtag ID</span>
                           </div>
@@ -1083,7 +1078,7 @@ table, td, tr
                       </div>
                   </div>
 
-          <!--start professional college model popup -->
+           <!--start professional college model popup -->
 
           <div class="modal fade modal-college" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
@@ -1095,12 +1090,12 @@ table, td, tr
                                       </button>   
                     <div class="post-detail">
                                     <div class="user-info">
-                                        <h3 style="font-size: 13px;font-weight: bold;">Add Education</h3  >                                       
+                                        <h3>Add Education</h3>                                         
                                     </div>                              
                                     <div class="line-divider"></div>
                     <div class="modal-body">
                     <div class="user-info">
-                    <div class="row">
+                    <div class="row" style="padding:10px;">
 
                       <form action="<?php echo base_url('profile/professional_college'); ?>" method="post" id="professional_college"
                        class="form-inline">
@@ -1320,7 +1315,6 @@ table, td, tr
 
       <!-- end professional college model popup -->
 
-
      
 
                      <!--  professional work experience  model popup -->
@@ -1333,13 +1327,13 @@ table, td, tr
                     </button>                 
                      <div class="post-detail">
                        <div class="user-info">
-                         <h3 style="font-size: 13px; font-weight: bold;">Edit Work Experience</h3>
+                         <h3>Edit Experience</h3>
                             
                         </div>                              
                         <div class="line-divider"></div>
                          <div class="modal-body">
             <div class="user-info">
-              <div class="row">                              
+              <div class="row" style="padding:10px;">                              
                       <form action="<?php echo base_url('profile/professional_work_exp'); ?>" method="post"  id="professional_work_exp" 
                         class="form-inline">  
                                  
@@ -1353,24 +1347,27 @@ table, td, tr
                                   ?>  
                       <div class="row" id="profile_exp_1"> 
 
-                               
+                             <div class="row">   
                               <div class="form-group col-xs-12">
                                 <label for="date-to" >Title</label>
                                 <input type="text" id="title_1" class="form-control" name="title[]" value="<?php if(isset($workexperiences->title)){echo $workexperiences->title; } else{echo "";} ?>" required />
-                              </div>                                                                           
-                            
+                              </div>
+                            </div>                                                  
+                            <div class="row ">  
                               <div class="form-group col-xs-12">
                                 <label for="date-to" >Company</label>
                                 <input  type="text" id="company_1" class="form-control input-group-lg" name="company[]"  value="<?php if(isset($workexperiences->company)){echo $workexperiences->company; } else{echo "";} ?>" required/>
                               </div>  
-                                                      
+                            </div>
+                              <div class="row ">  
                                 <div class="form-group col-xs-12">
                                   <label for="date-to"> Location</label>
                                   <input  type="text" id="location_1" class="form-control input-group-lg" name="location[]"  value="<?php if(isset($workexperiences->location)){echo $workexperiences->location; } else{echo "";} ?>" required />
                                 </div>  
-                                                         
+                             </div>
+                            
 
-                           
+                            <div class="row">  
                                 <div class="form-group col-md-6">                                 
                                   <select name="from_year[]" id="fromyear_1" class="form-control">
                                      <option value="<?php if(isset($workexperiences->fromyear)){echo $workexperiences->fromyear; } else{echo "Year";} ?>"><?php if(isset($workexperiences->fromyear)){echo $workexperiences->fromyear; } else{echo "Year";} ?>  </option>
@@ -1418,8 +1415,9 @@ table, td, tr
                                       <option value="2000"> 2000</option>
                                  </select>
                                 </div>  
-                           
-                            
+                            </div>
+
+                            <div class="row">  
                                 <div class="form-group col-xs-12">
                                   <label for="date-to"> Description</label>
                                  <textarea name="description[]" id="description_1" class="form-control" style="min-height:100px;" > 
@@ -1435,12 +1433,13 @@ table, td, tr
                                     ?></textarea> 
                                   
                                 </div>  
-                            
-                          
+                            </div>
+
+                            <div class="row">  
                                 <div class="form-group col-xs-12">
                                   <label for="date-to">Add or link to external documents, photos, sites, videos, and presentations.</label>
                                 </div>  
-                           
+                            </div>
 
                             
                             <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_exp btn btn-info btn-sm"> Remove</a> </div>
@@ -1451,22 +1450,28 @@ table, td, tr
                      <?php } } else { ?>
 
                             <div class="row" id="profile_exp_1"> 
-                             
+
+                             <div class="row">   
                               <div class="form-group col-xs-12">
                                 <label for="date-to" >Title</label>
                                 <input type="text" id="title_1" class="form-control" name="title[]" >
-                              </div>                                                                              
-                            
+                              </div>
+                            </div>                                                  
+                            <div class="row ">  
                               <div class="form-group col-xs-12">
                                 <label for="date-to" >Company</label>
                                 <input  type="text" id="company_1" class="form-control input-group-lg" name="company[]" >
                               </div>  
-                                                        
+                            </div>
+                              <div class="row ">  
                                 <div class="form-group col-xs-12">
                                   <label for="date-to"> Location</label>
                                   <input  type="text" id="location_1" class="form-control input-group-lg" name="location[]" title="Enter a location">
                                 </div>  
-                                                     
+                             </div>
+                            
+
+                            <div class="row">  
                                 <div class="form-group col-md-6">                                 
                                   <select name="from_year[]" id="fromyear_1" class="form-control">
                                       <option value=""> Year</option>
@@ -1516,22 +1521,24 @@ table, td, tr
                                       <option value="2000"> 2000</option>
                                  </select>
                                 </div>  
-                           
+                            </div>
 
-                          
+                            <div class="row">  
                                 <div class="form-group col-xs-12">
                                   <label for="date-to"> Description</label>
                                  <textarea name="description[]" id="description_1" class="form-control" style="min-height:100px;"></textarea> 
                                  
                                 </div>  
-                                                 
+                            </div>
+
+                                                         
                        </div>
 
                       <?php } ?>
                       </div>
 
 
-                            <div class="form-group col-xs-12">
+                            <div class="row">
                               <a href="JavaScript:void(0);" id="add_more_exp" data-add_multi_exp="2">
                               <i class="fa fa-plus-circle"></i> Add multiple Experience </a>
                             </div>
@@ -1566,8 +1573,8 @@ table, td, tr
                                           <div class="pull-left" style="width:7%;">
                                              <span class="glyphicon glyphicon-briefcase" style="color: #333;"></span>
                                           </div>
-                                            <div class="pull-left" style="width:65%; text-transform: capitalize; font-size:13px;">Work Experience<br>
-                                               <span style="color:#333; font-size:12px;"> 
+                                            <div class="pull-left" style="width:65%; text-transform: capitalize; font-size:14px;">Work Experience<br>
+                                               <span style="color:#333; font-size:13px;"> 
 
                                                   <?php 
                                                     if(!empty($profile->workexperience))
@@ -1608,9 +1615,9 @@ table, td, tr
                               <div class="pull-left" style="width:7%;">
                                <img src="<?php echo base_url('assets/images/designation-icon.png'); ?>" alt=""/>
                               </div>
-                              <div class="pull-left" style="width:75%; color:#333; font-size:12px;">
+                              <div class="pull-left" style="width:75%; color:#333; font-size:14px;">
                                
-                                <span style="color:#333; font-size:12px; text-transform: capitalize;" >
+                                <span style="color:#333; font-size:13px; text-transform: capitalize;" >
                                   <?php
                                     if(!empty($profile->professionalskills))
                                     {
@@ -1650,13 +1657,13 @@ table, td, tr
                   </button>   
                 <div class="post-detail">
                     <div class="user-info">
-                     <h3 style="font-size: 13px; font-weight: bold;"> Professional Skills</h3>
-                     
+                      <h3>Edit Professional Profile</h3>
+                      <span style="color:#333; font-size: 14px">Please give the following information </span>
                     </div>                              
                     <div class="line-divider"></div>
                   <div class="user-info">
-                    <div class="row">
-                      <form action="<?php echo base_url('profile/professional_professionalskills'); ?>" method="post" id="professional_skills" class="form-inline">
+                    <div class="row" style="padding:10px;">
+                      <form action="<?php echo base_url('profile/professional_professionalskills'); ?>" method="post"  id="professional_skills" class="form-inline">
 
                         <div id="dynamic_add_professional"> 
                            <?php
@@ -1666,22 +1673,23 @@ table, td, tr
                                       {
                             ?>
 
-                          
-                              <div class="form-group col-xs-12" id="add_professional_1">
+                            <div class="row" id="add_professional_1">  
+                              <div class="form-group col-xs-12">
                                 <label for="date-to"> Professional Skills</label>
                                 <input type="text" id="professional_1" class="form-control input-group-lg" name="professional_skills[]" style="text-transform: capitalize;" value="<?php echo $professionalskill; ?>" >
                               </div>
                                <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_profession btn btn-info btn-sm"> Remove</a> </div>  
-                           
+                            </div>
                             <?php } } else{ ?>
 
-                           
-                              <div class="form-group col-xs-12" id="add_professional_1">
+                            <div class="row" id="add_professional_1">  
+                              <div class="form-group col-xs-12">
                                 <label for="date-to"> Professional Skills</label>
                                 <input type="text" id="professional_1" class="form-control input-group-lg" name="professional_skills[]" style="text-transform: capitalize;" >
                               </div>
                                <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_profession btn btn-info btn-sm"> Remove</a> </div>  
-                           
+                            </div>
+
                             <?php } ?>
 
                         </div>
@@ -1721,7 +1729,7 @@ table, td, tr
                                     <div class="pull-right text-right" style="width:20%; margin-top:10px;"> 
                                          <div style="font-weight: bold; font-size: 13px; color: #333;">Edit
                                           <a href="#" data-toggle="modal" data-target=".modal-certificate" >
-                                             <img src="<?php echo base_url('assets/images/edit_icon.png'); ?>" alt=""/>
+                                             <img src="../assets/images/edit_icon.png" alt=""/>
                                           </a>
                                          </div>                                           
                                     </div>
@@ -1737,7 +1745,7 @@ table, td, tr
                                         <div class="pull-left" style="width:10%;">
                                           <img src="../assets/images/certi-icon.png" alt=""/>
                                         </div>
-                                          <div class="pull-left" style="width:80%; text-transform: capitalize; font-size: 12px;">
+                                          <div class="pull-left" style="width:80%; text-transform: capitalize; font-size: 15px;">
                                             <?php if(isset($certifications->certification)) { echo $certifications->certification; } else { echo " "; } ?> - <?php if(isset($certifications->year)) { echo $certifications->year; } else { echo " "; } ?>
                                             <br>
                                            
@@ -1752,7 +1760,7 @@ table, td, tr
                                         <div class="pull-left" style="width:10%;">
                                           <img src="../assets/images/certi-icon.png" alt=""/>
                                         </div>
-                                          <div class="pull-left" style="width:80%; text-transform: capitalize; font-size: 12px;">
+                                          <div class="pull-left" style="width:80%; text-transform: capitalize; font-size: 15px;">
                                             Add Your Certificates
                                             <br>
                                            
@@ -1781,12 +1789,12 @@ table, td, tr
                               </button>                 
                               <div class="post-detail">
                                 <div class="user-info">
-                                 <h3 style="font-size: 13px; font-weight: bold;">Add Certificates</h3>
-                                 
+                                 <h3>Edit Professional Profile</h3>
+                                 <span style="color:#333; font-size: 14px">Please give the following information</span>
                                 </div>                              
                                 <div class="line-divider"></div>
                                 <div class="user-info">
-                                 <div class="row">                              
+                                 <div class="row" style="padding:10px;">                              
                     <form action="<?php echo base_url('profile/professional_certificate'); ?>" method="post" 
                       id="professional_certificate" class="form-inline">                     
                            
@@ -2057,7 +2065,7 @@ $(document).ready(function(){
 
   function generete_dynamic_relationship(count){
 
-  var relation = ' <div id="add_relation_'+count+'"> <div class="row"> <div class="form-group col-xs-12"> <label for="date-to" class="">Name</label> <input id="relation_name_'+count+'" type="text" class="form-control input-group-lg" name="relation_name[]"  value="" /> </div> <div class="form-group col-sm-12" style="font-size: 12px;"> <label>Relationship</label> <select name="relation_type[]" id="relation_type_'+count+'" class="form-control" style="background-color:#eff0f1;"> <option value="">Choose Relationship</option> <option value="Mother">Mother</option> <option value="Father">Father</option> <option value="Daughter">Daughter</option> <option value="Son">Son</option> <option value="Sister">Sister</option> <option value="Brother">Brother</option> <option value="Uncle">Uncle</option> <option value="Aunt">Aunt</option> <option value="Friend">Friend</option> <option value="Niece">Niece</option> <option value="Cousin(female)">Cousin(female)</option> <option value="Cousin(male)">Cousin(male)</option> <option value="Grandfather">Grandfather</option> <option value="Grandmother">Grandmother</option> <option value="Grandson">Grandson</option> <option value="Granddaughter">Granddaughter</option> </select> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_relation btn btn-info btn-sm"> Remove</a> </div> </div> </div>';
+  var relation = ' <div id="add_relation_'+count+'"> <div class="row"> <div class="form-group col-xs-12"> <label for="date-to" class="">Name</label> <input id="relation_name_'+count+'" type="text" class="form-control input-group-lg" name="relation_name[]"  value="" /> </div> <div class="form-group col-sm-12" style="font-size: 15px;"> <label>Relationship</label> <select name="relation_type[]" id="relation_type_'+count+'" class="form-control" style="background-color:#eff0f1;"> <option value="">Choose Relationship</option> <option value="Mother">Mother</option> <option value="Father">Father</option> <option value="Daughter">Daughter</option> <option value="Son">Son</option> <option value="Sister">Sister</option> <option value="Brother">Brother</option> <option value="Uncle">Uncle</option> <option value="Aunt">Aunt</option> <option value="Friend">Friend</option> <option value="Niece">Niece</option> <option value="Cousin(female)">Cousin(female)</option> <option value="Cousin(male)">Cousin(male)</option> <option value="Grandfather">Grandfather</option> <option value="Grandmother">Grandmother</option> <option value="Grandson">Grandson</option> <option value="Granddaughter">Granddaughter</option> </select> </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_relation btn btn-info btn-sm"> Remove</a> </div> </div> </div>';
 
     return relation;
 }
@@ -2115,7 +2123,7 @@ $(document).on('click', '.remove_certificate', function(e)
 // dynamic add college
   function generete_dynamic_college(count){
 
-  var college = ' <div class="row" id="add_college_'+count+'"> <div class="form-group col-xs-12"> <label for="date-to"> College</label> <input type="text" id="college_'+count+'" class="form-control input-group-lg" name="college[]" > </div> <div class="form-group col-xs-12"> <label for="date-to"> Degree</label> <input type="text" id="degree_'+count+'" class="form-control input-group-lg" name="degree[]" style="text-transform: capitalize;" placeholder="Ex.Bachelors"> </div> <div class="form-group col-xs-12"> <label for="date-to"> Field of study</label> <input type="text" id="field_of_std_'+count+'" class="form-control input-group-lg" name="field_of_study[]" style="text-transform: capitalize;" placeholder="Ex.Business"> </div> <div class="form-group col-xs-12"> <label for="date-to"> Grade</label> <input type="text" id="grade_'+count+'" class="form-control input-group-lg" name="grade[]" style="text-transform: capitalize;" > </div> <div class="form-group col-xs-6"> <label for="date-to"> From</label> <select name="from_year[]" id="fromyear_'+count+'" class="form-control"> <option value=""> Year </option> <option value="2017"> 2017</option> <option value="2016"> 2016</option> <option value="2015"> 2015</option> <option value="2014"> 2014</option> <option value="2013"> 2013 </option> <option value="2012"> 2012</option> <option value="2011"> 2011</option> <option value="2010"> 2010</option> <option value="2009"> 2009</option> <option value="2008"> 2008</option> <option value="2007"> 2007</option> <option value="2006"> 2006</option> <option value="2005"> 2005</option> <option value="2004"> 2004</option> <option value="2003"> 2003</option> <option value="2002"> 2002</option> <option value="2001"> 2001</option> <option value="2000"> 2000</option> </select> <div class="alert alert-danger" id="error_msg_'+count+'" role="alert" style="display:none;" >Your end date can’t be earlier than your start date. </div> </div> <div class="form-group col-xs-6"> <label for="date-to"> To</label> <select name="to_year[]" id="toyear_'+count+'" class="year_validate1 form-control"> <option value=""> Year </option> <option value="2017"> 2017</option> <option value="2016"> 2016</option> <option value="2015"> 2015</option> <option value="2014"> 2014</option> <option value="2013"> 2013 </option> <option value="2012"> 2012</option> <option value="2011"> 2011</option> <option value="2010"> 2010</option> <option value="2009"> 2009</option> <option value="2008"> 2008</option> <option value="2007"> 2007</option> <option value="2006"> 2006</option> <option value="2005"> 2005</option> <option value="2004"> 2004</option> <option value="2003"> 2003</option> <option value="2002"> 2002</option> <option value="2001"> 2001</option> <option value="2000"> 2000</option> </select> </div> <div class="form-group col-xs-12"> <label for="date-to"> Description</label> <textarea id="description_'+count+'" name="description"> </textarea> </div> <div class="col-sm-12 text-right"> <a href="JavaScript:void(0);" class="animated bounceInLeft remove_college btn btn-info btn-sm"> Remove </a> </div> <div class="col-md-12" style="border-bottom:2px solid #ffb3d1; margin:15px 0;"></div> </div>';
+  var college = ' <div class="row" id="add_college_'+count+'"> <div class="form-group col-xs-12"> <label for="date-to"> College</label> <input type="text" id="college_'+count+'" class="form-control input-group-lg" name="college[]" > </div> <div class="form-group col-xs-12"> <label for="date-to"> Degree</label> <input type="text" id="degree_'+count+'" class="form-control input-group-lg" name="degree[]" style="text-transform: capitalize;" placeholder="Ex.Bachelors"> </div> <div class="form-group col-xs-12"> <label for="date-to"> Field of study</label> <input type="text" id="field_of_std_'+count+'" class="form-control input-group-lg" name="field_of_study[]" style="text-transform: capitalize;" placeholder="Ex.Business"> </div> <div class="form-group col-xs-12"> <label for="date-to"> Grade</label> <input type="text" id="grade_'+count+'" class="form-control input-group-lg" name="grade[]" style="text-transform: capitalize;" > </div> <div class="form-group col-xs-6"> <label for="date-to"> From</label> <select name="from_year[]" id="fromyear_'+count+'" class="form-control"> <option value=""> Year </option> <option value="2017"> 2017</option> <option value="2016"> 2016</option> <option value="2015"> 2015</option> <option value="2014"> 2014</option> <option value="2013"> 2013 </option> <option value="2012"> 2012</option> <option value="2011"> 2011</option> <option value="2010"> 2010</option> <option value="2009"> 2009</option> <option value="2008"> 2008</option> <option value="2007"> 2007</option> <option value="2006"> 2006</option> <option value="2005"> 2005</option> <option value="2004"> 2004</option> <option value="2003"> 2003</option> <option value="2002"> 2002</option> <option value="2001"> 2001</option> <option value="2000"> 2000</option> </select> <div class="alert alert-danger" id="error_msg_'+count+'" role="alert" style="display:none;" >Your end date can’t be earlier than your start date. </div> </div> <div class="form-group col-xs-6"> <label for="date-to"> To</label> <select name="to_year[]" id="toyear_'+count+'" class="year_validate1 form-control"> <option value=""> Year </option> <option value="2017"> 2017</option> <option value="2016"> 2016</option> <option value="2015"> 2015</option> <option value="2014"> 2014</option> <option value="2013"> 2013 </option> <option value="2012"> 2012</option> <option value="2011"> 2011</option> <option value="2010"> 2010</option> <option value="2009"> 2009</option> <option value="2008"> 2008</option> <option value="2007"> 2007</option> <option value="2006"> 2006</option> <option value="2005"> 2005</option> <option value="2004"> 2004</option> <option value="2003"> 2003</option> <option value="2002"> 2002</option> <option value="2001"> 2001</option> <option value="2000"> 2000</option> </select> </div> <div class="form-group col-xs-12"> <label for="date-to"> Description</label> <textarea id="description_'+count+'" name="description[]"> </textarea> </div> <div class="col-sm-12 text-right"> <a href="JavaScript:void(0);" class="animated bounceInLeft remove_college btn btn-info btn-sm"> Remove </a> </div> <div class="col-md-12" style="border-bottom:2px solid #ffb3d1; margin:15px 0;"></div> </div>';
 
 
     return college;
@@ -2169,7 +2177,7 @@ $(document).on('change', '.year_validate', function(e)
 // dynamic add professional
   function generete_dynamic_professional(count){
 
-  var professional = ' <div class="form-group col-xs-12" id="add_professional_'+count+'"> <label for="date-to"> Professional Skills</label> <input type="text" id="professional_'+count+'" class="form-control input-group-lg" name="professional_skills[]" style="text-transform: capitalize;" >  <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_profession btn btn-info btn-sm"> Remove</a> </div> </div>';
+  var professional = ' <div class="row" id="add_professional_'+count+'"> <div class="form-group col-xs-12"> <label for="date-to"> Professional Skills</label> <input type="text" id="professional_'+count+'" class="form-control input-group-lg" name="professional_skills[]" style="text-transform: capitalize;" > </div> <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_profession btn btn-info btn-sm"> Remove</a> </div> </div>';
 
     return professional;
 }
@@ -2589,10 +2597,11 @@ var base_url = '<?php echo base_url() ?>'; //form submited
 
 function generete_dynamic_exp(count){
 
-  var exp = ' <div class="row" id="profile_exp_'+count+'">  <div class="col-md-12" style="border-bottom:2px solid #ffb3d1; margin:15px 0;"></div>  <div class="form-group col-xs-12"> <label for="date-to" >Title</label> <input type="text" id="title_'+count+'" class="form-control" name="title[]"/> </div> <div class="form-group col-xs-12"> <label for="date-to" >Company</label> <input  type="text" id="company_'+count+'" class="form-control input-group-lg" name="company[]"  >  </div>  <div class="form-group col-xs-12"> <label for="date-to"> Location</label> <input  type="text" id="location_'+count+'" class="form-control input-group-lg" name="location[]" >  </div>   <div class="form-group col-md-6"> <select name="from_year[]" id="fromyear_'+count+'" class="form-control"> <option value=""> Year</option><option value="2018"> 2018</option>  <option value="2017"> 2017</option> <option value="2016"> 2016</option> <option value="2015"> 2015</option> <option value="2014"> 2014</option> <option value="2013"> 2013 </option> <option value="2012"> 2012</option> <option value="2011"> 2011</option> <option value="2010"> 2010</option> <option value="2009"> 2009</option> <option value="2008"> 2008</option> <option value="2007"> 2007</option> <option value="2006"> 2006</option> <option value="2005"> 2005</option> <option value="2004"> 2004</option> <option value="2003"> 2003</option> <option value="2002"> 2002</option> <option value="2001"> 2001</option> <option value="2000"> 2000</option> </select> </div> <div class="form-group col-md-6"> <select name="to_year[]" id="toyear_'+count+'" class="form-control">  <option value=""> Year</option><option value="2018"> 2018</option> <option value="2017"> 2017</option> <option value="2016"> 2016</option> <option value="2015"> 2015</option> <option value="2014"> 2014</option> <option value="2013"> 2013 </option> <option value="2012"> 2012</option> <option value="2011"> 2011</option> <option value="2010"> 2010</option> <option value="2009"> 2009</option> <option value="2008"> 2008</option> <option value="2007"> 2007</option> <option value="2006"> 2006</option> <option value="2005"> 2005</option> <option value="2004"> 2004</option> <option value="2003"> 2003</option> <option value="2002"> 2002</option> <option value="2001"> 2001</option> <option value="2000"> 2000</option> </select> </div>  <div class="form-group col-xs-12"> <label for="date-to"> Description</label> <textarea name="description[]" id="description_'+count+'" class="form-control" style="min-height:100px;" > </textarea> </div>  <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_exp btn btn-info btn-sm"> Remove</a> </div> </div> </div>';
+  var exp = ' <div class="row" id="profile_exp_'+count+'">  <div class="col-md-12" style="border-bottom:2px solid #ffb3d1; margin:15px 0;"></div> <div class="row"> <div class="form-group col-xs-12"> <label for="date-to" >Title</label> <input type="text" id="title_'+count+'" class="form-control" name="title[]"  /> </div> </div> <div class="row "> <div class="form-group col-xs-12"> <label for="date-to" >Company</label> <input  type="text" id="company_'+count+'" class="form-control input-group-lg" name="company[]"  > </div> </div> <div class="row "> <div class="form-group col-xs-12"> <label for="date-to"> Location</label> <input  type="text" id="location_'+count+'" class="form-control input-group-lg" name="location[]" > </div> </div>  <div class="row"> <div class="form-group col-md-6"> <select name="from_year[]" id="fromyear_'+count+'" class="form-control"> <option value=""> Year</option><option value="2018"> 2018</option>  <option value="2017"> 2017</option> <option value="2016"> 2016</option> <option value="2015"> 2015</option> <option value="2014"> 2014</option> <option value="2013"> 2013 </option> <option value="2012"> 2012</option> <option value="2011"> 2011</option> <option value="2010"> 2010</option> <option value="2009"> 2009</option> <option value="2008"> 2008</option> <option value="2007"> 2007</option> <option value="2006"> 2006</option> <option value="2005"> 2005</option> <option value="2004"> 2004</option> <option value="2003"> 2003</option> <option value="2002"> 2002</option> <option value="2001"> 2001</option> <option value="2000"> 2000</option> </select> </div> <div class="form-group col-md-6"> <select name="to_year[]" id="toyear_'+count+'" class="form-control">  <option value=""> Year</option><option value="2018"> 2018</option> <option value="2017"> 2017</option> <option value="2016"> 2016</option> <option value="2015"> 2015</option> <option value="2014"> 2014</option> <option value="2013"> 2013 </option> <option value="2012"> 2012</option> <option value="2011"> 2011</option> <option value="2010"> 2010</option> <option value="2009"> 2009</option> <option value="2008"> 2008</option> <option value="2007"> 2007</option> <option value="2006"> 2006</option> <option value="2005"> 2005</option> <option value="2004"> 2004</option> <option value="2003"> 2003</option> <option value="2002"> 2002</option> <option value="2001"> 2001</option> <option value="2000"> 2000</option> </select> </div> </div> <div class="row"> <div class="form-group col-xs-12"> <label for="date-to"> Description</label> <textarea name="description[]" id="description_'+count+'" class="form-control" style="min-height:100px;" > </textarea> </div> </div>  <div class="col-sm-12 text-right">  <a href="JavaScript:void(0);"  class="animated bounceInLeft remove_exp btn btn-info btn-sm"> Remove</a> </div> </div> </div>';
 
     return exp;
 }
+
 
 
 $(document).ready(function(){

@@ -180,48 +180,57 @@ table, td, tr {
   <!-- Timeline
       ================================================= -->
   <div class="timeline">
-    <div class="timeline-cover"> <img id="profileImage1" class="cover-pic" src="../assets/images/esp-plat-banner.jpg" style="background-size:cover; width:100%; margin-top:20px;" > </div>
+    <div class="timeline-cover"> <img id="profileImage1" class="cover-pic" src="../assets/images/esp-plat-banner.jpg" style="background-size:cover; width:100%; margin-top:0px;" > </div>
 
-     <form id="serviceprovider_keyword" action="<?php echo base_url('Eventserviceprovider/serviceprovider_keyword'); ?>" method="POST" enctype="multipart/form-data">
-
+    
     <div id="page-contents" style="border:1px solid #e6e6e6; background-color: #fff; padding-top: 0px;">
       <div class="row">
 
         <div class="col-md-12 col-sm-12" style="margin-top:25px;">
-          <div class="col-md-3 col-sm-4" style="position:relative;"> <a href="<?php echo base_url('service/event_serviceprov_landing_ins'); ?>" >
+          <div class="col-md-3 col-sm-4" style="position:relative;"> 
+            <a href="<?php echo base_url('Eventserviceprovider/serviceprovider_keyword/'."CateringServices"); ?>" >
             <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;">
               <img src="<?php echo base_url('assets/images/service_provider/catering-services.png')?>" alt=""/>
-              <div class="pull-left" style="color:#333; padding-bottom:10px;">
-                <input type="text" name="Catering_Service" value="Catering Service">
-                <br> Hire the best local Cooks and Cheffs, for your receptions and parties </div>
+              <div class="pull-left" style="color:#333; padding-bottom:10px;">             
+                <strong>Catering Service<br>
+                </strong>                
+                 Hire the best local Cooks and Cheffs, for your receptions and parties </div>
             </div>
              </a> 
           </div>
 
           <div class="col-md-3 col-sm-4" style="position:relative;">
-           <a href="<?php echo base_url('service/event_serviceprov_landing_ins'); ?>" >
-            <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;"><img src="<?php echo base_url('assets/images/service_provider/cakes.png')?>" alt=""/>
-              <div class="pull-left" style="color:#333; padding-bottom:10px;">
-                <input type="text" name="Catering_Service" value="Cakes">
+           <a href="<?php echo base_url('Eventserviceprovider/serviceprovider_keyword/'."Cakes"); ?>" >
+            <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;">
+              <img src="<?php echo base_url('assets/images/service_provider/cakes.png')?>" alt=""/>
+              <div class="pull-left" style="color:#333; padding-bottom:10px;">                
+                <strong>Cakes<br>
+                </strong>
                  Hire the best pastries in your local areas  for weddings, birthdays, parties. </div>
             </div>
              </a> 
           </div>
 
-          <div class="col-md-3 col-sm-4" style="position:relative;"> <a href="<?php echo base_url('service/event_serviceprov_landing_ins'); ?>" >
-            <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;"><img src="<?php echo base_url('assets/images/service_provider/wines.png')?>" alt=""/>
+          <div class="col-md-3 col-sm-4" style="position:relative;">
+            <a href="<?php echo base_url('Eventserviceprovider/serviceprovider_keyword/'."Wines"); ?>" >
+              <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;">
+              <img src="<?php echo base_url('assets/images/service_provider/wines.png')?>" alt=""/>
               <div class="pull-left" style="color:#333; padding-bottom:10px;">
-                <a href="#" name="wines_beverages">Wines &amp; Beverages<br>
-                </a> Find the best wine and beverages around you for your events and parties  </div>
-            </div>
-             </a> 
+               <strong>Wines<br>
+                </strong> 
+                 Find the best wine and beverages around you for your events and parties  </div>
+              </div>
+            </a> 
           </div>
           
-          <div class="col-md-3 col-sm-4" style="position:relative;"> <a href="<?php echo base_url('service/event_serviceprov_landing_ins'); ?>" >
-            <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;"><img src="<?php echo base_url('assets/images/service_provider/music_dj-services.png')?>" alt=""/>
+          <div class="col-md-3 col-sm-4" style="position:relative;"> 
+            <a href="<?php echo base_url('Eventserviceprovider/serviceprovider_keyword/'."Music"); ?>" >
+            <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;">
+              <img src="<?php echo base_url('assets/images/service_provider/music_dj-services.png')?>" alt=""/>
               <div class="pull-left" style="color:#333; padding-bottom:10px;">
-                <a href="#" name="Music_djservices">Music &amp; DJ Services<br>
-                </a> Find the best music and parties around you for your events and parties  </div>
+                <strong>Music &amp; DJ Services<br>
+                </strong> 
+                 Find the best music and parties around you for your events and parties  </div>
             </div>
              </a> 
           </div>
@@ -231,38 +240,42 @@ table, td, tr {
       <!-- second row -->
       
       <div class="col-md-12 col-sm-12" style="margin-top:25px;">
-        <div class="col-md-3 col-sm-4" style="position:relative;"> <a href="<?php echo base_url('service/event_serviceprov_landing_ins'); ?>" >
+        <div class="col-md-3 col-sm-4" style="position:relative;"> 
+          <a href="<?php echo base_url('Eventserviceprovider/serviceprovider_keyword/'."EventOrganizers"); ?>" >
             <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;"><img src="<?php echo base_url('assets/images/service_provider/event-organizer.png')?>" alt=""/>
               <div class="pull-left" style="color:#333; padding-bottom:10px;">
-                <a href="#" name="eventorganizer">Event Organizer<br>
-                </a> 
+               <strong>Event Organizer<br>
+                </strong>
               Get the best out of your upcoming event and party by hiring local professional event planners near you.  </div>
             </div>
              </a> 
           </div>
-        <div class="col-md-3 col-sm-4" style="position:relative;"> <a href="<?php echo base_url('service/event_serviceprov_landing_ins'); ?>" >
+          <div class="col-md-3 col-sm-4" style="position:relative;"> 
+          <a href="<?php echo base_url('Eventserviceprovider/serviceprovider_keyword/'."Photography"); ?>" >
             <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;"><img src="<?php echo base_url('assets/images/service_provider/photography_video-services.png')?>" alt=""/>
               <div class="pull-left" style="color:#333; padding-bottom:10px;">
-                <a href="#" name="photographers_videoservices">Photographers & Video Services<br>
-                </a>Capture every memorable moment in your evvent by hiring  professional local photographers and videographers  </div>
+                <strong>Photographers & Video Services</strong><br>
+                Capture every memorable moment in your evvent by hiring  professional local photographers and videographers  </div>
             </div>
              </a> 
           </div>
           
-           <div class="col-md-3 col-sm-4" style="position:relative;"> <a href="<?php echo base_url('service/event_serviceprov_landing_ins'); ?>" >
-            <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;"><img src="<?php echo base_url('assets/images/service_provider/beauty-services.png')?>" alt=""/>
+           <div class="col-md-3 col-sm-4" style="position:relative;"> 
+            <a href="<?php echo base_url('Eventserviceprovider/serviceprovider_keyword/'."BBQIndoor"); ?>" >
+            <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;"><img src="<?php echo base_url('assets/images/service_provider/bbq-indoor_outdoor.png')?>" alt=""/>
               <div class="pull-left" style="color:#333; padding-bottom:10px;">
-                <a href="#" name="wine_beverages">Wine & Beverages<br>
-                </a>Wear your best look and smile by hiring the best local beautican for your daily local events  </div>
+                <strong>BBQ Indoor &amp; Outdoor</strong><br>
+                Wear your best look and smile by hiring the best local beautican for your daily local events  </div>
             </div>
              </a> 
           </div>
           
-          <div class="col-md-3 col-sm-4" style="position:relative;"> <a href="<?php echo base_url('service/event_serviceprov_landing_ins'); ?>" >
+          <div class="col-md-3 col-sm-4" style="position:relative;"> 
+            <a href="<?php echo base_url('Eventserviceprovider/serviceprovider_keyword/'."Decor"); ?>" >
             <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;"><img src="<?php echo base_url('assets/images/service_provider/decor-party-rentals.png')?>" alt=""/>
               <div class="pull-left" style="color:#333; padding-bottom:10px;">
-                <a href="#" name="decor_partyrentals">Decor & Party Rentals<br>
-                </a>Wear your best look and smile by hiring the best local beautican for your events and lots more </div>
+                <strong>Decor & Party Rentals</strong><br>
+                Wear your best look and smile by hiring the best local beautican for your events and lots more </div>
             </div>
              </a> 
           </div>
@@ -274,7 +287,8 @@ table, td, tr {
       <!-- Third row -->
       
       <div class="col-md-12 col-sm-12" style="margin-top:25px;">
-       <div class="col-md-3 col-sm-4" style="position:relative;"> <a href="<?php echo base_url('service/event_serviceprov_landing_ins'); ?>" >
+       <div class="col-md-3 col-sm-4" style="position:relative;"> 
+        <a href="<?php echo base_url('Eventserviceprovider/serviceprovider_keyword/'."Floral"); ?>" >
             <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;"><img src="<?php echo base_url('assets/images/service_provider/floral.png')?>" alt=""/>
               <div class="pull-left" style="color:#333; padding-bottom:10px;"><strong>Floral<br>
                 </strong>Get the best bouquest and floral arrangment for your  next special event from selected local florist around you. </div>
@@ -282,7 +296,8 @@ table, td, tr {
              </a> 
           </div>
           
-           <div class="col-md-3 col-sm-4" style="position:relative;"> <a href="<?php echo base_url('service/event_serviceprov_landing_ins'); ?>" >
+           <div class="col-md-3 col-sm-4" style="position:relative;">
+            <a href="<?php echo base_url('Eventserviceprovider/serviceprovider_keyword/'."PartyCleaningServices"); ?>" >
             <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;"><img src="<?php echo base_url('assets/images/service_provider/party-cleaning-services.png')?>" alt=""/>
               <div class="pull-left" style="color:#333; padding-bottom:10px;"><strong>Party Cleaning Services<br>
                 </strong>After every party comes the cleanup time  hire the best professional cleaners to do the dirty job for you. </div>
@@ -290,7 +305,8 @@ table, td, tr {
              </a> 
           </div>
           
-           <div class="col-md-3 col-sm-4" style="position:relative;"> <a href="<?php echo base_url('service/event_serviceprov_landing_ins'); ?>" >
+           <div class="col-md-3 col-sm-4" style="position:relative;"> 
+            <a href="<?php echo base_url('Eventserviceprovider/serviceprovider_keyword/'."Limo"); ?>" >
             <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;"><img src="<?php echo base_url('assets/images/service_provider/limo_car-rental-services.png')?>" alt=""/>
               <div class="pull-left" style="color:#333; padding-bottom:10px;"><strong>Limo & Car Rental Services<br>
                 </strong>Chatter and book the local transportation for your next meeting and events, this includes wedding limosines, party buses </div>
@@ -298,7 +314,8 @@ table, td, tr {
              </a> 
           </div>
           
-           <div class="col-md-3 col-sm-4" style="position:relative;"> <a href="<?php echo base_url('service/event_serviceprov_landing_ins'); ?>" >
+           <div class="col-md-3 col-sm-4" style="position:relative;"> 
+            <a href="<?php echo base_url('Eventserviceprovider/serviceprovider_keyword/'."Dress"); ?>" >
             <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;"><img src="<?php echo base_url('assets/images/service_provider/dress_jewellery.png')?>" alt=""/>
               <div class="pull-left" style="color:#333; padding-bottom:10px;"><strong>Dress & Jewellery<br>
                 </strong>Want to be at your best look for your next event search and find  the best dress shops and jewels places around you.</div>
@@ -309,7 +326,8 @@ table, td, tr {
       </div>
       <div class="col-md-12 col-sm-12" style="margin-top:25px;">
       
-       <div class="col-md-3 col-sm-4" style="position:relative;"> <a href="<?php echo base_url('service/event_serviceprov_landing_ins'); ?>" >
+       <div class="col-md-3 col-sm-4" style="position:relative;">
+        <a href="<?php echo base_url('Eventserviceprovider/serviceprovider_keyword/'."MCsComedians"); ?>" >
             <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;"><img src="<?php echo base_url('assets/images/service_provider/mcs_comedians.png')?>" alt=""/>
               <div class="pull-left" style="color:#333; padding-bottom:10px;"><strong>Party MC's & Comedians<br>
                 </strong>Keep the excitment going by hiring the best Party MCs and comedian  for your next event in your city </div>
@@ -317,7 +335,8 @@ table, td, tr {
              </a> 
           </div>
           
-           <div class="col-md-3 col-sm-4" style="position:relative;"> <a href="<?php echo base_url('service/event_serviceprov_landing_ins'); ?>" >
+           <div class="col-md-3 col-sm-4" style="position:relative;">
+            <a href="<?php echo base_url('Eventserviceprovider/serviceprovider_keyword/'."EventGuestSpeakers"); ?>" >
             <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;"><img src="<?php echo base_url('assets/images/service_provider/event-guest-speakers.png')?>" alt=""/>
               <div class="pull-left" style="color:#333; padding-bottom:10px;"><strong>Event Guest Speakers<br>
                 </strong>Search for the best local and international guest speakers for your next event in your city</div>
@@ -325,16 +344,19 @@ table, td, tr {
              </a> 
           </div>
           
-           <div class="col-md-3 col-sm-4" style="position:relative;"> <a href="<?php echo base_url('service/event_serviceprov_landing_ins'); ?>" >
+           <div class="col-md-3 col-sm-4" style="position:relative;"> 
+            <a href="<?php echo base_url('Eventserviceprovider/serviceprovider_keyword/'."EventTechnologySupport"); ?>" >
             <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;"><img src="<?php echo base_url('assets/images/service_provider/event-technology-support.png')?>" alt=""/>
-              <div class="pull-left" style="color:#333; padding-bottom:10px;"><strong>Event Technology Support<br>
+              <div class="pull-left" style="color:#333; padding-bottom:10px;">
+                <strong>Event Technology Support<br>
                 </strong>Hire the best technical hands to maintian, upgrade your IT based hardware 
-and software for all your events</div>
+                  and software for all your events</div>
             </div>
              </a> 
           </div>
           
-           <div class="col-md-3 col-sm-4" style="position:relative;"> <a href="<?php echo base_url('service/event_serviceprov_landing_ins'); ?>" >
+           <div class="col-md-3 col-sm-4" style="position:relative;"> 
+            <a href="<?php echo base_url('Eventserviceprovider/serviceprovider_keyword/'."EventGifting"); ?>" >
             <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;"><img src="<?php echo base_url('assets/images/service_provider/event-gifting-souveniers.png')?>" alt=""/>
               <div class="pull-left" style="color:#333; padding-bottom:10px;"><strong>Event Gifting & Souveniers<br>
                 </strong>Get the best customized gifting for your upcoming events from local gift shops around you</div>
@@ -345,7 +367,8 @@ and software for all your events</div>
       
       </div>
       <div class="col-md-12 col-sm-12" style="margin-top:25px;">
-         <div class="col-md-3 col-sm-4" style="position:relative;"> <a href="<?php echo base_url('service/event_serviceprov_landing_ins'); ?>" >
+         <div class="col-md-3 col-sm-4" style="position:relative;"> 
+          <a href="<?php echo base_url('Eventserviceprovider/serviceprovider_keyword/'."TourBusRentals"); ?>" >
             <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;"><img src="<?php echo base_url('assets/images/service_provider/bus.png')?>" alt=""/>
               <div class="pull-left" style="color:#333; padding-bottom:10px;"><strong>Tour Bus Rentals<br>
                 </strong>Book local tour buses for your next on the road events</div>
@@ -353,7 +376,8 @@ and software for all your events</div>
              </a> 
           </div>
           
-          <div class="col-md-3 col-sm-4" style="position:relative;"> <a href="<?php echo base_url('service/event_serviceprov_landing_ins'); ?>" >
+          <div class="col-md-3 col-sm-4" style="position:relative;"> 
+            <a href="<?php echo base_url('Eventserviceprovider/serviceprovider_keyword/'."EventStaffingServers"); ?>" >
             <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;"><img src="<?php echo base_url('assets/images/service_provider/staff.png')?>" alt=""/>
               <div class="pull-left" style="color:#333; padding-bottom:10px;"><strong>Event Staffing & Servers<br>
                 </strong>Hire the best local event staffing, includes waiters, Security protocols bartenders</div>
@@ -361,7 +385,8 @@ and software for all your events</div>
              </a> 
           </div>
           
-           <div class="col-md-3 col-sm-4" style="position:relative;"> <a href="<?php echo base_url('service/event_serviceprov_landing_ins'); ?>" >
+           <div class="col-md-3 col-sm-4" style="position:relative;">
+            <a href="<?php echo base_url('Eventserviceprovider/serviceprovider_keyword/'."PartyEntertainers"); ?>" >
             <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;"><img src="<?php echo base_url('assets/images/service_provider/party.png')?>" alt=""/>
               <div class="pull-left" style="color:#333; padding-bottom:10px;"><strong>Party Entertainers<br>
                 </strong>Crown your next event with great local shows such as clowns, face painters</div>
@@ -369,7 +394,8 @@ and software for all your events</div>
              </a> 
           </div>
           
-           <div class="col-md-3 col-sm-4" style="position:relative;"> <a href="<?php echo base_url('service/event_serviceprov_landing_ins'); ?>" >
+           <div class="col-md-3 col-sm-4" style="position:relative;"> 
+            <a href="<?php echo base_url('Eventserviceprovider/serviceprovider_keyword/'."LifeBandMusic"); ?>" >
             <div class="pull-left" style="border:1px solid #ccc; border-radius:8px; text-align:center; height:230px;"><img src="<?php echo base_url('assets/images/service_provider/mic.png')?>" alt=""/>
               <div class="pull-left" style="color:#333; padding-bottom:10px;"><strong>Life Band Music<br>
                 </strong>Hire local and international life band performers for your next big events</div>
@@ -383,7 +409,7 @@ and software for all your events</div>
     </div>
   </div>
 
-</form>
+<!-- </form> -->
 
 </div>
 </div>

@@ -92,7 +92,9 @@ public function update_eventdetails()
 			 $start_date = $_POST['event_startdate'];
 		     $end_date   = $_POST['event_enddate'];		    
 		     $s_date = date('Y/m/d', strtotime($start_date)); 
-		     $e_date = date('Y/m/d', strtotime($end_date));   	
+		     $e_date = date('Y/m/d', strtotime($end_date)); 
+		     $s_time = str_replace(' ', '',$this->input->post('event_startime'));
+		     $e_time = str_replace(' ', '',$this->input->post('event_endtiming'));     	
  			
 		   	$header1 = array('token:'			.$token,
 		   					'eventid:' 	 	    .$this->input->post('event_id'),
@@ -102,8 +104,8 @@ public function update_eventdetails()
 							'eventname:'     	.$this->input->post('event_name'),
 							'eventtimezone:' 	.$this->input->post('time_zone'),
 							'eventdayscount:' 	.$this->input->post('eventdayscount'),
-							'eventstartdate:'	.$s_date.' '.$this->input->post('event_startime'),
-							'eventenddate:'   	.$e_date.' '. $this->input->post('event_endtiming'),
+							'eventstartdate:'	.$s_date.' '.$s_time,
+							'eventenddate:'   	.$e_date.' '.$e_time,
 							'eventdescription:' .$this->input->post('event_description')
 							);
 		   	 
@@ -128,7 +130,7 @@ public function update_eventdetails()
 	    	  	$response1 = curl_exec($ch1); 	    	
 		    	$data =json_decode($response1);	       	
 		     	curl_close($ch1);
-		     	// print_r($data);
+		     	
 
 		     	if($data->success == true)
 					{		 	
@@ -358,7 +360,7 @@ public function update_eventhighlight()
 				    	 $highlight_img1 = curl_file_create($_FILES['highlight_img1']['tmp_name'],$_FILES['highlight_img1']['type']);
 				    	}else
 					    	{
-					    		$highlight_img1 = curl_file_create($_FILES['exit_img1']['tmp_name'],$_FILES['exit_img1']['type']);
+					    		$highlight_img1 = "";
 					    	}
 
 					if(!empty($_FILES['highlight_video1']['name']))
@@ -399,8 +401,7 @@ public function update_eventhighlight()
 	    	  	$result = curl_exec($ch3); 	 
 	    	  	$data =json_decode($result);
 	    	  	curl_close($ch3);
-
-	    	  	// print_r($data);
+	    	  	
 
 	    	  	if($data->success == true)
 					{	

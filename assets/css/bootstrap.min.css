@@ -1043,7 +1043,7 @@ a {
 }
 a:focus, a:hover {
 	color: #23527c;
-	text-decoration: underline
+	text-decoration: none;
 }
 a:focus {
 	outline: thin dotted;
@@ -5154,7 +5154,7 @@ button.close {
 	word-wrap: normal;
 	white-space: normal;
 	filter: alpha(opacity=0);
-	opacity: 0;
+	/*opacity: 0;*/
 	line-break: auto
 }
 .tooltip.in {

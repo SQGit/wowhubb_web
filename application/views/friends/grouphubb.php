@@ -268,7 +268,7 @@ img.profile-photo-2 {
                  <?php 
                       if(!is_null($this->session->userdata('personal_image')))
                   { ?>
-                <div class="pull-left" style="width:15%;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata("personal_image"); ?>" alt="user" class="profile-photo" /></div>
+                <div class="pull-left" style="width:15%;"><img src="<?php echo $this->session->userdata("personal_image"); ?>" alt="user" class="profile-photo" /></div>
                  <?php }  else { ?>
                 <div class="pull-left" style="width:15%;"><img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo" /></div>
                 <?php } ?>

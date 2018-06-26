@@ -725,7 +725,7 @@ table, td, tr
                             </div>
                              <?php } } else {  ?>
 
-                                <div class="row" id="add_relation_1">   
+                            <div class="row" id="add_relation_1">   
 
                               <div class="form-group col-xs-12">
                                 <label for="date-to"> Name </label>

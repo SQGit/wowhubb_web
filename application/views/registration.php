@@ -289,12 +289,12 @@ label.error {
                     </div>
 
                     <div class="form-group col-xs-1" style="margin-top: 15px;">   
-                          <a href="#" data-toggle="tooltip" title="Wowtag is a unique identifier(Name) for your event that you can use to share, invite and advertise your event on billboards, online and on TV advertisements."><i class="fa  fa-question-circle" ></i></a>  
+                          <a href="#" data-toggle="tooltip" title="Wowtag is a unique identifier(Name) for your event that you can use to share, invite and advertise your event on billboards, online and on TV advertisements.">
+                          <i class="fa fa-question-circle" ></i></a>  
                     </div>                      
                 </div>
 
                   <div id="result"></div>
-
                 
                 <div class="row">
                   <div class="form-group col-xs-12">

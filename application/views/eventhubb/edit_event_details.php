@@ -15,6 +15,8 @@
 <link rel="stylesheet" href="<?php echo base_url ('assets/js/sweetalert.css')?>" />
 <!-- calender links -->
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/jquery.datetimepicker.css')?>" />
+<link rel="stylesheet" href="<?php echo base_url ('assets/css/wickedpicker.css')?>" />
+
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/custom/css/form-wizard-blue.css') ?>">
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/theme-styles.css')?>" />
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/animate.css')?>" />
@@ -34,28 +36,10 @@
 	a.delete { position:absolute;width:30px;height:30px; color: #000; }
 	.image:hover a.delete { display:block; }
 
-	label.error {
-    font-family: 'Source Sans Pro', sans-serif;
-   color:red; 
-	}
-
-	.textBox {
-		background-image: url(./assets/images/designation-icon.png);
-		background-position: 0 5px;
-		background-size: 30px;
-		background-repeat: no-repeat;
-		padding-left: 17px;
-	}
-	/*popup close button  */
-	.large.tooltip-inner {
-		max-width: 350px;
-		width: 350px;
-	}
-	#footer {
-		background: #fff;
-		position: relative;
-		top: 0px;
-	}
+	
+	
+	
+	
 	.btn-file {
 		position: relative;
 		overflow: hidden;
@@ -92,228 +76,16 @@
 		cursor: inherit;
 		display: block;
 	}
-	/*https://stackoverflow.com/questions/14199788/how-do-i-use-an-image-as-a-submit-button */ 
-	  #btnAdd4, #btnAdd5, #btnAdd6 {
-		background-image: url("<?php echo base_url('assets/images/Plus.png')?>");
-		background-repeat: no-repeat;
-		border: none;
-		width: 32px;
-		height: 32px;
-		cursor: pointer;
-		color: transparent;
-		background-color: transparent;
-		outline: none;
-	}
 	
-	#btnAdd10{
-		background-image: url("<?php echo base_url('assets/images/close-outline-32.png')?>");
-		background-repeat: no-repeat;
-		border: none;
-		width: 32px;
-		height: 32px;
-		cursor: pointer;
-		color: transparent;
-		background-color: transparent;
-		outline: none;
-	}
-	#textAdd {
-		background-image: url("<?php echo base_url('assets/images/Plus.png')?>");
-		background-size: cover;
-		border: none;
-		width: 32px;
-		height: 32px;
-		cursor: pointer;
-		color: transparent;
-		background-color: transparent;
-		outline: none;
-	}
-	#imageUpload1 {
-		display: none;
-	}
-	#profileImage1 {
-		cursor: pointer;
-	}
-	#profile-container1 {
-		width: 150px;
-		height: 150px;
-	}
-	#imageUpload2 {
-		display: none;
-	}
-	#profileImage2 {
-		cursor: pointer;
-	}
-	#imageUpload3 {
-		display: none;
-	}
-	#profileImage3 {
-		cursor: pointer;
-	}
-	#imageUpload4 {
-		display: none;
-	}
-	#profile-container4 {
-		width: 150px;
-		height: 150px;
-	}
-	#imageUpload5 {
-		display: none;
-	}
-	#profileImage5 {
-		cursor: pointer;
-	}
-	.faq-cat-content {
-		margin-top: 25px;
-	}
-	.faq-cat-tabs li a {
-		padding: 15px 10px 15px 10px;
-		background-color: #ffffff;
-		border: 1px solid #dddddd;
-		color: #777777;
-	}
-	.nav-tabs li a:focus, .panel-heading a:focus {
-		outline: none;
-	}
-	.panel-heading a, .panel-heading a:hover, .panel-heading a:focus {
-		text-decoration: none;
-		color: #777777;
-	}
-	.faq-cat-content .panel-heading:hover {
-		background-color: #efefef;
-	}
-	.active-faq {
-		border-left: 5px solid #888888;
-	}
-	.panel-faq .panel-heading .panel-title span {
-		font-size: 13px;
-		font-weight: normal;
-	}
-	.form-wizard h4 span {
-		font-size: 14px;
-	}
-	.panel-group .panel {
-		border-radius: 0;
-		box-shadow: none;
-		border-color: #EEEEEE;
-	}
-	.panel-default > .panel-heading {
-		padding: 0;
-		border-radius: 0;
-		color: #212121;
-		background-color: #FAFAFA;
-		border-color: #EEEEEE;
-	}
-	.panel-title {
-		font-size: 14px;
-	}
-	.panel-title > a {
-		display: block;
-		padding: 15px;
-		text-decoration: none;
-	}
-	.more-less {
-		float: right;
-		color: #212121;
-	}
-	.panel-default > .panel-heading + .panel-collapse > .panel-body {
-		border-top-color: #EEEEEE;
-	}
-	.ac-container {
-		width: 100%;
-		margin: 10px auto 30px auto;
-		text-align: left;
-	}
-	.ac-container label {
-		padding: 5px 10px;
-		position: relative;
-		z-index: 20;
-		display: block;
-		
-		cursor: pointer;
-		color: #777;
-		text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
-		line-height: 20px;
-		font-size: 12px;
-		background: #ffffff;
-		background: -moz-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #ffffff), color-stop(100%, #eaeaea));
-		background: -webkit-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-		background: -o-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-		background: -ms-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-		background: linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-	 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea', GradientType=0 );
-		box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3), 1px 0px 0px 0px rgba(255,255,255,0.9) inset, 0px 2px 2px rgba(0,0,0,0.1);
-	}
-	.ac-container label:hover {
-		background: #fff;
-	}
-	.ac-container input:checked + label, .ac-container input:checked + label:hover {
-		background: #c6e1ec;
-		color: #3d7489;
-		text-shadow: 0px 1px 1px rgba(255,255,255, 0.6);
-		box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3), 0px 2px 2px rgba(0,0,0,0.1);
-	}
-	.ac-container label:hover:after, .ac-container input:checked + label:hover:after {
-		content: '';
-		position: absolute;
-		width: 24px;
-		height: 24px;
-		right: 2px;
-		top: 2px;
-		background: transparent url(../assets/images/arrow_down.png) no-repeat center center;
-	}
-	.ac-container input:checked + label:hover:after {
-		background-image: url(../assets/images/arrow_up.png);
-	}
-	.ac-container input {
-		display: none;
-	}
-	.ac-container article {
-		background: rgba(255, 255, 255, 0.5);
-		margin-top: -1px;
-		overflow: hidden;
-		height: 0px;
-		position: relative;
-		z-index: 10;
-		-webkit-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-		-moz-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-		-o-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-		-ms-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-		transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-	}
-	.ac-container article p {
-		font-style: italic;
-		color: #777;
-		line-height: 23px;
-		font-size: 14px;
-		padding: 5px 20px;
-		text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
-	}
-	.ac-container input:checked ~ article {
-		-webkit-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		-moz-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		-o-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		-ms-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3);
-	}
-	.ac-container input:checked ~ article.ac-small {
-		height: 400px;
-	}
-	.ac-container input:checked ~ article.ac-medium {
-		height: 450px;
-	}
-	.ac-container input:checked ~ article.ac-large {
-		height: 500px;
-	}
-
+	
+	
 	.form-group {
 		margin-bottom: 5px!important;
 	}
 	.form-group-1 {
 		margin-bottom: 0px;
 	}
-	.form-body-classic.form-wizard .btn-1 {
+.form-body-classic.form-wizard .btn-1 {
 		min-width: 105px;
 		height: 30px;
 	    margin: 0;
@@ -329,29 +101,14 @@
 	    text-shadow: none;
 	    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
 	}
-	.btn-file input[type=file] {
-	  position: absolute;
-	  top: 0;
-	  right: 0;
-	  min-width: 100%;
-	  min-height: 100%;
-	  font-size: 100px;
-	  text-align: right;
-	  filter: alpha(opacity=0);
-	  opacity: 0;
-	  outline: none;
-	  background: white;
-	  cursor: inherit;
-	  display: block;
-	}
-
-	img {
+	
+img {
     max-width: 200px;
     height: auto;
     display: inline-block;
 	}
 
-	.remove {
+.remove {
 	  display: block;
 	  background: #444;
 	  border: 1px solid black;
@@ -359,28 +116,15 @@
 	  text-align: center;
 	  cursor: pointer;
 	  width: 200px;
-      /*margin-left: 107px;*/
-	}
-	.remove:hover {
-	  background: white;
-	  color: black;
+      margin-left: 137px;
 	}
 
-	.remove1 {
-	  display: block;
-	  background: #444;
-	  border: 1px solid black;
-	  color: white;
-	  text-align: center;
-	  cursor: pointer;
-	  width: 200px;
-      margin-left: 144px;
-	}
-	.remove1:hover {
+.remove:hover {
 	  background: white;
 	  color: black;
 	}
-	.tab {
+	
+.tab {
 	  display: none;
 	}
 
@@ -405,42 +149,12 @@
   100% { transform: rotate(360deg); }
 }
 
- .form-group-1 img {    
+.form-group-1 img {    
     left: 24px;
     position: absolute;
     top: 7px;
 }
 
-/*remove faq input box*/
-#remove_faq {
-    background-image: url(../assets/images/close-outline-32.png);
-    background-repeat: no-repeat;
-    border: none;
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
-    color: transparent;
-    background-color: transparent;
-    outline: none;
-}
-
-/*hide input type number arrows*/
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0; 
-}
-/*.swal2-contentwrapper
-{
-	margin: 0 auto;
-    height: 150px;
-}*/
-.form-wizard img 
-{ max-width: 100%!important;
-  
- }
 </style>
 </head>
 
@@ -477,21 +191,15 @@ input[type=number]::-webkit-outer-spin-button {
       <div class="row">
         <div class="col-md-12">
           <div class="col-md-10 form-wizard form-body-classic form-header-classic" style="min-width:1200px;"> 
-            <!-- 
-            Just change the class name for make it with different style of design.
-
-            Use anyone class "form-header-classic" or "form-header-modarn" or "form-header-stylist" for set your form header design.
-            
-            Use anyone class "form-body-classic" or "form-body-material" or "form-body-stylist" for set your form element design.
-            -->
+           
             
             <h3>Create Your Event</h3>
             <p>Please fill information to a create an event </p>
-             <img src="../assets/images/banner.jpg" class="img-thumbnail"  alt="banner-image" style="height:152px!important;"/>
+             <img src="<?php echo base_url('assets/images/banner.jpg'); ?>" class="img-thumbnail"  alt="banner-image"/>
             <!-- Form progress -->
-    			<div class="form-wizard-steps form-wizard-tolal-steps-7">
+    			<div class="form-wizard-steps form-wizard-tolal-steps-1">
               <div class="form-wizard-progress">
-                <div class="form-wizard-progress-line" data-now-value="12.25" data-number-of-steps="7" style="width: 12.25%;"></div>
+                <div class="form-wizard-progress-line" data-now-value="100" data-number-of-steps="1" style="width: 100%;"></div>
               </div>
               <!-- Step 1 -->
               <div class="form-wizard-step active">
@@ -598,7 +306,7 @@ input[type=number]::-webkit-outer-spin-button {
 	                  <div class='row'>
 		                    <div class='form-group col-sm-12'>
 		                      <label>Event Description</label>
-		                      <textarea type='text' id="description" name="event_description"  class="form-control required " style="min-height:150px;" placeholder="Describe What Your Event Is All About " ><?php if(isset($event->eventdescription)) { echo $event->eventdescription; }  ?></textarea>
+		                      <textarea type='text' id="description" name="event_description"  class="form-control required " style="min-height:150px;" maxlength="160" placeholder="Describe What Your Event Is All About "  onchange = "cleanspecial_char(this)" ><?php if(isset($event->eventdescription)) { echo $event->eventdescription; }?></textarea>
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
@@ -608,12 +316,16 @@ input[type=number]::-webkit-outer-spin-button {
 			                        <div class="form-group" style="margin-bottom: 10px;"> 
 				                        <div class="field" align="left">
 				                         		<input type="button" class="btn btn-primary" value="Browse Image..." onclick="document.getElementById('files').click();" />
-				                         		<input type="file" style="display:none;" name="cover_img" id="files" class="file" accept="image/*" title="cover image">  
+				                         		<input type="file" style="display:none;" name="cover_img" id="files" class="file" accept="image/*" title="cover image" value="<?php echo $event->coverpageurl; ?>">  
 				                        </div> 
 			                        </div>	
 			                        <div class="remove_img" style="position:relative;">
-			                        	<img src="<?php echo $event->coverpage; ?>" style="width:160px; height:88px;"  alt="user" class="img-responsive img-thumbnail"/>	
-			                        	 <div style="position:absolute; right:203px; top:0px;"><a href="#" class="delete"><i class="glyphicon glyphicon-remove"></i></a></div>
+			                        	<img src="<?php echo $event->coverpageurl; ?>" style="width:160px; height:88px;"  alt="user" class="img-responsive img-thumbnail"/>	
+			                        	 <div style="position:absolute; right:185px; top:-22px;">
+			                        	 	<a href="#" class="delete">
+			                        	 		<img src="<?php echo base_url('assets/images/wow-close.png'); ?>" />
+			                        	 	</a>
+			                        	 </div>
 			                        </div>  
 
 			                      </div>
@@ -624,7 +336,7 @@ input[type=number]::-webkit-outer-spin-button {
                
                 <div class='col-sm-12'>
                   <div class="form-wizard-buttons">                   
-                    <button type="submit" class="btn btn-next">Upload</button>
+                    <button type="submit" class="btn btn-next">Update</button>
                   </div>
                 </div>
 
@@ -661,7 +373,7 @@ input[type=number]::-webkit-outer-spin-button {
 <script src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script> 
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script>   
- 
+<script src="<?php echo base_url('assets/js/wickedpicker.js')?>"></script>  
 
  
 <!-- model popup bootstrap --> 
@@ -671,26 +383,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 
  // event start time picker
-  $("#event_startime").datetimepicker(
-		  	{ 
-               datepicker:false,   //12 hours time format 
-                format:'g:i A',
-                formatTime: 'g:i A',
-                mask:'29:59 99',  
-                step: 5,   
-                ampm: true 
-                                    
-             });
-
-  $("#event_endtiming").datetimepicker(
-            { 
-                datepicker:false,   //12 hours time format 
-                format:'g:i A',
-                formatTime: 'g:i A',
-                mask:'29:59 99',  
-                step: 5,   
-                ampm: true 
-             });
+  // event start time and end time picker
+  $("#event_startime").wickedpicker();		
+ 
+  $("#event_endtiming").wickedpicker();
 
   //event start and end date 
 
@@ -705,6 +401,12 @@ input[type=number]::-webkit-outer-spin-button {
   minDate:0,
   format:'M-d-Y',
    });
+
+  // not allow special character
+function cleanspecial_char(t) {
+            t.value = t.value.toString().replace(/[^a-zA-Z 0-9\n\r]+/g, '');
+        }
+
 
 //image preview and delete step1
 
@@ -792,7 +494,7 @@ var base_url = '<?php echo base_url() ?>'; //form submited
 		                                                 type: "success",
 		                                                 timer: 3000
 		                                                 }).then(() => {                     
-		                   									 window.location.href = "<?php echo base_url('eventhubb/get_eventhubb'); ?>";
+		                   									 window.location.href = "<?php echo base_url('eventhubb/get_future_eventhubb'); ?>";
 		                   								});;  
 		                   
 		                    }

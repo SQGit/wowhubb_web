@@ -39,23 +39,8 @@
    color:red; 
 	}
 
-	.textBox {
-		background-image: url(./assets/images/designation-icon.png);
-		background-position: 0 5px;
-		background-size: 30px;
-		background-repeat: no-repeat;
-		padding-left: 17px;
-	}
-	/*popup close button  */
-	.large.tooltip-inner {
-		max-width: 350px;
-		width: 350px;
-	}
-	#footer {
-		background: #fff;
-		position: relative;
-		top: 0px;
-	}
+	
+	
 	.btn-file {
 		position: relative;
 		overflow: hidden;
@@ -77,56 +62,8 @@
 		-webkit-box-shadow: none;
 		box-shadow: none;
 	}
-	.btn-file input[type=file] {
-		position: absolute;
-		top: 0;
-		right: 0;
-		min-width: 100%;
-		min-height: 100%;
-		font-size: 100px;
-		text-align: right;
-		filter: alpha(opacity=0);
-		opacity: 0;
-		outline: none;
-		background: white;
-		cursor: inherit;
-		display: block;
-	}
-	/*https://stackoverflow.com/questions/14199788/how-do-i-use-an-image-as-a-submit-button */ 
-	  #btnAdd4, #btnAdd5, #btnAdd6 {
-		background-image: url("<?php echo base_url('assets/images/Plus.png')?>");
-		background-repeat: no-repeat;
-		border: none;
-		width: 32px;
-		height: 32px;
-		cursor: pointer;
-		color: transparent;
-		background-color: transparent;
-		outline: none;
-	}
 	
-	#btnAdd10{
-		background-image: url("<?php echo base_url('assets/images/close-outline-32.png')?>");
-		background-repeat: no-repeat;
-		border: none;
-		width: 32px;
-		height: 32px;
-		cursor: pointer;
-		color: transparent;
-		background-color: transparent;
-		outline: none;
-	}
-	#textAdd {
-		background-image: url("<?php echo base_url('assets/images/Plus.png')?>");
-		background-size: cover;
-		border: none;
-		width: 32px;
-		height: 32px;
-		cursor: pointer;
-		color: transparent;
-		background-color: transparent;
-		outline: none;
-	}
+	
 	#imageUpload1 {
 		display: none;
 	}
@@ -218,95 +155,8 @@
 	.panel-default > .panel-heading + .panel-collapse > .panel-body {
 		border-top-color: #EEEEEE;
 	}
-	.ac-container {
-		width: 100%;
-		margin: 10px auto 30px auto;
-		text-align: left;
-	}
-	.ac-container label {
-		padding: 5px 10px;
-		position: relative;
-		z-index: 20;
-		display: block;
-		
-		cursor: pointer;
-		color: #777;
-		text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
-		line-height: 20px;
-		font-size: 12px;
-		background: #ffffff;
-		background: -moz-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #ffffff), color-stop(100%, #eaeaea));
-		background: -webkit-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-		background: -o-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-		background: -ms-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-		background: linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-	 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea', GradientType=0 );
-		box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3), 1px 0px 0px 0px rgba(255,255,255,0.9) inset, 0px 2px 2px rgba(0,0,0,0.1);
-	}
-	.ac-container label:hover {
-		background: #fff;
-	}
-	.ac-container input:checked + label, .ac-container input:checked + label:hover {
-		background: #c6e1ec;
-		color: #3d7489;
-		text-shadow: 0px 1px 1px rgba(255,255,255, 0.6);
-		box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3), 0px 2px 2px rgba(0,0,0,0.1);
-	}
-	.ac-container label:hover:after, .ac-container input:checked + label:hover:after {
-		content: '';
-		position: absolute;
-		width: 24px;
-		height: 24px;
-		right: 2px;
-		top: 2px;
-		background: transparent url(../assets/images/arrow_down.png) no-repeat center center;
-	}
-	.ac-container input:checked + label:hover:after {
-		background-image: url(../assets/images/arrow_up.png);
-	}
-	.ac-container input {
-		display: none;
-	}
-	.ac-container article {
-		background: rgba(255, 255, 255, 0.5);
-		margin-top: -1px;
-		overflow: hidden;
-		height: 0px;
-		position: relative;
-		z-index: 10;
-		-webkit-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-		-moz-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-		-o-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-		-ms-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-		transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-	}
-	.ac-container article p {
-		font-style: italic;
-		color: #777;
-		line-height: 23px;
-		font-size: 14px;
-		padding: 5px 20px;
-		text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
-	}
-	.ac-container input:checked ~ article {
-		-webkit-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		-moz-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		-o-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		-ms-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3);
-	}
-	.ac-container input:checked ~ article.ac-small {
-		height: 400px;
-	}
-	.ac-container input:checked ~ article.ac-medium {
-		height: 450px;
-	}
-	.ac-container input:checked ~ article.ac-large {
-		height: 500px;
-	}
-
+	
+	
 	.form-group {
 		margin-bottom: 5px!important;
 	}
@@ -424,19 +274,7 @@
     outline: none;
 }
 
-/*hide input type number arrows*/
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0; 
-}
-/*.swal2-contentwrapper
-{
-	margin: 0 auto;
-    height: 150px;
-}*/
+
 </style>
 </head>
 
@@ -480,9 +318,9 @@ input[type=number]::-webkit-outer-spin-button {
             <p>Please fill information to a create an event </p>
              <img src="../assets/images/banner.jpg" class="img-thumbnail"  alt="banner-image"/>
             <!-- Form progress -->
-    <div class="form-wizard-steps form-wizard-tolal-steps-7">
+    <div class="form-wizard-steps form-wizard-tolal-steps-1">
               <div class="form-wizard-progress">
-                <div class="form-wizard-progress-line" data-now-value="100" data-number-of-steps="7" style="width: 100%;"></div>
+                <div class="form-wizard-progress-line" data-now-value="100" data-number-of-steps="1" style="width: 100%;"></div>
               </div>
               <!-- Step 1 -->
               <div class="form-wizard-step active">
@@ -535,27 +373,35 @@ input[type=number]::-webkit-outer-spin-button {
                       </div>
                       <div class="form-group">
                       	<span class="btn btn-primary btn-file"> 
-                       	 Browse...<input type="file" name="wowtag_video" id="video_size" class=" file" accept="video/*">
+                       	 Browse...<input type="file" name="wowtag_video" id="video_size" class="file" accept="video/*">
                        	</span>
+                       	<!-- alert msg show here -->
+                        <div class="alert_msg" style="color: red; font-weight: bold; font-size: 16px;" ></div>
 
                         <div id="video_show" style="display: none;" >
+                        	<div class="remove_video" style="cursor: pointer; position:absolute;  left: 291px; z-index:9999;">
+		                          <img src="<?php echo base_url('assets/images/wow-close.png'); ?>" />
+		                    </div>
                         	<video width="200" height="150" controls>
 							 	 <source src="mov_bbb.mp4" id="video_here">
 							    Your browser does not support HTML5 video.
 							</video>
+							<audio id="video_url"></audio> <!-- here store video url and check duration -->
                         </div>
+
                         <div class="input-group col-xs-12" style="margin-top:0px;">
                           <p>Choose a compelling 60-120 seconds event promotional ads video that will create a lasting impression in your viewers mind</p>
                         </div>                        
                       </div>
+
                     </div>
                     <div class='col-sm-6' style="margin-top: 10px;">
                       <label>!Wowtag Runtime From: </label>
-                      <input type='text'  id="runtime_from" name="runtime_from" class="form-control" value="<?php if(isset($event->runtimefrom)) { echo $event->runtimefrom; } ?>" />
+                      <input type='text'  id="runtime_from" name="runtime_from" class="form-control" value="<?php if(isset($event->runtimefrom)) { echo date('M-d-y',strtotime($event->runtimefrom)); } ?>" />
                     </div>
                     <div class='col-sm-6' style="margin-top: 10px;" >
                       <label>!Wowtag Runtime To: </label>
-                      <input type='text' id="totime_to" name="totime_to" class="form-control" value="<?php if(isset($event->runtimeto)) { echo $event->runtimeto; } ?>">
+                      <input type='text' id="totime_to" name="totime_to" class="form-control" value="<?php if(isset($event->runtimeto)) { echo date('M-d-y',strtotime($event->runtimeto)); } ?>">
                     </div>
                   </div>
 
@@ -571,10 +417,7 @@ input[type=number]::-webkit-outer-spin-button {
     </form>
  
               <!-- Form Step 1 --> 
-         
-
-      
-                     
+            
         
           </div>
         </div>
@@ -602,10 +445,6 @@ input[type=number]::-webkit-outer-spin-button {
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script>   
  
 
- 
-<!-- model popup bootstrap --> 
-<!-- <script src="<?php echo base_url('assets/js/bootstrap3.3.4.min.js')?>"></script> -->
-
 <script>
 
 
@@ -623,13 +462,53 @@ input[type=number]::-webkit-outer-spin-button {
                 format:'M-d-Y',      
                	timepicker:false,               	 	
     });
-            
- 
-
-
+    
 
 $(".delete").click(function(){
     $(".remove_img").remove();
+});
+
+//video size and duration limitation wowtag video     
+
+$(document).on("change", "#video_size", function(e)
+{
+
+    var file = e.currentTarget.files[0];
+  	//check file extension for audio/video type
+  	if(file.name.match(/\.(avi|mp3|mp4|mpeg|ogg)$/i)){
+    	var obUrl = URL.createObjectURL(file);
+    	document.getElementById('video_url').setAttribute('src', obUrl);
+   
+  	}
+
+	var myVideoPlayer = document.getElementById('video_url');
+    
+	myVideoPlayer.addEventListener('loadedmetadata', function () {
+    	var duration = myVideoPlayer.duration;
+    	// console.log("Duration is " + duration.toFixed(0) + " seconds.");
+
+    	if (duration >= 120 )
+        	{
+		        $('#video_show').hide();	         
+		        $('.alert_msg').text("Pls upload 2 Mins video");  
+		        $('.alert_msg').show(); 		       
+
+         	}else
+         		{	
+				  	var $source = $('#video_here');				 
+				  	$source[0].src = URL.createObjectURL(e.currentTarget.files[0]);
+				  	$source.parent()[0].load();
+				  	$('#video_show').show();	
+				  	$('.alert_msg').hide();
+
+				  	$(".remove_video").click(function () { 
+			               	$('#video_show').hide();                 
+			                $('#video_size').val("");
+
+		            }); 	              			  
+				}
+	});
+
 });
 
 //create event form submit
@@ -676,22 +555,21 @@ var base_url = '<?php echo base_url() ?>'; //form submited
 		                {
 		                   if(response.status == 'success')
 		                   {
-		                   // alert("success");
+		                   
 		                    swal({
-		                                                 title: "Success!",
-		                                                 text: "Your Event Created Successfully...",
-		                                                 type: "success",
-		                                                 timer: 3000
-		                                                 }).then(() => {                     
-		                   									 window.location.href = "<?php echo base_url('eventhubb/get_eventhubb'); ?>";
-		                   								});;  
+		                            title: "Success!",
+		                            text: "Your Event Created Successfully...",
+		                            type: "success",
+		                            timer: 3000
+		                        }).then(() => 	{                     
+		                   							window.location.href = "<?php echo base_url('eventhubb/get_eventhubb'); ?>";
+		                   						});;  
 		                   
 		                    }
 		                    else 
 		                   	{
-		                    
 		                    	swal("Sorry!", "somethink wrong try again !", "error");
-		                  	 }          
+		                  	}          
 		                }
 
 		       });

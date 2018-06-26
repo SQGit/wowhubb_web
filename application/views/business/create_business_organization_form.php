@@ -32,28 +32,18 @@
 <link rel="shortcut icon" type="image/png" href="<?php echo base_url ('assets/images/fav.png') ?>"/>
 <style type="text/css">
 
-.textBox {
-	background-image: url(./assets/images/designation-icon.png);
-	background-position: 0 5px;
-	background-size: 30px;
-	background-repeat: no-repeat;
-	padding-left: 17px;
+
+/*animation stop*/
+.landing-page .content-bg {
+    background-color: rgba(255, 94, 58, 0.95);
+    animation-name: none;
 }
-/*.form-wizard img
-{
-	max-width:100%!important;
-	max-height:152px!important;
-}*/
 /*popup close button  */
 .large.tooltip-inner {
 	max-width: 350px;
 	width: 350px;
 }
-#footer {
-	background: #fff;
-	position: relative;
-	top: 0px;
-}
+
 .btn-file {
 	position: relative;
 	overflow: hidden;
@@ -134,94 +124,8 @@
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
 	border-top-color: #EEEEEE;
 }
-.ac-container {
-	width: 100%;
-	margin: 10px auto 30px auto;
-	text-align: left;
-}
-.ac-container label {
-	padding: 5px 10px;
-	position: relative;
-	z-index: 20;
-	display: block;
-	
-	cursor: pointer;
-	color: #777;
-	text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
-	line-height: 20px;
-	font-size: 12px;
-	background: #ffffff;
-	background: -moz-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #ffffff), color-stop(100%, #eaeaea));
-	background: -webkit-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-	background: -o-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-	background: -ms-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-	background: linear-gradient(top, #ffffff 1%, #eaeaea 100%);
- filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea', GradientType=0 );
-	box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3), 1px 0px 0px 0px rgba(255,255,255,0.9) inset, 0px 2px 2px rgba(0,0,0,0.1);
-}
-.ac-container label:hover {
-	background: #fff;
-}
-.ac-container input:checked + label, .ac-container input:checked + label:hover {
-	background: #c6e1ec;
-	color: #3d7489;
-	text-shadow: 0px 1px 1px rgba(255,255,255, 0.6);
-	box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3), 0px 2px 2px rgba(0,0,0,0.1);
-}
-.ac-container label:hover:after, .ac-container input:checked + label:hover:after {
-	content: '';
-	position: absolute;
-	width: 24px;
-	height: 24px;
-	right: 2px;
-	top: 2px;
-	background: transparent url(../assets/images/arrow_down.png) no-repeat center center;
-}
-.ac-container input:checked + label:hover:after {
-	background-image: url(../assets/images/arrow_up.png);
-}
-.ac-container input {
-	display: none;
-}
-.ac-container article {
-	background: rgba(255, 255, 255, 0.5);
-	margin-top: -1px;
-	overflow: hidden;
-	height: 0px;
-	position: relative;
-	z-index: 10;
-	-webkit-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-	-moz-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-	-o-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-	-ms-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-	transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-}
-.ac-container article p {
-	font-style: italic;
-	color: #777;
-	line-height: 23px;
-	font-size: 14px;
-	padding: 5px 20px;
-	text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
-}
-.ac-container input:checked ~ article {
-	-webkit-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-	-moz-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-	-o-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-	-ms-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-	transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-	box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3);
-}
-.ac-container input:checked ~ article.ac-small {
-	height: 400px;
-}
-.ac-container input:checked ~ article.ac-medium {
-	height: 450px;
-}
-.ac-container input:checked ~ article.ac-large {
-	height: 500px;
-}
+
+
 .file {
 	visibility: hidden;
 	position: absolute;
@@ -271,21 +175,6 @@
 	border: 1px solid #ddd;
 	border-bottom-color: transparent;
 }
-.btn-file input[type=file] {
-	  position: absolute;
-	  top: 0;
-	  right: 0;
-	  min-width: 100%;
-	  min-height: 100%;
-	  font-size: 100px;
-	  text-align: right;
-	  filter: alpha(opacity=0);
-	  opacity: 0;
-	  outline: none;
-	  background: white;
-	  cursor: inherit;
-	  display: block;
-	}
 
 	img {
     max-width: 200px;
@@ -293,7 +182,7 @@
     display: inline-block;
 	}
 
-	.remove {
+.cover_remove {
 	  display: block;
 	  background: #444;
 	  border: 1px solid black;
@@ -301,13 +190,14 @@
 	  text-align: center;
 	  cursor: pointer;
 	  width: 200px;
-      margin-left: 149px;
+      
 	}
-	.remove:hover {
+.cover_remove:hover {
 	  background: white;
 	  color: black;
 	}	
-	.remove1 {
+
+.remove {
 	  display: block;
 	  background: #444;
 	  border: 1px solid black;
@@ -315,9 +205,23 @@
 	  text-align: center;
 	  cursor: pointer;
 	  width: 200px;
-      margin-left: 149px;
+      margin-left: 137px;
 	}
-	.remove1:hover {
+.remove:hover {
+	  background: white;
+	  color: black;
+	}	
+.remove1 {
+	  display: block;
+	  background: #444;
+	  border: 1px solid black;
+	  color: white;
+	  text-align: center;
+	  cursor: pointer;
+	  width: 200px;
+      margin-left: 137px;
+	}
+.remove1:hover {
 	  background: white;
 	  color: black;
 	}
@@ -351,15 +255,120 @@
     box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
     margin-top: 0px;
 }
+.form-control{
+  text-transform: capitalize;
+}
+
+.alert {
+     padding: 4px; 
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    width: 160px;
+}
+
+/*here start with multiple  input words  */
+.multipleInput-container {
+     border:1px #999 solid;
+     padding:1px;
+     padding-bottom:0;
+     cursor:text;
+     font-size:15px;
+     width:100%;
+    border-radius: 6px;
+    
+}
+ 
+.multipleInput-container input {  
+    outline: none;
+    font-size:15px;
+    clear:both;
+    height:40px;
+    border:0;
+    margin-bottom:1px;
+    background-color: #ff000000;
+}
+ 
+.multipleInput-container ul {
+    list-style-type:none;
+}
+ 
+li.multipleInput-email {
+    float:left;
+    padding:6px ;
+    color: #fff;
+  background: #FD9160;
+  margin-top: 0;
+  border-radius: 6px;
+  margin: 6px 2px 6px 6px;
+}
+ 
+.multipleInput-close {
+    width:16px;
+    height:16px;
+    display:block;
+    float:right;
+    margin: -2px 0px 0px 8px;
+  color: #fff;
+  font-size: 16px;
+}  
+/*here start with multiple input  words  */
+.keywordSearch-container {
+     border:1px #999 solid;
+     padding:1px;
+     padding-bottom:0;
+     cursor:text;
+     font-size:15px;
+     width:100%;
+    border-radius: 6px;    
+}
+ 
+.keywordSearch-container input {  
+    outline: none;
+    font-size:13px;
+    clear:both;
+    height:40px;
+    border:0;
+	color:#333;
+    margin-bottom:1px;
+    background-color: #f8e6ed;
+}
+ 
+.keywordSearch-container ul {
+    list-style-type:none;
+}
+ 
+li.keywordSearch-email {
+  float:left;
+  padding:6px ;
+  color: #fff;
+  background: #FD9160;
+  margin-top: 0;
+  border-radius: 6px;
+  font-size:13px;
+  margin: 6px 2px 6px 6px;
+}
+ 
+.keywordSearch-close {
+    width:16px;
+    height:16px;
+    display:block;
+    float:right;
+    margin: -2px 0px 0px 8px;
+  color: #fff;
+  font-size: 16px;
+}  
+
 </style>
 </head>
 
 <body class="landing-page">
+	<div class="swal"></div>
 <div class="content-bg-wrap">
   <div class="content-bg"></div>
 </div>
 
-<!-- Header
+<!-- Header 
     ================================================= -->
   <header id="header">
       <nav class="navbar navbar-default navbar-fixed-top menu" style="padding-top:3px!important; padding-bottom:3px!important;">
@@ -385,17 +394,7 @@
       
         <div class="col-md-12">
           <div class="col-md-10 form-wizard form-body-classic form-header-classic" style="min-width:1200px;"> 
-            <!-- 
-            Just change the class name for make it with different style of design.
-
-            Use anyone class "form-header-classic" or "form-header-modarn" or "form-header-stylist" for set your form header design.
-            
-            Use anyone class "form-body-classic" or "form-body-material" or "form-body-stylist" for set your form element design.
-            -->
-            
-            <h3 style="font-size:15px; font-weight:bold;">Organisation Hosting Page</h3>
-
-            
+           
             
       <img src="../assets/images/ohp_banner.jpg" class="img-thumbnail"  alt="banner-image" style="margin-top:10px;"/>
       
@@ -448,29 +447,29 @@
 				                  
 				                    <div class='form-group col-sm-6' >
 				                      <label>First Name</label>
-				                      <input type='text' name="first_name"  class="form-control " />
+				                      <input type='text' name="first_name" class="required form-control" />
 				                    </div>
 				                    <div class='form-group col-sm-6' >
 				                      <label>Last Name</label>
-				                      <input type='text'  name="last_name"  class="form-control" />
+				                      <input type='text'  name="last_name" class="required form-control" />
 				                    </div>                    
 				                    <div class='form-group col-sm-6' >
 				                      <label>Email</label>
-				                      <input type='text'  name="email"  class="form-control"  />
+				                      <input type='text'  name="email"  class="required form-control"  />
 				                    </div>
 				                    <div class='form-group col-sm-6' >
 				                      <label>Phone</label>
-				                      <input type='text'  name="phone"  class="form-control"  />
+				                      <input type='text'  name="phone"  class="required form-control" maxlength="15" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" />
 				                    </div>
 			                
 		               			</div>
 		                <div class='form-group col-sm-4'>Business Information <br>
-		                	<label>Select Your Organisation Type</label>
+		                	<label>Select Your organization Type</label>
 		                		<select name="business_type" id="organisation_type" class="form-control" style="background-color:#eff0f1;">			 
 				                    <option value="company">Company /Institution</option>
 				                    <option value="public">A Public Figure, Artist, Guest Speaker</option>
 				                    <option value="local_business">A Local Based Business</option>
-				                    <option value="Entertainment">Entertainment Based Organisation</option>                  
+				                    <option value="Entertainment">Entertainment Based organization</option>                  
 				            	</select>
 		                </div>
 
@@ -500,12 +499,12 @@
 				                        <option value="Cargo">Cargo &amp; Freight Company</option>
 				                        <option value="College">College &amp; Universities</option>
 				                        <option value="Casino">Casino &amp; Gambling</option>
-				                        <option value="Community Organisations">Community Organisations</option>
+				                        <option value="Community organizations">Community organizations</option>
 				                        <option value="Community Services">Community Services </option>
 				                        <option value="Consulting Services">Consulting Services </option>
 				                        <option value="Education Training">Education &amp; Training</option>
 				                        <option value="Elementary School">Elementary School</option>
-				                        <option value="Government Organisation">Government Organisation</option>
+				                        <option value="Government organization">Government organization</option>
 				                  	</select>
 		                    	</div>
 
@@ -593,7 +592,7 @@
 
 				                    <div class='form-group col-sm-12' >
 				                      <label>Company/Organization Name</label>
-				                      <input type='text' name="company_name"  class="form-control textBox" />
+				                      <input type='text' name="company_name"  class="required form-control " />
 				                    </div>
 				                    <div class='form-group col-sm-12' >
 				                      <label>Venue</label>
@@ -601,27 +600,28 @@
 				                    </div>
 				                    <div class='form-group col-sm-12' >
 				                      <label>Address1</label>
-				                      <input type='text'  name="address1"  class="form-control" />
+				                      <input type='text'  name="address1"  class="required form-control" />
 				                    </div>
 				                    <div class='form-group col-sm-12' >
 				                      <label>Address2</label>
 				                      <input type='text'  name="address2"  class="form-control" />
-				                    </div>				                    
-				                    
-				                    <div class="form-group col-sm-12" >
+				                    </div>		                    
+				                   
+				                   	 <div class="form-group col-sm-12" >
 				                    	<label>Select Country</label>
 					                      <select name="country" onchange="print_state('state',this.selectedIndex);" id="country" class="form-control" style="background-color:#eff0f1;">				                     
 									      </select>
 					                </div>
+
 					                <div class="form-group col-sm-12">
 					                      <label>Select State</label>					                      
 					                       <select name="state" id ="state" class="form-control"></select>
 					                       <script language="javascript">print_country("country");</script>	
 					                </div>
-
+                                   
 				                    <div class='form-group col-sm-12' >
 				                      <label>Zipcode/Postal Code</label>
-				                      <input type='text' name="zipcode"  class="form-control" />
+				                      <input type='text' name="zipcode"  class="form-control" maxlength="6" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" />
 				                    </div>
 				                    <div class='form-group col-sm-12' >
 				                      <label>Website Links</label>
@@ -634,16 +634,19 @@
 		                  		<div class='row'>
 				                    <div class='form-group-1up col-sm-12'>
 
-				                      <textarea type='text'  name="description"  class="form-control" style="min-height:300px;" placeholder="Give A Brief Description of Yourself/ Organisation" ></textarea>
+				                      <textarea type='text'  name="description"  class="form-control" style="min-height:300px;" placeholder="Give A Brief Description of Yourself/ organization" ></textarea>
 				                    </div>
 
 				                    <div class='form-group col-sm-12'>
 				                      <div class='col-sm-12' style="background-color:#f9f9f9;">
 				                        <label>Add Cover Page Image</label>
+				                        <div class="alert alert-danger" id="img_req" role="alert" style="display:none;" >Cover Image is Required
+                                		</div>
 				                        <div class="form-group">
 				                          	<div class="field" align="left">
 				                         		<input type="button" class="btn btn-primary"  value="Browse Image..." onclick="document.getElementById('cover_img').click();" />
-				                         		<input type="file" style="display:none;" name="cover_img" id="cover_img" class="file" accept="image/*" title="cover image">  
+				                         		<div id="img_preview1"></div>
+				                         		<input type="file" style="display:none;" name="cover_img" id="cover_img" class="required file" accept="image/*" title="cover image">  
 				                        	</div>  
 				                        </div>
 				                      </div>
@@ -666,359 +669,12 @@
 
                     </div>
 
-                	<!-- second form -->
-                    <div  id="second_form" style="display: none;" class="animated bounceInUp">
-                                    
-                        <div class='col-sm-5'>
-                   			<div class='row'>
-                  				<div class="form-group col-sm-12" style="font-size: 15px;">
-				                      <label>Choose a Category</label>
-				                    <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
-				                      <option selected="selected" class="option">Artist</option>
-				                       <option class="option">Author</option>
-				                       <option class="option">Music Band</option>
-				                       <option class="option">Motivational Speaker</option>
-				                       <option class="option">Comedian</option>
-				                       <option class="option">Musician</option>
-				                       <option class="option">Political Candidate</option>
-				                       <option class="option">Life Coach</option>
-				                       <option class="option">Fitness Coach</option>
-				                       <option class="option">Journalist</option>
-				                       <option class="option">Politician</option>
-				                       <option class="option">Public Figure</option>
-				                       <option class="option">Writer </option>
-				                       <option class="option">Chef</option>
-				                       <option class="option">Fashion Model</option>
-				                       <option class="option">Dancer</option>
-				                       <option class="option">Career Adviser</option>
-				                  	</select>
-		                    	</div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>Company/Organization Name</label>
-			                      <input type='text' name="event_topic"  class="form-control textBox" />
-			                    </div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>Venue</label>
-			                      <input type='text' id="event_date" name="event_date"  class="form-control" />
-			                    </div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>Address1</label>
-			                      <input type='text' id="event_date" name="event_date"  class="form-control" />
-			                    </div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>Address2</label>
-			                      <input type='text' id="event_date" name="event_date"  class="form-control" />
-			                    </div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>Zipcode/Postal Code</label>
-			                      <input type='text' id="event_date" name="event_date"  class="form-control" />
-			                    </div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>State</label>
-			                      <input type='text' id="event_date" name="event_date"  class="form-control" />
-			                    </div>
-                    			<div class='form-group col-sm-12' >
-                      				<label>Country</label>
-                      				<select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
-				                      <option value="0">Albania</option>
-				                      <option value="day1">Alaska</option>
-				                      <option value="day2">Algeria</option>
-				                      <option value="day3">India</option>
-                                      <option value="day3">USA</option>
-				                     
-				                  	</select>
-                    			</div>
-
-			                    <div class='form-group col-sm-12' >
-			                      <label>Website Links</label>
-			                      <input type='text' id="event_date" name="event_date"  class="form-control" />
-			                    </div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>Business Phone</label>
-			                      <input type='text' id="event_date" name="event_date"  class="form-control" />
-			                    </div>
-                    		</div>
-                  		</div>
-
-		                  	<div class='col-sm-7' style="margin-bottom: 10px;">
-		                  		<div class='row'>
-		                    		<div class='form-group col-sm-12'>
-		                      			<textarea type='text' id="description" name="event_description"  class="form-control" style="min-height:300px;" placeholder="Give A Brief Description of Yourself/ Organisation" ></textarea>
-		                    		</div>
-				                    <div class='form-group col-sm-12'>
-				                      <div class='col-sm-12' style="background-color:#f9f9f9;">
-				                        <label>Add Logo Image</label>
-				                        <div class="form-group">
-				                          <input type="file" name="img[]" class="file">
-				                          <div class="input-group col-xs-12"> <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
-				                            <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
-				                          </div>
-				                          <div class="input-group col-xs-12" style="margin-top:15px;"> <span class="input-group-btn">
-				                            <button class="browse btn-1 btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
-				                            </span> </div>
-				                        </div>
-				                      </div>
-				                    </div>
-				                    <div class='form-group col-sm-12'>
-				                      <div class='col-sm-12' style="background-color:#f9f9f9;">
-				                        <label>Add Cover Page Image</label>
-				                        <div class="form-group">
-				                          <input type="file" name="img[]" class="file">
-				                          <div class="input-group col-xs-12"> <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
-				                            <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
-				                          </div>
-				                          <div class="input-group col-xs-12" style="margin-top:15px;"> <span class="input-group-btn">
-				                            <button class="browse btn-1 btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
-				                            </span> </div>
-				                        </div>
-				                      </div>
-				                    </div>
-		                  		</div>
-		                	</div>
-
-                    </div>
-
-                	<!-- third form -->
-                    <div id="third_form" style="display: none;" class="animated  bounceInUp">
-                                     
-                        <div class='col-sm-5'>
-                   			<div class='row'>
-                  				<div class="form-group col-sm-12" style="font-size: 15px;">
-				                     <label>Choose a Category</label>
-				                    <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
-				                      <option selected="selected" class="option">Auto Dealer </option>
-				                       <option class="option">Bar &amp; Resturant </option>
-				                       <option class="option">Appliance Store</option>
-				                       <option class="option">Baby &amp; Kids Shop </option>
-				                       <option class="option">Building Material Store</option>
-				                       <option class="option">Clothing Store </option>
-				                       <option class="option">Dentist</option>
-				                       <option class="option">Computer Services </option>
-				                       <option class="option">Computer Software</option>
-				                       <option class="option">Doctor &amp; Other Health Professional Services</option>
-				                       <option class="option">Fitness Center</option>
-				                       <option class="option">Home Decor</option>
-				                       <option class="option">Household Supplies</option>
-				                       <option class="option">Jeewelry &amp; Watches</option>
-				                       <option class="option">Office Supplies</option>
-				                       <option class="option">Pet Supplies</option>
-				                       <option class="option">Tools &amp; Equipment Store</option>
-				                       <option class="option">Wine &amp; Spirit Store</option>
-				                       <option class="option">Health Suppliement Store</option>
-				                       <option class="option">Nursing Homes </option>
-				                       <option class="option">Food Store</option>
-				                       <option class="option">Phone &amp; Accessories</option>
-				                       <option class="option">Realtor </option>
-				                       <option class="option">Medical Supplies</option>
-				                       <option class="option">Publishing &amp; Printing Services </option>
-				                       <option class="option">Beauty &amp; Spas</option>
-				                       <option class="option">Trucking &amp; Haulages</option>
-				                  	</select>
-		                    	</div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>Company/Organization Name</label>
-			                      <input type='text' name="event_topic"  class="form-control textBox" />
-			                    </div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>Venue</label>
-			                      <input type='text' id="event_date" name="event_date"  class="form-control" />
-			                    </div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>Address1</label>
-			                      <input type='text' id="event_date" name="event_date"  class="form-control" />
-			                    </div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>Address2</label>
-			                      <input type='text' id="event_date" name="event_date"  class="form-control" />
-			                    </div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>Zipcode/Postal Code</label>
-			                      <input type='text' id="event_date" name="event_date"  class="form-control" />
-			                    </div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>State</label>
-			                      <input type='text' id="event_date" name="event_date"  class="form-control" />
-			                    </div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>Country</label>
-			                      			<select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
-							                      <option value="0">Albania</option>
-							                      <option value="day1">Alaska</option>
-							                      <option value="day2">Algeria</option>
-							                      <option value="day3">India</option>
-			                                      <option value="day3">USA</option>
-							                     
-							                </select>
-			                    </div>
-
-			                    <div class='form-group col-sm-12' >
-			                      <label>Website Links</label>
-			                      <input type='text' id="event_date" name="event_date"  class="form-control" />
-			                    </div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>Business Phone</label>
-			                      <input type='text' id="event_date" name="event_date"  class="form-control" />
-			                    </div>
-                    		</div>
-                  		</div>
-
-		                <div class='col-sm-7'>
-		                  <div class='row'>
-		                    <div class='form-group col-sm-12'>
-
-		                      <textarea type='text' id="description" name="event_description"  class="form-control" style="min-height:300px;" placeholder="Give A Brief Description of Yourself/ Organisation" ></textarea>
-		                    </div>
-		                    <div class='form-group col-sm-12'>
-		                      <div class='col-sm-12' style="background-color:#f9f9f9;">
-		                        <label>Add Logo Image</label>
-		                        <div class="form-group">
-		                          <input type="file" name="img[]" class="file">
-		                          <div class="input-group col-xs-12"> <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
-		                            <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
-		                          </div>
-		                          <div class="input-group col-xs-12" style="margin-top:15px;"> <span class="input-group-btn">
-		                            <button class="browse btn-1 btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
-		                            </span> </div>
-		                        </div>
-		                      </div>
-		                    </div>
-		                    <div class='form-group col-sm-12'>
-		                      <div class='col-sm-12' style="background-color:#f9f9f9;">
-		                        <label>Add Cover Page Image</label>
-		                        <div class="form-group">
-		                          <input type="file" name="img[]" class="file">
-		                          <div class="input-group col-xs-12"> <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
-		                            <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
-		                          </div>
-		                          <div class="input-group col-xs-12" style="margin-top:15px;"> <span class="input-group-btn">
-		                            <button class="browse btn-1 btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
-		                            </span> </div>
-		                        </div>
-		                      </div>
-		                    </div>
-		                  </div>
-		                </div>
-
-                    </div>
-
-                	<!-- fourth form -->
-                    <div id="fourth_form" style="display: none;" class="animated  bounceInUp">
-                                     
-                        <div class='col-sm-5'>
-                   			<div class='row'>
-                  				<div class="form-group col-sm-12" style="font-size: 15px;">
-				                    <label>Choose a Category</label>
-				                    <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
-				                       <option selected="selected" class="option">Sports Team</option>
-				                       <option class="option">Concert Tour</option>
-				                       <option class="option">Cultural Groups</option>
-				                       <option class="option">Festivals</option>
-				                       <option class="option">Movie Theater</option>
-				                       <option class="option">Television Station</option>
-				                       <option class="option">Music Awards</option>
-				                       <option class="option">Performing Arts</option>
-				                       <option class="option">Podcast</option>
-				                       <option class="option">Radio Station</option>
-				                       <option class="option">Theater Arts</option>
-				                       <option class="option">TV Network</option>
-				                       <option class="option">Prime Time TV Event</option>
-				                       <option class="option">TV Shows</option>
-				                       <option class="option">Magazine</option>
-				                       <option class="option">Library</option>
-				                       <option class="option">Muesuem </option>
-				                       <option class="option">Book Launch</option>
-				                  	</select>
-		                    	</div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>Company/Organization Name</label>
-			                      <input type='text' name="event_topic"  class="form-control textBox" />
-			                    </div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>Venue</label>
-			                      <input type='text' id="event_date" name="event_date"  class="form-control" />
-			                    </div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>Address1</label>
-			                      <input type='text' id="event_date" name="event_date"  class="form-control" />
-			                    </div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>Address2</label>
-			                      <input type='text' id="event_date" name="event_date"  class="form-control" />
-			                    </div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>Zipcode/Postal Code</label>
-			                      <input type='text' id="event_date" name="event_date"  class="form-control" />
-			                    </div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>State</label>
-			                      <input type='text' id="event_date" name="event_date"  class="form-control" />
-			                    </div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>Country</label>
-			                      <select name="event_totaldays" id="days" class="form-control" style="background-color:#eff0f1;">
-							                      <option value="0">Albania</option>
-							                      <option value="day1">Alaska</option>
-							                      <option value="day2">Algeria</option>
-							                      <option value="day3">India</option>
-			                                      <option value="day3">USA</option>							                     
-							                  	</select>
-			                    </div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>Website Links</label>
-			                      <input type='text' id="event_date" name="event_date"  class="form-control" />
-			                    </div>
-			                    <div class='form-group col-sm-12' >
-			                      <label>Business Phone</label>
-			                      <input type='text' id="event_date" name="event_date"  class="form-control" />
-			                    </div>
-                    		</div>
-                  		</div>
-
-		                <div class='col-sm-7'>
-		                  <div class='row'>
-		                    <div class='form-group col-sm-12'>
-
-		                      <textarea type='text' id="description" name="event_description"  class="form-control" style="min-height:300px;" placeholder="Give A Brief Description of Yourself/ Organisation" ></textarea>
-		                    </div>
-		                    <div class='form-group col-sm-12'>
-		                      <div class='col-sm-12' style="background-color:#f9f9f9;">
-		                        <label>Add Logo Image</label>
-		                        <div class="form-group">
-		                          <input type="file" name="img[]" class="file">
-		                          <div class="input-group col-xs-12"> <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
-		                            <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
-		                          </div>
-		                          <div class="input-group col-xs-12" style="margin-top:15px;"> <span class="input-group-btn">
-		                            <button class="browse btn-1 btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
-		                            </span> </div>
-		                        </div>
-		                      </div>
-		                    </div>
-		                    <div class='form-group col-sm-12'>
-		                      <div class='col-sm-12' style="background-color:#f9f9f9;">
-		                        <label>Add Cover Page Image</label>
-		                        <div class="form-group">
-		                          <input type="file" name="img[]" class="file">
-		                          <div class="input-group col-xs-12"> <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
-		                            <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
-		                          </div>
-		                          <div class="input-group col-xs-12" style="margin-top:15px;"> <span class="input-group-btn">
-		                            <button class="browse btn-1 btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
-		                            </span> </div>
-		                        </div>
-		                      </div>
-		                    </div>
-		                  </div>
-		                </div>
-
-                    </div>            
-          	
         	
         		</div>
                 
                 <div class='col-sm-12' style="margin-bottom:20px;">
                   <div class="form-wizard-buttons">                 
-                    <button type="button" class="btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
+                    <button type="button" class="cancel btn btn-next">Next <i class="fa fa-arrow-right"></i></button>
                   </div>
                 </div>
                
@@ -1163,7 +819,7 @@
 					            <div class="pull-left" style="width:21%; font-size:13px; margin-right:5px; color:#333;">Enter Your Business Coverage Areas</div>
 
 					            <div class="pull-left" style="width:25%; font-size:13px; margin-right:15px;">
-					            	<input type='text' id="event_date" name="area_keyword"  class="area_keyword form-control" placeholder="Houston"  />
+					            	<input type='text' id="coverage_area" name="coverage_area[]"  class="form-control" placeholder="Houston"  />
 					            </div>
 					            <div class="pull-left" style="width:11%; font-size:13px; margin-right:5px; color:#333;">Rank Client Base
 					            </div>
@@ -1181,6 +837,7 @@
 				    </div>              
                        
                 </div>
+                
                  	<div class='form-group col-sm-12'>
                  			<span style="color: #e91e63; font-size: 17px; text-transform: capitalize;"  id="areakeyword_show" > </span>
              		</div>
@@ -1192,7 +849,7 @@
                         
                         	<div class="pull-left" style="width:28%; font-size:13px; margin-right:5px; color:#333;"">Generate Your Business Search Keywords Here</div>
                         	<div class="pull-left" style="width:36%; font-size:13px; margin-right:15px;">
-                        		<input type='text' id="event_date" name="event_date"  class="search_keyword form-control" placeholder="Vanilla Cakes"  />
+                        		<input type='text'  name="keyword_search[]" id="keyword_search" class="form-control" placeholder="Vanilla Cakes"  />
                         	</div>                       
                         	
                         </div>
@@ -1240,20 +897,51 @@
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script> 
 <!-- model popup bootstrap --> 
 
-
 <script>
 	
 // hide enter button to submit the form
 $(document).ready(function(){
-$('#create_event').on('keyup keypress', function(e) {
+$('#create_business_form').on('keyup keypress', function(e) {
   var keyCode = e.keyCode || e.which;
   if (keyCode === 13) { 
     e.preventDefault();
     return false;
   }
-});	
-});		
-//organisation type select option  show and hide
+}); 
+});   
+
+$('.txtOnly').keypress(function (e) {
+      var regex = new RegExp("^[a-zA-Z]+$");
+      var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+      if (regex.test(str)) {
+        return true;
+      }
+      else
+      {
+      e.preventDefault();
+      $('.error').show();
+      $('.error').text('Please Enter Alphabate');
+      return false;
+      }
+    });
+
+// not allow special character
+function cleanspecial_char(t) {
+            t.value = t.value.toString().replace(/[^a-zA-Z 0-9\n\r]+/g, '');
+        }
+
+// validation for image
+$(document).on("click", ".cancel", function(e){
+
+if( document.getElementById("cover_img").files.length == 0 ){
+    $('#img_req').show();
+}
+else
+{
+  $('#img_req').hide();
+}
+});
+//organization type select option  show and hide
 
 
 $(document).ready(function(){
@@ -1320,6 +1008,7 @@ $(document).ready(function() {
   }
 });
 
+
 //image preview and delete step1 cover image
 
 $(document).ready(function() {
@@ -1327,27 +1016,32 @@ $(document).ready(function() {
     $("#cover_img").on("change", function(e) {
       var files = e.target.files,
         filesLength = files.length;
-      for (var i = 0; i < filesLength; i++) {
-        var f = files[i]
+      
+        var f = files[0]
         var fileReader = new FileReader();
         fileReader.onload = (function(e) {
           var file = e.target;
-          $("<span class=\"pip\">" +
+
+                  
+          $("#img_preview1").html("<span class=\"pip\">" +
             "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
-            "<br/><span class=\"remove1\">Remove image</span>" +
-            "</span>").insertAfter("#cover_img");
-          $(".remove1").click(function(){
+            "<br/><span class=\"cover_remove\">Remove image</span>" +
+            "</span>").insertAfter("#img_files");
+
+          $(".cover_remove").click(function(){
             $(this).parent(".pip").remove();
+            $('#cover_img').val("");
           });          
                    
         });
         fileReader.readAsDataURL(f);
-      }
+      
     });
   } else {
     alert("Your browser doesn't support to File API")
   }
 });
+
 
 //image preview and delete step2 product image
 
@@ -1398,25 +1092,136 @@ $(document).on("change", "#video_size", function(evt)
 				 }
 				});
 
- // keyword show span step3   
-$(document).ready(function(){
-        $(".area_keyword").keyup(function(e){
-        	
-            var message = $(this).val();
-            // alert(message);
-           	$('#areakeyword_show').html(message );
-        });
-    });
+ 
 
- // keyword show span step3   
-$(document).ready(function(){
-        $(".search_keyword").keyup(function(e){
-        	
-            var message = $(this).val();
-            // alert(message);
-           	$('#search_keyword_show').html(message );
-        });
-    });
+// here mltiple cover area add 
+(function( $ ){
+ 
+     $.fn.multipleInput = function() {
+ 
+          return this.each(function() {
+  
+               // list of email addresses as unordered list
+               $list = $('<ul />');
+ 
+               // input
+               var $input = $('<input type="text" />').keyup(function(event) {
+ 
+                    if(event.which == 32 || event.which == 188) {
+                         // key press is space or comma
+                        var val = $(this).val().slice(0, -1); // remove space/comma from value
+ 
+                         // append to list of emails with remove button
+                         $list.append($('<li class="multipleInput-email"><span> ' + val + '</span></li>')
+                              .append($('<a href="#" class="multipleInput-close" title="Remove">x</a>')
+                                   .click(function(e) {
+                                        $(this).parent().remove();
+                                        e.preventDefault();
+                                   })
+                              )
+                         );
+                         $(this).attr('placeholder', '');
+                         // empty input
+                         $(this).val('');
+                    }
+ 
+               });
+ 
+               // container div
+               var $container = $('<div class="multipleInput-container" />').click(function() {
+                    $input.focus();
+               });
+ 
+               // insert elements into DOM
+               $container.append($list).append($input).insertAfter($(this));
+ 
+               // add onsubmit handler to parent form to copy emails into original input as csv before submitting
+               var $orig = $(this);
+               $(this).closest('form').submit(function(e) {
+ 
+                    var emails = new Array();
+                    $('.multipleInput-email span').each(function() {
+                         emails.push($(this).html());
+                    });
+                    emails.push($input.val());
+ 
+                    $orig.val(emails.join());
+ 
+               });
+ 
+               return $(this).hide();
+ 
+          });
+ 
+     };
+})( jQuery );
+
+// input type multiple words 
+$('#coverage_area').multipleInput();
+
+// here mltiple cover area add 
+(function( $ ){
+ 
+     $.fn.keywordSearch  = function() {
+ 
+          return this.each(function() {
+  
+               // list of email addresses as unordered list
+               $list1 = $('<ul />');
+ 
+               // input
+               var $input = $('<input type="text" placeholder="Enter Keywords" style="font-size:13px;" />').keyup(function(event) {
+ 
+                    if(event.which == 32 || event.which == 188) {
+                         // key press is space or comma
+                        var val = $(this).val().slice(0, -1); // remove space/comma from value
+ 
+                         // append to list of emails with remove button
+                         $list1.append($('<li class="keywordSearch-email"><span> ' + val + '</span></li>')
+                              .append($('<a href="#" class="keywordSearch-close" title="Remove">x</a>')
+                                   .click(function(e) {
+                                        $(this).parent().remove();
+                                        e.preventDefault();
+                                   })
+                              )
+                         );
+                         $(this).attr('placeholder', '');
+                         // empty input
+                         $(this).val('');
+                    }
+ 
+               });
+ 
+               // container div
+               var $container = $('<div class="keywordSearch-container" />').click(function() {
+                    $input.focus();
+               });
+ 
+               // insert elements into DOM
+               $container.append($list1).append($input).insertAfter($(this));
+ 
+               // add onsubmit handler to parent form to copy emails into original input as csv before submitting
+               var $orig = $(this);
+               $(this).closest('form').submit(function(e) {
+ 
+                    var emails = new Array();
+                    $('.keywordSearch-email span').each(function() {
+                         emails.push($(this).html());
+                    });
+                    emails.push($input.val());
+ 
+                    $orig.val(emails.join());
+ 
+               });
+ 
+               return $(this).hide();
+ 
+          });
+ 
+     };
+})( jQuery );
+
+$('#keyword_search').keywordSearch();
 
 //create business form submit
 

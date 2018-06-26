@@ -95,7 +95,7 @@ public function personal_update_video() //personal self intro video
 
 	public function personal_update_aboutme() //personal about me
 	{
-		// $response = array();
+		
 		$this->rest->http_header('token', $this->session->userdata('token'));
 
 		$profile_update = array('aboutme' 	=>$this->input->post('about_me'),
@@ -119,7 +119,7 @@ public function personal_update_video() //personal self intro video
 	 	{
 	 		echo "Something Went Wrong";		
 	 	}
-	 // 	echo json_encode($response);
+	 
 
 	}
 
@@ -129,25 +129,16 @@ public function personal_update_video() //personal self intro video
 		$response = array();
 		$this->rest->http_header('token', $this->session->userdata('token'));
 
-			$relation_count = count($this->input->post('relation_name')); 
-		   	$personal_relation = array();
-
-		   	for($i=0; $i<$relation_count; $i++)
-		   			{	   				
-		   				array_push($personal_relation, array
-		   								(	   								
-		   			 						'name'    	 =>  $this->input->post('relation_name')[$i],
-		   			 						'relation'   =>  $this->input->post('relation_type')[$i] 			 						
-		   			 					));	   				 
-		   			}
-
-		   	$relation = array('relationship' => $personal_relation); 
-
-		    $json_data = json_encode($relation); 
-		   	$result = $this->rest->post('http://104.197.80.225:3010/wow/user/updaterelationship',$json_data,'json');	
+			
+		   	$personal_relation = array (	   								
+		   			 						'relationshipstatus' =>  $this->input->post('relation_type'),
+		   			 						'relationshipwith'   =>  $this->input->post('relation_name')			 						
+		   			 					);	   				 
+		   		
+		    $json_data = json_encode($personal_relation); 
+		   	$result = $this->rest->post('http://104.197.80.225:3010/wow/user/updaterelationshipstatus',$json_data,'json');	
 		   
-		   	 // print_r($result);
-		   	 if($result->success == true)
+		    if($result->success == true)
 			 	{
 			 		$response['status'] = "success";	 		
 			 	}
@@ -157,9 +148,6 @@ public function personal_update_video() //personal self intro video
 			 	}
 
 			echo json_encode($response);
-
-
-
 	}
 
 public function personal_update_contactinfo() //personal contact info
@@ -198,11 +186,14 @@ public function your_life_view() //personal event info
 								
 		$json_data = json_encode($profile_update); 
 
-		$result = $this->rest->post('http://104.197.80.225:3010/wow/user/profileinfo',$json_data,'json');	
+		$result = $this->rest->post('http://104.197.80.225:3010/wow/user/profileinfo',$json_data,'json');
+			
 			
 		if($result->success == true)
 	 	{
-	 		$response['status'] = "success";	 		
+	 		$response['status'] = "success";	
+	 		$this->session->set_userdata('gender', $result->message->gender); 	
+	 		$this->session->set_userdata('birthday', $result->message->birthday);	
 	 	}
 	 	else
 	 	{
@@ -224,19 +215,19 @@ public function profile_get()  //all update personal profile data get here
 
 		if(isset($result->message->personalself))
 		{	
-			$data['video'] = $result->message->personalself;	
+			$data['video'] = $result->message->personalselfurl;	
 			$this->session->set_userdata('self_video',$data['video']);	
 		}
 
-		if(isset($result->message->personalimage))
+		if(isset($result->message->personalimageurl))
 		{
-		 	$data['img'] = $result->message->personalimage;
-		 	$this->session->set_userdata('personal_image', $result->message->personalimage);
+		 	$data['img'] = $result->message->personalimageurl;
+		 	$this->session->set_userdata('personal_image', $data['img']);
 		}
 
-		if(isset($result->message->personalcover))
+		if(isset($result->message->personalcoverurl))
 		{
-		 	$data['cover'] = $result->message->personalcover;
+		 	$data['cover'] = $result->message->personalcoverurl;
 		 	$this->session->set_userdata('cover_img', $data['cover']);
 		}
 
@@ -276,6 +267,32 @@ public function friends_connection()
 	$this->load->view('profile/profile_friends',$data);
 }
 
+public function professional_professionalskills()
+	{
+		$response = array();
+		$this->rest->http_header('token', $this->session->userdata('token'));
+	
+		$professional_skills= array(	   								
+		   			 			'professionalskills' =>  $this->input->post('professional_skills[]')
+		   			 		);	   				 
+		   		
+		$json_data = json_encode($professional_skills); 
+
+		$result = $this->rest->post('http://104.197.80.225:3010/wow/user/updateprofessionalskills',$json_data,'json');
+		
+		// $res =$this->rest->debug();
+		if($result->success == true)
+	 	{
+	 		$response['status'] = "success";	 		
+	 	}
+	 	else
+	 	{
+	 		$response['status'] = "failed";			
+	 	}
+	 	echo json_encode($response);
+
+	}	
+
 
 public function professional_certificate()
 	{
@@ -287,10 +304,10 @@ public function professional_certificate()
 		   	for($i=0; $i<$cer_count; $i++)
 		   			{	   				
 		   				array_push($certification, array
-		   								(	   								
-		   			 						'certification'    	 =>  $this->input->post('Certificate')[$i],
-		   			 						'year'   =>  $this->input->post('year')[$i] 			 						
-		   			 					));	   				 
+		   					(	   								
+		   			 			'certification' =>  $this->input->post('Certificate')[$i],
+		   			 			'year'   		=>  $this->input->post('year')[$i] 			 						
+		   			 		));	   				 
 		   			}
 
 		   	$professional_update = array('certification' => $certification); 
@@ -321,19 +338,24 @@ public function professional_college()
 
 		   	for($i=0; $i<$college_count; $i++)
 		   			{	   				
-		   				array_push($certification, array
+		   				array_push($college, array
 		   					(	   								
 		   			 			'college' => $this->input->post('college')[$i],
+		   			 			'degree'    => $this->input->post('degree')[$i], 
+		   			 			'field'    => $this->input->post('field_of_study')[$i], 
+		   			 			'grade'    => $this->input->post('grade')[$i], 
 		   			 			'from'    => $this->input->post('from_year')[$i], 
-		   			 			'to'      => $this->input->post('to_year')[$i]			 						
+		   			 			'to'      => $this->input->post('to_year')[$i],	
+		   			 			'description' => $this->input->post('description')[$i]		 						
 		   			 		));	   				 
 		   			}
 
 		   	$professional_college = array('college' => $college); 
 				
-			$json_data = json_encode($professional_update); 
+			$json_data = json_encode($professional_college); 
 
-		$result = $this->rest->post('http://104.197.80.225:3010/wow/user/updateprofessionalprofile',$json_data,'json');
+		$result = $this->rest->post('http://104.197.80.225:3010/wow/user/updatecollegedetails',$json_data,'json');
+		
 		
 		// $res =$this->rest->debug();
 		if($result->success == true)
@@ -364,13 +386,11 @@ public function professional_work_exp()
 		   					(	   								
 		   			 			'title' 	   => $this->input->post('title')[$i],
 								'company' 	   => $this->input->post('company')[$i],
-								'location'     => $this->input->post('location')[$i],
-								'frommonth'    => $this->input->post('from_month')[$i],
-								'fromyear'     => $this->input->post('from_year')[$i],
-								'tomonth'      => $this->input->post('to_month')[$i],
+								'location'     => $this->input->post('location')[$i],								
+								'fromyear'     => $this->input->post('from_year')[$i],								
 								'toyear'       => $this->input->post('to_year')[$i],
 								'description'  => $this->input->post('description')[$i],
-								'link'         => $this->input->post('link')[$i]			 						
+										 						
 		   			 		));	   				 
 		   			}	
 		$work_exp = array('workexperience' => $profesional_exp); 	   
@@ -393,21 +413,23 @@ public function professional_work_exp()
 
 function profile_img_upload() //working for image upload
     {
-		     $token =  $this->session->userdata('token');
-		   	 $header = array('token:'.$token);
-	       	 $ch = curl_init();
+		    $token =  $this->session->userdata('token');
+		   	$header = array('token:'.$token);
+	       	$ch = curl_init();
        	
-	    	 $cfile = curl_file_create($_FILES['profile_img']['tmp_name'],$_FILES['profile_img']['type']);
+	    	$cfile = curl_file_create($_FILES['profile_img']['tmp_name'],$_FILES['profile_img']['type']);
 	    	 
-	    	 $data = array('personalimage' => @$cfile);
-	    	 curl_setopt($ch, CURLOPT_URL,'http://104.197.80.225:3010/wow/user/personalimage');
+	    	$data = array('personalimage' => @$cfile);
+	    	curl_setopt($ch, CURLOPT_URL,'http://104.197.80.225:3010/wow/user/personalimage');
 	    	 
-	    	 curl_setopt($ch, CURLOPT_HTTPHEADER,$header);
-	    	  curl_setopt($ch, CURLOPT_POST, true);
-	    	  curl_setopt($ch, CURLOPT_POSTFIELDS, $data); 
+	    	curl_setopt($ch, CURLOPT_HTTPHEADER,$header);
+	    	curl_setopt($ch, CURLOPT_POST, true);
+	    	curl_setopt($ch, CURLOPT_POSTFIELDS, $data); 
 	    	  
-	    	  $response = curl_exec($ch);  
-	    	  echo curl_error($ch);
+	    	$response = curl_exec($ch);  
+	    	echo curl_error($ch);
+	    	
+
 	} 
 
 //upload  for cover image
@@ -428,6 +450,7 @@ function cover_img_upload()
 	    	  
 	    $response = curl_exec($ch);  
 	    echo curl_error($ch);
+
 } 
 			
 function video_upload() //working for image upload
@@ -451,20 +474,59 @@ function video_upload() //working for image upload
 	}	
 
 public function profile_thirdparty_view($id)
-		{
-	   		// $response = array(); 
-	   		 $this->rest->http_header('token', $this->session->userdata('token'));		   		   	
-		  	 $data = array('userid' =>  $id);
-		   	 $json_data = json_encode($data); 
+	{
+	   		
+	   	$this->rest->http_header('token', $this->session->userdata('token'));		   		   	
+		$data = array('userid' =>  $id);
+		$json_data = json_encode($data); 
 		   	 
-		   	 $result = $this->rest->post('http://104.197.80.225:3010/wow/user/getthirdpartyprofile',$json_data,'json');
+		$result = $this->rest->post('http://104.197.80.225:3010/wow/user/getthirdpartyprofile',$json_data,'json');
 
-		   	  // print_r($result);
-		   	 $data['profile_info'] = $result->message;
-		   	 $this->load->view('profile/profile_thirdparty', $data);
+		$data['profile_info'] = $result->message;
+		$this->load->view('profile/profile_thirdparty', $data);
 		 
-		}		
+	}		
 
+public function email_enable($textkey)
+	{
+		$response = array(); 
+	   	$this->rest->http_header('token', $this->session->userdata('token'));		   		   	
+		$data = array('emailvisible' =>  $textkey);
+		$json_data = json_encode($data); 
+		   	 
+		$result = $this->rest->post('http://104.197.80.225:3010/wow/user/updateemailvisible',$json_data,'json');
+
+
+		if($result->success == true)
+	 	{
+	 		$response['status'] = "success";	 		
+	 	}
+	 	else
+	 	{
+	 		$response['status'] = "failed";			
+	 	}
+	 	echo json_encode($response);
+	}
+
+public function phone_enable($textkey)
+	{
+		$response = array(); 
+	   	$this->rest->http_header('token', $this->session->userdata('token'));		   		   	
+		$data = array('phonevisible' =>  $textkey);
+		$json_data = json_encode($data); 
+		   	 
+		$result = $this->rest->post('http://104.197.80.225:3010/wow/user/updatephonevisible',$json_data,'json');
+
+		if($result->success == true)
+	 	{
+	 		$response['status'] = "success";	 		
+	 	}
+	 	else
+	 	{
+	 		$response['status'] = "failed";			
+	 	}
+	 	echo json_encode($response);
+	}
 
 }
 

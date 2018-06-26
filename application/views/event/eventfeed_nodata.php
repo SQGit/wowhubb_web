@@ -365,7 +365,19 @@ li.multipleInput-email {
 
 <div id="page-contents" style="padding:45px 0 50px;">
   <div class="container">
-    <div class="row"> 
+    <div class="row">
+
+      <div class="col-md-12 text-center" style="font-weight: bold; font-size: 13px;">         
+          <div class="alert alert-info fade in alert-dismissible" style="margin-top:0px; margin-bottom: 10px; padding-top: 5px;padding-bottom: 5px; background-color: #ddd; border: 1px solid #ccc;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+            <strong>
+              <img src="<?php echo base_url('assets/images/wow-tag-icon-1.png'); ?>" alt="Interest" />
+            </strong>  <span style="color: #333;"> Let's Check for the Interests and Connect with Friends!! </span>
+            <span style="color: #e91e63;">
+              <a href="<?php echo base_url('home/interest_get'); ?>" > Click Here </a>
+            </span>
+          </div>
+      </div> 
       
       <!-- Newsfeed Common Side Bar Left
           ================================================= -->

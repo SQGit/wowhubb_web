@@ -291,8 +291,8 @@ table {
                             <tbody>
                               <tr>
                                 <td height="30">
-                                  <img src="../assets/images/profile-icon.png" alt="">
-                                  <strong style="font-size:13px; color:#FF7600;">2000</strong>
+                                  <img src="<?php echo base_url('assets/images/profile-icon.png'); ?>" alt="">
+                                  <strong style="font-size:13px; color:#FF7600;">0</strong>
                                 </td>
                               </tr>
                             </tbody>

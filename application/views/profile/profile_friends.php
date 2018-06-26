@@ -15,7 +15,8 @@
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/jquery.datetimepicker.css')?>" />
 <link rel="stylesheet" href="<?php echo base_url ('assets/js/sweetalert.css')?>" />
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/animate.css')?>" />
-
+<!-- magnific-popup image-->
+<link rel="stylesheet" href="<?php echo base_url ('assets/css/magnific-popup.css')?>" />
 <!--Google Font-->
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
 
@@ -26,127 +27,8 @@
 body {
 	background-color: #e7e5e6;
 }
-label.error {
-    /*font-family: 'Roboto', sans-serif;*/
-   color:red; 
-}
-#footer {
-	background: #fff;
-	position: relative;
-	top: 0px;
-}
-#imageUpload {
-	display: none;
-}
-#profileImage {
-	cursor: pointer;
-}
-#imageUpload1{
-    display: none;
-}
-#profileImage1{
-    cursor: pointer;
-}
-.form-wizard {
-	padding: 5px;
-	background: #fff;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;
- //box-shadow: 0px 0px 10px 0px #ccc;
-	text-align: left;
-}
-.nav>li>a:focus, .nav>li>a:hover {
-	text-decoration: none;
-	background-color: #e91e63;
-	color: #fff;
-}
-.nav-tabs>li {
-	float: left;
-	margin-bottom: -1px;
-	width: 25%;
-}
-.nav-tabs>li>a {
-	margin-right: 2px;
-	line-height: 1.42857143;
-	border: 1px solid transparent;
-	border-radius: 4px 4px 0 0;
-	font-size: 14px;
-	text-align: center;
-}
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
-	color: #f7f6f6;
-	cursor: default;
-	background-color: #e91e63;
-	border: 1px solid #ddd;
-	border-bottom-color: transparent;
-}
-/* custom inclusion of right, left and below tabs */
 
-.tabs-right > .nav-tabs, .tabs-left > .nav-tabs {
-	border-bottom: 0;
-}
-.tab-content > .tab-pane, .pill-content > .pill-pane {
-	display: none;
-}
-.tab-content > .active, .pill-content > .active {
-	display: block;
-}
-.tabs-left > .nav-tabs > li, .tabs-right > .nav-tabs > li {
-	float: none;
-}
-.tabs-left > .nav-tabs > li > a, .tabs-right > .nav-tabs > li > a {
-	min-width: 74px;
-	margin-right: 0;
-	margin-bottom: 3px;
-}
-.tabs-left > .nav-tabs {
-	float: left;
-	margin-right: 19px;
-	border-right: 1px solid #ddd;
-}
-.tabs-left > .nav-tabs > li > a {
-	margin-right: -1px;
-	-webkit-border-radius: 4px 0 0 4px;
-	-moz-border-radius: 4px 0 0 4px;
-	border-radius: 4px 0 0 4px;
-}
-.tabs-left > .nav-tabs > li > a:hover, .tabs-left > .nav-tabs > li > a:focus {
-	border-color: #eeeeee #dddddd #eeeeee #eeeeee;
-}
-.tabs-left > .nav-tabs .active > a, .tabs-left > .nav-tabs .active > a:hover, .tabs-left > .nav-tabs .active > a:focus {
-	border-color: #ddd transparent #ddd #ddd;
-}
 
-@media (min-width: 768px) {
-.modal-dialog {
-	width: 600px;
-	margin: 100px auto 0!important;
-}
-}
-
-table, td, tr
-{
-	border-spacing:2px;
-	padding:0 5px;
-}
-.edit-block ul.interests li{
-  background: #E8E8E8;
-  color: #fff;
-  padding: 5px 15px;
-  margin-right: 10px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  border-radius: 40px;
-}
-.edit-block ul.interests li a{  
-  color: #333!important;  
-}
-
-.modal-body {
-    max-height: calc(100vh - 250px);
-    overflow-y: auto;
-}
 #calendar {
     max-width: 900px;
     margin: 0 auto;
@@ -155,36 +37,6 @@ table, td, tr
   display: block;
   width: 100%;
   height: auto;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 250px;
-  width: 100%;
-  opacity: 0;
-  transition: .5s ease;
-  background:rgba(0,0,0,0.3);
-  z-index:998;
-}
-
-.container:hover .overlay {
-  opacity: 1;
-}
-
-.text {
-  color: white;
-  font-size: 16px;
-  position: absolute;
-  top: 45%;
-  right: 0%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-  cursor:pointer;
 }
 
 .prof-phto
@@ -209,6 +61,20 @@ img.profile-photo-small {
 {
 	height:105px;
 }
+.profile-info {
+    position: absolute;
+    text-align: center;
+    padding: 0 20px;
+    top: -188px!important;
+    z-index: 999;
+}
+.profile-info img.profile-photo {
+    height: 100px!important; 
+     width: 108px!important; 
+    border-radius: 50%;
+    border: 3px solid #f5f5f5;
+}
+
 </style>
 <link href="<?php echo base_url ('assets/css/fullcalendar.min.css') ?>" rel='stylesheet' />
 <link href="<?php echo base_url ('assets/css/fullcalendar.print.min.css') ?>" rel='stylesheet' media='print' />
@@ -233,14 +99,14 @@ img.profile-photo-small {
 <!--Header End-->
 
 <!-- breadcrumb for page link -->
-<div class="container" style="margin-top:20px; margin-bottom:-10px;">
+<!-- <div class="container" style="margin-top:20px; margin-bottom:-10px;">
 
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="<?php echo base_url('event/get_eventfeed'); ?>"><strong>Home</strong></a></li>  
       <li class="breadcrumb-item"><a href="<?php echo base_url('Profile/profile_get'); ?>"><strong>Profile</strong></a></li>
       <li class="breadcrumb-item active"><strong>Friends Connections</strong></li>
     </ol>
-</div>
+</div> -->
 
 <div class="google-maps"> </div>
 <div class="container"> 
@@ -254,7 +120,7 @@ img.profile-photo-small {
                 if(isset($cover))
                    {
                   ?>
-                <img  src="http://104.197.80.225:3010/wow/media/personal/<?php echo $cover; ?>"  style="background-size:cover; width:100%; max-height:300px;"/>
+                <img  src="<?php echo $cover; ?>"  style="background-size:cover; width:100%; max-height:300px;"/>
                 <?php }   else{   ?>
               <img src="<?php echo base_url('assets/images/covers/1.jpg')?>" style="background-size:cover; width:100%; max-height:300px;" >
                 <?php }  ?> 
@@ -262,41 +128,90 @@ img.profile-photo-small {
       <!--Timeline Menu for Large Screens-->
       <div class="timeline-nav-bar hidden-sm hidden-xs">
         <div class="row">
-          <div class="col-md-3">
-            <div class="profile-info">
-              
-                <?php 
-                $img= $this->session->userdata('personal_image');
-                   if(isset($img))
-                   {
-                      ?>
-                <img  id="profileImage" src="http://104.197.80.225:3010/wow/media/personal/<?php echo $img; ?>" class="profile-pic img-responsive profile-photo" />
-                <?php }
 
-                 else{ 
-                       
-                       ?>
-                <img  class="profile-pic img-responsive profile-photo"  id="profileImage" src="<?php echo base_url('assets/images/album/avatar_male.png')?>">;
-                <?php
-                       } 
-                ?>
+          <div class="col-md-4" style="position:relative;">
+            <div class="profile-info">
+
+              <div class="col-md-9" style="background:RGBA(0,0,0,.7); border-radius:8px 8px 0 0; padding-top:25px; padding-bottom:0px; border:0px solid #c9c1c1; margin-top:39px; height:149px;">
+                <div class="col-md-6 text-left">
+
+              <div style="width:100%; text-align:center;" >
                
-             
+                  <?php 
+                     $img= $this->session->userdata('personal_image');
+                     if(isset($img))
+                     {
+                  ?>
+                    <img  id="profileImage" src="<?php echo $img; ?>" class="profile-pic" style="border:3px solid #ccc; border-radius:7px; width:86px; height:86px;" />
+                  <?php } else{  ?>                 
+                      
+                    <img class="img-responsive img-thumbnail"  id="profileImage" src="<?php echo base_url('assets/images/album/avatar_male.png')?>">
+                  <?php  }  ?>           
+              </div>
+                             
+                
+                </div>
+                        <div class="col-md-6" style="position:relative;">                                 
+                            <?php 
+                              $selfvideo= $this->session->userdata('self_video');
+                              if(isset($selfvideo)){
+                            ?>
+                            <div style="position: absolute; left: 40px; top: 30px;">
+                              <a href="<?php echo $selfvideo; ?>" class="html5lightbox" data-width="480" data-height="320">
+                              <img src="<?php echo base_url('assets/images/youtube.png'); ?>" alt="user" />
+                              </a>
+                            </div>
+                            <a href="<?php echo  $selfvideo; ?>" class="html5lightbox" data-width="480" data-height="320">
+                            <video style="width:86px; height:86px; background-color:#e9e9e9; border-radius:5px;" id="myvideo" controlsList="nodownload" >
+                              <source src="<?php echo  $selfvideo; ?>" type="video/mp4">
+                            </video>
+                            </a>
+                            <?php } else {  ?>
+                              <video style="width:86px; height:86px; border-radius:5px;" id="myvideo">
+                                <source src="" type="video/mp4">
+                              </video>
+                            <?php } ?>                            
+                           
+                        </div>
+               
+              </div>
+
+
+              <div class="col-md-11" style="background:none; padding-top:0px; padding-bottom:0px;">
+              
+                 <div class="row">
+                 <div class="col-md-12 text-left" style="margin-top:-20px;" >
+                 <div style="font-size:16px; font-weight:normal; line-height:18px; color:#fff; margin-top:0px; margin-left:10px; margin-bottom:0px;">
+                 <?php echo $this->session->userdata('first_name')." " .$this->session->userdata('last_name'); ?>
+                </div>
+                
+                    <div style="color:#fff; font-size:14px;">  
+                    <img src="<?php echo base_url('assets/images/wow-pink-1.png'); ?>" alt=""/>                   
+                      <?php echo substr($this->session->userdata('wowtag'), 1); ?>
+                     <br> 
+                     
+                    </div>
+                    <div style="margin-top:-3px;" ><span style="color:#fff; font-size:10px; background-color:#e91e63; padding:3px 5px; border-radius:5px; margin-left:12px;">Wowtag ID</span></div> 
+                 </div>
+                   <div class="col-md-4 text-center" >
+                    
+
+                      
+                  </div>
+                   
+                 </div>
+              </div>
             </div>
           </div>
-          <div class="col-md-9" >
-            <div class="profile-info-1">
-              <h3 style="color:#fff;"><?php echo $this->session->userdata('first_name')." " .$this->session->userdata('last_name'); ?> </h3>
-              <p style="color:#fff;" class="text-muted"><?php echo $this->session->userdata('designation'); ?></p>
-            </div>
 
-
+          <div class="col-md-8" >
+             
             <ul class="list-inline profile-menu">
-              <!-- <li><a href="<?php echo base_url ('event/profile_get_eventfeed') ?>" >Event Feed</a></li> -->
-              <li><a href="<?php echo base_url('Profile/profile_get'); ?>" >Profile</a></li>
-              <li><a href="<?php echo base_url ('home/interest_get') ?>"  >Interests</a></li>
+              
+              <li><a href="<?php echo base_url('Profile/profile_get'); ?>" >Profile</a></li>             
+              <li><a href="<?php echo base_url ('home/interest_get') ?>" >Interests</a></li>
               <li><a href="<?php echo base_url ('Profile/friends_connection') ?>" class="active">Friend Connections</a></li>
-              <li><a href="#">Eventhubb</a></li>
+              
               <li><a href="#">Photos</a></li>
             </ul>
             <ul class="follow-me list-inline">
@@ -304,6 +219,7 @@ img.profile-photo-small {
             </ul>
           </div>
         </div>
+        
       </div>
       <!--Timeline Menu for Large Screens End--> 
       
@@ -348,16 +264,16 @@ img.profile-photo-small {
                   	
                   	<div class="card-info  col-md-3">
                       <?php 
-                          if(isset($frds->personalimage)){
+                          if(isset($frds->personalimageurl)){
                       ?>
-                      <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $frds->personalimage; ?>" alt="user" class="profile-photo-small">
+                      <img src="<?php echo $frds->personalimageurl; ?>" alt="user" class="profile-photo-small">
                       <?php } else { ?>
                       <img src="<?php echo base_url('assets/images/avatar/avatar_small_friends.png')?>" alt="user" class="profile-photo-small">
                       <?php } ?>
                       
                     </div>
                     <div class="friend-info col-md-9">
-                        <a href="#" class="pull-right text-greeny"><img src="<?php echo base_url('assets/images/greeny.png')?>"> My Friend</a>
+                        <a href="#" class="pull-right text-greeny"><img src="<?php echo base_url('assets/images/greeny.png')?>"> Friend</a>
                       	<h5><a href="#" class="profile-link"><?php echo $frds->firstname." ".$frds->lastname; ?></a></h5>
                       	<p><?php echo $frds->mutualfriends; ?> Mutual Connections</p>
                       </div>
@@ -365,8 +281,6 @@ img.profile-photo-small {
                 </div>
 
             <?php } ?>
-
-                
                
         </div>
       </div>
@@ -390,15 +304,28 @@ img.profile-photo-small {
 <script src="<?php echo base_url ('assets/js/script.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/sweetalert.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/sweetalert.min.js') ?>"></script> 
- 
+<script src="<?php echo base_url('assets/js/jquery.magnific-popup.min.js')?>" ></script> 
+<script src="<?php echo base_url('assets/js/html5gallery.js')?>" ></script> 
 <script src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script> 
-<script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
+
 <script src="<?php echo base_url ('assets/js/moment.min.js') ?>"></script>
 
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script> 
+<script src="<?php echo base_url ('assets/html5lightbox/html5lightbox.js') ?>"></script><!-- video popup library -->
 
 <script>
 
+//magnific-popup image shows
+
+$('.gallery').each(function() { // the containers for all your galleries
+    $(this).magnificPopup({
+        delegate: 'a', // the selector for gallery item
+        type: 'image',
+        gallery: {
+          enabled:true
+        }
+    });
+});
 
 </script>
 </body>

@@ -24,7 +24,7 @@
               </div>
               <div> <a href="#" style="color:#333;" >
                 <div class="col-md-2" style="margin-top:10px;">
-                  <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" />
+                  <img src="<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" />
                 </div>
                 <div class="col-md-10">Vineture  didn't get any new likes this week. Publish a post to engage your audience.
                   <div class="pull-left" style="color:#555; width:100%;">
@@ -36,7 +36,7 @@
                 </div>
                 </a></div>
               <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-2" style="margin-top:10px;"><img src="<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
                 <div class="col-md-10">Emeka added a New Event on Hari's Birthday. Lets Check!!
                   <div class="pull-left" style="color:#555; width:100%;">
                     <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 13 Hours Ago</p>
@@ -47,7 +47,7 @@
                 </div>
                 </a></div>
               <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-2" style="margin-top:10px;"><img src="<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
                 <div class="col-md-10">It's Nickybeit Enjoy's birthday today. Help him celebrate!
                   <div class="pull-left" style="color:#555; width:100%;">
                     <p style="font-weight:normal; margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> Yesterday at 10:45pm</p>
@@ -71,7 +71,7 @@
                 <div class="col-md-12 text-center" style="margin-top:10px; margin-bottom:10px; color:#000; font-size:16px;"><strong><i class="icon ion-ios-person-outline"></i> Friend Requests</strong></div>
               </div>
               <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-2" style="margin-top:10px;"><img src="<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
                 <div class="col-md-4">Vicky
                   <div class="pull-left" style="color:#555; width:100%;">
                     <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p>
@@ -86,7 +86,7 @@
                 </div>
                 </a></div>
               <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-2" style="margin-top:10px;"><img src="<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
                 <div class="col-md-4">Emeka
                   <div class="pull-left" style="color:#555; width:100%;">
                     <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 2 Mutual Friends</p>
@@ -101,7 +101,7 @@
                 </div>
                 </a></div>
               <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-2" style="margin-top:10px;"><img src="<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
                 <div class="col-md-4">Hari
                   <div class="pull-left" style="color:#555; width:100%;">
                     <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 10 Mutual Friends</p>
@@ -116,7 +116,7 @@
                 </div>
                 </a></div>
               <div> <a href="#" style="color:#333;" >
-                <div class="col-md-2" style="margin-top:10px;"><img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
+                <div class="col-md-2" style="margin-top:10px;"><img src="<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo-sm" /></div>
                 <div class="col-md-4">Roshan
                   <div class="pull-left" style="color:#555; width:100%;">
                     <p style="font-weight:normal;  margin-bottom:0;"><i class="icon ion-ios-time-outline"></i> 4 Mutual Friends</p>
@@ -154,7 +154,7 @@
                   <?php 
                        if(!is_null($this->session->userdata('personal_image'))){
                   ?>
-                  <img src="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo" style="width:30px; height:30px;" />
+                  <img src="<?php echo $this->session->userdata('personal_image'); ?>" alt="user" class="profile-photo" style="width:30px; height:30px;" />
                   <?php }  else { ?>
                   <img src="<?php echo base_url('assets/images/album/avatar_male.png'); ?>" alt="user" class="profile-photo" style="width:30px; height:30px;"/>
                   <?php } ?>

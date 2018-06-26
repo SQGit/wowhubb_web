@@ -239,7 +239,6 @@ public function personal_event()
 					    	{
 					    		$cover_page = ""; 
 					    	}
-			
 	
 	    		$wowtag_img = array('coverpage'  => @$cover_page);		    	 				
 	    	
@@ -250,9 +249,7 @@ public function personal_event()
 		        curl_setopt($ch1, CURLOPT_RETURNTRANSFER, TRUE); //don't print automatic response   
 	    	  	$response1 = curl_exec($ch1); 	    	
 		    	$data1 =json_decode($response1);
-		        $id = $data1->message->_id;
-		        $test = $data1->success;
-		        $this->session->set_userdata('success', $test);	
+		        $id = $data1->message->_id;		       	
 		    	$this->session->set_userdata('id', $id);	
 		     	curl_close($ch1);		     	
 		     	
@@ -531,8 +528,8 @@ public function quick_event()
 	    	  	$response1 = curl_exec($ch1); 	    	
 		    	$data1 =json_decode($response1);
 		        $id = $data1->message->_id;
-		        $test = $data1->success;
-		        $this->session->set_userdata('success', $test);	
+		        // $test = $data1->success;
+		        // $this->session->set_userdata('success', $test);	
 		    	$this->session->set_userdata('id', $id);	
 		     	curl_close($ch1);		     	
 
@@ -655,9 +652,7 @@ public function professional_event()
 		        curl_setopt($ch1, CURLOPT_RETURNTRANSFER, TRUE); //don't print automatic response   
 	    	  	$response1 = curl_exec($ch1); 	    	
 		    	$data1 = json_decode($response1);
-		        $id   =	 $data1->message->_id;
-		        $test =  $data1->success;
-		        $this->session->set_userdata('success', $test);	
+		        $id   =	 $data1->message->_id;		       
 		    	$this->session->set_userdata('id', $id);	
 		     	curl_close($ch1);		     	
 		     
@@ -1014,7 +1009,6 @@ public function professional_event()
 }
 
 
-
 //create event for  social event  
 
 public function social_multicity_event()
@@ -1064,9 +1058,7 @@ public function social_multicity_event()
 		        curl_setopt($ch1, CURLOPT_RETURNTRANSFER, TRUE); //don't print automatic response   
 	    	  	$response1 = curl_exec($ch1); 	    	
 		    	$data1 = json_decode($response1);
-		        $id   =	 $data1->message->_id;
-		        $test =  $data1->success;
-		        $this->session->set_userdata('success', $test);	
+		        $id   =	 $data1->message->_id;		        
 		    	$this->session->set_userdata('id', $id);	
 		     	curl_close($ch1);		     	
 
@@ -1473,9 +1465,7 @@ public function create_business_event()
 			        curl_setopt($ch1, CURLOPT_RETURNTRANSFER, TRUE); //don't print automatic response   
 		    	  	$response1 = curl_exec($ch1); 	    	
 			    	$data1 = json_decode($response1);
-			        $id   =	 $data1->message->_id;
-			        $user_id =  $data1->success;
-			        $this->session->set_userdata('success', $user_id);	
+			        $id   =	 $data1->message->_id;			        
 			    	$this->session->set_userdata('id', $id);	
 			     	curl_close($ch1);	
 
@@ -1893,35 +1883,20 @@ public function update_thoughts()
 				$d->loadHTML($c);
 				$xp = new domxpath($d);				
 
-				$length = $xp->query("//meta[@property='og:title']" );
-
-				if($length == 'true')	
-					{	
+				
 						foreach ($xp->query("//meta[@property='og:title']" ) as $el)
 						{
 							$title = $el->getAttribute("content");
 						 						  
 						}
-					}
-				else
-					{
-						$title =" ";
-					}
-
-				if($length == 'true')	
-					{
+				
 						foreach ($xp->query("//meta[@property='og:description']") as $el)
 							{
-							    $description = $el->getAttribute("content");
-							}
-					}
-				 else
-						{
-						    $description =" ";
-						}
-
-				if($length == 'true')	
-					{	
+							    // $description = $el->getAttribute("content");
+							    $description = preg_replace("/[^a-zA-Z0-9.]/", "", $el->getAttribute("content"));
+							}					
+				
+					
 						$i=0;
 
 						foreach ($xp->query("//meta[@property='og:image']") as $el)
@@ -1931,11 +1906,7 @@ public function update_thoughts()
 										$img =  $el->getAttribute("content");									 
 									}					  
 							}
-					}
-				 else
-						{
-						    $img =" ";
-						}	
+					
 			}
 
 			$token    =  $this->session->userdata('token');	
@@ -1948,6 +1919,7 @@ public function update_thoughts()
 		   					  'description:'  .$description,
 		   					  'imageurl:'  	  .$img
 		   					 );
+		   // print_r($header); 
 
 			$ch = curl_init();
        		      				    	
@@ -1978,7 +1950,7 @@ public function update_thoughts()
 	    	  	$data3 =json_decode($response3);
 	    	  	curl_close($ch);
 
-	    	  	// print_r($data3);  	 
+	 //    	  	print_r($header);  	 
 		   	 	
 		if(isset($data3->success) && ($data3 ->success == true))
 			{		 
@@ -2167,6 +2139,50 @@ public function engagementformaction($_id)
 		echo json_encode($response);	   	
 		
 	}
+
+public function contactreason_sendMail()
+{
+	$response = array(); 	
+	
+
+		$config = Array(
+				  'protocol' => 'smtp',
+				  'smtp_host' => 'ssl://smtp.googlemail.com',
+				  'smtp_port' => 465,
+				  'smtp_user' => 'saranya.arapps@gmail.com', // change it to yours
+				  'smtp_pass' => 'coolsaran10', // change it to yours
+				  'mailtype' => 'html',
+				  'charset' => 'iso-8859-1',
+				  'wordwrap' => TRUE
+				);
+
+		$reason = $this->input->post('reason_for_contact');
+		$name = $this->input->post('name');
+		$phone = $this->input->post('phone');
+		$email = $this->input->post('email');
+		$msg = $this->input->post('message');
+
+
+	    $message = 'Reason:'.$reason."<br/>".'Name:'.$name."<br/>".'Phone :'.$phone."<br/>".'Email :'.$email."<br/>".'Message :'.$msg;
+	    $this->load->library('email', $config);
+	    $this->email->set_newline("\r\n");
+	    $this->email->from('saranya.arapps@gmail.com'); // change it to yours
+	    $this->email->to('snsaranya553@gmail.com');// change it to yours
+	    $this->email->subject('wowhubb Reason for contact');
+	    $this->email->message($message);
+	     
+	      if($this->email->send())
+     		{
+      			 $response['status'] = 'success'; 
+     		}
+     		else
+    		{
+     			// show_error($this->email->print_debugger());
+     			 $response['status'] = 'failed';
+    		}
+		
+    		echo json_encode($response);	 
+}
 
 }	
 

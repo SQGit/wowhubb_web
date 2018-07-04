@@ -1,66 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+	
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="index, follow" />
-<title>Wowhubb | Your One Stop Event Networking Platform</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="robots" content="index, follow" />
+		<title>Wowhubb | Your One Stop Event Networking Platform</title>
 
-<!-- Stylesheets
+    <!-- Stylesheets
     ================================================= -->
-<link rel="stylesheet" href="<?php echo base_url ('assets/css/bootstrap.min.css') ?>" />
-<link rel="stylesheet" href="<?php echo base_url ('assets/css/style.css') ?>" />
-<link rel="stylesheet" href="<?php echo base_url ('assets/css/ionicons.min.css') ?>" />
-<link rel="stylesheet" href="<?php echo base_url ('assets/css/font-awesome.min.css') ?>" />
-<link rel="stylesheet" href="<?php echo base_url ('assets/css/jquery.datetimepicker.css')?>" />
-<link rel="stylesheet" href="<?php echo base_url ('assets/js/sweetalert.css')?>" />
-<link rel="stylesheet" href="<?php echo base_url ('assets/css/animate.css')?>" />
-<!-- magnific-popup image-->
+		<link rel="stylesheet" href="<?php echo base_url ('assets/css/bootstrap.min.css') ?>" />
+		<link rel="stylesheet" href="<?php echo base_url ('assets/css/style.css') ?>" />
+		<link rel="stylesheet" href="<?php echo base_url ('assets/css/ionicons.min.css') ?>" />
+    <link rel="stylesheet" href="<?php echo base_url ('assets/css/font-awesome.min.css') ?>" />
+     <link rel="stylesheet" href="<?php echo base_url ('assets/js/sweetalert.css')?>" />
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <!-- magnific-popup image-->
 <link rel="stylesheet" href="<?php echo base_url ('assets/css/magnific-popup.css')?>" />
-<!--Google Font-->
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
-
-<!--Favicon-->
-<link rel="shortcut icon" type="image/png" href="<?php echo base_url ('assets/images/fav.png') ?>"/>
-<style type="text/css">
-
-body {
-	background-color: #e7e5e6;
-}
-
-
-#calendar {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-.image {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.prof-phto
-{
-	padding:10px 5px; 
-	border:1px solid #ccc; 
-	border-radius:10px;
-}
-
-img.profile-photo-small {
-    height: 60px;
-    width: 60px;
     
+    <!--Favicon-->
+    <link rel="shortcut icon" type="image/png" href="<?php echo base_url ('assets/images/fav.png') ?>"/>
+    <style type="text/css">
+    body{
+      background-color: #e7e5e6;
+    }
+
+#page-contents{
+  padding: 10px 0 50px 25px;
+  background-color:#fff;
+  border-radius:5px;
 }
 
-.text-greeny
-{
-	 color:#329C00;
+.form-wizard {
+    padding: 5px;
+    background: #fff;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    /*box-shadow: 0px 0px 10px 0px #ccc; */
+   text-align: left;    
 }
 
-.card-info-1
-{
-	height:105px;
-}
+
 .profile-info {
     position: absolute;
     text-align: center;
@@ -76,16 +58,10 @@ img.profile-photo-small {
 }
 
 </style>
-<link href="<?php echo base_url ('assets/css/fullcalendar.min.css') ?>" rel='stylesheet' />
-<link href="<?php echo base_url ('assets/css/fullcalendar.print.min.css') ?>" rel='stylesheet' media='print' />
+	</head>
+  <body>
 
-</head>
-<body class="landing-page">
-<div class="content-bg-wrap">
-  <div class="content-bg"></div>
-</div>
-
-<!-- Header
+   <!-- Header
     ================================================= -->
   <header id="header">
       <nav class="navbar navbar-default navbar-fixed-top menu" style="padding-top:3px!important; padding-bottom:3px!important;">
@@ -104,17 +80,16 @@ img.profile-photo-small {
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="<?php echo base_url('event/get_eventfeed'); ?>"><strong>Home</strong></a></li>  
       <li class="breadcrumb-item"><a href="<?php echo base_url('Profile/profile_get'); ?>"><strong>Profile</strong></a></li>
-      <li class="breadcrumb-item active"><strong>Friends Connections</strong></li>
+      <li class="breadcrumb-item active"><strong>Interest</strong></li>
     </ol>
 </div> -->
 
-<div class="google-maps"> </div>
-<div class="container"> 
-  
-  <!-- Timeline
+    <div class="container">
+
+      <!-- Timeline
       ================================================= -->
-  <div class="timeline">
- <div class="timeline-cover">     
+      <div class="timeline">
+     <div class="timeline-cover">     
               <?php 
                 $cover = $this->session->userdata('cover_img');
                 if(isset($cover))
@@ -209,8 +184,9 @@ img.profile-photo-small {
               
               <li><a href="<?php echo base_url('Profile/profile_get'); ?>" >Profile</a></li>             
               <li><a href="<?php echo base_url ('home/interest_get') ?>" >Interests</a></li>
-              <li><a href="<?php echo base_url ('Profile/friends_connection') ?>" class="active">Friend Connections</a></li>              
-              <li><a href="<?php echo base_url ('Profile/profile_gallery') ?>">Photos</a></li>
+              <li><a href="<?php echo base_url ('Profile/friends_connection') ?>">Friend Connections</a></li>
+              
+              <li><a href="#" class="active">Photos</a></li>
             </ul>
             <ul class="follow-me list-inline">
               <li><?php if(isset($frds_count)) { echo $frds_count; } ?> Connections</li>
@@ -242,78 +218,79 @@ img.profile-photo-small {
       
     </div>
 
+    
+        <div id="page-contents">
+          <div class="row">
+            
+            <div class="form-wizard col-md-12">
 
-    <div id="page-contents" style="border:1px solid #e6e6e6; background-color: #fff; padding-top: 0px;">
-      <div class="row">
-        <div class="col-md-12" style="padding-top:15px;">
-       <div class="col-md-12"> 
-        <h4 style="margin-top:0; font-size: 15px;">
-          <img src="<?php echo base_url('assets/images/send-group.png')?>"> Friends
-        </h4>        
-       </div>
-                
-            <?php 
-                foreach ($friend->friends as  $frds) {
-                
-              ?>
-
-                <div class="col-md-3 col-sm-3" style="margin-top: 10px;">
-                  <div class="friend-card prof-phto col-md-12  card-info-1">
-                  	
-                  	<div class="card-info  col-md-3">
-                      <?php 
-                          if(isset($frds->personalimageurl)){
-                      ?>
-                      <img src="<?php echo $frds->personalimageurl; ?>" alt="user" class="profile-photo-small">
-                      <?php } else { ?>
-                      <img src="<?php echo base_url('assets/images/avatar/avatar_small_friends.png')?>" alt="user" class="profile-photo-small">
-                      <?php } ?>
-                      
-                    </div>
-                    <div class="friend-info col-md-9">
-                        <a href="#" class="pull-right text-greeny"><img src="<?php echo base_url('assets/images/greeny.png')?>"> Friend</a>
-                      	<h5><a href="#" class="profile-link"><?php echo $frds->firstname." ".$frds->lastname; ?></a></h5>
-                      	<p><?php echo $frds->mutualfriends; ?> Mutual Connections</p>
+              <!-- Edit Interests
+              ================================================= -->
+              <div class="edit-profile-container">
+                <div class="block-title">
+                  <h4 class="grey" style="font-size: 15px;"><i class="icon ion-ios-heart-outline"></i>Photo's</h4>
+                                                   
+                </div>
+                <div class="edit-block">
+                    <!-- First  row check box-->                   
+               
+                <div class="col-md-12" style="margin-bottom: 15px;">   
+                  <?php 
+                   if(!empty($profile_img->oldpersonalimageurls )){
+                    foreach ($profile_img->oldpersonalimageurls as $images) {
+                     
+                  ?>    
+                      <div class="col-md-3 col-sm-6" >
+                            <div style=" left:11px; top:1px;">                           
+                          
+                              <div style="border:1px solid #ccc; border-radius:8px;   text-align:center; cursor: pointer; margin-top: 15px;">
+                              <div class="gallery" >
+                                <a class="test-popup-link" href='<?php echo $images->oldpersonalimageurl; ?>' > 
+                                <img style="width:257px; height: 206px;" src="<?php echo $images->oldpersonalimageurl; ?>" class="img-responsive post-image" alt=""/>
+                                </a>
+                              </div>
+                              </div>                         
+                           </div>                        
                       </div>
-                  </div>
+                   <?php } } else { echo "No Gallery "; } ?>
+
+
                 </div>
 
-            <?php } ?>
-               
+
+            </div>
+         
+                          
+          </div>
+
         </div>
+         
       </div>
-    </div>
-  </div>
-</div>
-</div>
+    </div>    
 
-<!-- Footer
-    ================================================= --> 
+    <!-- Footer
+    ================================================= -->
 
-<!-- Scripts
-    ================================================= --> 
+    <!--preloader-->   
 
 
-<script src="<?php echo base_url ('assets/js/jquery-3.1.1.min.js') ?>"></script>
-<script src="<?php echo base_url ('assets/js/bootstrap.min.js') ?>"></script> 
-<script src="<?php echo base_url ('assets/js/jquery.validate.js') ?>"></script>
-<script src="<?php echo base_url ('assets/js/additional-methods.js') ?>"></script> 
-
-<script src="<?php echo base_url ('assets/js/script.js') ?>"></script> 
-<script src="<?php echo base_url('assets/js/sweetalert.js') ?>"></script> 
-<script src="<?php echo base_url('assets/js/sweetalert.min.js') ?>"></script> 
-<script src="<?php echo base_url('assets/js/jquery.magnific-popup.min.js')?>" ></script> 
-<script src="<?php echo base_url('assets/js/html5gallery.js')?>" ></script> 
-<script src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script> 
-
-<script src="<?php echo base_url ('assets/js/moment.min.js') ?>"></script>
-
-<script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script> 
-<script src="<?php echo base_url ('assets/html5lightbox/html5lightbox.js') ?>"></script><!-- video popup library -->
+    <!-- Scripts
+    ================================================= -->
+    <script src="<?php echo base_url ('assets/js/jquery-3.1.1.min.js') ?>"></script>
+    <script src="<?php echo base_url ('assets/js/bootstrap.min.js') ?>"></script>
+    <script src="<?php echo base_url ('assets/js/jquery.sticky-kit.min.js') ?>"></script>
+    <script src="<?php echo base_url ('assets/js/jquery.scrollbar.min.js') ?>"></script>
+    <script src="<?php echo base_url ('assets/js/script.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/sweetalert.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/sweetalert.min.js') ?>"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="<?php echo base_url('assets/js/jquery.magnific-popup.min.js')?>" ></script> 
+    <script src="<?php echo base_url('assets/js/html5gallery.js')?>" ></script> 
+    <script src="<?php echo base_url ('assets/html5lightbox/html5lightbox.js') ?>"></script><!-- video popup library -->
 
 <script>
 
-//magnific-popup image shows
+ //magnific-popup image shows
 
 $('.gallery').each(function() { // the containers for all your galleries
     $(this).magnificPopup({
@@ -323,8 +300,9 @@ $('.gallery').each(function() { // the containers for all your galleries
           enabled:true
         }
     });
-});
+});   
 
 </script>
-</body>
+  </body>
+
 </html>

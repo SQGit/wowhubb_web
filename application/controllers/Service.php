@@ -127,4 +127,10 @@ class Service extends CI_Controller
 		$this->load->view('serviceprovider/ohp_admin_members_admin');
 	}
 
+	public function img_crop()   
+	{
+		$this->load->view('changes_files/image_crop');
+	}
+
+
 }	

@@ -487,7 +487,7 @@ li.keywordSearch-email {
 
 		                    <div class="form-group col-sm-12" style="font-size: 15px;">
 				                      <label>Select Event Days</label>
-				                     <select name="event_totaldays" id="btn-add-tab" class="form-control required" style="background-color:#eff0f1;">
+				                     <select name="eventdayscount" id="btn-add-tab" class="form-control required" style="background-color:#eff0f1;">
 				                      <option value="">Select Event Days</option>
 				                      <option value="1">1 Day Event</option>
 				                      <option value="2">2 Days Event</option>
@@ -924,12 +924,12 @@ li.keywordSearch-email {
 
 		                    <div class='form-group col-sm-12' style="margin-top:20px;">
 		                      <label>Enter Your Event Venue / location Name</label>		                      
-		                      <input type='text' id="event_venue_name_1" name="event_venue_name[]" class="form-control" onblur="update_vanue()" autocomplete="off"/>
+		                      <input type='text' id="event_venue_name_1" name="event_venue_name[]" class="required form-control" onblur="update_vanue()" autocomplete="off"/>
 		                    </div>                
 		                   
 		                    <div class='form-group col-sm-12'>
 		                      <label>Address 1</label>
-		                      <input type='text' id="address1_1" name="address1[]" class="form-control" />
+		                      <input type='text' id="address1_1" name="address1[]" class="required form-control" />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
@@ -939,7 +939,7 @@ li.keywordSearch-email {
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>City</label>
-		                      <input type='text' id="city_1" name="venue_city[]" class="txtOnly form-control" onblur="update_vanue()"/ style="text-transform: capitalize;" maxlength="25">
+		                      <input type='text' id="city_1" name="venue_city[]" class="required txtOnly form-control" onblur="update_vanue()"/ style="text-transform: capitalize;" maxlength="25">
 		                    </div>
 		                    <div class='form-group col-sm-12'>
 		                      <label>Zipcode/ Postal Code</label>

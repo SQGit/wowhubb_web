@@ -268,47 +268,8 @@ ul.nav-news-feed li div {
               <ul class="nav-news-feed">
                 <h5 style="font-weight:bold; font-size:13px; font-weight:bold; letter-spacing:-.5px; text-align:left; color:#333;">Map Locations</h5>
                 <li>
-                   
                     <div id="map" style="width:100%;height:300px; margin:0;">              
                   </div>
-                </li>
-              </ul>
-              
-              <ul class="nav-news-feed">
-                <h5 style="font-weight:bold; font-size:13px; font-weight:bold; letter-spacing:-.5px; text-align:left; color:#333;">Business Hours</h5>
-                <li>
-                
-
-                   <table class="table table-striped">
-                        <thead>
-                          <tr>
-                           
-                            <th>Days</th>
-                            <th>Availability</th>
-                            <th>Opens From</th>
-                            <th>Closed at</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <?php 
-                          
-                          foreach ($serviceprovider->businesshours as $hours) {
-                         
-                          ?>
-                          <tr>
-                            
-                            <td><?php echo $hours->weekday; ?></td>
-                            <td><?php echo $hours->availability; ?></td>
-                            <td><?php echo $hours->opensfrom; ?></td>
-                            <td><?php echo $hours->closedat; ?></td>
-                            
-                          </tr>
-
-                          <?php  } ?>
-                           
-                        </tbody>
-                      </table>
-                 
                 </li>
               </ul>
               
@@ -330,7 +291,10 @@ ul.nav-news-feed li div {
             <div class="container post-content" style="padding:10px 15px;">
               <div class="col-md-12"> 
               <ul class="nav nav-tabs faq-cat-tabs">
-        <li class="active"><a href="#faq-cat-1" data-toggle="tab" class="text-center" style="font-size:13px; color:#333; font-weight:bold;">Photo Gallery</a></li>
+        <li class="active">
+          <a href="#faq-cat-1" data-toggle="tab" class="text-center" style="font-size:13px; color:#333; font-weight:bold;">Photo Gallery
+          </a>
+        </li>
         <li><a href="#faq-cat-2" data-toggle="tab" class="text-center" style="font-size:13px;  color:#333; font-weight:bold;">Video Gallery</a></li>
      
       </ul>
@@ -387,6 +351,39 @@ ul.nav-news-feed li div {
                 </div>
                 
               </div>
+
+              <div class="row">
+               <div class="col-md-12" style="margin-top: 15px;"> 
+                 <h5 style="font-weight:bold; font-size:13px; font-weight:bold; letter-spacing:-.5px; color:#333; margin-left: 10px;">Business Hours</h5>   
+               <table class="table table-striped">
+                        <thead>
+                          <tr>                           
+                            <th>Days</th>
+                            <th>Availability</th>
+                            <th>Opens From</th>
+                            <th>Closed at</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                          <?php 
+                            foreach ($serviceprovider->businesshours as $hours) {
+                          ?>
+                          <tr>
+                            
+                            <td><?php echo $hours->weekday; ?></td>
+                            <td><?php echo $hours->availability; ?></td>
+                            <td><?php echo $hours->opensfrom; ?></td>
+                            <td><?php echo $hours->closedat; ?></td>
+                            
+                          </tr>
+
+                          <?php  } ?>
+                           
+                        </tbody>
+                      </table>
+                 </div> 
+                </div>             
                         
            </div>
           </div>
@@ -446,7 +443,9 @@ ul.nav-news-feed li div {
                 <div  style="font-size:12px; margin-top:10px;">
                   <p><?php if(isset($serviceprovider->productdescription2)) { echo $serviceprovider->productdescription2;} ?></p>
                 </div>
-              </div>               
+              </div> 
+
+              
                
               </div>
               

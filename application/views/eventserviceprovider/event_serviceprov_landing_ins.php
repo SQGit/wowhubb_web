@@ -336,6 +336,30 @@ table, td, tr {
             </div>
             <!--chat block ends--> 
           </div>
+
+           <!-- here google map location fetch -->
+            <?php
+              
+              $loc = array();
+              foreach ($serviceprovider as $serviceproviders) {
+                 $address = $serviceproviders->address1." ".$serviceproviders->country;
+                 
+                  $prepAddr = str_replace(' ','+',$address);
+                                  
+                  $geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
+                  $output= json_decode($geocode);
+                               
+                  $location  = $output->results[0]->geometry->location;
+                  
+                  array_push($loc, $location);
+                 
+              }
+
+                $loc_json = json_encode($loc);
+                echo '<script> var markers ='.$loc_json.' </script>'; 
+               
+            ?>
+
           <div class="col-md-6"> 
             <!-- center box start here  =================================== -->
             <div class="container post-content">
@@ -456,11 +480,12 @@ table, td, tr {
             </div>
           </div>
            <div class="col-md-3">
-          <h5 style="font-weight:bold; font-size:13px; letter-spacing:-.5px; text-align:left; margin-top:0;">Map Locations</h5>
-              <div style="margin-left:0; text-align:left;">
-              <img src="<?php echo base_url('assets/images/houston-hotels.jpg'); ?>" class="img-responsive">
-            </div>  
-                      </div>
+            <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left; margin-top:0;">Map Locations</h5>
+            <div style="margin-left:0; text-align:left;">
+                    <div id="mapCanvas" style="width:275px;height:325px; margin:0;"> 
+                    </div>
+            </div>          
+          </div>
           <!-- Newsfeed Common Side Bar Right
           ================================================= --> 
           
@@ -489,8 +514,51 @@ table, td, tr {
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script> 
 <script>
 
+function initMap() {
+    var map;
+    var bounds = new google.maps.LatLngBounds();
+    var mapOptions = {
+        mapTypeId: 'roadmap'
+    };
+                    
+    // Display a map on the web page
+    map = new google.maps.Map(document.getElementById("mapCanvas"), mapOptions);
+    map.setTilt(50);
+     
+        
+    // Add multiple markers to map
+    var infoWindow = new google.maps.InfoWindow(), marker, i;
     
+    // Place each marker on the map  
+    for( i = 0; i < markers.length; i++ ) {
+        var position = new google.maps.LatLng(markers[i].lat, markers[i].lng);
+        bounds.extend(position);
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+           
+        });
+        
+        // Center the map to fit all markers on the screen
+        map.fitBounds(bounds);
+    }
 
+    // Set zoom level
+    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+        this.setZoom(14);
+        google.maps.event.removeListener(boundsListener);
+    });
+    
+}
+// Load initialize function
+google.maps.event.addDomListener(window, 'load', initMap);
+
+</script> 
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiegWT2wCL6Ek8vujvqgtXe1NjcKKNE9k&libraries=places&callback=initMap">
+  
 </script>
+
+
 </body>
 </html>

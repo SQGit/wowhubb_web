@@ -10,7 +10,7 @@ class Event extends CI_Controller
 
 		 $this->load->library('session'); 
 		 $this->load->helper(array('form','url','date'));		 
-
+		 
 	}
 	
 public function eventfeed()
@@ -616,6 +616,7 @@ public function professional_event()
 		   					'eventtype:'        ."professional_event", 
 							'eventcategory:'    .$this->input->post('event_category'), 
 							'eventtypeint:'     ."2",
+							'eventdayscount:' 	.$this->input->post('eventdayscount'),
 							'eventname:'        .$this->input->post('event_name'),	
 							'tickettype:'       .$this->input->post('ticket_type'),	
 							'eventstartdate:'	.$s_date.' '.$s_time,
@@ -870,8 +871,8 @@ public function professional_event()
 
 	    	  // event tour location
 
-	   			$tour_count = count($this->input->post('event_tour_name')); 
-
+	   			$tour_count = count($this->input->post('event_tour_name'));
+	   			   
 	   			$event_tour_location = array();
 
 	   			for($i=0; $i<$tour_count; $i++)
@@ -879,16 +880,16 @@ public function professional_event()
 	   				array_push($event_tour_location, array
 	   					(
 	   						'eventtournumber'       =>  $i+1,
-	   			 			'eventtourname'    		=>  $_POST['event_tour_name'][$i],
-	   			 			'eventtourstartdate'    =>  $_POST['eventtour_startdate'][$i]." ".$_POST['eventtour_startime'][$i],
-	   			 			'eventtourenddate'    	=>  $_POST['eventtour_enddate'][$i]." ".$_POST['eventtour_endtiming'][$i],
-	   			 			'eventtourcountry'    	=>  $_POST['tour_country'][$i],
-	   			 			'eventtourticketurl'    =>  $_POST['tour_ticket_url'][$i],
-	   			 			'eventtourticketprice'  =>  $_POST['tour_ticket_price'][$i],
-	   			 			'eventtouraddress1'     =>  $_POST['tour_address1'][$i],
-	   			 			'eventtouraddress2'     =>  $_POST['tour_address2'][$i],
-	   			 			'eventtourcity'    	    =>  $_POST['tour_city'][$i],
-	   			 			'eventtourzipcode'      =>  $_POST['tour_zipcode'][$i]
+	   			 			'eventtourname'    		=>  $this->input->post('event_tour_name')[$i],
+	   			 			'eventtourstartdate'    =>  $this->input->post('eventtour_startdate')[$i]." ".$this->input->post('eventtour_startime')[$i],
+	   			 			'eventtourenddate'    	=>  $this->input->post('eventtour_enddate')[$i]." ".$this->input->post('eventtour_endtiming')[$i],
+	   			 			'eventtourcountry'    	=>  $this->input->post('tour_country')[$i],
+	   			 			'eventtourticketurl'    =>  $this->input->post('tour_ticket_url')[$i],
+	   			 			'eventtourticketprice'  =>  $this->input->post('tour_ticket_price')[$i],
+	   			 			'eventtouraddress1'     =>  $this->input->post('tour_address1')[$i],
+	   			 			'eventtouraddress2'     =>  $this->input->post('tour_address2')[$i],
+	   			 			'eventtourcity'    	    =>  $this->input->post('tour_city')[$i],
+	   			 			'eventtourzipcode'      =>  $this->input->post('tour_zipcode')[$i]
 	   			 						
 	   			 		));	   				 
 	   			} 
@@ -1030,6 +1031,7 @@ public function social_multicity_event()
 		   					'eventtype:'        ."social_event", 
 							'eventcategory:'    .$this->input->post('event_category'), 
 							'eventtypeint:'     ."3",
+							'eventdayscount:' 	.$this->input->post('eventdayscount'),
 							'eventname:'        .$this->input->post('event_name'),	
 							'tickettype:'       .$this->input->post('ticket_type'),	
 							'eventstartdate:'	.$s_date.' '.$s_time,
@@ -1278,16 +1280,16 @@ public function social_multicity_event()
 	   				array_push($event_tour_location, array
 	   								(
 	   									'eventtournumber'       =>  $i+1,
-	   			 						'eventtourname'    		=>  $_POST['event_tour_name'][$i],
-	   			 						'eventtourstartdate'    =>  $_POST['eventtour_startdate'][$i]." ".$_POST['eventtour_startime'][$i],
-	   			 						'eventtourenddate'    	=>  $_POST['eventtour_enddate'][$i]." ".$_POST['eventtour_endtiming'][$i],
-	   			 						'eventtourcountry'    	=>  $_POST['tour_country'][$i],
-	   			 						'eventtourticketurl'    =>  $_POST['tour_ticket_url'][$i],
-	   			 						'eventtourticketprice'  =>  $_POST['tour_ticket_price'][$i],
-	   			 						'eventtouraddress1'     =>  $_POST['tour_address1'][$i],
-	   			 						'eventtouraddress2'     =>  $_POST['tour_address2'][$i],
-	   			 						'eventtourcity'    	    =>  $_POST['tour_city'][$i],
-	   			 						'eventtourzipcode'      =>  $_POST['tour_zipcode'][$i]
+	   			 						'eventtourname'    		=>  $this->input->post('event_tour_name')[$i],
+	   			 						'eventtourstartdate'    =>  $this->input->post('eventtour_startdate')[$i]." ".$this->input->post('eventtour_startime')[$i],
+	   			 						'eventtourenddate'    	=>  $this->input->post('eventtour_enddate')[$i]." ".$this->input->post('eventtour_endtiming')[$i],
+	   			 						'eventtourcountry'    	=>  $this->input->post('tour_country')[$i],
+	   			 						'eventtourticketurl'    =>  $this->input->post('tour_ticket_url')[$i],
+	   			 						'eventtourticketprice'  =>  $this->input->post('tour_ticket_price')[$i],
+	   			 						'eventtouraddress1'     =>  $this->input->post('tour_address1')[$i],
+	   			 						'eventtouraddress2'     =>  $this->input->post('tour_address2')[$i],
+	   			 						'eventtourcity'    	    =>  $this->input->post('tour_city')[$i],
+	   			 						'eventtourzipcode'      =>  $this->input->post('tour_zipcode')[$i]
 	   			 						
 	   			 					));	   				 
 	   			} 
@@ -1342,13 +1344,13 @@ public function social_multicity_event()
 		    	{
 		    		
 		    		$token4  =  $this->session->userdata('token');
-		     		$header4 = array('token:'  .$token4,
-		     				'eventid:' 		.$this->session->userdata('id'),
-							'couponcode:'  .$this->input->post('coupon_code'), 
-							'couponexpirydate:' .$this->input->post('coupon_ex_date'),
+		     		$header4 = array('token:'  		.$token4,
+		     				'eventid:' 				.$this->session->userdata('id'),
+							'couponcode:'  			.$this->input->post('coupon_code'), 
+							'couponexpirydate:' 	.$this->input->post('coupon_ex_date'),
 							'termsandconditions:'   .$this->input->post('terms_condition'),
 							'engagementformtype:'   .$this->input->post('audience_form_type'),
-							'engagementformaction:'   .$this->input->post('action_btn3')							
+							'engagementformaction:' .$this->input->post('action_btn3')							
 							);
 		   	 
 	       			$ch4 = curl_init();
@@ -2145,16 +2147,16 @@ public function contactreason_sendMail()
 	$response = array(); 	
 	
 
-		$config = Array(
-				  'protocol' => 'smtp',
-				  'smtp_host' => 'ssl://smtp.googlemail.com',
-				  'smtp_port' => 465,
-				  'smtp_user' => 'saranya.arapps@gmail.com', // change it to yours
-				  'smtp_pass' => 'coolsaran10', // change it to yours
-				  'mailtype' => 'html',
-				  'charset' => 'iso-8859-1',
-				  'wordwrap' => TRUE
-				);
+		// $config = Array(
+		// 		  'protocol'  => 'smtp',
+		// 		  'smtp_host' => 'ssl://smtp.googlemail.com',
+		// 		  'smtp_port' => 465,
+		// 		  'smtp_user' => 'saranya.arapps@gmail.com', // change it to yours
+		// 		  'smtp_pass' => 'coolsaran10', // change it to yours
+		// 		  'mailtype'  => 'html',
+		// 		  'charset'   => 'iso-8859-1',
+		// 		  'wordwrap'  => TRUE
+		// 		);
 
 		$reason = $this->input->post('reason_for_contact');
 		$name = $this->input->post('name');
@@ -2163,7 +2165,7 @@ public function contactreason_sendMail()
 		$msg = $this->input->post('message');
 
 
-	    $message = 'Reason:'.$reason."<br/>".'Name:'.$name."<br/>".'Phone :'.$phone."<br/>".'Email :'.$email."<br/>".'Message :'.$msg;
+	    $message = 'Reason:'.$reason."\r\n".'Name:'.$name."\r\n".'Phone :'.$phone."\r\n".'Email :'.$email."\r\n".'Message :'.$msg;
 	    $this->load->library('email', $config);
 	    $this->email->set_newline("\r\n");
 	    $this->email->from('saranya.arapps@gmail.com'); // change it to yours
@@ -2177,8 +2179,8 @@ public function contactreason_sendMail()
      		}
      		else
     		{
-     			// show_error($this->email->print_debugger());
-     			 $response['status'] = 'failed';
+     			show_error($this->email->print_debugger());
+     			 // $response['status'] = 'failed';
     		}
 		
     		echo json_encode($response);	 

@@ -487,7 +487,7 @@ var base_url = '<?php echo base_url() ?>'; //form submited
 		                {
 		                   if(response.status == 'success')
 		                   {
-		                   // alert("success");
+		                  
 		                    swal({
 		                                                 title: "Success!",
 		                                                 text: "Your Event Created Successfully...",

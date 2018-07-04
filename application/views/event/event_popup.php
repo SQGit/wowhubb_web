@@ -278,7 +278,8 @@ input[type=radio] {
                                         <option value="Vacation Tours">Vacation Tours</option> 
                                         <option value="Recreational Tours">Recreational Tours</option> 
                                         <option value="Road Trip">Road Trip</option> 
-                                        <option value="Religious Tourism">Religious Tourism</option> <option value="Wellness Tourism">Wellness Tourism</option> 
+                                        <option value="Religious Tourism">Religious Tourism</option> 
+                                        <option value="Wellness Tourism">Wellness Tourism</option> 
                                         <option value="Excursion">Excursion</option> 
                                         <option value="Spring Break">Spring Break Events</option> 
                                         <option value="Safari Tours">Safari Tours</option> 

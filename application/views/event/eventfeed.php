@@ -409,7 +409,7 @@ li.multipleInput-email {
                       {  
                   ?>
                        
-                        <a href="http://104.197.80.225:3010/wow/media/personal/<?php echo $this->session->userdata('self_video'); ?>" class="html5lightbox" data-width="480" data-height="320" > &nbsp;&nbsp;
+                        <a href="<?php echo $this->session->userdata('self_video'); ?>" class="html5lightbox" data-width="480" data-height="320" > &nbsp;&nbsp;
                           <i class="icon ion-arrow-right-b" style="font-size:28px; color:#fff;"></i>
                         </a> 
                         
@@ -3358,7 +3358,7 @@ li.multipleInput-email {
                       <div class="row">
                          <!-- here start event highlight part -->
                                   <div class="col-md-12">
-                                        <h5 style="font-weight:bold; font-size:13px;">Event Highlights</h5>
+                                        <h5 style="font-weight:bold; font-size:13px;">Sales Highlights</h5>
                                   </div>
                             <!-- here start with  event highlight video -->
                           <div class="col-md-12">

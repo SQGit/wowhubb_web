@@ -30,6 +30,19 @@ class Profile extends CI_Controller
 		$this->load->view('profile/profile_eventfeed');
 	}
 
+public function profile_gallery()
+	{
+		
+		$this->rest->http_header('token', $this->session->userdata('token'));
+		$profile_gallery = array();
+		$json_data = json_encode($profile_gallery); 
+
+		$result = $this->rest->post('http://104.197.80.225:3010/wow/user/personalgallery',$json_data,'json');
+		$data['profile_img'] = $result->gallery;
+		
+		$this->load->view('profile/profile_gallery',$data);
+	}
+
 	public function personal_update_overview() //personal overview  
 	{
 		$response = array();
@@ -129,11 +142,19 @@ public function personal_update_video() //personal self intro video
 		$response = array();
 		$this->rest->http_header('token', $this->session->userdata('token'));
 
+			$relation_type =  $this->input->post('relation_type');
 			
-		   	$personal_relation = array (	   								
-		   			 						'relationshipstatus' =>  $this->input->post('relation_type'),
-		   			 						'relationshipwith'   =>  $this->input->post('relation_name')			 						
-		   			 					);	   				 
+			if($relation_type == "Single")
+			{
+				$personal_relation = array ('relationshipstatus' =>  $this->input->post('relation_type'));
+			}
+
+			else
+			{
+				$personal_relation = array ('relationshipstatus' =>  $this->input->post('relation_type'),
+		   			 					'relationshipwith'   =>  $this->input->post('relation_name')
+		   			 					);	  
+			}		   	 	 
 		   		
 		    $json_data = json_encode($personal_relation); 
 		   	$result = $this->rest->post('http://104.197.80.225:3010/wow/user/updaterelationshipstatus',$json_data,'json');	
@@ -213,10 +234,12 @@ public function profile_get()  //all update personal profile data get here
 
 		$data['profile'] = $result->message;
 
-		if(isset($result->message->personalself))
+		if(isset($result->message->personalselfurl))
 		{	
-			$data['video'] = $result->message->personalselfurl;	
-			$this->session->set_userdata('self_video',$data['video']);	
+			$data['video_url'] = $result->message->personalselfurl;	
+			$data['video_thumb'] = $result->message->personalselfthumb;
+			$this->session->set_userdata('self_video',$data['video_url']);
+			$this->session->set_userdata('self_thumb',$data['video_thumb']);		
 		}
 
 		if(isset($result->message->personalimageurl))
@@ -413,6 +436,7 @@ public function professional_work_exp()
 
 function profile_img_upload() //working for image upload
     {
+		   
 		    $token =  $this->session->userdata('token');
 		   	$header = array('token:'.$token);
 	       	$ch = curl_init();

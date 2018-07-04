@@ -326,15 +326,13 @@ table, td, tr
                             <?php 
                               if(isset($profile->personalselfurl)){
                             ?>
-                            <div style="position: absolute; left: 40px; top: 30px;">
+                            <div style="position: absolute; left: 47px; top: 30px;">
                               <a href="<?php echo $profile->personalselfurl; ?>" class="html5lightbox" data-width="480" data-height="320">
                               <img src="<?php echo base_url('assets/images/youtube.png'); ?>" alt="user" />
                               </a>
                             </div>
                             <a href="<?php echo $profile->personalselfurl; ?>" class="html5lightbox" data-width="480" data-height="320">
-                            <video style="width:86px; height:86px; background-color:#e9e9e9; border-radius:5px;" id="myvideo" controlsList="nodownload" class="img-responsive" >
-                              <source src="<?php echo $profile->personalselfurl; ?>" type="video/mp4">
-                            </video>
+                             <img src="<?php echo $profile->personalselfthumb; ?>"  style="border:3px solid #ccc; border-radius:7px; width:86px; height:86px;" />
                             </a>
                             <?php } else {  ?>
                               <video style="width:86px; height:86px; border-radius:5px;" id="myvideo">
@@ -381,12 +379,10 @@ table, td, tr
              
             <ul class="list-inline profile-menu">
               
-              <li><a href="<?php echo base_url('Profile/profile_get'); ?>" class="active">Profile</a></li>
-              <!-- <li><a href="<?php echo base_url ('event/profile_get_eventfeed') ?>" >Event Feed</a></li> -->
+              <li><a href="<?php echo base_url('Profile/profile_get'); ?>" class="active">Profile</a></li>              
               <li><a href="<?php echo base_url ('home/interest_get') ?>" >Interests</a></li>
-              <li><a href="<?php echo base_url ('Profile/friends_connection') ?>">Friend Connections</a></li>
-              
-              <li><a href="#">Photos</a></li>
+              <li><a href="<?php echo base_url ('Profile/friends_connection') ?>">Friend Connections</a></li>              
+              <li><a href="<?php echo base_url ('Profile/profile_gallery') ?>">Photos</a></li>
             </ul>
             <ul class="follow-me list-inline">
               <li><?php if(isset($frds_count)) { echo $frds_count; } ?> Connections</li>
@@ -583,7 +579,7 @@ table, td, tr
                                       </div> 
 
                                       <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
-                                     <div class="col-md-12">
+                                      <div class="col-md-12">
                                         <div class="pull-left" style="width:7%;">
                                           <img src="../assets/images/country-icon.png" alt=""/>
                                         </div>
@@ -591,7 +587,7 @@ table, td, tr
                                           <span style="color:#333; font-size:12px;">
                                             <?php if(isset($profile->country)){echo $profile->country; } else{echo "";} ?>
                                               
-                                            </span>
+                                          </span>
                                         </div>                                                                        
                                       </div>                                                             
                                                                            
@@ -687,25 +683,33 @@ table, td, tr
                               <div class="form-group col-sm-12" style="font-size: 13px;">
                                 <label>Relationship Status</label>
                                 <select name="relation_type" id="relation_type" class="form-control" style="background-color:#eff0f1;font-size: 12px;">
-                                  <option value="<?php if(isset( $profile->relationshipstatus)){echo $profile->relationshipstatus; } else{echo "Single";} ?> "> <?php if(isset( $profile->relationshipstatus)){echo $profile->relationshipstatus; } else{echo "Single";} ?> </option>                                   
-                                  <option value="<?php if(isset( $profile->relationshipstatus)){echo "In a Relationship"; } else{echo "In a Relationship";} ?> "> <?php if(isset( $profile->relationshipstatus)){echo "In a Relationship"; } else{echo "In a Relationship";} ?> </option> 
+                                  <option value="Single" <?php if(isset($profile->relationshipstatus) && ($profile->relationshipstatus=="Single")){echo "selected"; } else{echo "";} ?> > Single </option>                                   
+                                  <option value="In a Relationship" <?php if(isset( $profile->relationshipstatus)&& ($profile->relationshipstatus == "In a Relationship")){echo "selected"; } else{echo "";} ?> > In a Relationship </option> 
 
-                                  <option value="<?php if(isset( $profile->relationshipstatus)){echo "Engaged"; } else{echo "Engaged";} ?> "> <?php if(isset( $profile->relationshipstatus)){echo "Engaged"; } else{echo "Engaged";} ?> </option> 
+                                  <option value="Engaged" <?php if(isset( $profile->relationshipstatus)&& ( $profile->relationshipstatus=="Engaged")){echo "selected"; } else{echo "";} ?> > Engaged </option> 
                                   
-                                  <option value="<?php if(isset( $profile->relationshipstatus)){echo "Married"; } else{echo "Married";} ?> "> <?php if(isset( $profile->relationshipstatus)){echo "Married"; } else{echo "Married";} ?> </option> 
+                                  <option value="Married" <?php if(isset( $profile->relationshipstatus) && ($profile->relationshipstatus=="Married")){echo "selected"; } else{echo "";} ?>> Married </option> 
                                   
-                                   <option value="<?php if(isset( $profile->relationshipstatus)){echo "Divorced"; } else{echo "Divorced";} ?> "> <?php if(isset( $profile->relationshipstatus)){echo "Divorced"; } else{echo "Divorced";} ?> </option>                            
-                                  <option value="<?php if(isset( $profile->relationshipstatus)){echo "Widowed"; } else{echo "Widowed";} ?> "> <?php if(isset( $profile->relationshipstatus)){echo "Widowed"; } else{echo "Widowed";} ?> </option>  
-                                  <option value="<?php if(isset( $profile->relationshipstatus)){echo "---"; } else{echo "---";} ?> "> <?php if(isset( $profile->relationshipstatus)){echo "---"; } else{echo "---";} ?> </option>                                                             
+                                  <option value="Divorced" <?php if(isset( $profile->relationshipstatus)&&($profile->relationshipstatus=="Divorced")){echo "selected"; } else{echo "";} ?>>Divorced </option>                            
+                                  <option value="Widowed" <?php if(isset( $profile->relationshipstatus)&&($profile->relationshipstatus=="Widowed")){echo "Widowed"; } else{echo "";} ?> > Widowed </option>  
+                                  <option value="---"<?php if(isset( $profile->relationshipstatus)&&($profile->relationshipstatus=="---")){echo "selected"; } else{echo "";} ?>> --- </option>                                                             
                                 </select>
                               </div>
 
+                            <?php 
+                              if($profile->relationshipwith != null){
+                            ?>
+                              <div class="form-group col-xs-12" id="relationship_with">
+                                <label for="date-to"> With </label>
+                                <input  id="relation_name" type="text" class="form-control input-group-lg" name="relation_name"  value="<?php if(isset($profile->relationshipwith)) { echo $profile->relationshipwith; } else { echo " "; } ?>" />
+                              </div>
+                              <?php } else{ ?>
                               <div class="form-group col-xs-12" id="relationship_with" style="display: none;">
                                 <label for="date-to"> With </label>
-                                <input id="relation_name_1" type="text" class="form-control input-group-lg" name="relation_name"  value="<?php if(isset($profile->relationshipwith)) { echo $profile->relationshipwith; } else { echo " "; } ?>" />
+                                <input  id="relation_name" type="text" class="form-control input-group-lg" name="relation_name" style="text-transform: capitalize;" />
                               </div>
                              
-                             <?php  } else {  ?>
+                             <?php } } else {  ?>
 
                               <div class="form-group col-sm-12" style="font-size: 12px;">
                                 <label>Relationship Status</label>
@@ -722,9 +726,9 @@ table, td, tr
                                 </select>
                               </div>
 
-                             <div class="form-group col-xs-12" id="relationship_with" style="display: none;">
+                              <div class="form-group col-xs-12" id="relationship_with" style="display: none;">
                                 <label for="date-to"> With </label>
-                                <input id="relation_name_1" type="text" class="form-control input-group-lg" name="relation_name"  value="<?php if(isset($profile->relationshipwith)) { echo $profile->relationshipwith; } else { echo " "; } ?>" />
+                                <input id="relation_name" type="text" class="form-control input-group-lg" name="relation_name" style="text-transform: capitalize;" />
                               </div>
 
                              <?php } ?>
@@ -1061,6 +1065,7 @@ table, td, tr
                                     echo "<br>";
                                     echo $colleges->description;
                                     echo "<br>";
+                                    echo '<div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>';
                                   } 
                               }
                               else
@@ -1068,7 +1073,7 @@ table, td, tr
                                 echo "Add Your College Details";
                               }
                               ?>
-                              <br>                                        
+                              <br>
                             </span>
                           </div>
                                        
@@ -1079,7 +1084,7 @@ table, td, tr
                           </div>
                         </div>
 
-                        <div class="col-md-12" style="border-bottom:1px solid #ccc; margin:15px 0;"></div>
+                       
                       </div>
                   </div>
 
@@ -2014,6 +2019,11 @@ $("#profileImage").click(function(e) { //this two value is profile image  id nam
     $("#imageUpload").click();  
 }); 
 
+$("#update_hover").click(function(e) { //this update_hover is cover image text id for select profile image   
+    $("#imageUpload").click();  
+}); 
+
+
 // calender for event info
             $("#birthday").datetimepicker({
             timepicker:false,
@@ -2039,21 +2049,23 @@ $("#profileImage").click(function(e) { //this two value is profile image  id nam
   // personal relationship dynamic add
 
 //ticket select option  show and hide
-$(document).ready(function(){
-    $("#relation_type").on('change', function () {
-        if ($(this).val() == "Single" || $(this).val() == "select") 
-         {
+
+  $(document).on('change', '#relation_type',function () {
+           
+      if ($(this).val() == "Single" || $(this).val() == "select" || $(this).val() == "Divorced" || $(this).val() == "Widowed" || $(this).val() == "---"  ) 
+          {
             $("#relationship_with").hide();
-                 
+          }     
+      
+      else
+          {
+            $("#relationship_with").show();
           }
-          else
-               {
-                  $("#relationship_with").show();
+  });
 
-               }
-    });
 
-}); 
+
+
 
   function generete_dynamic_relationship(count){
 
@@ -2115,7 +2127,7 @@ $(document).on('click', '.remove_certificate', function(e)
 // dynamic add college
   function generete_dynamic_college(count){
 
-  var college = ' <div class="row" id="add_college_'+count+'"> <div class="form-group col-xs-12"> <label for="date-to"> College</label> <input type="text" id="college_'+count+'" class="form-control input-group-lg" name="college[]" > </div> <div class="form-group col-xs-12"> <label for="date-to"> Degree</label> <input type="text" id="degree_'+count+'" class="form-control input-group-lg" name="degree[]" style="text-transform: capitalize;" placeholder="Ex.Bachelors"> </div> <div class="form-group col-xs-12"> <label for="date-to"> Field of study</label> <input type="text" id="field_of_std_'+count+'" class="form-control input-group-lg" name="field_of_study[]" style="text-transform: capitalize;" placeholder="Ex.Business"> </div> <div class="form-group col-xs-12"> <label for="date-to"> Grade</label> <input type="text" id="grade_'+count+'" class="form-control input-group-lg" name="grade[]" style="text-transform: capitalize;" > </div> <div class="form-group col-xs-6"> <label for="date-to"> From</label> <select name="from_year[]" id="fromyear_'+count+'" class="form-control"> <option value=""> Year </option> <option value="2017"> 2017</option> <option value="2016"> 2016</option> <option value="2015"> 2015</option> <option value="2014"> 2014</option> <option value="2013"> 2013 </option> <option value="2012"> 2012</option> <option value="2011"> 2011</option> <option value="2010"> 2010</option> <option value="2009"> 2009</option> <option value="2008"> 2008</option> <option value="2007"> 2007</option> <option value="2006"> 2006</option> <option value="2005"> 2005</option> <option value="2004"> 2004</option> <option value="2003"> 2003</option> <option value="2002"> 2002</option> <option value="2001"> 2001</option> <option value="2000"> 2000</option> </select> <div class="alert alert-danger" id="error_msg_'+count+'" role="alert" style="display:none;" >Your end date can’t be earlier than your start date. </div> </div> <div class="form-group col-xs-6"> <label for="date-to"> To</label> <select name="to_year[]" id="toyear_'+count+'" class="year_validate1 form-control"> <option value=""> Year </option> <option value="2017"> 2017</option> <option value="2016"> 2016</option> <option value="2015"> 2015</option> <option value="2014"> 2014</option> <option value="2013"> 2013 </option> <option value="2012"> 2012</option> <option value="2011"> 2011</option> <option value="2010"> 2010</option> <option value="2009"> 2009</option> <option value="2008"> 2008</option> <option value="2007"> 2007</option> <option value="2006"> 2006</option> <option value="2005"> 2005</option> <option value="2004"> 2004</option> <option value="2003"> 2003</option> <option value="2002"> 2002</option> <option value="2001"> 2001</option> <option value="2000"> 2000</option> </select> </div> <div class="form-group col-xs-12"> <label for="date-to"> Description</label> <textarea id="description_'+count+'" name="description"> </textarea> </div> <div class="col-sm-12 text-right"> <a href="JavaScript:void(0);" class="animated bounceInLeft remove_college btn btn-info btn-sm"> Remove </a> </div> <div class="col-md-12" style="border-bottom:2px solid #ffb3d1; margin:15px 0;"></div> </div>';
+  var college = ' <div class="row" id="add_college_'+count+'"> <div class="form-group col-xs-12"> <label for="date-to"> College</label> <input type="text" id="college_'+count+'" class="form-control input-group-lg" name="college[]" > </div> <div class="form-group col-xs-12"> <label for="date-to"> Degree</label> <input type="text" id="degree_'+count+'" class="form-control input-group-lg" name="degree[]" style="text-transform: capitalize;" placeholder="Ex.Bachelors"> </div> <div class="form-group col-xs-12"> <label for="date-to"> Field of study</label> <input type="text" id="field_of_std_'+count+'" class="form-control input-group-lg" name="field_of_study[]" style="text-transform: capitalize;" placeholder="Ex.Business"> </div> <div class="form-group col-xs-12"> <label for="date-to"> Grade</label> <input type="text" id="grade_'+count+'" class="form-control input-group-lg" name="grade[]" style="text-transform: capitalize;" > </div> <div class="form-group col-xs-6"> <label for="date-to"> From</label> <select name="from_year[]" id="fromyear_'+count+'" class="form-control"> <option value=""> Year </option> <option value="2017"> 2017</option> <option value="2016"> 2016</option> <option value="2015"> 2015</option> <option value="2014"> 2014</option> <option value="2013"> 2013 </option> <option value="2012"> 2012</option> <option value="2011"> 2011</option> <option value="2010"> 2010</option> <option value="2009"> 2009</option> <option value="2008"> 2008</option> <option value="2007"> 2007</option> <option value="2006"> 2006</option> <option value="2005"> 2005</option> <option value="2004"> 2004</option> <option value="2003"> 2003</option> <option value="2002"> 2002</option> <option value="2001"> 2001</option> <option value="2000"> 2000</option> </select> <div class="alert alert-danger" id="error_msg_'+count+'" role="alert" style="display:none;" >Your end date can’t be earlier than your start date. </div> </div> <div class="form-group col-xs-6"> <label for="date-to"> To</label> <select name="to_year[]" id="toyear_'+count+'" class="year_validate1 form-control"> <option value=""> Year </option> <option value="2017"> 2017</option> <option value="2016"> 2016</option> <option value="2015"> 2015</option> <option value="2014"> 2014</option> <option value="2013"> 2013 </option> <option value="2012"> 2012</option> <option value="2011"> 2011</option> <option value="2010"> 2010</option> <option value="2009"> 2009</option> <option value="2008"> 2008</option> <option value="2007"> 2007</option> <option value="2006"> 2006</option> <option value="2005"> 2005</option> <option value="2004"> 2004</option> <option value="2003"> 2003</option> <option value="2002"> 2002</option> <option value="2001"> 2001</option> <option value="2000"> 2000</option> </select> </div> <div class="form-group col-xs-12"> <label for="date-to"> Description</label> <textarea id="description_'+count+'" name="description[]"> </textarea> </div> <div class="col-sm-12 text-right"> <a href="JavaScript:void(0);" class="animated bounceInLeft remove_college btn btn-info btn-sm"> Remove </a> </div> <div class="col-md-12" style="border-bottom:2px solid #ffb3d1; margin:15px 0;"></div> </div>';
 
 
     return college;
@@ -2671,14 +2683,14 @@ $(document).ready(function() {
     $(".file-upload").on('change', function(){
         readURL(this);
         $('#profile_img').submit();
-        // document.getElementById('profile_img').submit();
+        
     });
     
     $(".upload-button").on('click', function() {
        $(".file-upload").click();
     });
 
-    $("#profile_img").submit(function(e){
+$("#profile_img").submit(function(e){
      e.preventDefault();
     var url = $(this).attr('action');
     var formdata = new FormData(this);
@@ -2696,20 +2708,17 @@ $(document).ready(function() {
                 },
                 success: function(response)
                 {
-                   if(response.status == 'success')
-                   {
+                  if(response.status == 'success')
+                  {
                     
                     // window.location.href = "<?php //echo base_url('profile/profile_img_upload');?>";
                    
-                   }else if(response.status == 'Failed')
-                   {
-                    
+                  }else if(response.status == 'Failed')
+                  {
                     swal('Somethink will be wrong plz try again..');
-                   }
-          
-
+                  }
                 }
-                });
+              });
            
     });
 });

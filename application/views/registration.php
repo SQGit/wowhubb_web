@@ -267,14 +267,14 @@ label.error {
                 <div class="row" style="margin-bottom: 5px;">
                     <div class="form-group col-xs-12">
                        <label for="email" class="sr-only">Email</label>
-                       <input id="email" class="form-control input-group-lg" type="email" name="Email"  placeholder="Enter Your Email" autocomplete="off" />
+                       <input id="email" class="form-control input-group-lg" type="text" name="Email"  placeholder="Enter Your Email" autocomplete="off" />
                     </div>
                 </div>
 
                 <div class="row">               
                   <div class="form-group col-xs-12">
                     <label for="phone" class="sr-only">Phone Number</label>
-                    <input id="phone" pattern="^\+?\d{0,13}" class="frm-con input-group-lg" type="text" name="pho_no" style="font-size: 13px;" title="Enter phone number" placeholder="Your Phone Number" autocomplete="off" />      
+                    <input id="phone" pattern="^\+?\d{0,13}" class="frm-con input-group-lg" type="text" name="pho_no" style="font-size: 13px;" title="Enter phone number" placeholder="Your Phone Number" autocomplete="off" maxlength="15" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" />      
                   </div>
                 </div>
 
@@ -303,7 +303,7 @@ label.error {
                   </div>
                 </div>
                  
-
+<!--
                 <div class="row">
                   <p class="birth"><label>Date of Birth</label></p>
                   <div class="form-group col-sm-3 col-xs-6">
@@ -492,7 +492,8 @@ label.error {
                     </label>   
                     </p>                 
                 </div>
-               <div id="gender_val"> </div>				
+               <div id="gender_val"> </div>	
+-->
               
                 <p > By clicking Join Now, you agree to our <a href="#" style="color:blue;font-weight: bold;">Terms, Data Policy</a>,  and <a href="#" style="color:blue;font-weight: bold;">Cookies  Policy, </a> You may receive SMS Notification from us  and can opt out any time.</p>
               

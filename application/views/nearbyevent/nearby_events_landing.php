@@ -21,7 +21,7 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- google api key here -->
-<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAH0ZxL9hrK1JeL7CDAYWRu7kX-hLeip2c"></script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAH0ZxL9hrK1JeL7CDAYWRu7kX-hLeip2c"></script> -->
 
 
 <!--Favicon-->
@@ -43,7 +43,7 @@ label.error {
 .rr-circle {
 	border-radius: 50%;
 	background-color: #e91e63;
-	font-size: 20px;
+	font-size: 13px;
 	color: #fff;
 	width: 35px;
 	height: 35px;
@@ -91,7 +91,7 @@ label.error {
 	line-height: 1.42857143;
 	border: 1px solid transparent;
 	border-radius: 4px 4px 0 0;
-	font-size: 16px;
+	font-size: 13px;
 	text-align: center;
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
@@ -211,7 +211,7 @@ table, td, tr {
              <!-- <textarea id="city"  name="current_location" style="display: none;"> </textarea> -->
 
               <div class="col-md-4">
-                <select name="event_category" id="days" class="form-control" style="background-color:#eff0f1;" required>
+                <select name="event_category" id="days" class="form-control" style="background-color:#eff0f1;" >
                   <option value="">Select </option>
                   <option value="Networking">Networking Meeting </option>
                   <option value="Class">Class</option>
@@ -230,6 +230,46 @@ table, td, tr {
                   <option value="Community Fundraising">Community Fundraising</option>
                   <option value="Public Fundraising">Public Fundraising</option>
                   <option value="Comedy Shows">Comedy Shows</option>
+                  <option value="Arts Entertaiment">Arts & Entertaiment </option>
+                  <option value="Food Drink">Food & Drink</option>
+                  <option value="Technology Computers">Technology & Computers</option><option value="Aerospace">Aerospace</option>   
+                  <option value="Health Beauty">Health & Beauty</option>
+                  <option value="Food Beverages">Food & Beverages</option><option value="Medical Health">Medical & Health</option>
+                  <option value="Insurance">Insurance</option>
+                  <option value="Auto Mobile">Auto mobile</option>
+                  <option value="Energy">Energy</option>
+                  <option value="Education Training">Education & Training</option>
+                  <option value="Cargo Freight">Cargo & Freight</option>
+                  <option value="Telecommunication">Tele communication </option>
+                  <option value="Business Consulting">Business Consulting</option>
+                  <option value="Finance Tax">Finance and Tax</option>
+                  <option value="Holiday Party ">Holiday Party </option>
+                  <option value="Music Concert">Music Concert</option>
+                  <option value="Kids Concert">Kids Concert</option> 
+                  <option value="Adult Concert">Adult Concert</option>   
+                  <option value="Camp Meeting">Camp Meeting</option> 
+                  <option value="Comedy Shows">Comedy Shows</option>                                        
+                  <option value="Christian Meeting">Christian Meeting/Events</option>  
+                  <option value="Muslim Meeting">Muslim Meeting</option>  
+                  <option value="Cultural Events">Cultural Events</option>  
+                  <option value="Judaism">Judaism</option>  
+                  <option value="Eastern Religion">Eastern Religion</option>  
+                  <option value="New Age">New Age</option> 
+                  <option value="Guided Tours">Guided Tours</option> 
+                  <option value="Crusing Tours">Crusing Tours</option> 
+                  <option value="Arts Culture">Arts & Culture Tourism</option> 
+                  <option value="Vacation Tours">Vacation Tours</option> 
+                  <option value="Recreational Tours">Recreational Tours</option> 
+                  <option value="Road Trip">Road Trip</option> 
+                  <option value="Religious Tourism">Religious Tourism</option> 
+                  <option value="Wellness Tourism">Wellness Tourism</option> 
+                  <option value="Excursion">Excursion</option> 
+                  <option value="Spring Break">Spring Break Events</option> 
+                  <option value="Safari Tours">Safari Tours</option> 
+                  <option value="Special Interest">Special Interest Tours</option> 
+                  <option value="Adventure Tours">Adventure Tours</option> 
+                  <option value="Educational Tours">Educational Tours</option> 
+                  <option value="Business Tours">Business Tours</option> 
                 </select>
               </div>
 
@@ -252,13 +292,13 @@ table, td, tr {
             
             <div id="chat-block" style="background:#fff; box-shadow:1px 1px 1px 2px #ECECEC; padding:2px; border-radius:5px;">
               <ul class="nav-news-feed">
-                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left; color:#333;">SEARCH FILTERS</h5>
+                <h5 style="font-weight:bold; font-size:13px; letter-spacing:-.5px; text-align:left; color:#333;">SEARCH FILTERS</h5>
               </ul>
               <!--news-feed links ends--> 
               
               <!--news-feed links ends-->
               <ul class="nav-news-feed">
-                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Categories</h5>
+                <h5 style="font-weight:bold; font-size:13px; letter-spacing:-.5px; text-align:left;">Categories</h5>
                 <li>
                   <div style="margin-left:0; text-align:left;">
                     <input type="checkbox">
@@ -317,7 +357,7 @@ table, td, tr {
                 <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
               </ul>
               <ul class="nav-news-feed">
-                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">Price</h5>
+                <h5 style="font-weight:bold; font-size:13px; letter-spacing:-.5px; text-align:left;">Price</h5>
                 <li>
                   <div style="margin-left:0; text-align:left;">
                     <input type="checkbox">
@@ -336,21 +376,35 @@ table, td, tr {
                 <li style="border-bottom:1px solid #ccc; margin-top:10px;"></li>
               </ul>
               
-              <!--news-feed links ends--> 
-              <!--ul class="nav-news-feed">
-                <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left;">AVAILABILITY</h5>
-                <li>
-                  <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Out of stock</a></div>
-                </li>
-                <li>
-                  <div style="margin-left:0; text-align:left;"><a href="#"><i class="fa fa-caret-right" style="margin-top:4px;"></i>Clear all</a></div>
-                </li>
-              </ul--> 
-              <!--news-feed links ends--> 
+             
               
             </div>
             <!--chat block ends--> 
           </div>
+
+         <!-- here google map location fetch -->
+            <?php
+              
+              $loc = array();
+            foreach ($nearbyevent as $nearbyevents) {
+              foreach ($nearbyevents->eventvenue as $eventvenues) {
+                 $address = $eventvenues->eventvenueaddress1." ".$eventvenues->eventvenuecity;
+                 
+                  $prepAddr = str_replace(' ','+',$address);
+                                  
+                  $geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
+                  $output= json_decode($geocode);
+                               
+                  $location  = $output->results[0]->geometry->location;
+                  
+                  array_push($loc, $location);
+                 
+              }
+            }
+                $loc_json = json_encode($loc);
+                echo '<script> var markers ='.$loc_json.' </script>'; 
+               
+            ?>
 
           <div class="col-md-6"> 
             <!-- center box start here  =================================== -->
@@ -379,7 +433,7 @@ table, td, tr {
                         <div class="col-md-12" style="margin-top:0px; position:relative">
                           <div class="row">   
                                 <div class="col-md-9">
-                              <span style="font-size:20px;; font-weight:normal;">
+                              <span style="font-size:15px;; font-weight:normal;">
                                   <img src="../assets/images/wow-black-big.png" alt="post-image"> 
 
                                 <?php echo $nearbyevents->eventtitle ?>
@@ -392,7 +446,7 @@ table, td, tr {
                                <div class="pull-right">
                                   <div class="rr-circle">
                                     <?php if(isset($nearbyevents->wowtagvideo)) { ?>
-                                    <a href="http://104.197.80.225:3010/wow/media/event/<?php echo $nearbyevents->wowtagvideo; ?>" target="_blank">
+                                    <a href="<?php echo $nearbyevents->wowtagvideourl; ?>"  class="html5lightbox" data-width="480" data-height="320">
                                         <img src="<?php echo base_url('assets/images/play.png'); ?>" alt="post-image">
                                     </a>
                                     <?php } ?>
@@ -403,14 +457,14 @@ table, td, tr {
                   
                           </div>
                           <div class="gallery">
-                              <a class="test-popup-link" href='http://104.197.80.225:3010/wow/media/event/<?php echo $nearbyevents->coverpage; ?>' > <img style="height: 250px!important;" src="http://104.197.80.225:3010/wow/media/event/<?php echo $nearbyevents->coverpage; ?>" alt="post-image" class="img-responsive img-thumbnail post-image"  />
+                              <a class="test-popup-link" href='<?php echo $nearbyevents->coverpageurl; ?>' > <img style="height: 250px!important;" src="<?php echo $nearbyevents->coverpageurl; ?>" alt="post-image" class="img-responsive img-thumbnail post-image"  />
                               </a>
                           </div>
 
-                          <div style="position:absolute; right:10px;bottom: 245px;">
+                          <div style="position:absolute; right:10px;bottom: 270px;">
                             <div class="col-md-12">
                               <div class="col-md-12 text-center" style="border-radius:5px; background:rgba(0,0,0,.7);">
-                                 <span style="font-size:16px; color:#fff;">
+                                 <span style="font-size:13px; color:#fff;">
                                     <?php echo $nearbyevents->ticketprice ?>                                  
                                 </span> </div>
                             </div>
@@ -419,7 +473,7 @@ table, td, tr {
                           <div class="row">
                              <div class="col-md-5" style="margin-top:0px;">                    
                                  <div class="row">
-                                    <div class="col-md-12" style="margin-top:20px; margin-bottom:15px;"> <span style="font-size:25px; color:#555"><?php echo $nearbyevents->eventcategory ?></span></div>
+                                    <div class="col-md-12" style="margin-top:20px; margin-bottom:15px;"> <span style="font-size:15px; color:#555"><?php echo $nearbyevents->eventcategory ?></span></div>
                                  </div>
 
                                  <?php
@@ -431,7 +485,7 @@ table, td, tr {
                               <div class="row">
                                 <div class="pull-left" style="width:15%;"><img src="../assets/images/map-icon-1.png" alt="post-image"> </div>
                                 <div class="pull-left" style="width:85%;">
-                                    <span style="font-size:14px;">
+                                    <span style="font-size:13px;">
                                   
                                                     <?php   
                                                                           
@@ -450,12 +504,13 @@ table, td, tr {
                             <div class="row">
                               <div class="pull-left" style="width:15%;"><img src="../assets/images/timer-icon.png" alt="post-image"> </div>
                                   <div class="pull-left" style="width:85%;">
-                                    <span style="font-size:14px;">
+                                    <span style="font-size:13px;">
                                                 <?php 
                                                     if(isset($nearbyevents->eventstartdate))
                                                         { 
-                                                           $timestamp = strtotime($nearbyevents->eventstartdate);                                   
+                                                           $timestamp = strtotime($nearbyevents->eventstartdate);
                                                            echo date("D d Y", strtotime($nearbyevents->eventstartdate));
+                                                           echo " ";
                                                            $timestamp1 = strtotime($nearbyevents->eventenddate);
                                                            echo date('D d Y', $timestamp1); 
                                                         } 
@@ -493,8 +548,7 @@ table, td, tr {
                       <p> Select and Search Your Event category </p>
                     </center>
 
-                    <?php } ?>
-                  
+                    <?php } ?>                  
 
                   </div>
             
@@ -502,9 +556,12 @@ table, td, tr {
           </div>
 
 
-          <div class="col-md-3">
-            <h5 style="font-weight:bold; font-size:16px; letter-spacing:-.5px; text-align:left; margin-top:0;">Map Locations</h5>
-            <div style="margin-left:0; text-align:left;"> <img src="../assets/images/houston-hotels.jpg" class="img-responsive"></div>
+         <div class="col-md-3">
+            <h5 style="font-weight:bold; font-size:13px; letter-spacing:-.5px; text-align:left; margin-top:0;">Map Locations</h5>
+            <div style="margin-left:0; text-align:left;">
+                    <div id="mapCanvas" style="width:275px;height:325px; margin:0;"> 
+                    </div>
+            </div>          
           </div>
           <!-- Newsfeed Common Side Bar Right
           ================================================= --> 
@@ -534,69 +591,10 @@ table, td, tr {
 <script src="<?php echo base_url('assets/js/jquery.magnific-popup.min.js')?>" ></script> 
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
 <script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script> 
-
+<script src="<?php echo base_url ('assets/html5lightbox/html5lightbox.js') ?>"></script><!-- video popup library -->
 <script>
 
-  // get current location
-
-$(document).ready(function() {
-         var currgeocoder;
-
-         //Set geo location lat and long
-
-         navigator.geolocation.getCurrentPosition(function(position, html5Error) {
-
-             geo_loc = processGeolocationResult(position);
-             currLatLong = geo_loc.split(",");
-             initializeCurrent(currLatLong[0], currLatLong[1]);
-
-        });
-
-        //Get geo location result
-
-       function processGeolocationResult(position) {
-             html5Lat = position.coords.latitude; //Get latitude
-             html5Lon = position.coords.longitude; //Get longitude
-             html5TimeStamp = position.timestamp; //Get timestamp
-             html5Accuracy = position.coords.accuracy; //Get accuracy in meters
-             return (html5Lat).toFixed(8) + ", " + (html5Lon).toFixed(8);
-       }
-
-        //Check value is present or not & call google api function
-
-        function initializeCurrent(latcurr, longcurr) {
-             currgeocoder = new google.maps.Geocoder();
-             console.log(latcurr + "-- ######## --" + longcurr);
-
-             if (latcurr != '' && longcurr != '') {
-                 var myLatlng = new google.maps.LatLng(latcurr, longcurr);
-                 return getCurrentAddress(myLatlng);
-             }
-       }
-
-        //Get current address
-
-         function getCurrentAddress(location) {
-              currgeocoder.geocode({
-                  'location': location
-
-            }, function(results, status) {
-           
-                if (status == google.maps.GeocoderStatus.OK) {
-                    console.log(results[0]);
-                    
-                    $("#address").html(results[0].formatted_address);
-                     $('#city').html(results[0].address_components[1].long_name);
-                } else {
-                    alert('Geocode was not successful for the following reason: ' + status);
-                }
-            });
-         }
-    });
-
-//magnific-popup image shows
-
-$('.gallery').each(function() { // the containers for all your galleries
+  $('.gallery').each(function() { // the containers for all your galleries
     $(this).magnificPopup({
         delegate: 'a', // the selector for gallery item
         type: 'image',
@@ -605,53 +603,109 @@ $('.gallery').each(function() { // the containers for all your galleries
         }
     });
 });
-         //personal profile over view submit and updated profile page
 
-// var base_url = '<?php echo base_url() ?>'; //form submited
 
-//     $(document).ready(function(){
-
-//     $(document).on("submit", function(e){
-//             e.preventDefault();
-
-          
-//             var url = $(this).attr('action');
-//             var formdata = new FormData(this);
-          
-//             $.ajax({
-//                     url : url,
-//                     method: 'POST',
-//                     data: formdata,
-//                     processData: false,
-//                     contentType: false,
-//                     dataType:'json',
-//                     error: function(xhr,status,error)
-//                     {   
-//                         alert(xhr.responseText);
-//                     },
-//                     success: function(response)
-//                     {
-//                        if(response.status == 'success')
-//                        {
-//                         // swal("Good job!", "Your profile successfully updated!", "success");
-//                         // window.location.href = base_url + 'profile/profile_get';
-//                         }else if(response.status == 'Failed')
-//                        {
-                        
-//                         swal("Sorry!", "somethink wrong !", "error");
-//                        }          
-//                     }
-//                 });
-          
-//       });
-//    });
-
+function initMap() {
+    var map;
+    var bounds = new google.maps.LatLngBounds();
+    var mapOptions = {
+        mapTypeId: 'roadmap'
+    };
+                    
+    // Display a map on the web page
+    map = new google.maps.Map(document.getElementById("mapCanvas"), mapOptions);
+    map.setTilt(50);
+     
         
-
+    // Add multiple markers to map
+    var infoWindow = new google.maps.InfoWindow(), marker, i;
     
+    // Place each marker on the map  
+    for( i = 0; i < markers.length; i++ ) {
+        var position = new google.maps.LatLng(markers[i].lat, markers[i].lng);
+        bounds.extend(position);
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+           
+        });
+        
+        // Center the map to fit all markers on the screen
+        map.fitBounds(bounds);
+    }
+
+    // Set zoom level
+    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+        this.setZoom(14);
+        google.maps.event.removeListener(boundsListener);
+    });
+    
+}
+// Load initialize function
+google.maps.event.addDomListener(window, 'load', initMap);
+
+</script> 
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiegWT2wCL6Ek8vujvqgtXe1NjcKKNE9k&libraries=places&callback=initMap"></script>
 
 
+ <!-- // get current location
 
-  </script>
+// $(document).ready(function() {
+//          var currgeocoder;
+
+//          //Set geo location lat and long
+
+//          navigator.geolocation.getCurrentPosition(function(position, html5Error) {
+
+//              geo_loc = processGeolocationResult(position);
+//              currLatLong = geo_loc.split(",");
+//              initializeCurrent(currLatLong[0], currLatLong[1]);
+
+//         });
+
+//         //Get geo location result
+
+//        function processGeolocationResult(position) {
+//              html5Lat = position.coords.latitude; //Get latitude
+//              html5Lon = position.coords.longitude; //Get longitude
+//              html5TimeStamp = position.timestamp; //Get timestamp
+//              html5Accuracy = position.coords.accuracy; //Get accuracy in meters
+//              return (html5Lat).toFixed(8) + ", " + (html5Lon).toFixed(8);
+//        }
+
+//         //Check value is present or not & call google api function
+
+//         function initializeCurrent(latcurr, longcurr) {
+//              currgeocoder = new google.maps.Geocoder();
+//              console.log(latcurr + "-- ######## --" + longcurr);
+
+//              if (latcurr != '' && longcurr != '') {
+//                  var myLatlng = new google.maps.LatLng(latcurr, longcurr);
+//                  return getCurrentAddress(myLatlng);
+//              }
+//        }
+
+//         //Get current address
+
+//          function getCurrentAddress(location) {
+//               currgeocoder.geocode({
+//                   'location': location
+
+//             }, function(results, status) {
+           
+//                 if (status == google.maps.GeocoderStatus.OK) {
+//                     console.log(results[0]);
+                    
+//                     $("#address").html(results[0].formatted_address);
+//                      $('#city').html(results[0].address_components[1].long_name);
+//                 } else {
+//                     alert('Geocode was not successful for the following reason: ' + status);
+//                 }
+//             });
+//          }
+//     });
+ -->
+  
 </body>
 </html>

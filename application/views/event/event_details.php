@@ -363,7 +363,21 @@ body {
                                                             </a>
                                                             </span>
                                                           </td>
+                                                        </tr>
+
+                                                         <!-- other url start here -->
+
+                                                        <tr>
+                                                          <td bgcolor="#ffffff"><strong>Other URL</strong></td>
+                                                          <td height="40" bgcolor="#ffffff">
+                                                            <span id="rtr-s-Text_206_1">
+                                                            <a href="#" style="color:#000;">
+                                                              <?php if(isset( $event->otherurl)) { echo $event->otherurl; } else { echo "You don't have gift other URL" ; } ?>                                                              
+                                                            </a>
+                                                            </span>
+                                                          </td>
                                                         </tr> 
+
                                                                                                              
                                                         <tr>
                                                           <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:13px; color:#e91e63;">Event FAQs</strong></td>
@@ -948,21 +962,20 @@ body {
                                                     if(isset($event->eventstartdate))
                                                         { ?>
                                                       <tr>
-                                                        <td width="24%" bgcolor="#f9f9f9"><strong>
+                                                        <td width="36%" bgcolor="#f9f9f9"><strong>
                                                             <i class="fa fa-calendar"></i> Date</strong>
                                                         </td>
-                                                        <td width="75%" height="40" bgcolor="#f9f9f9">
-                                                          <strong> 
-                                                                
-                                                                      <?php 
+                                                        <td width="64%" height="40" bgcolor="#f9f9f9">
+                                                          <strong>                                                                 
+                                                            <?php 
                                                                           
-                                                                               $timestamp = strtotime($event->eventstartdate);
-                                                                                echo date('D d Y', $timestamp);
-                                                                      ?> -  <span style="font-size:10px; color:#333;"></span> 
-                                                                      <?php 
-                                                                                $timestamp = strtotime($event->eventenddate);
-                                                                                 echo date('D d Y', $timestamp);                         
-                                                                     ?>IST
+                                                                $timestamp = strtotime($event->eventstartdate);
+                                                                echo date('D d Y', $timestamp);
+                                                            ?> -  <span style="font-size:10px; color:#333;"></span> 
+                                                            <?php 
+                                                                $timestamp = strtotime($event->eventenddate);
+                                                                echo date('D d Y', $timestamp);                         
+                                                            ?>IST
                                                           </strong>
                                                         </td>
                                                       </tr>
@@ -995,7 +1008,8 @@ body {
                                                             ?>
 
                                                         <tr>                                                          
-                                                          <td bgcolor="#f9f9f9"> 
+                                                          
+                                                          <td align="left" valign="top" bgcolor="#f9f9f9">
                                                             <strong>
                                                               <i class="fa fa-map-marker"></i> Venue <?php echo $eventvenues->eventvenuenumber ; ?>
                                                             </strong>
@@ -1021,15 +1035,12 @@ body {
                                                             <span id="rtr-s-Text_206_1">
                                                             <a href="#"  style="color:#000;">
                                                               <?php
-                                                               
-                                                                  foreach ($event->eventvenue as $eventvenues) 
-                                                                  {
-                                                                      if(isset( $eventvenues->eventvenueticketurl))                                                                 
-                                                                     {
-                                                                      echo $eventvenues->eventvenueticketurl;
-                                                                      } 
+                                                                  if(isset( $event->eventticketurl))
+                                                                    {
+                                                                      echo $event->eventticketurl;
+                                                                    } 
                                                                   
-                                                                  else { echo "Don't have any ticket URL" ; }  }
+                                                                else { echo "Don't have any ticket URL" ; }  
                                                               ?>                                                              
                                                             </a>
                                                             </span>
@@ -1104,14 +1115,8 @@ body {
                                                           </td> 
                                                         </tr>
 
-                                                       <?php $i++; } } else { ?>
+                                                       <?php $i++; } } ?>
                                                        
-
-                                                        <tr>
-                                                          <td height="40" colspan="2" bgcolor="#fff"> You miss to add your Event FAQ's </td>
-                                                        </tr>
-
-                                                        <?php } ?>
 
                                                        <tr>
                                                           <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:13px; color:#e91e63;">Event Sponsors Details</strong></td>
@@ -1141,7 +1146,6 @@ body {
                                                             </strong>
                                                           </td>
                                                         </tr>
-
                                                         
                                                         <tr id="hide_contact_form">
                                                           <td height="40" colspan="2" bgcolor="#fff">
@@ -1304,13 +1308,13 @@ body {
                                     
 
                                     <div class="tab-pane fade" id="professional_schedule">
-                                          <div class="col-md-12 text-center clr" style="margin-top:10px; margin-bottom:10px;">
+                                        <div class="col-md-12 text-center clr" style="margin-top:10px; margin-bottom:10px;">
                                               <h4 style="color:#fff; line-height:30px;  font-size:15px; font-weight:bold;">Event Schedules<br>
                                               <span style="font-size:13px; font-weight:bold;">
                                                  <img src="../assets/images/wow-white-big.png">
                                                 <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                               </span></h4>
-                                          </div>                             
+                                        </div>                             
                                   
                                               <!-- tab content show here  -->
 
@@ -1594,10 +1598,10 @@ body {
                                                 <img src="<?php echo $event->coverpageurl; ?>" class="img-responsive"/>
                                               </div>
                                               <div style="width:65%;" class="pull-left">
-                                                <div style="width:100%; padding:10px 5px; background-color:#333; color:#fff;" class="pull-left">
+                                                <div style="width:100%; padding:10px 5px; background-color:#6a6a6a; color:#fff;" class="pull-left">
 
                                                   <div class="pull-left">
-                                                    <?php if(isset($eventtours->eventtourcountry)) { echo $eventtours->eventtourcountry; } ?>                                                      
+                                                    <?php if(isset($eventtours->eventtourcountry)) { echo $eventtours->eventtourcountry; } ?>                                                        
                                                   </div>
 
                                                   <div class="pull-right">
@@ -1625,7 +1629,7 @@ body {
                                                   </div>
                                                 </div>
 
-                                                <p style="padding:10px;">Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. <br>
+                                                <p style="padding:10px;">
                                                  <a style="color:#333; font-weight:bold;">
                                                     <?php if(isset($eventtours->eventtourname)) { echo $eventtours->eventtourname; } ?>
                                                       
@@ -1635,14 +1639,16 @@ body {
                                                       { 
                                                         echo $eventtours->eventtouraddress1." ".$eventtours->eventtourcity." ".$eventtours->eventtourzipcode ;
                                                       } ?>
-                                                  </a>
+                                                  </a><br>
+
+                                                   <?php if(isset($eventtours->eventtourticketurl)) { echo $eventtours->eventtourticketurl; } ?>
                                                 </p>
 
                                               </div>
                                             </div>
          
                                             <div class="col-md-4">
-                                              <div style="width:100%; padding:10px 25px; background-color:#333; color:#fff; font-size:13px;" class="pull-left">
+                                              <div style="width:100%; padding:10px 25px; background-color:#6a6a6a; color:#fff; font-size:13px;" class="pull-left">
                                                 <div class="pull-left">
                                                     <img src="../assets/images/wow-white-big.png">
                                                    <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
@@ -1669,11 +1675,17 @@ body {
                                                 </p>                                                
                                               </div>
 
+
+                                               <?php
+                                                    if(isset($event->engagementformaction) ){ ?>
                                               <div style="width:100%; color:#333;" class="pull-left text-center">
                                                 <p>
-                                                  <button class="btn btn-primary" style="font-size:13px;">Grab Your Tickets</button>
+                                                  <button class="btn btn-primary" style="font-size:13px;">
+                                                    <?php echo $event->engagementformaction; ?>
+                                                  </button>
                                                 </p>
                                               </div>
+                                              <?php } ?>
                                             </div>
 
                                              <?php  } } else { echo "You miss to add Event Tours";  } ?>
@@ -1785,25 +1797,22 @@ body {
                                                                    ?>   
                                                          <!-- event venue end show here -->
                                                          <tr>
-                                                          <td bgcolor="#ffffff"><strong>Ticket Link</strong></td>
+                                                          <td bgcolor="#ffffff"><strong>Ticket URL</strong></td>
                                                           <td height="40" bgcolor="#ffffff">
                                                             <span id="rtr-s-Text_206_1">
-                                                            <a href="#" style="color:#000;">
+                                                            <a href="#"  style="color:#000;">
                                                               <?php
-                                                               
-                                                                  foreach ($event->eventvenue as $eventvenues) 
-                                                                  {
-                                                                      if(isset( $eventvenues->eventvenueticketurl))                                                                 
-                                                                     {
-                                                                      echo $eventvenues->eventvenueticketurl;
-                                                                      } 
+                                                                  if(isset( $event->eventticketurl))
+                                                                    {
+                                                                      echo $event->eventticketurl;
+                                                                    } 
                                                                   
-                                                                  else { echo "Don't have ticket URL" ; }  }
+                                                                else { echo "Don't have any ticket URL" ; }  
                                                               ?>                                                              
                                                             </a>
                                                             </span>
                                                           </td>
-                                                        </tr>                                                     
+                                                        </tr>                                                    
 
                                                        <tr>
                                                           <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:13px; color:#e91e63;">Event FAQs</strong></td>
@@ -1873,13 +1882,8 @@ body {
                                                           </td> 
                                                         </tr>
 
-                                                       <?php $i++; } } else { ?>
-
-                                                        <tr>
-                                                          <td height="40" colspan="2" bgcolor="#fff"> You miss to add your Event FAQ's </td>
-                                                        </tr>
-
-                                                        <?php } ?>
+                                                       <?php $i++; } }  ?>
+                                                        
 
                                                         <tr>
                                                           <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:13px; color:#e91e63;">Event Sponsors Details</strong></td>
@@ -2128,9 +2132,9 @@ body {
                                         ?>
                                             <?php if($eventday == 1){ ?>
 
-                                            <div class="tab-pane fade in active" id="tab-<?php echo $eventday; ?>">
+                                  <div class="tab-pane fade in active" id="tab-<?php echo $eventday; ?>">
 
-                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                             <tbody> 
                                                 <tr>
                                                   <td height="40" colspan="3" align="center" valign="middle" bgcolor="#f9f9f9">
@@ -2189,9 +2193,9 @@ body {
                                                  <?php } }?>
 
                                                 </tbody>
-                                            </table>
+                                      </table>
 
-                                            </div>
+                                  </div>
 
                                             <?php } else{ ?>
 
@@ -2344,9 +2348,7 @@ body {
                                                 <img src="../assets/images/wow-white-big.png">
                                                 <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
                                               </span></h4>
-                                          </div>
-
-                                         
+                                          </div>                                         
 
                                           <div class="col-md-12 pnl-brdr-clr">
 
@@ -2373,7 +2375,8 @@ body {
                                                           if(isset($eventtours->eventtourstartdate) ) 
                                                           {
                                                               $tourstartdate = str_replace(' ', '',$eventtours->eventtourstartdate);
-                                                              $timestamp = strtotime($tourstartdate);                                              
+                                                              $timestamp = strtotime($tourstartdate);
+
                                                               echo date('M &\nb\sp;', $timestamp); 
 
                                                             
@@ -2391,7 +2394,7 @@ body {
                                                   </div>
 
                                                 </div>
-                                                <p style="padding:10px;">Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. <br>
+                                                <p style="padding:10px;">
                                                   <a style="color:#333; font-weight:bold;">
                                                     <?php if(isset($eventtours->eventtourname)) { echo $eventtours->eventtourname; } ?>
                                                       
@@ -2401,7 +2404,9 @@ body {
                                                       { 
                                                         echo $eventtours->eventtouraddress1." ".$eventtours->eventtourcity." ".$eventtours->eventtourzipcode ;
                                                       } ?>
-                                                  </a></p>
+                                                  </a><br>
+                                                   <?php if(isset($eventtours->eventtourticketurl)) { echo $eventtours->eventtourticketurl; } ?>
+                                                </p>
                                               </div>
                                             </div>
          
@@ -2415,6 +2420,7 @@ body {
                                                    <?php if(isset($eventtours->eventtourticketprice) ) { echo $eventtours->eventtourticketprice; } else {echo " "; } ?>
                                                 </span></div>
                                               </div>
+
                                               <div style="width:100%; margin-top:15px; color:#333;" class="pull-left text-center">
                                                 <p style="font-size:13px;">
                                                   <?php
@@ -2427,14 +2433,20 @@ body {
                                                             echo date('h:i A', $endtime); 
                                                           }                                   
                                                   ?>
-
                                                 </p>
                                               </div>
+
+                                              <?php
+                                                  if(isset($event->engagementformaction) ) 
+                                                          {  ?> 
                                               <div style="width:100%; color:#333;" class="pull-left text-center">
                                                 <p>
-                                                  <button class="btn-primary" style="font-size:13px;">Grab Your Tickets</button>
+                                                  <button class="btn-primary" style="font-size:13px;">
+                                                    <?php echo $event->engagementformaction ?>
+                                                  </button>
                                                 </p>
                                               </div>
+                                              <?php } ?>
                                             </div>
 
                                               <?php  }  } else { echo "You miss to add Event Tours "; } ?>
@@ -2481,14 +2493,14 @@ body {
                                                           </td>
                                                           <td height="40" bgcolor="#f9f9f9"> 
                                                             <?php 
-                                                                    $timestamp = strtotime($event->runtimefrom);
+                                                                    $timestamp = strtotime($event->eventstartdate);
                                                                                 echo date('F ', $timestamp);  //F is full month name show
                                                                           
-                                                                               $timestamp = strtotime($event->runtimefrom);
+                                                                               $timestamp = strtotime($event->eventstartdate);
                                                                                 echo date('dS', $timestamp);
                                                                       ?> -  <span style="font-size:10px; color:#333;"></span> 
                                                                       <?php 
-                                                                                $timestamp = strtotime($event->runtimeto);
+                                                                                $timestamp = strtotime($event->eventenddate);
                                                                                  echo date('dS ', $timestamp);                         
                                                             ?>
 
@@ -2659,28 +2671,29 @@ body {
 
                                                 </div>
                                                 <p style="padding:10px;">Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. <br>
-                                                  <a style="color:#333; font-weight:bold;">
+                                                  Sponsors:
+                                                  <a style=" font-weight:bold;" href="<?php echo $event->onlinesalespromotionurl; ?>" target="_blank"> 
                                                       <?php  
                                                             if(isset($event->onlinesalespromotionurl))
                                                             {
-                                                               echo "Sponsors ".$event->onlinesalespromotionurl; 
+                                                               echo $event->onlinesalespromotionurl; 
                                                             }
                                                       ?>                                             
-                                                    </a></p>
+                                                  </a></p>
                                               </div>
                                             </div>
          
                                             <div class="col-md-4">
                                               <div style="width:100%; padding:10px 10px; background-color:#333; color:#fff; font-size:13px;" class="pull-left">
-                                                <div class="pull-left">
+                                                  <div class="pull-left">
                                                     
-                                                   <?php
+                                                    <?php
                                                         if(isset($event->eventsalesdiscount1) ) 
                                                         {                                                      
                                                            echo $event->eventsalesdiscount1." Off on all Sales";
                                                         }                                          
-                                                   ?>                                      
-                                                 </div>
+                                                    ?>                                      
+                                                  </div>
                                                 <div class="pull-right">
                                                   <span style="color:#fc6653; font-size:15px;">
                                                    11:59s                                                
@@ -2736,11 +2749,12 @@ body {
 
                                                 </div>
                                                 <p style="padding:10px;">Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. <br>
-                                                  <a style="color:#333; font-weight:bold;">
+                                                  Sponsors:
+                                                 <a style="font-weight:bold;" href="<?php echo $event->onlinesalespromotionur2; ?>" target="_blank"> 
                                                      <?php  
                                                             if(isset($event->onlinesalespromotionur2))
                                                             {
-                                                               echo "Sponsors ".$event->onlinesalespromotionur2; 
+                                                               echo $event->onlinesalespromotionur2; 
                                                             }
                                                       ?>                                                       
                                                   </a>

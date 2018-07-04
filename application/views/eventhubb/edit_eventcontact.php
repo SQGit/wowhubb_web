@@ -29,32 +29,7 @@
 <!--Favicon-->
 <link rel="shortcut icon" type="image/png" href="<?php echo base_url ('assets/images/fav.png') ?>"/><style type="text/css">
 	
-	label.error {
-    font-family: 'Roboto', sans-serif;
-   color:red; 
-	}
 
-	.textBox {
-		background-image: url(./assets/images/designation-icon.png);
-		background-position: 0 5px;
-		background-size: 30px;
-		background-repeat: no-repeat;
-		padding-left: 17px;
-	}
-	/*popup close button  */
-	.large.tooltip-inner {
-		max-width: 350px;
-		width: 350px;
-	}
-	#footer {
-		background: #fff;
-		position: relative;
-		top: 0px;
-	}
-	.btn-file {
-		position: relative;
-		overflow: hidden;
-	}
 	.form-body-classic .form-control {
 		margin: 0;
 		padding: 6px 12px;
@@ -87,221 +62,9 @@
 		cursor: inherit;
 		display: block;
 	}
-	/*https://stackoverflow.com/questions/14199788/how-do-i-use-an-image-as-a-submit-button */ 
-	  #btnAdd4, #btnAdd5, #btnAdd6 {
-		background-image: url("<?php echo base_url('assets/images/Plus.png')?>");
-		background-repeat: no-repeat;
-		border: none;
-		width: 32px;
-		height: 32px;
-		cursor: pointer;
-		color: transparent;
-		background-color: transparent;
-		outline: none;
-	}
 	
-	#btnAdd10{
-		background-image: url("<?php echo base_url('assets/images/close-outline-32.png')?>");
-		background-repeat: no-repeat;
-		border: none;
-		width: 32px;
-		height: 32px;
-		cursor: pointer;
-		color: transparent;
-		background-color: transparent;
-		outline: none;
-	}
-	#textAdd {
-		background-image: url("<?php echo base_url('assets/images/Plus.png')?>");
-		background-size: cover;
-		border: none;
-		width: 32px;
-		height: 32px;
-		cursor: pointer;
-		color: transparent;
-		background-color: transparent;
-		outline: none;
-	}
-	#imageUpload1 {
-		display: none;
-	}
-	#profileImage1 {
-		cursor: pointer;
-	}
-	#profile-container1 {
-		width: 150px;
-		height: 150px;
-	}
-	#imageUpload2 {
-		display: none;
-	}
-	#profileImage2 {
-		cursor: pointer;
-	}
-	#imageUpload3 {
-		display: none;
-	}
-	#profileImage3 {
-		cursor: pointer;
-	}
-	#imageUpload4 {
-		display: none;
-	}
-	#profile-container4 {
-		width: 150px;
-		height: 150px;
-	}
-	#imageUpload5 {
-		display: none;
-	}
-	#profileImage5 {
-		cursor: pointer;
-	}
-	.faq-cat-content {
-		margin-top: 25px;
-	}
-	.faq-cat-tabs li a {
-		padding: 15px 10px 15px 10px;
-		background-color: #ffffff;
-		border: 1px solid #dddddd;
-		color: #777777;
-	}
-	.nav-tabs li a:focus, .panel-heading a:focus {
-		outline: none;
-	}
-	.panel-heading a, .panel-heading a:hover, .panel-heading a:focus {
-		text-decoration: none;
-		color: #777777;
-	}
-	.faq-cat-content .panel-heading:hover {
-		background-color: #efefef;
-	}
-	.active-faq {
-		border-left: 5px solid #888888;
-	}
-	.panel-faq .panel-heading .panel-title span {
-		font-size: 13px;
-		font-weight: normal;
-	}
-	.form-wizard h4 span {
-		font-size: 14px;
-	}
-	.panel-group .panel {
-		border-radius: 0;
-		box-shadow: none;
-		border-color: #EEEEEE;
-	}
-	.panel-default > .panel-heading {
-		padding: 0;
-		border-radius: 0;
-		color: #212121;
-		background-color: #FAFAFA;
-		border-color: #EEEEEE;
-	}
-	.panel-title {
-		font-size: 14px;
-	}
-	.panel-title > a {
-		display: block;
-		padding: 15px;
-		text-decoration: none;
-	}
-	.more-less {
-		float: right;
-		color: #212121;
-	}
-	.panel-default > .panel-heading + .panel-collapse > .panel-body {
-		border-top-color: #EEEEEE;
-	}
-	.ac-container {
-		width: 100%;
-		margin: 10px auto 30px auto;
-		text-align: left;
-	}
-	.ac-container label {
-		padding: 5px 10px;
-		position: relative;
-		z-index: 20;
-		display: block;
-		
-		cursor: pointer;
-		color: #777;
-		text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
-		line-height: 20px;
-		font-size: 12px;
-		background: #ffffff;
-		background: -moz-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #ffffff), color-stop(100%, #eaeaea));
-		background: -webkit-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-		background: -o-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-		background: -ms-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-		background: linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-	 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea', GradientType=0 );
-		box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3), 1px 0px 0px 0px rgba(255,255,255,0.9) inset, 0px 2px 2px rgba(0,0,0,0.1);
-	}
-	.ac-container label:hover {
-		background: #fff;
-	}
-	.ac-container input:checked + label, .ac-container input:checked + label:hover {
-		background: #c6e1ec;
-		color: #3d7489;
-		text-shadow: 0px 1px 1px rgba(255,255,255, 0.6);
-		box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3), 0px 2px 2px rgba(0,0,0,0.1);
-	}
-	.ac-container label:hover:after, .ac-container input:checked + label:hover:after {
-		content: '';
-		position: absolute;
-		width: 24px;
-		height: 24px;
-		right: 2px;
-		top: 2px;
-		background: transparent url(../assets/images/arrow_down.png) no-repeat center center;
-	}
-	.ac-container input:checked + label:hover:after {
-		background-image: url(../assets/images/arrow_up.png);
-	}
-	.ac-container input {
-		display: none;
-	}
-	.ac-container article {
-		background: rgba(255, 255, 255, 0.5);
-		margin-top: -1px;
-		overflow: hidden;
-		height: 0px;
-		position: relative;
-		z-index: 10;
-		-webkit-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-		-moz-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-		-o-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-		-ms-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-		transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-	}
-	.ac-container article p {
-		font-style: italic;
-		color: #777;
-		line-height: 23px;
-		font-size: 14px;
-		padding: 5px 20px;
-		text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
-	}
-	.ac-container input:checked ~ article {
-		-webkit-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		-moz-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		-o-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		-ms-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-		box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3);
-	}
-	.ac-container input:checked ~ article.ac-small {
-		height: 400px;
-	}
-	.ac-container input:checked ~ article.ac-medium {
-		height: 450px;
-	}
-	.ac-container input:checked ~ article.ac-large {
-		height: 500px;
-	}
-
+	
+	
 	.form-group {
 		margin-bottom: 5px!important;
 	}
@@ -346,49 +109,8 @@
     display: inline-block;
 	}
 
-	.remove {
-	  display: block;
-	  background: #444;
-	  border: 1px solid black;
-	  color: white;
-	  text-align: center;
-	  cursor: pointer;
-	  width: 200px;
-      /*margin-left: 107px;*/
-	}
-	.remove:hover {
-	  background: white;
-	  color: black;
-	}
+	
 
-	.remove1 {
-	  display: block;
-	  background: #444;
-	  border: 1px solid black;
-	  color: white;
-	  text-align: center;
-	  cursor: pointer;
-	  width: 200px;
-      margin-left: 144px;
-	}
-	.remove1:hover {
-	  background: white;
-	  color: black;
-	}
-	.tab {
-	  display: none;
-	}
-
-.loader {
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid blue;
-  border-bottom: 16px solid blue;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
-}
 
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
@@ -406,32 +128,9 @@
     top: 7px;
 }
 
-/*remove faq input box*/
-#remove_faq {
-    background-image: url(../assets/images/close-outline-32.png);
-    background-repeat: no-repeat;
-    border: none;
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
-    color: transparent;
-    background-color: transparent;
-    outline: none;
-}
 
-/*hide input type number arrows*/
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0; 
-}
-/*.swal2-contentwrapper
-{
-	margin: 0 auto;
-    height: 150px;
-}*/
+
+
 </style>
 </head>
 
@@ -469,46 +168,19 @@ input[type=number]::-webkit-outer-spin-button {
       <div class="row">
         <div class="col-md-12">
           <div class="col-md-10 form-wizard form-body-classic form-header-classic" style="min-width:1200px;"> 
-            <!-- 
-            Just change the class name for make it with different style of design.
-
-            Use anyone class "form-header-classic" or "form-header-modarn" or "form-header-stylist" for set your form header design.
+           
             
-            Use anyone class "form-body-classic" or "form-body-material" or "form-body-stylist" for set your form element design.
-            -->
-            
-            <h3>Create Your Event</h3>
-            <p>Please fill information to a create an event </p>
+           
              <img src="../assets/images/banner.jpg" class="img-thumbnail"  alt="banner-image"/>
             <!-- Form progress -->
-    <div class="form-wizard-steps form-wizard-tolal-steps-7">
-              <div class="form-wizard-progress">
-                <div class="form-wizard-progress-line" data-now-value="100" data-number-of-steps="7" style="width: 100%;"></div>
-              </div>
-             
-              <!-- Step 6 -->
-              <div class="form-wizard-step">
-                <div class="form-wizard-step-icon"><i class="fa fa-user" aria-hidden="true"></i></div>
-                <p>Event Contact/ URL Links</p>
-              </div>
-              <!-- Step 6 --> 
-              
-     </div>
-            <!-- Form progress --> 
+    
             <!-- Form Step 1 -->
     <form id="create_eventcontact" action="<?php echo base_url('eventhubb/update_eventcontact'); ?>"  method="post" enctype="multipart/form-data" > 
     	
     
     <fieldset>
-                <!-- Progress Bar -->
-                <div class="progress">
-                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"> </div>
-                </div>
-                <!-- Progress Bar -->
-                 <div class="col-md-10">
-                	<h4> <strong>Spice Up Your Upcoming Event By Uploading  A Promotional Ad Video {!Wowtag}</strong></h4>
-            	</div>
-                <div class="col-md-2">
+                
+                <div class="col-md-12">
                 	<h4> <span>Step 1</span></h4>
             	</div>
             	<input type='hidden' name="event_id"  class="form-control" value="<?php echo $event->_id; ?>" >
@@ -640,51 +312,13 @@ input[type=number]::-webkit-outer-spin-button {
                    </div>
                 </div>
                
-                <div class='col-sm-3'>
-                  <div class='col-sm-12' style="background-color:#f9f9f9;">
-                    <div class='col-sm-12'>
-                      <h5>Helpful Hints</h5>
-                      <section class="ac-container">
-                        <div>
-                          <input id="ac-21" name="accordion-1" type="radio" />
-                          <label for="ac-21">Event Host Details</label>
-                          <article class="ac-small">
-                            <p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.</p>
-                          </article>
-                        </div>
-                        <div>
-                          <input id="ac-22" name="accordion-1" type="radio" />
-                          <label for="ac-22">Event URLs</label>
-                          <article class="ac-medium">
-                            <p>Like you, I used to think the world was this great place where everybody lived by the same standards I did, then some kid with a nail showed me I was living in his world, a world where chaos rules not order, a world where righteousness is not rewarded. That's Cesar's world, and if you're not willing to play by his rules, then you're gonna have to pay the price. </p>
-                          </article>
-                        </div>
-                        <div>
-                          <input id="ac-23" name="accordion-1" type="radio" />
-                          <label for="ac-23">Publish & Share Events on Network</label>
-                          <article class="ac-large">
-                            <p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man. </p>
-                          </article>
-                        </div>
-                        <div>
-                          <input id="ac-24" name="accordion-1" type="radio" />
-                          <label for="ac-24">Publish to specific group</label>
-                          <article class="ac-large">
-                            <p>You see? It's curious. Ted did figure it out - time travel. And when we get back, we gonna tell everyone. How it's possible, how it's done, what the dangers are. But then why fifty years in the future when the spacecraft encounters a black hole does the computer call it an 'unknown entry event'? Why don't they know? If they don't know, that means we never told anyone. And if we never told anyone it means we never made it back. Hence we die down here. Just as a matter of deductive logic. </p>
-                          </article>
-                        </div>
-                      </section>
-                      <!-- panel-group --> 
-                      
-                    </div>
-                  </div>
-                </div>
+                
                 <br>
                 <div class='form-group col-sm-12' style="margin-top: 30px;">
                   <div class="form-wizard-buttons">
-                  <button type="button" class="btn btn-next" style="background:#005898;">Save Draft</button>
-                    <button type="button" class="btn btn-previous">Previous</button>
-                    <button type="submit" class="btn btn-next">Publish</button>
+               
+                
+                    <button type="submit" class="btn btn-next">Update</button>
                   </div>
                 </div>
     </fieldset>  
@@ -713,15 +347,9 @@ input[type=number]::-webkit-outer-spin-button {
 <script src="<?php echo base_url('assets/js/sweetalert.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/sweetalert.min.js') ?>"></script> 
 <script src="<?php echo base_url('assets/js/sweetalert2.all.js') ?>"></script> 
-<!--<script src="<?php echo base_url('assets/js/jquery-1.12.4.js')?>"></script> -->
 <script src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script> 
 <script src="<?php echo base_url('assets/css/custom/js/form-wizard.js')?>"></script> 
-<script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.min.js')?>"></script>   
-<script src="<?php echo base_url('assets/js/jquery.datetimepicker.full.js')?>"></script>   
-<script src="<?php echo base_url('assets/js/moment.js')?>"></script> 
- 
-<!-- model popup bootstrap --> 
-<!-- <script src="<?php echo base_url('assets/js/bootstrap3.3.4.min.js')?>"></script> -->
+
 
 <script>
 
@@ -767,14 +395,14 @@ var base_url = '<?php echo base_url() ?>'; //form submited
 		                {
 		                   if(response.status == 'success')
 		                   {
-		                   // alert("success");
+		                   
 		                    swal({
 		                                                 title: "Success!",
-		                                                 text: "Your Event Created Successfully...",
+		                                                 text: "Your Event Updated Successfully...",
 		                                                 type: "success",
 		                                                 timer: 5000
 		                                                 }).then(() => {                     
-		                   									 window.location.href = "<?php echo base_url('eventhubb/get_eventhubb'); ?>";
+		                   									 window.location.href = "<?php echo base_url('eventhubb/get_future_eventhubb'); ?>";
 		                   								});;  
 		                   
 		                    }

@@ -137,17 +137,16 @@ input[type=checkbox] {
                         <div class="col-md-6" style="position:relative;">                                 
                             <?php 
                               $selfvideo= $this->session->userdata('self_video');
+                              $selfvideo_thumb= $this->session->userdata('self_thumb');
                               if(isset($selfvideo)){
                             ?>
-                            <div style="position: absolute; left: 40px; top: 30px;">
+                            <div style="position: absolute; left: 47px; top: 30px;">
                               <a href="<?php echo $selfvideo; ?>" class="html5lightbox" data-width="480" data-height="320">
                               <img src="<?php echo base_url('assets/images/youtube.png'); ?>" alt="user" />
                               </a>
                             </div>
                             <a href="<?php echo  $selfvideo; ?>" class="html5lightbox" data-width="480" data-height="320">
-                            <video style="width:86px; height:86px; background-color:#e9e9e9; border-radius:5px;" id="myvideo" controlsList="nodownload" >
-                              <source src="<?php echo  $selfvideo; ?>" type="video/mp4">
-                            </video>
+                            <img src="<?php echo $selfvideo_thumb; ?>" class="profile-pic" style="border:3px solid #ccc; border-radius:7px; width:86px; height:86px;" />
                             </a>
                             <?php } else {  ?>
                               <video style="width:86px; height:86px; border-radius:5px;" id="myvideo">
@@ -176,10 +175,7 @@ input[type=checkbox] {
                     </div>
                     <div style="margin-top:-3px;" ><span style="color:#fff; font-size:10px; background-color:#e91e63; padding:3px 5px; border-radius:5px; margin-left:12px;">Wowtag ID</span></div> 
                  </div>
-                   <div class="col-md-4 text-center" >
-                    
-
-                      
+                   <div class="col-md-4 text-center" >                   
                   </div>
                    
                  </div>
@@ -193,9 +189,8 @@ input[type=checkbox] {
               
               <li><a href="<?php echo base_url('Profile/profile_get'); ?>" >Profile</a></li>             
               <li><a href="<?php echo base_url ('home/interest_get') ?>" class="active">Interests</a></li>
-              <li><a href="<?php echo base_url ('Profile/friends_connection') ?>">Friend Connections</a></li>
-              
-              <li><a href="#">Photos</a></li>
+              <li><a href="<?php echo base_url ('Profile/friends_connection') ?>">Friend Connections</a></li>              
+              <li><a href="<?php echo base_url ('Profile/profile_gallery') ?>">Photos</a></li>
             </ul>
             <ul class="follow-me list-inline">
               <li><?php if(isset($frds_count)) { echo $frds_count; } ?> Connections</li>
@@ -237,7 +232,7 @@ input[type=checkbox] {
               ================================================= -->
               <div class="edit-profile-container">
                 <div class="block-title">
-                  <h4 class="grey"><i class="icon ion-ios-heart-outline"></i>My Interests</h4>
+                  <h4 class="grey" style="font-size: 15px;"><i class="icon ion-ios-heart-outline"></i>My Interests</h4>
                                                    
                 </div>
                 <div class="edit-block">

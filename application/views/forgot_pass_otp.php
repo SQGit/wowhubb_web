@@ -87,7 +87,7 @@
             <form id = "forget_newpass" action ="<?php echo base_url('Home/forget_new_pass'); ?>" method="post" class="contact-form">
                    
                     <div class="form-group" >                                   
-                      <input type="text" name="email_phone"  value="<?php echo $this->session->userdata('email_phone'); ?>"  id="contact-email" class="form-control" style="padding-left: 30px;" readonly >
+                      <input type="text" id="email" name="email_phone"  value="<?php echo $this->session->userdata('email_phone'); ?>"  id="contact-email" class="form-control" style="padding-left: 30px;" readonly >
                     </div>
 
                     <div class="form-group">                    
@@ -97,6 +97,9 @@
 
                      <div class="form-group">                    
                         <input  type="password" name="new_pass" class="form-control" placeholder="new password"  data-error="Phone is required." style="padding-left: 30px;">                      
+                    </div>
+                    <div class="form-group" style="float: right;">                    
+                        <a id="resend_otp" href="<?php echo base_url('Home/forgot_validate'); ?>"> Resend OTP  </a>                   
                     </div>
                   
                       <button type="submit" class="btn-primary" style="margin-left: 200px; font-size:13px;"> Submit </button>
@@ -217,6 +220,47 @@ $(document).on("submit", "#forget_newpass", function(e){
         }
 });
 
+// resend otp form
+
+$(document).on("click", "#resend_otp", function(e){
+     e.preventDefault();
+
+      var email = $('#email').val();
+                   
+
+            $.ajax({
+                    url : base_url+'Home/resend_otp/'+email,
+                    context:this,
+                    type: 'POST',                    
+                    processData: false,
+                    contentType: false,
+                    dataType:'json',
+
+                    error: function(xhr,status,error)
+                    {   
+                        alert(xhr.responseText);
+                    },
+                    success: function(response)
+                    {
+                              if(response.status == 'success')
+                                  {                                                         
+                                    window.location.href = base_url + 'home/forgot_newpass';        
+                                                              
+                                  }
+                              else 
+                                  {                    
+                                          swal(
+                                                  'Sorry!',
+                                                  response.message, //refer : https://www.sitepoint.com/community/t/return-php-error-using-sweet-alert/265444
+                                                  'error'
+                                              ); 
+                                  }       
+
+                    }
+                  });
+       
+});
+ 
 
 </script>
 

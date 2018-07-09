@@ -545,7 +545,7 @@ li.keywordSearch-email {
 					                       <option value="Dentist">Dentist</option>
 					                       <option value="Computer Services">Computer Services </option>
 					                       <option value="Computer Software">Computer Software</option>
-					                       <option value="Doctor ">Doctor &amp; Other Health Professional Services</option>
+					                       <option value="Doctor">Doctor &amp; Other Health Professional Services</option>
 					                       <option value="Fitness Center">Fitness Center</option>
 					                       <option value="Home Decor">Home Decor</option>
 					                       <option value="Household Supplies">Household Supplies</option>
@@ -553,14 +553,14 @@ li.keywordSearch-email {
 					                       <option value="Office Supplies">Office Supplies</option>
 					                       <option value="Pet Supplies">Pet Supplies</option>
 					                       <option value="Tools Equipment Store">Tools &amp; Equipment Store</option>
-					                       <option value="Wine Spirit Store ">Wine &amp; Spirit Store</option>
+					                       <option value="Wine Spirit Store">Wine &amp; Spirit Store</option>
 					                       <option value="Health Suppliement Store">Health Suppliement Store</option>
 					                       <option value="Nursing Homes">Nursing Homes </option>
 					                       <option value="Food Store">Food Store</option>
 					                       <option value="Phone Accessories">Phone &amp; Accessories</option>
 					                       <option value="Realtor">Realtor </option>
 					                       <option value="Medical Supplies">Medical Supplies</option>
-					                       <option value="Publishing Printing Services ">Publishing &amp; Printing Services </option>
+					                       <option value="Publishing Printing Services">Publishing &amp; Printing Services </option>
 					                       <option value="Beauty Spas">Beauty &amp; Spas</option>
 					                       <option value="Trucking Haulages">Trucking &amp; Haulages</option>
 					                  	</select>

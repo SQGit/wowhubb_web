@@ -2506,112 +2506,70 @@ body {
 
 
                                                            </td>
-                                                        </tr> 
+                                                        </tr>                                                       
 
+                                                        <!-- event venue show start  here -->
+
+                                                      <?php
+                                                          $i = 1;
+                                                          foreach ($event->physicalsalesstorelocation as $locations)
+                                                            {
+                                                                   
+                                                      ?>
                                                         <tr>
+                                                          
                                                           <td bgcolor="#f9f9f9"> 
                                                             <strong>
-                                                              <i class="fa fa-map-marker"></i> Target Near me
+                                                              <i class="fa fa-map-marker"></i> Store Location <?php echo $i; ?>
                                                             </strong>
                                                           </td>
-                                                          <td height="40" bgcolor="#f9f9f9"> <?php if(isset($event->eventtimezone)){ echo $event->eventtimezone; } ?> </td>
-                                                        </tr> 
+                                                          <td height="40" bgcolor="#f9f9f9">
+                                                              <?php 
+                                                                if(isset($locations->storename))
+                                                                  {
+                                                                    echo   $locations->storename."<br> ".$locations->storeaddress." ".$locations->city." ".$locations->zipcode."<br>";
+                                                                  }
+                                                              ?>
+                                                          </td>                                                       
+
+                                                        </tr>  
+                                                              <?php $i++; } ?>                                                        
+                                                                     
+                                                         <!-- event venue end show here -->
                                                        
                                                         <tr>
-                                                          <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:13px; color:#e91e63;">Sales Event FAQs</strong></td>
+                                                          <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:13px; color:#e91e63;">Sales Promotion Links</strong></td>
                                                         </tr>
 
-                                                         <?php 
-                                                          if(isset($event->faqquestion1) && ($event->faqanswer1)) 
-                                                            {
-                                                        ?>
+                                                        <tr>
+                                                          <td height="40" colspan="2" bgcolor="#f9f9f9">
+                                                            <strong style="font-size:12px;" style="word-wrap: break-word;">
+                                                              <?php if(isset($event->onlinesalespromotionurl)){ echo $event->onlinesalespromotionurl; } ?>
+                                                            </strong>
+                                                          </td>
+                                                        </tr>                                                         
 
                                                         <tr>
-                                                          <td height="40" colspan="2" bgcolor="#fff">
-                                                             <?php if(isset( $event->faqquestion1) && ($event->faqanswer1) ) 
-                                                                    {
-                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$event->faqquestion1."</p>".$event->faqanswer1;
-                                                                    } else { echo "" ; }
-                                                             ?>
+                                                          <td height="40" colspan="2" bgcolor="#f9f9f9">
+                                                            <strong style="font-size:13px; color:#e91e63;">Event Sponsors Details
+                                                            </strong>
                                                           </td>
                                                         </tr>
 
-                                                        <tr>
-                                                          <td height="40" colspan="2" bgcolor="#fff">
-                                                             <?php if(isset( $event->faqquestion2) && ($event->faqanswer2)) 
-                                                                    {
-                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$event->faqquestion2."</p>".$event->faqanswer2;
-                                                                    } else { echo "" ; }
-                                                             ?>
-                                                          </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                          <td height="40" colspan="2" bgcolor="#fff">
-                                                             <?php if(isset( $event->faqquestion3) && ($event->faqanswer3)) 
-                                                                    {
-                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$event->faqquestion3."</p>".$event->faqanswer3;
-                                                                    } else { echo "" ; }
-                                                             ?>
-                                                          </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                          <td height="40" colspan="2" bgcolor="#fff">
-                                                             <?php if(isset( $event->faqquestion4) && ($event->faqanswer4)) 
-                                                                    {
-                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$event->faqquestion4."</p>".$event->faqanswer4;
-                                                                    } else { echo "" ; }
-                                                             ?>
-                                                          </td>
-                                                        </tr>
-
-                                                        <?php } 
-
-                                                        if(!empty($event->eventfaqs))
-                                                        {
-                                                          $i=5;
-                                                          foreach ($event->eventfaqs as $eventfaq) {
-                                                          
-                                                          ?>
-
-                                                        <tr>
-                                                          <td height="40" colspan="2" bgcolor="#fff">
-                                                             <?php if(isset($eventfaq->faqquestion)) 
-                                                                    {
-                                                                      echo "<p style='font-size:13px; font-weight:bold;'>".$i.".".$eventfaq->faqquestion."</p>".$eventfaq->faqanswer;
-                                                                    } else { echo "" ; }
-                                                             ?>
-                                                          </td> 
-                                                        </tr>
-
-                                                       <?php $i++; } } else { ?>
-
-                                                        <tr>
-                                                          <td height="40" colspan="2" bgcolor="#fff"> You miss to add your Event FAQ's </td>
-                                                        </tr>
-
-                                                        <?php } ?>
-
-                                                        <tr>
-                                                          <td height="40" colspan="2" bgcolor="#f9f9f9"><strong style="font-size:13px; color:#e91e63;">Event Sponsors Details</strong></td>
-                                                        </tr>
-                                                         <?php 
+                                                          <?php 
                                                               if(isset($event->organisationname) || ($event->salesemail) || ($event->salesphonenumber) || ($event->saleshostmessage) ) 
                                                                  { 
-                                                        ?>
+                                                          ?>
                                                         <tr>
                                                           <td height="40" colspan="2" bgcolor="#fff">
                                                             <?php 
                                                                   echo $event->organisationname." <br>".$event->salesphonenumber." <br>".$event->salesemail."<br>".$event->saleshostmessage;
 
                                                             ?>
-
                                                           </td>
                                                         </tr>   
 
-                                                        <?php } ?>                                                   
-
+                                                        <?php } ?>                                                 
 
                                                         <tr>
                                                           <td height="40" colspan="2" bgcolor="#fff">
@@ -2641,8 +2599,7 @@ body {
                                             <span style="font-size:15px; font-weight:bold; ">
                                                <img src="../assets/images/wow-white-big.png">
                                               <?php if(isset($event->eventtitle) ) { echo $event->eventtitle; } else {echo " "; } ?>
-                                            </span> <br>
-                                            <?php if(isset($event->eventname) ) { echo $event->eventname; } else {echo " "; } ?>
+                                            </span> 
                                          </h4>
                                         </div>
                                           
@@ -2670,16 +2627,15 @@ body {
                                                   </div>
 
                                                 </div>
-                                                <p style="padding:10px;">Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. <br>
-                                                  Sponsors:
-                                                  <a style=" font-weight:bold;" href="<?php echo $event->onlinesalespromotionurl; ?>" target="_blank"> 
+                                                <p style="padding:10px;"> 
                                                       <?php  
-                                                            if(isset($event->onlinesalespromotionurl))
+                                                            if(isset($event->eventsalesterms1))
                                                             {
-                                                               echo $event->onlinesalespromotionurl; 
+                                                               echo $event->eventsalesterms1; 
                                                             }
-                                                      ?>                                             
-                                                  </a></p>
+                                                      ?> 
+                                                                                                                                      
+                                                  </p>
                                               </div>
                                             </div>
          
@@ -2696,14 +2652,36 @@ body {
                                                   </div>
                                                 <div class="pull-right">
                                                   <span style="color:#fc6653; font-size:15px;">
-                                                   11:59s                                                
+                                                    <?php                                        
+                                          
+                                                      $coupon_from =  strtotime($event->eventsalescouponfrom1);
+                                                      $coupon_to    = strtotime($event->eventsalescouponto1);
+
+                                                      $diffference =($coupon_to-$coupon_from);
+                                                      $days=floor($diffference / (60*60*24));
+                                                      echo $days." Days Left";                            
+                                                                                     
+                                                    ?>                                            
                                                   </span>
                                                 </div>
                                               </div>
 
                                               <div style="width:100%; margin-top:15px; color:#333;" class="pull-left text-center">
                                                 <p style="font-size:13px; font-weight:bold;">
-                                                  7:00AM - 4:00PM
+                                                  <?php
+
+                                                      if(isset($event->eventsalescouponfrom1) ) 
+                                                        {                                                      
+                                                          $from = strtotime($event->eventsalescouponfrom1);
+                                                          echo date('D dS', $from);                                              
+                                                        } 
+                                                      echo " - ";  
+                                                      if(isset($event->eventsalescouponto1) ) 
+                                                        {                                                      
+                                                          $to = strtotime($event->eventsalescouponto1);
+                                                          echo date('D dS', $to);   
+                                                        }                                       
+                                                  ?> 
                                                 </p>
                                               </div>
 
@@ -2748,16 +2726,14 @@ body {
                                                   </div>
 
                                                 </div>
-                                                <p style="padding:10px;">Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. <br>
-                                                  Sponsors:
-                                                 <a style="font-weight:bold;" href="<?php echo $event->onlinesalespromotionur2; ?>" target="_blank"> 
-                                                     <?php  
-                                                            if(isset($event->onlinesalespromotionur2))
+                                                <p style="padding:10px;">
+                                                   <?php  
+                                                            if(isset($event->eventsalesterms2))
                                                             {
-                                                               echo $event->onlinesalespromotionur2; 
+                                                               echo $event->eventsalesterms2; 
                                                             }
-                                                      ?>                                                       
-                                                  </a>
+                                                      ?> 
+                                                    
                                                 </p>
                                               </div>
                                             </div>
@@ -2770,15 +2746,43 @@ body {
                                                         {                                                      
                                                            echo $event->eventsalesdiscount2." Off on all Sales";
                                                         }                                          
-                                                   ?>                                                  </div>
-                                                <div class="pull-right"><span style="color:#fc6653; font-size:15px;">
-                                                   11:59s                                                </span></div>
+                                                   ?>                                                  
+                                                </div>
+                                                <div class="pull-right">
+                                                  <span style="color:#fc6653; font-size:15px;">
+                                                    <?php                                        
+                                          
+                                                      $coupon_from  =  strtotime($event->eventsalescouponfrom2);
+                                                      $coupon_to    = strtotime($event->eventsalescouponto2);
+
+                                                      $diffference =($coupon_to-$coupon_from);
+                                                      $days=floor($diffference / (60*60*24));
+                                                      echo $days." Days Left";                            
+                                                                                     
+                                                    ?>                                                  
+                                                  </span>
+                                                </div>
                                               </div>
+
                                               <div style="width:100%; margin-top:15px; color:#333;" class="pull-left text-center">
                                                 <p style="font-size:13px;">
-                                                  7:00AM - 4:00PM
+                                                  <?php
+
+                                                      if(isset($event->eventsalescouponfrom2) ) 
+                                                        {                                                      
+                                                          $from = strtotime($event->eventsalescouponfrom2);
+                                                          echo date('D dS', $from);                                              
+                                                        } 
+                                                      echo " - ";  
+                                                      if(isset($event->eventsalescouponto2) ) 
+                                                        {                                                      
+                                                          $to = strtotime($event->eventsalescouponto2);
+                                                          echo date('D dS', $to);   
+                                                        }                                       
+                                                  ?> 
                                                 </p>
                                               </div>
+
                                               <div style="width:100%; color:#333;" class="pull-left text-center">
                                                 <p>
                                                   <?php
@@ -2793,6 +2797,7 @@ body {
                                                 </p>
                                               </div>
                                             </div>
+
                                         </div>
                                         <?php } ?>
 

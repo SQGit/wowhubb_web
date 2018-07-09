@@ -497,7 +497,7 @@ li.keywordSearch-email {
 		                    </div>
 		                    <div class='form-group col-sm-12' >
 		                      <label>Event Name</label>
-		                      <input type='text' name="event_name" class="form-control required" onchange = "cleanspecial_char(this)"/>
+		                      <input type='text' name="event_name" class="form-control required" onchange = "cleanspecial_char(this)" style="text-transform: capitalize;"/>
 		                    </div>		                    
 
 		                    <div class="form-group col-sm-12 " style="font-size: 15px;">
@@ -834,7 +834,7 @@ li.keywordSearch-email {
 			                <div class='row'>
 				                    <div class='form-group col-sm-12'>
 				                      <label>Event Description</label>
-				                      <textarea type='text' id="description" name="event_description" class="form-control required" style="min-height:150px;" maxlength="160" placeholder="Describe What Your Event Is All About" onchange = "cleanspecial_char(this)" ></textarea>
+				                      <textarea type='text' id="description" name="event_description" class="form-control required" style="min-height:150px;text-transform: capitalize;" maxlength="160" placeholder="Describe What Your Event Is All About" onchange = "cleanspecial_char(this)" ></textarea>
 				                    </div>
 				                    <div class='form-group col-sm-12'>
 					                      <div class='col-sm-12' style="background-color:#f9f9f9;">
@@ -953,17 +953,17 @@ li.keywordSearch-email {
 
 		                    <div class='form-group col-sm-12' style="margin-top:20px;">
 		                      <label>Enter Your Event Venue / location Name</label>		                      
-		                      <input type='text' id="event_venue_name_1" name="event_venue_name[]" class="required form-control" onblur="update_vanue()" />
+		                      <input type='text' id="event_venue_name_1" name="event_venue_name[]" class="required form-control" onblur="update_vanue()" style="text-transform: capitalize;" />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>Address 1</label>
-		                      <input type='text' id="address1_1" name="address1[]" class="required form-control"  />
+		                      <input type='text' id="address1_1" name="address1[]" class="required form-control" style="text-transform: capitalize;" />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
 		                      <label>Address 2</label>
-		                      <input type='text' id="address2_1" name="address2[]" class="form-control" />
+		                      <input type='text' id="address2_1" name="address2[]" class="form-control" style="text-transform: capitalize;" />
 		                    </div>
 
 		                    <div class='form-group col-sm-12'>
@@ -1030,7 +1030,7 @@ li.keywordSearch-email {
 			                        <div class="row">
 			                         	<div class="form-group-1 col-md-12">
 				                          <p>What is Event Age Requirement?</p>
-				                          <input type='text'  name="quesans1"  class="form-control" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" maxlength="2"  />
+				                          <input type='text'  name="quesans1"  class="form-control"   />
 				                        </div>
 				                        <div class="form-group-1 col-md-12">
 				                          <p>This is a kids friendly event?</p>
@@ -1153,7 +1153,7 @@ li.keywordSearch-email {
                       <div class='form-group-1 col-sm-12'>
                         <div class="text-center" >
                         	<img src="../assets/images/wow-pink.png"> 
-                          <input type='text' name="event_title" class="noSpace form-control required" style="padding: 6px 30px;" placeholder="Enter Your !Wowtag Title Here      Example:  Craigsbirthday2017" onchange = "cleanspecial_char(this)" autocomplete="off" />
+                          <input type='text' name="event_title" class="noSpace form-control required" style="padding: 6px 30px; text-transform: capitalize;" placeholder="Enter Your !Wowtag Title Here      Example:  Craigsbirthday2017" onchange = "cleanspecial_char(this)" autocomplete="off" />
                         </div>
                       </div>
                     </div>

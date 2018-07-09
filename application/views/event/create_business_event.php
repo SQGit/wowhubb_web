@@ -34,7 +34,11 @@
 <link rel="shortcut icon" type="image/png" href="<?php echo base_url ('assets/images/fav.png') ?>"/>
 <style type="text/css">
 
-
+.landing-page .content-bg {
+    background-color: rgba(255, 94, 58, 0.95);
+    animation-name: none;
+}
+	
 	.form-wizard .btn.btn-previous, .form-wizard .btn.btn-previous:focus, .form-wizard .btn.btn-previous:active:focus, .form-wizard .btn.btn-previous.active:focus {
     background: #888888!important;
 }
@@ -1061,7 +1065,7 @@ img, #img_files4 {
                         </div>
                         <div class="col-md-12" style="margin-top:15px; margin-bottom:15px; line-height:20px; font-weight:bold;">
 							Select Your Audience Call To Action
-                      		<select name="audience_callto_action"  class="form-control" style="background-color:#eff0f1;">
+                      		<select name="audience_callto_action1"  class="form-control" style="background-color:#eff0f1;">
                       			<option >Select</option>
 				                <option value="Book_Now">Book Now</option>
 				                <option value="Grab_Your_Coupon">Grab Your Coupon</option>			                      
@@ -1155,7 +1159,7 @@ img, #img_files4 {
 		                                    </div>
 		                                <div class="col-md-12" style="margin-top:15px; margin-bottom:15px; font-weight:bold; line-height:20px;">
 												Select Your Audience Call To Action
-		                     				<select name="audience_callto_action" class="form-control" style="background-color:#eff0f1;">
+		                     				<select name="audience_callto_action2" class="form-control" style="background-color:#eff0f1;">
 			                     				  <option value="">Select</option>
 							                      <option value="Book Now">Book Now</option>
 							                      <option value="Grab Your Coupon">Grab Your Coupon</option>                     

@@ -107,7 +107,7 @@ public function nearby_event_service()
 	{
 			$this->rest->http_header('token',  $this->session->userdata('token'));
 
-	    	  	$event_location = array('location'        => $this->input->post('current_city'),
+	    	  	$event_location = array('location'        =>ucfirst($this->input->post('current_city')),
 	    							    'eventcategory'   => $this->input->post('event_category')
 	    								 							 
 	    								 );		
@@ -117,6 +117,7 @@ public function nearby_event_service()
 
 				$data['nearbyevent'] = $result->message;
 				$this->load->view('nearbyevent/nearby_events_landing',$data);
+				
 	}
 
 //using form submit near by events details

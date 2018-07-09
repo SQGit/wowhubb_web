@@ -4,6 +4,7 @@
   
   <link rel="stylesheet" href="http://demo.itsolutionstuff.com/plugin/bootstrap-3.min.css">
   <link rel="stylesheet" href="http://demo.itsolutionstuff.com/plugin/croppie.css">
+  <link rel="stylesheet" href="<?php echo base_url ('assets/css/jquery.datetimepicker.css')?>" />
 <style>
  
 </style>
@@ -14,9 +15,9 @@
 
 
 <div style="">
-	<a href="#" data-toggle="modal" data-target=".modal-video" >
- 		<img class="img-responsive img-thumbnail"  id="profileImage" src="<?php echo base_url('assets/images/album/avatar_male.png')?>">
-	</a>
+  <a href="#" data-toggle="modal" data-target=".modal-video" >
+    <img class="img-responsive img-thumbnail"  id="profileImage" src="<?php echo base_url('assets/images/album/avatar_male.png')?>">
+  </a>
 </div>
 
   <div class="modal fade modal-video" tabindex="-1" role="dialog" aria-hidden="true">
@@ -35,32 +36,25 @@
                                  <div class="row" style="padding:10px;">    
 
                                  
-								
-								  <div class="panel-heading">Image Upluad</div>
+                
+                  <div class="panel-heading">Image Upluad</div>
 
-								  	<div class="row">
-								  		<div class="col-md-4 text-center">
-											<div id="upload-demo" style="width:250px"></div>
-								  		</div>
-								  		<div class="col-md-4" style="padding-top:30px;">
-											<strong>Select Image:</strong>
-											<br/>
-											<input type="file" id="upload" name="profile_img">
-											<br/>
-											<button class="btn btn-success upload-result">Upload Image</button>
-								  		</div>
-								  		<div class="col-md-4" style="">
-											<div id="upload-demo-i" style="background:#e1e1e1;width:200px;padding:30px;height:200px;margin-top:30px"></div>
-								  		</div>
-								  	</div>								 
-								
-							                                                                         
-                            <div class="row">
-                              <div  style="width:100%;" class="text-center">
-                                <input type="submit" value="Save Changes" class="btn btn-primary" style="width:140px;">
-                              </div>
-                            </div>
-                          
+                    <div class="row">
+                      <div class="col-md-4 text-center">
+                      <div id="upload-demo" style="width:250px"></div>
+                      </div>
+                      <div class="col-md-4" style="padding-top:30px;">
+                      <strong>Select Image:</strong>
+                      <br/>
+                      <input type="file" id="upload" name="profile_img">
+                      <br/>
+                      <button class="btn btn-success upload-result">Upload Image</button>
+                      </div>
+                      <div class="col-md-4" style="">
+                      <div id="upload-demo-i" style="background:#e1e1e1;width:200px;padding:30px;height:200px;margin-top:30px"></div>
+                      </div>
+                    </div>           
+                                          
                                </div>
                                 </div>
                                   </div>                                
@@ -71,13 +65,14 @@
               </div>
                    <!-- end personal model popup -->
 
-
-
-
+                     
+                       
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="<?php echo base_url ('assets/js/jquery-3.1.1.min.js') ?>"></script>
 <script src="<?php echo base_url ('assets/js/bootstrap.min.js') ?>"></script>
 <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script> 
-  <script src="http://demo.itsolutionstuff.com/plugin/croppie.js"></script>
+<script src="http://demo.itsolutionstuff.com/plugin/croppie.js"></script>
 
 <script type="text/javascript">
 
@@ -96,14 +91,14 @@ $uploadCrop = $('#upload-demo').croppie({
 
 
 $('#upload').on('change', function () { 
-	var reader = new FileReader();
+  var reader = new FileReader();
     reader.onload = function (e) {
-    	$uploadCrop.croppie('bind', {
-    		url: e.target.result
-    	}).then(function(){
-    		console.log('jQuery bind complete');
-    	});
-    	
+      $uploadCrop.croppie('bind', {
+        url: e.target.result
+      }).then(function(){
+        console.log('jQuery bind complete');
+      });
+      
     }
     reader.readAsDataURL(this.files[0]);
 });
@@ -112,8 +107,6 @@ $('#upload').on('change', function () {
 var base_url = '<?php echo base_url() ?>'; 
 
 $('.upload-result').on('click', function (ev) {  
-    
-
   $uploadCrop.croppie('result', {
     type: 'canvas',
     size: 'viewport'
@@ -125,7 +118,7 @@ $('.upload-result').on('click', function (ev) {
 
     console.log(resp);
     $.ajax({
-      url: base_url+'Profile/profile_img_upload/',     
+      url: base_url+'Profile/profile_crop/',     
       method: 'POST',
       data: {"image":resp},
       // data: formdata,
@@ -139,6 +132,7 @@ $('.upload-result').on('click', function (ev) {
     });
   });
 });
+
 
 
 </script>

@@ -562,7 +562,7 @@ li.multipleInput-email {
           <!--news-feed links ends-->
           <ul class="nav-news-feed"  style="padding:0;">
             <h5 style="font-weight:bold; font-size:13px;  color:#616770; letter-spacing:-.5px; text-align:left;  padding-left:5px; margin-bottom:0;">Create</h5>
-             <li>
+            <li>
               <div style="margin-left:0; text-align:left; padding-left:5px;" >
               <a href="<?php echo base_url('Searchfriends/create_group_page'); ?>" style=" color:#da275a;">Create Group &middot;</a>            
               <a href="#" style=" color:#da275a;">Create Ad &middot;</a> 
@@ -570,8 +570,6 @@ li.multipleInput-email {
               <a href="<?php echo base_url('business/business_page_landing'); ?>" style=" color:#da275a;">Business Page</a></div>
             </li>
             
-          
-
           </ul>
           <!--news-feed links ends--> 
           
@@ -811,6 +809,8 @@ li.multipleInput-email {
                                 <li><a href="#"> <input type="submit" style="border: none; background: transparent;" value="Report Post"></a></li>                               
                                     <li>
                                         <form class="delete_thought" action="<?php echo base_url('event/thoughts_delete/'.$feeds->_id); ?>" method="POST">
+                                          <div id="success_msg">
+                                          </div>
                                           <a href="#" >                                        
                                             <input type="submit" style="border: none; background: transparent; margin-left: 20px; color: #000;" value="Delete Post">
                                           </a>
@@ -1006,15 +1006,16 @@ li.multipleInput-email {
                           </div>
 
                           <div class="pull-left" style="width:90%;">
-                            <div class="pull-left"> <span style="font-size:13px; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
-                              <?php                        
+                            <div class="pull-left"> 
+                              <span style="font-size:13px; font-weight:bold; margin-top:4px; margin-bottom:0; margin-right:10px;">
+                                <?php                        
                                    echo $com->userid->firstname." ".$com->userid->lastname;                  
                                 ?>
                               </span>
 
                               <?php if(isset($com->comment)) { echo $com->comment; }  ?>
-
                             </div>
+
                             <div class="pull-left" style="width:90%;"> Like. Reply. 
                               <span style="color:#B8B8B8;"> 
                               <?php 
@@ -1023,8 +1024,9 @@ li.multipleInput-email {
                                         $comment_date = date('Y-m-d H:i:s', $timestamp);
                                     }
                               ?>
-                                 <time class="timeago" datetime="<?php if(isset($comment_date)) {  echo $comment_date; } ?>"></time>
-                               </span>
+                                <time class="timeago" datetime="<?php if(isset($comment_date)) {  echo $comment_date; } ?>">
+                                </time>
+                              </span>
                             </div>
                  
                           </div>
@@ -1650,7 +1652,7 @@ li.multipleInput-email {
             
                     <div class="col-md-12" style="position: relative;">
 
-                      <?php if($this->session->userdata('wowtag') != ($feeds->userid->wowtagid) && ($feeds->registerrsvp == 'on') ){ ?>
+                      <?php if(isset($feeds->registerrsvp) && ($this->session->userdata('wowtag') != ($feeds->userid->wowtagid)) && ($feeds->registerrsvp == 'on') ){ ?>
 
                       <div class="timeline-nav-bar hidden-sm hidden-xs">
                         <div class="row">
@@ -3241,14 +3243,12 @@ li.multipleInput-email {
                                 
                                   <?php                                        
                                           
-                                      $coupon_from = $feeds->eventsalescouponfrom1;
-                                      $coupon_to = $feeds->eventsalescouponto1;
+                                      $coupon_from =  strtotime($feeds->eventsalescouponfrom1);
+                                      $coupon_to    = strtotime($feeds->eventsalescouponto1);
 
-                                       $from = strtotime($coupon_from); // or whenever the diwali is
-                                      $to=strtotime($coupon_to);
-                                      $diffference =($from-$to);
+                                      $diffference =($coupon_to-$coupon_from);
                                       $days=floor($diffference / (60*60*24));
-                                      echo $days." days left ";                              
+                                      echo $days." Days Left";                            
                                                                      
                                    ?>
                                 </p>
@@ -4385,9 +4385,10 @@ $(document).ready(function(){
                           {
                              if(response.status == 'success')
                              {
-                               $('#your-modal').modal('toggle');
-                               // $('#success_msg').show(); //success notification id
-                               // window.location.href = base_url + 'event/get_eventfeed';
+                               // $('#your-modal').modal('toggle');
+
+                               // $('#success_msg').load(base_url + 'event/get_eventfeed'); //success notification id
+                               window.location.href = base_url + 'event/get_eventfeed';
                                                                    
                               }else 
                                {                    
@@ -4562,6 +4563,7 @@ $("#url_link").click(function(){
 
 // url link  form submit
 var base_url = '<?php echo base_url() ?>'; //form submited
+
 $(document).ready(function(){
 
    $('.url_link').on('change', function(){

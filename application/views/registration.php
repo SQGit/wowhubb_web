@@ -303,7 +303,7 @@ label.error {
                   </div>
                 </div>
                  
-<!--
+
                 <div class="row">
                   <p class="birth"><label>Date of Birth</label></p>
                   <div class="form-group col-sm-3 col-xs-6">
@@ -493,7 +493,7 @@ label.error {
                     </p>                 
                 </div>
                <div id="gender_val"> </div>	
--->
+
               
                 <p > By clicking Join Now, you agree to our <a href="#" style="color:blue;font-weight: bold;">Terms, Data Policy</a>,  and <a href="#" style="color:blue;font-weight: bold;">Cookies  Policy, </a> You may receive SMS Notification from us  and can opt out any time.</p>
               

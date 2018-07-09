@@ -196,11 +196,11 @@ ul.nav-news-feed li div {
 
           </div>
 
-                                  <select name="online_state" id ="state" class="form-control" style="display: none;"></select>
-                                 <script language="javascript">print_country("country");</script> 
+                                <select name="online_state" id ="state" class="form-control" style="display: none;"></select>
+                                <script language="javascript">print_country("country");</script> 
 
           <div class="col-md-3">
-             <input type='text' name="city" class="form-control" placeholder="Enter your Event City"  />
+             <input type='text' name="city" class="form-control" placeholder="Enter your Event City" style="text-transform: capitalize;"  />
           </div>
           
 

@@ -452,7 +452,27 @@ function profile_img_upload() //working for image upload
 	    	  
 	    	$response = curl_exec($ch);  
 	    	echo curl_error($ch);
-	    	
+
+	} 
+
+function profile_crop() //working for image upload
+    {
+		   
+		    $token =  $this->session->userdata('token');
+		   	$header = array('token:'.$token);
+	       	$ch = curl_init();
+       	
+	    	$cfile = curl_file_create($_FILES['profile_img']['tmp_name'],$_FILES['profile_img']['type']);
+	    	 
+	    	$data = array('personalimage' => @$cfile);
+	    	// curl_setopt($ch, CURLOPT_URL,'http://104.197.80.225:3010/wow/user/personalimage');
+	    	 
+	    	curl_setopt($ch, CURLOPT_HTTPHEADER,$header);
+	    	curl_setopt($ch, CURLOPT_POST, true);
+	    	curl_setopt($ch, CURLOPT_POSTFIELDS, $data); 
+	    	  
+	    	$response = curl_exec($ch);  
+	    	echo curl_error($ch);
 
 	} 
 

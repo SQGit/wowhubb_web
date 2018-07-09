@@ -1536,10 +1536,10 @@ public function create_business_event()
 	   			{	   				
 	   				array_push($store_location, array
 	   								(
-	   									'storename'     =>  $_POST['store_name'][$i],
-	   			 						'storeaddress'  =>  $_POST['store_address'][$i],
-	   			 						'zipcode'    	=>  $_POST['store_zipcode'][$i],
-	   			 						'city'      	=>  $_POST['store_city'][$i]
+	   									'storename'     =>  $this->input->post('store_name')[$i],
+	   			 						'storeaddress'  =>  $this->input->post('store_address')[$i],
+	   			 						'zipcode'    	=>  $this->input->post('store_zipcode')[$i],
+	   			 						'city'      	=>  $this->input->post('store_city')[$i]
 	   			 						
 	   			 					));	   				 
 	   			}
@@ -1559,18 +1559,28 @@ public function create_business_event()
 
 				$token3  =  $this->session->userdata('token');
 
+				$from_date1 = $this->input->post('begining_fromdate1');
+			    $end_date1   = $this->input->post('begining_enddate1');	
+			    $from_date2 = $this->input->post('begining_fromdate2');
+			    $end_date2   = $this->input->post('begining_enddate2');		    
+			    $s_date1 = date('Y/m/d', strtotime($from_date1)); 
+			    $e_date1 = date('Y/m/d', strtotime($end_date1)); 
+			    $s_date2 = date('Y/m/d', strtotime($from_date2)); 
+			    $e_date2 = date('Y/m/d', strtotime($end_date2)); 
+
+
 		     	$header3 = array('token:'  .$token3,
 		     				'eventid:' 	   .$this->session->userdata('id'),		     				
 							'eventsalesservicename1:'  .$this->input->post('service_name1'), 
 							'eventsalesdiscount1:'     .$this->input->post('discount_value1'),
-							'eventsalescouponfrom1:'   .$this->input->post('begining_fromdate1')." ".$this->input->post('begining_fromtime1'),
-							'eventsalescouponto1:'     .$this->input->post('begining_enddate1')." ".$this->input->post('begining_endtime1'),
-							'eventsalesaction1:'       .$this->input->post('audience_callto_action'),
+							'eventsalescouponfrom1:'   .$s_date1,
+							'eventsalescouponto1:'     .$e_date1,
+							'eventsalesaction1:'       .$this->input->post('audience_callto_action1'),
 							'eventsalesterms1:'        .$this->input->post('sales_terams1'),
 							'eventsalesservicename2:'  .$this->input->post('service_name2'),
 							'eventsalesdiscount2:'     .$this->input->post('discount_value2'),
-							'eventsalescouponfrom2:'   .$this->input->post('begining_fromdate2')." ".$this->input->post('begining_fromtime2'),
-							'eventsalescouponto2:'     .$this->input->post('begining_enddate2')." ".$this->input->post('begining_endtime2'),
+							'eventsalescouponfrom2:'   .$s_date2,
+							'eventsalescouponto2:'     .$e_date2,
 							'eventsalesaction2:'       .$this->input->post('audience_callto_actio2'),
 							'eventsalesterms2:'        .$this->input->post('sales_terams2')
 										

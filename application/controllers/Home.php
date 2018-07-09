@@ -429,8 +429,8 @@ public function otp_validation()
 	 	$this->load->view('forgot_pass_otp');
 	 }
 
-	public function forgot_validate()   //check email or phone valid and send otp
-	 {
+public function forgot_validate()   //check email or phone valid and send otp
+	{
 	 		$response = array();
 
 	 		$email_phone = $this->input->post('email_phone');
@@ -441,7 +441,7 @@ public function otp_validation()
 			 	$pass_verify = array('phone' => $this->input->post('email_phone'));
 
 			 	$json_data = json_encode($pass_verify);
-			 	// print_r($json_data);
+			 	
 			 	$result = $this->rest->post('http://104.197.80.225:3010/wow/forgetpassword',
 		 		$json_data ,'json');
 
@@ -466,8 +466,7 @@ public function otp_validation()
 			 	
 			 	$json_data = json_encode($pass_verify);			 	
 			 	$result = $this->rest->post('http://104.197.80.225:3010/wow/forgetpassword',
-		 		$json_data ,'json');
-		 		// print_r($result);
+		 		$json_data ,'json');		 		
 			 	
 			 	if($result->success == true )
 			 	{
@@ -481,12 +480,69 @@ public function otp_validation()
 			 	}
 			}
 
-			echo json_encode($response);
+		echo json_encode($response);
 	 	
-	 }
+	}
 
-	 public function forget_new_pass() //change new password 
-	 {
+// resend otp
+public function resend_otp($email)   //check email or phone valid and send otp
+	{
+	 		$response = array();
+
+	 		$email_phone = $email;
+	 	
+	 		if(is_numeric($email_phone))
+	 		{
+
+			 	$pass_verify = array('phone' => $email_phone);
+
+			 	$json_data = json_encode($pass_verify);
+			 	
+			 	$result = $this->rest->post('http://104.197.80.225:3010/wow/forgetpassword',
+		 		$json_data ,'json');
+
+			 	if($result->success == true )
+			 	{
+			 		 $response['status'] = 'success'; 
+			 		 $this->session->set_userdata('email_phone' ,$email_phone);
+			 	}
+			 	else
+			 	{
+			 		$response['status'] = 'failed';
+			 		$response['message'] = $result->message;
+			 	}
+		 		
+			 
+	 		}
+
+	 		else
+	 		{	
+
+			 	$pass_verify = array('email' => $email_phone);					
+			 	
+			 	$json_data = json_encode($pass_verify);			 	
+			 	$result = $this->rest->post('http://104.197.80.225:3010/wow/forgetpassword',
+		 		$json_data ,'json');		 		
+			 	
+			 	if($result->success == true )
+			 	{
+			 		 $response['status'] = 'success'; 
+			 		$this->session->set_userdata('email_phone' ,$email_phone);
+			 	}
+			 	else
+			 	{
+			 		$response['status'] = 'failed';
+			 		$response['message'] = $result->message;
+			 	}
+			}
+
+		echo json_encode($response);
+	 	
+	}
+
+
+public function forget_new_pass() //change new password 
+	{
 	 	$response = array();
 
 	 	$email_phone = $this->input->post('email_phone');
@@ -494,13 +550,13 @@ public function otp_validation()
 	 		if(is_numeric($this->input->post('email_phone')))
 	 		{
 
-			 	$newpass_verify = array('phone' => $this->input->post('email_phone'),
-			 						 'otp' => $this->input->post('otp'),
-			 						 'newpassword' => $this->input->post('new_pass')
+			 	$newpass_verify = array('phone' 	  => $this->input->post('email_phone'),
+			 						 	'otp' 		  => $this->input->post('otp'),
+			 						 	'newpassword' => $this->input->post('new_pass')
 			 						);
 
 			 	$json_data = json_encode($newpass_verify);
-			 	// print_r($json_data);
+			 	
 			 	$result = $this->rest->post('http://104.197.80.225:3010/wow/changepassword',
 		 		$json_data ,'json');
 
@@ -520,16 +576,16 @@ public function otp_validation()
 	 		else
 	 		{	
 
-			 	$newpass_verify = array('email' => $this->input->post('email_phone'),
-			 						 'otp' => $this->input->post('otp'),
-			 						 'newpassword' => $this->input->post('new_pass')
+			 	$newpass_verify = array('email' 	  => $this->input->post('email_phone'),
+			 						 	'otp' 		  => $this->input->post('otp'),
+			 						 	'newpassword' => $this->input->post('new_pass')
 			 						);
 
 			 	$json_data = json_encode($newpass_verify);
 			 	
 			 	$result = $this->rest->post('http://104.197.80.225:3010/wow/changepassword',
 		 		$json_data ,'json');
-		 		// print_r($json_data);
+		 		
 		 		if($result->success == true )
 			 	{
 			 		 $response['status'] = 'success'; 
@@ -541,77 +597,64 @@ public function otp_validation()
 			 		$response['message'] = $result->message;
 			 	}
 
-		 		// $this->load->view('login');
+		 		
 			}
 			echo json_encode($response);
-	 }
+	}
 
-	 //load interest page here
-	 public function interest_page()
-	 {		 	
-	 	// if(is_null($this->session->userdata('email')))
-	 	// { 	
-	 	// $this->load->view('login');
-	 	// }
-	 	// else
-	 	// {
-	 		$this->load->view('interests');
-	 	// }
-	 }
+//load interest page here
+public function interest_page()
+   {		 	
+	 	$this->load->view('interests');
+	}
 
 	 //interest store in database
 
-	public function interest_load()
-	 {
+public function interest_load()
+	{
 	 	
 		$this->rest->http_header('token', $this->session->userdata('token'));
 	 	$response = array();
 
 	 	$inter = array('interests' => $this->input->post('img1'));
 		
-	 	$json_data = json_encode($inter);
-
-	 	// print_r($json_data);
+	 	$json_data = json_encode($inter);	 	
 
 	 	$result = $this->rest->post('http://104.197.80.225:3010/wow/event/updateinterests', $json_data , 'json');
-	 	// $res = $this->rest->debug();   
-	 	//  print_r($res);
-	 	if($result->success == true)
-	 	{
-	 		$response['status'] = "success";
-			// $response['message'] = $result->message;
-	 	}
-	 	else
-	 	{
-	 		$response['status'] = "failed";
-			// $response['message'] = $result->message;
-	 	}
+	 	
+		 	if($result->success == true)
+		 	{
+		 		$response['status'] = "success";			
+		 	}
+		 	else
+		 	{
+		 		$response['status'] = "failed";			
+		 	}
 	 	echo json_encode($response);
-	 }
+	}
 
-	public function firsttime_interest()
+public function firsttime_interest()
 	{
 			$this->rest->http_header('token', $this->session->userdata('token'));		
 			$json_data = array(); 
 			$result = $this->rest->post('http://104.197.80.225:3010/wow/event/getinterests',$json_data,'json');
-		 // redirect('home/interest_load');
-		// $res = $this->rest->debug();  		
+		  		
 	 	 	$this->load->view('interests');
 	}
 
-	public function interest_get()
-		{
+public function interest_get()
+	{
 		
 			$this->rest->http_header('token', $this->session->userdata('token'));		
 			$json_data = array(); 
 			$result = $this->rest->post('http://104.197.80.225:3010/wow/event/getinterests',$json_data,'json');
-			// $res = $this->rest->debug();  
+			
 		 	$data= $result->message->interests;
 		 	$data['interest'] = implode(",", $data); //here array to string convertion
 	 	 	$this->load->view('profile/profile_interest', $data);
-	 	}
+	}
 	
-	 public function interest_update()
+public function interest_update()
 	{
 		$response = array();
 		$this->rest->http_header('token', $this->session->userdata('token'));
@@ -619,23 +662,22 @@ public function otp_validation()
 
 		$json_data = json_encode($inter);
 		$result = $this->rest->post('http://104.197.80.225:3010/wow/event/updateinterests', $json_data , 'json');
-		// print_r($result);
-		// $res = $this->rest->debug(); 
-		if($result->success == true)
-	 	{
-	 		$response['status'] = "success";
-			
-	 	}
-	 	else
-	 	{
-	 		$response['status'] = "failed";
-			
-	 	}
+	
+			if($result->success == true)
+		 	{
+		 		$response['status'] = "success";
+				
+		 	}
+		 	else
+		 	{
+		 		$response['status'] = "failed";
+				
+		 	}
 	 	echo json_encode($response);
 
 	}
 
-	public function logout()
+public function logout()
 	{
 		 $this->session->sess_destroy();
        	 redirect('home/login');

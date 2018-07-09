@@ -455,7 +455,7 @@ public function serviceprovider_search_key()
 {
 	
 		$this->rest->http_header('token', $this->session->userdata('token'));
-		$data = array('city' 		=> $this->input->post('city'),
+		$data = array('city' 		=> ucfirst($this->input->post('city')),
 					  'servicetype' => $this->input->post('service_type')
 					 );
 		$json_data = json_encode($data); 
@@ -499,7 +499,7 @@ public function eventvenue_search_key()
 	
 		$this->rest->http_header('token', $this->session->userdata('token'));
 		$data = array('country' 	=> $this->input->post('country'),
-					  'city' 		=> $this->input->post('city'),
+					  'city' 		=> ucfirst($this->input->post('city')),
 					  'venuetype' 	=> $this->input->post('venue_type')
 					 );
 		$json_data = json_encode($data); 

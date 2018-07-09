@@ -206,7 +206,7 @@ table, td, tr {
           <form class="near_by_event" action="<?php echo base_url('Nearbyevents/nearby_event_service'); ?>" method="POST">
 
               <div class="col-md-3">
-                    <input type='text' name="current_city" class="form-control" style="text-transform: capitalize;" placeholder="Enter your Event City" required />
+                    <input type='text' name="current_city" class="form-control" style="text-transform: capitalize;"  placeholder="Enter your Event City" />
               </div>
              <!-- <textarea id="city"  name="current_location" style="display: none;"> </textarea> -->
 
@@ -243,7 +243,7 @@ table, td, tr {
                   <option value="Telecommunication">Tele communication </option>
                   <option value="Business Consulting">Business Consulting</option>
                   <option value="Finance Tax">Finance and Tax</option>
-                  <option value="Holiday Party ">Holiday Party </option>
+                  <option value="Holiday Party">Holiday Party </option>
                   <option value="Music Concert">Music Concert</option>
                   <option value="Kids Concert">Kids Concert</option> 
                   <option value="Adult Concert">Adult Concert</option>   

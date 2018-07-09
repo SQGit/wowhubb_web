@@ -260,7 +260,7 @@ input[type=radio] {
                                 <label>Concerts  Parties Events</label>                                  
                                   <select name="social" id="event_category_3" class="form-control"> 
                                         <option value="">Select </option>    
-                                        <option value="Holiday Party ">Holiday Party </option>
+                                        <option value="Holiday Party">Holiday Party </option>
                                         <option value="Music Concert">Music Concert</option>
                                         <option value="Kids Concert">Kids Concert</option> 
                                         <option value="Adult Concert">Adult Concert</option>   
